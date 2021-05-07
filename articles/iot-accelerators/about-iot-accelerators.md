@@ -16,7 +16,7 @@ manager: timlt
 
 A cloud-based IoT solution typically uses custom code and cloud services to manage device connectivity, data processing and analytics, and presentation.
 
-The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include connected factory and device simulation. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
+The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
 
 The solution accelerators are starting points for your own IoT solutions. The source code for all the solution accelerators is open source and is available in GitHub. You're encouraged to download and customize the solution accelerators to meet your requirements.
 
@@ -29,7 +29,7 @@ The application code in each solution accelerator includes a web app that lets y
 
 ## Supported IoT scenarios
 
-Currently, there are two solution accelerators available for you to deploy:
+Currently, there is one solution accelerator available for you to deploy:
 
 ### Connected Factory
 
@@ -38,14 +38,6 @@ Use the [Connected Factory solution accelerator](iot-accelerators-connected-fact
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 
 :::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Screenshot that shows the Connected factory solution dashboard." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
-
-### Device Simulation
-
-Use the [Device Simulation solution accelerator](iot-accelerators-device-simulation-overview.md) to run simulated devices that generate realistic telemetry. You can use this solution accelerator to test the behavior of the other solution accelerators or to test your own custom IoT solutions.
-
-You can use the device simulation web app to configure and run simulations:
-
-:::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="Screenshot that shows the device simulation solution dashboard." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
 
 ## Design principles
 
@@ -64,7 +56,6 @@ The original solution accelerators were written using .NET using a model-view-co
 | Solution accelerator   | Architecture  | Languages     |
 | ---------------------- | ------------- | ------------- |
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| Device Simulation      | Microservices | [.NET](https://github.com/Azure/azure-iot-pcs-device-simulation)          |
 
 To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](/azure/architecture/reference-architectures/iot/).
 

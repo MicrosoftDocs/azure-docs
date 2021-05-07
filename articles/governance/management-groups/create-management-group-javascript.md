@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a management group with JavaScript'
 description: In this quickstart, you use JavaScript to create a management group to organize your resources into a resource hierarchy.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
   - devx-track-js

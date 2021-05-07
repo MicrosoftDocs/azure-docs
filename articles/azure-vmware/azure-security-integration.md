@@ -239,4 +239,4 @@ Now that you've covered how to protect your Azure VMware Solution VMs, you may w
 
 - Using the [Azure Defender dashboard](../security-center/azure-defender-dashboard.md)
 - [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)

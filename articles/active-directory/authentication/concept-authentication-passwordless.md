@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/07/2021
 
 ms.author: justinha
 author: justinha
@@ -153,12 +153,20 @@ To get started with FIDO2 security keys, complete the following how-to:
 
 The following considerations apply:
 
-- Administrators can enable passwordless authentication methods for their tenant
-- Administrators can target all users or select users/groups within their tenant for each method
-- End users can register and manage these passwordless authentication methods in their account portal
-- End users can sign in with these passwordless authentication methods:
+- Administrators can enable passwordless authentication methods for their tenant.
+
+- Administrators can target all users or select users/groups within their tenant for each method.
+
+- Users can register and manage these passwordless authentication methods in their account portal.
+
+- Users can sign in with these passwordless authentication methods:
    - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
-   - Security keys: Work in Windows 10 setup in OOBE with or without Windows Autopilot, on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+   - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+
+- Users can use passwordless credentials to access resources in tenants where they are a guest, but they may still be required to perform MFA in that resource tenant. For more information, see [Possible double multi-factor authentication](https://docs.microsoft.com/azure/active-directory/external-identities/current-limitations#possible-double-multi-factor-authentication).  
+
+- Users may not register passwordless credentials within a tenant where they are a guest, the same way that they do not have a password managed in that tenant.  
+
 
 ## Choose a passwordless method
 
