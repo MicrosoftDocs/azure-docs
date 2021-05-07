@@ -40,6 +40,7 @@ In this quickstart, you will:
 1. Deploy the required edge modules.
 1. Create and deploy the live pipeline.
 1. Interpret the results.
+1. Understand line calculation.
 1. Clean up resources.
 
 ## Set up your development environment
@@ -68,6 +69,14 @@ In this quickstart, you will:
 
 
 ## Create and deploy the live pipeline
+
+### Review sample video
+
+When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
 ### Examine and edit the sample files
 
@@ -238,6 +247,29 @@ In this message, notice these details:
 * The `total` number of line crossings in any direction.
 * The number of `clockwiseTotal` crossings.
 * The number of `counterclockwiseTotal` crossings.
+
+## Customize for your own environment
+
+This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the lineCoordinate parameter contains the following value:
+`[[0.5,0.1], [0.5,0.9]]`
+
+What does this value mean? When you want to draw a line on a 2D image you need two points, A and B, and between those points you will have an imaginary line. Each point will have its own x and y coordinates to tertermine where it is with respect to the full image resolution. In this case point A is `[0.5,0.1]` and point B is `[0.5,0.9]`. A visual representation of the that line looks like this:
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-visual-example.png" alt-text="Line crossing visual example":::
+
+In this image you see the line between point A and point B. Any object that moves across the line will create an event with its properties like direction. Also notice the X and Y axis in the bottom left corner. This is just for illustration to explain how we normalize the coordinates to the values we expect for the line crossing node. Here is an example calculation:
+Lets say that the video resolution is 1920 x 1080. 1920 being the X and 1080 being the Y axis respectively.
+Create a frame image from a video you plan to use. 
+Now open that image in an image editor program (i.e. MSPaint). Move you cursor to the location where you want to specify point A. In the bottom left corner you will see the x and y coordinates for that curson position.
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-mspaint-coordinates.png" alt-text="Line crossing MSPaint visual example":::
+
+Note down these values and repeat the same for point B and note down the same values. By now you should have a x and y value for point A and a x and y value for point B.
+For example:
+point A: x=1024, y=96
+Point B: x=1024, y=960
+These values do not look like values that would go into the line crossing node since we need numbers between 0 and 1. To calculate this you apply the following formula:
+`x coordinate / x image resolution` in our example that is `1024/1920 = 0.53`. Now do the same for y `96/1080=0.9`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 as shown earlier in this tutorial.
 
 ## Clean up resources
 
