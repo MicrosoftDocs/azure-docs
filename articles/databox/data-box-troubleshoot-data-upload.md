@@ -22,7 +22,7 @@ This article describes review and follow-up for non-retryable errors that preven
 
 When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
-You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-nonretryable-upload-errors).
+You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-non-retryable-upload-errors).
 
 ![Notification of errors during upload](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
 
