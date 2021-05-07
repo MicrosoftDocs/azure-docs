@@ -136,7 +136,7 @@ The above response is expected, as no pipeline topologies have been created.
 Using the same steps as those outlined for invoking `pipelineTopologyList`, you can invoke `pipelineTopologySet` to set a pipeline topology using the following JSON as the payload. You will be creating a pipeline topology named "EVRtoVideoSinkOnMotionDetection".
 
 > [!NOTE]
-    > In the payload below, the `videoName` property is set to "sample-motion-video-camera001", which will be the name of the video resource that is created in your Video Analyzer account. This resource name must be unique for each live video source you record. You should edit the `videoName` property below as needed to ensure uniqueness.
+> In the payload below, the `videoName` property is set to "sample-motion-video-camera001", which will be the name of the video resource that is created in your Video Analyzer account. This resource name must be unique for each live video source you record. You should edit the `videoName` property below as needed to ensure uniqueness.
 
 ```
 {
