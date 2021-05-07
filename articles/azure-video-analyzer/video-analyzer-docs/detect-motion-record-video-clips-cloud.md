@@ -29,10 +29,6 @@ The deployment process will take about **20 minutes**. Upon completion, you will
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
-In addition to the resources mentioned above, following item is created in the 'deployment-output' file share in your storage account:
-
-* ***appsettings.json*** - This file contains the **IoThubConnectionString** property needed to run this quickstart in Visual Studio Code.
-
 <!-- TODO: provide a link to the readme.md in github.com/azure-video-analyzer/setup/readme.md where we can list out all resources like virtual network etc. -->
 
 ## Review the sample video
