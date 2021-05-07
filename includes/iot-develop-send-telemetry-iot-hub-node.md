@@ -94,7 +94,7 @@ event:
   component: thermostat1
   interface: dtmi:com:example:TemperatureController;2
   module: ''
-  origin: nodeDevice
+  origin: myDevice
   payload:
     temperature: 70.5897683228018
 
@@ -102,7 +102,7 @@ event:
   component: thermostat2
   interface: dtmi:com:example:TemperatureController;2
   module: ''
-  origin: nodeDevice
+  origin: myDevice
   payload:
     temperature: 52.87582619316418
 ```

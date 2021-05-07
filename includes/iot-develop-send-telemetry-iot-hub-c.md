@@ -115,25 +115,18 @@ In this section, you use the C SDK to send messages from your simulated device t
     After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console: 
     
     ```output
-    Info: Initiating DPS client to retrieve IoT Hub connection information
-    -> 17:03:08 CONNECT | VER: 4 | KEEPALIVE: 0 | FLAGS: 194 | USERNAME: xxxxxxxxxxxxxxx/registrations/my-sdk-device/api-version=2019-03-31&ClientVersion=1.6.0 | PWD: XXXX | CLEAN: 1
-    <- 17:03:09 CONNACK | SESSION_PRESENT: false | RETURN_CODE: 0x0
-    -> 17:03:10 SUBSCRIBE | PACKET_ID: 1 | TOPIC_NAME: $dps/registrations/res/# | QOS: 1
-    <- 17:03:11 SUBACK | PACKET_ID: 1 | RETURN_CODE: 1
-    Info: Provisioning callback indicates success.  iothubUri=iotc-xxxxxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net, deviceId=my-sdk-device
-    -> 17:03:27 DISCONNECT
-    Info: DPS successfully registered.  Continuing on to creation of IoTHub device client handle.
-    Info: Successfully created device client.  Hit Control-C to exit program
+    Starting event monitor, use ctrl-c to stop...
+    event:
+      component: ''
+      interface: dtmi:com:example:TemperatureController;1
+      module: ''
+      origin: myDevice
+      payload: '{"workingSet":1251}'
     
-    Info: Sending serialNumber property to IoTHub
-    Info: Sending device information property to IoTHub.  propertyName=swVersion, propertyValue="1.0.0.0"
-    Info: Sending device information property to IoTHub.  propertyName=manufacturer, propertyValue="Sample-Manufacturer"
-    Info: Sending device information property to IoTHub.  propertyName=model, propertyValue="sample-Model-123"
-    Info: Sending device information property to IoTHub.  propertyName=osName, propertyValue="sample-OperatingSystem-name"
-    Info: Sending device information property to IoTHub.  propertyName=processorArchitecture, propertyValue="Contoso-Arch-64bit"
-    Info: Sending device information property to IoTHub.  propertyName=processorManufacturer, propertyValue="Processor Manufacturer(TM)"
-    Info: Sending device information property to IoTHub.  propertyName=totalStorage, propertyValue=10000
-    Info: Sending device information property to IoTHub.  propertyName=totalMemory, propertyValue=200
-    Info: Sending maximumTemperatureSinceLastReboot property to IoTHub for component=thermostat1
-    Info: Sending maximumTemperatureSinceLastReboot property to IoTHub for component=thermostat2
+    event:
+      component: thermostat1
+      interface: dtmi:com:example:TemperatureController;1
+      module: ''
+      origin: myDevice
+      payload: '{"temperature":22.00}'
     ```

@@ -37,33 +37,31 @@ To run the sample application in Visual Studio:
 
 1. Save the updated **TemperatureController** project file.
 
-1. Press CTRL + F5 to run the sample.
+1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
+
+    ```azurecli-interactive
+    az iot hub monitor-events --output table --hub-name {YourIoTHubName}
+    ```
+
+1. In Visual Studio, press CTRL + F5 to run the sample.
 
     After your simulated device connects to your IoT Central application, it begins to send telemetry. The connection details and telemetry output appear in the console: 
     
     ```output
-        [05/04/2021 11:53:50]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Press Control+C to quit the sample.
-        [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set up the device client.
-        [05/04/2021 11:53:50]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Initializing via DPS
-        [05/04/2021 11:53:56]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler for 'reboot' command.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Connection status change registered - status=Connected, reason=Connection_Ok.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler for "getMaxMinReport" command.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Set handler to receive 'targetTemperature' updates.
-        [05/04/2021 11:53:57]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - component = 'deviceInformation', properties update is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - { "serialNumber": "SR-123456" } is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Telemetry: Sent - component="thermostat1", { "temperature": 44.9 } in °C.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Property: Update - component="thermostat1", { "maxTempSinceLastReboot": 44.9 } in °C is complete.
-        [05/04/2021 11:53:58]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
-              Telemetry: Sent - component="thermostat2", { "temperature": 40.8 } in °C.
+    Starting event monitor, use ctrl-c to stop...
+    event:
+      component: thermostat1
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 39.8
+    
+    event:
+      component: thermostat2
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 36.7
     ```
