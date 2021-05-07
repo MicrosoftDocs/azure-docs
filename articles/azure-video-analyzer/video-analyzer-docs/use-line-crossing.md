@@ -280,4 +280,4 @@ These values do not look like values that would go into the line crossing node s
 
 ## Next steps
 
-* Try running different pipeline topologies using gRPC protocol.
+* Try running different pipeline topologies like object tracker.
