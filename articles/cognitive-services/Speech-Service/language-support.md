@@ -174,8 +174,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Czech (Czech) | `cs-CZ` | Male | `cs-CZ-AntoninNeural` | General |
 | Danish (Denmark) | `da-DK` | Female | `da-DK-ChristelNeural` | General |
 | Danish (Denmark) | `da-DK` | Male | `da-DK-JeppeNeural` | General |
-| Dutch (Belgium) | `nl-BE` | Female | `nl-BE-DenaNeural` <sup>New</sup> | General | 
-| Dutch (Belgium) | `nl-BE` | Male | `nl-BE-ArnaudNeural` <sup>New</sup> | General | 
+| Dutch (Belgium) | `nl-BE` | Female | `nl-BE-DenaNeural` | General | 
+| Dutch (Belgium) | `nl-BE` | Male | `nl-BE-ArnaudNeural` | General | 
 | Dutch (Netherlands) | `nl-NL` | Female | `nl-NL-ColetteNeural` | General |
 | Dutch (Netherlands) | `nl-NL` | Female | `nl-NL-FennaNeural` | General |
 | Dutch (Netherlands) | `nl-NL` | Male | `nl-NL-MaartenNeural` | General |
@@ -183,25 +183,44 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (Australia) | `en-AU` | Male | `en-AU-WilliamNeural` | General |
 | English (Canada) | `en-CA` | Female | `en-CA-ClaraNeural` | General |
 | English (Canada) | `en-CA` | Male | `en-CA-LiamNeural` | General |
+| English (Hongkong) | `en-HK` | Female | `en-HK-YanNeural` <sup>New</sup> | General |
+| English (Hongkong) | `en-HK` | Male | `en-HK-SamNeural` <sup>New</sup> | General |
 | English (India) | `en-IN` | Female | `en-IN-NeerjaNeural` | General |
 | English (India) | `en-IN` | Male | `en-IN-PrabhatNeural` | General |
 | English (Ireland) | `en-IE` | Female | `en-IE-EmilyNeural` | General |
 | English (Ireland) | `en-IE` | Male | `en-IE-ConnorNeural` | General |
-| English (Philippines) | `en-PH` | Female | `en-PH-RosaNeural` <sup>New</sup> | General | 
-| English (Philippines) | `en-PH` | Male | `en-PH-JamesNeural` <sup>New</sup> | General | 
+| English (New Zealand) | `en-NZ` | Female | `en-NZ-MollyNeural` <sup>New</sup> | General |
+| English (New Zealand) | `en-NZ` | Male | `en-NZ-MitchellNeural` <sup>New</sup> | General |
+| English (Philippines) | `en-PH` | Female | `en-PH-RosaNeural` | General | 
+| English (Philippines) | `en-PH` | Male | `en-PH-JamesNeural` | General | 
+| English (Singapore) | `en-SG` | Female | `en-SG-LunaNeural` <sup>New</sup> | General |
+| English (Singapore) | `en-SG` | Male | `en-SG-WayneNeural` <sup>New</sup> | General |
+| English (South Africa) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>New</sup> | General |
+| English (South Africa) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-RyanNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-AmberNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-AriaNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General |
+| English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-BrandonNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-MichaelNeural` <sup>New</sup> | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-SelmaNeural` | General |
 | Finnish (Finland) | `fi-FI` | Male | `fi-FI-HarriNeural` | General |
-| French (Belgium) | `fr-BE` | Female | `fr-BE-CharlineNeural` <sup>New</sup> | General | 
-| French (Belgium) | `fr-BE` | Male | `fr-BE-GerardNeural` <sup>New</sup> | General | 
+| French (Belgium) | `fr-BE` | Female | `fr-BE-CharlineNeural` | General | 
+| French (Belgium) | `fr-BE` | Male | `fr-BE-GerardNeural` | General | 
 | French (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-AntoineNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` | General |
@@ -217,6 +236,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | German (Switzerland) | `de-CH` | Male | `de-CH-JanNeural` | General |
 | Greek (Greece) | `el-GR` | Female | `el-GR-AthinaNeural` | General |
 | Greek (Greece) | `el-GR` | Male | `el-GR-NestorasNeural` | General |
+| Gujarati (India) | `gu-IN` | Female | `gu-IN-DhwaniNeural` <sup>New</sup> | General |
+| Gujarati (India) | `gu-IN` | Male | `gu-IN-NiranjanNeural` <sup>New</sup> | General |
 | Hebrew (Israel) | `he-IL` | Female | `he-IL-HilaNeural` | General |
 | Hebrew (Israel) | `he-IL` | Male | `he-IL-AvriNeural` | General |
 | Hindi (India) | `hi-IN` | Female | `hi-IN-SwaraNeural` | General |
@@ -242,6 +263,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Malay (Malaysia) | `ms-MY` | Male | `ms-MY-OsmanNeural` | General |
 | Maltese (Malta) | `mt-MT` | Female | `mt-MT-GraceNeural` | General |
 | Maltese (Malta) | `mt-MT` | Male | `mt-MT-JosephNeural` | General |
+| Marathi (India) | `mr-IN` | Female | `mr-IN-AarohiNeural` <sup>New</sup> | General |
+| Marathi (India) | `mr-IN` | Male | `mr-IN-ManoharNeural` <sup>New</sup> | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-IselinNeural` | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Female | `nb-NO-PernilleNeural` | General |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Male | `nb-NO-FinnNeural` | General |
@@ -262,10 +285,18 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Slovak (Slovakia) | `sk-SK` | Male | `sk-SK-LukasNeural` | General |
 | Slovenian (Slovenia) | `sl-SI` | Female | `sl-SI-PetraNeural` | General |
 | Slovenian (Slovenia) | `sl-SI` | Male | `sl-SI-RokNeural` | General |
+| Spanish (Argentina) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>New</sup> | General |
+| Spanish (Argentina) | `es-AR` | Male | `es-AR-TomasNeural` <sup>New</sup> | General |
+| Spanish (Columbia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
+| Spanish (Columbia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
 | Spanish (Mexico) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
 | Spanish (Mexico) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
 | Spanish (Spain) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
 | Spanish (Spain) | `es-ES` | Male | `es-ES-AlvaroNeural` | General |
+| Spanish (US) | `es-US` | Female | `es-US-PalomaNeural` <sup>New</sup> | General |
+| Spanish (US) | `es-US` | Male | `es-US-AlonsoNeural` <sup>New</sup> | General |
+| Swahili (Kenya) | `sw-KE` | Female | `sw-KE-ZuriNeural` <sup>New</sup> | General |
+| Swahili (Kenya) | `sw-KE` | Male | `sw-KE-RafikiNeural` <sup>New</sup> | General |
 | Swedish (Sweden) | `sv-SE` | Female | `sv-SE-HilleviNeural` | General |
 | Swedish (Sweden) | `sv-SE` | Female | `sv-SE-SofieNeural` | General |
 | Swedish (Sweden) | `sv-SE` | Male | `sv-SE-MattiasNeural` | General |
@@ -278,14 +309,14 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Thai (Thailand) | `th-TH` | Male | `th-TH-NiwatNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Female | `tr-TR-EmelNeural` | General |
 | Turkish (Turkey) | `tr-TR` | Male | `tr-TR-AhmetNeural` | General |
-| Ukrainian (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` <sup>New</sup> | General | 
-| Ukrainian (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` <sup>New</sup> | General | 
-| Urdu (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>New</sup>  | General | 
-| Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>New</sup> | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` | General | 
+| Ukrainian (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` | General | 
+| Urdu (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | General | 
+| Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
-| Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>New</sup> | General | 
-| Welsh (UK) | `cy-GB` | Male | `cy-GB-AledNeural` <sup>New</sup> | General | 
+| Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
+| Welsh (UK) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
 #### Neural voices in preview
 
