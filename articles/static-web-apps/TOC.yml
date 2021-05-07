@@ -39,10 +39,6 @@
       href: custom-domain.md
     - name: Build and workflow configuration
       href: github-actions-workflow.md
-    - name: Enterprise features
-      items:
-        - name: Managed identity
-          href: managed-identity.md
 - name: How-to guides
   items:
     - name: Setup local development
