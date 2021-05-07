@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/07/2021
 
-ms.author: markvi
-author: MarkusVi
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 
