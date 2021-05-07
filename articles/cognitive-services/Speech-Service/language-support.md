@@ -213,7 +213,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | English (United States) | `en-US` | Male | `en-US-ChristopherNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Male | `en-US-GuyNeural` | General |
 | English (United States) | `en-US` | Male | `en-US-JacobNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-MichaelNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Male | `en-US-EricNeural` <sup>New</sup> | General |
 | Estonian (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonian (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finnish (Finland) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
