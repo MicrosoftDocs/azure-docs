@@ -66,6 +66,7 @@ To enable Azure AD login using SSH certificate-based authentication for your Lin
 VM network configuration must permit outbound access to the following endpoints over TCP port 443:
 
 For Azure Global
+
 - https://packages.microsoft.com – For package installation and upgrades.
 - http://169.254.169.254 – Azure Instance Metadata Service endpoint.
 - https://login.microsoftonline.com – For PAM (pluggable authentication modules) based authentication flows.
@@ -131,7 +132,7 @@ Azure Cloud Shell is a free, interactive shell that you can use to run the steps
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see the article Install Azure CLI.
 
 1. Create a resource group with [az group create](/cli/azure/group#az_group_create).
-1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create) using a supported distribution in a supported region.
+1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create&preserve-view=true) using a supported distribution in a supported region.
 1. Install the Azure AD login VM extension with [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_set).
 
 The following example deploys a VM named *myVM*, using *Ubuntu 18.04 LTS*, into a resource group named *AzureADLinuxVMPreview*, in the *southcentralus* region. It then installs the *Azure AD login VM extension* to enable Azure AD login for Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
@@ -433,7 +434,7 @@ Virtual machine scale set VM connections may fail if the virtual machine scale s
 
 Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the required role assignments. For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
 
-## Feedback
+## Preview feedback
 
 Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
