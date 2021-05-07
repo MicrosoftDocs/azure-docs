@@ -63,7 +63,7 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Deploy the target environment
 
-You'll first identify and collect the information need to [deploy the target environment](production-ready-deployment-steps.md).
+Before you can move the source configuration, you'll need to [deploy the target environment](production-ready-deployment-steps.md).
 
 ### Back up the source configuration
 
