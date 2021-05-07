@@ -358,7 +358,9 @@ export const PageLayout = (props) => {
 };
 ```
 
-## Conditionally render components for authenticated or unauthenticated users
+## Conditionally render components
+
+In order to render certain components only for authenticated or unauthenticated users use the `AuthenticateTemplate` and/or `UnauthenticatedTemplate` as demonstrated below.
 
 1. Add the following import to *src/App.js*:
 
