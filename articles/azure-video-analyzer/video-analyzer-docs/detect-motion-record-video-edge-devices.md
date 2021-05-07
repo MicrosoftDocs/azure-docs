@@ -40,6 +40,16 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
 [!INCLUDE [prerequisites](includes/detect-motion-record-video-edge-devices/python/sample-files.md)]
 ::: zone-end
 
+## Generate and deploy the deployment manifest
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/detect-motion-record-video-edge-devices/csharp/generate-deploy-deployment-manifest.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/detect-motion-record-video-edge-devices/python/generate-deploy-deployment-manifest.md)]
+::: zone-end
+
 ## Run the sample program
 
 1. In Visual Studio Code, open the Extensions tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
@@ -200,8 +210,8 @@ To play the MP4 clip:
 
 1. Go to your resource group, find the VM, and then connect to the VM.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/detect-motion-record-video-edge-devices/sample-iot-edge-device.png" alt-text= "Edge device":::
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/detect-motion-record-video-edge-devices/sample-iot-edge-device.png" alt-text= "Edge device":::
 
 1. Sign in by using the credentials that were generated when you set up your Azure resources.
 1. At the command prompt, go to the relevant directory. The default location is /var/media. You should see the MP4 files in the directory.
