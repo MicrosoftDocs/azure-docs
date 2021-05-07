@@ -252,10 +252,12 @@
         href: create-public-ip-powershell.md
       - name: Create public IP addresses - Azure CLI
         href: create-public-ip-cli.md                
-      - name: Manage public IP addresses
-        href: virtual-network-public-ip-address.md
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
+      - name: Manage public IP addresses
+        href: virtual-network-public-ip-address.md
+      - name: Manage public IP prefixes
+        href: manage-public-ip-address-prefix.md
       - name: Upgrade public IP addresses
         href: virtual-network-public-ip-address-upgrade.md
       - name: Add or remove IP address from NICs
