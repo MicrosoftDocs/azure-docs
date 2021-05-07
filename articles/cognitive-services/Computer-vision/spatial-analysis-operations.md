@@ -93,6 +93,7 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
 | `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
+| `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not . `enable_orientation` is set by default to False. |
 
 ## Spatial Analysis operations configuration and output
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
@@ -211,6 +212,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
+| `target_side` | int| Specify a side of the `polygon` that will be used to measure the total duration that the detected people were inside the polygon and facing to the side. The value of `target_side` is between `[0,N-1]` where `N` is the number of sides of the `polygon`. This is an optional field.  |
 | `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy.  |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
@@ -531,6 +533,7 @@ Sample JSON for detections output by this operation.
 | `properties` | collection| Collection of values|
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of line crossings, either 'CrossLeft' or 'CrossRight'. Direction is based on imagining standing at the "start" facing the "end" of the line. CrossRight is crossing from left to right. CrossLeft is crossing from right to left.|
+| `orientationDirection` | string| The orientation direction of the detected person after crossing the line. The value can be 'Left', 'Right, or 'Straight'. This value is output if `enable_orientation` is set to `True` in `DETECTOR_NODE_CONFIG` |
 | `zone` | string | The "name" field of the line that was crossed|
 
 | Detections Field Name | Type| Description|
@@ -540,6 +543,9 @@ Sample JSON for detections output by this operation.
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
+| `groundOrientationAngle` | float| The clockwise radian angle of the person's orientation on the inferred ground plane |
+| `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
+| `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
 | `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
@@ -630,7 +636,8 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-              "durationMs": 7132.0
+		              "dwellTime": 7132.0,
+		              "dwellFrames": 20            
             },
             "zone": "queuecamera"
         }
@@ -661,7 +668,12 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": ""
+            "metadataType": "",
+	         "metadata": { 
+	    	         "groundOrientationAngle": 1.2,
+		             "mappedImageOrientation": 0.3,
+		             "speed": 1.2
+	           },
         }
     ],
     "schemaVersion": "1.0"
@@ -677,7 +689,11 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side. 'Side' is empty when the event isn't associated with a specific side due to occlusion. For example, an exit occurred when a person disappears but wasn't seen crossing a side of the zone or an enter occurred when a person appeared in the zone but wasn't seen crossing a side.|
-| `durationMs` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
+| `dwellTime` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is personZoneDwellTimeEvent|
+| `dwellFrames` | int | The number of frames that the person spent in the zone. This field is provided when the event type is personZoneDwellTimeEvent|
+| `dwellTimeForTargetSide` | float | The number of milliseconds that represent the time the person spent in the zone and were facing to the `target_side`. This field is provided when `enable_orientation` is `True` in `DETECTOR_NODE_CONFIG ` and the value of `target_side` is set in `SPACEANALYTICS_CONFIG`|
+| `avgSpeed` | float| The average speed of the person in the zone. The unit is `foot per second (ft/s)`|
+| `minSpeed` | float| The minimum speed of the person in the zone. The unit is `foot per second (ft/s)`|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
 | Detections Field Name | Type| Description|
@@ -687,6 +703,9 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
+| `groundOrientationAngle` | float| The clockwise radian angle of the person's orientation on the inferred ground plane |
+| `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
+| `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
 | `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
