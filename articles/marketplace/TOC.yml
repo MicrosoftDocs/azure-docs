@@ -73,6 +73,8 @@
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell partner engagement
       href: ./co-sell-overview.md
+    - name: Co-sell requirements
+      href: co-sell-requirements.md
     - name: Co-sell option in Partner Center
       href: ./co-sell-configure.md
     - name: Migrate co-sell solutions from OCP GTM
@@ -499,3 +501,5 @@
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
+  - name: Reference architecture diagram
+    href: reference-architecture-diagram.md  
