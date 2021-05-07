@@ -82,6 +82,8 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Angular - Auth code flow
+      href: tutorial-v2-angular-auth-code.md
     - name: Blazor WebAssembly
       href: tutorial-blazor-webassembly.md
     - name: JavaScript
