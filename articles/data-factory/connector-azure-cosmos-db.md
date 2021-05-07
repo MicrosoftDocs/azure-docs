@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
 description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -45,7 +45,7 @@ Data Factory integrates with the [Azure Cosmos DB bulk executor library](https:/
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to Azure Cosmos DB (SQL API).
 
