@@ -21,16 +21,17 @@ Access control is a major part of achieving a [Federal Risk and Authorization Ma
 
 The following list of controls and control enhancements in the Access Control family may require configuration in your Azure AD tenant. 
 
-| Control family | Description |
-| --- | --- |
-| AC-02 | Account management |
-| AC-06 | Least privilege |
-| AC-07 | Unsuccessful logon attempts |
-| AC-08 | System use notification |
-| AC-10 | Concurrent session control |
-| AC-11 | Session lock | pattern hiding displays |
-| AC-12 | Session termination |
-| AC-20 | Use of external information systems |
+
+|Control family|Description|
+| - | - |
+| AC-02| Account management |
+| AC-06| Least privilege |
+| AC-07| Unsuccessful logon attempts |
+| AC-08| System use notification |
+| AC-10| Concurrent session control |
+| AC-11| Session lock |
+| AC-12| Session termination |
+| AC-20| Use of external information systems |
 
 
 Each row in the table below provides prescriptive guidance to aid you in developing your organization's response to any shared responsibilities for the control or control enhancement.
