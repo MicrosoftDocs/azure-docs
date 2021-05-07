@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid on Kubernetes - create topics and subscriptions
-description: This article describes how to create an event grid topic on a Kubernetes cluster connected to Azure Arc and then create a subscription for the topic. 
+description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
 author: spelluru
 manager: JasonWHowell
 ms.author: spelluru
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ---
 
 # Azure Event Grid on kubernetes - Create a topic and subscriptions
-In this quickstart, you will create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
+In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Specify values for the place holders before running the command:
     - Name of the resource group that contains the custom location.
     - Name of the custom location
 
-For more information about the CLI command, see [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
+For more information about the CLI command, see [`az eventgrid topic create`](/cli/azure/eventgrid/topic#az_eventgrid_topic_create).
 
 ## Create a message endpoint
 Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
@@ -79,7 +79,7 @@ Specify values for the place holders before running the command:
     - Name of the topic. 
     - Name of the web site for Event Grid Viewer.
     
-For more information about the CLI command, see [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
+For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
 
 ## Send events to the topic
