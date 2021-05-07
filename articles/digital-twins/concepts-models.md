@@ -78,7 +78,7 @@ The difference between properties and telemetry for Azure Digital Twins models i
 
 As a result, when designing a model in Azure Digital Twins, you will probably use **properties** in most cases to model your twins. This allows you to have the backing storage and the ability to read and query the data fields.
 
-Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](how-to-use-apis-sdks.md), you will typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
+Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](concepts-apis-sdks.md), you will typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
@@ -102,7 +102,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Model code
 
-Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
+Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Possible schemas
 
@@ -154,7 +154,7 @@ This section describes the current set of samples in more detail.
 
 _**For uploading models to Azure Digital Twins**_
 
-Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](how-to-use-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
+Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
 
 However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this sample to upload many models at once: [Azure Digital Twins Model Uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
