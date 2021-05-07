@@ -18,13 +18,17 @@
           href: get-started-cli.md
 - name: Concepts
   items:
-    - name: Configuration
-      href: configuration.md
-      displayName: Routing
     - name: API support with Azure Functions
       href: apis.md
-    - name: Routes
-      href: routes.md
+    - name: Configuration
+      items:
+        - name: Application configuration
+          href: configuration.md
+          displayName: routing, routes
+        - name: Build and workflow configuration
+          href: github-actions-workflow.md
+        - name: Routes
+          href: routes.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -37,8 +41,6 @@
       href: review-publish-pull-requests.md
     - name: Custom domain
       href: custom-domain.md
-    - name: Build and workflow configuration
-      href: github-actions-workflow.md
 - name: How-to guides
   items:
     - name: Setup local development
@@ -56,7 +58,7 @@
       displayName: Application Insights
     - name: Reset deployment tokens
       href: deployment-token-management.md
-    - name: Troubleshooting errors
+    - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
     - name: Bring your own functions
