@@ -56,7 +56,9 @@ cd azureml-examples/cli
 
 ## Deploy TensorFlow Serving model
 
-To deploy a TensorFlow serving model, run the script below.
+To deploy a TensorFlow serving model, first open the `how-to-deploy-tfserving.sh` script and change the value of the `ENDPOINT_NAME` environment variable to something unique.
+
+The, run the script below.
 
 ```azurecli-interactive
 ./how-to-deploy-tfserving.sh
@@ -74,7 +76,9 @@ Once the script finishes running, open up the Azure portal and click on the endp
 
 ## Deploy Triton ensemble model
 
-To deploy a Triton ensemble model, first install some required python packages:
+To deploy a TensorFlow serving model, first open the `how-to-deploy-triton.sh` script and change the value of the `ENDPOINT_NAME` environment variable to something unique.
+
+Then install some required python packages:
 
 ```azurecli-interactive
 pip install nvidia-pyindex
