@@ -4,7 +4,7 @@ description: Learn how to migrate Apache HBase cluster to a newer version with a
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/29/2021
+ms.date: 05/06/2021
 ---
 
 # Migrate Apache HBase to a new version and storage account
@@ -116,15 +116,12 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
 Run the following commands, depending on your source HDI version and whether the source and destination clusters have Accelerated Writes. The destination cluster is always HDI version 4.0, since HDI 3.6 is in Basic support and isn't recommended for new clusters.
 
-- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes).
-- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
-- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes).
-- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
-- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes).
-
-To pass the key of the storage account, use: 
-- `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
-- `-Dfs.azure.account.keyprovider.<storageaccount>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider`
+- [The source cluster is HDI 3.6 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
+- [The source cluster is HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 
 The `<container-endpoint-url>` for the storage account is `https://<storageaccount>.blob.core.windows.net/<container-name>`. Pass the SAS token for the storage account at the very end of the URL.
 
@@ -137,23 +134,29 @@ The HDFS copy command is `hdfs dfs <copy properties starting with -D> -cp`
  
 Use `hadoop distcp` for better performance when copying files not in a page blob: `hadoop distcp <copy properties starting with -D>`
  
+To pass the key of the storage account, use:
+- `-Dfs.azure.account.key.<storageaccount>.blob.core.windows.net='<storage account key>'`
+- `-Dfs.azure.account.keyprovider.<storageaccount>.blob.core.windows.net=org.apache.hadoop.fs.azure.SimpleKeyProvider`
+
 You can also use [AzCopy](/azure/storage/common/storage-ref-azcopy) for better performance when copying HBase data files.
-   
-1. Create the directory structure first using the `hdfs` command:
-   
-   ```bash
-   hdfs dfs <copy properties starting with -D> -ls -R <source-container-fullpath>/hbase/data | grep "^d" | awk '{print $8}' | awk -F 'net' '{print $2}' | xargs -n 100 hdfs dfs -mkdir -p
-   ```
    
 1. Run the AzCopy command:
    
    ```bash
-   azcopy cp "<source-container-endpoint-url>/hbase" "<destination-container-endpoint-url>" --recursive
+   azcopy cp "<source-container-endpoint-url>/hbase" "<target-container-endpoint-url>" --recursive
+   ```
+
+1. If the destination storage account is Azure Blob storage, do this step after the copy. If the destination storage account is Data Lake Storage Gen2, skip this step.
+   
+   The Hadoop WASB driver uses special 0-sized blobs corresponding to every directory. AzCopy skips these files when doing the copy. Some WASB operations use these blobs, so you must create them in the destination cluster. To create the blobs, run the following Hadoop command from any node in the destination cluster:
+   
+   ```bash
+   sudo -u hbase hadoop fs -chmod -R 0755 /hbase
    ```
 
 You can download AzCopy from [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10). For more information about using AzCopy, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
 
-#### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
+#### The source cluster is HDI 3.6 or HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
@@ -171,26 +174,7 @@ You can download AzCopy from [Get started with AzCopy](/azure/storage/common/sto
    hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://<destination-cluster>/hbasewal
    ```
 
-#### The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes
-
-1. To clean the file system and migrate data, run the following commands:
-   
-   ```bash
-   hdfs dfs -rm -r /hbase 
-   hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase /
-   hdfs dfs -rm -r /hbase/*WALs
-   ```
-   
-1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
-   
-1. To clean and migrate the WAL, run the following commands:
-   
-   ```bash
-   hdfs dfs -rm -r /hbase-wals/*
-   hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
-   ```
-
-#### The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes
+#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
@@ -209,13 +193,14 @@ You can download AzCopy from [Get started with AzCopy](/azure/storage/common/sto
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase/*WALs hdfs://<destination-cluster>/hbasewal
    ```
 
-#### The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes
+#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
    ```bash
    hdfs dfs -rm -r /hbase 
-   hadoop distcp <source-container-fullpath>/hbase /
+   hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase /
+   hdfs dfs -rm -r /hbase/*WALs
    ```
    
 1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
@@ -224,10 +209,10 @@ You can download AzCopy from [Get started with AzCopy](/azure/storage/common/sto
    
    ```bash
    hdfs dfs -rm -r /hbase-wals/*
-   hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals /
+   hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs,/hbase-wals" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
    ```
 
-#### The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes
+#### The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes
 
 1. To clean the file system and migrate data, run the following commands:
    
@@ -243,6 +228,24 @@ You can download AzCopy from [Get started with AzCopy](/azure/storage/common/sto
    ```bash
    hdfs dfs -rm -r hdfs://<destination-cluster>/hbasewal
    hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals hdfs://<destination-cluster>/hbasewal
+   ```
+
+#### The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes
+
+1. To clean the file system and migrate data, run the following commands:
+   
+   ```bash
+   hdfs dfs -rm -r /hbase 
+   hadoop distcp <source-container-fullpath>/hbase /
+   ```
+   
+1. Remove `hbase.id` by running `hdfs dfs -rm /hbase/hbase.id`
+   
+1. To clean and migrate the WAL, run the following commands:
+   
+   ```bash
+   hdfs dfs -rm -r /hbase-wals/*
+   hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-container-fullpath>/hbase-wals /
    ```
 
 ### Complete the migration

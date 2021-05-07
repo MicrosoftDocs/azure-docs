@@ -4,7 +4,7 @@ description: Learn how to migrate Apache HBase clusters to a newer version in Az
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/29/2021
+ms.date: 05/06/2021
 ---
 
 # Migrate an Apache HBase cluster to a new version
@@ -129,13 +129,14 @@ Run the following commands, depending on your source HDI version and whether the
 > - The `<source-container-fullpath>` for storage type WASB is `wasbs://<source-container-name>@<storageaccountname>.blob.core.windows.net`.
 > - The `<source-container-fullpath>` for storage type Azure Data Lake Storage Gen2 is `abfs://<source-container-name>@<storageaccountname>.dfs.core.windows.net`.
 
-- [The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-and-both-the-source-and-destination-clusters-have-accelerated-writes).
-- [The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-and-only-the-destination-cluster-has-accelerated-writes).
-- [The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-36-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
-- [The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-and-only-the-destination-cluster-has-accelerated-writes).
-- [The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes](#the-source-cluster-is-hdi-40-and-the-source-and-destination-clusters-dont-have-accelerated-writes).
+- [The source cluster is HDI 3.6 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-36-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
+- [The source cluster is HDI 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-36-or-hdi-40-with-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
+- [The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdi-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 
-#### The source cluster is HDI 3.6 or HDI 4.0, and both the source and destination clusters have Accelerated Writes
+#### The source cluster is HDI 3.6 or HDI 4.0 with Accelerated Writes, and the destination cluster haa Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -143,7 +144,7 @@ Clean the WAL FS data for the destination cluster, and copy the WAL directory fr
 sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal hdfs://mycluster/
 ```
-#### The source cluster is HDI 3.6, and only the destination cluster has Accelerated Writes
+#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination cluster has Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -152,7 +153,7 @@ sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container>/hbase/*WALs hdfs://mycluster/hbasewal
 ```
 
-#### The source cluster is HDI 3.6, and the source and destination clusters don't have Accelerated Writes
+#### The source cluster is HDI 3.6 without Accelerated Writes, and the destination clusters doesn't have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the source cluster WAL directory into the destination cluster's HDFS. To copy the directory, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -161,7 +162,7 @@ sudo -u hbase hdfs dfs -rm -r /hbase-wals/*
 sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase/WALs,/hbase/MasterProcWALs,/hbase/oldWALs" -cp <source-container-fullpath>/hbase/*WALs /hbase-wals
 ```
 
-#### The source cluster is HDI 4.0, and only the destination cluster has Accelerated Writes
+#### The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the WAL directory from the source cluster into the destination cluster's HDFS. Copy the directory by running the following commands in any Zookeeper node or worker node on the destination cluster:
 
@@ -170,7 +171,7 @@ sudo -u hbase hdfs dfs -rm -r hdfs://mycluster/hbasewal
 sudo -u hbase hdfs dfs -cp <source-container-fullpath>/hbase-wals/* hdfs://mycluster/hbasewal
    ```
 
-#### The source cluster is HDI 4.0, and the source and destination clusters don't have Accelerated Writes
+#### The source cluster is HDI 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes
 
 Clean the WAL FS data for the destination cluster, and copy the source cluster WAL directory into the destination cluster's HDFS. To copy the directory, run the following commands in any Zookeeper node or worker node on the destination cluster:
 
