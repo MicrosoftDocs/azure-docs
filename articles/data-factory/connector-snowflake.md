@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Snowflake
 description: Learn how to copy and transform data in Snowflake by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
