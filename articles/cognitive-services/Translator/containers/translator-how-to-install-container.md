@@ -76,7 +76,7 @@ The following table describes the minimum and recommended specifications for Tra
 | Text Translator |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
 |||
 
-For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. See [supported languages](#language-support) and [text-translation](#text-translation-support) for details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
 > * CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the docker run command.

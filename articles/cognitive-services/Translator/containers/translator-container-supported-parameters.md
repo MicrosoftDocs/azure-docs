@@ -1,7 +1,7 @@
 ---
-title: Translator Translate Method
+title: Translator Container Translate Method
 titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
+description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator container to translate text.
 services: cognitive-services
 author: laujan
 manager: nitinme

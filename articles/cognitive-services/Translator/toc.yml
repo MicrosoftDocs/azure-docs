@@ -53,7 +53,7 @@
   - name: Use the Translator container
     items:
     - name: Install and run containers
-      href: containers/translator-how-to-install-containers.md
+      href: containers/translator-how-to-install-container.md
     - name: Configure containers
       href: containers/translator-container-configuration.md
     - name: Use container instances
