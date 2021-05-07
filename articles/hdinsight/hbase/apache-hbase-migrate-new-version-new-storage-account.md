@@ -1,6 +1,6 @@
 ---
 title: Migrate an HBase cluster to a new version and Storage account - Azure HDInsight
-description: Learn how to migrate Apache HBase cluster to a newer version with a different Azure Storage account in Azure HDInsight.
+description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to a newer version with a different Azure Storage account.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
