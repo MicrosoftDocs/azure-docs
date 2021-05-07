@@ -96,8 +96,9 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Default answer text**| `Quickstart - default answer not found.`|
      |**+ Add URL**|`https://azure.microsoft.com/support/faq/`|
-    |**+ Add file**|<i>\<Browse a file that has unstructured content\>|
-     |**Unstructured content**|Check this box to indicate that the document has unstructured content. Checking the unstructured box would mean the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs will be  extracted from the file.|
+    |**+ Add file**|Browse a file to upload.|
+     |**Unstructured content**|Check this box to indicate that the file being uploaded has unstructured content. Checking the unstructured box would mean the document will be ingested entirely into the service. If you leave this unchecked, QnA pairs will be  extracted from the file. <br> The following image shows how unstructured files will look after upload.
+     | |[!div class="mx-imgBorder"] ![Screenshot of unstructured file upload](../media/qnamaker-create-publish-knowledge-base/add-unstructured-file.png)|
     |**Chit-chat**|Select **Professional**|
 
 ---
@@ -132,7 +133,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
        |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This action will update the knowledge base with latest URL content once. This action is not about setting a regular schedule of updates.|
        |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
        |Delete file|You can delete existing file by clicking the delete icon represented by the trash can.|
-       |Mark content as unstructured|If you want to mark the uploaded file content as structured select the **Unstructured content** checkbox.|
+       |Mark content as unstructured|If you want to mark the uploaded file content as unstructured select the **Unstructured content** checkbox.|
        |Mark unstructured content as structured|You cannot mark a previously uploaded unstructured content as structured.|
     |Import|You can also import any existing knowledge base by selecting **Import Knowledge base** button. |
     |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if necessary.
