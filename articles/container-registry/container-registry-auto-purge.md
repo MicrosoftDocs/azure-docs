@@ -2,7 +2,7 @@
 title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
-ms.date: 02/19/2021
+ms.date: 05/07/2021
 ---
 
 # Automatically purge images from an Azure container registry
@@ -12,9 +12,6 @@ When you use an Azure container registry as part of a development workflow, the 
 The `acr purge` command is currently distributed in a public container image (`mcr.microsoft.com/acr/acr-cli:0.4`), built from source code in the [acr-cli](https://github.com/Azure/acr-cli) repo in GitHub.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the ACR task examples in this article. If you'd like to use it locally, version 2.0.76 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 > [!WARNING]
 > Use the `acr purge` command with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not purge untagged images. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
