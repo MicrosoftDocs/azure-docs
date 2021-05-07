@@ -120,8 +120,6 @@ For more information on how to configure Facebook as an authentication provider 
 }
 ```
 
-For more information on how to configure GitHub as an authentication provider refer to the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-github.md).
-
 # [Google](#tab/google)
 
 | Field Path                             | Description                                                                                  |
