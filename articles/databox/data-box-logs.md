@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/04/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ---
 
@@ -266,11 +266,13 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 
 The following notification in the Azure portal indicates that non-retryable errors caused the upload of some files to fail. To move the order forward, you'll need to review the errors in the copy log and verify you want to proceed. For more information, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
 
-![Notification for a paused upload in the Azure portal](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
+![Notification for a paused upload in the Azure portal](media/data-box-logs/copy-completed-with-errors-notification-01.png)
 
-You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. If you don't take action, the order will complete automatically after 14 days.
+You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+When you confirm that you're ready to proceed, the data will be secure erased from the device. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+
+If you don't respond, the order is completed automatically after 14 days.
 
 For information about these errors, see [Troubleshoot paused data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 

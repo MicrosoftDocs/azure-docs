@@ -22,15 +22,15 @@ This article describes review and follow-up for non-retryable errors that preven
 
 When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
-You'll see the following notification in the Azure portal. The errors are listed in the data copy log.
+You'll see the following notifications in the Azure portal. The errors are listed in the data copy log.
 
-![Notification of errors during upload](media/data-box-troubleshoot-data-upload/upload-paused-01.png)
+![Notification of errors during upload](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
 
- You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+ You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-To proceed, you'll need to confirm that you've reviewed the errors and are ready to proceed. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
+When you confirm that you're ready to proceed, the data will be secure erased from the device. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8).
 
-If you don't respond, the order is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
+If you don't respond, the order is completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 
 ## Non-retryable upload errors
 
@@ -61,7 +61,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). When an invalid file name is not caught, the file fails to upload to Azure.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 <!--TEMPORARILY REMOVED. Product team may restore later. ### Bad Request (File property failure for Azure Files)
@@ -83,7 +83,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** The listed blobs couldn't be uploaded because they don't meet format or size requirements for blobs in Azure storage.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that:
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, ensure that:
 
 - The listed page blobs align to the 512-byte page boundaries.
 
@@ -98,7 +98,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** If a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container will fail.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure the listed blobs are not part of an immutable storage container. For more information, see [Store business-critical blob data with immutable storage](/azure/storage/blobs/storage-blob-immutable-storage).
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the listed blobs are not part of an immutable storage container. For more information, see [Store business-critical blob data with immutable storage](/azure/storage/blobs/storage-blob-immutable-storage).
 
 
 ### The total provisioned capacity of the shares cannot exceed the account maximum size limit
@@ -109,7 +109,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** The upload failed because the total size of the data exceeds the storage account size limit. For example, the maximum capacity of a FileStorage account is 100 TiB. If total data size exceeds 100 TiB, the upload will fail.  
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure the total capacity of all shares in the storage account will not exceed the size limit of the storage account. For more information, see [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the total capacity of all shares in the storage account will not exceed the size limit of the storage account. For more information, see [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 
 
 ### The blob type is invalid for this operation
@@ -120,7 +120,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure there is no concurrent modification of the listed blobs or their properties during the upload.
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure there is no concurrent modification of the listed blobs or their properties during the upload.
 
 ### There is currently a lease on the blob and no lease ID was specified in the request
 
@@ -130,7 +130,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** Data import to a blob in the cloud will fail if the destination blob has an active lease.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs).
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](/azure/storage/blobs/concurrency-manage?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
 
 ### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
@@ -141,7 +141,7 @@ For more information about the data log's contents, see [Tracking and event logg
 
 **Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
-**Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
 
 
 ## Next steps

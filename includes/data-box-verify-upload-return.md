@@ -15,22 +15,22 @@ After the verification is complete, the Data Box is connected to the network in 
 
 When files fail to upload because of an non-retryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
 
-You can't fix these errors. The upload will complete with errors, and the data will then be secure erased from the device. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-The order is completed automatically in 14 days. By acting on the notification, you can move things along more quickly.
+When you confirm that you've reviewed the errors and are ready to proceed, the data will be secure erased from the device. The order is completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 
 
 To review non-retryable errors and proceed with your order, do the following:
 
 1. Open your order in the Azure portal.  
 
-   If any non-retryable errors prevented files from uploading, you'll see the following notification. The order status will be **Copy errors**.
+   If any non-retryable errors prevented files from uploading, you'll see the following notification. The current order status will be **Data copy completed with errors. Device pending data erasure.**
 
    ![Notification for copy errors during an upload in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-01.png)
 
    Make a note of the **COPY LOG PATH** in **DATA COPY DETAILS**. You'll review the errors in the data copy log.
 
-2. Select **Review** to open a review panel.
+2. Select **Confirm device erasure** to open a review panel.
 
    ![Review and proceed panel for upload errors in the Azure portal](media/data-box-verify-upload-return/copy-errors-in-upload-02.png)
 
@@ -38,11 +38,13 @@ To review non-retryable errors and proceed with your order, do the following:
 
    You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Review copy uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
-4. Select the check box to acknowledge that you've reviewed the errors, understand that the data will be erased from the Data Box after the upload, and are ready to proceed.
+4. After you review the errors, select the check box to acknowledge that you're ready to proceed with data erasure. Then select **Proceed**.
 
-5. When you're ready, select **Proceed**.
+   ![Confirm that you are ready to proceed with data erasure](media/data-box-verify-upload-return/copy-errors-in-upload-03.png)
 
-   ![Confirm you've reviewed the errors and are ready to proceed](media/data-box-verify-upload-return/copy-errors-in-upload-03.png)
+   After the data is secure erased from the device, the order status is updated to **Copy completed with errors**.
+
+   ![Status display for a Data Box import order that completed with errors](media/data-box-verify-upload-return/copy-errors-in-upload-04.png)
 
    If you don't take any action, the order completes automatically after 14 days.
 
