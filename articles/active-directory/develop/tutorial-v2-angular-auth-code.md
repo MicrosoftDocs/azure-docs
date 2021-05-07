@@ -551,7 +551,9 @@ In order to render certain UI only for authenticated users, components have to s
 
 ### Angular Guard
 
-MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. 
+MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via popup or redirect before showing the `Profile` page.
+
+`MsalGuard` is a convenience class you can use improve the user experience, but it should not be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server does not return any data the user should not access.
 
 1. Add the `MsalGuard` class as a provider in your application in *src/app/app.module.ts*, and add the configurations for the `MsalGuard`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. Your code should look like the following:
 
@@ -697,10 +699,6 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
       }
     }
     ```
-
-Your app now has a protected route, the `Profile` route, which requires authentication before access. Now, even if the user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt them to authenticate via popup or redirect before showing the `Profile` page.
-
-Note that this is a convenience feature to improve user experience, but should not be relied upon for security.
 
 ## Acquire a token
 
