@@ -78,19 +78,19 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Azure Active Directory, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. Revoke the user's Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+2. Revoke the user's Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. Disable the user's devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+3. Disable the user's devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
