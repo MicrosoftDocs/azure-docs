@@ -125,11 +125,11 @@ If the package is not installed, install the package on your distribution.
 
 ```
 sudo apt update
-sudo apt install-nfscommon
+sudo apt install nfs-common
 ```
 ##### Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
 
-Use the dnf package manager:`sudo dnf install nfs-common`.
+Use the dnf package manager:`sudo dnf install nfs-utils`.
 
 Older versions of Red Hat Enterprise Linux and CentOS use the yum package manager: `sudo yum install nfs-common`.
 

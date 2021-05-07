@@ -43,7 +43,7 @@ for Azure Policy use the
        version = "~>2.0"
        features {}
    }
-   
+
    resource "azurerm_policy_assignment" "auditvms" {
        name = "audit-vm-manageddisks"
        scope = var.cust_scope
@@ -52,6 +52,7 @@ for Azure Policy use the
        display_name = "Audit VMs without managed disks Assignment"
    }
    ```
+
 1. Create `variables.tf` with the following code:
 
    ```hcl

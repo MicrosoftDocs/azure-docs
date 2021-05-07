@@ -230,8 +230,8 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
 
-The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for
-**properties.writeLocations**, then project specific fields and limit the results further to
+The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
+for **properties.writeLocations**, then project specific fields and limit the results further to
 **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
 
 ```kusto
@@ -352,15 +352,15 @@ related to those network interfaces.
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -420,7 +420,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -567,7 +567,6 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.
 
-
 ```kusto
 Resources
 | where type == 'microsoft.compute/virtualmachines'
@@ -598,7 +597,9 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
-Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per
+[Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources
