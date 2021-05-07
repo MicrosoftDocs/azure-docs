@@ -107,7 +107,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 
 > [!NOTE]
 > * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
-> * * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
+> * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
 
@@ -242,14 +242,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 ]
 ```
 
-### Update extension instance
-
-Update an extension instance on a cluster with `k8s-extension update`, passing in values for the mandatory parameters.
-
-```azurecli
-az k8s-extension update --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
-```
-
 ### Delete extension instance
 
 Delete an extension instance on a cluster with `k8s-extension delete`, passing in values for the mandatory parameters.
@@ -260,7 +252,6 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
-
 
 ## Next steps
 
