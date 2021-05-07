@@ -168,13 +168,13 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection String**: There are four authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault**, and **Managed Identity**.
+* **Connection String**: There are four authentication types for Azure Data Explorer (Kusto), they are **Basic**, **Service Principal**, **Service Principal From KeyVault**, and **Managed Identity**. The data source in connection string should be in URI format(starts with 'https'), you can find the URI in Azure portal.
     
     * **Basic**: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
         Here's an example of connection string:
         
         ```
-        Data Source=<Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client ID=<Application Client ID>;Application Key=<Application Key>;Authority ID=<Tenant ID>
+        Data Source=<URI Server>;Initial Catalog=<Database>;AAD Federated Security=True;Application Client ID=<Application Client ID>;Application Key=<Application Key>;Authority ID=<Tenant ID>
         ```
 
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
@@ -188,13 +188,13 @@ The following sections specify the parameters required for all authentication ty
         Here's an example of connection string:
         
         ```
-        Data Source=<Server>;Initial Catalog=<Database>
+        Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
     * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
         Here's an example of connection string: 
         ```
-        Data Source=<Server>;Initial Catalog=<Database>
+        Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
@@ -205,7 +205,7 @@ The following sections specify the parameters required for all authentication ty
 
         Here's an example of connection string: 
         ```
-        Data Source=<Server>;Initial Catalog=<Database>
+        Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
         <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
