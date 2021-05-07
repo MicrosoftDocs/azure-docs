@@ -19,7 +19,7 @@ Here's how the alternating deployments approach works in practice:
 
 Suppose an application has two deployments: `deployment1` and `deployment2`. Currently, `deployment1` is set as the production deployment, and is running version `v3` of the application.
 
-Thus makes `deployment2` the staging deployment. Thus, when the Continuous Delivery (CD) pipeline is ready to run, it deploys the next version of the app, `v4` onto the staging deployment `deployment2`.
+This makes `deployment2` the staging deployment. Thus, when the Continuous Delivery (CD) pipeline is ready to run, it deploys the next version of the app, `v4` onto the staging deployment `deployment2`.
 
 ![Two deployments, deployment 1 receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-1.png)
 
