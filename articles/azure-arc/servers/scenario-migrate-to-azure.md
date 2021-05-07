@@ -1,7 +1,7 @@
 ---
 title: Migrate Azure Arc enabled server to Azure
 description: Learn how to migrate your Azure Arc enabled servers running on-premises or other cloud environment to Azure.
-ms.date: 04/28/2021
+ms.date: 05/06/2021
 ms.topic: conceptual
 ---
 
@@ -29,13 +29,13 @@ With Azure PowerShell, use the [Get-AzConnectedMachineExtension](/powershell/mod
 
 With the Azure CLI, use the [az connectedmachine extension list](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_list) command with the `--machine-name` and `--resource-group` parameters. By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
 
-After identifying which VM extensions are deployed, you need to remove them. If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Arc enabled server before the migration is complete.
+After identifying which VM extensions are deployed, you need to remove them using the [Azure portal](manage-vm-extensions-portal.md),using the [Azure PowerShell](manage-vm-extensions-powershell.md), or using the [Azure CLI](manage-vm-extensions-cli.md). If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Arc enabled server before the migration is complete.
 
 ## Step 2: Review access rights 
 
 List role assignments for the Arc enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) and with additional PowerShell code, you can export the results to CSV or another format. 
 
-If you're using a managed identity for an application or process running on an Arc enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). 
+If you're using a managed identity for an application or process running on an Arc enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity). A system-managed identity is also used when Azure Policy is used to audit settings inside a machine or server. With Arc enabled servers, the Guest Configuration agent is included and performs validation of audit settings. After you migrate, see [Deploy requirements for Azure virtual machines](../../governance/policy/concepts/guest-configuration.md#deploy-requirements-for-azure-virtual-machines) for information on how to configure your Azure VM manually or with policy.
 
 Update role assignment with any resources accessed by the managed identity to allow the new Azure VM identity to authenticate to those services. See the following to learn [how managed identities for Azure resources work for an Azure Virtual Machine (VM)](../../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md).
 
