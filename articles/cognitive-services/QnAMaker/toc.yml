@@ -104,7 +104,7 @@
       href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Responsible use of AI
   items:
-  - name: Transparency Note
+  - name: Transparency notes
     items:
     - name: Use cases for QnA Maker
       href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
