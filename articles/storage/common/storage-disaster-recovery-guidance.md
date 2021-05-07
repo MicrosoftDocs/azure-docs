@@ -117,7 +117,7 @@ To avoid a major data loss, check the value of the **Last Sync Time** property b
 
 You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate an account failover](storage-initiate-account-failover.md).
 
-## Another considerations
+## Additional considerations
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
 
