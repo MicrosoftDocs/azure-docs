@@ -583,7 +583,7 @@ You've completed creation of the application and are now ready to launch the web
    ```
 1. A browser window should be opened to your app automatically. If it does not, open your browser and navigate to `http://localhost:3000`. You should see a page that looks like the one below.
 
-    :::image type="content" source="media/tutorial-v2-react/react-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
+    :::image type="content" source="media/tutorial-v2-react/react-01-unauthenticated.png" alt-text="Web browser displaying sign-in dialog":::
 
 1. Select the sign-in button to sign in.
 
@@ -595,13 +595,13 @@ The first time you sign in to your application, you're prompted to grant it acce
 
 If you consent to the requested permissions, the web applications displays your name, signifying a successful login:
 
-:::image type="content" source="media/tutorial-v2-react/react-02-signed-in.png" alt-text="Results of a successful sign-in in the web browser":::
+:::image type="content" source="media/tutorial-v2-react/react-02-authenticated.png" alt-text="Results of a successful sign-in in the web browser":::
 
 ### Call the Graph API
 
 After you sign in, select **See Profile** to view the user profile information returned in the response from the call to the Microsoft Graph API:
 
-:::image type="content" source="media/tutorial-v2-react/react-03-profile-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
+:::image type="content" source="media/tutorial-v2-react/react-03-graph-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
 
 ### More information about scopes and delegated permissions
 
