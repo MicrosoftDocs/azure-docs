@@ -17,6 +17,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Functions project in Visual Studio
+> * Test function APIs locally using OpenAPI
+> * Publish project to Azure with API Management integration
+> *  
 
 > [!IMPORTANT]
 > The following considerations apply when using the OpenAPI Extension:
@@ -34,7 +37,7 @@ In this tutorial, you learn how to:
 
 + An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
 
-## Create a function app project
+## Create a Functions project
 
 The Azure Functions project template in Visual Studio creates a project that you can publish to a function app in Azure. You'll also create an HTTP triggered function supports OpenAPI definition file (formerly Swagger file) generation.
 
@@ -66,163 +69,90 @@ Visual Studio creates a project and class named `Function1` that contains boiler
 
 The function uses an HTTP trigger that takes two parameters:
 
-* The estimated time to make a turbine repair, in hours.
+* The estimated time to make a turbine repair, up to the nearest whole hour.
 * The capacity of the turbine, in kilowatts. 
 
-The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24-hour period. To create the HTTP triggered function in the [Azure portal](https://portal.azure.com). 
+The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. These parameters can be supplied either in the query string or in the payload of a POST request. 
 
-1. In the Function1.cs project file, replace the contents of the generated class library code with the following code:
+In the Function1.cs project file, replace the contents of the generated class library code with the following code:
 
-    :::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Function1.cs":::
+:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Function1.cs":::
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-    using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.OpenApi.Models;
-    using Newtonsoft.Json;
-    
-    namespace TurbineRepair
-    {
-        public static class Function1
-        {
-            const double revenuePerkW = 0.12;
-            const double technicianCost = 250;
-            const double turbineCost = 100;
-    
-            [FunctionName("TurbineRepair")]
-            [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
-            [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-            [OpenApiParameter(name: "hours", In = ParameterLocation.Query, Required = true, Type = typeof(Int32), 
-                Description = "Number of hours since turbine last serviced.")]
-            [OpenApiParameter(name: "capacity", In = ParameterLocation.Query, Required = true, Type = typeof(Int32),
-                Description = "Kilowatt capacity of turbine.")]
-            [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), 
-                Description = "The OK response message containing a JSON result.")]
-            public static async Task<IActionResult> Run(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-                ILogger log)
-            {
-                // Get query strings if they exist
-                int tempVal;
-                int? hours = Int32.TryParse(req.Query["hours"], out tempVal) ? tempVal : (int?)null;
-                int? capacity = Int32.TryParse(req.Query["capacity"], out tempVal) ? tempVal : (int?)null;
-    
-                // Get request body
-                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                dynamic data = JsonConvert.DeserializeObject(requestBody);
-    
-                // Use request body if a query was not sent
-                capacity = capacity ?? data?.capacity;
-                hours = hours ?? data?.hours;
-    
-                // Return bad request if capacity or hours are not passed in
-                if (capacity == null || hours == null)
-                {
-                    return new BadRequestObjectResult("Please pass capacity and hours on the query string or in the request body");
-                }
-                // Formulas to calculate revenue and cost
-                double? revenueOpportunity = capacity * revenuePerkW * 24;
-                double? costToFix = (hours * technicianCost) + turbineCost;
-                string repairTurbine;
-    
-                if (revenueOpportunity > costToFix)
-                {
-                    repairTurbine = "Yes";
-                }
-                else
-                {
-                    repairTurbine = "No";
-                };
-    
-                return (ActionResult)new OkObjectResult(new
-                {
-                    message = repairTurbine,
-                    revenueOpportunity = "$" + revenueOpportunity,
-                    costToFix = "$" + costToFix
-                });
-            }
-        }
-    }
-    ```
+This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
 
-    This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
+## Run and verify the API locally
 
-## Test the function locally
+When you run the function, the OpenAPI endpoints make it easy to try out the function locally using a generated Swagger UI page.  
 
-1. To test the function, select **Test**, select the **Input** tab, enter the following input for the **Body**, and then select **Run**:
+1. Press F5 to start the project. When Functions runtime starts locally, a set of OpenAPI and Swagger endpoints are shown in the output, along with the function endpoint.  
 
-    ```json
-    {
-    "hours": "6",
-    "capacity": "2500"
-    }
-    ```
+1. In your browser, open the RenderSwaggerUI endpoint, which should look like `http://localhost:7071/api/swagger/ui`. A Swagger page is rendered, based on your OpenAPI definitions.
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Test the function in the Azure portal":::
+1. Select **POST** > **Try it out**, enter values for `hours` and `capacity` either as query parameters or in the JSON request body, and select **Execute**. 
 
-    The following output is returned in the **Output** tab:
+    :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-post.png" alt-text="Swagger UI for testing the TurbineRepair API":::
 
-    ```json
-    {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
-    ```
+1. When you enter integer values like 6 for `hours` and 2500 for `capacity`, you get a JSON response that looks like the following:
+   
+    :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-response.png" alt-text="Response JSON data from the TurbineRepair function.":::
 
-Now you have a function that determines the cost-effectiveness of emergency repairs. Next, you generate an OpenAPI definition for the function app.
+Now you have a function that determines the cost-effectiveness of emergency repairs. Next, you publish your project and API definitions to Azure.
 
 ## Publish the project to Azure
 
-## Generate the OpenAPI definition
+Before you can publish your project, you must have a function app in your Azure subscription. Visual Studio publishing creates a function app for you the first time you publish your project. It cal also create an API Management instance that integrates with your function app to expose the TurbineRepair API.
 
-To generate the OpenAPI definition:
+1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.
 
-1. Select the function app, choose **API Management** from the left menu, and then select **Create new** under **API Management**.
+1. For the **Specific target**, choose **Azure Function App (Windows)** to create a function app that runs on Windows, then select **Next**.
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Choose API Management":::
+1. In **Function Instance**, choose **+ Create a new Azure Function...**.
 
+    :::image type="content" source="media/openapi-apim-integrate-vs/publish-new-resource.png" alt-text="Create a new function app instance":::
 
-1. Use the API Management settings as specified in the following table:
+1. Create a new instance using the values specified in the following table:
 
-    | Setting      | Suggested value  | Description                                        |
+    | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | Globally unique name | A name is generated based on the name of your function app. |
-    | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
-    | **[Resource group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
-    | **Location** | West US | Choose the West US location. |
-    | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
-    | **Administrator email** | your email | Email that received system notifications from API Management. |
-    | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
+    | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which to create your function app. Select an existing resource group from the drop-down list or choose **New** to create a new resource group.|
+    | **[Plan Type](functions-scale.md)** | Consumption | When you publish your project to a function app that runs in a [Consumption plan](consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
+    | **Location** | Location of the app service | Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access. |
+    | **[Azure Storage](storage-considerations.md)** | General-purpose storage account | An Azure Storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](storage-considerations.md#storage-account-requirements).  |
 
-    ![Create new API Management service](media/functions-openapi-definition/new-apim-service-openapi.png)
+    :::image type="content" source="media/openapi-apim-integrate-vs/create-function-app-with-storage.png" alt-text="Create a new function app in Azure with Storage":::
 
-1. Choose **Create** to create the API Management instance, which may take several minutes.
+1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window. 
 
-1. After Azure creates the instance, it enables the **Enable Application Insights** option on the page. Select it to send logs to the same place as the function application, and then select **Link API**.
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance. 
 
-1. The **Import Azure Functions** opens with the **TurbineRepair** function highlighted. Choose **Select** to continue.
+1. Select **Next**, and in **API Management** page, also choose **+ Create an API Management API**.
 
-    ![Import Azure Functions into API Management](media/functions-openapi-definition/import-function-openapi.png)
+1.  Create an **API in API Management** by using values in the following table:
 
-1. In the **Create from Function App** page, accept the defaults, and then select **Create**.
+    | Setting      | Value  | Description                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **API name** | TurbineRepair | Name for the API. |
+    | **Subscription name** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
+    | **Resource group** | Name of your resource group | Select the same resource group as your function app from the drop-down list.   |
+    | **API Management service** | New instance | Select **New** to create a new API Management instance in the serverless tier.   |
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Create from Function App":::
+    :::image type="content" source="media/openapi-apim-integrate-vs/create-api-management-api.png" alt-text="Create API Managment instance with API":::
 
-    Azure creates the API for the function.
+1. Select **Create** to create the API Management instance with the TurbineRepair API from the function integration.
 
-## Test the API
+1. select **Finish**, verify that the Publish page says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
 
-Before you use the OpenAPI definition, you should verify that the API works.
+    After the deployment completes the root URL of the function app in Azure is shown in the **Publish** tab. 
 
-1. On your function app page, select **API Management**, select the **Test** tab, and then select **POST TurbineRepair**. 
+## Verify the API in Azure
 
-1. Enter the following code in the **Request body**:
+After publishing your project, you should verify that the API works when hosted in Azure.
+
+1. In the **Publish** tab, select the elipses (**...**) next to **Hosting** and select **Open API in Azure portal**. This opens the API Management instance you just created, which is linked to your function app. 
+
+1. Under **APIs**, select **Azure Functions OpenAPI Extension** > **Test** > **POST Run**, enter the following code in the **Request body** > **Raw**, and select **Send**:
 
     ```json
     {
@@ -231,25 +161,35 @@ Before you use the OpenAPI definition, you should verify that the API works.
     }
     ```
 
-1. Select **Send**, and then view the **HTTP response**.
+    :::image type="content" source="media/openapi-apim-integrate-vs/api-management-test-function-api.png" alt-text="OpenAPI test page in the API Management API":::
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Test function API":::
+    As before, you can also provide the same values as query parameters. 
+
+1. Select **Send**, and then view the **HTTP response** to verify the same results are returned from the API.
 
 ## Download the OpenAPI definition
 
 If your API works as expected, you can download the OpenAPI definition.
 
-1. Select **Download OpenAPI definition** at the top of the page.
+1. 1. Under **APIs**, select **Azure Functions OpenAPI Extension**, select the elipses (**...**), and select **Export**.
    
-   ![Download OpenAPI definition](media/functions-openapi-definition/download-definition.png)
+   ![Download OpenAPI definition](media/openapi-apim-integrate-vs/download-definition.png)
 
-2. Save the downloaded JSON file, and then open it. Review the definition.
+2. Choose the means of API export, including OpenAPI files in various formats. You can also [export APIs from Azure API Management to the Power Platform](../api-management/export-api-power-platform.md). 
 
-[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+ 
+From the Azure portal menu or **Home** page, select **Resource groups**. Then, on the **Resource groups** page, select the group you created.
+
+On the **myResourceGroup** page, make sure that the listed resources are the ones you want to delete.
+
+Select **Delete resource group**, type the name of your group in the text box to confirm, and then select **Delete**.
 
 ## Next steps
 
-You have used API Management integration to generate an OpenAPI definition of your functions. You can now edit the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
+You have used Visual Studio 2019 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)
