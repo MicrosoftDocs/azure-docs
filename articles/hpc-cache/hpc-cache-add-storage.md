@@ -4,7 +4,8 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/28/2021
+ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
 
@@ -14,7 +15,7 @@ ms.author: v-erkel
 
 You can define up to 20 different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
-The namespace paths are configured separately after you add the storage targets. In general, an NFS storage target can have up to ten namespace paths, or more for some large configurations. Read [NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) for details.
+The namespace paths are configured separately after you add the storage targets.
 
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
@@ -78,6 +79,23 @@ The storage account owner must explicitly add the roles [Storage Account Contrib
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
+1. Open **Access control (IAM)** for your storage account.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
+    | Assign access to | HPC Cache Resource Provider |
+
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+   > [!NOTE]
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. Users who participated in HPC Cache previews (before GA) might need to use the older name for the service principal.
+
+<!-- 
 Steps to add the Azure roles:
 
 1. Open the **Access control (IAM)** page for the storage account. (The link in the **Add storage target** page automatically opens this page for the selected account.)
@@ -97,7 +115,7 @@ Steps to add the Azure roles:
 
 1. Repeat this process to assign the role "Storage Blob Data Contributor".  
 
-![screenshot of add role assignment GUI](media/hpc-cache-add-role.png)
+![screenshot of add role assignment GUI](media/hpc-cache-add-role.png) -->
 
 ### [Azure CLI](#tab/azure-cli)
 

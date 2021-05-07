@@ -243,6 +243,9 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 
 When a runbook has been signed, you must import it into your Automation account and publish it with the signature block. To learn how to import runbooks, see [Import a runbook](manage-runbooks.md#import-a-runbook).
 
+>[!NOTE]
+>Use only plaintext characters in your runbook code, including comments. Using characters with diacritical marks, like á or ñ, will result in an error. When Azure Automation downloads your code, the characters will be replaced by a question mark and the signing will fail with a "signature hash validation failure" message.
+
 ## Work with signed runbooks on a Linux Hybrid Runbook Worker
 
 To be able to work with signed runbooks, a Linux Hybrid Runbook Worker must have the [GPG](https://gnupg.org/index.html) executable on the local machine.

@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# API support in Azure Static Web Apps Preview with Azure Functions
+# API support in Azure Static Web Apps with Azure Functions
 
 Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
 
@@ -27,7 +27,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 
 - The API route prefix must be _api_.
 - The API must either be a Node.js 12, .NET Core 3.1, or Python 3.8 Azure Functions app.
-- Route rules for API functions only support [redirects](routes.md#redirects) and [securing routes with roles](routes.md#securing-routes-with-roles).
+- Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
 - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Input and output [bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are supported.
 - Logs are only available if you add [Application Insights](../azure-functions/functions-monitoring.md) to your Functions app.

@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 ---
 
-# Tutorial: Publish a Gatsby site to Azure Static Web Apps Preview
+# Tutorial: Publish a Gatsby site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
@@ -83,10 +83,10 @@ The following steps show you how to create a new static site app and deploy it t
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Click **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
+1. Click **Static Web Apps**
 1. Click **Create**
 
-   :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
+   :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Create a Static Web Apps in the portal":::
 
 1. For _Subscription_, accept the subscription that is listed or select a new one from the drop-down list.
 

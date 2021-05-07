@@ -85,7 +85,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 This first response could take up to 2 minutes. From now on, they should display output almost immediately.
 
-From a computer that has the Azure CLI installed (like your local machine), simulate an eviction using [az vm simulate-eviction](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Replace the resource group name and VM name with your own. 
+From a computer that has the Azure CLI installed (like your local machine), simulate an eviction using [az vm simulate-eviction](/cli/azure/vm#az_vm_simulate_eviction). Replace the resource group name and VM name with your own. 
 
 ```azurecli-interactive
 az vm simulate-eviction --resource-group mySpotRG --name mySpot

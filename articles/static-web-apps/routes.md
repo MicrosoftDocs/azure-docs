@@ -9,17 +9,17 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# Routes in Azure Static Web Apps Preview
+# Routes in Azure Static Web Apps
 
 > [!IMPORTANT]
 > Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
 
-Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs<sup>1</sup>. The rules are defined as an array of rules in the _staticwebapp.config.json_ file.
+Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs<sup>1</sup>. The rules are defined as an array of rules in the _routes.json_ file.
 
-- The _staticwebapp.config.json_ file must exist at the root of app's build artifact folder.
+- The _routes.json_ file must exist at the root of app's build artifact folder.
 - Rules are executed in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. Routing rules are not chained together.
-- Roles are defined in the _staticwebapp.config.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
+- Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
 - You have full control over role names.
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
@@ -29,11 +29,11 @@ See the [example route file](#example-route-file) for details.
 ## Location
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#file-location).
 
-The _staticwebapp.config.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _staticwebapp.config.json_ file needs to exist in that specific folder.
+The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
 
-The following table lists the appropriate location to put your _staticwebapp.config.json_ file for a number of front-end frameworks and libraries.
+The following table lists the appropriate location to put your _routes.json_ file for a number of front-end frameworks and libraries.
 
 | Framework / library | Location  |
 | ------------------- | --------- |
@@ -50,7 +50,7 @@ The above table is only representative of a few frameworks and libraries compati
 > [!IMPORTANT]
 > Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
 
-Routes are defined in the _staticwebapp.config.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.
+Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.
 
 | Rule property  | Required | Default value | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | -------------- | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -62,7 +62,7 @@ Routes are defined in the _staticwebapp.config.json_ file as an array of route r
 ## Securing routes with roles
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#securing-routes-with-roles).
 
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example route file](#example-route-file) for usage examples.
 
@@ -90,7 +90,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 ## Wildcards
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#wildcards).
 
 Wildcard rules match all requests under a given route pattern. If you define a `serve` value in your rule, the named file or path is served as the response.
 
@@ -120,7 +120,7 @@ You can also secure routes with wildcards. In the following example, any file re
 ## Fallback routes
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#fallback-routes).
 
 Single Page Applications, whether they are using front-end JavaScript frameworks or libraries or WebAssembly platforms like Blazor, often rely on client-side routing for web app navigation. These client-side routing rules update the browser's window location without making requests back to the server. If you refresh the page, or navigate directly to locations generated by client-side routing rules, a server-side fallback route is required to serve the appropriate HTML page.
 
@@ -170,9 +170,9 @@ Redirects also work with paths that don't define distinct files.
 ## Custom error pages
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#response-overrides).
 
-Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _staticwebapp.config.json_ file.
+Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
 
 > [!NOTE]
 > Once a request makes it to the platform overrides level, route rules are not run again.
@@ -192,7 +192,7 @@ The following table lists the available platform error overrides:
 ## Custom mime types
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
 The `mimeTypes` object, listed at the same level as the `routes` array, allows you to associate [MIME types](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) with file extensions.
 
@@ -218,7 +218,7 @@ The following considerations are important as you work with MIME types:
 ## Default headers
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
 The `defaultHeaders` object, listed at the same level as the `routes` array, allows you to add, modify, or remove [response headers](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -243,14 +243,14 @@ The following considerations are important as you work with headers:
 - Null or empty values remove a header from processing.
 - Keys or values cannot exceed 8,000 characters.
 - Defined headers are served with all requests.
-- Headers defined in _staticwebapp.config.json_ only apply to static content. You can customize response headers of a API endpoint in the function's code.
+- Headers defined in _routes.json_ only apply to static content. You can customize response headers of a API endpoint in the function's code.
 
 ## Example route file
 
 > [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
-The following example shows how to build route rules for static content and APIs in a _staticwebapp.config.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
+The following example shows how to build route rules for static content and APIs in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
 
 ```json
 {
@@ -337,8 +337,8 @@ All responses include the `content-security-policy` headers with a value of `def
 
 ## Restrictions
 
-- The _staticwebapp.config.json_ file cannot be more than 100 KB
-- The _staticwebapp.config.json_ file supports a maximum of 50 distinct roles
+- The _routes.json_ file cannot be more than 100 KB
+- The _routes.json_ file supports a maximum of 50 distinct roles
 
 See the [Quotas article](quotas.md) for general restrictions and limitations.
 
