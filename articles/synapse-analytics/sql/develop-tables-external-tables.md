@@ -25,12 +25,15 @@ The key differences between Hadoop and native external tables are presented in t
 | --- | --- | --- |
 | Dedicated SQL pool | Available | **Preview** |
 | Serverless SQL pool | Not available | Available |
-| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Delimited/CSV and Parquet |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless pool: Delimited/CSV, Parquet, and Delta Lake(preview)<br/>Dedicated pool: Parquet |
 | Folder partition elimination | No | Only for the partitioned tables synchronized from the Apache Spark pools in Synapse workspace to the serverless SQL pools |
-| Custom format for location | No | Only in serverless SQL pools using wildcards like `/year=*/month=*/day=*` |
+| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only in serverless SQL pools when specified `/**` at the end of the location path |
-| Storage filter pushdown | No | Yes. For the string pushdown you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
+| Storage filter pushdown | No | Yes in serverless SQL pool. For the string pushdown you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
+
+> [!NOTE]
+> The native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -47,9 +50,9 @@ You can use external tables to:
 
 You can create external tables in Synapse SQL pools via the following steps:
 
-1. CREATE EXTERNAL DATA SOURCE
-2. CREATE EXTERNAL FILE FORMAT
-3. CREATE EXTERNAL TABLE
+1. [CREATE EXTERNAL DATA SOURCE](#create-external-data-source) to reference an external Azure storage and specify the credential that should be used to access the storage.
+2. [CREATE EXTERNAL FILE FORMAT](#create-external-file-format) to describe format of CSV or Parquet files.
+3. [CREATE EXTERNAL TABLE](#create-external-table) on top of the files placed on the data source with the same file format.
 
 ### Security
 
@@ -95,7 +98,7 @@ WITH
 
 ### Arguments for CREATE EXTERNAL DATA SOURCE
 
-data_source_name
+#### data_source_name
 
 Specifies the user-defined name for the data source. The name must be unique within the database.
 
