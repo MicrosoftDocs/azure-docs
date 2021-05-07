@@ -59,6 +59,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
 | - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
 | - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | Not Available |
+| - [Hunting](/azure/sentinel/hunting) | GA | GA |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
 |- [SOC incident audit metrics](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
 |- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
@@ -186,15 +187,15 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |- |Not Available |
 | - Office 365 DoD |- | Not Available|
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                                      |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)**                                      |              |                      |
 | - Office 365 GCC | GA| -|
 | - Office 365 GCC High |-|GA |
 | - Office 365 DoD |- |GA |
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)** <br>Shadow IT logs                                  |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)** <br>Shadow IT logs                                  |              |                      |
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |-|Public Preview |
 | - Office 365 DoD |- |Public Preview |
-| **[Microsoft Cloud App Support (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
+| **[Microsoft Cloud App Security (MCAS)](/azure/sentinel/connect-cloud-app-security)**                  <br>Alerts                    |              |                      |
 | - Office 365 GCC | Public Preview| -|
 | - Office 365 GCC High |-|Public Preview |
 | - Office 365 DoD |- |Public Preview |

@@ -137,14 +137,14 @@ You can create and manage read replicas using the [Azure REST API](/rest/api/azu
    }
    ```
 
-2. [Restart the server](/rest/api/postgresql/servers/restart) to apply the change.
+2. [Restart the server](/rest/api/postgresql/singleserver/servers/restart) to apply the change.
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
 ### Create a read replica
-You can create a read replica by using the [create API](/rest/api/postgresql/servers/create):
+You can create a read replica by using the [create API](/rest/api/postgresql/singleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaName}?api-version=2017-12-01
@@ -172,14 +172,14 @@ A replica is created by using the same compute and storage settings as the maste
 > Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
-You can view the list of replicas of a primary server using the [replica list API](/rest/api/postgresql/replicas/listbyserver):
+You can view the list of replicas of a primary server using the [replica list API](/rest/api/postgresql/singleserver/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### Stop replication to a replica server
-You can stop replication between a primary server and a read replica by using the [update API](/rest/api/postgresql/servers/update).
+You can stop replication between a primary server and a read replica by using the [update API](/rest/api/postgresql/singleserver/servers/update).
 
 After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -196,7 +196,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### Delete a primary or replica server
-To delete a primary or replica server, you use the [delete API](/rest/api/postgresql/servers/delete):
+To delete a primary or replica server, you use the [delete API](/rest/api/postgresql/singleserver/servers/delete):
 
 When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 

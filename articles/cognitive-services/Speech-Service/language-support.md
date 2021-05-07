@@ -409,25 +409,30 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 ### Customization
 
-Custom Voice is available in the standard and the neural tier. The languages supported are different for these two tiers. 
+Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Check below for the languages supported. 
 
-| Language | Locale | Standard | Neural |
-|--|--|--|--|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
-| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
-| English (Australia) | `en-AU` | No | Yes |
-| English (India) | `en-IN` | Yes | Yes |
-| English (United Kingdom) | `en-GB` | Yes | Yes |
-| English (United States) | `en-US` | Yes | Yes |
-| French (Canada) | `fr-CA` | No | Yes |
-| French (France) | `fr-FR` | Yes | Yes |
-| German (Germany) | `de-DE` | Yes | Yes |
-| Italian (Italy) | `it-IT` | Yes | Yes |
-| Japanese (Japan) | `ja-JP` | No | Yes |
-| Korean (Korea) | `ko-KR` | No | Yes |
-| Portuguese (Brazil) | `pt-BR` | Yes | Yes |
-| Spanish (Mexico) | `es-MX` | Yes | Yes |
-| Spanish (Spain) | `es-ES` | No | Yes |
+> [!IMPORTANT]
+> The standard tier including the statistical parametric and the concatenative training methods of custom voice is being deprecated and will be retired on 2/29/2024. If you are using non-neural/standard Custom Voice, migrate to Custom Neural Voice immediately to enjoy the better quality and deploy the voices responsibly. 
+
+| Language | Locale | Neural |
+|--|--|--|
+| Bulgarian (Bulgaria)| `bg-BG` | Yes |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
+| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
+| Dutch (Netherlands)	| `nl-NL` | Yes |
+| English (Australia) | `en-AU` | Yes |
+| English (India) | `en-IN` | Yes |
+| English (United Kingdom) | `en-GB` | Yes |
+| English (United States) | `en-US` | Yes |
+| French (Canada) | `fr-CA` | Yes |
+| French (France) | `fr-FR` | Yes |
+| German (Germany) | `de-DE` | Yes |
+| Italian (Italy) | `it-IT` | Yes |
+| Japanese (Japan) | `ja-JP` | Yes |
+| Korean (Korea) | `ko-KR` | Yes |
+| Portuguese (Brazil) | `pt-BR` | Yes |
+| Spanish (Mexico) | `es-MX` | Yes |
+| Spanish (Spain) | `es-ES` | Yes |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 

@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-ms.date: 1/12/2021
+ms.date: 04/29/2021
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ The console supports the following certificate types:
 
 ### Sign in and activate the sensor
 
-To sign in and activate:
+**To sign in and activate:**
 
 1. Go to the sensor console from your browser by using the IP defined during the installation. The sign-in dialog box opens.
 
@@ -97,7 +97,7 @@ For information about uploading a new certificate, supported certificate paramet
 
 #### Update sensor network configuration before activation  
 
-The sensor network configuration parameters were defined during the software installation or when you purchased a preconfigured sensor. The following parameters were defined:
+The sensor network configuration parameters were defined during the software installation, or when you purchased a preconfigured sensor. The following parameters were defined:
 
 - IP address
 - DNS
@@ -107,13 +107,35 @@ The sensor network configuration parameters were defined during the software ins
 
 You might want to update this information before activating the sensor. For example, you might need to change the preconfigured parameters defined by Arrow. You can also define proxy settings before activating your sensor.
 
-To update sensor network configuration parameters:
+**To update sensor network configuration parameters:**
 
 1. Select the **Sensor Network Configuration** link form the **Activation** dialog box.
 
    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/editable-network-configuration-screen-v2.png" alt-text="Sensor Network Configuration.":::
 
 2. The parameters defined during installation are displayed. The option to define the proxy is also available. Update any settings as required and select **Save**.
+
+### Activate an expired license (versions under 10.0)
+
+For users with versions prior to 10.0, your license may expire, and the following alert will be displayed. 
+
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="When your license expires you will need to update your license through the activation file.":::
+
+**To activate your license:**
+
+1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+
+1. Supply support with your Activation ID number.
+
+1. Support will supply you with new license information in the form of a string of letters.
+
+1. Read the terms and conditions, and check the checkbox to approve.
+
+1. Paste the string into space provided.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/add-license.png" alt-text="Paste the string into the provided field.":::
+
+1. Select **Activate**.
 
 ### Subsequent sign-ins
 
@@ -151,7 +173,7 @@ After adjusting the system settings, you can let the Azure Defender for IoT sens
 
 The learning mode should run for about 2 to 6 weeks, depending on your network size and complexity. After you disable learning mode, any activity that differs from your baseline activity will trigger an alert.
 
-To disable learning mode:
+**To disable learning mode:**
 
 - Select **System Settings** and turn off the **Learning** option.
 
