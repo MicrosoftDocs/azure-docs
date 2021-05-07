@@ -79,9 +79,9 @@ items:
   - name: Control Plane SDK
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/iot/management?view=azure-dotnet&preserve-view=true
+        href: /dotnet/api/overview/azure/iot/management
       - name: Python
-        href: /python/api/azure-mgmt-deviceupdate/?view=azure-python&preserve-view=true
+        href: /python/api/azure-mgmt-deviceupdate/
   - name: Data Plane SDK
     items:
       - name: JavaScript
