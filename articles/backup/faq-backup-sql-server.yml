@@ -4,7 +4,7 @@ metadata:
   description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: conceptual
-  ms.date: 05/06/2021
+  ms.date: 05/07/2021
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
@@ -32,14 +32,14 @@ sections:
           - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
           
       - question: |
-          Is it possible to cancel an auto-heal backup job?
+          Can I cancel an auto-heal backup job?
         answer: |
-          No, you can’t cancel an auto-heal job. However, you could choose to opt-out of it by following these steps: 
+          No, you can’t cancel an auto-heal job. However, you can opt-out of it by following these steps: 
           Auto-heal as a capability is enabled for all users by default. However if you choose to opt-out of it, then perform the following steps:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
           1. In the **ExtensionSettingsOverrides.json** file, set *{"EnableAutoHealer": false}*.
-          1. Save the changes, and close the file.
+          1. Save the changesl and close the file.
           1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
           
       - question: |
