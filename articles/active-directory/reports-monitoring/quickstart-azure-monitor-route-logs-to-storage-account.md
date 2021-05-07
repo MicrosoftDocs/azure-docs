@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -38,9 +38,9 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
+2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
 
-3. Select **Export Settings**. 
+3. Select **Export Data Settings**. 
 
 4. In the **Diagnostics settings** pane, do either of the following:
    * To change existing settings, select **Edit setting**.
