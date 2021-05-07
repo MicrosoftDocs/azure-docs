@@ -81,7 +81,7 @@ A browser window should be opened to your app automatically. If it does not, ope
 
 ## Register your application
 
-Follow the steps in [Single-page application: App registration](./scenario-spa-app-registration.md) to create an app registration for your SPA in the Azure Portal.
+Follow the steps in [Single-page application: App registration](./scenario-spa-app-registration.md) to create an app registration for your SPA by using the Azure portal.
 
 In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) step, enter `http://localhost:3000`, the default location where create-react-app will serve your application.
 
@@ -160,7 +160,7 @@ Create a folder in *src* called *components* and create a file inside this folde
 
 ### Sign in using popups
 
-Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a popup login when clicked:
+Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a popup login when selected:
 
 ```jsx
 import React from "react";
