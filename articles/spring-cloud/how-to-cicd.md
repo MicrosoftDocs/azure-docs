@@ -6,21 +6,21 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # CI/CD for Azure Spring Cloud
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs.
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
 
-This article shows you how to use an Azure CLI task with Azure Spring Cloud to integrate with Azure DevOps.
+This article shows you how to use the Azure Spring Cloud task for Azure Pipelines to deploy applications.
 
 ## Create an Azure Resource Manager service connection
 
 Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
-## Azure CLI pipeline templates
+## Build and Deploy Apps
 
 ::: zone pivot="programming-language-csharp"
 ### Deploy artifacts
