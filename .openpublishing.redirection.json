@@ -47351,6 +47351,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": false
