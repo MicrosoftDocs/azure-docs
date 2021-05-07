@@ -1,5 +1,5 @@
 ---
-title: Deploy models with custom Docker image
+title: Deploy a custom container as a managed online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container to leverage open source servers in Azure Machine Learning
 services: machine-learning
@@ -38,7 +38,7 @@ To file bugs that are related to MIRv2 more broadly, use [this template](https:/
 ```azurecli-interactive
 # Install Azure CLI
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-az upgrade
+az --version # Needs to be >= 2.15.0
 az extension remove -n ml; az extension remove -n azure-cli-ml
 az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.75-py3-none-any.whl \
      --pip-extra-index-urls https://azuremlsdktestpypi.azureedge.net/sdk-cli-v2 -y
@@ -74,7 +74,15 @@ Once the script finishes running, open up the Azure portal and click on the endp
 
 ## Deploy Triton ensemble model
 
-To deploy a Triton ensemble model, run the script below.
+To deploy a Triton ensemble model, first install some required python packages:
+
+```azurecli-interactive
+pip install nvidia-pyindex
+pip install tritonclient[http] gevent
+pip install numpy
+```
+
+Then run the script below.
 
 ```azurecli-interactive
 ./how-to-deploy-triton.sh
