@@ -62,7 +62,7 @@ The following changes will happen in upcoming releases.
 
 ### HDInsight Interactive Query only supports schedule-based Autoscale
 
-As customers scenario grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issue and LLAP scheduler unable to redistribute the tasks issue. Due to these limitations, customers may see their queries run slower on Autoscale enabled LLAP clusters to the point that the impact on performance starts to outweigh any cost benefits of Autoscale.
+As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The impact on performance can outweigh the cost benefits of Autoscale.
 
 Starting from May 15 2021, HDInsight will only support schedule-based Autoscale for Interactive Query workload. New Interactive Query clusters can’t enable load-based Autoscale. Existing running clusters can continue to run under above limitations. 
 
