@@ -32,7 +32,7 @@ The key differences between Hadoop and native external tables are presented in t
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 > [!NOTE]
-> The native external tables on Delta Lake format are in public preview. CETAS does not support exporting content in Delta Lake format.
+> The native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
