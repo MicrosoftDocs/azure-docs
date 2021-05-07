@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/07/2021
 ---
 
-# Create a custom event trigger to run a pipeline in Azure Data Factory (Preview)
+# Create a custom event trigger to run a pipeline in Azure Data Factory (preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Data Factory customers to trigger pipelines when certain events occur. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an event grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
+Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Azure Data Factory customers to trigger pipelines when certain events occur. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an event grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.
 
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more information, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the `Microsoft.EventGrid/eventSubscriptions/` action. This action is part of the [EventGrid EventSubscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) built-in role.
@@ -59,9 +59,9 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. Select **Trigger** on the menu and then select **New/Edit**.
 
-1. On the **Add Triggers** page, select **Choose trigger...**, and then select **+New**.
+1. On the **Add Triggers** page, select **Choose trigger**, and then select **+New**.
 
-1. Select **Custom events** as the **Type**.
+1. Select **Custom events** for **Type**.
 
    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-1-creation.png" alt-text="Screenshot of Author page to create a new custom event trigger in Data Factory UI." lightbox="media/how-to-create-custom-event-trigger/custom-event-1-creation-expanded.png":::
 
@@ -101,10 +101,10 @@ The following table provides an overview of the schema elements that are related
 
 ## Role-based access control
 
-Azure Data Factory uses Azure role-based access control (Azure RBAC) to prohibit unauthorized access. To function properly, Data Factory requires access to:
-- Listen to events
-- Subscribe to updates from events
-- Trigger pipelines linked to custom events
+Azure Data Factory uses Azure RBAC to prohibit unauthorized access. To function properly, Data Factory requires access to:
+- Listen to events.
+- Subscribe to updates from events.
+- Trigger pipelines linked to custom events.
 
 To successfully create or update a custom event trigger, you need to sign in to Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
 
