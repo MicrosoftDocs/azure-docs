@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 05/06/2021
 ms.author: ginle
 ---
+
 # How to validate FHIR resources against profiles
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
@@ -23,10 +24,12 @@ A profile sets additional context on the resource, usually represented as a `Str
 ```rest
 http://hl7.org/fhir/StructureDefinition/{resource}
 ```
+
 Where in the `{resource}` field, you specify the name of the profile.
 
 For example:
--  `http://hl7.org/fhir/StructureDefinition/patient-birthPlace` 
+
+- `http://hl7.org/fhir/StructureDefinition/patient-birthPlace`
 is a base profile that requires information on the registered address of birth of the patient.
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and identifies mandatory fields such as extensions and value sets.
@@ -42,6 +45,7 @@ There are two types of profiles: base profile and custom profile. A base profile
 ...
 }
 ```
+
 A custom profile is a set of additional constraints on top of a base profile, restricting or adding resource parameters that are not part of the base specification. Custom profile is useful because you can customize your own resource definitions by specifying the constraints and extensions on the existing base resource. For example, you might want to build a profile that shows `AllergyIntolerance` resource instances based on `Patient` genders, in which case you would create a custom profile on top of an existing `Patient` profile with `AllergyIntolerance` profile.
 
 > !NOTE
@@ -51,10 +55,10 @@ Custom profiles also specified by various Implementation Guides. Some common Imp
 
 |Name |URL
 |---- |----
-Us Core |https://www.hl7.org/fhir/us/core/ 
-CARIN Blue Button |http://hl7.org/fhir/us/carin-bb/ 
-Da Vinci Payer Data Exchange |http://hl7.org/fhir/us/davinci-pdex/
-Argonaut |http://www.fhir.org/guides/argonaut/pd/ 
+Us Core |<https://www.hl7.org/fhir/us/core/>
+CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
+Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
+Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ## Accessing profiles and storing profiles
 
@@ -76,7 +80,7 @@ GET http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.o
 
 ### Storing profiles
 
-For storing profiles to the server, you can do a `POST` request: 
+For storing profiles to the server, you can do a `POST` request:
 
 ```rest
 POST http://<your FHIR service base URL>/{Resource}
@@ -120,12 +124,15 @@ Most profiles have the resource type `StructureDefinition`, but they can also be
     ],
 ...
 ```
-### Profiles in the capability statement
-The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as `StructureDefinition`s and `ValueSet`s. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
-- `CapabilityStatement.rest.resource.profile` 
-- `CapabilityStatement.rest.resource.supportedProfile` 
 
-These will show all of the specification for the profile that describes the overall support for the resource, including any constraints on cardinality, bindings, extensions, or other restrictions. Therefore, when you `POST` a profile in the form of a `StructureDefinition`, and `GET` the resource metadata to see the full capability statement, you will see next to the `supportedProfiles` parameter all the details on the profile you uploaded. 
+### Profiles in the capability statement
+
+The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as `StructureDefinition`s and `ValueSet`s. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
+
+- `CapabilityStatement.rest.resource.profile`
+- `CapabilityStatement.rest.resource.supportedProfile`
+
+These will show all of the specification for the profile that describes the overall support for the resource, including any constraints on cardinality, bindings, extensions, or other restrictions. Therefore, when you `POST` a profile in the form of a `StructureDefinition`, and `GET` the resource metadata to see the full capability statement, you will see next to the `supportedProfiles` parameter all the details on the profile you uploaded.
 
 ## Validating resources against the profiles
 
@@ -133,7 +140,7 @@ FHIR resources, such as `Patient` or `Observation`, can express their conformanc
 
 There are two ways for you to validate your resource. First, you can use `$validate` operation against a resource that is already in the FHIR server. Second, you can `POST` it to the server as part of a resource `Update` or `Create` operation. In both cases, you can decide via your FHIR server configuration what to do when the resource does not conform to your desired profile.
 
-### Using $validate 
+### Using $validate
 
 The `$validate` operation checks whether the provided profile is valid, and whether the resource conforms to the specified profile. As mentioned in the [HL7 FHIR specifications](https://www.hl7.org/fhir/resource-operation-validate.html), you can also specify the `mode` for `$validate`, such as `create` and `update`:
 
@@ -156,7 +163,7 @@ For example:
 GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate
 ```
 
-In the example above, you would be validating the existng `Patient` resource `a6e11662-def8-4dde-9ebc-4429e68d130e`. If it is valid, you will get an `OperationOutcome` such as the following:
+In the example above, you would be validating the existing `Patient` resource `a6e11662-def8-4dde-9ebc-4429e68d130e`. If it is valid, you will get an `OperationOutcome` such as the following:
 
 ```json
 {
@@ -215,7 +222,7 @@ If the resource is not valid, you will get an error code and an error message wi
 
 In this example above, the resource did not conform to the provided `Patient` profile which required a patient identifier value and gender.
 
-If you would like to specify a profile as a parameter, you have an option to specify the canonical URL for the profile to validate against, such as the following example with US Core `Patient` profile and a base profile for `heartrate`:
+If you would like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example with US Core `Patient` profile and a base profile for `heartrate`:
 
 ```rest
 GET http://<your FHIR service base URL>/{Resource}/{Resource ID}/$validate?profile={canonicalUrl}
@@ -238,7 +245,7 @@ POST http://<your FHIR service base URL>/{Resource}/$validate
 
 For example:
 
-```rest 
+```rest
 POST http://my-fhir-server.azurewebsites.net/Patient/$validate 
 ```
 
@@ -257,16 +264,17 @@ You can choose when you would like to validate your resource, such as on resourc
         }
 }
 ```
+
 If the resource conforms to the provided `Resource.meta.profile` and the profile is present in the system, the server will act accordingly to the configuration setting above. If the provided profile is not present in the server, the validation request will be ignored and left in `Resource.meta.profile`.
-Validation can be quite expensive, so it is usually run only on test servers or on a small subset of resources - which is why it is important to have these ways to turn the validation operation on or off validation on the server side. If the server configuration specifies to opt out of validation on resource Create/Update, user can override the behavior by specifying it in the `header` of the Create/Update request:
+Validation is usually an expensive operation, so it is usually run only on test servers or on a small subset of resources - which is why it is important to have these ways to turn the validation operation on or off validation on the server side. If the server configuration specifies to opt out of validation on resource Create/Update, user can override the behavior by specifying it in the `header` of the Create/Update request:
+
 ```rest
 x-ms-profile-validation: true
 ```
 
-
 ## Next steps
 
-In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about Azure API for FHIR's other supported features, check out this page:
+In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about Azure API for FHIR's other supported features, check out:
 
 >[!div class="nextstepaction"]
 >[FHIR supported features](fhir-features-supported.md)
