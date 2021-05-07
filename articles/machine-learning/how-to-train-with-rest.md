@@ -1,6 +1,7 @@
 ---
 title: 'Train models with REST'
-description: Learn how to train models and create jobs with REST.
+titleSuffix: Azure Machine Learning
+description: Learn how to train models and create jobs with REST APIs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -110,7 +111,7 @@ Now that you have the datastore, you can create a dataset. For this example, use
 
 ### Code
 
-Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure Portal or Azure Storage Explore
+Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
 
 
 ```bash
