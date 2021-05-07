@@ -33,13 +33,13 @@ The following table contrasts the differences between using managed and existing
 
 ## Example
 
-Consider an existing Azure Functions that exposes an endpoint via the following location.
+Consider an existing Azure Functions app that exposes an endpoint via the following location.
 
 ```url
 https://my-functions-app.azurewebsites.net/api/getProducts
 ```
 
-Once linked, you can access that same endpoint through the `api` path from your static web app, as shown the following example URL.
+Once linked, you can access that same endpoint through the `api` path from your static web app, as shown in this example URL.
 
 ```url
 https://red-sea-124.azurestaticapps.net/api/getProducts
@@ -83,7 +83,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
   > [!NOTE]
   > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
 
-- **Required public accessibility:** The Functions app must be publicly accessible. Therefore, you must use an existing Functions app that does not use the following security configurations.
+- **Required public accessibility:** An existing Functions app needs to not apply the following security configurations.
   - Restriction the IP address of the Functions app.
   - Restricting traffic through private link or service endpoints.
 
@@ -94,7 +94,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
 - Only supported in the Static Web Apps production environment.
-- While your Azure Functions app may respond to a variety of triggers, the Static Web App can only access functions via Http endpoints.
+- While your Azure Functions app may respond to various triggers, the Static Web App can only access functions via Http endpoints.
 
 ## Next steps
 
