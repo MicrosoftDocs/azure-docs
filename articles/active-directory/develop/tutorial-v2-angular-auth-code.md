@@ -166,7 +166,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 1. Replace the placeholder code in *src/app/app.component.html* with the following:
 
-    ```javascript
+    ```HTML
     <mat-toolbar color="primary">
       <a class="title" href="/">{{ title }}</a>
 
@@ -237,7 +237,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 3. (OPTIONAL) Add CSS to *src/style.css*:
 
-    ```javascript
+    ```css
     @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
     html, body { height: 100%; }
@@ -247,7 +247,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 4. (OPTIONAL) Add CSS to *src/app/app.component.css*:
 
-    ```javascript
+    ```css
     .toolbar-spacer {
         flex: 1 1 auto;
       }
@@ -833,7 +833,7 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 3. Replace the UI in *src/app/profile/profile.component.html* to display profile information: 
 
-    ```javascript
+    ```HTML
     <div>
         <p><strong>First Name: </strong> {{profile?.givenName}}</p>
         <p><strong>Last Name: </strong> {{profile?.surname}}</p>
