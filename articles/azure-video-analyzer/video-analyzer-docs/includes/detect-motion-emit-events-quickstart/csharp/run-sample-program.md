@@ -84,7 +84,7 @@ Follow these steps to run the sample code:
    - A second call to `livePipelineList` that shows that the pipeline instance is in the running state.
 
 1. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The live pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
 
    The next series of calls cleans up resources:
