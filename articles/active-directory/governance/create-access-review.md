@@ -110,8 +110,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     To learn more about best practices for removing guest users who no longer have access to resources in your organization read the article titled [Use Azure AD Identity Governance to review and remove external users who no longer have resource access.](access-reviews-external-users.md)
 
 
-   > [!NOTE]
-   > Action to apply on denied guest users isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
+    > [!NOTE]
+    > Action to apply on denied guest users isn't configurable on reviews scoped to more than guest users. It's also not configurable for reviews of **All Microsoft 365 groups with guest users.** When not configurable, the default option of removing user's membership from the resource is used on denied users.
 
 13. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
 
