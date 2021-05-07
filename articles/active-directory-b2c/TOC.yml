@@ -282,6 +282,8 @@
       href: conditional-access-user-flow.md
   - name: Configure age gating
     href: age-gating.md
+  - name: Threat management
+    href: threat-management.md
   - name: API connectors
     items:
     - name: Add an API connector to a sign-up user flow
@@ -538,8 +540,6 @@
       href: ../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     - name: Monitoring and analytics
       href: ../active-directory/fundamentals/resilience-with-monitoring-alerting.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
-  - name: Threat management
-    href: threat-management.md
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
