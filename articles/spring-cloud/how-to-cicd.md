@@ -25,7 +25,7 @@ Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn h
 ::: zone pivot="programming-language-csharp"
 ### Deploy artifacts
 
-You can build and deploy your projects using a series of `tasks`. This snippet defines variables, a .NET Core task to build the application, and an Azure CLI task to deploy the *.zip* file.
+You can build and deploy your projects using a series of tasks. This snippet defines variables, a .NET Core task to build the application, and an Azure Spring Cloud task to deploy the application.
 
 ```yaml
 variables:
