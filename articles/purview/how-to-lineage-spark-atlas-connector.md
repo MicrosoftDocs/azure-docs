@@ -74,7 +74,7 @@ The following steps are documented based on DataBricks as an example:
     atlas.kafka.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<connection string got from your Purview account>";
     ```
     
-    c.	Make sure the atlas configuration file is in the Driver’s classpath  generated in [step 1 Generate package section above](../purview/how-to-lineage-spark-atlas-connector.md###step-1.-prepare-spark-atlas-connector-package). In cluster mode, ship this config file to the remote Drive *--files atlas-application.properties*
+    c.	Make sure the atlas configuration file is in the Driver’s classpath  generated in [step 1 Generate package section above](../purview/how-to-lineage-spark-atlas-connector.md#step-1.-prepare-spark-atlas-connector-package). In cluster mode, ship this config file to the remote Drive *--files atlas-application.properties*
 
 
 ### Step 2. Prepare your Purview account
@@ -123,7 +123,7 @@ To capture specific jobs’ lineage, use spark-submit to kick off a job with the
 * Path of the connector Jar file. 
 * Three listeners: extraListeners, queryExecutionListeners, streamingQueryListeners as the connector. 
 
-| Listener | |
+| Listener | Details |
 | ------------------- | ------------------- | 
 | spark.extraListeners	| com.hortonworks.spark.atlas.SparkAtlasEventTracker|
 | spark.sql.queryExecutionListeners	| com.hortonworks.spark.atlas.SparkAtlasEventTracker
