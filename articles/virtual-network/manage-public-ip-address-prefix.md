@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Create, change, or delete a public IP address prefix
 
-Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of standard SKU public IP addresses.  When you create a public IP address resource, you can assign a static public IP address from the prefix and associate the address to virtual machines, load balancers, or other resources, to enable internet connectivity. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).
+Learn about a public IP address prefix. A public IP address prefix is a contiguous range of standard SKU public IP addresses.  When you create a public IP address resource, you can assign a static public IP from the prefix and associate the address to Azure resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).
 
 ## Create a public IP address prefix
 
@@ -28,7 +28,7 @@ The following section details the parameters when creating a public IP prefix.
    |IP version|Yes| IP version of the prefix (v4 or v6).
    |Prefix size|Yes| The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default.
 
-Alternatively, you may use the CLI and PS commands below to create a Public IP address prefix.
+Instead, you may use the CLI and PowerShell commands below to create a public IP address prefix.
 
 **Commands**
 
@@ -48,9 +48,9 @@ The following section details the parameters required when creating a static pub
    |---|---|---|
    |Name|Yes|The name of the public IP address must be unique within the resource group you select.|
    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
-   |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.azure.com* (where location is the location you select) to the name you provide, to create the fully qualified DNS name.For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet *location.cloudapp.azure.com* to the name you provide to create the fully qualified DNS name. For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
-Alternatively you may use the CLI and PS commands below with the --public-ip-prefix (CLI) and -PublicIpPrefix (PS) parameters, to create a Public IP address resource. 
+Instead you may use the CLI and PowerShell commands below with the **--public-ip-prefix (CLI)** and **-PublicIpPrefix (PowerShell)** parameters, to create a public IP address resource. 
 
 |Tool|Command|
 |---|---|
@@ -73,7 +73,7 @@ To view or delete a prefix, the following commands can be used in Azure CLI and 
 
 ## Permissions
 
-To perform tasks on public IP address prefixes, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate actions listed in the following table:
+For permissions to manage public IP address prefixes, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role. 
 
 | Action                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
