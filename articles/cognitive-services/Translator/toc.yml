@@ -58,7 +58,7 @@
       href: containers/translator-container-configuration.md
     - name: Use container instances
       href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/translator/context/context
-    - name: Container reference:\ supported translation parameters
+    - name: "Reference: supported translation parameters"
       href: containers/translator-container-supported-parameters.md
     - name: Cognitive Services containers documentation
       href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context
