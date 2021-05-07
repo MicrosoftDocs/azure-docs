@@ -50711,6 +50711,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-iw-add-users.md",
       "redirect_url": "/azure/active-directory/b2b/add-users-information-worker",
       "redirect_document_id": true
@@ -52656,9 +52661,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/b2b/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-guest-to-role",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/b2b/add-users-information-worker.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-information-worker",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/b2b/add-users-administrator.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
