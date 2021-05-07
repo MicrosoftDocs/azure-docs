@@ -61,7 +61,7 @@ To configure a custom domain for services that use a public IP address resource 
 
     | Property | Value | Description |
     | -------- | ----- | ------------|
-    | Name | mywebserver | This value along with the domain name label is the FQDN for the custom domain name. |
+    | Name | mywebserver1 | This value along with the domain name label is the FQDN for the custom domain name. |
     | Type | A | Use an A record as the resource is an IP address. |
     | TTL | 1 | 1 is used for 1 hour |
     | TTL unit | Hours | Hours are used as the time measurement |
