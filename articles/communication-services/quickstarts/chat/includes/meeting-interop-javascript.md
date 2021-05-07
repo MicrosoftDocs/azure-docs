@@ -51,7 +51,7 @@ This quickstart uses webpack to bundle the application assets. Run the following
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
 ```
 
-Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a call.
+Create an **index.html** file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place join a meeting and start chatting.
 
 ## Add the Teams UI controls
 
