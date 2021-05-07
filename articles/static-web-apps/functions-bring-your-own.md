@@ -31,6 +31,22 @@ The following table contrasts the differences between using managed and existing
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | | ✔ |
 | API functions available outside Azure Static Web Apps |  | ✔ |
 
+## Example
+
+Consider an existing Azure Functions that exposes an endpoint via the following location.
+
+```url
+https://my-functions-app.azurewebsites.net/api/getProducts
+```
+
+Once linked, you can access that same endpoint through the `api` path from your static web app, as shown the following example URL.
+
+```url
+https://red-sea-124.azurestaticapps.net/api/getProducts
+```
+
+ Both endpoint URLs point to the same function.
+
 ## Link an existing Azure Functions app
 
 Before you associate an existing Functions app, you first need to adjust to configuration of your static web app.
