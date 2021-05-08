@@ -152,11 +152,3 @@ landingContent:
           - text: Build a training data set
             url: build-training-data-set.md
 
-  - title: Tools
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/#cognitive_services
-          - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices#az-cognitiveservices-list

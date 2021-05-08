@@ -53,7 +53,7 @@ Build succeeded.
 
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
@@ -62,7 +62,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 > [!NOTE]
 > The Form Recognizer 3.1.0-beta.4 SDK reflects _API version 2.1-preview.3.
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
@@ -91,11 +91,11 @@ In the application's **Program** class, create variables for your resource's key
 
 In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later.
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
@@ -132,7 +132,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 <!-- markdownlint-disable MD001 -->
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze layout](#analyze-layout)
@@ -144,7 +144,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze layout](#analyze-layout)
@@ -180,11 +180,11 @@ You'll also need to add references to the URLs for your training and testing dat
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
@@ -301,7 +301,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-####  [v2.1](#tab/2.1)
+####  [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
@@ -316,7 +316,7 @@ The following code processes the business card at the given URI and prints the m
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
@@ -325,7 +325,7 @@ The following code processes the business card at the given URI and prints the m
 
 ## Analyze invoices
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
 
@@ -340,7 +340,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
@@ -349,7 +349,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 ## Analyze identity documents
 
-#### [v2.1](#tab/2.1)
+#### [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
@@ -364,7 +364,7 @@ The following code processes the identity document at the given URI and prints t
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
 
-#### [v2.0](#tab/2.0)
+#### [v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
