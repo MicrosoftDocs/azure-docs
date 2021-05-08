@@ -96,6 +96,28 @@ InsightsMetrics
 | sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated
 | render barchart 
 ```
+### Pods by name and namespace
+
+```kusto
+let startTimestamp = ago(1h);
+KubePodInventory
+| where TimeGenerated > startTimestamp
+| project ContainerID, PodName=Name, Namespace
+| where PodName contains "name" and Namespace startswith "namespace"
+| distinct ContainerID, PodName
+| join
+(
+    ContainerLog
+    | where TimeGenerated > startTimestamp
+)
+on ContainerID
+// at this point before the next pipe, columns from both tables are available to be "projected". Due to both
+// tables having a "Name" column, we assign an alias as PodName to one column which we actually want
+| project TimeGenerated, PodName, LogEntry, LogEntrySource
+| extend TimeGenerated = TimeGenerated - 21600s | order by TimeGenerated desc
+| summarize by TimeGenerated, LogEntry
+| order by TimeGenerated desc
+```
 
 ## Query Prometheus metrics data
 
