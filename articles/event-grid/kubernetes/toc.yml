@@ -1,0 +1,18 @@
+- name: Event Grid on Kubernetes documentation
+  href: index.yml
+- name: Switch to Azure Event Grid documentation
+  href: ../overview.md
+- name: Quickstarts
+  items:
+  - name: Create a topic and a subscription
+    href: create-topic-subscription.md
+- name: Concepts
+  items:
+  - name: Event handlers
+    href: event-handlers.md    
+  - name: Event schemas
+    href: event-schemas.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/eventgrid
