@@ -229,4 +229,5 @@ Now that the wildcard domain is configured, it may take several hours for the ch
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"]
+> [Configure app settings](application-settings.md)
