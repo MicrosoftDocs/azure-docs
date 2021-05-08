@@ -1,6 +1,6 @@
 ---
-title: Overview for Azure Logic Apps Preview
-description: Azure Logic Apps Preview is a cloud solution for building automated, single-tenant, stateful, and stateless workflows that integrate apps, data, services, and systems with minimal code for enterprise-level scenarios.
+title: Overview - Single-tenant Azure Logic Apps (Preview) environment
+description: Single-tenant Logic Apps Preview is a cloud platform for automating workflows that integrate apps, data, services, and systems using little to no code. With this service, your logic app workflows run in a single-tenant, shared resource environment.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
@@ -8,14 +8,24 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ---
 
-# Overview: Azure Logic Apps Preview
+# What is single-tenant Azure Logic Apps (Preview)?
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and is not recommended for production 
-> workloads. Certain features might not be supported or might have constrained capabilities. For more information, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Logic Apps Preview, you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running single-tenant logic apps with the new **Logic App (Preview)** resource type. Using this single-tenant logic app type, can build multiple [*stateful* and *stateless* workflows](#stateful-stateless) that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, including not only Azure, but also Docker containers.
+If you create a logic app that runs in the single-tenant Logic Apps (Preview) service, you can develop stateful *and* stateless automated workflows that integrate mated integration solutions that work across apps, data, cloud services, and systems by using the new **Logic App (Preview)** resource type. 
+
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated [workflows](#logic-app-concepts) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
+
+
+differs from the [multi-tenant service](logic-apps-overview.md) in that yo
+
+> [!NOTE]
+> If you're new to Azure Logic Apps in general, review [What is Azure Logic Apps], which covers 
+
+
+
+In a single logic app, you can create multiple [*stateful* and *stateless* workflows](#stateful-stateless) that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, including not only Azure, but also Docker containers.
 
 How is this possible? The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture means that you can run the single-tenant logic app type anywhere that Azure Functions runs. You can host the redesigned runtime on almost any network topology, and choose any available compute size to handle the necessary workload that's required by your workflows. For more information, see [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
 
