@@ -62,7 +62,9 @@ Template section to add:
 
 ### Zonal
 
-The code in this section creates a standard zonal public IPv4 address named **myStandardZonalPublicIP**. To create a standard zonal public IP address in Zone 2, the **"zones"** property contains a '2'.
+The code in this section creates a standard zonal public IPv4 address named **myStandardZonalPublicIP**. 
+
+To create a standard zonal public IP address in Zone 2, the **"zones"** property contains a '2'.
 
 Template section to add:
 
@@ -193,7 +195,7 @@ Public IP addresses are associated with a single region. The **Global** tier spa
 
 For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).
 
-In order to use a standard global public IPv4 address, the template section should look similar to:
+To use a standard global public IPv4 address, the template section should look similar to:
 
 ```JSON
     {
@@ -213,7 +215,7 @@ In order to use a standard global public IPv4 address, the template section shou
 
 ## Additional information 
 
-For more details on the public IP properties listed in this article, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
+For more information on the public IP properties listed in this article, see [Manage public IP addresses](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
 - Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
