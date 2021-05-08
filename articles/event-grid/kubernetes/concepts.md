@@ -74,4 +74,4 @@ Event Grid on Kubernetes provides a reliable delivery and retry mechanism. If Ev
 When using a topic, events must always be published in an array. For low throughput scenarios, the array will have only one event. For high volume use cases, we recommend that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 1 MB.
 
 ## Next steps
-To get started, see [Create topics and subscriptions](create-topics-subscriptions.md).
+To get started, see [Create topics and subscriptions](create-topic-subscription.md).
