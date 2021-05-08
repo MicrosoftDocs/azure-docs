@@ -131,7 +131,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 ## Text-to-speech
 
-Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices/list API](rest-text-to-speech.md#get-a-list-of-voices). 
+Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). 
 
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
@@ -322,6 +322,7 @@ Below neural voices are in public preview.
 | English (United States) | `en-US` | Female | `en-US-AshleyNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-CoraNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-ElizabethNeural` <sup>New</sup> | General |
+| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>New</sup> | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
 | English (United States) | `en-US` | Female | `en-US-MichelleNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Female | `en-US-MonicaNeural` <sup>New</sup> | General |
 | English (United States) | `en-US` | Kid | `en-US-AnaNeural` <sup>New</sup> | General |
@@ -332,6 +333,9 @@ Below neural voices are in public preview.
 
 > [!IMPORTANT]
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
+
+> [!TIP]
+> `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for supported languages list.
 
 For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
