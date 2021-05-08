@@ -264,7 +264,7 @@ data factory from the resources list.
 
 ## Troubleshooting
 
-Go to the backend server VM, confirm telnet the SQL Server works: **telnet <FQDN> 1433**.
+Go to the backend server VM, confirm telnet the SQL Server works: **telnet **<**FQDN**>** 1433**.
 
 ## Next steps
 
