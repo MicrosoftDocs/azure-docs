@@ -52,7 +52,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-   **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound *Nota Fiscal*, which can take up to 4 business days.
+   **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
 
    ```xml
    Subject: Request Azure Data Box Disk pickup for order: <ordername>

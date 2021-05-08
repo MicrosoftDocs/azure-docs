@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -211,7 +211,7 @@ Take the following steps if returning the device in China.
 
 | Contact information | Details |
 |---|---|
-|Name:       | Bao Ying|
+|Name:       | `Bao Ying`|
 |Designation | Senior OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3693 |
 |E-mail:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
@@ -220,7 +220,7 @@ Take the following steps if returning the device in China.
 
 | Contact information | Details |
 |---|---|
-|Name:       | He Xun|
+|Name:       | `He Xun`|
 |Designation | OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3603 |
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
