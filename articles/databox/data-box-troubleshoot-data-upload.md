@@ -146,6 +146,8 @@ Other REST API errors might occur during data uploads. For more information, see
 
 ## Review errors and proceed
 
+The order will be completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
+
 [!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
 
 

@@ -15,7 +15,7 @@ After the verification is complete, the Data Box is connected to the network in 
 
 When files fail to upload because of an non-retryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
 
-You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order. For guidance, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
 When you confirm that you've reviewed the errors and are ready to proceed, the data will be secure erased from the device. The order is completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
 

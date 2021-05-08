@@ -23,7 +23,7 @@ To review non-retryable errors and proceed with your order, do the following:
 
 3. Review the errors in the data copy log using the copy log path that you made a note of earlier. If you need to, you can select **Close** to display the path again. 
 
-   You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. For guidance, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
+   You'll need to fix any configuration issues before you try another upload via a network transfer or a new import order. <!--For guidance, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md). - To make the Include, I needed to move this reference out of the main procedure.-->
 
 4. After you review the errors, select the check box to acknowledge that you're ready to proceed with data erasure. Then select **Proceed**.
 
