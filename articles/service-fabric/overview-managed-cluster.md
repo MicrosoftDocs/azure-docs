@@ -71,7 +71,7 @@ The capabilities of managed clusters will continue to expand. Currently there is
 * [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md) and [managed disk type](how-to-managed-cluster-managed-disk.md) selection
 * Managed identity support for managed cluster [node types](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) and [application authentication](how-to-managed-cluster-application-managed-identity.md)
 * [NSG rules and other networking options](how-to-managed-cluster-networking.md)
-* [Stateless-only noe types](how-to-managed-cluster-stateless-node-type.md)
+* [Stateless-only node types](how-to-managed-cluster-stateless-node-type.md)
 * [Virtual machine scale set extensions](how-to-managed-cluster-vmss-extension.md) for node types
 
 ## Next steps

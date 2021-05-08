@@ -399,7 +399,7 @@
   items:
   - name: Use Service Fabric managed clusters
     items:
-    - name: Add a vmss extension to a managed cluster node type
+    - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
     - name: Add NSG rules and other managed cluster networking options
       href: how-to-managed-cluster-networking.md
