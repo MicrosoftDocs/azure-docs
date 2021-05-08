@@ -6,9 +6,9 @@ ms.date: 05/05/2021
 ms.author: faneerde
 ---
 
-When you run the live pipeline, the results from the motion detector processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the live pipeline, the results from the motion detector processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a **body** section and an **applicationProperties** section. For more information, see [Create and read IoT Hub messages](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
+In the following messages, the Video Analyzer edge module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
@@ -39,14 +39,14 @@ When a live pipeline is activated, the RTSP source node attempts to connect to t
 }
 ```
 
-In the preceding output: 
+In the preceding output:
 
-* The message is a diagnostics event, `MediaSessionEstablished`. It indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
-* The `sdp` section contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
+- The message is a diagnostics event, **MediaSessionEstablished**. It indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
+- The sdp section contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ### MotionDetection event
 
-When motion is detected, the Video Analyzer on IoT Edge module sends an inference event. The `type` is set to `motion` to indicate that it's a result from the motion detection processor.
+When motion is detected, the Video Analyzer on IoT Edge module sends an inference event. The\***\*type** is set to **motion** to indicate that it's a result from the motion detection processor.
 
 Here's an example of this message:
 
@@ -73,15 +73,15 @@ Here's an example of this message:
 }
 ```
 
-In this example: 
+In this example:
 
-* The `body` value is data about the analytics event. In this case, the event is an inference event, so the body contains `timestamp` and `inferences` data.
-* The `inferences` data indicates that the `type` is `motion`. It has additional data about that `motion` event.
-* The `box` section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, to get the original pixel coordinates you would multiply the horizontal dimensions by 1920 and the vertical dimensions by 1080.
+- The **body** value is data about the analytics event. In this case, the event is an inference event, so the body contains **timestamp** and **inferences** data.
+- The **inferences** data indicates that the **type** is **motion**. It has additional data about that **motion** event.
+- The **box** section contains the coordinates for a bounding box around the moving object. The values are normalized by the width and height of the video, in pixels. For example, to get the original pixel coordinates you would multiply the horizontal dimensions by 1920 and the vertical dimensions by 1080.
 
-    ```
-    l - distance from left of image
-    t - distance from top of image
-    w - width of bounding box
-    h - height of bounding box
-    ```
+  ```
+  l - distance from left of image
+  t - distance from top of image
+  w - width of bounding box
+  h - height of bounding box
+  ```

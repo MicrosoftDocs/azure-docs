@@ -2,8 +2,8 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/05/2021
-ms.author: faneerde
+ms.date: 05/03/2021
+ms.author: naiteeks
 ---
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.

@@ -982,14 +982,14 @@
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
-  - name: Azure Video Analyzer 
-    tocHref: /azure/azure-video-analyzer/
-    topicHref: /azure/azure-video-analyzer/
+  - name: Applied AI Services 
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/
     items:
-    - name: Analyze videos with Video Analyzer
+    - name: Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Extract insights with Video Analyzer for Media
+    - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
     
