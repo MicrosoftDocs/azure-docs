@@ -17,16 +17,16 @@ This article contains known causes and solutions for various 429 status code err
 
 A "Request rate too large" exception, also known as error code 429, indicates that your requests against Azure Cosmos DB are being rate limited.
 
-When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service such as reads, writes, and qeries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
+When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service such as reads, writes, and queries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
 
-In a given second, if the operations consume more than the provisioned request units, Azure Cosmos DB will return a 429 exception. Each second, the number of RU/s available to use is reset.
+In a given second, if the operations consume more than the provisioned request units, Azure Cosmos DB will return a 429 exception. Each second, the number of request units available to use is reset.
 
 Before taking an action to change the RU/s, it's important to understand the root cause of rate limiting and address the underlying issue.  
 
 There are different error messages that correspond to different types of 429 exceptions:
-- Request rate is large. More Request Units may be needed, so no changes were made. 
-- The request did not complete due to a high rate of metadata requests.
-- The request did not complete due to a transient service error.
+- [Request rate is large. More Request Units may be needed, so no changes were made.](#request-rate-is-large)
+- [The request did not complete due to a high rate of metadata requests.](#rate-limiting-due-to-high-volume-of-metadata-requests)
+- [The request did not complete due to a transient service error.](#rate-limiting-due-to-transient-service-error)
 
 
 ## Request rate is large
