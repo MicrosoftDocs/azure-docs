@@ -85,8 +85,6 @@ Follow these steps only if permission model in your Azure Key Vault resource is 
 
    :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Save access policy":::
 
-For full details on Key Vault access control, see [Azure Key Vault security features: Identity and access management](https://docs.microsoft.com/en-us/azure/key-vault/general/security-features#identity-management).
-
 ### Option 2 - Assign access using Key Vault Azure role-based access control 
 
 Follow these steps only if permission model in your Azure Key Vault resource is set to **Azure role-based access control**:
