@@ -52,14 +52,13 @@ Before you assign a role to a security principal, be sure to consider the scope 
 
 The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue:
 
-1. In the [Azure portal](https://portal.azure.com), go to your storage account and display the **Overview** for the account.
-1. Under Services, select **Blobs**.
+1. In the [Azure portal](https://portal.azure.com), under **Data storage** select **Blob containers**.
 1. Locate the container for which you want to assign a role, and display the container's settings.
 1. Select **Access control (IAM)** to display access control settings for the container. Select the **Role assignments** tab to see the list of role assignments.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Screenshot showing container access control settings":::
 
-1. Click the **Add role assignment** button to add a new role.
+1. Click **Add**, and then **Add role assignment** to add a new role.
 1. In the **Add role assignment** window, select the Azure Storage role that you want to assign. Then search to locate the security principal to which you want to assign that role.
 
     :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot showing how to assign an Azure role":::
@@ -82,11 +81,12 @@ If your users need to be able to access blobs in the Azure portal, then assign t
 Follow these steps to assign the **Reader** role so that a user can access blobs from the Azure portal. In this example, the assignment is scoped to the storage account:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
-1. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
-1. In the **Add role assignment** window, select the **Reader** role. 
-1. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
-1. Search to locate the security principal to which you want to assign the role.
-1. Save the role assignment.
+2. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
+3. Click **Add**, and then **Add role assignment** to add a new role.
+4. In the **Add role assignment** window, select the **Reader** role. 
+5. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
+6. Search to locate the security principal to which you want to assign the role.
+7. Save the role assignment.
 
 Assigning the **Reader** role is necessary only for users who need to access blobs or queues using the Azure portal.
 
