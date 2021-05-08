@@ -73,6 +73,10 @@ The HTTP extension processor node enables you to extend the pipeline to your own
 
 The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
 
+#### Cognitive Services extension processor
+
+The Cognitive Services extension processor node enables you to extend the pipeline to [Spatial Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) IoT Edge module. This node takes decoded video frames as input, and relays such frames to an  [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by, where you can analyze the frame with Spatial analysis skills and return inference results back. Learn more about the [processor here](pipeline-extension.md#cognitive-services-extension-processor).
+
 #### Signal gate processor
 
 The signal gate processor node enables you to conditionally forward media from one node to another. An example use case is to insert a signal gate processor node between the RTSP source node and the video sink node, and using the output of a motion detector processor node to trigger the gate. With such a pipeline, you would be recording video only when motion is detected. You can also use the output from HTTP or gRPC extension node to trigger the gate, instead of motion detection processor node, thus enabling recording of video when something interesting is detected.
