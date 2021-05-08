@@ -172,8 +172,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificateEnroll** |Enroll a certificate |
 | **CertificateRenew** |Renew a certificate |
 | **CertificatePendingGet** |Retrieve pending certificate |
-| **CertificatePendingMerge** |Merge a pending certificate |
-| **CertificatePendingUpdate** |Update a pending certificate |
+| **CertificatePendingMerge** |Merge pending certificate |
+| **CertificatePendingUpdate** |Update pending certificate |
 | **CertificatePendingDelete** |Delete pending certificate |
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |
