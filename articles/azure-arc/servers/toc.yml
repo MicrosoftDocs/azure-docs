@@ -43,6 +43,10 @@
       href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
+  - name: Migrate
+    items:
+    - name: Migrate machine to Azure
+      href: scenario-migrate-to-azure.md
   - name: Manage
     items:
     - name: VM extensions
@@ -65,6 +69,8 @@
       href: manage-howto-migrate.md
   - name: Scenarios
     items:
+    - name: Test Arc enabled servers using an Azure VM
+      href: plan-evaluate-on-azure-virtual-machine.md
     - name: Onboard to Azure Sentinel
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Azure Security Center
@@ -80,7 +86,7 @@
     - name: Data residency
       href: data-residency.md
     - name: Azure CLI
-      href: /cli/azure/ext/connectedmachine/connectedmachine
+      href: /cli/azure/connectedmachine
     - name: Azure PowerShell
       href: /powershell/module/az.connectedmachine
     - name: .NET

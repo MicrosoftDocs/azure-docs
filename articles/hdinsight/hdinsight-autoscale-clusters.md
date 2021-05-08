@@ -65,12 +65,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
 
-\* HBase clusters can only be configured for schedule-based scaling, not load-based.
+\* HBase and Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 
 ## Get started
 
@@ -246,6 +246,21 @@ During the cluster scaling down process, Autoscale decommissions the nodes to me
 
 The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
 
+### Configure schedule-based Autoscale based on usage pattern
+
+You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](https://docs.microsoft.com/azure/hdinsight/interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard. 
+
+Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload. 
+
+Number of executor slots actually used = Total executor slots – Total available executor slots.
+
+Number of worker nodes required = Number of executor slots actually used / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors is configurable and default is 4 
+
+*hive.llap.daemon.task.scheduler.wait.queue.size is configurable and default is 10
+
+
 ### Be aware of the minimum cluster size
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
@@ -262,9 +277,6 @@ However, you may experience a Hive Server 2 restart failure if there are only a 
 
 ## Limitations
 
-### Node label file missing
-
-HDInsight Autoscale uses a node label file to determine whether a node is ready to execute tasks. The node label file is stored on HDFS with three replicas. If the cluster size is dramatically scaled down and there is a large amount of temporary data, there is a small chance that all three replicas could be dropped. If this happens, the cluster enters an error state.
 
 ### Interactive Query Daemons count
 

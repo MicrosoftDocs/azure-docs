@@ -37,6 +37,9 @@ Incremental enrichment adds a cache to the enrichment pipeline. The indexer cach
 
 Physically, the cache is stored in a blob container in your Azure Storage account. The cache also uses table storage for an internal record of processing updates. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier to the container it is using.
 
+> [!NOTE]
+> The indexer cache requires a general purpose storage account. For more information, review the [different types of storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+
 ## Cache configuration
 
 You'll need to set the `cache` property on the indexer to start benefitting from incremental enrichment. The following example illustrates an indexer with caching enabled. Specific parts of this configuration are described in following sections. For more information, see [Set up incremental enrichment](search-howto-incremental-index.md).

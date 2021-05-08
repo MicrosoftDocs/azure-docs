@@ -10,9 +10,9 @@ ms.date: 04/06/2021
 
 In this article, we'll cover some important terms related to the BareMetal Infrastructure.
 
-- **Revision**: There's an original stamp revision known as Revision 3 (Rev 3), and two additional stamp revisions for BareMetal instance stamps. Each stamp differs in architecture and proximity to Azure virtual machine hosts:
-    - **Revision 4** (Rev 4): A newer design that provides closer proximity to the Azure virtual machine (VM) hosts and lowers the latency between Azure VMs and SAP HANA instances. 
-    - **Revision 4.2** (Rev 4.2): The latest rebranded BareMetal Infrastructure using the existing Rev 4 architecture. Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts. It has significant improvements in network latency between Azure VMs and BareMetal instances deployed in Rev 4 stamps or rows. You can access and manage your BareMetal instances through the Azure portal.    
+- **Revision**: There are two different stamp revisions for BareMetal Infrastructure (HANA Large Instance) stamps. These differ in architecture and proximity to Azure virtual machine hosts:
+    - "Revision 3" (Rev 3): The original design deployed mid-2016.
+    - "Revision 4.2" (Rev 4.2): A new design that provides closer proximity to Azure virtual machine hosts, with ultra-low network latency between Azure VMs and HANA Large Instances. Resources in the Azure portal are referred to as "BareMetal Infrastructure," and customers can access their resources as BareMetal instances from the Azure portal.
 
 - **Stamp**: Defines the Microsoft internal deployment size of BareMetal instances. Before instances can be deployed, a BareMetal instance stamp consisting of compute, network, and storage racks must be deployed in a datacenter location. Such a deployment is called a BareMetal instance stamp.
 

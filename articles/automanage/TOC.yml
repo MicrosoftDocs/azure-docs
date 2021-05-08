@@ -1,4 +1,4 @@
-- name: Azure Automanage
+- name: Azure Automanage (preview)
   href: automanage-virtual-machines.md
 - name: Quickstarts
   expanded: true

@@ -41,7 +41,7 @@ az vm stop \
 ```
 
 
-Use [az vm update](/cli/azure/vm#az-vm-update) with the full resource ID of the new disk for the `--osdisk` parameter 
+Use [az vm update](/cli/azure/vm#az_vm_update) with the full resource ID of the new disk for the `--osdisk` parameter 
 
 ```azurecli-interactive 
 az vm update \

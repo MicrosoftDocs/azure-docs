@@ -47,7 +47,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
-- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
 
 
 ## Issues that may occur with service upgrades/restarts
