@@ -28,7 +28,7 @@ The Invoice API extracts key fields and line items from invoices and returns the
 To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service.
 
@@ -40,7 +40,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ## Supported locales
 
-**Pre-built invoice v2.1-preview.3** (preview) supports invoices in the **en-us** locale.
+**Pre-built invoice v2.1** supports invoices in the **en-us** locale.
 
 ## The Analyze Invoice operation
 
@@ -120,7 +120,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 
 ## Next steps
 
-- Try your own invoices and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+- Try your own invoices and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
 - Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the development language of your choice.
 
 ## See also

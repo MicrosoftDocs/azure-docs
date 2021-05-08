@@ -54,7 +54,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
 In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 ```kotlin
 plugins {
@@ -75,7 +75,7 @@ dependencies {
 > [!NOTE]
 > The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_.
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 ```kotlin
 plugins {
@@ -132,13 +132,13 @@ In the application's **main** method, add calls for the methods used in this qui
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
 <!-- markdownlint-disable MD024 -->
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
@@ -174,7 +174,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Java:
 <!-- markdownlint-disable MD001 -->
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze layout](#analyze-layout)
@@ -186,7 +186,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze layout](#analyze-layout)
@@ -273,7 +273,7 @@ Total Price: null, confidence: 0.93
 
 ## Analyze business cards
 
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
 
@@ -288,7 +288,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
@@ -297,7 +297,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each c
 
 ## Analyze invoices
 
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
 
@@ -312,7 +312,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each i
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
@@ -321,7 +321,7 @@ The returned value is a collection of **RecognizedForm** objects: one for each i
 
 ## Analyze identity documents
 
-#### [v2.1 preview](#tab/preview)
+#### [v2.1](#tab/2.1)
 
 This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
@@ -336,7 +336,7 @@ The following code processes the identity document at the given URI and prints t
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
-#### [v2.0](#tab/ga)
+#### [v2.0](#tab/2.0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.

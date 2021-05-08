@@ -38,12 +38,12 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-preview.azurewebsites.net/).
+To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://aka.ms/fott-2.1-ga).
 
 ### [v2.1 preview](#tab/v2-1)
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
 
 ### [v2.0](#tab/v2-0)
 

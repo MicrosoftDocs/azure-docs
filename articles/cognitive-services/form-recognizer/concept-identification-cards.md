@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Form Recognizer prebuilt identification (ID) document model
 
-Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
+Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
 
 ## What does the ID service do?
 
@@ -65,7 +65,7 @@ The IDs API also returns the following information:
 To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
 
 ## Input requirements
 
@@ -73,11 +73,11 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 ## Supported locales
 
- **Pre-built ID v2.1-preview.3** (preview) supports identity documents in the **en-us** locale.
+ **Pre-built ID v2.1** supports identity documents in the **en-us** locale.
 
 ## Supported Identity document types
 
-* **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses.
+* **Pre-built IDs v2.1** Extracts key values from worldwide passports, and U.S. Driver's Licenses.
 
   > [!NOTE]
   > ID type support
@@ -250,7 +250,7 @@ The `readResults` node contains all of the recognized text. Text is organized by
 
 ## Next steps
 
-* Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+* Try your own IDs and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
 * Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
 ## See also

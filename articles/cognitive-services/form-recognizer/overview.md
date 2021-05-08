@@ -51,7 +51,7 @@ Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and trai
 ### [v2.1 preview](#tab/v2-1)
 
 > [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
+> [Try Form Recognizer](https://aka.ms/fott-2.1-ga)
 
 ### [v2.0](#tab/v2-0)
 
@@ -181,5 +181,5 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 Try our online tool and quickstart to learn more about the Form Recognizer service.
 
-* [**Form Recognizer tool**](https://fott-preview.azurewebsites.net/)
+* [**Form Recognizer tool**](https://aka.ms/fott-2.1-ga)
 * [**Client library and REST API quickstart**](quickstarts/client-library.md)

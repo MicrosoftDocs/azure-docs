@@ -63,7 +63,7 @@ The Receipt API also returns the following information:
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
 
 ## Input requirements
 
@@ -71,8 +71,8 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 ## Supported locales
 
-* **Pre-built receipt v2.0** (GA) supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1-preview.3** (Public Preview) adds additional support for the following English receipt locales:
+* **Pre-built receipt v2.0** supports sales receipts in the **en-us** locale
+* **Pre-built receipt v2.1** adds additional support for the following English receipt locales:
 
 * **en-au**
 * **en-ca**
@@ -82,8 +82,7 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
   > [!NOTE]
   > Language input
   >
-  > Prebuilt Receipt v2.1-preview.3 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.3, the model will default to the EN-US model.
-
+  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will default to the en-us model.
 
 ## The Analyze Receipt operation
 

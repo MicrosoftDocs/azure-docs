@@ -224,7 +224,7 @@ pip package version 3.1.0b4
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
 * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
+  > [Try out the Form Recognizer Sample Tool](https://aka.ms/fott-2.1-ga)
 
   ![FOTT example](./media/ui-preview.jpg)
 

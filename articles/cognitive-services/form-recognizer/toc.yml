@@ -13,22 +13,24 @@
     href: whats-new.md
 - name: Quickstarts
   items:
+  - name: Get started with Form Recognizer
+    href: quickstarts/form-recognizer-tool.md
   - name: Get started with client library or REST API
     href: quickstarts/client-library.md
-  - name: Use the sample labeling tool
-    href: quickstarts/label-tool.md
 - name: Samples
   items:
-  - name: "C#/.NET: Form Recognizer client library SDK"
+  - name: "C#/.NET SDK"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java: Form Recognizer client library SDK"
+  - name: "Java SDK"
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-  - name: "Python: Form Recognizer client library SDK"
+  - name: "Python SDK"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
-  - name: "JavaScript Form Recognizer client library SDK"
+  - name: "JavaScript SDK"
     href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: How-to guides
   items:
+  - name: Use the sample labeling tool
+    href: quickstarts/label-tool.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Use table tags to train your custom model
@@ -61,11 +63,8 @@
       href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Concepts
   items:
-  - name: Layout API
-    expanded: true
-    items:
-    - name: Extract form data
-      href: concept-layout.md
+  - name: Layout
+    href: concept-layout.md
   - name: Custom models
     href: concept-custom.md
   - name: Receipts
