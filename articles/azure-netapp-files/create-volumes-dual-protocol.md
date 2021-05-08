@@ -105,7 +105,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
         - It must be unique within each subnet and each region. 
         - It must start with an alphabetical character.
-        - It can contain only letters, numbers, or dashes (-). 
+        - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
