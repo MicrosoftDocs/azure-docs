@@ -7,14 +7,14 @@ ms.date: 04/26/2021
 ---
 # Production readiness and best practices
 
-This article provides guidance on how to configure and deploy the Azure Video Analyzer on IoT Edge module in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
+This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
 
 > [!NOTE]
 > You should consult your organizations’ IT departments on aspects related to security.
 
 ## Running the module as a local user
 
-When you deploy the Video Analyzer module to an edge device, by default it runs with elevated privileges. When you do this, if you check the logs on the module (`sudo iotedge logs {name-of-module}`), you will see the following:
+When you deploy the Video Analyzer edge module to an edge device, by default it runs with elevated privileges. When you do this, if you check the logs on the module (`sudo iotedge logs {name-of-module}`), you will see the following:
 
 ```
 !! production readiness: user accounts – Warning
@@ -26,7 +26,7 @@ The sections below discuss how you can address the above warning.
 
 ### Creating and using a local user account
 
-You can and should run the Video Analyzer module in production using an account with as few privileges as possible. The following commands, for example, show how you can create a local user account on a Linux VM:
+You can and should run the Video Analyzer edge module in production using an account with as few privileges as possible. The following commands, for example, show how you can create a local user account on a Linux VM:
 
 ```
 sudo groupadd -g 1010 localedgegroup
@@ -54,7 +54,7 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 
 ### Granting permissions to device storage
 
-The Video Analyzer module requires the ability to write files to the local file system when:
+The Video Analyzer edge module requires the ability to write files to the local file system when:
 
 - Using a module twin property [`ApplicationDataDirectory`](module-twin-configuration-schema.md), where you should specify a directory on the local file system for storing configuration data.
 - Using a pipeline to record video to the cloud, the module requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording.md) article for more information).
@@ -140,7 +140,7 @@ Some system defined variables that you can use are:
 
 The Linux VM that you are using as an edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
 
-`sudo apt-get clean`
+- `sudo apt-get clean`
 
 The apt-get clean command clears the local repository of retrieved package files that are left in /var/cache. The directories it cleans out are /var/cache/apt/archives/ and /var/cache/apt/archives/partial/. The only files it leaves in /var/cache/apt/archives are the lock file and the partial subdirectory. The apt-get clean command is generally used to clear disk space as needed, generally as part of regularly scheduled maintenance. For more information, see [Cleaning up with apt-get](https://www.networkworld.com/article/3453032/cleaning-up-with-apt-get.html).
 
@@ -148,7 +148,7 @@ The apt-get clean command clears the local repository of retrieved package files
 
 The apt-get autoclean option, like apt-get clean, clears the local repository of retrieved package files, but it only removes files that can no longer be downloaded and are not useful. It helps to keep your cache from growing too large.
 
-- `sudo apt-get autoremove1`
+- `sudo apt-get autoremove`
 
 The auto remove option removes packages that were automatically installed because some other package required them but, with those other packages removed, they are no longer needed
 
@@ -164,4 +164,4 @@ As updates happen on the edge module, your docker can have older versions of the
 
 ## Next steps
 
-[Quickstart: Get started - Azure Video analyzer on IoT Edge](get-started-detect-motion-emit-event.md)
+[Quickstart: Get started – Azure Video Analyzer](get-started-detect-motion-emit-events.md)
