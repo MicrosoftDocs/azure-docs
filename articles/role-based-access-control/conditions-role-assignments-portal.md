@@ -30,7 +30,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](../storage/common/storage-auth-abac-attributes.md). These include the following built-in roles:
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
@@ -88,7 +88,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Add action** section, click **Add action**.
 
-    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. 
+    The Select an action pane appears. This pane is a filtered list of data actions based on the role assignment that will be the target of your condition. For more information, see [Azure role assignment condition format and syntax](conditions-format.md#actions).
 
     ![Select an action pane for condition with an action selected.](./media/conditions-role-assignments-portal/condition-actions-select.png)
 
