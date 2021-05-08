@@ -70,9 +70,9 @@ For more detail on the specific attributes of a public IP address during creatio
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
-|[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network public-ip update with the **"--remove"** parameter](/cli/azure/network/public-ip#az_network_public_ip_update) to dissociate the IP address from the NIC configuration; [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) to delete |
+|[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network public-ip update with the "--remove" parameter](/cli/azure/network/public-ip#az_network_public_ip_update) to remove the IP address from the NIC configuration. Use [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) to delete the public IP. |
 |Load balancer frontend | Browse to an unused public IP address and select **Associate**. Pick the load balancer with the relevant front-end IP configuration to replace the IP. The old IP can be deleted using the same method as a virtual machine.  | Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to associate a new front-end IP config with a public load balancer. Use[Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete a public IP. You can also use [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) to remove a frontend IP config if there are more than one. | Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) to associate a new frontend IP config with a public load balancer. Use [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete a public IP. You can also use [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) to remove a frontend IP config if there are more than one. |
-|Firewall|N/A| [Deallocate()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) to deallocate firewall and remove all IP configurations | [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_delete) to remove IP (but must use PowerShell to deallocate first)|
+|Firewall|N/A| [Deallocate](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) to deallocate firewall and remove all IP configurations | Use [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_delete) to remove IP. Use PowerShell to deallocate first. |
 
 ## Virtual Machine Scale Sets
 
@@ -86,10 +86,10 @@ For more information, see [Networking for Azure virtual machine scale sets](../v
 
 Learn how to assign a public IP address to the following resources:
 
-- A [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine (when creating), or to an [existing Virtual Machine](virtual-network-network-interface-addresses.md#add-ip-addresses)
-- [Public Load Balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- A [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](virtual-network-network-interface-addresses.md#add-ip-addresses).
+- [Public load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Application Gateway](../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Site-to-site connection using a VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Site-to-site connection using a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Virtual Machine Scale Set](../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Permissions
