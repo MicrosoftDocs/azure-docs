@@ -9,44 +9,50 @@ ms.date: 05/25/2021
 ms.author: tisande
 ---
 
-# How to configure the Azure Cosmos DB integrated cache
+# How to configure the Azure Cosmos DB integrated cache (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Follow the steps in this tutorial to provision a dedicated gateway, configure the integrated cache, and connect your application. 
+This article describes how to provision a dedicated gateway, configure the integrated cache, and connect your application. 
 
 ## Prerequisites:
 
-- Azure subscription
+- If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - An existing application that uses Azure Cosmos DB. If you don't have one, [here are some examples](https://github.com/AzureCosmosDB/labs).
-- An existing Azure Cosmos DB SQL (core) API account
+- An existing [Azure Cosmos DB SQL (core) API account](create-cosmosdb-resources-portal.md)
 
 ## Provision a dedicated gateway cluster
 
 1. Navigate to an Azure Cosmos DB account in the Azure portal and select the **Dedicated Gateway** tab.
 
-:::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="An image that shows how to navigate to the dedicated gateway tab" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="An image that shows how to navigate to the dedicated gateway tab" border="false":::
 
-2. Switch the **Dedicated Gateway** toggle to **Provisioned**. Select a size and number of nodes. For development, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache, you can consider increasing the node size after initial testing.
+2. Fill out the **Dedicated gateway** form with the following details:
 
-:::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" border="false":::
+   * **Dedicated Gateway** - Turn on the  toggle to **Provisioned**. 
+   * **SKU** - Select a SKU with the required compute and memory size. 
+   *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache, you can increase the node size after initial testing.
 
-3. Click **Save** and wait about 5-10 minutes for the dedicated gateway provisioning to complete. When the provisioning is done, you'll see the below notification:
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" border="false":::
 
-:::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" border="false":::
+3. Select **Save** and wait about 5-10 minutes for the dedicated gateway provisioning to complete. When the provisioning is done, you'll see the following notification:
+
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" border="false":::
 
 ## Configuring the integrated cache
 
 1. When you create a dedicated gateway, an integrated cache is automatically provisioned. The integrated cache will use approximately 70% of the memory in the dedicated gateway. The remaining 30% of memory in the dedicated gateway is used for routing requests to the backend partitions.
 
-2.	Modify your application's connection string to use the new dedicated gateway endpoint. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). You will only need to modify the connection string for the Python and Node.js SDKs since they only support gateway mode.
+2.	Modify your application's connection string to use the new dedicated gateway endpoint.
 
 The updated dedicated gateway connection string is in the **Keys** blade:
 
-:::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" border="false":::
 
 All dedicated gateway connection strings follow the same pattern. Remove `documents.azure.com` from your original connection string and replace it with `sqlx.cosmos.azure.com`. A dedicated gateway will always have the same connection string, even if you remove and reprovision it.
 
 You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways of connecting to Azure Cosmos DB.
+
+3. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This isn't necessary for the Python and Node.js SDKs since they don't have additional options besides gateway mode.
 
 ## Adjust request consistency
 
@@ -59,7 +65,7 @@ Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you 
 **.NET**
 
 ```csharp
-FeedIterator<Food> queryA = container.GetItemQueryIterator<Food>(new QueryDefinition(sqlA), requestOptions: new QueryRequestOptions
+FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefinition("SELECT * FROM c"), requestOptions: new QueryRequestOptions
         {
             ConsistencyLevel = ConsistencyLevel.Eventual,
             DedicatedGatewayRequestOptions = new DedicatedGatewayRequestOptions 
@@ -68,12 +74,6 @@ FeedIterator<Food> queryA = container.GetItemQueryIterator<Food>(new QueryDefini
             }
         }
 );
-```
-
-**Java**
-
-```java
-
 ```
 
 > [!NOTE]

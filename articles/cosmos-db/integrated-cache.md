@@ -9,7 +9,7 @@ ms.date: 05/25/2021
 ms.author: tisande
 ---
 
-# Azure Cosmos DB integrated cache - Overview
+# Azure Cosmos DB integrated cache - Overview (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
@@ -104,9 +104,9 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 When using the integrated cache, it is helpful to monitor a few key metrics. Useful integrated cache metrics include:
 
 - `IntegratedCacheEvictedEntriesSize` – the total amount of data evicted from the cache
-- `IntegratedCacheTTLExpirationCount`  - the amount of data evicted from the cache specifically due to cached data exceeding the `MaxCacheStaleness` time
-- `IntegratedCacheHitRate` – the number of requests that used the cache
-- `IntegratedCacheSize` – the amount of data in the cache
+- `IntegratedCacheTTLExpirationCount`  - The amount of data evicted from the cache specifically due to cached data exceeding the `MaxCacheStaleness` time.
+- `IntegratedCacheHitRate` – The number of requests that used the cache.
+- `IntegratedCacheSize` – The amount of data in the cache.
 
 All existing metrics are available, by default, in the Metrics blade (not Metrics classic):
 
@@ -118,7 +118,7 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my requests are hitting the integrated cache:
 
-Check the `IntegratedCacheHitRate`. If this value is zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, connecting with gateway mode, have set eventual consistency.
+Check the `IntegratedCacheHitRate`. If this value is zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, connecting with gateway mode, and have set eventual consistency.
 
 ### I want to understand if my integrated cache is too small:
 
