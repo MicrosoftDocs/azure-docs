@@ -13,6 +13,10 @@ ms.author: buhollan
 
 By default, Azure Static Web Apps provides an auto-generated domain name. This article shows you how to map a custom domain name to an Azure Static Web Apps application.
 
+## Walkthrough Video
+
+> [!VIDEO https://channel9.msdn.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+
 ## Prerequisites
 
 - A purchased domain name
@@ -167,11 +171,11 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 > [!IMPORTANT]
 > Your domain provider must support [ALIAS records](https://docs.microsoft.com/azure/dns/dns-alias) or CNAME flattening.
 
-1. Select **Overview** in the menu.
+1. Select **Custom domain** in the menu.
 
-1. Copy the URL of your static web app from the overview screen by hovering over it and selecting the **copy** icon.
+1. Copy the auto-generated URL of your static web app from the custom domain screen.
 
-   :::image type="content" source="media/custom-domain/overview.png" alt-text="Overview page of a static web app with the copy URL icon highlighted":::
+   :::image type="content" source="media/custom-domain/auto-generated.png" alt-text="Overview page of a static web app with the copy URL icon highlighted":::
 
 1. Sign in to the website of your domain provider.
 
@@ -225,5 +229,4 @@ Now that the wildcard domain is configured, it may take several hours for the ch
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
