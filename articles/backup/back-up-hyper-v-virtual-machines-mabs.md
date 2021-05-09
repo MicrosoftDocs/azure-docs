@@ -2,7 +2,7 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 04/20/2021
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server
@@ -121,7 +121,7 @@ A replica virtual machine is turned off until a failover is initiated, and VSS c
 
 When you can recover a backed up virtual machine, you use the Recovery wizard to select the virtual machine and the specific recovery point. To open the Recovery Wizard and recover a virtual machine:
 
-1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items and select the VM you want to recover.
+1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items, navigate to **All Protected HyperV Data**, and select the VM you want to recover.
 
 2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 

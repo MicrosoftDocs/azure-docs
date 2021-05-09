@@ -132,11 +132,20 @@ To reduce the frequency of having to reenter credentials due to errors like the 
 
 If you have conditional access policies that need to be satisfied for your account, make sure you are using the **Default Web Browser** value for the **Sign in with** setting. For information on that setting, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
+### Browser complains about HTTP redirect during sign in
+
+When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have a variety of options:
+- Ignore the warning.
+- Add an exception for `localhost`.
+- Disable force HTTPS, either globally or just for `localhost`.
+
+If you are not able to do any of those options, then you can also [change where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
 ### Unable to acquire token, tenant is filtered out
 
 If you see an error message saying that a token cannot be acquired because a tenant is filtered out, that means you are trying to access a resource which is in a tenant you have filtered out. To unfilter the tenant, go to the **Account Panel** and make sure the checkbox for the tenant specified in the error is checked. Refer to the [Managing accounts](./storage-explorer-sign-in.md#managing-accounts) for more information on filtering tenants in Storage Explorer.
 
-## Authentication library failed to start properly
+### Authentication library failed to start properly
 
 If on startup you see an error message which says that Storage Explorer's authentication library failed to start properly then make sure your install environment meets all [prerequisites](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Not meeting prerequisites is the most likely cause of this error message.
 
@@ -481,12 +490,12 @@ For issues related to sign-in or Storage Explorer's authentication library, you 
 
 Generally, you can follow these steps to gather the logs:
 
-1. Go to Settings > Sign-in > check Verbose Authentication Logging. If Storage Explorer is failing to launch due to an issue with its authentication library, this will be done for you.
+1. Go to **Settings (gear icon on the left)** > **Application** > **Sign-in** > check **Verbose Authentication Logging**. If Storage Explorer is failing to launch due to an issue with its authentication library, this will be done for you.
 2. Close Storage Explorer.
 1. Optional/recommended: clear out existing logs from the `logs` folder. Doing this will reduce the amount of information you have to send us.
 4. Open Storage Explorer and reproduce your issue
 5. Close Storage Explorer
-6. Zip the contents of the `log` folder.
+6. Zip the contents of the `logs` folder.
 
 ### AzCopy logs
 

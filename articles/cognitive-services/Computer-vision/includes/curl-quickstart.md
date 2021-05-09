@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -33,6 +33,8 @@ Use the Optical character recognition REST API to read printed and handwritten t
 
 The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
+### Call the Read API
+
 To create and run the sample, do the following steps:
 
 1. Copy the following command into a text editor.
@@ -49,6 +51,8 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 The response will include an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
+
+### Get Read results
 
 1. Copy the following command into your text editor.
 1. Replace the URL with the `Operation-Location` value you copied in the previous step.
@@ -127,7 +131,9 @@ A successful response is returned in JSON. The sample application parses and dis
 
 ## Next steps
 
-Explore the OCR API in more depth. To rapidly experiment with the API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console).
+In this quickstart, you learned how to call the Read REST API. Next, learn more about the Read API features.
 
 > [!div class="nextstepaction"]
-> [Explore the OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+>[Call the Read API](../Vision-API-How-to-Topics/call-read-api.md)
+
+* [OCR overview](../overview-ocr.md)

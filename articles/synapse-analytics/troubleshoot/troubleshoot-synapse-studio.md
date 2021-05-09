@@ -4,7 +4,7 @@ description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: sql
+ms.subservice: troubleshooting
 ms.date: 04/15/2020 
 ms.author: jrasnick 
 ms.reviewer: jrasnick

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 08/07/2020
+ms.date: 04/14/2021
 ---
 
 # Create an IoT Edge module offer
@@ -46,7 +46,7 @@ The **Offer overview** page shows a visual representation of the steps required 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
 - If the offer is a draft - Delete draft offer
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is live - [Deprecate (formerly stop sell) the offer](update-existing-offer.md#deprecate-an-offer-or-plan)
 - If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
 - If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
@@ -301,7 +301,7 @@ After you create your plans, the **Plan overview** tab shows:
 The actions available in the Plan overview vary depending on the current status of your plan. They include:
 
 - **Delete draft**: If the plan status is a Draft.
-- **Stop sell plan**: If the plan status is published live.
+- **Deprecate plan** (formerly Stop sell plan): If the plan status is published live. 
 
 ### Create new plan
 
@@ -414,7 +414,7 @@ You'll provide the following information on the **Image repository details** tab
 
 1. Admin user
 
-<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az-acr-credential-show)
+<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](/cli/azure/acr/credential#az_acr_credential_show)
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
 

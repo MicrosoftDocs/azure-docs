@@ -61,10 +61,12 @@
     href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
+  - name: Use Azure Data Explorer for long-term log retention
+    href: store-logs-in-azure-data-explorer.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -94,6 +96,8 @@
         href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Storage accounts
+        href: connect-azure-storage-account.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
       - name: Defender for IoT (formerly ASC for IoT)
@@ -300,7 +304,7 @@
   - name: Top Azure Sentinel workbooks
     href: top-workbooks.md
   - name: Azure CLI
-    href: /cli/azure/ext/sentinel/sentinel
+    href: /cli/azure/sentinel
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
@@ -335,6 +339,8 @@
     href: ueba-enrichments.md
   - name: CEF log field mapping
     href: cef-name-mapping.md
+  - name: MCAS alerts not onboarded to Microsoft 365 Defender
+    href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: Resources
   items:
   - name: Useful resources
@@ -345,3 +351,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+  - name: Feature availability for US Government clouds
+    href: /azure/security/fundamentals/feature-availability

@@ -6,7 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
