@@ -22,7 +22,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 * [What is Azure Logic Apps?](logic-apps-overview.md)
 * [What is a *logic app workflow*?](logic-apps-overview.md#logic-app-concepts)
 
-<a name="differences"></a>
+<a name="resource-environment-differences"></a>
 
 ## Resource types and environment differences
 
