@@ -22,10 +22,10 @@ Be aware of these considerations when creating new NSG rules for your managed cl
 
 With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
 
-Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-01-01-preview` or later) to assign NSG rules. For example:
+Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
 
 ```json
-            "apiVersion": "2021-01-01-preview",
+            "apiVersion": "2021-05-01",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {

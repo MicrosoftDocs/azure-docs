@@ -88,7 +88,12 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## Next steps
 
-In this step, we deployed an app to a Service Fabric managed cluster. To learn more about Service Fabric managed clusters, see:
+In this step, we deployed an application to a Service Fabric managed cluster. To learn more about application deployment options, see:
 
-> [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](faq-managed-cluster.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
+
+To learn more about managed cluster configuration options, see:
+
+* [Configure your manage cluster](how-to-managed-cluster-configuration.md)

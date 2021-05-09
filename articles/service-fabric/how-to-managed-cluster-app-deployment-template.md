@@ -95,25 +95,25 @@ The sample application contains [Azure Resource Manager templates](https://githu
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -175,12 +175,10 @@ To delete an application that was deployed by using the application resource mod
 
 ## Next steps
 
-Get information about the application resource model:
+Learn more about managed cluster application deployment:
 
-* [Model an application in Service Fabric](service-fabric-application-model.md)
-* [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->

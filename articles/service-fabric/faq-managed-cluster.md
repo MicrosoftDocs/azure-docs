@@ -24,7 +24,7 @@ Service Fabric managed clusters are supported in all public cloud regions.
 
 ### Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
 
-No. At this time you would need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
+No. You will need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
 
 ### Is there an additional cost for Service Fabric managed clusters?
 

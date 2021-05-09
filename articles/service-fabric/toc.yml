@@ -399,34 +399,28 @@
   items:
   - name: Use Service Fabric managed clusters
     items:
-    - name: Add a virtual machine scale set extension to a managed cluster node type
+    - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
-    - name: Configure your managed cluster
-      href: how-to-managed-cluster-configuration.md
     - name: Add NSG rules and other managed cluster networking options
       href: how-to-managed-cluster-networking.md
-    - name: Deploy managed cluster applications using ARM template
-      href: how-to-managed-cluster-app-deployment-template.md
-    - name: Enable disk encryption for managed cluster nodes
-      href: how-to-enable-managed-cluster-disk-encryption.md
-    - name: Use managed identity for managed cluster nodes
-      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
-    - name: Deploy a stateless only node type with a managed cluster 
-      href: how-to-managed-cluster-stateless-node-type.md 
-    - name: Deploy managed cluster applications using managed identity
-      href: how-to-managed-cluster-application-managed-identity.md
-    - name: Deploy managed cluster application secrets
-      href: how-to-managed-cluster-application-secrets.md
     - name: Configure managed cluster Availability Zone spanning
       href: how-to-managed-cluster-availability-zones.md
-    - name: Select managed cluster managed disk types
+    - name: Configure your managed cluster
+      href: how-to-managed-cluster-configuration.md
+    - name: Deploy managed cluster application secrets
+      href: how-to-managed-cluster-application-secrets.md
+    - name: Deploy managed cluster applications using ARM template
+      href: how-to-managed-cluster-app-deployment-template.md
+    - name: Deploy managed cluster applications with managed identity
+      href: how-to-managed-cluster-application-managed-identity.md
+    - name: Deploy stateless-only node types to a managed cluster 
+      href: how-to-managed-cluster-stateless-node-type.md 
+    - name: Enable disk encryption for managed cluster nodes
+      href: how-to-enable-managed-cluster-disk-encryption.md
+    - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
-    - name: Configure managed cluster upgrades
-      href: how-to-managed-cluster-upgrades.md
-    - name: Grant an application's managed identity access to Azure resources
-      href: how-to-managed-cluster-grant-access-other-resources.md
-    - name: Use Managed Identity service with Service Fabric application code
-      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md  
+    - name: Use managed identity for managed cluster nodes
+      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -940,12 +934,12 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Common questions
-    href: service-fabric-common-questions.md
   - name: Service Fabric managed clusters common questions
     href: faq-managed-cluster.md
+  - name: Common questions
+    href: service-fabric-common-questions.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
