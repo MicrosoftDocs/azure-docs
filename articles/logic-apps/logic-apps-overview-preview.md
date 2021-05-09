@@ -56,7 +56,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 When you create logic apps using the **Logic App (Preview)** resource type, you can run your workflows anywhere you can run Azure function apps and their functions, not just in the single-tenant service environment. For example, when you use Visual Studio Code with the Azure Logic Apps (Preview) extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can containerize your logic apps to deploy as Docker containers.
 
-These capabilities and others in the single-tenant model provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. With multi-tenant, deployments are also completely based on Azure Resource Manager (ARM) templates, which handle resource provisioning for both apps and infrastructure.
+These capabilities and others in the single-tenant model provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. With multi-tenant, deployments are based and depend on on Azure Resource Manager (ARM) templates, which handle resource provisioning for both apps and infrastructure.
 
 With the new resource type, the redesigned runtime and your workflows are both part of your logic app that you can now package together. This design lets you simply deploy by copying artifacts to the host environment and run your workflows by starting your app. You can also use the standard build and deploy options so that you can focus on your app or solution requirements. 
 
@@ -68,7 +68,7 @@ By separating the concerns between deploying your app and your infrastructure, y
 
 ### Performance
 
-The **Logic App (Preview)** resource type and redesigned Azure Logic Apps (Preview) runtime provide another significant improvement where the more commonly-used managed connectors are now available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
+The **Logic App (Preview)** resource type and redesigned Azure Logic Apps (Preview) runtime provide another significant improvement by making the more popular managed connectors available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
 
 When you use these new built-in operations, you create connections called *built-in connections* or *service provider connections*. Their managed connection counterparts are called *API connections*, which are created and run separately as Azure resources that you also have to then deploy by using ARM templates. Built-in operations and their connections run locally in the same process that runs your workflows, and both are hosted on the Logic Apps runtime. As a result, built-in operations and their connections provide better performance due to proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
@@ -110,7 +110,7 @@ Although your development experiences differ based on whether you create **Consu
 
 ## Stateful and stateless workflows
 
-With the preview logic app app type, you can create these workflow types within the same logic app:
+With the preview logic app type, you can create these workflow types within the same logic app:
 
 * *Stateful*
 
@@ -166,7 +166,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 ## Other preview logic app and single-tenant capabilities
 
-The **Logic App (Preview)** resource and single-tenant model include many current and additional capabilities, for example:
+The **Logic App (Preview)** resource and single-tenant model include many current and new capabilities, for example:
 
 * Create logic apps and their workflows from [400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
@@ -231,7 +231,7 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
 
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
-      In the Azure portal, you can select an HTTP trigger function where you have access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your project's **connections.json** file, which is available after you create a connection.
+      In the Azure portal, you can select an HTTP trigger function that you can access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your project's **connections.json** file, which is available after you create a connection.
 
       > [!NOTE]
       > In the single-tenant model, the function action supports only query string authentication. 
@@ -284,7 +284,7 @@ If your environment has strict network requirements or firewalls that limit traf
 * [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 
-We'd also like to hear from your about your experiences with the new Logic Apps (Preview) resource type and single-tenant Azure Logic Apps (Preview)!
+We'd also like to hear about your experiences with the preview logic app resource type and preview single-tenant model!
 
 * For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
