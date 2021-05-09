@@ -75,6 +75,7 @@ The user entity page is also linked from the [incident page](tutorial-investigat
 
 > [!TIP]
 > After confirming the data on the user entity page for the specific user associated with the incident, go to the Azure Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
+>
 > In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 >
 
