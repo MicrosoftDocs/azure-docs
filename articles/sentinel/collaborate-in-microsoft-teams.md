@@ -20,7 +20,7 @@ ms.author: bagol
 
 # Collaborate in Microsoft Teams (Public preview)
 
-Azure Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into team work on specific incidents.
+Azure Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
 
 > [!IMPORTANT]

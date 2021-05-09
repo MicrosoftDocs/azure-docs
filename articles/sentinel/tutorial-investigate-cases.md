@@ -81,12 +81,14 @@ To use the investigation graph:
 
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
+
+    [ ![View map.](media/tutorial-investigate-cases/investigation-map.png) ](media/tutorial-investigate-cases/investigation-map.png#lightbox)
+
    > [!IMPORTANT] 
    > - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
    >
    > - Azure Sentinel currently supports investigation of **incidents up to 30 days old**.
 
-   ![View map](media/tutorial-investigate-cases/map1.png)
 
 1. Select an entity to open the **Entities** pane so you can review information on that entity.
 
