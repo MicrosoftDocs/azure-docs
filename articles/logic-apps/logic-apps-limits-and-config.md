@@ -278,6 +278,9 @@ The following tables list the values for a single inbound or outbound call:
 
 By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
 
+> [!NOTE]
+> For the preview logic app type in the single-tenant model, stateless workflows can only run *synchronously*.
+
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
 | Outbound request | 120 sec <br>(2 min) | 230 sec <br>(3.9 min) | 240 sec <br>(4 min) | Examples of outbound requests include calls made by the HTTP trigger or action. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. |
