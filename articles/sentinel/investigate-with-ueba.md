@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2021
+ms.date: 05/09/2021
 ms.author: bagol
 
 ---
@@ -65,16 +65,18 @@ A common example of a false positive is when impossible travel activity is detec
 
 ### Analyze a false positive
 
-For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, use the following steps to determine a false positive:
+For example, for an **Impossible travel** incident, after confirming with the user that a VPN was used, navigate from the incident to the user entity page. Use the data displayed there to determine whether the locations captured are included in the user's commonly-known locations.
 
-1. In the **Impossible travel** incident, select the **Entities** tab to show the related users who logged on to an application or portal from multiple locations within a short period of time.
-1. At the bottom left of the incident page, select **Investigate** to find out more.
-1. On the **Investigation** page, select the user entity in the map, and then:
+For example:
 
-    - Select **Insights** on the right to learn more about the user activity related to the incident. 
-    - Select **Info** on the right > **View full details** to jump to the [user entity page](identify-threats-with-entity-behavior-analytics.md#entity-pages). Use the data displayed there to whether the locations captured are included in the user's commonly known locations. <!--unclear where to find this?-->
+[ ![Open an incident's user entity page.](media/ueba/open-entity-pages.png) ](media/ueba/open-entity-pages.png#lightbox)
 
-1. Jump to the Azure Sentinel **Hunting** area, and search for the **Anomalous Geo Location Logon** query. [Run the query](hunting.md) to determine whether the user's peers usually connect from the same locations as well, which would make an even stronger case for a false positive. <!--unclear how to do this?-->
+The user entity page is also linked from the [incident page](tutorial-investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+
+> [!TIP]
+> After confirming the data on the user entity page for the specific user associated with the incident, go to the Azure Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
+> In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+>
 
 ## Identify password spray and spear phishing attempts
 
