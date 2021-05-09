@@ -235,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Data protection
           items:
-            - name: Increase resiliency
-              displayName: high availability, disaster recovery
+            - name: Failover & disaster recovery
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
@@ -387,6 +387,8 @@
           href: how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: how-to-train-with-custom-image.md
+        - name: Train with the REST API
+          href: how-to-train-with-rest.md
         - name: Migrate from Estimators to ScriptRunConfig
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
@@ -494,6 +496,10 @@
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
+      - name: Monitoring managed online endpoints
+        href: how-to-monitor-online-endpoints.md
+      - name: Viewing managed online endpoint costs
+        href: how-to-view-online-endpoints-costs.md
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
