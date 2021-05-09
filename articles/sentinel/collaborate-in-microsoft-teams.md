@@ -1,5 +1,5 @@
 ---
-title: Collaborate in Microsoft Teams | Microsoft Docs
+title: Collaborate in Microsoft Teams with an Azure Sentinel incident war room| Microsoft Docs
 description: Learn how to connect to Microsoft Teams from Azure Sentinel to collaborate with others on your team using Azure Sentinel data.
 services: sentinel
 documentationcenter: na
@@ -30,7 +30,7 @@ Azure Sentinel supports a direct integration with [Microsoft Teams](/microsoftte
 
 Integrating with Microsoft Teams directly from Azure Sentinel enables your teams to collaborate seamlessly across the organization, and with external stakeholders.
 
-Using a *war room* type of team in Microsoft Teams provides a mechanism for central communication and coordination. War rooms are especially helpful when used as a dedicated conference bridge for high-severity, ongoing incidents.
+Use Microsoft Teams with a *war room* to help centralize your communication and coordination across the relevant personnel. War rooms are especially helpful when used as a dedicated conference bridge for high-severity, ongoing incidents.
 
 Organizations that already use Microsoft Teams for communication and collaboration can use the Azure Sentinel integration to bring security data directly into their conversations and daily work.
 
@@ -52,7 +52,7 @@ Investigate together with a war room-type team by integrating with Microsoft Tea
 
     - **Team name**: Automatically defined as the name of your incident. Modify the name as needed so that it's easily identifiable to you.
     - **Description**: Enter a meaningful description for your war room team.
-    - **Add groups**: Select one or more Azure AD groups to add to your war room. Individual users are not supported.
+    - **Add groups**: Select one or more Azure AD groups to add to your war room. Individual users aren't supported.
 
         > [!TIP]
         > If you regularly work with the same teams, you may want to select the star :::image type="icon" source="media/collaborate-in-microsoft-teams/save-as-favorite.png" border="false"::: to save them as favorites.
@@ -67,7 +67,7 @@ Investigate together with a war room-type team by integrating with Microsoft Tea
     [ ![Click the Teams integration link added to your incident.](media/collaborate-in-microsoft-teams/teams-link-added-to-incident.jpg) ](media/collaborate-in-microsoft-teams/teams-link-added-to-incident.jpg#lightbox)
 
 
-1. Click your Teams integration link to switch into Microsoft teams, where all of the data about your incident is listed on the **Incident page** tab.
+1. Select your **Teams integration** link to switch into Microsoft Teams, where all of the data about your incident is listed on the **Incident page** tab.
 
     [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
 
