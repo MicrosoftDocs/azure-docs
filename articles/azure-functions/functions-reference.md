@@ -113,12 +113,33 @@ Identity-based connections are supported by the following trigger and binding ex
 
 | Extension name | Extension version                                                                                     | Supported in the Consumption plan |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
-| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
-| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
+| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Yes                                  |
+| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Yes                                    |
+| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Yes                                    |
+
 
 > [!NOTE]
 > Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
+
+Storage connections used by the Functions runtime for core behaviors still require the `AzureWebJobsStorage` setting. Support for identity-based connections is available and follows the below format.
+
+```json
+AzureWebJobsStorage {
+    "blobServiceUri": "https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net", 
+    "queueServiceUri": "https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net", 
+    "fileServiceUri": "https://<STORAGE_ACCOUNT_NAME>.file.core.windows.net", 
+    "tableServiceUri": "https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net", 
+    "credential": "<MANAGED_IDENTITY>"
+} 
+```
+
+When not using a custom DNS or not running in sovereign clouds, the following format can be used.
+```json
+AzureWebJobsStorage {
+    "accountName": "<STORAGE_ACCOUNT_NAME>", 
+    "credential": "<MANAGED_IDENTITY>"
+} 
+```
 
 #### Connection properties
 
@@ -162,6 +183,10 @@ Example of `local.settings.json` properties required for identity-based connecti
 {
   "IsEncrypted": false,
   "Values": {
+    "AzureWebJobsStorage" {
+        "accountName": "<STORAGE ACCOUNT NAME>", 
+        "credential": "<MANAGEDIDENTITY>"
+    },
     "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
