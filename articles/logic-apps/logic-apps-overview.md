@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/26/2021
+ms.date: 05/07/2021
 ---
 
 # What is Azure Logic Apps?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated logic app [workflows](#logic-app-concepts) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated [*workflows*](#logic-app-concepts) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
 
 The following list describes just a few example tasks, business processes, and workloads that you can automate using the Logic Apps service:
 
@@ -87,11 +87,12 @@ Based on your scenario and solution requirements, you can create logic apps that
 
 The following table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, and briefly summarizes the differences:
 
-| Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) | [Limits](logic-apps-limits-and-config.md) |
-|-------------|----------------------------|----------------------------------------|-------------------------------------------|
-| Azure Logic Apps <br>(multi-tenant) | A logic app can have *only one* workflow. <p><p>Logic apps created by customers *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-| Azure Logic Apps <br>([single-tenant, preview](logic-apps-overview-preview.md)) | A logic app can have multiple *stateful* and *stateless* workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Integration service environment | A logic app can have *only one* workflow. <p><p>Logic apps *in the same environment* share the same processing (compute), storage, network, and so on. | Fixed | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
+| Environment | Resource sharing and usage | [Pricing and billing model](logic-apps-pricing.md) | [Limits](logic-apps-limits-and-config.md) |
+|-------------|----------------------------|----------------------------------------------------|-------------------------------------------|
+| Azure Logic Apps <br>(multi-tenant) | A logic app can have *only one* workflow. <p><p>Logic apps created by customers *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption <br>(multi-tenant) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
+| Azure Logic Apps <br>([single-tenant, preview](logic-apps-overview-preview.md)) | A logic app can have multiple *stateful* and *stateless* workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview 
+(single-tenant), which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md). <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Integration service environment | A logic app can have *only one* workflow. <p><p>Logic apps *in the same environment* share the same processing (compute), storage, network, and so on. | Fixed (ISE) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
 |||||
 
 ## Why use Logic Apps
