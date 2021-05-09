@@ -1,5 +1,5 @@
 ---
-title: User Data for Azure Virtual Machine
+title: User data for Azure Virtual Machine
 description: Allow customer to insert script or other metadata into an Azure virtual machine at provision time.
 services: virtual-machines-linux
 author: ningk
@@ -13,19 +13,21 @@ ms.reviewer: azmetadata
 
 # User Data for Azure Virtual Machine 
 
+User data allows you to pass your own scripts or metadata to your virtual machine.
+
 ## What is "user data"
 
-User data is a set of script or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
+User data is a set of scripts or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
 
 User data is a new version of [custom data](https://docs.microsoft.com/azure/virtual-machines/custom-data)  and it offers added benefits:
 
-1. User data can be retrieved from Azure Instance Metadata Service(IMDS) after provision.
+* User data can be retrieved from Azure Instance Metadata Service(IMDS) after provision.
 
-2. User data is persistent. It will be available during the lifetime of the VM.
+* User data is persistent. It will be available during the lifetime of the VM.
 
-3. User data can be updated from outside the VM, without stopping or rebooting the VM.
+* User data can be updated from outside the VM, without stopping or rebooting the VM.
 
-4. User data can be queried via GET VM/VMSS API with $expand option.
+* User data can be queried via GET VM/VMSS API with $expand option.
 
  In addition, if user data is not added at provision time, you can still add it after provision.
 
@@ -34,13 +36,13 @@ User data is a new version of [custom data](https://docs.microsoft.com/azure/vir
 > [!WARNING]
 > User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data.
 
-Make sure you get the latest Azure ARM API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
+Make sure you get the latest Azure Resource Manager API to use the new user data features. The contents should be base64 encoded before passed to the API. The size cannot exceed 64 KB.
 
 ## Create user data for Azure VM/VMSS
 
 **Adding user data when creating new VM**
 
-Use [this ARM template](https://aka.ms/ImdsUserDataArmTemplate) to create a new VM with user data.
+Use [this Azure Resource Manager template](https://aka.ms/ImdsUserDataArmTemplate) to create a new VM with user data.
 If you are using rest API, for single VMs, add 'UserData' to the "properties" section with the PUT request to create the VM.
 
 ```json
@@ -67,9 +69,9 @@ If you are using rest API, for single VMs, add 'UserData' to the "properties" se
 }
 ```
 
-**Adding user data when you create new VMSS**
+**Adding user data when you create new virtual machine scale set**
 
-Using rest API, for VMSS, add 'UserData' to the "virtualMachineProfile" section with the PUT request when creating VMSS.
+Using rest API, add 'UserData' to the "virtualMachineProfile" section with the PUT request when creating the virtual machine scale set.
 ```json
 {
   "location": "West US",
@@ -131,11 +133,11 @@ Single VMs:
 
 `GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachines/{VMName}?$expand=userData"`
 
-VMSS:
+Virtual machine scale set:
 
 `GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}?$expand=userData"`
 
-VMSS VM:
+Virtual machine scale set VM:
 
 ` GET "/subscriptions/{guid}/resourceGroups/{RGName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMSSName}/virtualmachines/{vmss instance id}?$expand=userData" `
 
@@ -198,7 +200,8 @@ The VM.Properties in these requests should contain your desired UserData field, 
         "userData": "U29tZSBDdXN0b20gRGF0YQ=="
       } 
 ```
-> Note if you pass in an empty string for "userData" in this case, the user data will be deleted.
+> [!NOTE]
+> If you pass in an empty string for "userData" in this case, the user data will be deleted.
 
 ## User data and custom data
 
@@ -206,7 +209,7 @@ Custom data will continue to work the same way as today. Note you cannot retriev
 
 ## Adding user data to an existing VM 
 
-If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#updating-user-data) section. Make sure you upgrade to the latest version of ARM API.
+If you have an existing VM/VMSS without user data, you can still add user data to this VM by using the updating commands,  as described in the ["Updating the User data"](#updating-user-data) section. Make sure you upgrade to the latest version of Azure Resource Manger API.
 
 ## Next steps 
  
