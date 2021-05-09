@@ -103,19 +103,19 @@ It is required to get the service principal's application ID and secret:
 
 ## Register an Azure SQL Database Managed Instance data source
 
-1. Navigate to your Purview account
+1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation
+1. Select **Sources** on the left navigation.
 
-1. Select **Register**
+1. Select **Register**.
 
-1. Select **Azure SQL Database Managed Instance** and then **Continue**
+1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
 1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
-1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Finish** to register the data source.
+1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Register** to register the data source.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
 
