@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
+ms.date: 05/08/2021
 ---
 
 # Register and scan multiple sources in Azure Purview

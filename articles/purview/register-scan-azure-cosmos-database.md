@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
+ms.date: 05/08/2021
 ---
 
 # Register and scan Azure Cosmos Database (SQL API)

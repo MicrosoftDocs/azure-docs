@@ -6,7 +6,7 @@ ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen1 into the catalog.
 ---
 # Register and scan Azure Data Lake Storage Gen1
