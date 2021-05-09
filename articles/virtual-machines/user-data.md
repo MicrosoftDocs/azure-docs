@@ -19,7 +19,7 @@ User data allows you to pass your own scripts or metadata to your virtual machin
 
 User data is a set of scripts or other metadata,  that will be inserted to an Azure virtual machine at provision time. Any application on the virtual machine can access the user data from the Azure Instance Metadata Service (IMDS) after provision. 
 
-User data is a new version of [custom data](https://docs.microsoft.com/azure/virtual-machines/custom-data)  and it offers added benefits:
+User data is a new version of [custom data](./custom-data.md)  and it offers added benefits:
 
 * User data can be retrieved from Azure Instance Metadata Service(IMDS) after provision.
 
@@ -123,8 +123,7 @@ Using rest API, add 'UserData' to the "virtualMachineProfile" section with the P
 
 ## Retrieving user data
 
-Applications running inside the VM can retrieve user data from IMDS endpoint. For details, see [IMDS sample code here.](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service?tabs=linux#get-user-data
-)
+Applications running inside the VM can retrieve user data from IMDS endpoint. For details, see [IMDS sample code here.](./linux/instance-metadata-service.md?tabs=linux#get-user-data)
 
 Customers can retrieve existing value of user data via rest API
 using \$expand=userData endpoint (request body can be left empty).
@@ -213,4 +212,4 @@ If you have an existing VM/VMSS without user data, you can still add user data t
 
 ## Next steps 
  
-Try out [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service), learn how to get the VM instance metadata and user data from its endpoint. 
+Try out [Azure Instance Metadata Service](./linux/instance-metadata-service.md), learn how to get the VM instance metadata and user data from its endpoint. 
