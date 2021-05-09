@@ -3,7 +3,7 @@ title: Azure Logic Apps - Compare single-tenant (preview), multi-tenant, and int
 description: Learn the differences between logic app workflows that run in the single-tenant (preview), multi-tenant, and integration service environment (ISE).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, ladolan, azla
 ms.topic: conceptual
 ms.date: 05/05/2021
 ---
@@ -22,26 +22,9 @@ If you're new to Azure Logic Apps, start by reviewing the following documentatio
 * [What is Azure Logic Apps?](logic-apps-overview.md)
 * [What is a logic app *workflow*?](logic-apps-overview.md#logic-app-concepts)
 
-## Logic App (Preview) resource type
-
-The new **Logic App (Preview)** resource type is powered by the redesigned Azure Logic Apps (Preview) runtime. The redesigned runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture provides portability and flexibility for **Logic App (Preview)** workflows to run anywhere that Azure Functions can run, not just the single-tenant Logic Apps environment. For example, host environments also include Azure App Service, Docker containers, and your local development environment when you use Visual Studio Code with the Azure Logic Apps (Preview) extension.
-
-With your logic app workflows running on the redesigned runtime, you get better performance and many other capabilities and benefits from the Azure Functions platform and Azure App Service ecosystem. For example, your workflows can run in containers, on Azure App Service, and  You can *locally* develop, build, and run your workflows without having to deploy to Azure. This change is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
-
-Deployments in the multi-tenant model are completely based on Azure Resource Manager (ARM) templates, which handle resource provisioning for both apps and infrastructure.
-
-For example, to deploy your logic app workflows, you can use the standard build and deploy options so you can focus only on your app requirements. To set up and provision your infrastructure resources, such as virtual networks and connectivity, you can use ARM templates so you can deploy your infrastructure along with other processes and pipelines for these purposes.
-
-The separating the concerns between app and infrastructure, This separation provides a more generic project model where you can apply many of the same DevOps options as you use for a generic app. You can reuse generic build steps that build, assemble, and zip your logic app workflows into artifacts ready for deployment. No matter which technology stack you use, deploy your logic apps with your tools of choice.
-
-For example, if your scenario requires containers, you can containerize your logic apps and integrate them into your existing pipelines using the build tools and processes that you already know and use.
-
-With this new approach, the redesigned runtime and your workflows are both part of your logic app that you can now package together. This capability lets you deploy and run your workflows by simply copying artifacts to the hosting environment and starting your app. This approach also provides a more standardized experience for building deployment pipelines around the workflow projects for running the required tests and validations before you deploy changes to production environments.
-
-
 <a name="differences"></a>
 
-## Resource type and environment differences
+## Resource types and environment differences
 
 The following table provides more information about how the new **Logic App (Preview)** resource type compares with original **Logic App (Consumption)** resource type. You'll also learn the differences between the *multi-tenant*, *single-tenant* (preview), and *integration service environment (ISE)* where you can deploy, host, and run your logic app workflows.
 
@@ -52,7 +35,43 @@ The following table provides more information about how the new **Logic App (Pre
 | **Logic App (Preview)** | Single-tenant <br>(Preview) | A single logic app can have multiple [*stateful* and *stateless*](#stateful-stateless) workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md). <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||||
 
-* [Logic Apps Public Preview Known Issues (GitHub)](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
+<a name="preview-resource-type-introduction"></a>
+
+## Logic App (Preview) resource type
+
+The **Logic App (Preview)** resource type is powered by the redesigned Azure Logic Apps (Preview) runtime, which uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This architecture provides portability, flexibility, and better performance for your logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+
+For example, the **Logic App (Preview)** resource type introduces a resource structure similar to Azure Functions where your logic app can include multiple workflows. This structure differs from the **Logic App (Consumption)** version where you have a 1:1 mapping between a logic app resource and workflow. With this 1-to-many relationship, workflows in the same logic app can share and reuse other resources, resulting in improved performance due to shared tenancy and proximity to each other.
+
+For more information about the new **Logic App (Preview)** resource type, Azure Functions, and Azure Functions extensibility, review the following documentation:
+
+* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Introduction to Azure Functions](../azure-functions/functions-overview.md)
+* [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
+* [Azure Functions extensibility - WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
+
+<a name="portability"></a>
+<a name="flexibility"></a>
+
+### Portability and flexibility
+
+When you create logic apps using the **Logic App (Preview)** resource type, you can run your logic app workflows anywhere that you can run functions created using the Azure Functions platform, not just in the single-tenant Azure Logic Apps environment. 
+
+For example, when you use Visual Studio Code with the Azure Logic Apps (Preview) extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can containerize your logic apps to deploy into Docker containers. These capabilities in the single-tenant model provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. With multi-tenant, deployments are also completely based on Azure Resource Manager (ARM) templates, which handle resource provisioning for both apps and infrastructure.
+
+With the new resource type, the redesigned runtime and your workflows are both part of your logic app that you can now package together. This design lets you simply deploy by copying artifacts to the host environment and run your workflows by starting your app. You can also use the standard build and deploy options so that you can focus on your app or solution requirements. 
+
+This approach also provides a more standardized experience for building deployment pipelines around your workflow projects so that you can run the required tests and validations before you deploy to production environments. For example, you can integrate your logic app deployments into existing pipelines by using the build tools and processes that you already know and use. To provision and set up your infrastructure resources, such as virtual networks and connectivity, you can use ARM templates and deploy your infrastructure along with other processes and pipelines that you use for these purposes.
+
+By separating the concerns between deploying your app and your infrastructure, you get a more generic project model where you can apply many of the same deployment options that you use for a generic app. You can reuse generic build steps that build, assemble, and zip your logic apps into ready-to-deploy artifacts. No matter which technology stack you use, you can deploy your logic apps with the *tools that you choose*.
+
+<a name="performance"></a>
+
+### Performance
+
+The **Logic App (Preview)** resource type and redesigned Azure Logic Apps (Preview) runtime provider another significant improvement where the more commonly-used managed connectors are now available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. You can still use the managed connector versions, which continue to work. 
+
+When you use these new built-in operations, you create connections called *built-in connections* or *service provider connections*. Their managed connection counterparts are called *API connections*, which are created and run separately as Azure resources that you also have to then deploy by using ARM templates. Built-in operations and their connections run locally in the same process that runs your workflows, and both are hosted on the Logic Apps runtime. As a result, built-in operations and their connections provide better performance due to proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
 ### Create, build, and deploy
 
@@ -87,19 +106,6 @@ To create a logic app based on the environment where you to deploy and run, you 
 ||||
 
 Although your development experiences differ based on whether you create **Consumption** or **Preview** logic app resources, you can find and access all your deployed logic apps under your Azure subscription. For example, in the Azure portal, the **Logic apps** page shows both **Consumption** and **Preview** logic app resource types. In Visual Studio Code, all your deployed logic apps appear under your Azure subscription. However, in the Azure extensions pane, deployed logic apps are organized separately into their categories based on whether they are and sections and appear separately under the **Consumption** and **Preview** extensions.
-
-Resource structure
-
-Single-tenant Logic Apps introduces a new resource structure where your logic app can host multiple workflows. This structure differs from the multi-tenant version where you have a 1:1 mapping between logic app resource and workflow. With this 1-to-many relationship, workflows in the same logic app can share and reuse other resources. Plus, these workflows also benefit from improved performance due to shared tenancy and proximity to each other.
-
-For more information, see [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
-
-For more information about Azure Functions, review the following documentation:
-
-* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
-* [Introduction to Azure Functions](../azure-functions/functions-overview.md)
-* [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
-* [Azure Functions extensibility - WebJobs SDK: Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)
 
 <a name="stateful-stateless"></a>
 
@@ -302,53 +308,13 @@ To find the fully qualified domain names (FQDNs) for these connections, review t
 * [Firewall permissions for single tenant logic apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Azure portal](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
-<a name="limits"></a>
-
-## Updated limits
-
-Although many limits for Azure Logic Apps Preview stay the same as the [limits for multi-tenant Azure Logic Apps](logic-apps-limits-and-config.md), these limits have changed for Azure Logic Apps Preview.
-
-<a name="http-timeout-limits"></a>
-
-### HTTP timeout limits
-
-For a single inbound call or outbound call, the timeout limit is 230 seconds (3.9 minutes) for these triggers and actions:
-
-* Outbound request: HTTP trigger, HTTP action
-* Inbound request: Request trigger, HTTP Webhook trigger, HTTP Webhook action
-
-In comparison, here are the timeout limits for these triggers and actions in other environments where logic apps and their workflows run:
-
-* Multi-tenant Azure Logic Apps: 120 seconds (2 minutes)
-* Integration service environment: 240 seconds (4 minutes)
-
-For more information, see [HTTP limits](logic-apps-limits-and-config.md#http-limits).
-
-<a name="managed-connector-limits"></a>
-
-### Managed connectors
-
-Managed connectors are limited to 50 requests per minute per connection. To work with connector throttling issues, see [Handle throttling problems (429 - "Too many requests" error) in Azure Logic Apps](handle-throttling-problems-429-errors.md#connector-throttling).
-
-<a name="inline-code-limits"></a>
-
-### Inline Code Operations (Execute JavaScript Code)
-
-For a single logic app definition, the Inline Code Operations action, [**Execute JavaScript Code**](logic-apps-add-run-inline-code.md), has these updated limits:
-
-* The maximum number of code characters increases from 1,024 characters to 100,000 characters.
-
-* The maximum duration for running code increases from five seconds to 15 seconds.
-
-For more information, see [Logic app definition limits](logic-apps-limits-and-config.md#definition-limits).
-
 ## Next steps
 
 * [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
 * [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 
-Also, we'd like to hear from you about your experiences with Azure Logic Apps Preview!
+We'd also like to hear from your about your experiences with the new Logic Apps (Preview) resource type and single-tenant Azure Logic Apps (Preview)!
 
 * For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
