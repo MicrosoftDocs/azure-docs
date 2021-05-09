@@ -16,6 +16,7 @@ ms.author: allensu
 # Manage public IP addresses
 
 Learn about a public IP address and how to create, change, and delete one. A public IP address is a resource with configurable settings. Assigning a public IP address to an Azure resource that supports public IP addresses enables:
+
 - Inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others.
 - Outbound connectivity to the Internet using a predictable IP address.
 
@@ -37,7 +38,7 @@ For more detail on the specific attributes of a public IP address during creatio
 
    |Setting|Required?|Details|
    |---|---|---|
-   |IP Version|Yes| Select IPv4 or IPv6 or Both. Selecting Both will result in 2 Public IP addresses being create- 1 IPv4 address and 1 IPv6 address. |
+   |IP Version|Yes| Select IPv4 or IPv6 or Both. Selecting **Both** will result in 2 public IP addresses being created. (1 IPv4 address and 1 IPv6 address). |
    |SKU|Yes| All public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality, including allocation method, feature support, and which resources they can be associated with.  You can't change the SKU after the public IP address is created.  Mixing SKUs between virtual machines within availability sets, scale sets, or standalone VMs isn't allowed. For more information, see, [Public IP addresses - SKU](/public-ip-addresses.md#sku) |
    |Tier|Yes|Indicates if the IP address is associated with a region (**Regional**) or is "anycast" from multiple regions (**Global**). For more information, see [Cross-region load balancer](../load-balancer/cross-region-overview.md).|
    |Name|Yes|The name must be unique within the resource group you select.|
@@ -66,7 +67,7 @@ For more detail on the specific attributes of a public IP address during creatio
 |List | Under the **Public IP addresses** category |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to retrieve one or more public IP address objects and view its settings|[az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list) to list public IP addresses|
 |Modify | For a disassociated IP, select **Configuration** to: </br> Modify idle timeout. </br> DNS name label. </br> Change assignment of an IP from static to dynamic. </br> Upgrade a basic IP to standard. |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to update settings |[az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) to update |
 
-   - **Delete**: Deletion of Public IPs requires that the Public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
+   - **Delete**: Deletion of public IPs requires that the public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
@@ -80,7 +81,7 @@ Separate public IPs aren't associated with the VMs when using [uniform orchestra
 
 To list the Public IPs on a virtual machine scale set, you can use PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) or CLI ([az virtual machine scale set list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips)).
 
-For more information, see [Networking for Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+For more information, see [Networking for Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 
 ## Assign a public IP address
 
@@ -91,7 +92,10 @@ Learn how to assign a public IP address to the following resources:
 - [Application Gateway](../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Virtual Machine Scale Set](../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-
+- [NAT gateway](tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Bastion](../bastion/quickstart-host-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Firewall](../firewall/tutorial-firewall-deploy-portal-policy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Cross-region load balancer](../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ## Permissions
 
 To manage public IP addresses, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role. A [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role is also supported. The custom role must be assigned the appropriate actions listed in the following table:
