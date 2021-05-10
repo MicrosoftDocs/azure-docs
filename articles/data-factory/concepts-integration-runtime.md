@@ -1,8 +1,8 @@
 ---
 title: Integration runtime
 description: 'Learn about integration runtime in Azure Data Factory.'
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019

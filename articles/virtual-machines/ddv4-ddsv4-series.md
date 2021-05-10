@@ -43,7 +43,7 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
 | Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
 
-<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 
 ## Ddsv4-series
 

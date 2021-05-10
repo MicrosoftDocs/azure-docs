@@ -83,6 +83,8 @@ You want to use an IoT Edge module to transform the data to the following JSON f
 }
 ```
 
+[![Browse code](media/common/browse-code.svg)](https://github.com/iot-for-all/iot-central-transform-with-iot-edge)
+
 The following steps show you how to set up and configure this scenario:
 
 ### Build the custom module

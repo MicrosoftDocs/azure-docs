@@ -119,7 +119,7 @@ landingContent:
             url: github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
-          - text: Configure site-to-site VPN gateway
+          - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
@@ -151,7 +151,7 @@ landingContent:
             url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
           - text: Restore VMware VMs 
             url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context       
-          - text: Monitoring Azure Backup workloads 
+          - text: Monitor Azure Backup workloads 
             url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
 
 # card 5
