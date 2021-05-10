@@ -60,7 +60,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-core</artifactId>
-    <version>1.13.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
+    <version>1.16.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
 </dependency>
 ```
 
