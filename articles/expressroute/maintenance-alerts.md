@@ -55,7 +55,7 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
     |               | Service(s) | *ExpressRoute \ ExpressRoute Circuits* |
     |               | Region(s) | Select a region or leave as *Global* for health events for all regions.
     |               | Event type | Select *Planned maintenance*. |
-    | **Actions** | Action group name | The *Action Group* determines the notification type and defines the audience that the notification is sent to. For assistance in creating and managing the Action Group, refer to [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/alerts/action-groups?WT.mc_id=Portal-Microsoft_Azure_Monitoring) in the Azure portal. |
+    | **Actions** | Action group name | The *Action Group* determines the notification type and defines the audience that the notification is sent to. For assistance in creating and managing the Action Group, refer to [Create and manage action groups](../azure-monitor/alerts/action-groups.md) in the Azure portal. |
     | **Alert rule details** | Alert rule name | Enter a *name* to identify your alert rule. |
     |                        | Description | Provide a description for what this alert rule does. | 
     |                        | Save alert rule to resource group | Select a *resource group* to create this alert rule in. |
