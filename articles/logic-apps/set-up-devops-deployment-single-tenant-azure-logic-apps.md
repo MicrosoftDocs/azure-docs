@@ -39,10 +39,6 @@ The following diagram shows the dependencies between your logic app project and 
 
 ![Conceptual diagram showing infrastructure dependencies for a logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
 
-> [!IMPORTANT]
-> In your logic app project, the **connections.json** file contains metadata and endpoints for any managed or API connections and Azure Functions. 
-> If you want to use different connections and functions for each environment, make sure that you parameterize this file and update the endpoints.
-
 <a name="deploy-infrastructure"></a>
 
 ## Deploy your infrastructure
@@ -66,8 +62,32 @@ Both samples include the following resources that a logic app uses to run.
 | Azure storage account | Yes, for stateless workflows | This Azure resource stores the metadata, state, inputs, outputs, run history, and other information about your workflows. |
 | Application Insights | Optional | This Azure resource provides monitoring capabilities for your workflows. |
 | API connections | Optional, if none exist | These Azure resources define any managed or API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. For more information, review [API connection resources and access policies](#api-connection-resources). |
-| Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). The template also includes the required access policies, for example, to use API connections. <p><p>**Important**: Exporting the ARM template won't include all the related parameters for any API connection resources that your workflows use. **(TODO: HOW TO FIND PARAMETERS FOR EACH CONNECTION)** |
+| Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). The template also includes the required access policies, for example, to use API connections. <p><p>**Important**: Exporting the ARM template won't include all the related parameters for any API connection resources that your workflows use. For more information, review [Find API connection parameters](#find-api-connection-parameters). |
 ||||
+
+<a name="find-api-connection-parameters"></a>
+
+### Find API connection parameters
+
+> [!IMPORTANT]
+> In your logic app project, the **connections.json** file contains metadata and endpoints for any managed or API connections and Azure Functions. 
+> If you want to use different connections and functions for each environment, make sure that you parameterize this file and update the endpoints.
+
+If your workflows use managed or API connections, using the export template capability won't include all related parameters. In an ARM template, an [API connection resource definition](logic-apps-azure-resource-manager-templates-overview.md#connection-resource-definitions) has the following general format:
+
+```json
+{
+   "type": "Microsoft.Web/connections",
+   "apiVersion": "2016–06–01",
+   "location": "[parameters('location')]",
+   "name": "[parameters('connectionName')]",
+   "properties": {}
+}
+```
+
+To understand the properties that you need to put in the ARM template you can use the following API:  
+
+`PUT https://management.azure.com/subscriptions/{subscription}/providers/Microsoft.Web/locations/{location}/managedApis/{connector}?api-version=2018–07–01-preview`
 
 ## Set up build and release pipelines
 
