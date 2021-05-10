@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 10/10/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -105,7 +105,7 @@ Configure the application settings in the [App service in Azure](../app-service/
 
 ## Azure AD B2C configuration
 
-### Add policy keys for your DFP client app ID and secret
+### Add policy keys for your Microsoft DFP client app ID and secret
 
 1. In the Azure AD tenant where Microsoft DFP is setup, create an [Azure AD application and grant admin consent](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications). 
 2. Create a secret value for this application registration and note the application's client ID and client secret value.
@@ -120,10 +120,10 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 | Placeholder | Replace with | Notes |
 | :-------- | :------------| :-----------|
-|{your_tenant_name} | Your tenant short name |  "yourtenant" from yourtenant.onmicrosoft.com   |
-|{your_tenantId} | Tenant ID of your Azure AD B2C tenant |  01234567-89ab-cdef-0123-456789abcdef   |
-|  {your_tenant_IdentityExperienceFramework_appid}    |   App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant    |  01234567-89ab-cdef-0123-456789abcdef   |
-|  {your_tenant_ ProxyIdentityExperienceFramework _appid}     |  App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant      |   01234567-89ab-cdef-0123-456789abcdef     |
+|{Settings:Production} | Whether to deploy the policies in production mode | `true` or `false`  |
+|{Settings:Tenant} | Your tenant short name |  `your-tenant` - from your-tenant.onmicrosoft.com  |
+| {Settings:DeploymentMode}    |  Application Insights deployment mode to use   |  `Production` or `Development`  |
+|  {Settings:DeveloperMode}    | Whether to deploy the policies in Application Insights developer mode      |   `true` or `false`    |
 |  {your_tenant_extensions_appid}   |  App ID of your tenant's storage application   |  01234567-89ab-cdef-0123-456789abcdef  |
 |   {your_tenant_extensions_app_objectid}  | Object ID of your tenant's storage application    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   Instrumentation key of your app insights instance*  |   01234567-89ab-cdef-0123-456789abcdef |
