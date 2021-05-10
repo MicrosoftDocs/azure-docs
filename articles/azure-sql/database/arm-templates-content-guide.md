@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: 
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ---
