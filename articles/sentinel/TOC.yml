@@ -21,6 +21,10 @@
       href: quickstart-onboard-template.md
 - name: Tutorials
   items:
+  - name: Investigate incidents
+    href: tutorial-investigate-cases.md
+  - name: Use automation to respond to threats
+    href: tutorial-respond-threats-playbook.md
   - name: Integrate Microsoft 365 Defender with Sentinel
     href: microsoft-365-defender-sentinel-integration.md
   - name: Create KQL queries for Sentinel (Learn module)
@@ -45,7 +49,7 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Detection and analysis
     items:
-    - name: Visualizing data
+    - name: Visualizing data 
       href: quickstart-get-visibility.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
@@ -53,7 +57,7 @@
       href: quickstart-get-visibility.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
-    - name: Incidents
+    - name: Incidents 
       href: create-incidents-from-alerts.md
     - name: Incident metrics
       href: manage-soc-with-incident-metrics.md
@@ -75,6 +79,8 @@
       href: hunting.md
 - name: How-Tos
   items:
+  - name: Get started
+    items:
   - name: Collect data
     items:
     - name: Microsoft data connectors
@@ -103,6 +109,10 @@
         href: connect-external-agent-proxy.md
     - name: Create a custom connector method
       href: create-custom-connector.md
+    - name: Monitor data connector health
+      href: monitor-data-connector-health.md
+    - name: Use Azure Data Explorer for long-term retention
+      href: store-logs-in-azure-data-explorer.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -144,15 +154,25 @@
       - name: Hunt with livestream
         href: livestream.md
     - name: Use UEBA to investigate incidents
-      href: enable-entity-behavior-analytics.md
+      items:
+        - name: Enable UEBA
+          href: enable-entity-behavior-analytics.md
+        - name: Common UEBA investigation methods
+          href: investigate-with-ueba.md
   - name: Manage Sentinel
     items:
     - name: Manage Sentinel Permissions
       href: roles.md
     - name: Manage workspace access
       href: resource-context-rbac.md
-    - name: Manage your intellectual property in Sentinel
-      href: mssp-protect-intellectual-property.md
+    - name: Azure Sentinel for MSSPs
+      items:
+      - name: Manage multiple tenants (MSSP)
+        href: multiple-tenants-service-providers.md
+      - name: Work with incidents in multiple workspaces
+        href: multiple-workspace-view.md
+      - name: Manage your intellectual property in Sentinel
+        href: mssp-protect-intellectual-property.md
     - name: Extend Azure Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Set up customer managed keys for Sentinel
