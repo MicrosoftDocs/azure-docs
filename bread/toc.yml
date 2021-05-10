@@ -54,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application proxy
+        tocHref: /azure/active-directory/app-proxy/
+        topicHref: /azure/active-directory/app-proxy/
       - name: Application provisioning
         tocHref: /azure/active-directory/app-provisioning/
         topicHref: /azure/active-directory/app-provisioning/
@@ -69,7 +72,7 @@
         topicHref: /azure/active-directory/reports-monitoring/
       - name: Verifiable credentials
         tocHref: /azure/active-directory/verifiable-credentials/
-        topicHref: /azure/active-directory/verifable-credentials/
+        topicHref: /azure/active-directory/verifiable-credentials/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/

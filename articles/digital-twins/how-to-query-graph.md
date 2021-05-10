@@ -18,12 +18,14 @@ ms.custom: contperf-fy21q2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers query examples and more detailed instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language and a full list of its features, see [Concepts: Query language](concepts-query-language.md).)
+This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Concepts: Query language](concepts-query-language.md).)
 
-This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
+It contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
 
 > [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 
@@ -230,7 +232,7 @@ You can **combine** any of the above types of query using combination operators 
 
 Once you have decided on a query string, you execute it by making a call to the [Query API](/rest/api/digital-twins/dataplane/query).
 
-You can call the API directly, or use one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
+You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
 The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
 
@@ -249,4 +251,4 @@ Query calls support paging. Here is a complete example using `BasicDigitalTwin` 
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API that is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), including the Query API that is used to run the queries from this article.

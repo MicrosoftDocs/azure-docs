@@ -55,11 +55,11 @@ For more information about the ways workflows can access and work with apps, dat
 
   For example, you can start a workflow with a trigger or include an action that works with Azure Blob Storage, Office 365, Salesforce, or SFTP servers. For more information, review [Managed connectors for Azure Logic Apps](../connectors/managed.md).
 
-* **Built-in trigger or action**: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. Built-in operations are also available for a few services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Services, and more.
+* **Built-in trigger or action**: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. Built-in operations are also available for a few services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Service, and more.
 
   For example, you can start almost any workflow on a schedule when you use the Recurrence trigger. Or, you can have your workflow wait until called when you use the Request trigger. For more information, review [Built-in triggers and actions for Azure Logic Apps](../connectors/built-in.md).
 
-* **Logic app**: The Azure resource to create for building a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the Azure multi-tenant, single-tenant, or integration service environment. For more information, review [Azure host environments for logic apps](#host-environments).
+* **Logic app**: The Azure resource to create for building a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the multi-tenant or single-tenant Logic Apps service environment or that run in an integration service environment. For more information, review [Host environments for logic apps](#host-environments).
 
 <a name="how-do-logic-apps-work"></a>
 
@@ -75,18 +75,18 @@ You can visually create workflows using the Logic Apps designer in the Azure por
 
 <a name="host-environments"></a>
 
-## Azure host environments
+## Host environments
 
-Based on your scenario and solution requirements, you can create logic apps that differ in their Azure hosting environment and how workflows use and share resources. The following table briefly summarizes these differences.
+Based on your scenario and solution requirements, you can create logic apps that differ in the Logic Apps service environment where they run and how workflows use resources. The following table briefly summarizes these differences.
 
-| Azure environment | [Pricing model](logic-apps-pricing.md) | Description |
-|-------------------|----------------------------------------|-------------|
-| Multi-tenant | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
-| [Single-tenant (Preview)](logic-apps-overview-preview.md) | Standard | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
+| Environment | [Pricing model](logic-apps-pricing.md) | Description |
+|-------------|----------------------------------------|-------------|
+| Azure Logic Apps (multi-tenant) | Consumption | A logic app can have only one workflow. <p><p>Workflows from different logic apps across *multiple tenants* share the same processing (compute), storage, network, and so on. |
+| Azure Logic Apps ([single-tenant (Preview)](logic-apps-overview-preview.md)) | [Preview](logic-apps-overview-preview.md#pricing-model) | A logic app can have multiple workflows. <p><p>Workflows from the *same logic app in a single tenant* share the same processing (compute), storage, network, and so on. |
 | [Integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) | Fixed | A logic app can have only one workflow. <p><p>Workflows from different logic apps in the *same environment* share the same processing (compute), storage, network, and so on. |
 ||||
 
-Logic apps running in different Azure environments also have different limits. For more information, review [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
+Logic apps hosted in Logic Apps service environments also have different limits. For more information, review [Limits in Logic Apps](logic-apps-limits-and-config.md) and [Limits in Logic Apps (Preview)](logic-apps-overview-preview.md#limits).
 
 ## Why use Logic Apps
 

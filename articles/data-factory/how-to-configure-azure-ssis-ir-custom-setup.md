@@ -6,7 +6,11 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
+<<<<<<< HEAD
 ms.date: 04/30/2021
+=======
+ms.date: 04/29/2021
+>>>>>>> 84637a51a667397979c6703afd4d711a77d689bb
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime

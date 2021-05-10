@@ -60,11 +60,11 @@ This will open a page to enter the details of a new private endpoint.
 
 1. Fill in selections for your **Subscription** and **Resource group**. Set the **Location** to the same location as the VNet you'll be using. Choose a **Name** for the endpoint, and for **Target sub-resources** select *API*.
 
-1. Next, select the **Virtual network** and **Subnet** you'd like to use to deploy the endpoint.
+1. Next, select the **Virtual network** and **Subnet** you want to use to deploy the endpoint.
 
 1. Lastly, select whether to **Integrate with private DNS zone**. You can use the default of **Yes** or, for help with this option, you can follow the link in the portal to [learn more about private DNS integration](../private-link/private-endpoint-overview.md#dns-configuration).
 
-After filling out the configuration options, Hit **OK** to finish.
+After filling out the configuration options, select **OK** to finish.
 
 This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections.
 
