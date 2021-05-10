@@ -5241,6 +5241,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/how-to/remove-desired-state-configuration-package.md",
+      "redirect_url": "/azure/automation/state-configuration/remove-node-and-configuration-package",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
       "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
       "redirect_document_id": false

@@ -50,7 +50,7 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 
 Follow these steps to specify the approval settings for requests for the access package:
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
