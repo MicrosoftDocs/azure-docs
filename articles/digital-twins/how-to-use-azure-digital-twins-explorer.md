@@ -90,6 +90,16 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer TWIN GRAPH panel. The FactoryA twin is selected, and the PROPERTIES panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
+Properties generally appear in white text, but may also appear in the following colors to indicate additional information:
+
+* **Red text for model**: Indicates that the model for the twin can't be found. This can happen if the model has been deleted since the twin was created.
+
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-color-red.png" alt-text="Screenshot of Azure Digital Twins Explorer PROPERTIES panel showing properties for a sample twin. The $model field and its value are shown with red text." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-color-red.png":::
+
+* **Yellow text for property**: Indicates that the property is not part of the model definition that the twin is using. This can happen if the model for the twin has been replaced or changed since the property was created, and the property no longer exists in the most recent version of the model. **Twins with outdated properties cannot be updated, unless the update also corrects or removes the outdated properties.**
+
+    :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-color-yellow.png" alt-text="Screenshot of Azure Digital Twins Explorer PROPERTIES panel showing properties for a sample twin. Several property names are shown with yellow text." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-color-yellow.png":::
+
 #### View a twin's relationships
 
 You can also quickly view the code of all relationships that involve a certain twin (including incoming and outgoing relationships).
