@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database updatable ledger tables"
-description: This article privides information on updatable ledger tables schema and views in Azure SQL Database
+description: This article provides information on updatable ledger tables schema and views in Azure SQL Database
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
