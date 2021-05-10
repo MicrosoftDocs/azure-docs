@@ -31,7 +31,7 @@ In this tutorial you will learn how to:
 
 ## Download image
 
-We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. 
+We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board, and the swUpdate file is the update you would import through Device Update for IoT Hub. 
 
 ## Flash SD card with image
 
