@@ -5,7 +5,7 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 05/10/2020
 ---
 
 # Using Azure Migrate with private endpoints  
@@ -37,7 +37,7 @@ The private endpoint connectivity method is recommended when there is an organiz
    
 #### Other integrated tools
 
-Some migration tools may not be able to upload usage data to the Azure Migrate project if public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings. 
+Other migration tools may not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings. 
 
 
 To enable public network access for the Azure Migrate project, go to the Azure Migrate **properties page** on the Azure portal, select **No**, and select **Save**.
@@ -90,7 +90,10 @@ This creates a migrate project and attaches a private endpoint to it.
 
 #### Download the appliance installer file  
 
-Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
+Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.  
+
+> [!Note]
+> The option to deploy an appliance using a template (OVA for servers on VMware environment and VHD Hyper-V environment) isn't supported for Azure Migrate projects with private endpoint connectivity.
 
 To set up the appliance, download the zipped file containing the installer script from the portal. Copy the zipped file on the server that will host the appliance. After downloading the zipped file, verify the file security and run the installer script to deploy the appliance. 
 
@@ -306,6 +309,10 @@ Make sure the private endpoint is an approved state.
     3. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network. 
 
     ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
+
+
+### Validate the Data flow through the private endpoints
+Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Server Migration Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
 
 ### Verify DNS resolution 
 
