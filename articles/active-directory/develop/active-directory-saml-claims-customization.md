@@ -45,7 +45,7 @@ To edit the NameID (name identifier value):
 
 If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform will honor the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected.
+If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform will issue the NameID with the  format you specify. If no format is specified, the Microsoft identity platform will use the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD will send a persisistent pairwise identifier in the nameIdentifier. 
 
 From the **Choose name identifier format** dropdown, you can select one of the following options.
 
