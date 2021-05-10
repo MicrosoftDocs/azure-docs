@@ -148,7 +148,7 @@ If it's acceptable for the IP address to change over time, **publicIPAllocationM
 >[!NOTE]
 > A basic IPv6 address must always be 'Dynamic'.
 
-## Routing Preference and tier
+## Routing preference and tier
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
 
