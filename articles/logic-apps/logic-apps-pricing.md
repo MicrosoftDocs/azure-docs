@@ -14,9 +14,9 @@ ms.date: 03/24/2021
 
 <a name="consumption-pricing"></a>
 
-## Multi-tenant pricing
+## Consumption pricing (multi-tenant)
 
-A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Logic Apps service. All successful and unsuccessful runs are metered and billed.
+A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Logic Apps environment. All successful and unsuccessful runs are metered and billed.
 
 For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
 
@@ -61,7 +61,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 <a name="fixed-pricing"></a>
 
-## ISE pricing
+## ISE pricing (dedicated)
 
 A fixed pricing model applies to logic apps that run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create. This pricing differs from multi-tenant pricing as you're paying for reserved capacity and dedicated resources whether or not you use them.
 
@@ -84,6 +84,25 @@ A fixed pricing model applies to logic apps that run in an [*integration service
 |||
 
 For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+
+<a name="preview-pricing"></a>
+
+## Preview pricing (single-tenant)
+
+When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing model that applies when running your logic app in the preview single-tenant Logic Apps environment.
+
+> [![NOTE]
+> During preview, running preview version logic apps in App Service doesn't incur *extra* charges on top of your selected hosting plan.
+
+When your logic app includes and runs enabled *stateful* workflows, which use [external storage](../azure-functions/storage-considerations#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. These storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/).
+
+For more information about the pricing models that apply to preview logic apps, review the following documentation:
+
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [Scale up an app in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
+* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
 <a name="integration-accounts"></a>
 

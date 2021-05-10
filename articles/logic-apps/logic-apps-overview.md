@@ -11,7 +11,7 @@ ms.date: 05/07/2021
 
 # What is Azure Logic Apps?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated [*workflows*](#logic-app-concepts) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated [*workflows*](#logic-app-concepts) that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. As a member of [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/), Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments.
 
 The following list describes just a few example tasks, business processes, and workloads that you can automate using the Logic Apps service:
 
@@ -22,7 +22,7 @@ The following list describes just a few example tasks, business processes, and w
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-Based on the Logic Apps resource type that you create and that resource type's default host environment, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant logic apps, you can deploy them to containers and run them anywhere that Azure Functions can run. For more information, review [Host environments](#host-environments).
+Based on the logic app resource type that you choose and create, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant logic apps, you can deploy your apps as containers and run them anywhere that Azure Functions can run. For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#logic-app-concepts) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
 
@@ -47,7 +47,7 @@ For more information about the ways workflows can access and work with apps, dat
 
 ## Key terms
 
-* *Logic app*: The Azure resource to create when you want to develop a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in either the multi-tenant or single-tenant Logic Apps service environment or that run in an integration service environment. For more information, review [Host environments for logic apps](#host-environments).
+* *Logic app*: The Azure resource to create when you want to develop a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in the multi-tenant, single-tenant (preview), or integration service environment (ISE). For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 * *Workflow*: A series of steps that defines a task or process, starting with a single trigger and followed by one or multiple actions
 
@@ -89,7 +89,7 @@ Based on your scenario and solution requirements, you can create logic apps by c
 |---------------|------------------|----------------------------|----------------------------------------------------|-------------------------------------------|
 | **Logic App (Consumption)** | Multi-tenant | A single logic app can have *only one* workflow. <p><p>Logic apps created by customers *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption (pay-per-use) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
 | **Logic App (Consumption)** | Integration service environment <br>(ISE) | A single logic app can have *only one* workflow. <p><p>Logic apps *in the same environment* share the same processing (compute), storage, network, and so on. | ISE (fixed) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-| **Logic App (Preview)** | Single-tenant <br>(Preview) | A single logic app can have multiple [*stateful* and *stateless*](#stateful-stateless) workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md). <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
+| **Logic App (Preview)** | Single-tenant <br>(Preview) | A single logic app can have multiple [*stateful* and *stateless*](logic-apps-overview-preview.#stateful-stateless) workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md). <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||||
 
 ## Why use Logic Apps
@@ -149,7 +149,7 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 #### Pricing options
 
-Each logic app type, which differs by capabilities and where they run (multi-tenant, single-tenant, integration service environment), has a different [pricing model](../logic-apps/logic-apps-pricing.md). For example, multi-tenant logic apps use consumption-based pricing, while logic apps in an integration service environment use fixed pricing. Learn more about [pricing and metering](../logic-apps/logic-apps-pricing.md) for Logic Apps.
+Each logic app type, which differs by capabilities and where they run (multi-tenant, single-tenant, integration service environment), has a different [pricing model](../logic-apps/logic-apps-pricing.md). For example, multi-tenant logic apps use consumption pricing, while logic apps in an integration service environment use fixed pricing. Learn more about [pricing and metering](../logic-apps/logic-apps-pricing.md) for Logic Apps.
 
 ## How does Logic Apps differ from Functions, WebJobs, and Power Automate?
 
