@@ -121,4 +121,4 @@ Now when your custom authentication configuration references your newly created 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Configure your application](configuration.md)
+> [Custom authentication](./authentication-custom.md)
