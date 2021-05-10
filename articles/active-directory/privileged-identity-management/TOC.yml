@@ -27,30 +27,20 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Configure PIM
-    items:
-    - name: Security wizard
-      href: pim-security-wizard.md
-    - name: Discover Azure resources
-      href: pim-resource-roles-discover-resources.md
-    - name: Delegate access to PIM
-      href: pim-how-to-give-access-to-pim.md
-    - name: Elevate access to manage all subscriptions
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Activate my roles
-    items:
-    - name: Activate my Azure AD roles
-      href: pim-how-to-activate-role.md
-    - name: Activate my Azure resource roles
-      href: pim-resource-roles-activate-your-roles.md
   - name: Manage Azure AD roles
     items:
     - name: Feature overview
       href: azure-ad-roles-features.md
     - name: PowerShell for Azure AD roles
       href: powershell-for-azure-ad-roles.md
+    - name: Discovery & Insights
+      href: pim-security-wizard.md
+    - name: Delegate PIM access
+      href: pim-how-to-give-access-to-pim.md
     - name: Assign roles
       href: pim-how-to-add-role-to-user.md
+    - name: Activate roles
+      href: pim-how-to-activate-role.md
     - name: Approve requests
       href: azure-ad-pim-approval-workflow.md
     - name: Configure role settings
@@ -71,10 +61,16 @@
       href: pim-how-to-use-audit-log.md
   - name: Manage Azure roles
     items:
+    - name: Discover Azure resources
+      href: pim-resource-roles-discover-resources.md
+    - name: Elevate access to manage all subscriptions
+      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
     - name: Invite external users
       href: pim-resource-roles-external-users.md
+    - name: Activate roles
+      href: pim-resource-roles-activate-your-roles.md
     - name: Approve requests
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles
