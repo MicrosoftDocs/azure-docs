@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/05/2021
 ms.author: duau
 
 ---
@@ -78,7 +78,13 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
 ## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-Generating the letter of authorization is unavailable from the portal at this time. Use **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** to obtain the letter of authorization.
+1. Go to the overview page of the ExpressRoute Direct resource and select **Generate Letter of Authorization**.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/overview.png" alt-text="Screenshot of generate letter of authorization button on overview page.":::
+
+1. Enter your company name and select **Download** to generate the letter.
+
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/letter-of-authorization-page.png" alt-text="Screenshot of letter of authorization page.":::
 
 ## <a name="state"></a>Change Admin State of links
 

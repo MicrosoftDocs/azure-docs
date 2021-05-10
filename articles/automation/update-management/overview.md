@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ---
 
@@ -59,6 +59,10 @@ Updates are installed by runbooks in Azure Automation. You can't view these runb
 At the date and time specified in the update deployment, the target machines execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client machines, if the updates aren't approved in WSUS, update deployment fails.
 
 Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
+
+## Limits
+
+For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
 
 ## Clients
 
