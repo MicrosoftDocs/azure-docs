@@ -40,9 +40,9 @@ This feature helps applications handle scenarios such as:
 
 - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
 - **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
-- **Conditional** - During sign-up, users are prompted to enroll in MFA. During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
+- **Conditional** - During sign-up, users are prompted to enroll in MFA (both new users and existing users who aren't enrolled in MFA). During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
 
-   - If the result is an MFA challenge with no risk, MFA is enforced.
+   - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
    - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
 
    > [!NOTE]
