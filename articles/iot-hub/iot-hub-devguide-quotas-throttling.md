@@ -1,5 +1,5 @@
 ---
-title: Content Performance http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
+title: Understand Azure IoT Hub quotas and throttling
 
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
 author: robinsh
@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'ms.custom:contperf-fy21q4']
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
 # Reference - IoT Hub quotas and throttling
