@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 
 ---
-# Terminology
+# Video Analyze terminology
 
 This article provides an overview of terminology related to [Azure Video Analyzer](overview.md).
 
