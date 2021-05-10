@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 05/15/2021
 ms.author: b-juche
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
@@ -38,7 +38,7 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 ## Considerations  
 
 * The Unix permissions you specify apply only for the volume mount point (root directory).  
-* You cannot modify the Unix permissions of a cross-region replication destination volume when the volume is in the [*Mirrored* state](cross-region-replication-display-health-status.md). 
+* You cannot modify the Unix permissions of a cross-region replication source or destination volume when the volume is in the [*Mirrored* state](cross-region-replication-display-health-status.md). 
 
 ## Steps
 
