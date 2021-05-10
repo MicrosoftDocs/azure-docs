@@ -1,5 +1,5 @@
 ---
-title: Setup a custom domain in Azure Static Web Apps
+title: Set up a custom domain in Azure Static Web Apps
 description: Learn to map a custom domain to Azure Static Web Apps
 services: static-web-apps
 author: burkeholland
@@ -39,13 +39,9 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 > [!IMPORTANT]
 > If your subdomain is currently associated to a live site, and you aren't ready to transfer it to your static web app, use TXT record validation.
 
-#### Enter your subdomain
+### Enter your subdomain
 
-1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-
-1. Search for and select **Static Web Apps**
-
-1. On the _Static Web Apps_ page, select the name of your app.
+1. Open your static web app in the [Azure portal](https://portal.azure.com).
 
 1. Select **Custom domains** in the menu.
 
@@ -57,7 +53,40 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 
 1. Select the **Next** button to move to the _Validate + configure_ step.
 
-#### Configure CNAME with your domain provider
+### Configure CNAME with your domain provider
+
+You'll need to configure a CNAME with your domain provider. Azure DNS is recommended, but these steps will work with any domain provider.
+
+# [Azure DNS](#tab/azure-dns)
+
+1. Make sure **CNAME** is selected from the _Hostname record type_ dropdown list.
+
+1. Copy the value in the _Require Value_ field to your clipboard by selecting the **copy** icon.
+
+   :::image type="content" source="media/custom-domain/copy-cname.png" alt-text="Validate + add screen showing CNAME selected and the copy icon outlined":::
+
+1. Open your Azure DNS Zone.
+
+1. Select the **+ Record Set** button.
+
+1. Create a new **CNAME** record set with the following values.
+
+   | Setting          | Value                             |
+   | ---------------- | --------------------------------- |
+   | Name             | www                               |
+   | Type             | CNAME                             |
+   | Alias Record Set | No                                |
+   | TTL              | Leave as default value            |
+   | TTL Unit         | Leave as default value            |
+   | Alias            | Paste the URL from your clipboard |
+
+1. Select **OK**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-cname.png" alt-text="Azure DNS record set screen with name, type and alias fields highlighted":::
+
+[!INCLUDE [create repository from template](../../includes/static-web-apps-validate-cname.md)]
+
+# [Other DNS](#tab/other-dns)
 
 1. Make sure **CNAME** is selected from the _Hostname record type_ dropdown list.
 
@@ -86,21 +115,15 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 
 1. Save the changes with your DNS provider.
 
-#### Validate CNAME
+[!INCLUDE [create repository from template](../../includes/static-web-apps-validate-cname.md)]
 
-1. Return to the _Validate + add_ window in the Azure portal.
-
-1. Select the **Add** button.
-
-Azure will attempt to validate the new CNAME with your domain provider. This may take a few minutes depending on your domain provider. If the validation fails immediately, wait a few minutes and try again before proceeding with any troubleshooting.
-
-Now that the subdomain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
+---
 
 ## Add domain using TXT record validation
 
-Use TXT record validation when you want to do either of the following...
+Azure uses a TXT record to validate that you own a domain. This is useful when you want to do one of the following...
 
-1. You want to configure a root domain (i.e. `mydomain.com`). CNAMES cannot be used to map root domains. Note that your domain provider must also support ALIAS record types or CNAME flattening.
+1. You want to configure a root domain (i.e. `mydomain.com`). Validating that you own the domain is required before you can create an ALIAS record that configures the root domain.
 1. You want to transfer a subdomain without downtime. The TXT record validation method allows you to validate that you own the domain, and for static web apps to go through the process of issuing you a certificate for that domain. You can then switch your domain to point to your static web app at any time with a CNAME record.
 
 #### Enter your domain
@@ -198,36 +221,6 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 
 Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
 
-## Map a wildcard domain
-
-Sometimes you want all traffic sent to a subdomain to route to another domain. A common example is mapping all subdomain traffic to `www.mydomain.com`. This way, even if someone types `w.mydomain.com` instead of `www.mydomain.com`, the request is sent to `www.mydomain.com`.
-
-### Configure DNS provider
-
-1. Sign in to the website of your domain provider.
-
-2. Find the page for managing DNS records. Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**.
-
-3. Often, you can find the DNS records page by viewing your account information, and then looking for a link such as **My domains**. Go to that page and then look for a link named similar to **Zone file**, **DNS Records**, or **Advanced configuration**.
-
-   The following screenshot is an example of a DNS records page.
-
-   :::image type="content" source="media/custom-domain/example-record-ui.png" alt-text="Sample DNS provider configuration":::
-
-4. Create a new **CNAME** record with the following values, replacing `www.mydomain.com` with your custom domain name.
-
-   | Setting | Value                  |
-   | ------- | ---------------------- |
-   | Type    | CNAME                  |
-   | Host    | \*                     |
-   | Value   | www.mydomain.com       |
-   | TTL     | Leave as default value |
-
-5. Save the changes with your DNS provider.
-
-Now that the wildcard domain is configured, it may take several hours for the changes to propagate worldwide.
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
