@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -35,12 +35,12 @@ When you restore a container, the container's blobs and any blob versions and sn
 
 > [!WARNING]
 > Container soft delete can restore only whole containers and their contents at the time of deletion. You cannot restore a deleted blob within a container by using container soft delete. Microsoft recommends also enabling blob soft delete and blob versioning to protect individual blobs in a container.
+>
+> When you restore a container, you must restore it to its original name. If the original name has been used to create a new container, then you will not be able to restore the soft-deleted container.
 
 The following diagram shows how a deleted container can be restored when container soft delete is enabled:
 
 :::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted container may be restored":::
-
-When you restore a container, you can restore it to its original name if that name has not been reused. If the original container name has been used, then you can restore the container with a new name.
 
 After the retention period has expired, the container is permanently deleted from Azure Storage and cannot be recovered. The clock starts on the retention period at the point that the container is deleted. You can change the retention period at any time, but keep in mind that an updated retention period applies only to newly deleted containers. Previously deleted containers will be permanently deleted based on the retention period that was in effect at the time that the container was deleted.
 
