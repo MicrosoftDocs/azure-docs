@@ -27,33 +27,33 @@ The `ml` extension to the [Azure CLI](/cli/azure/) is the next-generation interf
 
 ## Installation
 
-The new Machine Learning extension requires Azure CLI version `>=2.15.0`. Ensure this requirement is met:
+The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. Ensure this requirement is met:
 
 ```azurecli
 az version
 ```
 
-If it is not, [upgrade your CLI version](/cli/azure/update-azure-cli).
+If it is not, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
 
-Check the extensions installed:
+Check the Azure CLI extensions you have installed:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_list":::
 
-Ensure no conflicting extension using the `ml` namespace is installed, including the old `azure-cli-ml` extension:
+Ensure no conflicting extension using the `ml` namespace is installed, including the `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_remove":::
 
-Now, install the new Machine Learning extension:
+Now, install the `ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
-
-You can upgrade the extension to the latest version:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_update":::
 
 Run the help command to verify your installation and see available subcommands:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_verify":::
+
+You can upgrade the extension to the latest version:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_update":::
 
 ## Set up
 
@@ -75,11 +75,12 @@ Similarly for the machine learning workspace:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
 
-Nearly all machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters to be specified. To avoid typing these parameters repeatedly, configure defaults:
+Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
 
-Note: most code examples assume you have set a default workspace and resource group. You can override these on the command line.
+> [!TIP]
+> Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
 ## Hello world
 
@@ -107,5 +108,4 @@ Submit the job, streaming the logs to the console output, and opening the run in
 ## Next steps
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
-- [Deploy models using Machine Learning CLI extension](how-to-deploy-cli.md)
-- [Command reference for the Machine Learning CLI extension](/cli/azure/ext/ml/ml)
+- [Deploy models with a managed endpoint](how-to-deploy-managed-endpoints.md)
