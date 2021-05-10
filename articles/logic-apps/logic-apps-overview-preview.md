@@ -24,7 +24,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 <a name="resource-environment-differences"></a>
 
-## Resource types and environment differences
+## Resource types and environments
 
 The following table briefly summarizes how the new **Logic App (Preview)** resource type compares to original **Logic App (Consumption)** resource type. The table also describes how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
 
@@ -37,7 +37,7 @@ The following table briefly summarizes how the new **Logic App (Preview)** resou
 
 <a name="preview-resource-type-introduction"></a>
 
-## Logic App (Preview) resource type
+## Logic App (Preview) resource
 
 The **Logic App (Preview)** resource type is powered by the redesigned Azure Logic Apps (Preview) runtime, which uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for your logic apps plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
@@ -76,7 +76,7 @@ The preview logic app resource type and redesigned Azure Logic Apps (Preview) ru
 
 When you use the new built-in operations, you create connections called *built-in connections* or *service provider connections*. Their managed connection counterparts are called *API connections*, which are created and run separately as Azure resources that you also have to then deploy by using ARM templates. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the redesigned Logic Apps runtime. As a result, built-in operations and their connections provide better performance due to proximity with your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
-### Create, build, and deploy
+## Create, build, and deploy options
 
 To create a logic app based on the environment that you want, you have multiple options, for example:
 
@@ -168,7 +168,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 <a name="other-capabilities"></a>
 
-## Other preview logic app and single-tenant capabilities
+## Other preview capabilities
 
 The **Logic App (Preview)** resource and single-tenant model include many current and new capabilities, for example:
 
