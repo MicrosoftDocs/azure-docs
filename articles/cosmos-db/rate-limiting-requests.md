@@ -38,7 +38,7 @@ For more information about partitioning Cosmos DB, see [Partitioning and horizon
 An approach to implementing rate limiting might look like this:
 
 1. Profile your application so you have data about what writes and read requests are used.
-1. Define all indexes in Cosmos DB.
+1. Define all indexes.
 1. Populate the collection with a reasonable amount of data (could be sample data). If you expect your application to normally have millions of records, populate it with millions of records.
 1. Write your representative documents and record the RU cost.
 1. Run your representative queries and record the RU cost.
