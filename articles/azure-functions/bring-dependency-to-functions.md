@@ -1,5 +1,5 @@
 ---
-title: Bring dependencies or third party library to Azure Functions
+title: Bring dependencies and third-party libraries to Azure Functions
 description: Learn how to bring files or third party library 
 ms.date: 4/6/2020
 ms.topic: article
