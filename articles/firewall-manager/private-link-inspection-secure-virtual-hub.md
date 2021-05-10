@@ -11,6 +11,9 @@ ms.author: jocorte
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
 
+> [!NOTE]
+> This article applies to secured virtual hub only. If you want to inspect traffic destined to private endpoints using Azure Firewall in a hub virtual network, see [Use Azure Firewall to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
+
 [Azure Private Endpoint](../private-link/private-endpoint-overview.md) is the fundamental building block for [Azure Private Link](../private-link/private-link-overview.md). Private endpoints enable Azure resources deployed in a virtual network to communicate privately with private link resources.
 
 Private endpoints allow resources access to the private link service deployed in a virtual network. Access to the private endpoint through virtual network peering and on-premises network connections extend the connectivity.

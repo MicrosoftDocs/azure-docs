@@ -33,17 +33,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
 ## Verify connection to local Azure Resource Manager
 
-Make sure that the following steps can be used to access the device from your client.
-
-Verify that your client can connect to the local Azure Resource Manager. 
-
-1. Call local device APIs to authenticate:
-
-    ```powershell
-    Login-AzureRMAccount -EnvironmentName <Environment Name>
-    ```
-
-1. Provide the username `EdgeArmUser` and the password to connect via Azure Resource Manager. If you do not recall the password, [Reset the password for Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) and use this password to sign in.
+[!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 
 ## Add a tag to a VM

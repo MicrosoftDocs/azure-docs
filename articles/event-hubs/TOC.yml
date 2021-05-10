@@ -135,7 +135,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
     - name: AMQP
       items: 
       - name: AMQP 1.0 protocol guide
@@ -206,7 +206,7 @@
         - name: Connect Akka Streams to an event hub
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
-          href: apache-kafka-frequently-asked-questions.md
+          href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
         - name: Monitor Event Hubs with Azure Monitoring
@@ -315,7 +315,7 @@
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
     - name: FAQ
-      href: event-hubs-faq.md
+      href: event-hubs-faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Pricing

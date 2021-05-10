@@ -4,7 +4,8 @@ description: This article describes the Start/Stop VMs during off-hours feature,
 services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Start/Stop VMs during off-hours overview

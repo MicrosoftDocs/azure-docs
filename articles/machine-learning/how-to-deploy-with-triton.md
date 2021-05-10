@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 02/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, devx-track-azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -111,12 +111,12 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ext/azure-cli-ml/ml/model).
+For more information on `az ml model register`, consult the [reference documentation](/cli/azure/ml/model).
 
 When registering the model in Azure Machine Learning, the value for the `--model-path  -p` parameter must be the name of the parent folder of the Triton.  
 In the example above,  `--model-path` is 'models'.
 
-The value for `--name  -n` parameter, ‘my_triton_model’ in the example, will be the model name known to Azure Machine Learning Workspace. 
+The value for `--name  -n` parameter, â€˜my_triton_modelâ€™ in the example, will be the model name known to Azure Machine Learning Workspace. 
 
 # [Python](#tab/python)
 
@@ -334,7 +334,7 @@ print(local_service.scoring_uri)
 
 ---
 
-After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
+After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ml/service#az_ml_service_show) CLI command to get the scoring URI.
 
 For information on how to create a client that sends inference requests to the scoring URI, see [consume a model deployed as a web service](how-to-consume-web-service.md).
 
@@ -371,7 +371,7 @@ local_service.delete()
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.
 
-* If deployment logs show that **TritonServer failed to start**, please refer to [Nvidia’s open source documentation.](https://github.com/triton-inference-server/server)
+* If deployment logs show that **TritonServer failed to start**, please refer to [Nvidiaâ€™s open source documentation.](https://github.com/triton-inference-server/server)
 
 ## Next steps
 

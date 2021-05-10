@@ -115,7 +115,7 @@
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -185,6 +185,10 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
+      - name: GitHub Actions
+        href: deploy-github-actions.md
+      - name: GitHub Actions for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials

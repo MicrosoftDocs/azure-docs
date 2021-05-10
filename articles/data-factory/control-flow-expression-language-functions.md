@@ -1,12 +1,12 @@
 ---
 title: Expression and functions in Azure Data Factory 
 description: This article provides information about expressions and functions that you can use in creating data factory entities.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/28/2021
 ---
 
 # Expressions and functions in Azure Data Factory
@@ -156,6 +156,30 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
+
+### Replacing special characters
+
+Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can of edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
+
+1. URL encoding against the original string value
+1. Replace URL encoded string, for example, line feed (%0A), carriage return(%0D), horizontal tab(%09).
+1. URL decoding
+
+For example, variable *companyName* with a newline character in its value, expression `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` can remove the newline character. 
+
+```json
+Contoso-
+Corporation
+```
+
+### Escaping single quote character
+
+Expression functions use single quote for string value parameters. Use two single quotes to escape a ' character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+
+```
+Baba's book store
+```
+
 ### Tutorial
 This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 

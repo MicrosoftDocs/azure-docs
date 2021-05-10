@@ -1,12 +1,13 @@
 ---
-title: 'Azure VPN Gateway: About VPN devices for connections'
-description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples.
+title: 'About VPN devices for connections'
+titleSuffix: Azure VPN Gateway
+description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 12/02/2020
+ms.date: 04/28/2021
 ms.author: yushwang
 
 ---

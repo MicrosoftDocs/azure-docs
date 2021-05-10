@@ -8,8 +8,8 @@ ms.subservice: core
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
-ms.topic: conceptual
-ms.custom: how-to, designer, devx-track-python
+ms.topic: how-to
+ms.custom: designer, devx-track-python
 ---
 
 # Run Python code in Azure Machine Learning designer

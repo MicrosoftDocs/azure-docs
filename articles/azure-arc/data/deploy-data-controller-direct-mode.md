@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 05/04/2021
 ms.topic: overview
 ---
 
@@ -15,7 +15,7 @@ ms.topic: overview
 
 This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
 
-Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
+Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Release notes](release-notes.md).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -59,14 +59,9 @@ $ENV:location="<Azure location>"
 ### Create the Arc data services extension
 
 #### Linux
+
 ```bash
-export ADSExtensionName=ads-extension
-export CustomLocationsRpOid=$(az ad sp list --filter "displayname eq 'Custom Locations RP'" --query '[].objectId' -o tsv)
-
-
-az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc \
-  --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper \
-  --config aad.customLocationObjectId=${CustomLocationsRpOid}
+az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensionName} --cluster-type connectedclusters
 ```
@@ -74,9 +69,8 @@ az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensi
 #### Windows PowerShell
 ```PowerShell
 $ENV:ADSExtensionName="ads-extension"
-$CustomLocationsRpOid = az ad sp list --filter "displayname eq 'Custom Locations RP'" --query [].objectId -o tsv
 
-az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config aad.customLocationObjectId="$ENV:CustomLocationsRpOid"
+az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$ENV:ADSExtensionName" --cluster-type connectedclusters
 ```
@@ -128,7 +122,7 @@ export extensionId=$(az k8s-extension show -g ${resourceGroup} -c ${resourceName
 
 az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamespace} \
   --host-resource-id ${hostClusterId} \
-  --cluster-extension-ids ${extensionId} --location eastus2euap
+  --cluster-extension-ids ${extensionId} --location eastus
 ```
 
 #### Windows PowerShell

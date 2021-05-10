@@ -109,7 +109,7 @@ az login
 ```
 
 > [!TIP]
-> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az-account-set) to set the default subscription for this session. 
+> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az_account_set) to set the default subscription for this session. 
 
 Use the following command to deploy your project to a new function app. 
 

@@ -3,15 +3,19 @@ title: 'Quickstart: Create and modify a circuit with ExpressRoute - Azure portal
 description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit by using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/21/2020
 ms.author: duau
+ms.date: 04/23/2021
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal." border="false":::
 
 ## Prerequisites
 
