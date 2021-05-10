@@ -27,18 +27,18 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## May 2021
 
-- [Azure Sentinel war rooms in Microsoft Teams](#azure-sentinel-war-rooms-in-microsoft-teams-public-preview) (Public preview)
+- [Azure Sentinel incident teams - collaborate in Microsoft Teams](#azure-sentinel-war-rooms-in-microsoft-teams-public-preview) (Public preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
-### Azure Sentinel war rooms in Microsoft Teams (public preview)
+### Azure Sentinel incident teams - collaborate in Microsoft Teams (public preview)
 
 Azure Sentinel now supports a direct integration with Microsoft Teams, enabling you to collaborate seamlessly across the organization and with external stakeholders.
 
-Directly from the incident in Azure Sentinel, create a new team to use as a *war room* for central communication and coordination.
+Directly from the incident in Azure Sentinel, create a new *incident team* to use for central communication and coordination.
 
-War rooms are especially helpful when used as a dedicated conference bridge for high-severity, ongoing incidents. Organizations that already use Microsoft Teams for communication and collaboration can use the Azure Sentinel integration to bring security data directly into their conversations and daily work.
+Incident teams are especially helpful when used as a dedicated conference bridge for high-severity, ongoing incidents. Organizations that already use Microsoft Teams for communication and collaboration can use the Azure Sentinel integration to bring security data directly into their conversations and daily work.
 
-The war room's **Incident page** in Microsoft Teams always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
+In Microsoft Teams, the new team's **Incident page** tab always has the most updated and recent data from Azure Sentinel, ensuring that your teams have the most relevant data right at hand.
 
 [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
 
