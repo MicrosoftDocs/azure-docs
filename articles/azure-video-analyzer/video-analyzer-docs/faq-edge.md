@@ -1,12 +1,12 @@
 ---
-title: Azure Video Analyzer FAQ - Azure  
-description: This article answers commonly asked questions about Azure Video Analyzer.
+title: FAQ about Azure Video Analyzer - Azure  
+description: This article answers frequently asked questions about Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 03/26/2021
 ---
 
-# Frequently asked questions  
+# FAQ about Azure Video Analyzer
 
 This article answers commonly asked questions about Azure Video Analyzer.
 
