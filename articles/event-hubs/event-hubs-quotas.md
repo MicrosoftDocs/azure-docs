@@ -9,6 +9,7 @@ ms.date: 03/31/2021
 
 This section lists basic quotas and limits in Azure Event Hubs.
 
+[!INCLUDE [event-hubs-common-limits](../../includes/event-hubs-common-limits.md)]
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
 ## Next steps
