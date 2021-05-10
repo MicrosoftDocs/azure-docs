@@ -128,11 +128,7 @@ Azure uses a TXT record to validate that you own a domain. This is useful when y
 
 #### Enter your domain
 
-1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-
-1. Search for and select **Static Web Apps**
-
-1. On the _Static Web Apps_ page, select the name of your app.
+1. Open your static web app in the [Azure portal](https://portal.azure.com).
 
 1. Select **Custom domains** in the menu.
 
@@ -145,6 +141,44 @@ Azure uses a TXT record to validate that you own a domain. This is useful when y
 1. Click on the **Next** button to move to the _Validate + configure_ step.
 
 #### Configure TXT record with your domain provider
+
+You'll need to configure a TXT record with your domain provider. Azure DNS is recommended, but these steps will work with any domain provider.
+
+# [Azure DNS](#tab/azure-dns)
+
+1. Ensure that the "Hostname record type" dropdown is set to "TXT".
+
+1. Select the **Generate code** button.
+
+   :::image type="content" source="media/custom-domain/generate-code.png" alt-text="Add custom screen with generate code button highlighted":::
+
+   This action generates a unique code, which may take up to a minute to process.
+
+1. Select the clipboard icon next to the code to copy the value to your clipboard.
+
+   :::image type="content" source="media/custom-domain/copy-code.png" alt-text="Add custom domain screen with copy code button highlighted":::
+
+1. Open your Azure DNS Zone.
+
+1. Select the **+ Record Set** button.
+
+1. Create a new **TXT** record set with the following values.
+
+   | Setting  | Value                              |
+   | -------- | ---------------------------------- |
+   | Name     | @                                  |
+   | Type     | TXT                                |
+   | TTL      | Leave as default value             |
+   | TTL Unit | Leave as default value             |
+   | Value    | Paste the code from your clipboard |
+
+1. Select **OK**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-txt.png" alt-text="Azure DNS record set screen with name, type and value fields highlighted":::
+
+[!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
+
+# [Other DNS](#tab/other-dns)
 
 1. Ensure that the "Hostname record type" dropdown is set to "TXT".
 
@@ -177,15 +211,9 @@ Azure uses a TXT record to validate that you own a domain. This is useful when y
 > [!NOTE]
 > Some DNS providers will change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
 
-#### Validate TXT record
+[!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 
-1. Return to the _Validate + configure_ screen in the Azure Portal.
-
-During this step, Azure automatically verifies the TXT record with your DNS provider. Once the validation process is complete, a green indicator appears next to the added domain.
-
-:::image type="content" source="media/custom-domain/txt-record-ready.png" alt-text="Green indicator showing TXT record has been validated":::
-
-When the green indicator appears next to your domain in the _Custom domains_ screen, you can complete the second step, which is to add an ALIAS record.
+---
 
 ## Create an ALIAS record
 
@@ -193,6 +221,44 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 
 > [!IMPORTANT]
 > Your domain provider must support [ALIAS records](https://docs.microsoft.com/azure/dns/dns-alias) or CNAME flattening.
+
+# [Azure DNS](#tab/azure-dns)
+
+1. Open your static web app in the [Azure portal](https://portal.azure.com).
+
+1. Select **Custom domain** in the menu.
+
+1. Copy the auto-generated URL of your static web app from the custom domain screen.
+
+   :::image type="content" source="media/custom-domain/auto-generated.png" alt-text="Overview page of a static web app with the copy URL icon highlighted":::
+
+1. Open your Azure DNS Zone.
+
+1. Select the **+ Record Set** button.
+
+1. Create a new **A** record set with the following values.
+
+   | Setting          | Value                              |
+   | ---------------- | ---------------------------------- |
+   | Name             | @                                  |
+   | Type             | A - Alias record to IPv4 Address   |
+   | Alias Record Set | Yes                                |
+   | Alias type       | Azure resource                     |
+   | Subscription     | <Your Subscription>                |
+   | Azure resource   | <Your Static Site>                 |
+   | TTL              | Leave as default value             |
+   | TTL Unit         | Leave as default value             |
+   | Value            | Paste the code from your clipboard |
+
+1. Select **OK**.
+
+   :::image type="content" source="media/custom-domain/azure-dns-alias.png" alt-text="Azure DNS record set screen with name, type, alias and resource fields highlighted":::
+
+Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
+
+# [Other DNS](#tab/other-dns)
+
+1. Open your static web app in the [Azure portal](https://portal.azure.com).
 
 1. Select **Custom domain** in the menu.
 
@@ -220,6 +286,8 @@ An ALIAS record maps one domain to another. It is used specifically for root dom
 > If your domain provider doesn't offer an ALIAS record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
 
 Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
+
+---
 
 ## Next steps
 
