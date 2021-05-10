@@ -234,6 +234,9 @@ If your script processes all files referenced by the dataset, and your compute d
 
 The following code mounts `dataset` to the temp directory at `mounted_path`
 
+> [!NOTE]
+> The mounted path name should be less than 255 alpha-numeric characters.
+
 ```python
 import tempfile
 mounted_path = tempfile.mkdtemp()
