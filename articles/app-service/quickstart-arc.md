@@ -24,20 +24,44 @@ Run the following command. `TODO: Does location matter?`
 az group create --name myResourceGroup --location eastus 
 ```
 
-## 2. Create an App Service plan
+<!-- ## 2. Create an App Service plan
 
 Run the following command and replace `<environment-name>` with the name of the App Service Kubernetes environment (see [Prerequisites](#prerequisites)).
 
 ```azurecli-interactive
-az appservice plan create --resource-group myResourceGroup --name myAppServicePlan  --kube-environment <environment-name> --kube-sku ANY
+az appservice plan create --resource-group myResourceGroup --name myAppServicePlan --custom-location <environment-name> --kube-sku K1
+``` 
+
+Currently does not work
+
+-->
+
+## 2. Get the custom location
+
+Get the following information about the custom location from your cluster administrator (see [Create a custom location](manage-create-arc-environment.md#create-a-custom-location)).
+
+```azurecli-interactive
+customLocationGroup="<resource-group-containing-custom-location>"
+customLocationName=<name-of-custom-location>
 ```
+
+Get the custom location ID for the next step.
+
+```azurecli-interactive
+customLocationId=$(az customlocation show \
+    --resource-group $customLocationGroup \
+    --name $customLocationName \
+    --query id \
+    --output tsv)
+```
+
 
 ## 3. Create an app
 
-The following example creates a Node.js app. Replace <app-name> with a name that's unique within your cluster `TODO: What does that mean?` (valid characters are `a-z`, `0-9`, and `-`). To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+The following example creates a Node.js app. Replace `<app-name>` with a name that's unique within your cluster (valid characters are `a-z`, `0-9`, and `-`). To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp).
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'NODE|12-lts'
+ az webapp create --resource-group myResourceGroup --name <app-name> --custom-location $customLocationId --runtime 'NODE|12-lts'
 ```
 
 `TODO: Currently gets a nasty error, but app does deploy successfully`
