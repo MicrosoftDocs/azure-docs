@@ -12,10 +12,12 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
 ---
-# Troubleshooting prebuilt docker images for inference
+# Troubleshooting prebuilt docker images for inference (Preview)
 
 Learn how to troubleshoot problems you may see when using prebuilt docker images for inference with Azure Machine Learning.
 
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Model deployment failed
 
 If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return **None**.

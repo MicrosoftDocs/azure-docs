@@ -25,6 +25,8 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
 
     Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. For example, when deployed into a secured Azure Virtual Network.
 
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For a tutorial on creating a workspace, see [Get started with Azure Machine Learning](quickstart-create-resources.md).
@@ -231,3 +233,9 @@ We recommend following this document for Best Practices when using Inference-opt
     ```
 
 * For more information on how to load a registered or local model, see the **Writing init()** section of [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#writing-init).
+
+## Next steps
+
+To learn more about deploying a model, see [How to deploy a model](how-to-deploy-and-where.md).
+
+To learn how to troubleshoot prebuilt docker image deployments, see [how to troubleshoot prebuilt Docker image deployments](how-to-troubleshoot-prebuilt-docker-image-inference.md).

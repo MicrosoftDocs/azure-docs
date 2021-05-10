@@ -20,6 +20,8 @@ Prebuilt Docker container images for inference are used when deploying a model w
 * [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
 * [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md). Using this method, you can install both Python packages and `apt` packages.
 
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Why should I use prebuilt images?
 
 * Reduces model deployment latency.

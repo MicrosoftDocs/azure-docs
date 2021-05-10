@@ -19,7 +19,10 @@ In some cases, the prebuilt Docker images and [extensibility](./how-to-prebuilt-
 
 In this case, you can use a Dockerfile to create a new image, using one of the prebuilt images as the starting point. By extending from an existing prebuilt Docker image, you can use the Azure Machine Learning network stack and libraries without creating an image from scratch.
 
-### Benefits and tradeoffs
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+**Benefits and tradeoffs**
 
 Using a Dockerfile allows for full customization of the image before deployment. It allows you to have maximum control over what dependencies or environment variables, among other things, are set in the container.
 
@@ -164,3 +167,7 @@ To use a Dockerfile with the Azure Machine Learning Python SDK, see the followin
 
 * [Use your own local Dockerfile](how-to-use-environments.md#use-your-own-dockerfile)
 * [Use a pre-built Docker image and create a custom base image](how-to-use-environments.md#use-a-prebuilt-docker-image)
+
+To learn more about deploying a model, see [How to deploy a model](how-to-deploy-and-where.md).
+
+To learn how to troubleshoot prebuilt docker image deployments, see [how to troubleshoot prebuilt Docker image deployments](how-to-troubleshoot-prebuilt-docker-image-inference.md).

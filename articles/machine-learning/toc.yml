@@ -134,6 +134,8 @@
       href: concept-workspace.md
     - name: Environments
       href: concept-environments.md
+    - name: Prebuilt docker images for inference
+      href: concept-prebuilt-docker-images-inference.md
     - name: Compute instance
       displayName: resource, dsvm, Data Science Virtual Machine
       href: concept-compute-instance.md
@@ -492,6 +494,14 @@
           href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
+      - name: Prebuilt Docker images
+        displayName: inference image
+        - name: Python extensibility
+          href: how-to-prebuilt-docker-images-inference-python-extensibility.md
+        - name: Dockerfile extensibility
+          href: how-to-extend-prebuilt-docker-image-inference.md
+        - name: Troubleshoot prebuilt docker images
+          href: how-to-troubleshoot-prebuilt-docker-image-inference.md
       - name: Troubleshooting deployment
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
