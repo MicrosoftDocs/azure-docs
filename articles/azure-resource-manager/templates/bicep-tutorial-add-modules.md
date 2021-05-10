@@ -2,9 +2,10 @@
 title: Tutorial - add modules to Azure Resource Manager Bicep file
 description: Use modules to encapsulate complex details of the raw resource declaration.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Add modules to Azure Resource Manager Bicep file
@@ -106,8 +107,8 @@ You can verify the deployment by exploring the resource groups from the Azure po
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left menu, select **Resource groups**.
-1. You see the two new resource groups you deployed in this tutorial.
-1. Select either resource group and view the deployed resources. Notice that they match the values you specified in your parameter file for that environment.
+1. You will see the new resource group you deployed in this tutorial.
+1. Select the resource group and view the deployed resources. Notice that they match the values you specified in your template file.
 
 ## Clean up resources
 
@@ -123,4 +124,4 @@ Congratulations, you've finished this introduction to deploying Bicep files to A
 The next tutorial series goes into more detail about deploying templates.
 
 > [!div class="nextstepaction"]
-> [Add modules](./bicep-tutorial-add-modules.md)
+> [Deploy a local template](./deployment-tutorial-local-template.md)

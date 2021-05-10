@@ -62,6 +62,7 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
 - To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Container insights.
 
 - Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
+- An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure Portal, but can be done with Azure CLI or Resource Manager template.
 
 ## Supported configurations
 
@@ -121,7 +122,7 @@ To enable Container insights, use one of the methods that's described in the fol
 | New Kubernetes cluster | [Create an AKS cluster by using the Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring for a new AKS cluster that you create by using the Azure CLI. |
 | | [Create an AKS cluster by using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring for a new AKS cluster that you create by using the open-source tool Terraform. |
 | | [Create an OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | You can enable monitoring for a new OpenShift cluster that you create by using a preconfigured Azure Resource Manager template. |
-| | [Create an OpenShift cluster by using the Azure CLI](/cli/azure/openshift#az-openshift-create) | You can enable monitoring when you deploy a new OpenShift cluster by using the Azure CLI. |
+| | [Create an OpenShift cluster by using the Azure CLI](/cli/azure/openshift#az_openshift_create) | You can enable monitoring when you deploy a new OpenShift cluster by using the Azure CLI. |
 | Existing Kubernetes cluster | [Enable monitoring of an AKS cluster by using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring for an AKS cluster that's already deployed by using the Azure CLI. |
 | |[Enable for AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring for an AKS cluster that's already deployed by using the open-source tool Terraform. |
 | | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring for one or more AKS clusters that are already deployed from the multi-cluster page in Azure Monitor. |

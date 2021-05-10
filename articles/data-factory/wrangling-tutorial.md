@@ -15,7 +15,7 @@ ms.date: 01/19/2021
 Data wrangling in data factory allows you to build interactive Power Query mash-ups natively in ADF and then execute those at scale inside of an ADF pipeline.
 
 > [!NOTE]
-> Power Query acitivty in ADF is currently avilable in public preview
+> Power Query activity in ADF is currently available in public preview
 
 ## Create a Power Query activity
 

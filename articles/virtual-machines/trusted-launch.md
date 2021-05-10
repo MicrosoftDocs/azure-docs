@@ -51,6 +51,7 @@ All [Generation 2](generation-2.md) VM sizes, except:
 - Windows Server 2016
 - Windows 10 Pro
 - Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
 
 **Regions**: 
 - South Central US

@@ -43,7 +43,7 @@ At the end of this process, you should have a full application inside of the fol
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Calling client library for JavaScript. Move the provided tarball (Private Preview) over to the my-app directory.
+Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript. Move the provided tarball (Private Preview) over to the my-app directory.
 
 ```console
 
@@ -67,7 +67,7 @@ npm run start
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services UI SDK:
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |

@@ -6,10 +6,10 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+# Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ---
 # Virtual WAN partners and virtual hub locations
 

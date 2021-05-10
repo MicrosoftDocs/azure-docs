@@ -103,34 +103,6 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Add regional load balancers to backendpool" border="true":::
 
-## Create a health probe
-
-In this section, you'll create a health probe to create the load-balancing rule:
-
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Interval of **5** seconds.
-* Unhealthy threshold of **two** failures.
-
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
-
-2. Under **Settings**, select **Health probes**.
-
-3. Use these values to configure the health probe:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myHealthProbe**. |
-    | Protocol | Select **TCP**. |
-    | Port | Enter **80**. |
-    | Interval | Enter **5**. |
-    | Unhealthy threshold | Enter **2**. |
-
-4. Select **OK**.
-
-    > [!NOTE]
-    > Cross region load balancer has a built-in health probe. This probe is a placeholder for the load balancing rule creation to function.  For more information, see **[Limitations of cross-region load balancer](cross-region-overview.md#limitations)**.
-
 ## Create a load balancer rule
 
 In this section, you'll create a load balancer rule:
@@ -158,7 +130,6 @@ In this section, you'll create a load balancer rule:
     | Port | Enter **80**.|
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
-    | Health probe | Select **myHealthProbe**. |
     | Idle timeout (minutes) | Move slider to **15**. |
     | TCP reset | Select **Enabled**. |
 

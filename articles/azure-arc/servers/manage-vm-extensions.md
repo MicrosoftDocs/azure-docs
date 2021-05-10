@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 03/01/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
 ---
 
@@ -16,13 +16,16 @@ Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
 - Azure [Resource Manager templates](manage-vm-extensions-template.md)
 
+> [!NOTE]
+> Azure Arc enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+
 ## Key benefits
 
 Azure Arc enabled servers VM extension support provides the following key benefits:
 
 - Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) by enabling the Log Analytics agent VM extension. This is useful for doing complex analysis across data from different kinds of sources.
 
-- With [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
+- With [VM insights](../../azure-monitor/vm/vminsights-overview.md), it analyzes the performance of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 
 - Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
@@ -37,6 +40,9 @@ VM extension functionality is available only in the list of [supported regions](
 In this release, we support the following VM extensions on Windows and Linux machines.
 
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Recently support for the DSC VM extension was removed for Arc enabled servers. Alternatively, we recommend using the Custom Script Extension to manage the post-deployment configuration of your server or machine.
 
 ### Windows extensions
 

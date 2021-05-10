@@ -48,7 +48,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Names of people. 
+        Names of people. Also returned with `domain=phi`.
 
         To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
       
@@ -135,7 +135,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. Also returned with `domain=phi`.
 
         To get this entity category, add `Organization` to the `pii-categories` parameter. `Organization` will be returned in the API response if detected.
       
@@ -236,7 +236,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Full mailing address.
+        Full mailing address. Also returned with `domain=phi`.
 
         To get this entity category, add `Address` to the `pii-categories` parameter. `Address` will be returned in the API response if detected.
       
@@ -265,7 +265,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Email addresses.
+        Email addresses. Also returned with `domain=phi`.
       
         To get this entity category, add `Email` to the `pii-categories` parameter. `Email` will be returned in the API response if detected.
 
@@ -293,7 +293,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        URLs to websites. 
+        URLs to websites. Also returned with `domain=phi`.
 
         To get this entity category, add `URL` to the `pii-categories` parameter. `URL` will be returned in the API response if detected.
       
@@ -322,7 +322,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        network IP addresses. 
+        Network IP addresses. Also returned with `domain=phi`.
 
         To get this entity category, add `IP` to the `pii-categories` parameter. `IP` will be returned in the API response if detected.
       
@@ -377,7 +377,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Calender dates.
+        Calender dates. Also returned with `domain=phi`.
 
         To get this entity category, add `Date` to the `pii-categories` parameter. `Date` will be returned in the API response if detected.
       
@@ -431,7 +431,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Ages.
+        Ages. 
 
         To get this entity category, add `Age` to the `pii-categories` parameter. `Age` will be returned in the API response if detected.
       

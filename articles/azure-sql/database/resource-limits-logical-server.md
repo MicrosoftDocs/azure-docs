@@ -10,37 +10,37 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
+ms.date: 03/25/2021
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-This article provides an overview of the resource limits for the logical server used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
+This article provides an overview of the resource limits for the [logical server](logical-servers.md) used by Azure SQL Database and Azure Synapse Analytics. It provides information on what happens when those resource limits are hit or exceeded and describes the resource governance mechanisms used to enforce these limits.
 
 > [!NOTE]
-> For Azure SQL Managed Instance limits, see [SQL Database resource limits for managed instances](../managed-instance/resource-limits.md).
+> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
 
 ## Maximum resource limits
 
 | Resource | Limit |
 | :--- | :--- |
-| Databases per server | 5000 |
-| Default number of servers per subscription in any region | 20 |
-| Max number of servers per subscription in any region | 200 |  
-| DTU / eDTU quota per server | 54,000 |  
-| vCore quota per server/instance | 540 |
-| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
+| Databases per logical server | 5000 |
+| Default number of logical servers per subscription in a region | 20 |
+| Max number of logical servers per subscription in a region | 200 |  
+| DTU / eDTU quota per logical server | 54,000 |  
+| vCore quota per logical server | 540 |
+| Max pools per logical server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
 |||
 
 > [!IMPORTANT]
-> As the number of databases approaches the limit per server, the following can occur:
+> As the number of databases approaches the limit per logical server, the following can occur:
 >
-> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as `sys.resource_stats`.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 > [!NOTE]
-> To obtain more DTU/eDTU quota, vCore quota, or more servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
+> To obtain more DTU/eDTU quota, vCore quota, or more logical servers than the default amount, submit a new support request in the Azure portal. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md).
 
 ### Storage size
 
@@ -127,7 +127,7 @@ Azure SQL Database resource governance is hierarchical in nature. From top to bo
 
 Data IO governance is a process in Azure SQL Database used to limit both read and write physical IO against data files of a database. IOPS limits are set for each service level to minimize the "noisy neighbor" effect, to provide resource allocation fairness in the multi-tenant service, and to stay within the capabilities of the underlying hardware and storage.
 
-For single databases, workload group limits are applied to all storage IO against the database, while resource pool limits apply to all storage IO against all databases on the same dedicated SQL pool, including the `tempdb` database. For elastic pools, workload group limits apply to each database in the pool, whereas resource pool limit applies to the entire elastic pool, including the `tempdb` database, which is shared among all databases in the pool. In general, resource pool limits may not be achievable by the workload against a database (either single or pooled), because workload group limits are lower than resource pool limits and limit IOPS/throughput sooner. However, pool limits may be reached by the combined workload against multiple databases on the same pool.
+For single databases, workload group limits are applied to all storage IO against the database, while resource pool limits apply to all storage IO against all databases in the same resource pool, including the `tempdb` database. For elastic pools, workload group limits apply to each database in the pool, whereas resource pool limit applies to the entire elastic pool, including the `tempdb` database, which is shared among all databases in the pool. In general, resource pool limits may not be achievable by the workload against a database (either single or pooled), because workload group limits are lower than resource pool limits and limit IOPS/throughput sooner. However, pool limits may be reached by the combined workload against multiple databases on the same pool.
 
 For example, if a query generates 1000 IOPS without any IO resource governance, but the workload group maximum IOPS limit is set to 900 IOPS, the query won't be able to generate more than 900 IOPS. However, if the resource pool maximum IOPS limit is set to 1500 IOPS, and the total IO from all workload groups associated with the resource pool exceeds 1500 IOPS, then the IO of the same query may be reduced below the workgroup limit of 900 IOPS.
 

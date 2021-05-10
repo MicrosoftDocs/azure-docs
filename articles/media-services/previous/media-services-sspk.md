@@ -117,6 +117,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
@@ -129,7 +130,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Mega Fame Electronics Co. Limited
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.

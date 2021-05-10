@@ -92,7 +92,7 @@ The following Azure CLI code block does many commands to prepare the input data 
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

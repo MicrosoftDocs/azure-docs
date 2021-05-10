@@ -3,7 +3,7 @@ title: Create schedule triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/30/2020

@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
@@ -102,25 +102,24 @@ To create a FileStorage storage account, navigate to the Azure portal.
 
 1. In the Azure portal, select **Storage Accounts** on the left menu.
 
-    ![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure portal main page select storage account.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-2. On the **Storage Accounts** window that appears, choose **Add**.
-3. Select the subscription in which to create the storage account.
-4. Select the resource group in which to create the storage account
+1. On the **Storage Accounts** window that appears, choose **Add**.
+1. Select the subscription in which to create the storage account.
+1. Select the resource group in which to create the storage account
+1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
+1. Select a location for your storage account, or use the default location.
+1. For **Performance** select **Premium**.
 
-5. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
-6. Select a location for your storage account, or use the default location.
-7. For **Performance** select **Premium**.
+    You must select **Premium** for **Fileshares** to be an available option in the **Account kind** dropdown.
 
-    You must select **Premium** for **FileStorage** to be an available option in the **Account kind** dropdown.
+1. For **Premium account type** choose **Fileshares**.
 
-8. Select **Account kind** and choose **FileStorage**.
-9. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Screenshot of premium performance selected.":::
 
-    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
-
-10. Select **Review + Create** to review your storage account settings and create the account.
-11. Select **Create**.
+1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
+1. Select **Review + Create** to review your storage account settings and create the account.
+1. Select **Create**.
 
 Once your storage account resource has been created, navigate to it.
 
@@ -175,7 +174,7 @@ Now that you have created a FileStorage account and configured the networking, y
     
 1. Select **Create**.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot of file share creation blade":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Screenshot of file share creation blade.":::
 
 # [PowerShell](#tab/azure-powershell)
 

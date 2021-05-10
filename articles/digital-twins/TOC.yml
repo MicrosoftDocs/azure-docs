@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Explore a sample scenario
-    href: quickstart-adt-explorer.md
+    href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -41,8 +41,16 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md
+  - name: Developer interfaces
+    items:
+    - name: APIs and SDKs
+      href: concepts-apis-sdks.md
+    - name: CLI command set
+      href: concepts-cli.md
   - name: Integration with other services
     href: concepts-integration.md
+  - name: Event notifications
+    href: concepts-event-notifications.md
   - name: Event routes
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
@@ -53,8 +61,6 @@
   items:
   - name: Deploy
     items:
-    - name: Use the Azure Digital Twins CLI
-      href: how-to-use-cli.md
     - name: Set up an instance and authentication
       items:
       - name: Portal version
@@ -91,18 +97,12 @@
       href: how-to-manage-twin.md
     - name: Manage the twin graph with relationships
       href: how-to-manage-graph.md
-    - name: Interpret event data
-      href: how-to-interpret-event-data.md
     - name: Set up an Azure function for processing data
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Use the APIs and SDKs
-      href: how-to-use-apis-sdks.md
-    - name: Create custom-language SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
     - name: Make requests with Postman
       href: how-to-use-postman.md
     - name: Integrate with Azure SignalR Service
@@ -149,6 +149,10 @@
       items:
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
+      - name: 404 Sub-Domain not found
+        href: troubleshoot-error-404.md
+      - name: Azure Digital Twins Explorer authentication
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Reference
   items:
   - name: REST API reference
@@ -172,9 +176,25 @@
         - name: Python SDK
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
   - name: Digital Twins CLI
-    href: /cli/azure/ext/azure-iot/dt
+    href: /cli/azure/dt
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+  - name: Query language reference
+    items:
+      - name: Clauses
+        items:
+        - name: SELECT
+          href: reference-query-clause-select.md
+        - name: FROM
+          href: reference-query-clause-from.md
+        - name: JOIN
+          href: reference-query-clause-join.md
+        - name: WHERE
+          href: reference-query-clause-where.md
+      - name: Functions
+        href: reference-query-functions.md
+      - name: Operators
+        href: reference-query-operators.md
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -255,8 +275,8 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
-      - name: Device simulator service
-        href: https://github.com/Azure/device-simulation-dotnet/tree/master
+      - name: Azure Digital Twins Postman Collection
+        href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
@@ -275,6 +295,8 @@
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
       - name: Custom Swaggers for Logic Apps connector
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+      - name: Device simulator service
+        href: https://github.com/Azure/device-simulation-dotnet/tree/master
   - name: DTDL
     items:
     - name: DTDL extension for VS Code

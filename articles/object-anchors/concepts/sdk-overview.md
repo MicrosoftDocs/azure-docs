@@ -21,59 +21,59 @@ All of the types described below can be found in the **Microsoft.MixedReality.Ob
 
 ### ObjectModel
 
-An [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) represents a physical object's geometry and encodes necessary parameters for detection and pose estimation. It must be created using the [Object Anchors service](../quickstarts/get-started-model-conversion.md). Then an application can load the generated model file using the Object Anchors API and query the mesh embedded in that model for visualization.
+An [ObjectModel](/dotnet/api/microsoft.azure.objectanchors.objectmodel) represents a physical object's geometry and encodes necessary parameters for detection and pose estimation. It must be created using the [Object Anchors service](../quickstarts/get-started-model-conversion.md). Then an application can load the generated model file using the Object Anchors API and query the mesh embedded in that model for visualization.
 
 ### ObjectSearchArea
 
-An [ObjectSearchArea](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) specifies the space to look for one or multiple objects. It's defined by a spatial graph node ID and spatial bounds in the coordinate system represented by the spatial graph node ID. The Object Anchors Runtime SDK supports four types of bounds, namely, **field of view**, **bounding box**, **sphere**, and a **location**.
+An [ObjectSearchArea](/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) specifies the space to look for one or multiple objects. It's defined by a spatial graph node ID and spatial bounds in the coordinate system represented by the spatial graph node ID. The Object Anchors Runtime SDK supports four types of bounds, namely, **field of view**, **bounding box**, **sphere**, and a **location**.
 
 ### ObjectQuery
 
-An [ObjectQuery](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery) tells an **object observer** how to find objects of a given model. It provides the following tunable parameters, whose default values can be retrieved from an object model.
+An [ObjectQuery](/dotnet/api/microsoft.azure.objectanchors.objectquery) tells an **object observer** how to find objects of a given model. It provides the following tunable parameters, whose default values can be retrieved from an object model.
 
 #### MinSurfaceCoverage
 
-The [MinSurfaceCoverage](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) property indicates the value to consider an instance as detected.
+The [MinSurfaceCoverage](/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) property indicates the value to consider an instance as detected.
 
 For each object candidate, an **observer** computes the ratio of overlapped surfaces between transformed object model and the scene, then it reports that candidate to application only when the coverage ratio is above a given threshold.
 
 #### IsExpectedToBeStandingOnGroundPlane
 
-The [IsExpectedToBeStandingOnGroundPlane](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) property indicates if the target object is expected to stand on the ground plane.
+The [IsExpectedToBeStandingOnGroundPlane](/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) property indicates if the target object is expected to stand on the ground plane.
 
 A ground plane is the lowest horizontal floor in the search area. It provides good constraint on the possible object poses. Turning on this flag will guide the **observer** to estimate the pose in a limited space and could improve the accuracy. This parameter will be ignored if the model isn't supposed to stand on the ground plane.
 
 #### ExpectedMaxVerticalOrientationInDegrees
 
-The [ExpectedMaxVerticalOrientationInDegrees](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) property indicates the expected maximum angle in degrees between up direction of an object instance and gravity.
+The [ExpectedMaxVerticalOrientationInDegrees](/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) property indicates the expected maximum angle in degrees between up direction of an object instance and gravity.
 
 This parameter provides another constraint on the up direction of an estimated pose. For example, if an object is up-right, this parameter can be 0. Object Anchors isn't supposed to detect objects that are different from the model. If a model is up-right, then it won't detect an instance laid side-down. A new model would be used for side-down layout. Same rule applies for articulation.
 
 #### MaxScaleChange
 
-The [MaxScaleChange](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) property indicates the maximum object scale change (within 0 ~ 1) with respect to spatial mapping. The estimated scale is applied to transformed object vertices centered at origin and axis-aligned. Estimated scales may not be the actual scale between a CAD model and its physical representation, but some values that allow the app to render an object model close to spatial mapping on the physical object.
+The [MaxScaleChange](/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) property indicates the maximum object scale change (within 0 ~ 1) with respect to spatial mapping. The estimated scale is applied to transformed object vertices centered at origin and axis-aligned. Estimated scales may not be the actual scale between a CAD model and its physical representation, but some values that allow the app to render an object model close to spatial mapping on the physical object.
 
 #### SearchAreas
 
-The [SearchAreas](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) property indicates an array of spatial bounds where to find object(s).
+The [SearchAreas](/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) property indicates an array of spatial bounds where to find object(s).
 
 The **observer** will look for objects in the union space of all search areas specified in a query. In this release, we will return at most one object with highest confidence to reduce the latency.
 
 ### ObjectInstance
 
-An [ObjectInstance](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectinstance) represents a hypothetical position where an instance of a given model could be in the HoloLens coordinate system. Each instance comes with a `SurfaceCoverage` property to indicate how good the estimated pose is.
+An [ObjectInstance](/dotnet/api/microsoft.azure.objectanchors.objectinstance) represents a hypothetical position where an instance of a given model could be in the HoloLens coordinate system. Each instance comes with a `SurfaceCoverage` property to indicate how good the estimated pose is.
 
 An instance is created by calling `ObjectObserver.DetectAsync` method, then updated automatically in the background when alive. An application can listen to the state changed event on a particular instance or change the tracking mode to pause/resume the update. An instance will automatically be removed from the **observer** when tracking is lost.
 
 ### ObjectObserver
 
-An [ObjectObserver](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectobserver) loads object models, detects their instances, and reports 6-DoF poses of each instance in HoloLens coordinate system.
+An [ObjectObserver](/dotnet/api/microsoft.azure.objectanchors.objectobserver) loads object models, detects their instances, and reports 6-DoF poses of each instance in HoloLens coordinate system.
 
 Although any object model or instance is created from an **observer**, their lifetimes are independent. An application can dispose an observer and continue to use the object model or instance.
 
 ### ObjectDiagnosticsSession
 
-The [ObjectDiagnosticSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) records diagnostics and writes data to an archive.
+The [ObjectDiagnosticSession](/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) records diagnostics and writes data to an archive.
 
 A diagnostics archive includes the scene point cloud, observer's status, and information about the models. This information is useful to identify possible runtime issues. For more information, see the [FAQ](../faq.md).
 

@@ -3,7 +3,7 @@ title: Create tumbling window triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2020

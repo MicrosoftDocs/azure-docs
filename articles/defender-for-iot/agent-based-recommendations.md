@@ -1,20 +1,8 @@
 ---
 title: Agent based recommendations
-titleSuffix: Azure Defender for IoT
 description: Learn about the concept of security recommendations and how they are used for Defender for IoT devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
 ---
 
 # Security recommendations for IoT devices
@@ -42,9 +30,9 @@ Operational recommendations provide insights and suggestions to improve security
 
 | Severity | Name | Data Source | Description |
 |--|--|--|--|
-| Low | Agent sends unutilized messages | Classic Defender-IoT-micro-agent| 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
-| Low | Security twin configuration not optimal | Classic Defender-IoT-micro-agent| Security twin configuration is not optimal. |
-| Low | Security twin configuration conflict | Classic Defender-IoT-micro-agent| Conflicts were identified in the security twin configuration. |  |
+| Low | Agent sends unutilized messages | Classic Defender-IoT-micro-agent | 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
+| Low | Security twin configuration not optimal | Classic Defender-IoT-micro-agent | Security twin configuration is not optimal. |
+| Low | Security twin configuration conflict | Classic Defender-IoT-micro-agent | Conflicts were identified in the security twin configuration. |
 
 ## Next steps
 

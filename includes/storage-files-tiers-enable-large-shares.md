@@ -18,6 +18,6 @@ On this blade, select **Share capacity**, change the share capacity to **100 TiB
 
 :::image type="content" source="media/storage-files-tiers-enable-large-shares/enable-lfs.png" alt-text="A screenshot of the enable large file share opt-in setting in the Azure portal." lightbox="media/storage-files-tiers-enable-large-shares/increase-share-capacity.png":::
 
-You can also enable 100-TiB file shares through the [`Set-AzStorageAccount`](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet and the [`az storage account update`](/cli/azure/storage/account#az-storage-account-update) Azure CLI command. For detailed instructions on enabling large files shares, see [enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
+You can also enable 100-TiB file shares through the [`Set-AzStorageAccount`](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet and the [`az storage account update`](/cli/azure/storage/account#az_storage_account_update) Azure CLI command. For detailed instructions on enabling large files shares, see [enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
 
 To learn more about how to create file shares on new storage accounts, see [creating an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md).

@@ -142,6 +142,8 @@ You can associate a public IP address with a [Windows](../virtual-machines/windo
 
 Choose **dynamic** or **static** for the public IP address. Learn more about [assigning IP addresses to network interfaces](virtual-network-network-interface-addresses.md).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Internet-facing load balancers
 
 You can associate a public IP address of either [SKU](#sku) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP serves as a load-balanced IP. 
@@ -149,6 +151,8 @@ You can associate a public IP address of either [SKU](#sku) with an [Azure Load 
 You can assign either a dynamic or a static public IP address to a load balancer front end. You can assign multiple public IP addresses to a load balancer front end. This configuration enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with TLS-based websites. 
 
 For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## VPN gateways
 
@@ -160,7 +164,7 @@ For more information about Azure load balancer SKUs, see [Azure load balancer st
 A public IP address is assigned to the VPN Gateway to enable communication with the remote network. 
 
 * Assign a **dynamic** basic public IP to a VPNGw 1-5 SKU front-end configuration.
-* Assign a **static** standard public IP address to a a VPNGwAZ 1-5 SKU front-end configuration.
+* Assign a **static** standard public IP address to a VPNGwAZ 1-5 SKU front-end configuration.
 
 ## Application gateways
 
@@ -184,7 +188,7 @@ The following table shows the property through which a public IP can be associat
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
+| VPN gateway |Gateway IP configuration |Yes |Yes (VPNGwAZ only) |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 | Azure Firewall | Front-end configuration | No | Yes|
 

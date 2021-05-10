@@ -1,12 +1,8 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 03/14/2021
+ms.date: 04/22/2021
 ms.topic: article
-ms.service: azure
 ---
 # Troubleshoot the sensor and on-premises management console
 
@@ -125,7 +121,7 @@ When devices shown on the map appear not connected to each other, something migh
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="View your broadcasting devices.":::
 
-In such a case, you need to validate that you can see only the broadcast traffic. Then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic.
+In such a case, validate that you only the broadcast traffic and then ask the network engineer to fix the SPAN port configuration so that you can see the unicast traffic as well.
 
 To validate that you're seeing only the broadcast traffic:
 
@@ -163,7 +159,7 @@ To fix the configuration:
 
 1. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor's quality of service
+### Tweak the sensor's Quality of Service (QoS)
 
 To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
 
@@ -196,7 +192,7 @@ If an expected alert is not shown in the **Alerts** window, verify the following
 
 - Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.  
 
-### Tweak the quality of service
+### Tweak the Quality of Service (QoS)
 
 To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
 

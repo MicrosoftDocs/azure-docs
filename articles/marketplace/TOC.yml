@@ -3,24 +3,46 @@
   items:
 - name: About the commercial marketplace
   href: overview.md
+- name: What's new
+  href: what-is-new.md  
 - name: Account management
   items:
-  - name: Create a new Partner Center account
-    href: partner-center-portal/create-account.md
-  - name: Manage your account
-    href: partner-center-portal/manage-account.md
-  - name: Find or create a company work account
-    href: partner-center-portal/company-work-accounts.md  
-  - name: Account migration from CPP to Partner Center
-    href: partner-center-portal/account-migration-from-cpp-to-pc.md 
-  - name: Notifying Microsoft
-    href: submit-legal-notice.md 
+  - name: General account management
+    items:
+    - name: Create a new Partner Center account
+      href: create-account.md
+    - name: Add new publishers
+      href: add-publishers.md  
+    - name: Manage your account
+      href: manage-account.md
+    - name: Switch accounts
+      href: switch-accounts.md
+    - name: Manage tenants
+      href: manage-tenants.md    
+    - name: Find or create a company work account
+      href: company-work-accounts.md  
+    - name: Account migration from CPP to Partner Center
+      href: account-migration-from-cpp-to-pc.md
+    - name: Notifying Microsoft
+      href: submit-legal-notice.md
+  - name: Manage users
+    items:
+    - name: Add and manage users
+      href: add-manage-users.md
+    - name: Assign user roles
+      href: user-roles.md  
+    - name: Manage groups
+      href: manage-groups.md
+    - name: Add and manage Azure AD applications
+      href: manage-aad-apps.md  
 - name: Concepts
   items: 
   - name: Listing options
     href: determine-your-listing-type.md
-  - name: Transacting in the commercial marketplace
+  - name: Transact capabilities
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
+  - name: License management
+    href: third-party-license.md
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
@@ -43,33 +65,28 @@
         href: test-drive-hosted-detailed-config.md
       - name: Set up Azure subscription for hosted test drives
         href: test-drive-azure-subscription-setup.md
-  - name: Azure customer usage attribution
+  - name: Azure partner customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
-      href: gtm-your-marketplace-benefits.md
-      items: 
-    - name: Co-sell with Microsoft
-      items:
-      - name: Co-sell overview
-        href: co-sell-overview.md
-      - name: Co-sell requirements
-        href: co-sell-requirements.md 
-      - name: Configure co-sell
-        href: co-sell-configure.md
-      - name: Verify co-sell status
-        href: co-sell-status.md   
-      - name: Migrate co-sell solutions from OCP GTM
-        href: co-sell-solution-migration.md 
+      href: gtm-your-marketplace-benefits.md 
+    - name: Co-sell with Microsoft overview
+      href: co-sell-overview.md
+    - name: Configure co-sell
+      href: co-sell-configure.md
+    - name: Co-sell requirements
+      href: co-sell-requirements.md
+    - name: Verify co-sell status
+      href: co-sell-status.md  
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
     - name: Azure consumption commitment benefit
       href: azure-consumption-commitment-benefit.md
-    - name: Preferred solutions
-      href: preferred-solutions.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
@@ -132,16 +149,32 @@
       href: partner-center-portal/azure-apps-review-feedback.md
     - name: Azure application APIs
       href: partner-center-portal/azure-app-apis.md
-  - name: Azure Container offers
+  - name: Azure Container offer
     items: 
-    - name: Plan an Azure Container offer
+    - name: Plan the offer
       href: marketplace-containers.md
     - name: Prepare technical assets
-      href: create-azure-container-technical-assets.md
-    - name: Create and publish an Azure Container offer
+      href: azure-container-technical-assets.md
+    - name: Create the offer
+      href: azure-container-offer-setup.md
+    - name: Properties
+      href: azure-container-properties.md
+    - name: Offer listing
+      href: azure-container-offer-listing.md
+    - name: Preview audience
+      href: azure-container-preview-audience.md
+    - name: Create and edit plans
       items:
-      - name: Create an Azure Container offer
-        href: create-azure-container-offer.md
+      - name: Plan overview
+        href: azure-container-plan-overview.md
+      - name: Plan setup
+        href: azure-container-plan-setup.md
+      - name: Plan listing
+        href: azure-container-plan-listing.md
+      - name: Plan availability
+        href: azure-container-plan-availability.md
+      - name: Plan technical configuration
+        href: azure-container-plan-technical-configuration.md
   - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer
@@ -190,20 +223,34 @@
       href: create-consulting-service-pricing-availability.md
   - name: Dynamics 365 offers
     items: 
-    - name: Plan a Dynamics 365 offer
-      href: appsource-offer-publishing-guide.md
-    - name: Create and publish a Dynamics 365 offer
-      items:
-      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
-        href: partner-center-portal/create-new-customer-engagement-offer.md
+    - name: Plan your offer
+      href: marketplace-dynamics-365.md
+    - name: Create a Customer Engagement & Power Apps offer
+      items: 
+      - name: Create the offer
+        href: dynamics-365-customer-engage-offer-setup.md
+      - name: Properties
+        href: dynamics-365-customer-engage-properties.md
+      - name: Offer listing
+        href: dynamics-365-customer-engage-offer-listing.md
+      - name: Availability
+        href: dynamics-365-customer-engage-availability.md
+      - name: Plans
+        href: dynamics-365-customer-engage-plans.md  
+      - name: Technical configuration
+        href: dynamics-365-customer-engage-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-customer-engage-supplemental-content.md
+      - name: Review and publish
+        href: dynamics-365-customer-engage-review-publish.md
+    - name: Create an Operations offer
+      items: 
       - name: Create a Dynamics 365 for Operations offer
-        items: 
-        - name: Create a Dynamics 365 for Operations offer
-          href: partner-center-portal/create-new-operations-offer.md
-        - name: Functional validation
-          href: dynamics-365-finance-operations-functional-validation.md
-      - name: Create a Dynamics 365 Business Central offer
-        href: partner-center-portal/create-new-business-central-offer.md
+        href: partner-center-portal/create-new-operations-offer.md
+      - name: Functional validation
+        href: dynamics-365-finance-operations-functional-validation.md
+    - name: Create a Business Central offer
+      href: partner-center-portal/create-new-business-central-offer.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer
@@ -212,8 +259,6 @@
       href: partner-center-portal/azure-iot-edge-module-creation.md
     - name: Prepare IoT Edge module technical assets
       href: partner-center-portal/create-iot-edge-module-asset.md
-    - name: Pre-certification checklist
-      href: iot-edge-checklist.md
   - name: Managed Service offers
     items:
     - name: Plan a Managed Service offer
@@ -259,10 +304,12 @@
       - name: Add technical details
         href: create-new-saas-offer-technical.md  
       - name: Create plans
-        href: create-new-saas-offer-plans.md        
+        href: create-new-saas-offer-plans.md
+      - name: Create a test offer
+        href: create-saas-dev-test-offer.md
       - name: Test and publish a SaaS offer
         href: test-publish-saas-offer.md
-    - name: Market your SaaS offer
+    - name: Sell your SaaS offer
       href: create-new-saas-offer-marketing.md 
   - name: Review and publish offers
     href: review-publish-offer.md
@@ -314,8 +361,8 @@
     items:
     - name: Get started
       href: analytics-get-started.md
-    - name: Programmatic access prerequisites
-      href: analytics-prerequisites.md 
+    - name: Prerequisites for programmatic analytics
+      href: analytics-prerequisites.md
     - name: Programmatic access paradigm
       href: analytics-programmatic-access.md
     - name: Make your first API call
@@ -326,36 +373,36 @@
       href: analytics-sample-queries.md
     - name: Sample application
       href: analytics-sample-application.md
+    - name: Frequently asked questions
+      href: analytics-programmatic-faq.md
     - name: Custom query specification
       href: analytics-custom-query-specification.md
-    - name: Programmatic analytics FAQ
-      href: analytics-programmatic-faq.md  
-    - name: Analytics API reference
+    - name: Analytics APIs
       items:
-      - name: List of APIs 
+      - name: Available APIs
         href: analytics-available-apis.md
       - name: Get all datasets
         href: analytics-api-get-all-datasets.md
-      - name: Get report queries API
+      - name: Get report queries
         href: analytics-api-get-report-queries.md
-      - name: Delete report queries API
+      - name: Delete report queries
         href: analytics-api-delete-report-queries.md
-      - name: Try report queries API
+      - name: Try report queries
         href: analytics-api-try-report-queries.md
-      - name: Get report API
+      - name: Get report
         href: analytics-api-get-report.md
-      - name: Update report API
+      - name: Update report
         href: analytics-api-update-report.md
-      - name: Delete report API
-        href: analytics-api-delete-report.md        
-      - name: Pause report executions API
+      - name: Delete report
+        href: analytics-api-delete-report.md
+      - name: Pause report executions
         href: analytics-api-pause-report-executions.md
-      - name: Resume report executions API
+      - name: Resume report executions
         href: analytics-api-resume-report-executions.md
-  - name: Manage metered billing anomalies 
+  - name: Manage metered billing anomalies
     href: anomaly-detection.md
-  - name: Analytics common questions 
-    href: analytics-faq.md 
+  - name: Analytics common questions
+    href: analytics-faq.md
 - name: Policies and terms
   items:    
   - name: About our policies and terms
@@ -366,6 +413,10 @@
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
     href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+  - name: Microsoft Publisher Agreement
+    href: /legal/marketplace/msft-publisher-agreement
+  - name: Change history for Microsoft Publisher Agreement
+    href: /legal/marketplace/mpa-change-history
 - name: Reference
   items:
   - name: CPP API reference
@@ -448,9 +499,9 @@
     href: commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: commercial-marketplace-co-sell-states.md
-  - name: Reference Architecture Diagram
-    href: reference-architecture-diagram.md  
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
+  - name: Reference architecture diagram
+    href: reference-architecture-diagram.md  

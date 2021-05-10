@@ -27,7 +27,7 @@ This how-to document walks through the process for writing a function that can i
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
+* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
 
@@ -40,22 +40,15 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart, an IoT Hub device sends Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
 In this section, you'll set up a [digital twin](concepts-twins-graph.md) in Azure Digital Twins that will represent the thermostat device and will be updated with information from IoT Hub.
 
-To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin. 
+To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin.
 
-The model looks like this:
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-To **upload this model to your twins instance**, run the following Azure CLI command, which uploads the above model as inline JSON. You can run the command in [Azure Cloud Shell](/cloud-shell/overview.md) in your browser, or on your machine if you have the CLI [installed locally](/cli/azure/install-azure-cli.md).
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named **thermostat67**, and set 0.0 as an initial temperature value.
 
@@ -63,13 +56,8 @@ You'll then need to **create one twin using this model**. Use the following comm
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here are the commands to upload the model and create the twin with this modification:
->
-> Upload model:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here is the command to create the twin with this modification:
 >
 > Create twin:
 > ```azurecli-interactive
@@ -101,7 +89,7 @@ In this section, you'll create an Azure function to access Azure Digital Twins a
 
 #### Step 1: Create a function app project
 
-First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
+First, create a new function app project in Visual Studio. For instructions on how to do this, see the [Create a function app in Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
 
 #### Step 2: Fill in function code
 
@@ -118,19 +106,19 @@ Save your function code.
 
 #### Step 3: Publish the function app to Azure
 
-Publish the project to a function app in Azure.
+Publish the project with *IoTHubtoTwins.cs* function to a function app in Azure.
 
-For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+For instructions on how to do this, see the section [Publish the function app to Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
 #### Step 4: Configure the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
 
 ## Connect your function to IoT Hub
 
 In this section, you'll set up your function as an event destination for the IoT hub device data. This will ensure that the data from the thermostat device in IoT Hub will be sent to the Azure function for processing.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your function.
+In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [Prerequisites](#prerequisites) section. Under **Events**, create a subscription for your function.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
@@ -159,11 +147,11 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
-1. [*Register the simulated device with IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
-2. [*Configure and run the simulation*](./tutorial-end-to-end.md#configure-and-run-the-simulation)
+1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
+2. [Configure and run the simulation](./tutorial-end-to-end.md#configure-and-run-the-simulation)
 
 ## Validate your results
 
@@ -202,4 +190,4 @@ To see the value change, repeatedly run the query command above.
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [*Concepts: Integration with other services*](concepts-integration.md)
+* [Concepts: Integration with other services](concepts-integration.md)

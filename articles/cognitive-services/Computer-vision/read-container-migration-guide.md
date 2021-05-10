@@ -1,5 +1,5 @@
 ---
-title: Migrating to the Read v3.x OCR containers
+title: Migrating to the Read v3.x containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to migrate to the v3 Read OCR containers
 services: cognitive-services 
@@ -19,7 +19,7 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 
 ## Configuration changes
 
-* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
+* `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
 * `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you do not need to set it.
 
 ## API changes
@@ -34,7 +34,7 @@ See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md)
 
 ## Memory requirements
 
-The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocation of resources for each Read container.
+The requirements and recommendations are based on benchmarks with a single request per second, using an 8-MB image of a scanned business letter that contains 29 lines and a total of 803 characters. The following table describes the minimum and recommended allocation of resources for each Read OCR container.
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|
@@ -76,7 +76,7 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](overview.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
+* Review [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
+* Refer to the [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

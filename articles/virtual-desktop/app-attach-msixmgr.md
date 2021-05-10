@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Using the MSIXMGR tool
 

@@ -343,13 +343,13 @@ For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to n
 
 ## Thread pool starvation
 
-If your server is starving, that means no threads are working on message processing. All threads are hanging in a certain method.
+If your server is starving, that means no threads are working on message processing. All threads are not responding in a certain method.
 
 Normally, this scenario is caused by async over sync or by `Task.Result`/`Task.Wait()` in async methods.
 
 See [ASP.NET Core performance best practices](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
 
-See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
+See more about [thread pool starvation](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
 
 ### How to detect thread pool starvation
 
@@ -358,8 +358,8 @@ Check your thread count. If there are no spikes at that time, take these steps:
     
   :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Screenshot of the Max thread count pane in Azure App Service.":::
 
-* If you're using the .NET Framework, you can find [metrics](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
-* If you're using .NET Core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
+* If you're using the .NET Framework, you can find [metrics](/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
+* If you're using .NET Core in a container, see [Collect diagnostics in containers](/dotnet/core/diagnostics/diagnostics-in-containers).
 
 You also can use code to detect thread pool starvation:
 

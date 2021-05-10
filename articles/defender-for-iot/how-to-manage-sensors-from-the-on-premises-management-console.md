@@ -1,12 +1,8 @@
 ---
 title: Manage sensors from the on-premises management console 
 description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, and enabling and disabling engines on sensors.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 04/22/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Manage sensors from the management console
@@ -41,25 +37,25 @@ To apply system settings:
 
 1. On the console's left pane, select **System Settings**.
 
-2. On the **Configure Sensors** pane, select one of the options.
+1. On the **Configure Sensors** pane, select one of the options.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for a sensor.":::
 
    The following example describes how to define mail server parameters for your enterprise sensors.
 
-3. Select **Mail Server**.
+1. Select **Mail Server**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Select your mail server from the System Settings screen.":::
 
-4. Select a sensor on the left.
+1. Select a sensor on the left.
 
-5. Set the mail server parameters and select **Duplicate**. Each item in the sensor tree appears with a check box next to it.
+1. Set the mail server parameters and select **Duplicate**. Each item in the sensor tree appears with a check box next to it.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Ensure the check boxes are selected for your sensors.":::
 
-6. In the sensor tree, select the items to which you want to apply the configuration.
+1. In the sensor tree, select the items to which you want to apply the configuration.
 
-7. Select **Save**.
+1. Select **Save**.
 
 ## Update versions
 
@@ -69,35 +65,53 @@ To update several sensors:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-2. Go to Azure Defender for IoT.
+1. Navigate to Azure Defender for IoT.
 
-3. Go to the **Updates** page.
+1. Go to the **Updates** page.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/update-screen.png" alt-text="Screenshot of the Updates dashboard view.":::
 
-4. Select **Download** from the **Sensors** section and save the file.
+1. Select **Download** from the **Sensors** section and save the file.
 
-5. Sign in to the management console and select **System Settings**.
+1. Sign in to the management console and select **System Settings**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/admin-system-settings.png" alt-text="Screenshot of the Administration menu to select System Settings.":::
 
-6. Mark the sensors that you want to update in the **Sensor Engine Configuration** section, and then select **Automatic Updates**.
+1. Select the sensors to update in the **Sensor Engine Configuration** section, and then select **Automatic Updates**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensors-select.png" alt-text="Two sensors showing learning mode and automatic updates.":::
 
-7. Select **Save Changes**.
+1. Select **Save Changes**.
 
-8. On the **Sensors Version upgrade** pane, select :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/plus-icon.png" border="false":::.
+1. On the sensor, select **System Settings**, and then select **Update**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/display-files.png" alt-text="Sensor version upgrade screen to display files.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
 
 9. An **Upload File** dialog box opens. Upload the file that you downloaded from the **Updates** page.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Select the Browse button to upload your file.":::
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/upload-file.png" alt-text="Select the Browse button to upload your file.":::
 
-10. During the update process, the update status of each sensor appears in the **Site Management** window.
+You can monitor the update status of each sensor in the **Site Management** window.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe the progress of your update.":::
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe the progress of your update.":::
+
+### Update sensors from the on-premises management console
+
+You can view the update status of your sensors from the management console. If the update failed, you can reattempt to update the sensor from the on-premises management console (versions 2.3.5 and on).
+
+To update the sensor from on-premises management console:
+
+1. Sign in to the on-premises management console, and navigate to the **Sites Management** page.
+
+1. Locate any sensors that have **Failed** under the Update Progress column, and select the download button. 
+
+    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/download-update-button.png" alt-text="Select the download icon to try to download and install the update for your sensor.":::
+
+You can monitor the update status of each sensor in the **Site Management** window.
+
+:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/progress.png" alt-text="Observe the progress of your update.":::
+
+If you are unable to update the sensor, contact customer support for assistance.
 
 ## Update threat intelligence packages 
 
@@ -109,17 +123,17 @@ To update the threat intelligence data:
 
 1. Go to the Defender for IoT **Updates** page. 
 
-2. Download and save the file.
+1. Download and save the file.
 
-3. Sign in to the management console. 
+1. Sign in to the management console. 
 
-4. On the side menu, select **System Settings**. 
+1. On the side menu, select **System Settings**. 
 
-5. Select the sensors that should receive the update in the **Sensor Engine Configuration** section.  
+1. Select the sensors that should receive the update in the **Sensor Engine Configuration** section.  
 
-6. In the **Select Threat Intelligence Data** section, select the plus sign (**+**). 
+1. In the **Select Threat Intelligence Data** section, select the plus sign (**+**). 
 
-7. Upload the package that you downloaded from the Defender for IoT **Updates** page.
+1. Upload the package that you downloaded from the Defender for IoT **Updates** page.
 
 ## Understand sensor disconnection events
 
@@ -152,9 +166,9 @@ To enable or disable engines for connected sensors:
 
 1. In the console's left pane, select **System Settings**.
 
-2. In the **Sensor Engine Configuration** section, select **Enable** or **Disable** for the engines.
+1. In the **Sensor Engine Configuration** section, select **Enable** or **Disable** for the engines.
  	 	 
-3. Select **SAVE CHANGES**.
+1. Select **SAVE CHANGES**.
 
    A red exclamation mark appears if there's a mismatch of enabled engines on one of your enterprise sensors. The engine might have been disabled directly from the sensor.
 
@@ -216,21 +230,21 @@ To back up sensors:
 
 1. Select **Schedule Sensor Backup** from the **System Settings** window. Sensors that your on-premises management console manages appear in the **Sensor Backup Schedule** dialog box.  
 
-2. Enable the **Collect Backups** toggle.  
+1. Enable the **Collect Backups** toggle.  
 
-3. Select a calendar interval, date, and time zone. The time format is based on a 24-hour clock. For example, enter 6:00 PM as **18:00**. 
+1. Select a calendar interval, date, and time zone. The time format is based on a 24-hour clock. For example, enter 6:00 PM as **18:00**. 
 
-4. In the **Backup Storage Allocation** field, enter the storage that you want to allocate for your backups. You're notified if you exceed the maximum space.
+1. In the **Backup Storage Allocation** field, enter the storage that you want to allocate for your backups. You're notified if you exceed the maximum space.
 
-5. In the **Retain Last** field, indicate the number of backups per sensor you want to retain. When the limit is exceeded, the oldest backup is deleted.  
+1. In the **Retain Last** field, indicate the number of backups per sensor you want to retain. When the limit is exceeded, the oldest backup is deleted.  
 
-6. Choose a backup location:  
+1. Choose a backup location:  
 
    - To back up to the on-premises management console, disable the **Custom Path** toggle. The default location is `/var/cyberx/sensor-backups`.  
 
    - To back up to an external server, enable the **Custom Path** toggle and enter a location. The following numbers and characters are supported: `/, a-z, A-Z, 0-9, and, _`. 
 
-7. Select **Save**. 
+1. Select **Save**. 
 
 To back up immediately: 
 
@@ -276,39 +290,39 @@ To set up an SMB server so you can save a sensor backup to an external drive:
 
 1. Create a shared folder in the external SMB server. 
 
-2. Get the folder path, username, and password required to access the SMB server. 
+1. Get the folder path, username, and password required to access the SMB server. 
 
-3. In Defender for IoT, make a directory for the backups: 
+1. In Defender for IoT, make a directory for the backups: 
 
    `sudo mkdir /<backup_folder_name_on_server>` 
 
    `sudo chmod 777 /<backup_folder_name_on_server>/` 
 
-4. Edit fstab:  
+1. Edit fstab:  
 
    `sudo nano /etc/fstab` 
 
    `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
 
-5. Edit or create credentials to share. These are the credentials for the SMB server: 
+1. Edit or create credentials to share. These are the credentials for the SMB server: 
 
    `sudo nano /etc/samba/user` 
 
-6. Add:  
+1. Add:  
 
    `username=<user name>` 
 
    `password=<password>` 
 
-7. Mount the directory: 
+1. Mount the directory: 
 
    `sudo mount -a` 
 
-8. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
+1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
 
    `sudo nano /var/cyberx/properties/backup.properties` 
 
-9. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
+1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
 
 ## See also
 

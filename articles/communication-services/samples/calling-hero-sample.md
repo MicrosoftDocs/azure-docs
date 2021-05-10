@@ -10,8 +10,19 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
+zone_pivot_groups: acs-web-ios-android
 ---
 
 # Get started with the group calling hero sample
 
+::: zone pivot="platform-web"
 [!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
+::: zone-end

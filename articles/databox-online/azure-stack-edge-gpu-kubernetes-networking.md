@@ -81,4 +81,4 @@ To configure Kubernetes networking on your Azure Stack Edge Pro see:
 
 - [Expose a stateless application externally on your Azure Stack Edge Pro via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Expose a stateless application externally on your Azure Stack Edge Pro via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Expose a stateless application externally on your Azure Stack Edge Pro via kuebctl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

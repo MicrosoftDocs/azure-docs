@@ -2,13 +2,13 @@
 title: Use Azure Storage inventory to manage blob data (preview)
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
-author: mhopkins-msft
+author: twooley
 
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: twooley
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
 ---
@@ -22,7 +22,7 @@ The Azure Storage blob inventory feature provides an overview of your blob data 
 Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
 
 > [!IMPORTANT]
-> Bob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Blob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Preview regions
 
@@ -33,6 +33,7 @@ The blob inventory preview is available on storage accounts in the following reg
 - Canada East
 - East US
 - East US2
+- West Europe
 
 ### Pricing and billing
 
@@ -199,6 +200,14 @@ Sample event:
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## Known issues
+
+This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory job fails to complete
+
+The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
 
 ## Next steps
 

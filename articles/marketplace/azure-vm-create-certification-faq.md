@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
-ms.date: 01/18/2021
+ms.date: 04/13/2021
 ---
 
 # Troubleshoot virtual machine certification
@@ -535,13 +535,13 @@ Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to 
 This section describes how to provide a new VM image when a vulnerability or exploit is discovered with one of your VM images. It only applies to Azure VM offers published to Azure Marketplace.
 
 > [!NOTE]
-> You can't remove the last VM image from a plan or stop-sell the last plan for an offer.
+> You can't remove the last VM image from a plan or deprecate (formerly stop sell) the last plan for an offer.
 
 Do one of the following actions:
 
 - If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image).
-- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
-- If you don't plan to replace the only VM image in the offer, we recommend you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [deprecate (formerly stop sell) the plan](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, we recommend you [deprecate (formerly stop sell) the offer](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan).
 
 ### Provide a fixed VM image
 
@@ -616,11 +616,10 @@ To complete the publishing process, see [Review and publish offers](review-publi
 * Python version above 2.8 
 
 
-For more information, please visit [VM Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+For more information, please visit [VM Extension](../virtual-machines/extensions/diagnostics-linux.md).
      
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
- 
