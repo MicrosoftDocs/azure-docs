@@ -1,11 +1,11 @@
 ---
-title: Module twin JSON schema - Azure
-description: This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
+title: Module twin JSON schema in Live Video Analytics - Azure
+description: This topic describes module twin JSON schema of Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Module twin JSON schema
+# Module twin JSON schema in Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

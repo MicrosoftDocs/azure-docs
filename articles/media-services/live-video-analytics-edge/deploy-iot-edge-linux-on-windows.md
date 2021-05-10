@@ -1,12 +1,12 @@
 ---
-title: Deploy to an IoT Edge for Linux on Windows - Azure
-description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
+title: Deploy to an IoT Edge for Linux on Windows with Live Video Analytics - Azure
+description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device with Live Video Analytics.
 ms.topic: how-to
 ms.date: 02/18/2021
 
 ---
 
-# Deploy to an IoT Edge for Linux on Windows (EFLOW) device
+# Deploy to an IoT Edge for Linux on Windows (EFLOW) device with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

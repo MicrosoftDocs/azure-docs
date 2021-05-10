@@ -1,11 +1,11 @@
 ---
-title: Deploy Live Video Analytics on Azure Stack Edge
-description: This article lists the steps that will help you deploy Live Video Analytics on your Azure Stack Edge.
+title: Deploy Azure Live Video Analytics on Azure Stack Edge
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on Azure Stack Edge
+# Deploy Azure Live Video Analytics on Azure Stack Edge
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

@@ -1,13 +1,14 @@
 ---
-title: Azure Video Analyzer Visual Studio Code extension
-description: This reference doc explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
+title: Use Azure Video Analyzer Visual Studio Code extension
+description: This reference article explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 05/01/2021
 
 ---
 
-# Azure Video Analyzer Visual Studio Code extension
+# Use Azure Video Analyzer Visual Studio Code extension
+
 Azure Video Analyzer is a platform to make building video analysis programs easier, and the associated Visual Studio Code extension is a tool to make learning that platform easier.  This article is a reference to the various pieces of functionality offered by the extension.  It covers the basics of:
 
 * Pipelines – creation, editing, deletion, viewing the JSON

@@ -13,7 +13,7 @@ titleSuffix: Azure
 
 This tutorial shows you how to use the OpenVINO™ Model Server – AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to models for detecting objects (a person, a vehicle, or a bike), and a model for classifying vehicles. A subset of the frames in the live video feed is sent to this inference server, and the results are sent to IoT Edge Hub.
 
-This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
+This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#.
 
 > [!NOTE]
 > This tutorial requires the use of an x86-64 machine as your Edge device.
@@ -27,36 +27,6 @@ This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated li
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
-
-## Review the sample video
-
-When you set up the Azure resources, a short video of a parking lot is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
-
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
-
-In this quickstart, you'll use Azure Video Analyzer on IoT Edge along with the OpenVINO™ Model Server – AI Extension from Intel to detect objects such as vehicles, or to classify them. You'll publish the resulting inference events to IoT Edge Hub.
-
-## Overview
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.png" alt-text="Overview":::
-
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md#http-extension-processor) node. 
-
-The HTTP extension node plays the role of a proxy. It  It samples the incoming video frames set by you `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
-
-In this tutorial, you will:
-
-1. Setup your development environment.
-1. Deploy the required edge modules.
-1. Create and deploy the live pipeline.
-1. Interpret the results.
-1. Clean up resources.
-
-## Set up your development environment
-[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
 
 ## About OpenVINO™ Model Server – AI Extension from Intel
 
@@ -76,11 +46,37 @@ In the initial release of this inference server, you have access to the followin
 > By downloading and using the Edge module: OpenVINO™ Model Server – AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
 > Intel is committed to respecting human rights and avoiding complicity in human rights abuses. See [Intel’s Global Human Rights Principles](https://www.intel.com/content/www/us/en/policy/policy-human-rights.html). Intel’s products and software are intended only to be used in applications that do not cause or contribute to a violation of an internationally recognized human right.
 
+## Overview
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.png" alt-text="Overview":::
+
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline-extension.md#http-extension-processor) node. 
+
+The HTTP extension processor node plays the role of a proxy. It selects a subset of the incoming video frames and converts those frames to images. Then it relays the image over REST to another edge module that runs AI models behind an HTTP endpoint. In this example, that edge module is the OpenVINO™ Model Server – AI Extension from Intel. The HTTP extension processor node gathers the detection results and publishes events to the [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+
+In this tutorial, you will:
+
+1. Setup your development environment.
+1. Deploy the required edge modules.
+1. Create and deploy the live pipeline.
+1. Interpret the results.
+1. Clean up resources.
+
+## Set up your development environment
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+
+### Review the sample video
+
+When you set up the Azure resources, a short video of a parking lot is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
+
 ## Deploy the required modules
 
-### Examine and edit the sample files
-
-As part of the prerequisites, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample files.
+As part of the prerequisites, you downloaded the sample code to a folder. Follow these steps to deploy the required modules.
 
 1. In Visual Studio Code, right-click the *src/edge/deployment.openvino.template.json* file and then select **Generate IoT Edge Deployment Manifest**.   
 
@@ -101,11 +97,13 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "OpenVINO object detection model":::
     
+## Create and activate the live pipeline
 
-1. Edit the *operations.json* file:
+### Edit the sample code
+1. In Visual Studio code, browse to *src/cloud-to-device-console-app* and edit the *operations.json* file:
     * Change the link to the live pipeline topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/lvateam/azure-video-analyzer/main/pipelines/live/topologies/httpExtensionOpenVINO/topology.json"`
+        `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/master/pipelines/live/topologies/httpExtensionOpenVINO/topology.json"`
 
     * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
 
@@ -115,33 +113,16 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
       `"name": "InferencingWithOpenVINO"`
 
-
-### Prepare to monitor events
-
-Right-click the Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code. 
-
-![Start monitoring](./media/quickstarts/start-monitoring-iot-hub-events.png)
 ### Run the sample program to detect vehicles
-If you open the [pipeline topology](pipeline.md) for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
+If you open the pipeline topology (`pipelineTopologyUrl`) for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will attempt to detect vehicles in the live video.
 
-1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
-1. Search and enable “Show Verbose Message”.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The *operations.json* code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
-
-    The **TERMINAL** window shows the next set of direct method calls:
+1. The *operations.json* code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists. The **TERMINAL** window shows the next set of direct method calls:
 
      * A call to `pipelineTopologySet` that uses the preceding `topologyUrl`
      * A call to `livePipelineSet` that uses the following body:
 
-         ```
+         ```json
             {
               "@apiVersion": "1.0",
               "name": "Sample-Pipeline-1",
@@ -185,10 +166,9 @@ In the following messages, the Video Analyzer module defines the application pro
 
 ### MediaSessionEstablished event
 
-When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed.
+When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds you will see an event in the **OUTPUT** window with the following.
 
-```
-[IoTHubMonitor] [10:51:34 AM] Message received from [avasample-iot-edge-device/avaedge]:
+```json
 {
   "sdp": "SDP:\nv=0\r\no=- 1620204694595500 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
 }
@@ -203,12 +183,9 @@ In the preceding output:
 
 The HTTP extension processor node receives inference results from the OpenVINO™ Model Server – AI Extension module. It then emits the results through the IoT Hub message sink node as inference events. 
 
-In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. 
+In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. In the following example of the `body` of such an event, a vehicle was detected, with a confidence values above 0.9.
 
-In the following example, a vehicle was detected, with a confidence values above 0.9.
-
-```
-[IoTHubMonitor] [3:10:23 PM] Message received from [avasample-iot-edge-device/avaedge]:
+```json
 {
   "timestamp": 145819820073974,
   "inferences": [
@@ -238,12 +215,12 @@ In the messages, notice the following details:
 ## Run the sample program to detect persons, vehicles or bikes
 To use a different model, you will need to modify the pipeline topology, and as well as `operations.json` file.
 
-Copy the [pipeline topology](pipeline.md) to a local file, say `C:\TEMP\topology.json`. Open that copy, and edit the value of `inferencingUrl` to `http://openvino:4000/personVehicleBikeDetection`.
+Copy the pipeline topology (URL used in `pipelineTopologyUrl`) to a local file, say `C:\TEMP\topology.json`. Open that copy, and edit the value of `inferencingUrl` to `http://openvino:4000/personVehicleBikeDetection`.
 
-Next, in Visual Studio Code, go to the *src/cloud-to-device-console-app* folder and open `operations.json` file. Edit the line with `topologyUrl` to:
+Next, in Visual Studio Code, go to the *src/cloud-to-device-console-app* folder and open `operations.json` file. Edit the line with `pipelineTopologyUrl` to:
 
 ```
-      "topologyFile" : "C:\\TEMP\\topology.json" 
+      "pipelineTopologyFile" : "C:\\TEMP\\topology.json" 
 ```
 You can now repeat the steps above to run the sample program again, with the new topology. The inference results will be similar (in schema) to that of the vehicle detection model, with just the `subtype` set to `personVehicleBikeDetection`.
 
@@ -252,8 +229,7 @@ In Visual Studio Code, open the local copy of `topology.json` from the previous 
 
 You can now repeat the steps above to run the sample program again, with the new topology. A sample classification result is as follows.
 
-```
-[IoTHubMonitor] [3:24:32 PM] Message received from [avasample-iot-edge-device/avaedge]:
+```json
 {
   "timestamp": 145819896480527,
   "inferences": [
@@ -281,13 +257,13 @@ You can now repeat the steps above to run the sample program again, with the new
 }
 
 ```
+
 ## Run the sample program to detect faces
 In Visual Studio Code, open the local copy of `topology.json` from the previous step, and edit the value of `inferencingUrl` to `http://openvino:4000/faceDetection`. If you have run the previous example to detect persons or vehicles or bikes, you do not need to modify the `operations.json` file again.
 
 You can now repeat the steps above to run the sample program again, with the new topology. A sample detection result is as follows (note: the parking lot video used above does not contain any detectable faces - you should another video in order to try this model).
 
-```
-[IoTHubMonitor] [3:34:45 PM] Message received from [avasample-iot-edge-device/avaedge]:
+```json
 {
   "body": {
     "inferences": [
