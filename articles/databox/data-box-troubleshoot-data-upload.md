@@ -40,7 +40,7 @@ The order will be completed automatically after 14 days. By acting on the notifi
 
 ## Summary of non-retryable upload errors
 
-The following non-retryable errors result in a pause in an upload and a notification:
+The following non-retryable errors result in a notification:
 
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|

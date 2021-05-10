@@ -307,8 +307,7 @@ Upload to Azure may also complete with errors.
 
 ![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
-> [!NOTE]
-> If any non-retryable errors cause files not to upload, you'll receive a notification to make sure you're aware that files didn't upload and have the information you need to fix any configuration issues before you try another upload. <!--By responding to the notification, you can proceed with secure data erasure immediately. If you don't respond, the order is completed automatically after 14 days.--> For more information, see [Review copy errors in data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
+You may occasionally receive a non-retryable error that causes a file not to upload. In that case, you'll receive a notification. For information about how to follow up on the notification, see [Review copy errors in data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
 Here is an example of a copy log where the upload completed with errors:
 
