@@ -535,6 +535,8 @@
         href: how-to-deploy-no-code-deployment.md
       - name: Batch scoring with batch endpoints (preview)
         href: how-to-use-batch-endpoint.md
+      - name: Troubleshooting batch endpoints (preview)
+        href: how-to-troubleshoot-batch-endpoints.md
       - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
