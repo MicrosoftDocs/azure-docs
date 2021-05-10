@@ -1,5 +1,5 @@
 ---
-title: Cluster configuration best practices
+title: HADR configuration best practices
 description: "Learn about the supported cluster configurations when you configure high availability and disaster recovery (HADR) for SQL Server on Azure Virtual Machines, such as supported quorums or connection routing options." 
 services: virtual-machines
 documentationCenter: na
@@ -16,21 +16,74 @@ ms.author: mathoma
 
 ---
 
-# Cluster configuration best practices (SQL Server on Azure VMs)
+# HADR configuration best practices (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 A [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md) is used for high availability and disaster recovery (HADR) with SQL Server on Azure Virtual Machines (VMs). 
 
 This article provides cluster configuration best practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. 
 
+## Checklist
+
+Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail: 
+
+* Change the cluster [heartbeat and threshold settings](#heartbeat-and-threshold) to less aggressive parameters to avoid the possibility of transient network failures, or Azure platform maintenance leading to unexpected outages, or consuming higher computing resources. Choose values based on how much down time is tolerable and how long a corrective action will take depending on your application, business needs, and environment. 
+    - Do not set any values lower than their default values. 
+    - SameSubnetThreshold <= CrossSubnetThreshold
+    - SameSubnetDelay <= CrossSubnetDelay
+    - These change take effect immediately, no restart required. 
+* To reduce the impact of downtime, choose the [VM availability settings](#vm-availability-settings) that best suit your business needs and environment, such as availability sets, proximity placement groups and/or availability zones. 
+* Use a single NIC per cluster node and a single subnet. 
+* Configure cluster [quorum voting](#quorum-voting) to use 3 or more odd number of votes, and do not assign votes to DR regions. 
+* Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
+* Carefully monitor [resource limits](#resource-limits) to avoid unexpected restarts or failovers due to resource constraints.
+   - Ensure your OS, drivers, and SQL Server are at the latest builds. 
+   - Optimize performance for SQL Server on Azure VMs. See the [quick checklist](performance-guidelines-best-practices-checklist.md) to learn more. 
+   - Reduce or spread out workload to avoid resource limits. 
+   - Move to a VM or disk that his higher limits to avoid constraints. 
+* If you're still experiencing unexpected failures, consider [relaxing the monitoring](#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so simply reduces the likelihood of failure but is unlikely to eliminate the underlying source of the issue. You may still need to investigate and address the underlying root cause. 
+   - Do not set any values lower than their default values. 
+   - The lease interval for an availability group ((1/2)*Lease timeout) must be shorter than SameSubnetThreshold * SameSubnetDelay.
+   - Consider relaxing your monitoring during certain highload activities, such as index maintenance, or DBCC Checkdb. 
+* When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
+   - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
+- To connect to your HADR solution using the distributed network name (DNN), consider the following:
+   - You must use a client driver that supports `MultiSubnetFailover = True`, and this parameter must be in the connection string. 
+   - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
+- Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
+
+### Recommended HADR parameters
+
+To ensure recovery during legitimate outages while providing greater tolerance for transient issues, relax your delay and threshold settings to the recommended values detailed in the following table: 
+
+| Setting | Windows Server 2012 or later | Windows Server 2008R2 |
+|:---------------------|:----------------------------|:-----------------------|
+| **SameSubnetDelay**      | 1 second                    | 2 second               |
+| **SameSubnetThreshold**  | 40 heartbeats               | 10 heartbeats (max)         |
+| **CrossSubnetDelay**     | 1 second                    | 2 second               |  
+| **CrossSubnetThreshold** | 40 heartbeats               | 20 heartbeats (max)         |
+
+If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolving it. 
+
+For both the AG, and FCI: 
+- **Healthcheck timeout**: Start with 60000
+-  **Failure-condition level**: Considering making less restrictive by lowering the value less than the default of 3. 
+
+For the AG:
+- **Lease timeout**: For Window Server 2012 or later, start with 40 seconds, do not exceed 120 seconds. For Windows Server 2008 & 2008 R2, start with 30 seconds, do not exceed 40 seconds. 
+- **Session timeout** Increase to 15 from the default of 10, though this can increase HADR_sync_commit waits. 
+- **Max failures in a specified period**: Increase this value above 3 if your availability group is frequently in a failed state. 
+
+
+
 ## VM availability settings
 
 To reduce the impact of downtime, consider the following VM best availability settings: 
 
-* Use proximity placement groups together with accelerated networking for lowest latency
-* Use availability zones to protect from datacenter level failures or configure multiple virtual machines in an availability set for redundancy
-* Use premium-managed OS and data disks for VMs in an availability set
-* Configure each application tier into separate availability sets
+* Use proximity placement groups together with accelerated networking for lowest latency.
+* Use availability zones to protect from datacenter level failures or configure multiple virtual machines in an availability set for redundancy.
+* Use premium-managed OS and data disks for VMs in an availability set.
+* Configure each application tier into separate availability sets.
 
 ## Quorum
 
@@ -85,6 +138,7 @@ please ensure i have not technically changed the meaning in any way
 
 ## Connectivity
 
+
 It's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
 
 The distributed network name is the recommended connectivity option, when available: 
@@ -107,14 +161,13 @@ Most SQL Server features work transparently with FCI and availability groups whe
 
 ## Heartbeat and threshold 
 
-The default heartbeat and threshold cluster settings are designed for highly tuned on-premises networks and do not consider the possibility of induced latency in a cloud environment. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations.
+Change the cluster heartbeat and threshold settings to relaxed settings. The default heartbeat and threshold cluster settings are designed for highly tuned on-premises networks and do not consider the possibility of induced latency in a cloud environment. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations.
  
 Therefore, when running cluster nodes for SQL Server on Azure VM high availability solutions, change the cluster settings to a more relaxed monitoring state to avoid transient failures due to the increased possibility of network latency or failure, Azure maintenance, or hitting resource bottlenecks. 
 
 The delay and threshold settings have a cumulative effect to total health detection. For example, setting *CrossSubnetDelay* to send a heartbeat every 2 seconds and setting the *CrossSubnetThreshold* to 10 missed heartbeats before taking recovery means the cluster can have a total network tolerance of 20 seconds before recovery action is taken. In general, continuing to send frequent heartbeats but having greater thresholds is preferred. 
 
 To ensure recovery during legitimate outages while providing greater tolerance for transient issues, relax your delay and threshold settings to the recommended values detailed in the following table: 
-
 
 | Setting | Windows Server 2012 or later | Windows Server 2008R2 |
 |:---------------------|:----------------------------|:-----------------------|
@@ -176,11 +229,9 @@ To learn more, see [Tuning Failover Cluster Network Thresholds](/windows-server/
 
 ## Relaxed monitoring
 
-If tuning your heartbeat and threshold settings is insufficient tolerance and you're still seeing failures due to transient issues rather than true outages, you can configure your monitoring to be more relaxed. 
+If tuning your cluster heartbeat and threshold settings is insufficient tolerance and you're still seeing failures due to transient issues rather than true outages, you can configure your AG or FCI monitoring to be more relaxed. In some scenarios, it may be beneficial to temporarily relax the monitoring for a period of time given the level of activity. For example, you may want to relax the monitoring when you're doing IO intensive workloads such as database backups, index maintenance, DBCC checkdb, etc. Once the activity is complete, set your monitoring to less relaxed values. 
 
-In some scenarios, it may be beneficial to temporarily relax the monitoring for a period of time given the level of activity. For example, you may want to relax the monitoring when you're doing IO intensive workloads such as database backups, index maintenance, DBCC checkdb, etc. Once the activity is complete, set your monitoring to less relaxed values. 
-
->[!WARNING]
+> [!WARNING]
 > Changing these settings may mask an underlying problem, and should be used as a temporary solution to reduce, rather than eliminate, the likelihood of failure. Underlying issues should still be investigated and addressed. 
 
 Increase the following parameters from their default values for relaxed monitoring: 
@@ -252,33 +303,83 @@ VM or disk limits could result in a resource bottleneck that impacts the health 
 
 Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
+The non-RFC-compliant DHCP service in Azure can cause the creation of certain failover cluster configurations to fail. This failure happens because the cluster network name is assigned a duplicate IP address, such as the same IP address as one of the cluster nodes. This is an issue when you use availability groups, which depend on the Windows failover cluster feature.
+
+Consider the scenario when a two-node cluster is created and brought online:
+
+1. The cluster comes online, and then NODE1 requests a dynamically assigned IP address for the cluster network name.
+2. The DHCP service doesn't give any IP address other than NODE1's own IP address, because the DHCP service recognizes that the request comes from NODE1 itself.
+3. Windows detects that a duplicate address is assigned both to NODE1 and to the failover cluster's network name, and the default cluster group fails to come online.
+4. The default cluster group moves to NODE2. NODE2 treats NODE1's IP address as the cluster IP address and brings the default cluster group online.
+5. When NODE2 tries to establish connectivity with NODE1, packets directed at NODE1 never leave NODE2 because it resolves NODE1's IP address to itself. NODE2 can't establish connectivity with NODE1, and then loses quorum and shuts down the cluster.
+6. NODE1 can send packets to NODE2, but NODE2 can't reply. NODE1 loses quorum and shuts down the cluster.
+
+You can avoid this scenario by assigning an unused static IP address to the cluster network name in order to bring the cluster network name online. For example, you can use a link-local IP address like 169.254.1.1. To simplify this process, see [Configuring Windows failover cluster in Azure for availability groups](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+
+For more information, see [Configure availability groups in Azure (GUI)](./availability-group-quickstart-template-configure.md).
+
+
 ## Known issues
 
-If the **Windows cluster settings** are too aggressive for your environment, you may see following message in the system event log frequently. For more information, review [Troubleshooting cluster issue with Event ID 1135.](/windows-server/troubleshoot/troubleshooting-cluster-event-id-1135)
+Review the resolutions for some commonly known issues and errors: 
 
-| Event ID  | Description                                                            |
-|----|----|
-|       1135      |  Cluster node 'Node1' was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.|
+**Cluster node removed from membership**
+
+
+If the **Windows cluster settings** are too aggressive for your environment, you may see following message in the system event log frequently. 
+
+```
+Error 1135
+Cluster node 'Node1' was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. 
+Run the Validate a Configuration wizard to check your network configuration. 
+If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
+```
+
+
+For more information, review [Troubleshooting cluster issue with Event ID 1135.](/windows-server/troubleshoot/troubleshooting-cluster-event-id-1135)
+
+
+**Lease has expired** / **Lease is no longer valid**
+
 
 If **monitoring** is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
 
-| Message ID | Description                                                                   |
-|--|--|
-| 19407| The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. To determine whether the availability group is failing over correctly, check the corresponding availability group resource in the Windows Server Failover Cluster |
-| 19419| The renewal of the lease between availability group '%.*ls' and the Windows Server Failover Cluster failed because the existing lease is no longer valid.   |
+```
+Error 19407
+The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. 
+To determine whether the availability group is failing over correctly, check the corresponding availability group resource in the Windows Server Failover Cluster
+```
+
+```
+Error 19419
+The renewal of the lease between availability group '%.*ls' and the Windows Server Failover Cluster failed because the existing lease is no longer valid. 
+``` 
+
+**Connection timeout**
 
 If the **session timeout** is too aggressive for your availability group environment, you may see following messages frequently:
 
-| Message ID | Description |
-|-|-|
-| 35201 | A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance. |
-| 35206 | A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
+```
+Error 35201: 
+A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. 
+Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance.
+```
+
+```
+Error 35206
+A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. 
+Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
+```
+
+**Not failing over group**
+
+
 
 If the **Maximum Failures in the Specified Period** value is too low and you're experiencing intermittent failures due to transient issues, your availability group could end in a failed state. Increase this value to tolerate more transient failures. 
 
-| Message ID | Description |
-|-|-|
-| N/A | Not failing over group <Resource name>, failoverCount 3, failoverThresholdSetting <Number>, computedFailoverThreshold 2. |
+```
+Not failing over group <Resource name>, failoverCount 3, failoverThresholdSetting <Number>, computedFailoverThreshold 2. 
+```
 
 
 ## Next steps

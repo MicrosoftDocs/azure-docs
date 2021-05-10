@@ -1117,22 +1117,20 @@
           href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
       - name: Best practices
         items:
+        - name: Quick checklist
+          href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+        - name: VM size
+          href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+        - name: Storage
+          href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Cluster configuration
+        - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-        - name: Performance
-          items: 
-          - name: Quick checklist
-            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-          - name: VM size
-            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Storage
-            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: Collect baseline 
-            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension

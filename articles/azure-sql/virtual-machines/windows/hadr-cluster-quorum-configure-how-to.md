@@ -1,6 +1,6 @@
 ---
-title: Configure quorum 
-description: "Learn how to configure a disk witness, cloud witness, and file share witness as quorum for a Windows Server Failover Cluster on SQL Server on Azure VMs. " 
+title: Configure cluster quorum 
+description: "Learn how to configure a disk witness, cloud witness, or a file share witness as quorum for a Windows Server Failover Cluster on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
 author: cawrites
@@ -181,6 +181,39 @@ Set-ClusterQuorum -FileShareWitness <UNC path to file share> -Credential $(Get-C
 You will be prompted for an account and password for a local (to the file share) non-admin account that has full admin rights to the share.  The cluster will keep the name and password encrypted and not accessible by anyone.
 
 You can also use the Failover Cluster manager; follow the same steps as for the cloud witness, but choose the file share witness as the quorum option instead. 
+
+## Change quorum voting
+
+
+It's possible to change the quorum vote of a node participating in a Windows Server Failover Cluster. 
+
+When modifying the node vote settings, follow these guidelines: 
+
+this is rewrite: 
+
+| Guidelines |
+|-|
+| - Start with each node having no vote by default. Each node should only have a vote with explicit justification.|
+| - Enable votes for cluster nodes that host the primary replica of an availability group, or the preferred owners of a failover cluster instance. |
+| - Enable votes for automatic failover owners. Each node that may host a primary replica or FCI as a result of an automatic failover should have a vote. | 
+| - If an availability group has more than one secondary replica, only enable votes for the replicas that have automatic failover. | 
+| - Disable votes for nodes that are in secondary disaster recovery sites. Nodes in secondary sites should not contribute to the decision of taking a cluster offline if there's nothing wrong with the primary site. | 
+| - Have an odd number of votes, with three quorum votes minimum. Add a [quorum witness](hadr-cluster-quorum-configure-how-to.md) for an additional vote if necessary in a two-node cluster. | 
+| - Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
+
+
+this is original: 
+
+| Guidelines |
+|-|
+| No vote by default. Assume that each node shouldn't vote without explicit justification. |
+| Include all primary replicas. Each WSFC node that hosts an availability group primary replica or is the preferred owner of an FCI should have a vote. |
+| Include possible automatic failover owners. Each node that could host a primary replica, as the result of an automatic availability group failover or FCI failover, should have a vote. If there's only one availability group in the WSFC cluster and availability replicas are hosted only by standalone instances, this rule includes only the secondary replica that is the automatic failover target. |
+| Exclude secondary site nodes. In general, don't give votes to WSFC nodes located at a secondary disaster recovery site. You don't want nodes in the secondary site to contribute to a decision to take the cluster offline when there's nothing wrong with the primary site. |
+| Odd number of votes. If necessary, add a cloud witness, file share witness, a witness node, or a witness disk to the cluster and adjust the quorum mode to prevent possible ties in the quorum vote. It's recommended to have three or more quorum votes. |
+| Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
+
+please ensure i have not technically changed the meaning in any way 
 
 
 

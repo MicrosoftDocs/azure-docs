@@ -1,5 +1,5 @@
 ---
-title: "Checklist: Performance best practices & guidelines"
+title: "Checklist: Best practices & guidelines"
 description: Provides a quick checklist to review your best practices and guidelines to optimize the performance of your SQL Server on Azure Virtual Machine (VM).
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
 ---
-# Checklist: Performance best practices for SQL Server on Azure VMs
+# Checklist: Best practices for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article provides a quick checklist as a series of best practices and guidelines to optimize performance of your SQL Server on Azure Virtual Machines (VMs). 
 
-For comprehensive details, see the other articles in this series: [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+For comprehensive details, see the other articles in this series: [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 
 ## Overview
@@ -110,6 +110,60 @@ The following is a quick checklist of best practices for Azure-specific guidance
 - Enable [Auto-shutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
 - Implement a high availability and disaster recovery (HADR) solution that meets  your business continuity SLAs, see the [HADR options](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) options available for SQL Server on Azure VMs. 
 - Use the Azure portal (support + troubleshooting) to evaluate [resource health](../../../service-health/resource-health-overview.md) and history; submit new support requests when needed.
+
+## HADR configuration
+
+Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail: 
+
+* Change the cluster [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold) to less aggressive parameters to avoid the possibility of transient network failures, or Azure platform maintenance leading to unexpected outages, or consuming higher computing resources. Choose values based on how much down time is tolerable and how long a corrective action will take depending on your application, business needs, and environment. 
+    - Do not set any values lower than their default values. 
+    - SameSubnetThreshold <= CrossSubnetThreshold
+    - SameSubnetDelay <= CrossSubnetDelay
+    - These change take effect immediately, no restart required. 
+* To reduce the impact of downtime, choose the [VM availability settings](hadr-cluster-best-practices.md#vm-availability-settings) that best suit your business needs and environment, such as availability sets, proximity placement groups and/or availability zones. 
+* Use a single NIC per cluster node and a single subnet. 
+* Configure cluster [quorum voting](hadr-cluster-best-practices.md#quorum-voting) to use 3 or more odd number of votes, and do not assign votes to DR regions. 
+* Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
+* Carefully monitor [resource limits](hadr-cluster-best-practices.md#resource-limits) to avoid unexpected restarts or failovers due to resource constraints.
+   - Ensure your OS, drivers, and SQL Server are at the latest builds. 
+   - Optimize performance for SQL Server on Azure VMs. See the [quick checklist](performance-guidelines-best-practices-checklist.md) to learn more. 
+   - Reduce or spread out workload to avoid resource limits. 
+   - Move to a VM or disk that his higher limits to avoid constraints. 
+* If you're still experiencing unexpected failures, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so simply reduces the likelihood of failure but is unlikely to eliminate the underlying source of the issue. You may still need to investigate and address the underlying root cause. 
+   - Do not set any values lower than their default values. 
+   - The lease interval for an availability group ((1/2)*Lease timeout) must be shorter than SameSubnetThreshold * SameSubnetDelay.
+   - Consider relaxing your monitoring during certain highload activities, such as index maintenance, or DBCC Checkdb. 
+* When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
+   - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
+- To connect to your HADR solution using the distributed network name (DNN), consider the following:
+   - You must use a client driver that supports `MultiSubnetFailover = True`, and this parameter must be in the connection string. 
+   - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
+- Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
+
+To learn more, see the comprehensive [HADR best practices](hadr-cluster-best-practices.md). 
+
+### Recommended HADR parameters
+
+To ensure recovery during legitimate outages while providing greater tolerance for transient issues, relax your delay and threshold settings to the recommended values detailed in the following table: 
+
+| Setting | Windows Server 2012 or later | Windows Server 2008R2 |
+|:---------------------|:----------------------------|:-----------------------|
+| **SameSubnetDelay**      | 1 second                    | 2 second               |
+| **SameSubnetThreshold**  | 40 heartbeats               | 10 heartbeats (max)         |
+| **CrossSubnetDelay**     | 1 second                    | 2 second               |  
+| **CrossSubnetThreshold** | 40 heartbeats               | 20 heartbeats (max)         |
+
+If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolving it. 
+
+For both the AG, and FCI: 
+- **Healthcheck timeout**: Start with 60000, increase as needed.
+-  **Failure-condition level**: Considering making less restrictive by lowering the value less than the default of 3. 
+
+For the AG:
+- **Lease timeout**: For Window Server 2012 or later, start with 40 seconds, do not exceed 120 seconds. For Windows Server 2008 & 2008 R2, start with 30 seconds, do not exceed 40 seconds. 
+- **Session timeout** Increase to 15 from the default of 10, though this can increase HADR_sync_commit waits. 
+- **Max failures in a specified period**: Increase this value above 3 if your availability group is frequently in a failed state. 
+
 
 ## Next steps
 
