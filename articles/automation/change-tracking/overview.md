@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 05/04/2021
+ms.date: 05/06/2021
 ms.topic: conceptual
 ---
 
@@ -47,6 +47,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - Different installation methods
 - ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
+- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
 - If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
