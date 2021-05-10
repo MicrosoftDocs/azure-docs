@@ -271,59 +271,16 @@ You may occasionally get a non-retryable error that causes a file not to upload.
 
 Here is an example of a copy log where the upload completed with errors:
 
-<!--```xml
-<ErroredEntity Path="iso\samsungssd.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>72</TotalFiles_Blobs>
-  <FilesErrored>2</FilesErrored>
-</CopyLog>
-```
--->
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
   <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>400</ErrorCode>
-  <ErrorMessage>Bad Request</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>400</ErrorCode>
-  <ErrorMessage>The value for one of the HTTP headers is not in the correct format.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>This operation is not permitted as the blob is immutable due to a policy.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The total provisioned capacity of the shares cannot exceed the account maximum size limit.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
   <ErrorCode>409</ErrorCode>
   <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
   <Type>File</Type>
 </ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
   <Category>UploadErrorCloudHttp</Category>
   <ErrorCode>409</ErrorCode>
-  <ErrorMessage>There is currently a lease on the blob and no lease ID was specified in the request.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorManagedConversionError</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.</ErrorMessage>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
   <Type>File</Type>
 </ErroredEntity><CopyLog Summary="Summary">
   <Status>Failed</Status>
@@ -331,7 +288,6 @@ Here is an example of a copy log where the upload completed with errors:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-<!--Updates needed to the new error log examples: 1) Appropriate paths.-->
 
 ## Get chain of custody logs after data erasure
 
