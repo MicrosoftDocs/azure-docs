@@ -85,7 +85,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two additional resources:
 
-- A [Storage account](../articles/storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
+- A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
 - A function app, which provides the context for executing your function code. A function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 >[!NOTE]
@@ -95,16 +95,14 @@ Before you can deploy your function code to your new App Service Kubernetes envi
 
 Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a general-purpose storage account in your resource group and region:
 
-    # [Azure CLI](#tab/azure-cli)
-
-    ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
-    ```
+```azurecli
+az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
+```
 
 >[!NOTE]  
 >A storage account is currently required by Azure Functions tooling. 
 
-n the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
+n the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
 ### Create the function app
 
@@ -139,12 +137,18 @@ In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom locati
 Now that you have your function app running in an Arc-enabled App Service Kubernetes environment, you can extend it by connecting to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
+
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp)
+
 # [JavaScript](#tab/nodejs)  
+
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-javascript)
+
 # [Python](#tab/python)  
+
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
 ---

@@ -55,6 +55,12 @@
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
+        - name: Azure Arc (preview)
+          items:
+          - name: Publish code project
+            href: create-first-function-arc-cli.md
+          - name: Publish container
+            href:
     - name: Connect to a database
       items:
         - name: Visual Studio Code
