@@ -24,7 +24,7 @@ ms.author: thweiss
 Always Encrypted brings client-side encryption capabilities to Azure Cosmos DB. Encrypting your data client-side can be required in the following scenarios:
 
 - **Protecting sensitive data that has specific confidentiality characteristics**: Always Encrypted allows clients to encrypt sensitive data inside their applications and never reveal the plain text data or encryption keys to the Azure Cosmos DB service.
-- **Implementing per-property access control**: Because the encryption is controlled with keys that you own and manage from Azure Key Vault, you can leverage access policies to control which sensitive properties each client has access to.
+- **Implementing per-property access control**: Because the encryption is controlled with keys that you own and manage from Azure Key Vault, you can apply access policies to control which sensitive properties each client has access to.
 
 ## Concepts
 
@@ -44,7 +44,7 @@ Before DEKs get stored in Azure Cosmos DB, they get wrapped by a customer-manage
 
 ### Encryption policy
 
-Similar to an [indexing policy](index-policy.md), an encryption policy is a container-level specification describing how JSON properties should be encrypted when written to the container. This policy needs to be provided when the container is created and is immutable. Updating the encryption policy is a capability that is not currently supported.
+Similar to an [indexing policy](index-policy.md), an encryption policy is a container-level specification describing how JSON properties should be encrypted when written to the container. This policy must be provided when the container is created and is immutable. Updating the encryption policy is a capability that is not currently supported.
 
 For each property to encrypt, the encryption policy defines:
 
@@ -78,9 +78,9 @@ Next, we need to configure how the Azure Cosmos DB SDK will access your Azure Ke
 To use an Azure AD application as the proxy:
 
 1. Create a new application and add a client secret as described in [this quickstart](../active-directory/develop/quickstart-register-app.md).
-1. Go back to your Azure Key Vault instance, browse to the **Access policies** section and add a new policy:
+1. Go back to your Azure Key Vault instance, browse to the **Access policies** section, and add a new policy:
    1. In **Key permissions**, select **Get**, **Unwrap Key**, **Wrap Key** and **Sign**.
-   1. In **Select principal**, search for the AAD application you've just created.
+   1. In **Select principal**, search for the AAD application you've created before.
 
 ## Initialize the SDK
 
@@ -130,11 +130,11 @@ EncryptionAsyncCosmosClient encryptionClient =
 
 ## Create a DEK
 
-Before data can be encrypted in a container, a [DEK](#data-encryption-keys) must be created in the parent database. This is done by calling the `CreateClientEncryptionKeyAsync` method and passing:
+Before data can be encrypted in a container, a [DEK](#data-encryption-keys) must be created in the parent database. This operation is done by calling the `CreateClientEncryptionKeyAsync` method and passing:
 
 -	A string identifier that will uniquely identify the key in the database.
 -	The encryption algorithm intended to be used with the key. Only one algorithm is currently supported.
--	The key identifier of the [CMK](#customer-managed-keys) stored in Azure Key Vault. This is passed in a generic `EncryptionKeyWrapMetadata` object where the `name` can be any friendly name you want, and the `value` must be the key identifier.
+-	The key identifier of the [CMK](#customer-managed-keys) stored in Azure Key Vault. This parameter is passed in a generic `EncryptionKeyWrapMetadata` object where the `name` can be any friendly name you want, and the `value` must be the key identifier.
 
 ### In .NET
 
@@ -226,7 +226,10 @@ Whenever a document is written to Azure Cosmos DB, the SDK looks up the encrypti
 
 ### Reading encrypted items
 
-No explicit action is required to decrypt encrypted properties when issuing point-reads (fetching a single item by its id and partition key), queries or reading the change feed. This is because the SDK looks up the encryption policy to figure out which properties need to be decrypted, and also because the result of the encryption embeds the original JSON type of the value.
+No explicit action is required to decrypt encrypted properties when issuing point-reads (fetching a single item by its ID and partition key), queries, or reading the change feed. This is because:
+
+- The SDK looks up the encryption policy to figure out which properties need to be decrypted.
+- The result of the encryption embeds the original JSON type of the value.
 
 Note that the resolution of encrypted properties and their subsequent decryption are based only on the results returned from your requests. For example, if `property1` is encrypted but is projected into `property2` (`SELECT property1 AS property2 FROM c`), it won't get identified as an encrypted property when received by the SDK. 
 
@@ -267,7 +270,7 @@ In situations where the client does not have access to all the CMK used to encry
 
 ## CMK rotation
 
-You may want to "rotate" your CMK (that is, use a new CMK instead of the current one) if the current CMK is suspected to have been compromised. It is also a common security practice to rotate the CMK on a regular basis. To perform this rotation, you only have to provide the key identifier of the new CMK that should be used to wrap a specific DEK. Note that this operation doesn't affect the encryption of your data, but the protection of the DEK.
+You may want to "rotate" your CMK (that is, use a new CMK instead of the current one) if you suspect that the current CMK has been compromised. It is also a common security practice to rotate the CMK regularly. To perform this rotation, you only have to provide the key identifier of the new CMK that should be used to wrap a specific DEK. Note that this operation doesn't affect the encryption of your data, but the protection of the DEK.
 
 ### In .NET
 
