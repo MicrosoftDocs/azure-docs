@@ -73,7 +73,7 @@ dependencies {
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-ga.3_.
+> The Form Recognizer 3.1.0-beta.3 SDK reflects _API version 2.1-preview.3_.
 
 #### [v2.0](#tab/ga)
 
@@ -94,7 +94,7 @@ dependencies {
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.0.0 SDK reflects API v2.1-ga.3
+> The Form Recognizer 3.0.0 SDK reflects API v2.1-preview.3
 
 ---
 
@@ -134,9 +134,9 @@ In the application's **main** method, add calls for the methods used in this qui
 <!-- markdownlint-disable MD024 -->
 #### [v2.1 preview](#tab/preview)
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_mainvars)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_maincalls)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
 #### [v2.0](#tab/ga)
 
@@ -279,14 +279,14 @@ This section demonstrates how to analyze and extract common fields from English 
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUrl` method.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_bc_call)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
 > [!TIP]
 > You can also analyze local business card images. See the [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of **RecognizedForm** objects: one for each card in the document. The following code processes the business card at the given URI and prints the major fields and values to the console.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_bc_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
 #### [v2.0](#tab/ga)
 
@@ -303,14 +303,14 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_invoice_call)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
 > You can also analyze local invoices. See the [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of **RecognizedForm** objects: one for each invoice in the document. The following code processes the invoice at the given URI and prints the major fields and values to the console.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java?name=snippet_invoice_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
 #### [v2.0](#tab/ga)
 
@@ -327,14 +327,14 @@ This section demonstrates how to analyze and extract key information from govern
 
 To analyze identity documents from a URI use the `beginRecognizeIdDocumentsFromUrl` method.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java" id="snippet_id_call":::
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
 
 > [!TIP]
 > You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeIdDocuments**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-ga.java" id="snippet_id_print":::
+:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
 #### [v2.0](#tab/ga)
 
