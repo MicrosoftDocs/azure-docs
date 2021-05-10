@@ -606,7 +606,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/media-services/video-indexer/observed-people-tracing.md",
+            "source_path_from_root": "/articles/media-services/video-indexer/observed-people-tracing.md",
             "redirect_url": "azure/media-services/",
             "redirect_document_id": false
         },
