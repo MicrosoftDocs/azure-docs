@@ -96,7 +96,19 @@ If you want to send DHCP requests from your Azure VMware Solution VMs a non-NSX-
 > [!NOTE]
 > VMs on the same L2 segment running as DHCP servers will be blocked from serving client requests unless following steps outline below.
 
-[`How to find your HCX L2 extension segment name`](#to-find-your-hcx-l2-extended-segment-name)
+### (Optional) To find your HCX L2 extended segment name
+
+1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
+
+1. Select **Network Extension** under **Services**.
+
+1. Select the network extension you want to support DHCP requests from Azure VMware Solution to on-premises.
+
+1. Take note of the destination network name.
+
+   :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot of a network extension in VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
+
+### Configure segment security to allow DHCP server requests to non-NSX-T DHCP server
 
 1. In the Azure VMware Solution NSX-T Manager, select **Networking** > **Segments** > **Segment Profiles**.
 
@@ -122,18 +134,6 @@ If you want to send DHCP requests from your Azure VMware Solution VMs a non-NSX-
 1. Change the **Segment Security** to the segment profile you created earlier.
 
    :::image type="content" source="media/manage-dhcp/edit-segment-security.png" alt-text="Screenshot of the Segment Security field" lightbox="media/manage-dhcp/edit-segment-security.png":::
-
-### To find your HCX L2 extended segment name
-
-1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
-
-1. Select **Network Extension** under **Services**.
-
-1. Select the network extension you want to support DHCP requests from Azure VMware Solution to on-premises.
-
-1. Take note of the destination network name.
-
-   :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot of a network extension in VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
 
 ## Next steps
 
