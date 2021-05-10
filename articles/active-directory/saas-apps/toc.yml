@@ -141,6 +141,8 @@
         href: arcgisenterprise-tutorial.md
       - name: ArcGIS Online
         href: arcgis-tutorial.md
+      - name: Ardoq
+        href: ardoq-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -171,6 +173,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Autodesk SSO
+        href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
         href: autotaskendpointbackup-tutorial.md
       - name: Autotask Workplace
@@ -327,6 +331,8 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: Check Point Harmony Connect
+        href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
       - name: Check Point Remote Access VPN
@@ -517,6 +523,8 @@
         href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
+      - name: Documo
+        href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
       - name: Dome9 Arc
@@ -1078,6 +1086,8 @@
         href: launchdarkly-tutorial.md
       - name: LCVista
         href: lcvista-tutorial.md
+      - name: Leadfamly
+        href: leadfamly-tutorial.md  
       - name: Lean
         href: lean-tutorial.md
       - name: Leapsome
