@@ -63,7 +63,6 @@ Form Recognizer uses the [Layout](#layout) API to learn the expected sizes and p
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
-* **[Prebuilt models](#prebuilt-models)** - Extract data from unique document types using prebuilt models. Currently available are the following prebuilt models
 
 ### Prebuilt models
 
