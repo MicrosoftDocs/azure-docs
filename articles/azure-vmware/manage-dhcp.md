@@ -95,7 +95,7 @@ If you want to send DHCP requests from your Azure VMware Solution VMs to a non-N
 >[!IMPORTANT]
 >VMs on the same L2 segment that runs as DHCP servers are blocked from serving client requests.  Because of this, it's important to follow the steps in this section.
 
-1. Locate the segment name of the L2 extension.
+1. (Optional) If you need to locate the segment name of the L2 extension:
 
    1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
 
