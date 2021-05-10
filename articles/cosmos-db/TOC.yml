@@ -863,6 +863,8 @@
               displayName: msi, managed service identity, aad, azure active directory, identity
             - name: Use certificates to access data
               href: certificate-based-authentication.md
+            - name: Use Always Encrypted
+              href: how-to-always-encrypted.md
         - name: Integrate with other Azure services
           items:
             - name: Change feed Ecommerce solution
