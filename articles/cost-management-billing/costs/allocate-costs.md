@@ -71,6 +71,10 @@ The allocation rule starts processing. When the rule is active, all the selected
 > [!NOTE] 
 > New rule processing can take up to two hours before it completes and is active.
 
+Here's a video that demonstrates how to create a cost allocation rule.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 ## Verify the cost allocation rule
 
 When the cost allocation rule is active, costs from the selected sources are distributed to the specified allocation targets. Use the following information to verify that cost is properly allocated to targets.
@@ -90,10 +94,6 @@ Use a similar process the impact of a cost allocation rule for a resource group.
 In the Azure portal, navigate to **Cost Management + Billing** > **Cost Management** > **Cost analysis**. In Cost analysis, select **Add filter**. Select **Tag**, choose the tag key, and tag values that have cost allocated to them.
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Example showing costs for tagged items" lightbox="./media/allocate-costs/tagged-costs.png" :::
-
-Here's a video that demonstrates how to create a cost allocation rule.
-
->[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
 
 ### View cost allocation in the downloaded Usage Details and in Exports CSV files
 
