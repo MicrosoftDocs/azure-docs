@@ -42,7 +42,7 @@ Whenever a user, group, or service principal in the service provider tenant acce
 
 :::image type="content" source="../media/logical-projection.jpg" alt-text="Diagram illustrating the logical projection in Azure Lighthouse.":::
 
-Activity from users in the service provider's tenant is tracked in the activity log, which is stored in the customer's tenant. This allows the customer to see what changes were made and by whom.
+Activity from users in the service provider's tenant is tracked in the activity log, which is stored in the customer's tenant. This allows the customer to [see what changes were made and by whom](../how-to/view-service-provider-activity.md).
 
 ## How Azure Lighthouse works
 
