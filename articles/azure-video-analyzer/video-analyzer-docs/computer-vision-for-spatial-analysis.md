@@ -74,7 +74,7 @@ There are three primary parameters for all Cognitive Services' containers that a
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
+> :::image type="content" source="../../media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
 
 ## Set up Azure Stack Edge
 
