@@ -28,13 +28,15 @@ To recover your password:
 
 1. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-1. Select the **Recover on-premises management console password** tab.
+1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
-   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    > [!NOTE]
+:::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::    
+
+> [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
 
 1. On the **Password recovery** screen, select **Upload**. **The Upload Password Recovery File** window will open.
