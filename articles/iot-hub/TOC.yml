@@ -102,6 +102,8 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
+    - name: Managed identities support
+      href: iot-hub-managed-identity.md
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: Virtual networks support
