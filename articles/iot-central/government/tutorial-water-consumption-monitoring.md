@@ -55,8 +55,6 @@ This template includes a sample water consumption device template, a simulated d
     * **URL**: Azure IoT Central autogenerates a URL based on the application name. You can choose to update the URL to your liking. You can change the URL later, too.
     * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location** information. If you don't have a subscription, you can select the **7-day free trial** option and complete the required contact information.
 
-    For more information about directories and subscriptions, see [Create an application quickstart](../core/quick-deploy-iot-central.md).
-
 1. Select **Create** at the bottom of the page.
 
     ![Azure IoT Central New application page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
