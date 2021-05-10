@@ -6,6 +6,8 @@
     href: overview.md
   - name: What's new?
     href: whats-new.md
+  - name: What's new for Azure Monitor
+    href: whats-new-azure-monitor.md
   - name: Windows Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
