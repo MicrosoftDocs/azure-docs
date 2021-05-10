@@ -2,12 +2,11 @@
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 05/06/2021
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -44,10 +43,6 @@ All these operations can use optimistic concurrency, as specified in [RFC7232](h
 An IoT Hub identity registry:
 
 * Does not contain any application metadata.
-* Can be accessed like a dictionary, by using the **deviceId** or **moduleId** as the key.
-* Does not support expressive queries.
-
-An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
 
 > [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](iot-hub-devguide-quotas-throttling.md) for the identity registry, and the [device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat) pattern.
