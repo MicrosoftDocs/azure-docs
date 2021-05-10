@@ -175,19 +175,6 @@ with:
 > [!NOTE]
 > You can only skip the build for the front-end app. If your app has an API, it'll still be built by the Static Web Apps GitHub Action.
 
-## Route file location
-
-You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
-
-| Property          | Description                                                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
-
-Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `output_location` by default.
-
-> [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated. See the Azure Static Web Apps [configuration file](./configuration.md) for information about _staticwebapp.config.json_.
-
 ## Environment variables
 
 You can set environment variables for your build via the `env` section of a job's configuration.

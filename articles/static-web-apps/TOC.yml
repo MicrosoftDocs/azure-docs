@@ -27,8 +27,6 @@
           displayName: routing, routes
         - name: Build and workflow configuration
           href: github-actions-workflow.md
-        - name: Routes
-          href: routes.md
     - name: Security
       items:
         - name: Authentication and authorization
