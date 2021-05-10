@@ -38,7 +38,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## Azure Service Fabric resources
+## Service Fabric resources
 
 You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](./service-fabric-application-arm-resource.md) for details. The following are best practice Service Fabric application specific resources to include in your  Resource Manager template resources.
 
@@ -86,7 +86,7 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## Azure Virtual Machine Operating System Automatic Upgrade Configuration
+## Virtual machine OS automatic upgrade configuration
 
 Upgrading your virtual machines is a user initiated operation, and it is recommended that you [enable virtual machine scale set automatic image upgrades](how-to-patch-cluster-nodes-windows.md) for your Service Fabric cluster node patch management. Patch Orchestration Application (POA) is an alternative solution that is intended for non-Azure hosted clusters. Although POA can be used in Azure, hosting it requires more management than simply enabling scale set automatic OS image upgrades. The following are the virtual machine scale set Resource Manager template properties to enable automtic OS upgrades:
 
@@ -116,7 +116,8 @@ Set the following virtual machine scale set template properties to disable Windo
       },
 ```
 
-## Azure Service Fabric Cluster Upgrade Configuration
+## Service Fabric cluster upgrade configuration
+
 The following is the Service Fabric cluster template property to enable automatic upgrade:
 
 ```json
