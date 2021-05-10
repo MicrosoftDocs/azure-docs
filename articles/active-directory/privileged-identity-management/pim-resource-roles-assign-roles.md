@@ -104,7 +104,7 @@ Follow these steps to update or remove an existing role assignment.
 
     ![Update or remove role assignment](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 
-1. To add or update attributes to refine Azure resource access, select **Add** or **View/Edit** for the role. Currently, the Blob Storage Data Owner role and the Blob Storage Data Contributor role in Privileged Identity Management are the only two roles supported as part of the [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
+1. To add or update a condition to refine Azure resource access, select **Add** or **View/Edit** in the **Condition** column for the role assignment. Currently, the Storage Blob Data Owner, Storage Blob Data Reader, and the Blob Storage Blob Data Contributor roles in Privileged Identity Management are the only two roles supported as part of the [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
 
     ![Update or remove attributes for access control](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
 
