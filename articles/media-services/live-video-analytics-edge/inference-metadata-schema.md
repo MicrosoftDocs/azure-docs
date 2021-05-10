@@ -21,10 +21,10 @@ Each Inference object regardless of using HTTP-based contract or gRPC based cont
 |Tag|Tag or label associated with the result. Along with tagging, you even get the confidence value associated with the tag.|
 |Attribute|Additional attributes associated with the result. You can add new attributes that you receive from the inferencing engine along with the confidence value.|
 |Attribute List|List of	Optional attributes.|
-|Rectangle|Rectangular region relative to the image top left corner. The required properties will be "length", "width", height" and "top edge distance from the origin".|
+|Rectangle|Rectangular region relative to the image top-left corner. The required properties will be "length", "width", height" and "top edge distance from the origin".|
 |Classification|Label of classifier often applicable to the whole sample. With the help of "tag" you can classify the result.|
 |Entity|Entity detected or identified on the sample. When an entity is detected by the inferencing engine, it gets a "tag", additional attributes that were inferred and the coordinates of a rectangular box around the found entity is returned.|
-|Event|Event detected on the sample. When an event is detected in the sample, the name of the event and the event specific properties are returned.|
+|Event|Event detected on the sample. When an event is detected in the sample, the name of the event and the event-specific properties are returned.|
 |Motion|Motion detected on the sample. When motion is detected in the sample, the coordinates of a rectangular bounding box where motion is detected, is returned.|
 |Text|Text associated with the sample along with the start and end timestamp of the text is returned.|
 |Other|Returns other generic payload information.|
