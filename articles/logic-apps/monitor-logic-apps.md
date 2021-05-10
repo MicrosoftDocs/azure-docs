@@ -199,8 +199,8 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 > which lets you perform tasks like these examples:
 > 
 > * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+> * [Send a text](https://azure.microsoft.com/resources/templates/201-alert-to-text-message-with-logic-app/)
+> * [Add a message to a queue](https://azure.microsoft.com/resources/templates/201-alert-to-queue-with-logic-app/)
 
 ## Next steps
 
