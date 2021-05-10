@@ -986,7 +986,7 @@ To install the Azure Extension for SAP by using Azure CLI:
 1. Install using Azure CLI 2.0
 
    1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].   
-
+     +Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2]. Make sure to use at least version 2.19.1 or higher.+
    3. Sign in with your Azure account:
 
       ```azurecli
@@ -994,10 +994,7 @@ To install the Azure Extension for SAP by using Azure CLI:
       ```
 
    1. Install Azure CLI AEM Extension
-  
-+ >[!Note]:Install the lastest Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2]. Make sure to use at least version 2.19.1 or higher +
-
-
+    + Install Azure CLI AEM Extension.Make sure to use at least 0.2.2 or higher. +
       ```azurecli
       az extension add --name aem
       ```
@@ -1054,7 +1051,7 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
 1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
-+  >[!Note]:Install the lastest Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2]. Make sure to use at least version 2.19.1 or higher +
+ + Install the lastest Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2]. Make sure to use at least version 2.19.1 or higher.+
 
 1. Sign in with your Azure account:
 
@@ -1063,6 +1060,7 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
    ```
 
 1. Install Azure CLI AEM Extension. Make sure to use at least version 0.2.0 or higher.
+  +Install Azure CLI AEM Extension. Make sure to use at least version 0.2.2 or higher.+
   
    ```azurecli
    az extension add --name aem
