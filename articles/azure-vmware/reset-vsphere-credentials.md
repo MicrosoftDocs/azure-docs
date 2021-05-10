@@ -13,7 +13,7 @@ In addition to this how-to, you can also view the video for [resetting the vCent
 
 ## Reset your Azure VMware Solution credentials
 
- First let's reset your Azure VMware Solution components credentials. Your vCenter Server CloudAdmin and NSX-T admin credentials don’t expire; however, you can follow these steps to generate new passwords for these accounts.
+In this step, you'll reset the credentials for your Azure VMware Solution components. Although your vCenter and NSX-T credentials don't expire, you can generate new passwords for these accounts.
 
 > [!NOTE]
 > If you use your CloudAdmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager or VMware Horizon, your connections will stop working once you update your password.  These services should be stopped before initiating the password rotation.  Failure to do so may result in temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services will continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
@@ -32,9 +32,9 @@ In addition to this how-to, you can also view the video for [resetting the vCent
    az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
-## Ensure the HCX connector has your latest vCenter Server credentials
+## Verify the HCX Connector has the latest vCenter Server credentials
 
-Now that you've reset your credentials, follow these steps to ensure the HCX connector has your updated credentials.
+In this step, you'll verify that the HCX connector has the updated credentials.
 
 1. Once your password is changed, go to the on-premises HCX connector web interface using https://{ip of the HCX connector appliance}:443. Be sure to use port 443. Log in using your new credentials.
 
