@@ -133,7 +133,7 @@ The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 
 #### Migrating to page layout
 
-To migrate from the old **DataUri** value to page layout version, add the word `contract` follow by a page version. Use following table to migrate from the old **DataUri** value to page layout version.
+To migrate from the old **DataUri** value (without page contract) to page layout version, add the word `contract` follow by a page version. Use following table to migrate from the old **DataUri** value to page layout version.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
