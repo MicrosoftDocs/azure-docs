@@ -38,10 +38,14 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> 
     --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway 
-    --namespace cluster --release-namespace {namespace} --configuration-settings gateway.endpoint='{Configuration URL}' 
-    --configuration-settings gateway.authKey='{token}' 
-    --configuration-settings service.type='NodePort' --release-train preview
+    --scope namespace --target-namespace <namespace> 
+    --configuration-settings gateway.endpoint='<Configuration URL>' 
+    --configuration-protected-settings gateway.authKey='<token>' --release-train preview
     ```
+
+    > [!TIP]
+    > `-protected-` flag for `authKey` is optional, but recommended. 
+
 1. Verify deployment status using the following CLI command:
     ```azurecli
     az k8s-extension show --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <rg-name> --name <extension-name>
