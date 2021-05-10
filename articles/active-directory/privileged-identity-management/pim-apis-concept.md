@@ -22,7 +22,7 @@ You can perform Privileged Identity Management (PIM) tasks using the Microsoft G
 For request ond other details about PIM APIs, check out:
 
 - PIM for Azure AD roles API reference
-- [PIM for Azure resource roles API reference](https://docs.microsoft.com/rest/api/authorization/roleeligibilityschedulerequests)
+- [PIM for Azure resource roles API reference](../../../rest/api/authorization/roleeligibilityschedulerequests)
 
 > [!IMPORTANT]
 > PIM APIs [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
