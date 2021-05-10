@@ -292,4 +292,5 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"]
+> [Configure app settings](application-settings.md)
