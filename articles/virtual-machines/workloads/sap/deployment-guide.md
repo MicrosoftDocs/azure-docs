@@ -995,6 +995,7 @@ To install the Azure Extension for SAP by using Azure CLI:
 
    1. Install Azure CLI AEM Extension
     + Install Azure CLI AEM Extension.Make sure to use at least 0.2.2 or higher. +
+    
       ```azurecli
       az extension add --name aem
       ```
