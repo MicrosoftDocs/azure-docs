@@ -57,7 +57,7 @@ See [Build a training data set](./build-training-data-set.md) for tips on how to
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
+Form Recognizer uses the [Layout](#layout) API to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
 
 [Get started with Train with labels](./quickstarts/label-tool.md)
 
@@ -75,7 +75,7 @@ The Prebuilt Receipt model is used for reading English sales receipts from Austr
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-### [Business cards](concept-business-cards)
+### [Business cards](concept-business-cards.md)
 
 The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. 
 
