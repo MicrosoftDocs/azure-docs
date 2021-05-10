@@ -1,7 +1,7 @@
 ---
 title: Safe rollout for online endpoints 
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy machine learning models for separate customer groups.
+description: Roll out newer versions of ML models without disruption.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,12 +15,11 @@ ms.custom: how-to
 
 # Safe rollout for online endpoints (preview)
 
-{>> Q: This seems more like blue-green than canary to me. The word 'canary' refers to _users_ being used as "the canary in the coalmine" while this deployment technique is traffic-based. <<}
-
 {>> Q: All code in how-to-deploy-declarative-safe-rollout-online-endpoints.sh uses `-n my-new-endpoint` to override `name: my-endpoint` in YAML. Existing endpoint from `how-to-deploy-managed-online-endpoints.sh` is `my-endpoint`. Is this renaming / override intentional and necessary? <<}
 
-Canary release is a deployment approach in which new version of a service is introduced to production by rolling out the change to small subset of users/requests before rolling it out completely.
+Blue-green deployment is a deployment approach in which new version of a service is introduced to production by rolling out the change to small subset of users/requests before rolling it out completely.
 
+tk: Switch to bullets 
 In the example below, we will start by creating a new endpoint with a deployment (v1 of the model, that we call blue). Then we will scale this deployment to handle more requests. Once we are ready to launch v2 of the model (called green), we will do so safely by performing a canary release: Deploy the v2 (i.e. green) but taking no live traffic yet, test the deployment in isolation, then gradually divert live production traffic (say 10%) to green deployment, and finally, make the 100% traffic switch to green and delete blue.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
