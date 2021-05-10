@@ -78,7 +78,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 IoT Hub can connect to your Azure blob storage, event hub, service bus resources for [message routing](./iot-hub-devguide-messages-d2c.md), [file upload](./iot-hub-devguide-file-upload.md), and [bulk device import/export](./iot-hub-bulk-identity-mgmt.md) over the resources' public endpoint. Binding your resource to a VNet blocks connectivity to the resource by default. As a result, this configuration prevents IoT Hub's from working sending data to your resources. To fix this issue, enable connectivity from your IoT Hub resource to your storage account, event hub, or service bus resources via the **trusted Microsoft service** option. 
 
-To allow other services to find your IoT hub as a trusted Microsoft service, it must have a managed identity. Once a managed identity is provisioned, you need to grant the Azure RBAC permission to your hub's managed identity to access your custom endpoint.
+To allow other services to find your IoT hub as a trusted Microsoft service, your hub must use the managed identity. Once a managed identity is provisioned, you need to grant the Azure RBAC permission to your hub's managed identity to access your custom endpoint.
 
 
 1. Follow the article [Managed identities support in IoT Hub](./iot-hub-managed-identity.md) to provision a managed identity, grant the Azure RBAC permission, and add the custom endpoint to your IoT Hub.
