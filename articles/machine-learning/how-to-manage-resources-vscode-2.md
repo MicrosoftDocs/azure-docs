@@ -24,7 +24,7 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
 - VS Code Azure Machine Learning Extension. Follow the [Azure Machine Learning VS Code extension installation guide](how-to-setup-vs-code-extension.md) to set up the extension.
 
-## Create resource
+## Create resources
 
 1. Open the Azure Machine Learning view.
 1. Select **+** in the extension toolbar.
@@ -33,9 +33,7 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 1. Save the resource template
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
-Alternatively, you can create a resource by using the:
-
-### Command Palette
+Alternatively, you can create a resource by using the command palette:
 
 1. Open the command palette **View > Command Palette**
 1. Enter **> Azure ML: Create <RESOURCE-TYPE>** into the text box. Replace `RESOURCE-TYPE` with the type of resource you want to create.
@@ -44,13 +42,14 @@ Alternatively, you can create a resource by using the:
 1. Open the command palette **View > Command Palette**
 1. Enter **> Azure ML: Create Resource** into the text box.
 
-### Resource nodes
+## Workspaces
 
-1. Open the Azure Machine Learning view.
-1. Expand your subscription node.
-1. Expand your workspace node. If you don't already have a workspace, create one by right-clicking your subscription node and selecting **Create workspace**.
-1. Right-click the node for the resource type you want to create and select **Create <RESOURCE-TYPE>** where the *RESOURCE-TYPE* is the type of resource you want to create.
-1. Configure the resource template.
+For more information, see [workspaces](concept-workspace.md).
+
+### Create a workspace
+
+1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
+1. A resource template appears. Configure the resource template.
 1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
@@ -62,7 +61,7 @@ Alternatively, you can create a resource by using the:
     - *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
     - *With associated resources*: This option deletes the workspace **and** all resources associated with it.
 
-Alternatively, use the **Azure ML: Remove Workspace** command in the command palette.
+Alternatively, use the **> Azure ML: Remove Workspace** command in the command palette.
 
 ## Datastores
 
@@ -72,6 +71,16 @@ The Visual Studio Code extension currently supports datastores of the following 
 - Azure Data Lake Gen 1
 - Azure Data Lake Gen 2
 - Azure File
+
+### Create a datastore
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the workspace node you want to create the datastore under.
+1. Right-click the **Datastores** node and select **Create Datastore**.
+1. Choose the datastore type.
+1. A resource template appears. Configure the resource template.
+1. Save the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
 
 ### Manage a datastore
 
@@ -86,6 +95,15 @@ The Visual Studio Code extension currently supports datastores of the following 
 
 ## Datasets
 
+### Create dataset
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the workspace node you want to create the datastore under.
+1. Right-click the **Datasets** node and select **Create Dataset**.
+1. A resource template appears. Configure the resource template.
+1. Save the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
+
 ### Version datasets
 
 When building machine learning models, as data changes, you may want to version your dataset. To do so in the VS Code extension:
@@ -94,17 +112,15 @@ When building machine learning models, as data changes, you may want to version 
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to version and select **Create New Version**.
-1. In the prompt:
-    1. Select the dataset type
-    1. Define whether the data is located on your PC or on the web.
-    1. Provide the location of your data. This can either be a single file or a directory containing your data files.
-    1. Choose the datastore you want to upload your data to.
-    1. Provide a prefix that helps identify your dataset in the datastore.
+1. In the prompts:
+    1. Choose your data source
+    1. Choose your dataset type
 
 ### View dataset properties
 
-This option allows you to see metadata associated with a specific dataset. To do so in the VS Code extension:
+This option allows you to see metadata associated with a specific dataset.
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to inspect and select **View Dataset Properties**. This will display a configuration file with the properties of the latest dataset version.
@@ -114,15 +130,25 @@ This option allows you to see metadata associated with a specific dataset. To do
 
 ### Unregister datasets
 
-To remove a dataset and all version of it, unregister it. To do so in the VS Code extension:
+To remove a dataset and all version of it, unregister it.
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
-1. Right-click the dataset you want to unregister and select **Unregister dataset**.
+1. Right-click the dataset you want to unregister and select **Unregister Dataset**.
 
 ## Environments
 
 For more information, see [environments](concept-environments.md).
+
+### Create environment
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the workspace node you want to create the datastore under.
+1. Right-click the **Environments** node and select **Create Environment**.
+1. A resource template appears. Configure the resource template.
+1. Save the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
 
 ### View environment configurations
 
@@ -139,10 +165,16 @@ To edit the dependencies and configurations for a specific environment in the ex
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Environments** node inside your workspace.
-1. Right-click the environment you want to view and select **Edit Environment**.
+1. Right-click the environment you want to edit and select **Edit Environment**.
 1. After making the modifications, if you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ## Experiments
+
+For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
+
+### Create experiment
+
+
 
 ### Run Experiment
 

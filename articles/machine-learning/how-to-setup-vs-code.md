@@ -1,5 +1,5 @@
 ---
-title: Install VS Code Extension
+title: Set up Visual Studio Code extension
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension
 services: machine-learning
