@@ -5,6 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
+ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
 ---
