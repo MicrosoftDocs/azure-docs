@@ -115,7 +115,7 @@ For more information, see [Use relative path for linked templates](./linked-temp
 
 ## Deployment name
 
-When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named _azuredeploy.json_ and don't specify a deployment name, the deployment is named _azuredeploy_.
+When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named _azuredeploy.json_ and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
