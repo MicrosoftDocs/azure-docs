@@ -19,8 +19,9 @@ After completing the setup steps, you'll be able to run the simulated live video
 ## Prerequisites
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-    
 
+    > [!NOTE]    
+    > You will need an Azure subscription where you have access to both [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If you do not have the right permissions, please reach out to your account administrator to grant you those permissions.  
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -32,11 +33,44 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
+1. **Video Analyzer account** - This [cloud service](overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
+1. **Storage account** - For storing recorded video and video analytics.
+1. **Managed Identity** - This is the user assigned [managed identity]../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
+1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
+1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
-## Configure the Azure IoT Tools extension
+<!-- TODO: provide a link to the readme.md in github.com/azure-video-analyzer/setup/readme.md where we can list out all resources like virtual network etc. -->
 
-Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
+## Set up your development environment
+
+### Obtain your IoT Hub connection string
+
+1. In Azure portal, navigate to the IoT Hub you created as part of the above set up step
+1. Look for **Shared access policies** option in the left hand navigation, and click there.
+1. Click on the policy named **iothubowner**
+1. Copy the **Primary connection string** - it will look like `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX`
+
+### Connect to the IoT Hub
+
+1. Open Visual Studio Code, select **View** > **Explorer**. Or, select Ctrl+Shift+E.
+1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
+1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
+1. When an input box appears, enter your IoT Hub connection string.
+1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `avasample-iot-edge-device`, which should have the following modules deployed:
+    * Video Analyzer edge module (module name **avaedge**)
+    * RTSP simulator (module name **rtspsim**)
+
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
+
+> [!TIP]
+> If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+
+### Prepare to monitor the modules 
+
+When you use run this quickstart, events will be sent to the IoT Hub. To see these events, follow these steps:
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for **Azure IoT Hub**.
 1. Right-click and select **Extension Settings**.
@@ -47,43 +81,39 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/get-started-detect-motion-emit-events/verbose-message.png" alt-text="Show Verbose Message":::
-1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
-1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
-1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
-1. When an input box appears, enter your IoT Hub connection string. In Cloud portal, you can get the connection string from app-settings.json file. Assuming your resource deployment above has succeeded, please look for the storage account under the resource group you just created as part of the deployment script. The app-settings.json file can be found under the deployment-output file share within the storage account.
+1. Open the Explorer pane in Visual Studio Code, and look for **Azure IoT Hub** in the lower-left corner.
+1. Expand the **Devices** node.
+1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
-
-If the connection succeeds, the list of edge devices appears. You should see at least one device named **avasample-iot-edge-device**. You can now manage your IoT Edge devices and interact with Azure IoT Hub through the context menu. To view the modules deployed on the edge device, under **avasample-iot-edge-device**, expand the **Modules** node.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/get-started-detect-motion-emit-events/modules-node.png" alt-text="Expand the Modules node":::
-
-> [!TIP]
-> If you have [manually deployed Video Analyzer](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 ## Use direct method calls
 
-You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Video Analyzer](direct-methods.md)
+You can now analyze live video streams by invoking direct methods exposed by the Video Analyzer edge module. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods provided by the module. 
 
-### Invoke pipelineTopologyList
+### Enumerate pipeline topologies
 
-To enumerate all of the [pipelines](pipeline.md) in the module:
+This step enumerates all the [pipeline topologies](pipeline.md) in the module.
 
-1. In the Visual Studio Code, right-click the **avaedge** module and select **Invoke Module Direct Method**.
-1. In the box that appears, enter `pipelineTopologyList`.
-1. Copy the following JSON payload, paste it in the box then press Enter.
-
+1. Right-click on "avaedge" module and select **Invoke Module Direct Method** from the context menu.
+1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "pipelineTopologyList" in the edit box and press enter.
+1. Next, copy, and paste the below JSON payload in the edit box and press enter.
+   
 ```json
 {
     "@apiVersion" : "1.0"
 }
 ```
 
-Within a few seconds, the OUTPUT window shows the following response.
-
-```json
+Within a few seconds, you will see the following response in the OUTPUT window:
+    
+```
+[DirectMethod] Invoking Direct Method [pipelineTopologyList] to [avasample-iot-edge-device/avaedge] ...
+[DirectMethod] Response from [avasample-iot-edge-device/avaedge]:
 {
   "status": 200,
   "payload": {
@@ -92,11 +122,12 @@ Within a few seconds, the OUTPUT window shows the following response.
 }
 ```
 
-This response is expected because no topologies have been created.
+The above response is expected, as no pipeline topologies have been created.
 
-### Invoke pipelineTopologySet
+### Set a pipeline topology
 
-Like we did before, you can now invoke `pipelineTopologySet` to set a [pipeline topology](pipeline.md). Use the following JSON as the payload.
+Using the same steps as above, you can invoke `pipelineTopologySet` to set a pipeline topology using the following JSON as the payload. You will be creating a pipeline topology named "MotionDetection".
+
 
 ```json
 {
@@ -168,7 +199,7 @@ Like we did before, you can now invoke `pipelineTopologySet` to set a [pipeline 
 }
 ```
 
-This JSON payload creates a topology that defines three parameters. The topology also has three nodes,one source (RTSP source) node, one processor (motion detection processor) node, and one sink (IoT Hub sink) node.
+This JSON payload creates a topology that defines three parameters, where two of them have default values. The topology has one source node ([RTSP source](pipeline.md#rtsp-source)), one processor node ([motion detection processor](pipeline.md#motion-detection-processor) and one sink node ([IoT Hub message sink](pipeline.md#iot-hub-message-sink)). The visual representation of the topology is shown above.
 
 Within a few seconds, you see the following response in the **OUTPUT** window.
 
@@ -256,9 +287,9 @@ Try the following next steps:
 
 1. Invoke `pipelineTopologySet` again. The returned status code is 200. This code indicates that an existing topology was successfully updated.
 1. Invoke `pipelineTopologySet` again, but change the description string. The returned status code is 200, and the description is updated to the new value.
-1. Invoke `pipelineTopologyList` as outlined in the previous section. Now you can see the MotionDetection topology in the returned payload.
+1. Invoke `pipelineTopologyList` as outlined in the previous section. Now you can see the "MotionDetection" topology in the returned payload.
 
-### Invoke pipelineTopologyGet
+### Read the pipeline topology
 
 Invoke `pipelineTopologyGet` by using the following payload.
 
@@ -354,11 +385,9 @@ In the response payload, notice these details:
 * The status code is 200, indicating success.
 * The payload includes the `createdAt` time stamp and the `lastModifiedAt` time stamp.
 
-### Invoke livePipelineSet
+### Create a live pipeline using the topology
 
-Create a live pipeline that references the preceding topology. Live pipelines let you analyze live video streams from many cameras by using the same pipeline topology. For more information, see [Pipelines](pipeline.md).
-
-Invoke the direct method `livePipelineSet` by using the following payload.
+Next, create a live pipeline that references the above pipeline topology. Invoke the `livePipelineSet` direct method with the following payload:
 
 ```json
 {
@@ -387,8 +416,8 @@ Invoke the direct method `livePipelineSet` by using the following payload.
 
 Notice that this payload:
 
-* Specifies the topology name (`MotionDetection`) for which the live pipeline is created from.
-* Contains a parameter value for parameters which didn't have a default value in the topology payload. This value is a link to the below sample video:
+* The payload above specifies the topology ("MotionDetection") to be used by the live pipeline.
+* The payload contains parameter value for `rtspUrl`, which did not have a default value in the topology payload. This value is a link to the below sample video:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 
@@ -429,18 +458,20 @@ Within few seconds, you see the following response in the **OUTPUT** window:
 
 In the response payload, notice that:
 
-* The status code is 201, indicating a new livePipeline was created.
-* The state is Inactive, indicating that the livePipeline was created but not activated. For more information, see [Pipeline states](pipeline.md#pipeline-states).
+* Status code is 201, indicating a new live pipeline was created.
+* State is "Inactive", indicating that the live pipeline was created but not activated. For more information, see [pipeline states](pipeline.md#pipeline-states).
 
-Try the following next steps:
+Try the following direct methods as next steps:
 
-1. Invoke `livePipelineSet` again by using the same payload. Notice that the returned status code is 200.
-1. Invoke `livePipelineSet` again, but use a different description. Notice the updated description in the response payload, indicating that the live pipeline was successfully updated.
-1. Invoke `livePipelineSet`, but change the name to `mdpipeline2`. In the response payload, notice the newly created live pipeline (that is, status code 201).
+* Invoke `livePipelineSet` again with the same payload and note that the returned status code is now 200.
+* Invoke `livePipelineSet` again but with a different description and note the updated description in the response payload, indicating that the live pipeline was successfully updated.
+* Invoke `livePipelineSet`, but change the name to "mdpipeline2" and `rtspUrl` to "rtsp://rtspsim:554/media/lots_015.mkv". In the response payload, notice the newly created live pipeline (that is, status code 201).
+    > [!NOTE]
+    > As explained in [Pipeline topologies](pipeline.md#pipeline-topologies), you can create multiple live pipelines, to analyze live video streams from many cameras using the same pipeline topology. If you do create additional live pipelines, take care to delete them during the cleanup step.
 
-### Invoke livePipelineActivate
+### Activate the live pipeline
 
-Now activate the live pipeline to start the flow of live video through the module. Invoke the direct method `livePipelineActivate` by using the following payload.
+Next, you can activate the live pipeline - which starts the flow of (simulated) live video through the pipeline. Invoke the direct method `livePipelineActivate` with the following payload:
 
 ```json
 {
@@ -460,9 +491,9 @@ Within a few seconds, you see the following response in the OUTPUT window.
 
 The status code of 200 indicates that the live pipeline was successfully activated.
 
-### Invoke livePipelineGet
+### Check the state of the live pipeline
 
-Now invoke the direct method livePipelineGet by using the following payload.
+Now invoke the `livePipelineGet` direct method with the following payload:
 
 ```json
 {
@@ -508,25 +539,12 @@ Within a few seconds, you see the following response in the OUTPUT window.
 In the response payload, notice the following details:
 
 * The status code is 200, indicating success.
-* The state is `Active`, indicating the live pipeline is now active.
+* The state is "Active", indicating the live pipeline is now active.
 
 ## Observe results
 
-The livePipeline that we have created and activated uses the motion detection processor node to detect motion in the incoming live video stream. It sends events to the IoT Hub sink node. These events are relayed to IoT Edge Hub.
+The live pipeline that you created and activated above uses the motion detection processor node to detect motion in the incoming live video stream and sends events to IoT Hub sink. These events are then relayed to your IoT Hub as messages, which can now be observed. You will see messages in the OUTPUT window that have the following "body":
 
-To observe the results, follow these steps.
-
-1. In Visual Studio Code, open the **Explorer** pane. In the lower-left corner, look for **Azure IoT Hub**.
-1. Expand the **Devices** node.
-1. Right-click **avasample-iot-edge-device** and then select **Start Monitoring Built-in Event Monitoring**.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/get-started-detect-motion-emit-events/start-monitoring.png" alt-text="Start Monitoring Built-in Event Monitoring":::
-
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`.
-
-The **OUTPUT** window displays the following message:
 
 ```json
 {
@@ -549,15 +567,16 @@ The **OUTPUT** window displays the following message:
 
 Notice this detail:
 
-*	The inferences section indicates that the type is motion. It provides additional data about the motion event.
+*	The inferences section indicates that the type is motion. It provides additional data about the motion event, and provides a bounding box for the region of the video frame (at the given timestamp) where motion was detected.
 
-## Invoke additional direct methods to clean up
+    
+## Invoke additional direct method calls to clean up
 
-Invoke direct methods to first deactivate the live pipeline and then delete it.
+Next, you can invoke direct methods to deactivate and delete the live pipeline (in that order).
 
-### Invoke livePipelineDeactivate
+### Deactivate the live pipeline
 
-Invoke the direct method `livePipelineDeactivate` by using the following payload.
+Invoke the`livePipelineDeactivate` direct method with the following payload:
 
 ```json
 {
@@ -579,9 +598,9 @@ The status code of 200 indicates that the live pipeline was successfully deactiv
 
 Next, try to invoke `livePipelineGet` as indicated previously in this article. Observe the state value.
 
-### Invoke livePipelineDelete
+### Delete the live pipeline
 
-Invoke the direct method `livePipelineDelete` by using the following payload.
+Invoke the direct method `livePipelineDelete` with the following payload
 
 ```json
 {
@@ -600,8 +619,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window:
 ```
 A status code of 200 indicates that the live pipeline was successfully deleted.
 
-Because we also created the pipeline called mdpipeline2 we cannot delete the pipeline topology. 
-Invoke the direct method livePipelineDelete by using the following payload to delete the pipeline called mdpipeline2:
+If you also created the pipeline called "mdpipeline2", then you cannot delete the pipeline topology without also deleting this additional pipeline. Invoke the direct method `livePipelineDelete` again by using the following payload:
 
 ```
 {
@@ -621,9 +639,11 @@ Within a few seconds, you see the following response in the OUTPUT window:
 
 A status code of 200 indicates that the live pipeline was successfully deleted.
 
-### Invoke pipelineTopologyDelete
+You can invoke `livePipelineList` by using the same payload as `pipelineTopologyList`. Observe that no live pipelines are enumerated.
 
-Invoke the direct method `pipelineTopologyDelete` by using the following payload.
+### Delete the pipeline topology
+
+After all live pipelines have been deleted, you can invoke the `pipelineTopologyDelete` direct method with the following payload:
 
 ```json
 {
@@ -643,10 +663,7 @@ Within a few seconds, you see the following response in the **OUTPUT** window.
 
 A status code of 200 indicates that the topology was successfully deleted.
 
-Try the following next steps:
-
-1. Invoke `pipelineTopologyList` and observe that the module contains no topologies.
-1. Invoke `livePipelineList` by using the same payload as `pipelineTopologyList`. Observe that no live pipelines are enumerated.
+You can try to invoke `pipelineTopologyList` and observe that the module contains no topologies.
 
 ## Clean up resources
 
@@ -654,5 +671,6 @@ Try the following next steps:
 
 ## Next steps
 
-* Learn how to [record video by using Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) 
+* Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
+* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
 * Learn more about [diagnostic messages](monitor-log-edge.md) 
