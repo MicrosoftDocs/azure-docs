@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -133,11 +133,11 @@ Your database server must allow Azure connections to be enabled. This will allow
 
 To register a new Azure SQL Database in your data catalog, do the following:
 
-1. Navigate to your Purview account
+1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation
+1. Select **Sources** on the left navigation.
 
-1. Select **Register**
+1. Select **Register**.
 
 1. On **Register sources**, select **Azure SQL Database**. Select **Continue**.
 
@@ -147,7 +147,7 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
 1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
-1. **Finish** to register the data source.
+1. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="register sources options" border="true":::
 
