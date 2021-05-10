@@ -14106,11 +14106,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
-      "redirect_url": "/azure/blockchain/service/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
       "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
@@ -47488,6 +47483,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
     },
     {
