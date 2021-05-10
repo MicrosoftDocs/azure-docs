@@ -1,12 +1,12 @@
 ---
-title: Inference metadata schema - Azure
-description: In this article, you will learn about inference metadata schema.
+title: Inference metadata schema in Live Video Analytics - Azure
+description: In this article, you will learn about inference metadata schema in Live Video Analytics.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# Inference metadata schema 
+# Inference metadata schema in Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
