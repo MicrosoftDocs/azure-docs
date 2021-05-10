@@ -48,7 +48,7 @@ Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 Brazil | Brazil South
-Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
 
 Replication and recovery of VMs between two regions in different continents is limited to the following region pairs:
 
