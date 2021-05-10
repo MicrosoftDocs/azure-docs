@@ -6,11 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-<<<<<<< HEAD
 ms.date: 05/12/2021
-=======
-ms.date: 05/06/2021
->>>>>>> 86b0dd883b1d36f7c8a0f3bf9bdcac6a24ce66fa
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -235,11 +231,17 @@ Multiple Conditional Access policies may apply to an individual user at any time
 
 ## Enable multi-factor authentication (optional)
 
-When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can choose from these MFA options:
+When adding Conditional Access to a user flow, consider using **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are configured separately from Conditional Access settings. You can choose from these MFA options:
 
-   - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
-   - **Always on** - MFA is always required regardless of your Conditional Access setup. If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
-   - **Conditional** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
+- **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
+- **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
+- **Conditional** - During sign-up, users are prompted to enroll in MFA. During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
+
+   - If the result is an MFA challenge with no risk, MFA is enforced.
+   - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
+
+   > [!NOTE]
+   > With general availability of Conditional Access in Azure AD B2C, users are now prompted to enroll in an MFA method during sign-up. Any sign-up user flows you created prior to general availability won't automatically reflect this new behavior , but you can include it in your user flows by switching to this sign-up URL: <TBD_URL> This URL provides the updated sign-up experience, including MFA enrollment.
 
 ::: zone pivot="b2c-user-flow"
 
