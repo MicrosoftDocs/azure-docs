@@ -22,7 +22,7 @@ In addition, custom authentication allows you to [configure custom providers](#c
 
 The settings used to override the built-in providers are configured in the `auth` section of the [configuration file](configuration.md).
 
-To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file.
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
 ### Built-in provider configuration
 
@@ -248,4 +248,4 @@ Authentication providers require redirect URL to complete the login or logout re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Access user authentication and authorization data](user-information.md)
+> [Securing authentication secrets in Azure Key Vault](./key-vault-secrets.md)
