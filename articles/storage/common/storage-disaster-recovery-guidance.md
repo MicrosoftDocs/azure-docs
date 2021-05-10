@@ -84,11 +84,7 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
-> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. The cost is due to the network egress charges to re-replicate the data to the new secondary region. The time for the conversion varies based on many factors. These include:
-> - The number and size of the objects in the storage account. Many small objects can take longer than fewer and larger objects.
-> - The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
-> - If using Blob storage, the number of snapshots per blob.
-> - If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
 ### Anticipate data loss
 
