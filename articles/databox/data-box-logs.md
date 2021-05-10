@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/07/2021
+ms.date: 05/10/2021
 ms.author: alkohli
 ---
 
@@ -262,7 +262,7 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 </ErroredEntity>
 ```
 
-### Copy errors during upload
+<!--### Copy errors during upload
 
 The following notification in the Azure portal indicates that non-retryable errors caused the upload of some files to fail. To move the order forward, you'll need to review the errors in the copy log and verify you want to proceed. For more information, see [Return Data Box and verify upload to Azure](data-box-deploy-picked-up.md).
 
@@ -300,12 +300,15 @@ Here is an example of non-retryables errors in a copy log:
   <FilesErrored>3</FilesErrored> 
 </CopyLog> 
 ```
-
+-->
 ### Upload completed with errors
 
 Upload to Azure may also complete with errors.
 
 ![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+
+> [!NOTE]
+> If any non-retryable errors cause files not to upload, you'll receive a notification to make sure you're aware that files didn't upload and have the information you need to fix any configuration issues before you try another upload. <!--By responding to the notification, you can proceed with secure data erasure immediately. If you don't respond, the order is completed automatically after 14 days.--> For more information, see [Review copy errors in data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
 Here is an example of a copy log where the upload completed with errors:
 
