@@ -73,7 +73,7 @@ We'll create an account balance table with the following schema.
    JOIN sys.schemas vs ON (vs.[schema_id] = v.[schema_id])
    ```
 
-   **NEED IMAGE HERE**
+   :::image type="content" source="media/ledger/ledger-updatable-how-to-new-tables.png" alt-text="Query new ledger tables":::
 
 1. Insert a customer, `Nick Jones` as a new customer with an opening balance of $50.
 
@@ -157,7 +157,7 @@ We'll create an account balance table with the following schema.
 
 1. `Nick`'s account balance has been successfully updated in the updatable ledger table to `100`.
 1. The history table now shows the previous balance of `50` for `Nick`.
-1. The ledger view shows that updating the ledger table is a `DELETE` of the original row with `50` as the balance with a corresponding `INSERT` of a new row with `100` with the new balance for `Nick`.
+1. The ledger view shows that updating the ledger table is a `DELETE` of the original row with `50`, as the balance with a corresponding `INSERT` of a new row with `100` with the new balance for `Nick`.
 
    :::image type="content" source="media/ledger/sql-updatable-how-to-3.png" alt-text="ledger table example 3":::
 

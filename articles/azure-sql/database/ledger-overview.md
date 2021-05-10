@@ -17,7 +17,7 @@ Establishing trust around the integrity of data stored in database systems has b
 
 Ledger helps protect data from any attacker or high privileged user, including Database Administrators (DBAs), and system and cloud administrators. Just like a traditional ledger, historical data is preserved such that if a row is updated in the database, its previous value is maintained and protected in a history table. The ledger provides a chronicle of all changes made to the database over time. The ledger and the historical data are managed transparently, offering protection without any application changes. Historical data is maintained in a relational form to support SQL queries for auditing, forensics, and other purposes. Ledger provides cryptographic data integrity guarantees while maintaining the power, flexibility, and performance of Azure SQL Database.
 
-:::image type="content" source="media/ledger/sql-updatable-ledger-tables-overview.png" alt-text="sql ledger overview":::
+:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
 
 ## Use case for Azure SQL Database ledger 
 
@@ -53,7 +53,7 @@ There are some limitations of ledger tables that you should be aware of. For det
 - Enabling it at the database-level, which ensures all future tables created in your database are updatable ledger tables
 - When creating specific tables when you don't want all tables to be updatable ledger tables by default.
 
-[Updatable ledger tables](ledger-updatable-ledger-tables.md) track the history of changes to any rows in your database when transactions that perform updates or deletes occur. An updatable ledger table is a system-versioned table that contains a reference to another table with a mirrored schema. The system uses this table to automatically store the previous version of the row each time a row in the temporal table gets updated or deleted. This other table is referred to as the history table. The history table is automatically created when you create an updatable ledger table. The values contained in the updatable ledger table and its corresponding history table provide a chronicle of the values of your database over time. In order to easily query this chronicle of your database, a system-generated ledger view is created, which joins the updatable ledger table and the history table.
+[Updatable ledger tables](ledger-updatable-ledger-tables.md) track the history of changes to any rows in your database when transactions that perform updates or deletes occur. An updatable ledger table is a system-versioned table that contains a reference to another table with a mirrored schema. The system uses this table to automatically store the previous version of the row each time a row in the ledger table gets updated or deleted. This other table is referred to as the history table. The history table is automatically created when you create an updatable ledger table. The values contained in the updatable ledger table and its corresponding history table provide a chronicle of the values of your database over time. In order to easily query this chronicle of your database, a system-generated ledger view is created, which joins the updatable ledger table and the history table.
 
 For more information on how to create and use updatable ledger tables, see [Create updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
 

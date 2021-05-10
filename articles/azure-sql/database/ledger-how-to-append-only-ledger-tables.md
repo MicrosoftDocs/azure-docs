@@ -52,25 +52,25 @@ We'll create a `KeyCardEvents` table with the following schema.
        	 );
    ```
 
-2. Add a new building access event into the `[AccessControl].[KeyCardEvents]` table with the following values.
+1. Add a new building access event into the `[AccessControl].[KeyCardEvents]` table with the following values.
 
    ```sql
    INSERT INTO [AccessControl].[KeyCardEvents]
    VALUES ('43869', 'Building42', '2020-05-02T19:58:47.1234567')
    ```
 
-4. View the contents of your KeyCardEvents table, specifying the hidden columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
+1. View the contents of your KeyCardEvents table, specifying the hidden columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
 
-  ```sql
-  SELECT *
-       ,[ledger_start_transaction_id]
-       ,[ledger_start_sequence_number]
-  FROM [AccessControl].[KeyCardEvents]
-  ```
+   ```sql
+   SELECT *
+        ,[ledger_start_transaction_id]
+        ,[ledger_start_sequence_number]
+   FROM [AccessControl].[KeyCardEvents]
+   ```
 
-  **NEED IMAGE "architecture graphic"**
+   :::image type="content" source="media/ledger/append-only-how-to-keycardevent-table.png" alt-text="Results from querying KeyCardEvents table":::
 
-5. Try to update the `KeyCardEvents` table by changing the `EmployeeID` from `43869` to `34184.`
+1. Try to update the `KeyCardEvents` table by changing the `EmployeeID` from `43869` to `34184.`
 
    ```sql
    UPDATE [AccessControl].[KeyCardEvents] SET [EmployeeID] = 34184
