@@ -20,9 +20,9 @@ ms.date: 04/11/2021
 > For this preview, we recommend using the [REST API version 2020-06-30-Preview](search-api-preview.md). There is currently limited portal support and no .NET SDK support.
 
 > [!WARNING]
-> In order for Azure Cognitive Search to index data in Cosmos DB through the Gremlin API, [Cosmos DB's own indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) must also be enabled and set to [Consistent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode). This is the default configuration for Cosmos DB. Azure Cognitive Search indexing will not work without Cosmos DB indexing already enabled.
+> In order for Azure Cognitive Search to index data in Cosmos DB through the Gremlin API, [Cosmos DB's own indexing](../cosmos-db/index-overview.md) must also be enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Azure Cognitive Search indexing will not work without Cosmos DB indexing already enabled.
 
-[Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist.
+[Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist.
 
 This article shows you how to configure Azure Cognitive Search to index content from Azure Cosmos DB using the Gremlin API. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB using the Gremlin API.
 
@@ -143,6 +143,7 @@ Ensure that the schema of your target index is compatible with your graph.
 For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names cannot start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values should be Base64 encoded if you would like to make it your document key.
 
 ### Mapping between JSON Data Types and Azure Cognitive Search Data Types
+
 | JSON data type | Compatible target index field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
@@ -288,5 +289,6 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 
 ## Next steps
 
-* To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction).
-* To learn more about Azure Cognitive Search, see the [Search service page](https://azure.microsoft.com/services/search/).
++ To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API]()../cosmos-db/graph-introduction.md).
+
++ For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
