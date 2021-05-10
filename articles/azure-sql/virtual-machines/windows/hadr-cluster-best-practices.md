@@ -23,6 +23,8 @@ A [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overvie
 
 This article provides cluster configuration best practices for both [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups](availability-group-overview.md) when you use them with SQL Server on Azure VMs. 
 
+To learn more, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+
 ## Checklist
 
 Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail: 

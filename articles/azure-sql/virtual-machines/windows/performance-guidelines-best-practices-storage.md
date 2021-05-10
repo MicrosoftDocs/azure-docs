@@ -23,7 +23,7 @@ This article provides storage best practices and guidelines to optimize performa
 
 There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
-To learn more, see the other articles in this series: [Performance Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+To learn more, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## Checklist
 
