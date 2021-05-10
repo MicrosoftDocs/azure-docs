@@ -9,14 +9,11 @@ ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/30/2019
+ms.date: 05/10/2021
 ---
 
 # Tutorial: Migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL DDL syntax
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
-
-> [!NOTE]
-> The syntax used to migrate users and groups to SQL Managed Instance in this article is in **public preview**.
 
 This article takes you through the process of migrating your on-premises Windows users and groups in your SQL Server to Azure SQL Managed Instance using T-SQL syntax.
 
