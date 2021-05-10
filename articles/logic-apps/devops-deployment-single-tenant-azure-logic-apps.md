@@ -20,9 +20,9 @@ This article provides an introduction and overview about the current continuous 
 
 ## Single-tenant versus multi-tenant environment
 
-In multi-tenant Azure Logic Apps, deployments are completely based on Azure Resource Manager (ARM) templates, which handle resource provisioning for both apps and infrastructure. The single-tenant Logic Apps runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564). With this design, you can employ approaches that separate the concerns between app deployment and infrastructure deployment.
+In multi-tenant Azure Logic Apps, deployments are completely based on Azure Resource Manager (ARM) templates. These templates provides resource provisioning for both apps and infrastructure. The single-tenant Logic Apps runtime uses [Azure Functions](../azure-functions/functions-overview.md) extensibility and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
-For example, to deploy your logic app workflows, you can use the standard build and deploy options so you can focus only on your app requirements. To set up and provision your infrastructure resources, such as virtual networks and connectivity, you can use ARM templates so you can deploy your infrastructure along with other processes and pipelines for these purposes.
+With help from the redesigned runtime, you can employ approaches that separate the concerns between app deployment and infrastructure deployment. For example, to deploy your logic app workflows, you can use the standard build and deploy options so you can focus only on your app requirements. To set up and provision your infrastructure resources, such as virtual networks and connectivity, you can use ARM templates so tjat you can deploy your infrastructure along with other processes and pipelines for these purposes.
 
 This separation provides a more generic project model where you can apply many of the same DevOps options as you use for a generic app. You can reuse generic build steps that build, assemble, and zip your logic app workflows into artifacts ready for deployment. No matter which technology stack you use, deploy your logic apps with your tools of choice.
 
@@ -38,13 +38,19 @@ The single-tenant Azure Logic Apps service inherits many capabilities and benefi
 
 ### Local development and testing
 
-You can develop, test, and run logic app workflows created using the single-tenant Logic Apps service anywhere that Azure Functions can run. For example, your workflows can run in containers, on Azure App Service, and even in your local development environment. You can locally develop and test your workflows without having to deploy to Azure. This change is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
+You can locally develop, test, and run logic app workflows that you create with the single-tenant Logic Apps service anywhere that Azure Functions can run. For example, your workflows can run in containers, on Azure App Service, and even in your local development environment. You can locally develop and test your workflows without having to deploy to Azure. This change is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
 
 <a name="separate-concerns"></a>
 
 ### Separate concerns
 
-The single-tenant Azure Logic Apps service provides the capability for you to separate the concerns between app and the underlying infrastructure. You can develop, build, zip, and deploy your app separately as an immutable artifact to different environments. Logic app workflows typically have “application code” you update more often than the underlying infrastructure. By separating these layers, you can focus more on building out the logic app's workflow and spend less on your effort to deploy the required resources across multiple environments.
+The single-tenant Azure Logic Apps service gives you the capability to separate the concerns between app and the underlying infrastructure.
+
+ou can develop, build, zip, and deploy your app separately as an immutable artifact to different environments. Logic app workflows typically have "application code" that you update more often than the underlying infrastructure. By separating these layers, you can focus more on building out the logic app's workflow and spend less on your effort to deploy the required resources across multiple environments.
+
+### Infrastructure questions
+
+Single-tenant Logic Apps provides the capability for you to separate the concerns between app and the underlying infrastructure. You can develop, build, zip, and deploy your app separately as an immutable artifact to different environments. Logic app workflows typically have “application code” you update more often than the underlying infrastructure. By separating these layers, you can focus more on building out the logic app's workflow and spend less on your effort to deploy the required resources across multiple environments.
 
 <a name="resource-structure"></a>
 
@@ -124,7 +130,7 @@ The Logic Apps ecosystem provides [hundreds of Microsoft-managed connectors](/co
 
 The most significant improvement is that the single-tenant service makes some commonly-used managed connectors additionally available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
 
-The connections that you create using built-in operations are called built-in connections, or service provider connections. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the Logic Apps runtime. In contrast, managed connections, or API connections, are created and run separately as Azure resources, which you deploy using ARM templates. As a result, built-in operations and their connections provide better performance due to their proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
+The connections that you create using built-in operations are called built-in connections, or *service provider connections*. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the Logic Apps runtime. In contrast, managed connections, or API connections, are created and run separately as Azure resources, which you deploy using ARM templates. As a result, built-in operations and their connections provide better performance due to their proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
 In Visual Studio Code, when you use the designer to develop or make changes to your workflows, the Logic Apps engine automatically generates any necessary connection metadata in your project's connections.json file. The following sections describe the three kinds of connections that you can create in your workflows. Each connection type has a different JSON structure, which is important to understand because endpoints change when you move between environments.
 
