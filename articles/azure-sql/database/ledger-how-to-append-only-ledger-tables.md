@@ -1,6 +1,6 @@
 ---
-title: "Create and use append-only updatable ledger tables"
-description: How to create and use SQL append-only updatable ledger tables in Azure SQL Database
+title: "Create and use append-only ledger tables"
+description: How to create and use append-only ledger tables in Azure SQL Database
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: JasonMAnderson
 ms.author: janders
 ---
 
-# Create and use append-only updatable ledger tables
+# Create and use append-only ledger tables
 
-This article shows you how to create an append-only ledger table in Azure SQL Database, insert values into your append-only ledger table, attempt to make updates to the data, and view the results using the ledger view.  We will use a an example of a card key access system of a facility, which is an append-only system pattern.  This will give you a practical example of the relationship between the append-only ledger table and it's corresponding ledger view.
+This article shows you how to create an [append-only ledger table](ledger-append-only-ledger-tables.md) in Azure SQL Database, insert values into your append-only ledger table, attempt to make updates to the data, and view the results using the ledger view. We'll use an example of a card key access system of a facility, which is an append-only system pattern. Our example will give you a practical look at the relationship between the append-only ledger table and its corresponding ledger view.
+
+For more information, see [Append-only ledger tables](ledger-append-only-ledger-tables.md).
 
 ## Prerequisite
 
-- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md) if you have not already created an Azure SQL Database.
+- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md) if you haven't already created an Azure SQL Database.
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 
-## Create an updatable ledger table
+## Creating an append-only ledger table
 
-We will create a simple KeyCardEvents table with the following schema.  
+We'll create a `KeyCardEvents` table with the following schema.  
 
-| Column name                | Data type      | Description                                           |
-| -------------------------- | -------------- | ----------------------------------------------------- |
-| EmployeeID                 | int            | The unique ID of the employee accessing the building. |
-| AccessOperationDescription | nvarchar (MAX) | The access operation of the employee.                 |
-| Timestamp                  | datetime2      | The date and time the employee accessed the building  |
+| Column name | Data type | Description |
+|--|--|--|
+| EmployeeID | int | The unique ID of the employee accessing the building. |
+| AccessOperationDescription | nvarchar (MAX) | The access operation of the employee. |
+| Timestamp | datetime2 | The date and time the employee accessed the building |
 
 > [!IMPORTANT]
-> **NEED MORE INFO** Creating append-only ledger tables requires the **ENABLE LEDGER** permission.  For details on permissions related to ledger tables, see here. 
+> **NEED MORE INFO** Creating append-only ledger tables requires the **ENABLE LEDGER** permission. For details on permissions related to ledger tables, see here. 
 
-1. Using either SQL Server Management Studio or Azure Data Studio, create a new schema and table called [AccessControl].[KeyCardEvents].
+1. Using either [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), create a new schema and table called `[AccessControl].[KeyCardEvents]`.
 
    ```sql
    CREATE SCHEMA [AccessControl] 
@@ -49,14 +52,14 @@ We will create a simple KeyCardEvents table with the following schema.
        	 );
    ```
 
-2. Add a new building access event into the AccessControl.KeyCardEvents table with the following values.
+2. Add a new building access event into the `[AccessControl].[KeyCardEvents]` table with the following values.
 
    ```sql
    INSERT INTO [AccessControl].[KeyCardEvents]
    VALUES ('43869', 'Building42', '2020-05-02T19:58:47.1234567')
    ```
 
-4. View the contents of your KeyCardEvents table, specifying the hidden columns that are added to your append-only ledger table.
+4. View the contents of your KeyCardEvents table, specifying the hidden columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
 
   ```sql
   SELECT *
@@ -67,18 +70,20 @@ We will create a simple KeyCardEvents table with the following schema.
 
   **NEED IMAGE "architecture graphic"**
 
-5. Try to update the KeyCardEvents table by changing the EmployeeID from '43869' to '34184'
+5. Try to update the `KeyCardEvents` table by changing the `EmployeeID` from `43869` to `34184.`
 
    ```sql
    UPDATE [AccessControl].[KeyCardEvents] SET [EmployeeID] = 34184
    ```
 
-   You will receive and error message stating the updates are not allowed for your append-only ledger table.
+   You'll receive and error message stating the updates aren't allowed for your append-only ledger table.
 
    :::image type="content" source="media/ledger/append-only-how-to-1.png" alt-text="append only error message":::
 
-## See Also  
-- [Database ledger](ledger-database-ledger.md)   
-- [Digest management and database verification](ledger-digest-management-and-database-verification.md)      
+## Next steps
+
+- [Database ledger](ledger-database-ledger.md) 
+- [Digest management and database verification](ledger-digest-management-and-database-verification.md)
+- [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)

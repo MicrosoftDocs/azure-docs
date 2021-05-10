@@ -1,6 +1,6 @@
 ---
-title: "Auditing using SQL ledger"
-description: Overview of SQL ledger auditing capabilities
+title: "Azure SQL Database audit events with ledger-enabled tables"
+description: Overview of Azure SQL Database ledger auditing capabilities
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -11,7 +11,7 @@ author: JasonMAnderson
 ms.author: janders
 ---
 
-# SQL audit events with SQL ledger
+# Azure SQL Database audit events with ledger-enabled tables
 
 When performing forensics activities with ledger-enabled tables, in addition to the data captured in the ledger view and database ledger, additional action IDs are added to the SQL audit logs.  The following table outlines these new audit logging events along with the conditions that trigger the events.
 
@@ -28,7 +28,8 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | NULL |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
-| **Condition triggering the event** | Creating a new ledger table or converting a regular table to a ledger table. |
+
+**Condition triggering the event**: Creating a new ledger table or converting a regular table to a ledger table.
 
 ## Alter ledger
 
@@ -43,7 +44,8 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | NULL |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
-| **Condition triggering the event** | Dropping or renaming a ledger table, converting a ledger table  to a normal table, adding, dropping or renaming a column in a ledger table. |
+
+**Condition triggering the event**: Dropping or renaming a ledger table, converting a ledger table  to a normal table, adding, dropping or renaming a column in a ledger table.
 
 
 ## Generate ledger digest
@@ -59,7 +61,8 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | NULL |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP  |
 | **action_in_log** | 1 |
-| **Condition triggering the event** | Generating a ledger digest. |
+
+**Condition triggering the event**: Generating a ledger digest.
 
 ## Verify ledger
 
@@ -74,8 +77,8 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | NULL |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
-| **Condition triggering the event** | Verifying a ledger digest. |
 
+**Condition triggering the event**: Verifying a ledger digest.
 
 ## Ledger operation Group
 
@@ -90,7 +93,8 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | GROUP |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
-| **Condition triggering the event** | N/A |
+
+**Condition triggering the event**: N/A
 
 | Column | Value |
 |--|--|
@@ -103,8 +107,10 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 | **configuration_level** | GROUP |
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
-| **Condition triggering the event** | N/A |
+
+**Condition triggering the event**: N/A 
 
 ## Next steps
 
-- [Auditing for Azure SQL Database and Azure Synapse Analytics](auditing-overview.md)   
+- [Auditing for Azure SQL Database and Azure Synapse Analytics](auditing-overview.md)
+- [Azure SQL Database ledger Overview](ledger-overview.md)
