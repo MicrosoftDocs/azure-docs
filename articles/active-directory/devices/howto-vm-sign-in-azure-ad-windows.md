@@ -27,7 +27,7 @@ There are many security benefits of using Azure AD based authentication to login
 - With Conditional Access, configure policies to require multi-factor authentication and other signals such as low user and sign in risk before you can RDP to Windows VMs. 
 - Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag use of no approved local account on the VMs.
 - Login to Windows VMs with Azure Active Directory also works for customers that use Federation Services.
-- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. MDM enrollment does not apply to Windows Server 2019 VM depolyments
+- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. MDM enrollment does not apply to Windows Server 2019 VM deployments.
 
 
 > [!NOTE]
@@ -241,7 +241,7 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 
 ## Using Azure Policy to ensure standards and assess compliance
 
-Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag VMs have non-approved local accounts on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Windows VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
 
 ## Troubleshoot
 
