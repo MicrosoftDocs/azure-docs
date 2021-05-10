@@ -177,8 +177,8 @@ There are multiple ways you can configure role assignments for VM, as an example
 - Azure AD Portal experience
 - Azure Cloud Shell experience
 
-Note
-The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group, or resource scope. It is recommended that the roles be assigned at the subscription or resource level and not at the individual VM level to avoid risk of running out of [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
+> [!Note]
+> The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group, or resource scope. It is recommended that the roles be assigned at the subscription or resource level and not at the individual VM level to avoid risk of running out of [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
 
 ### Using Azure AD Portal experience
 
