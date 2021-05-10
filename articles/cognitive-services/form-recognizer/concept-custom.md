@@ -59,5 +59,5 @@ At any time, you can view a list of all the custom models under your subscriptio
 Learn more about the Form Recognizer client library by exploring our API reference documentation.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >

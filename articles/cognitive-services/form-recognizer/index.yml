@@ -39,7 +39,7 @@ landingContent:
           - text: Newest features and updates
             url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
 
-  - title: Extract form layout and data
+  - title: Extract data from form layout
     linkLists:
       - linkListType: concept
         links:
@@ -128,8 +128,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.1 preview.3
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
+          - text: Form Recognizer API v2.1.3
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK

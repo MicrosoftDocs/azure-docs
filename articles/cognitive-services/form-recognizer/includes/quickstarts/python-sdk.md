@@ -13,6 +13,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
@@ -212,7 +213,7 @@ This section demonstrates how to analyze and extract common fields from English 
 
 To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-ga.py?name=snippet_bc)]
 
 > [!TIP]
 > You can also analyze local business card images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) methods, such as `begin_recognize_business_cards`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
@@ -232,7 +233,7 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
+[!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-ga.py?name=snippet_invoice)]
 
 > [!TIP]
 > You can also analyze local invoice images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) methods, such as `begin_recognize_invoices`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
@@ -252,7 +253,7 @@ This section demonstrates how to analyze and extract key information from govern
 
 To analyze identity documents from a URL use the `begin_recognize_id_documents_from_url` method.
 
-:::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py" id="snippet_id":::
+:::code language="python" source="~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-ga.py" id="snippet_id":::
 
 > [!TIP]
 > You can also analyze identity document images. _See_ the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods) methods, such as `begin_recognize_id_documents` . _See also_ the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
@@ -394,7 +395,6 @@ Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
 Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
-
 ## Manage your custom models
 
 This section demonstrates how to manage the custom models stored in your account.
@@ -404,7 +404,6 @@ This section demonstrates how to manage the custom models stored in your account
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
-
 
 ### Output
 
@@ -417,7 +416,6 @@ Our account has 5 custom models, and we can have at most 5000 custom models
 The following code block lists the current models in your account and prints their details to the console. It also saves a reference to the first model.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_list)]
-
 
 ### Output
 
@@ -486,10 +484,23 @@ Detailed DEBUG level logging, including request/response bodies and unredacted h
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_logging)]
 
-
 Similarly, `logging_enable` can enable detailed logging for a single operation, even when it isn't enabled for the client:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_example)]
+
+## REST samples on GitHub
+
+* Extract text, selection marks, and table structure from documents
+  * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Train custom models and extract form data
+  * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Extract data from invoices
+  * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Extract data from sales receipts
+  * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Extract data from business cards
+  * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ## Next steps
 

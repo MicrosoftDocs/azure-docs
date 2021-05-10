@@ -18,18 +18,20 @@ keywords: forms processing, automated data processing
 
 # Quickstart: Use the Form Recognizer client library or REST API
 
-Get started with the Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
+Get started with the Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-Use Form Recognizer to:
+You'll use the following APIs to extract structured data from forms and documents:
 
-* [Analyze Layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Analyze business cards](#analyze-business-cards)
-* [Analyze invoices](#analyze-invoices)
-* [Analyze identity documents](#analyze-identity-documents)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage your custom models](#manage-your-custom-models)
+|Name |Description |
+|---|---|
+| **Analyze layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
+| **Analyze receipts** | Analyze a receipt document to extract key information, and other receipt text.|
+| **Analyze business cards** | Analyze a business card to extract key information and text.|
+| **Analyze invoices** | Analyze an invoice to extract key information, tables, and other invoice text.|
+| **Analyze identity documents** | Analyze an identity documents to extract key information, and other identification card text.|
+| **Train a custom model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
+| **Analyze forms with a custom model**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
+|**Manage custom models**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your accounty.|
 
 ::: zone pivot="programming-language-csharp"
 

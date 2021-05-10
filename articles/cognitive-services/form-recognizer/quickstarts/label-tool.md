@@ -40,7 +40,7 @@ To complete this quickstart, you must have:
 
 To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://aka.ms/fott-2.1-ga).
 
-### [v2.1 preview](#tab/v2-1)
+### [v2.1](#tab/v2-1)
 
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
@@ -77,10 +77,10 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
 1. Get the sample labeling tool container with the `docker pull` command.
 
-### [v2.1 preview](#tab/v2-1)
+### [v2.1](#tab/v2-1)
 
 ```console
- docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
 ```
 
 ### [v2.0](#tab/v2-0)
@@ -93,10 +93,10 @@ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
 </br>
   3. Now you're ready to run the container with `docker run`.
 
-### [v2.1 preview](#tab/v2-1)
+### [v2.1](#tab/v2-1)
 
 ```console
- docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest eula=accept
 ```
 
 ### [v2.0](#tab/v2-0)
@@ -169,7 +169,7 @@ When you create or open a project, the main tag editor window opens. The tag edi
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags.
 
-### Identify text and tables 
+### Identify text and tables
 
 Select **Run OCR on all files** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
@@ -183,7 +183,7 @@ In v2.1, if your training document does not have a value filled in, you can draw
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
-### [v2.0](#tab/v2-1)  
+### [v2.0](#tab/v2-1)
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Select **+** to create a new tag.
@@ -252,7 +252,7 @@ The following value types and variations are currently supported:
 
 * `time`
 * `integer`
-* `selectionMark` – _New in v2.1-preview.1!_
+* `selectionMark`
 
 > [!NOTE]
 > See these rules for date formatting:
@@ -309,7 +309,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Compose trained models
 
-### [v2.1 preview](#tab/v2-1)
+### [v2.1](#tab/v2-1)
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
@@ -320,7 +320,7 @@ Choose the **Compose button**. In the pop-up, name your new composed model and s
 
 ### [v2.0](#tab/v2-0)
 
-This feature is currently available in v2.1. preview.
+This feature is currently available in v2.1.
 
 ---
 

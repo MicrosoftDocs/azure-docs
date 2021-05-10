@@ -14,7 +14,7 @@
 - name: Quickstarts
   items:
   - name: Get started with Form Recognizer
-    href: quickstarts/form-recognizer-tool.md
+    href: quickstarts/label-tool.md
   - name: Get started with client library or REST API
     href: quickstarts/client-library.md
 - name: Samples
@@ -87,8 +87,8 @@
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview.3
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
+  - name: Form Recognizer API v2.1.3
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v2.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs

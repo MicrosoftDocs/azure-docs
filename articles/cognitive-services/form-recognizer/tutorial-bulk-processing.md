@@ -508,4 +508,4 @@ If you add new forms of a new type, you'll also need to upload a training datase
 
 In this tutorial, you set up Azure Data Factory pipelines to trigger the training and running of Form Recognizer models and digitize a large backlog of files. Next, explore the Form Recognizer API to see what else you can do with it.
 
-* [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)
+* [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)

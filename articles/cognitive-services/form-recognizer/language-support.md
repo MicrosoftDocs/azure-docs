@@ -1,5 +1,5 @@
 ---
-title: Language support - Form Recognizer (Preview)
+title: Language support - Form Recognizer 
 titleSuffix: Azure Cognitive Services
 description: Learn more about the human languages that are available with Form Recognizer.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 This table lists the human languages supported by the Form Recognizer service.
 
-|Language| Language code | Form Recognizer v2.1 preview.3 |Form Recognizer v2.0 | 
+|Language| Language code | Form Recognizer v2.1.3 |Form Recognizer v2.0 | 
 |:-----|:----:|:-----:|:---:|
 |Afrikaans|`af`| ✔ | |
 |Albanian |`sq`| ✔ | |
