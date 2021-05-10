@@ -13,14 +13,14 @@ ms.author: alkohli
 
 # Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices
 
-This article describes review and follow-up for non-retryable errors that prevent files from uploading to the cloud from an Azure Data Box or Azure Data Box Heavy device.
+This article describes review and follow-up for non-retryable errors that occasionally prevent files from uploading to the cloud from an Azure Data Box or Azure Data Box Heavy device.
 
 > [!NOTE]
 > The information in this article applies to import orders only.
 
 ## Upload errors notification
 
-When data is uploaded to Azure from your device, some file uploads might fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
+When data is uploaded to Azure from your device, some file uploads might occasionally fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
 
 You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-non-retryable-upload-errors).
 
