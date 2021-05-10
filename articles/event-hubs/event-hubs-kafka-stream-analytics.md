@@ -2,7 +2,7 @@
 title: 'Azure Event Hubs - Process Apache Kafka events'
 description: 'Tutorial: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics'
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 05/10/2021
 ---
 
 # Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics 
@@ -27,10 +27,10 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 
 ## Create an Event Hubs namespace
-When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create a **standard** tier Event Hubs namespace. 
+When you create an Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into event hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create an Event Hubs namespace. If you are using a dedicated cluster, see [Create a namespace and event hub in a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md#create-a-namespace-and-event-hub-within-a-cluster).
 
 > [!NOTE]
-> Event Hubs for Kafka is available only on **standard** and **dedicated** tiers. The **basic** tier doesn't support Kafka on Event Hubs.
+> Event Hubs for Kafka isn't supported in the **basic** tier.
 
 ## Send messages with Kafka in Event Hubs
 
