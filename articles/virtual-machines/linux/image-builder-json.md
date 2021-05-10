@@ -32,6 +32,7 @@ This is the basic template format:
         "vmProfile": 
             {
             "vmSize": "<vmSize>",
+	    "proxyVmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
                 "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
@@ -67,27 +68,40 @@ The location is the region where the custom image will be created. For the Image
 - North Europe
 - West Europe
 
-Note, if there is only one region presence in a geography you will need to ensure you have planned for geo-resilence for using AIB in the event there is an outage of the single region/geography.
+Coming soon (mid 2021):
+- South East Asia
+- Australia East
+- UK South
 
 ```json
     "location": "<region>",
 ```
+
+### Data Residency
+The Image Builder stores customer image template configuration data. By default, the image template configuration data is replicated to the paired region (e.g., EastUS, WestCentralUS). However, the customer can choose to replicate data/keep it within the same region using XYZ controls.
+
+For regions that in single-region geography (e.g., South East Asia) and to respect data residency, there is no way for ImageBuilder to provide such failover solutions as no pair region existing in the same Geo. Customers will be responsible to take action if they still want Geo-Resiliency, for example, create templates in different regions across geography in accordance with . 
+
 ## vmProfile
+## buildVM
 By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
-1. Performing customizations that require increased memory and CPU
+1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
 3. Require [VM isolation](https://docs.microsoft.com/en-us/azure/virtual-machines/isolation).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
  
 This is optional.
 
+
+## Proxy VM Size
+The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm).
 ```json
  {
-    "vmSize": "Standard_D1_v2"
+    "proxyVmSize": "Standard A1_v2"
  },
 ```
-## buildVM
-
+This is optional.
 
 ## osDiskSizeGB
 
