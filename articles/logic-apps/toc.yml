@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Logic Apps?
+  - name: About Azure Logic Apps
     href: logic-apps-overview.md
-  - name: Overview for single-tenant Azure Logic Apps Preview
-    href: logic-apps-overview-preview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -46,8 +44,10 @@
       href: ../connectors/managed.md
     - name: Built-in operations
       href: ../connectors/built-in.md
-  - name: Schedule recurring workflows
+  - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
+  - name: About single-tenant Azure Logic Apps Preview
+    href: logic-apps-overview-preview.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
@@ -65,7 +65,7 @@
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
-  - name: Preview - Single-tenant Azure Logic Apps
+  - name: Single-tenant Azure Logic Apps (Preview)
     items:
     - name: Create preview single-tenant logic apps - Portal
       href: create-stateful-stateless-workflows-azure-portal.md
