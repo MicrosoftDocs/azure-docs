@@ -76,12 +76,14 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
     ```azurecli
     az image create \
         --resource-group myResourceGroup \
-        --name myImage --source myVM
+	--name myImage --source myVM
     ```
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
    >
+   > If you are capturing an image of a generation 2 VM, also use the `--hyper-v-generation V2` parameter. for more information, see [Generation 2 VMs](../generation-2.md).
+   > 
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
    
 This command returns JSON that describes the VM image. Save this output for later reference.
