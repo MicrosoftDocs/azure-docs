@@ -123,13 +123,13 @@ You can use the `context` object to invoke other functions by name, pass paramet
 ```PowerShell
 param($Context)
 
-$X = Invoke-ActivityFunction -FunctionName 'F1'
-$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
-$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
-Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+$X = Invoke-DurableActivity -FunctionName 'F1'
+$Y = Invoke-DurableActivity -FunctionName 'F2' -Input $X
+$Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
+Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
-You can use the `Invoke-ActivityFunction` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-ActivityFunction` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-ActivityFunction` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 ---
 
@@ -230,18 +230,18 @@ The automatic checkpointing that happens at the `yield` call on `context.task_al
 param($Context)
 
 # Get a list of work items to process in parallel.
-$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+$WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
 
 $ParallelTasks =
     foreach ($WorkItem in $WorkBatch) {
-        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
     }
 
 $Outputs = Wait-ActivityFunction -Task $ParallelTasks
 
 # Aggregate all outputs and send the result to F3.
 $Total = ($Outputs | Measure-Object -Sum).Sum
-Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 ```
 
 The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
@@ -398,8 +398,6 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-Write-Host 'MonitorOrchestrator: started.'
-
 $output = @()
 
 $jobId = $Context.Input.JobId
@@ -420,7 +418,6 @@ while ($Context.CurrentUtcDateTime -lt $expiryTime) {
 }
 
 # Perform more work here, or let the orchestration end.
-Write-Host 'MonitorOrchestrator: finished.'
 
 $output
 ```
@@ -528,13 +525,10 @@ To create the durable timer, call `context.create_timer`. The notification is re
 ```powershell
 param($Context)
 
-Write-Host 'HumanInteractionOrchestrator: started.'
-
 $output = @()
 
 $duration = New-TimeSpan -Seconds $Context.Input.Duration
 $managerId = $Context.Input.ManagerId
-$skipManagerId = $Context.Input.SkipManagerId
 
 $output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
 
@@ -548,10 +542,8 @@ if ($approvalEvent -eq $firstEvent) {
     $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
 }
 else {
-    $output += Invoke-DurableActivity -FunctionName "EscalateApproval" -Input $skipManagerId
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval"
 }
-
-Write-Host 'HumanInteractionOrchestrator: finished.'
 
 $output
 ```
