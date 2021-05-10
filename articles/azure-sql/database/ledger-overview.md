@@ -44,7 +44,7 @@ Ledger introduces ledger functionality to tables in Azure SQL Database in two fo
 
 Both **updatable ledger tables** and **append-only ledger tables** provide tamper-evidence and digital forensics capabilities. Understanding which transactions submitted by which users that resulted in changes to the database are important if both remediating potential tampering events, or proving to third parties that transactions submitted to the system were by authorized users. The ledger feature enables users, their partners, or auditors to analyze all historical operations and detect potential tampering. Each row operation is accompanied by the ID of the transaction that performed it, allowing users to retrieve more information about the time the transaction was executed, the identity of the user who executed it, and correlate it to other operations performed by this transaction.
 
-There are some limitations of ledger tables that you should be aware of. For details on limitations with ledger tables, see [Limitations of SQL Ledger](ledger-limits.md).
+There are some limitations of ledger tables that you should be aware of. For details on limitations with ledger tables, see [Limitations for Azure SQL Database ledger](ledger-limits.md).
 
 ### Updatable ledger tables
 
