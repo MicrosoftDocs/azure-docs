@@ -347,7 +347,7 @@ Azure AD Application Proxy native support for header-based authentication is now
 
 Azure AD connect cloud sync now has an updated agent (version# - 1.1.359). For more details on agent updates, including bug fixes, check out the [version history](../cloud-sync/reference-version-history.md). With the updated agent, cloud sync customers can use GMSA cmdlets to set and reset their gMSA permission at a granular level. In addition that, we have changed the limit of syncing members using group scope filtering from 1499 to 50,000 (50K) members. 
 
-Check out the newly available [expression builder](https://review.docs.microsoft.com/en-us/azure/active-directory/cloud-sync/how-to-expression-builder?deploy-the-expression.md) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
+Check out the newly available [expression builder](../cloud-sync/how-to-expression-builder?deploy-the-expression.md) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
 
 ---
 
