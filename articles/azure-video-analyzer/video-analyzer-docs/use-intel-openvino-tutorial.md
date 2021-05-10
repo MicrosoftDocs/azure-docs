@@ -122,7 +122,7 @@ If you open the pipeline topology (`pipelineTopologyUrl`) for this tutorial in a
      * A call to `pipelineTopologySet` that uses the preceding `topologyUrl`
      * A call to `livePipelineSet` that uses the following body:
 
-         ```
+         ```json
             {
               "@apiVersion": "1.0",
               "name": "Sample-Pipeline-1",
@@ -166,10 +166,9 @@ In the following messages, the Video Analyzer module defines the application pro
 
 ### MediaSessionEstablished event
 
-When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed.
+When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds you will see an event in the **OUTPUT** window with the following.
 
-```
-[IoTHubMonitor] [10:51:34 AM] Message received from [avasample-iot-edge-device/avaedge]:
+```json
 {
   "sdp": "SDP:\nv=0\r\no=- 1620204694595500 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
 }
@@ -186,7 +185,7 @@ The HTTP extension processor node receives inference results from the OpenVINOâ„
 
 In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. In the following example of the `body` of such an event, a vehicle was detected, with a confidence values above 0.9.
 
-```
+```json
 {
   "timestamp": 145819820073974,
   "inferences": [
@@ -230,7 +229,7 @@ In Visual Studio Code, open the local copy of `topology.json` from the previous 
 
 You can now repeat the steps above to run the sample program again, with the new topology. A sample classification result is as follows.
 
-```
+```json
 {
   "timestamp": 145819896480527,
   "inferences": [
@@ -264,7 +263,7 @@ In Visual Studio Code, open the local copy of `topology.json` from the previous 
 
 You can now repeat the steps above to run the sample program again, with the new topology. A sample detection result is as follows (note: the parking lot video used above does not contain any detectable faces - you should another video in order to try this model).
 
-```
+```json
 {
   "body": {
     "inferences": [
