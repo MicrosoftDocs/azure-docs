@@ -200,6 +200,8 @@
   items:
     - name: Develop and connect devices
       items:
+        - name: Create an application
+          href: core/howto-create-iot-central-application.md
         - name: Set up a device template
           href: core/howto-set-up-template.md
         - name: Version device template
