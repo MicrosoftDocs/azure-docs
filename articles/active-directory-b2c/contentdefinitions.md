@@ -73,7 +73,7 @@ The **ContentDefinition** element contains the following elements:
 
 ### LoadUri
 
-The **LoadUri** element is used to specify the page the URL of the HTML5 page for the content definition. The Azure AD B2C [custom policy starter-packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) come with content definitions that use Azure AD B2C HTML pages. The **LoadUri** starts with `~`, which is a relative path to your Azure AD B2C tenant.
+The **LoadUri** element is used to specify the URL of the HTML5 page for the content definition. The Azure AD B2C [custom policy starter-packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) come with content definitions that use Azure AD B2C HTML pages. The **LoadUri** starts with `~`, which is a relative path to your Azure AD B2C tenant.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
