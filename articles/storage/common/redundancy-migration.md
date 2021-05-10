@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
@@ -58,10 +58,10 @@ Changing how your storage account is replicated does not result in down time for
 To change the redundancy option for your storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Configuration** setting.
+1. Under **Settings** select **Configuration**.
 1. Update the **Replication** setting.
 
-![Screenshot showing how to change replication option in portal](media/redundancy-migration/change-replication-option.png)
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -75,7 +75,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
+To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and specify the `--sku` parameter:
 
 ```azurecli-interactive
 az storage account update \

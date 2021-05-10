@@ -272,6 +272,6 @@ az storage share-rm update \
 ---
 
 ## Next steps
-- [Plan for a deployment of Azure Files](storage-files-planning.md) or [Plan for a deployment of Azure File Sync](storage-sync-files-planning.md). 
+- [Plan for a deployment of Azure Files](storage-files-planning.md) or [Plan for a deployment of Azure File Sync](../file-sync/file-sync-planning.md). 
 - [Networking overview](storage-files-networking-overview.md).
 - Connect and mount a file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md).

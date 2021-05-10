@@ -9,8 +9,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/08/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl, references_regions
+ms.topic: troubleshooting
+ms.custom: devx-track-python, automl, references_regions
 ---
 
 # Troubleshoot automated ML experiments in Python
@@ -184,6 +184,6 @@ If this pattern is expected in your time series, you can switch your primary met
 
 ## Next steps
 
-+ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
++ Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](concept-automated-ml.md#local-remote).
 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).

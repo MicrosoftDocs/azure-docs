@@ -10,7 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/09/2021
+ms.date: 03/09/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure Government Marketplace images

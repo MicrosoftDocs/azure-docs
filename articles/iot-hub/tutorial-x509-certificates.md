@@ -104,7 +104,7 @@ A complex format that can store and protect a key and the entire certificate cha
 For more information, see the following topics:
 
 * [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
-* [Conceptual understanding of X.509 CA certificates in the IoT industry](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
+* [Conceptual understanding of X.509 CA certificates in the IoT industry](./iot-hub-x509ca-concept.md)
 
 ## Next steps
 
