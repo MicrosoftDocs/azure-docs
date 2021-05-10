@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 04/30/2021
+  ms.date: 05/10/2021
     
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -214,4 +214,8 @@ sections:
           You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
       - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
         answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). The data transfer uses Azure fabric (and not public endpoints), which do not need Internet access for VM backup.
+        
+      - question: How can I disable the File Recovery option?
+        answer: [This API](https://docs.microsoft.com/en-us/rest/api/backup/itemlevelrecoveryconnections/provision) provisions a script for invoking an iSCSI connection for file recovery from Azure Backup.<br></br>You can disable this option using custom role-definitions by excluding API action. [Private links]( https://docs.microsoft.com/en-us/azure/private-link/private-link-overview) configured on the vault can also be used to restrict access to the iSCSI server from within the private network. You can also disable this option across an organization using the [deny assignment]( https://docs.microsoft.com/en-us/azure/role-based-access-control/deny-assignments#:~:text=Similar%20to%20a%20role%20assignment,role%20assignment%20grants%20them%20access.) feature.
+
           
