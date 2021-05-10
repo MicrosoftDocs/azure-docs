@@ -15,13 +15,13 @@ Video Analyzer supports the following pipeline extension processors:
 
 * [HTTP extension processor](pipeline.md#http-extension-processor) 
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
-* [Cognitive Services extension processor](add-valid-link.md) 
+* [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor) 
 	
 The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol](add-valid-link.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.
+HTTP extension processor enables extensibility scenarios using the [HTTP protocol](http-extension-protocol.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.
 
 Use HTTP extension processor node when:
 
@@ -31,7 +31,7 @@ Use HTTP extension processor node when:
 
 ## gRPC extension processor
 
-gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](add-valid-link.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
+gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
 
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or
 * directly embedding the content into the body of gRPC messages.
@@ -45,11 +45,11 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision spatial analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities, using gRPC based, highly performant [structured protocol](add-valid-link.md). 
+Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
-* You want better interoperability with existing [spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
+* You want better interoperability with existing [Spatial Analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
 * Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 
