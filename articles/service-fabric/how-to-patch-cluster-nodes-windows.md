@@ -22,12 +22,13 @@ With Bronze durability, automatic OS image upgrade isn't available. While [Patch
 
 ## Enable auto OS upgrades and disable Windows Update
 
+When enabling automatic OS updates, you'll also need to disable Windows Update in the deployment template. Once you deploy these changes, all machines in the scale set will be reimaged and the scale set will be enabled for automatic updates.
+
 > [!IMPORTANT]
-> Service Fabric does not support in-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk.
+> Service Fabric does not support in-VM upgrades where Windows Updates applies operating system patches without replacing the OS disk.
 
-There are two steps needed to enable the feature with disabled Windows Update on the operation system correctly.
 
-1. Enable automatic OS image upgrades and disabling Windows Updates in the deployment template:
+1. Enable automatic OS image upgrades and disable Windows Updates in the deployment template:
  
     ```json
     "virtualMachineProfile": { 
