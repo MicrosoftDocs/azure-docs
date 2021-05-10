@@ -68,46 +68,32 @@ The following architecture diagram shows the implementation.
 
 ## Custom domain setup requirements
 
-In a production environment, you must use a custom domain for Azure AD B2C and Microsoft DFP fingerprinting service. The domain for both services should reside in the same root DNS zone in order to prevent browser privacy settings from blocking cross-domain cookies. This is not necessary in a non-production environment.
+In a production environment, you must use a [custom domain for Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy) and for the [Microsoft DFP fingerprinting service](https://docs.microsoft.com/dynamics365/fraud-protection/device-fingerprinting#set-up-dns). The domain for both services should reside in the same root DNS zone in order to prevent browser privacy settings from blocking cross-domain cookies. This is not necessary in a non-production environment.
 
 For example:
+| Environment | Service | Domain | 
+|:------------| :---------------| :---------------|
+| Development | Azure AD B2C | contoso-dev.b2clogin.com |
+| Development | Microsoft DFP Fingerprinting | fpt.dfp.microsoft-int.com |
+| UAT | Azure AD B2C | contoso-uat.b2clogin.com |
+| UAT | Microsoft DFP Fingerprinting | fpt.dfp.microsoft.com |
+| Production | Azure AD B2C | login.contoso.com |
+| Production | Microsoft DFP Fingerprinting | fpt.login.contoso.com |
 
-## Deploy to the web application
+## Deploy the UI templates
 
-### Implement Microsoft DFP service fingerprinting
+Deploy the provided [Azure AD B2C UI templates](https://github.com/azure-ad-b2c/partner-integrations/blob/adstoffe/remove-middle-layer-api/samples/Dynamics-Fraud-Protection/ui-templates) to a public internet facing hosting service such as Azure Blob Storage.
 
-[Microsoft DFP device fingerprinting](/dynamics365/fraud-protection/device-fingerprinting) is a requirement for Microsoft DFP account protection.
+Before deploying, replace the value `https://<YOUR-UI-BASE-URL>/` with the root URL for your deployment location. 
 
->[!NOTE]
->In addition to Azure AD B2C UI pages, customer may also implement the fingerprinting service inside app code for more comprehensive device profiling. Fingerprinting service in app code is not included in this sample.
+>[NOTE]
+>You'll need the base URL later to configure the Azure AD B2C policies.
 
-### Deploy the Azure AD B2C API code
+In the `ui-templates/js/dfp.js` file, replace `<YOUR-DFP-INSTANCE-ID>` with your Microsoft DFP instance ID.
 
-Deploy the [provided API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) to an Azure service. The code can be [published from Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure).
+4. Ensure CORS is enabled for your Azure AD B2C domain name (i.e.: https://{your_tenant_name}.b2clogin.com or your custom domain).
 
-Set-up CORS, add **Allowed Origin** `https://{your_tenant_name}.b2clogin.com`
-
->[!NOTE]
->You'll later need the URL of the deployed service to configure Azure AD with the required settings.
-
-See [App service documentation](../app-service/app-service-web-tutorial-rest-api.md) to learn more.
-
-### Add context-dependent configuration settings
-
-Configure the application settings in the [App service in Azure](../app-service/configure-common.md#configure-app-settings). This allows settings to be securely configured without checking them into a repository. The Rest API needs the following settings provided:
-
-| Application settings | Source | Notes |
-| :-------- | :------------| :-----------|
-| FraudProtectionSettings:InstanceId | Microsoft DFP Configuration |     |
-| FraudProtectionSettings:DeviceFingerprintingCustomerId | Your Microsoft device fingerprinting customer ID |     |
-| FraudProtectionSettings:ApiBaseUrl |  Your Base URL from Microsoft DFP Portal   | Remove '-int' to call the production API instead|
-| FraudProtectionSettings:TokenProviderConfig:Resource | Your Base URL - `https://api.dfp.dynamics-int.com`     | Remove '-int' to call the production API instead|
-| FraudProtectionSettings:TokenProviderConfig:ClientId |Your Fraud Protection merchant Azure AD client app ID      |       |
-| FraudProtectionSettings:TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Your Fraud Protection merchant Azure AD tenant authority |
-| FraudProtectionSettings:TokenProviderConfig:CertificateThumbprint* | The thumbprint of the certificate to use to authenticate against your merchant Azure AD client app |
-| FraudProtectionSettings:TokenProviderConfig:ClientSecret* | The secret for your merchant Azure AD client app | Recommended to use a secrets manager |
-
-*Only set 1 of the 2 marked parameters depending on if you authenticate with a certificate or a secret such as a password.
+See [UI customization documentation](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-custom-policy) to learn more. 
 
 ## Azure AD B2C configuration
 
