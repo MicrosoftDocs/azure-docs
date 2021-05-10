@@ -45,13 +45,13 @@ To complete the steps in this tutorial, first do the following tasks:
 1. In VS Code, click `F1`, type and select **Azure IoT Device Workbench: Provision Azure Services...**.
    ![Provision Azure services](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
-1. Follow the steps to finish provisioning of Azure IoT Hub and Azure Functions. Three configuration are necessary.
+1. Follow the steps to finish provisioning of Azure IoT Hub and Azure Functions. Three configurations are necessary.
 
-   |     |     |
+   | Configuration    |  Description   |
    | --- | --- |    
    | **Iot Hub** | Select an existing IoT Hub or create a new one. |
    | **Iot Hub Device** | Select an existing IoT device registered with your hub, or create a new device registration for your hub. |
-   | **Azure Function app** | Create a new Azure function app ofr the sample. |
+   | **Azure Function app** | Create a new Azure function app for the sample. |
 
    ![Provision steps](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
@@ -98,7 +98,7 @@ To complete the steps in this tutorial, first do the following tasks:
 
    ![DevKit configuration mode](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. Click `F1`, type and select **Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String**. Select **Select IoT Hub Device Connection String** to configure it to the DevKit.
+1. Click `F1`, type and select **Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String**. Click **Select IoT Hub Device Connection String** to configure it to the DevKit.
    ![Configure connection string](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 1. You will see the notification once it's done successfully.
