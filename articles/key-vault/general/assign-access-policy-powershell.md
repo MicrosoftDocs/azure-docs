@@ -76,6 +76,5 @@ You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-Permi
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
-- [Secure your key vault](security-overview.md).
+- [Azure Key Vault security: Identity and access management](security-features.md#identity-management)
 - [Azure Key Vault developer's guide](developers-guide.md)

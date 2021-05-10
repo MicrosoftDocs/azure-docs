@@ -129,7 +129,7 @@ Azure AD enforces tenant isolation and implements robust measures to prevent acc
 - **Management plane** enables customers to manage the key vault or managed HSM itself, for example, create and delete key vaults or managed HSMs, retrieve key vault or managed HSM properties, and update access policies. For authorization, the management plane uses Azure RBAC with both key vaults and managed HSMs.
 - **Data plane** enables customers to work with the data stored in their key vaults and managed HSMs, including adding, deleting, and modifying their data. For vaults, stored data can include keys, secrets, and certificates. For managed HSMs, stored data is limited to cryptographic keys only. For authorization, the data plane uses [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) and [Azure RBAC for data plane operations](../key-vault/general/rbac-guide.md) with key vaults, or [managed HSM local RBAC](../key-vault/managed-hsm/access-control.md) with managed HSMs.
 
-When you create a key vault or managed HSM in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the [key vault](../key-vault/general/security-overview.md) or [managed HSM](../key-vault/managed-hsm/access-control.md).
+When you create a key vault or managed HSM in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the [key vault](../key-vault/general/security-features.md) or [managed HSM](../key-vault/managed-hsm/access-control.md).
 
 Azure customers control access permissions and can extract detailed activity logs from the Azure Key Vault service. Azure Key Vault logs the following information:
 
@@ -159,13 +159,13 @@ Vaults enable support for [customer-managed keys](../security/fundamentals/encry
 
 Azure Key Vault can handle requesting and renewing certificates in vaults, including Transport Layer Security (TLS) certificates, enabling customers to enroll and automatically renew certificates from supported public Certificate Authorities. Azure Key Vault certificates support provides for the management of customer’s X.509 certificates, which are built on top of keys and provide an automated renewal feature. Certificate owner can [create a certificate](../key-vault/certificates/create-certificate.md) through Azure Key Vault or by importing an existing certificate. Both self-signed and Certificate Authority generated certificates are supported. Moreover, the Key Vault certificate owner can implement secure storage and management of X.509 certificates without interaction with private keys.
 
-When customers create a key vault in a resource group, they can [manage access](../key-vault/general/security-overview.md) by using Azure AD, which enables customers to grant access at a specific scope level by assigning the appropriate Azure roles. For example, to grant access to a user to manage key vaults, customers can assign a predefined key vault Contributor role to the user at a specific scope, including subscription, resource group, or specific resource.
+When customers create a key vault in a resource group, they can [manage access](../key-vault/general/security-features.md) by using Azure AD, which enables customers to grant access at a specific scope level by assigning the appropriate Azure roles. For example, to grant access to a user to manage key vaults, customers can assign a predefined key vault Contributor role to the user at a specific scope, including subscription, resource group, or specific resource.
 
 > [!IMPORTANT]
 > Customers should control tightly who has Contributor role access to their key vaults.  If a user has Contributor permissions to a key vault management plane, the user can gain access to the data plane by setting a key vault access policy.
 >
 > *Additional resources:*
-> - How to **[secure access to a key vault](../key-vault/general/security-overview.md)**
+> - How to **[secure access to a key vault](../key-vault/general/security-features.md)**
 
 #### Managed HSM
 

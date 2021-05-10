@@ -19,7 +19,7 @@ Azure Spring Cloud diagnostics is an interactive experience to troubleshoot your
 To complete this exericise, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to get started.
+* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the diagnostics page
@@ -51,5 +51,5 @@ Some results contain related documentation.
  ![Related details](media/spring-cloud-diagnose/related-details.png)
 
 ## Next steps
-* [Monitor Spring Cloud resources using alerts and action groups](spring-cloud-tutorial-alerts-action-groups.md)
-* [Security controls for Azure Spring Cloud Service](spring-cloud-concept-security-controls.md)
+* [Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
+* [Security controls for Azure Spring Cloud Service](./concept-security-controls.md)

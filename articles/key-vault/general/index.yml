@@ -55,8 +55,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Security overview
-            url: security-overview.md
+          - text: Security features
+            url: security-features.md
           - text: Security baseline
             url: security-baseline.md
       - linkListType: how-to-guide

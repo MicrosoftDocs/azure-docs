@@ -1,4 +1,4 @@
-﻿---
+---
 title: Grant permission to applications to access an Azure key vault using Azure RBAC | Microsoft Docs
 description: Learn how to provide access to keys, secrets, and certificates using Azure role-based access control.
 services: key-vault
@@ -40,7 +40,7 @@ only for specific scenarios:
 
 More about Azure Key Vault management guidelines, see:
 
-- [Azure Key Vault security overview](security-overview.md)
+- [Azure Key Vault best practices](best-practices.md)
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations

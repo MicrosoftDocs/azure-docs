@@ -3,7 +3,7 @@ title: Create a Python function from the command line for Azure Functions
 description: Learn how to create a Python function from the command line and publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-python, devx-track-azurecli] 
+ms.custom: [devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

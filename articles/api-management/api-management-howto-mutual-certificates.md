@@ -9,7 +9,8 @@ author: mikebudzynski
 ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Secure backend services using client certificate authentication in Azure API Management
@@ -28,7 +29,7 @@ API Management provides two options to manage certificates used to secure access
 Using key vault certificates is recommended because it helps improve API Management security:
 
 * Certificates stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-overview.md#privileged-access) can be applied to certificates stored in key vaults
+* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to certificates stored in key vaults
 * Certificates updated in the key vault are automatically rotated in API Management. After update in the key vault, a certificate in API Management is updated within 4 hours. You can also manually refresh the certificate using the Azure portal or via the management REST API.
 
 ## Prerequisites

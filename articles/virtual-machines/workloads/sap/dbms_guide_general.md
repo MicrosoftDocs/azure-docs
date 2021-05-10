@@ -368,4 +368,4 @@ For more information on a particular DBMS, see:
 - [SAP maxDB, Live Cache, and Content Server deployment on Azure](dbms_guide_maxdb.md)
 - [SAP HANA on Azure operations guide](hana-vm-operations.md)
 - [SAP HANA high availability for Azure virtual machines](sap-hana-availability-overview.md)
-- [Backup guide for SAP HANA on Azure virtual machines](sap-hana-backup-guide.md)
+- [Backup guide for SAP HANA on Azure virtual machines](../../../backup/sap-hana-db-about.md)

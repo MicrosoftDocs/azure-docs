@@ -33,4 +33,4 @@ Each SDK has separate client libraries for key vault, secrets, keys, and certifi
 
 - See the [Azure Key Vault developers guide](developers-guide.md)
 - Read more about [Authenticating to a Key vault](authentication.md)
-- Read more about [Securing access to a Key Vault](security-overview.md)
+- Read more about [Securing access to a Key Vault](security-features.md)

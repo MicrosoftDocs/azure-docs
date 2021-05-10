@@ -7,7 +7,7 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
-ms.reviewer: tyao
+
 ---
 
 # What is geo-filtering on a domain for Azure Front Door Service?

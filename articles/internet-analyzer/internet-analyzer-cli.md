@@ -129,6 +129,6 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 ## Next steps
 
-* Browse the [Internet Analyzer CLI reference](/cli/azure/ext/internet-analyzer/internet-analyzer) for the full list of supported commands and usage examples.
+* Browse the [Internet Analyzer CLI reference](/cli/azure/internet-analyzer) for the full list of supported commands and usage examples.
 * Read the [Internet Analyzer FAQ](internet-analyzer-faq.md).
 * Learn more about embedding the [Internet Analyzer Client](internet-analyzer-embed-client.md) and creating a [custom endpoint](internet-analyzer-custom-endpoint.md).

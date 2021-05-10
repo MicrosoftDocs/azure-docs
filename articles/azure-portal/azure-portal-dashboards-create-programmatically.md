@@ -653,27 +653,27 @@ Prepare your environment for the Azure CLI.
 
 - These examples use the following dashboard: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Replace content in angled brackets with your values.
 
-Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to create a dashboard:
+Run the [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) command to create a dashboard:
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) command:
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-See the details of a dashboard by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
+See the details of a dashboard by running the [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) command:
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -689,4 +689,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 For more information about desktops, see [Manage Azure portal settings and preferences](set-preferences.md).
 
-For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/portal/dashboard).

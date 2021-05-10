@@ -77,8 +77,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read [Secure access to a Key Vault](../general/security-overview.md)
+- Read [Secure access to a Key Vault](../general/security-features.md)
 - See [Use Key Vault with App Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
 - See [Use Key Vault with application deployed to VM](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

@@ -128,5 +128,5 @@ How-to guides to control access in Key Vault:
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
 - [About certificates](../certificates/about-certificates.md)
-- [Secure access to a key vault](../general/security-overview.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

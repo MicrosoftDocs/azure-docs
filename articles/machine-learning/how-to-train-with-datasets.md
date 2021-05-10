@@ -10,8 +10,8 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 
@@ -314,7 +314,7 @@ If you are using file share for other workloads, such as data transfer, the re
 
 ## Next steps
 
-* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
+* [Auto train machine learning models](how-to-configure-auto-train.md#data-source-and-format) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 

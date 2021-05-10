@@ -2,9 +2,12 @@
 title: Prediction endpoint changes in the V3 API
 description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
 ms.service: cognitive-services
+author: aahill
+ms.manager: nitinme
+ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 04/21/2021
 
 ---
 
@@ -52,14 +55,12 @@ If you use Bot Framework, Bing Spell Check V7, or want to migrate your LUIS app 
 
 If you know none of your client application or integrations (Bot Framework, and Bing Spell Check V7) are impacted and you are comfortable migrating your LUIS app authoring and your prediction endpoint at the same time, begin using the V3 prediction endpoint. The V2 prediction endpoint will still be available and is a good fall-back strategy.
 
+For information on using the Bing Spell Check API, see [How to correct misspelled words](luis-tutorial-bing-spellcheck.md).
+
 
 ## Not supported
 
-### Bing Spell Check
-
-This API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections. If you need spelling correction while using V3 API, have the client application call the [Bing Spell Check](../bing-spell-check/overview.md) API, and change the text to the correct spelling, prior to sending the text to the LUIS API.
-
-## Bot Framework and Azure Bot Service client applications
+### Bot Framework and Azure Bot Service client applications
 
 Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 

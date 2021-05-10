@@ -29,7 +29,6 @@ Speech containers enable customers to build a speech application architecture th
 > * Neural Text-to-speech
 >
 > The following speech containers are in gated preview.
-> * Custom Text-to-speech
 > * Speech Language Detection 
 >
 > To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
@@ -39,7 +38,6 @@ Speech containers enable customers to build a speech application architecture th
 | Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.11.0 |
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.11.0 |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.13.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.13.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
 | Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.5.0 |
 
@@ -80,7 +78,6 @@ The following table describes the minimum and recommended allocation of resource
 | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
-| Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 | Speech Language Detection | 1 core, 1-GB memory | 1 core, 1-GB memory |
 | Neural Text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
 
@@ -125,12 +122,6 @@ Container images for Speech are available in the following Container Registry.
 | Container | Repository |
 |-----------|------------|
 | Neural Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
-
-# [Custom Text-to-speech](#tab/ctts)
-
-| Container | Repository |
-|-----------|------------|
-| Custom Text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # [Speech Language Detection](#tab/lid)
 
@@ -252,19 +243,6 @@ For all of the supported locales and corresponding voices of the **neural text-t
 
 > [!IMPORTANT]
 > When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
-
-# [Custom Text-to-speech](#tab/ctts)
-
-#### Docker pull for the Custom Text-to-speech container
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container registry.
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
-```
-
-> [!NOTE]
-> The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 # [Speech Language Detection](#tab/lid)
 
@@ -516,49 +494,6 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Custom Text-to-speech](#tab/ctts)
-
-The *Custom Text-to-speech* container relies on a custom voice model. The custom model has to have been [trained](how-to-custom-voice-create-voice.md) using the [custom voice portal](https://aka.ms/custom-voice-portal). The custom voice **Model ID** is required to run the container. It can be found on the **Training** page of the custom voice portal. From the custom voice portal, navigate to the **Training** page and select the model.
-<br>
-
-![Custom voice training page](media/custom-voice/custom-voice-model-training.png)
-
-Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the docker run command.
-<br>
-
-![Custom voice model details](media/custom-voice/custom-voice-model-details.png)
-
-The following table represents the various `docker run` parameters and their corresponding descriptions:
-
-| Parameter | Description |
-|---------|---------|
-| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which docker uses to persist the custom model. For example, *C:\CustomSpeech* where the *C drive* is located on the host machine. |
-| `{MODEL_ID}` | The Custom Speech **Model ID** from the **Training** page of the custom voice portal. |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [gathering required parameters](#gathering-required-parameters). |
-| `{API_KEY}` | The API key is required. For more information, see [gathering required parameters](#gathering-required-parameters). |
-
-To run the *Custom Text-to-speech* container, execute the following `docker run` command:
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
--v {VOLUME_MOUNT}:/usr/local/models \
-mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
-ModelId={MODEL_ID} \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs a *Custom Text-to-speech* container from the container image.
-* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
-* Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Downloads the model given the `ModelId` (if not found on the volume mount).
-* If the custom model was previously downloaded, the `ModelId` is ignored.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
 # [Speech Language Detection](#tab/lid)
 
 To run the *Speech Language Detection* container, execute the following `docker run` command.
@@ -610,7 +545,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Standard Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech (including Standard, Custom and Neural), Speech Language detection | `http://localhost:5000` | HTTP |
+| Text-to-speech (including Standard and Neural), Speech Language detection | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -735,7 +670,7 @@ speech_config.set_service_property(
 )
 ```
 
-### Text-to-speech (Standard, Neural and Custom)
+### Text-to-speech (Standard and Neural)
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
