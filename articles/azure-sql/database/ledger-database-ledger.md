@@ -19,12 +19,14 @@ The database ledger logically uses a blockchain and [Merkle tree data structures
 
 For more information on how Azure SQL Database ledger provides data integrity, see [Digest management and database verification](ledger-digest-management-and-database-verification.md).
 
+## Where are database transaction and block data stored?
+
 The data regarding transactions and blocks is physically stored as rows in two new system catalog views:
 
 1. **sys.database_ledger_transactions** - maintains a row with the information of each transaction in the ledger, including the ID of the block where this transaction belongs and the ordinal of the transaction within the block. 
 1. **sys.database_ledger_blocks** - maintains a row for every block in the ledger, including the root of the Merkle tree over the transactions within the block, and the hash of the previous block to form a blockchain.  
 
-### sys.database_ledger_transactions schema
+## sys.database_ledger_transactions schema
 
 | Column name | Data type | Description |
 | --- | --- | --- |
@@ -35,7 +37,7 @@ The data regarding transactions and blocks is physically stored as rows in two n
 | commit_time | datetime2(7) | The time of the committing transaction. |
 | table_hashes | varbinary(max) | This is a set of key-values pairs, stored in a binary format. The keys are object IDs (from **sys.objects**) of ledger database tables, modified by the transaction. Each value is a SHA-256 hash of all row versions a transaction created or invalidated.<br /> - `version` - indicates the encoding version. Length: 1 byte.<br /> - `length` - the number of entries in the key-value pair list. Length: 1 byte.<br /> - `key` - an object ID. Length: 4 bytes.<br /> - `value` - the hash of rows the transaction cached in the table with the object ID stored as the key. Length: 32 bytes. |
 
-### sys.database_ledger_blocks schema
+## sys.database_ledger_blocks schema
 
 | Column name | Data type | Description |
 | --- | --- | --- |
