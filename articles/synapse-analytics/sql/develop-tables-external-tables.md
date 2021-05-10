@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
-- Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they are not available in serverless SQL pools.
+- Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables as available in dedicated Synapse SQL pools, but they aren't available in serverless SQL pools.
 - Native external tables that you can use to read and export data in various data formats such as CSV as Parquet. Native external tables are available in serverless Synapse SQL pools, and they are in preview in dedicated Synapse SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
@@ -26,14 +26,14 @@ The key differences between Hadoop and native external tables are presented in t
 | Dedicated SQL pool | Available | **Preview** |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless pool: Delimited/CSV, Parquet, and Delta Lake(preview)<br/>Dedicated pool: Parquet |
-| Folder partition elimination | No | Only for the partitioned tables synchronized from the Apache Spark pools in Synapse workspace to the serverless SQL pools |
+| Folder partition elimination | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
 | Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | Always | Only in serverless SQL pools when specified `/**` at the end of the location path |
-| Storage filter pushdown | No | Yes in serverless SQL pool. For the string pushdown you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
+| Storage filter pushdown | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 > [!NOTE]
-> The native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
+> Native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -41,7 +41,7 @@ You can use external tables to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
 - Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
-- Import data from Azure Blob Storage and Azure Data Lake Storage and store it into dedicated SQL pool (only Hadoop tables in dedicated pool).
+- Import data from Azure Blob Storage and Azure Data Lake Storage and store it in a dedicated SQL pool (only Hadoop tables in dedicated pool).
 
 > [!NOTE]
 > When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
@@ -56,8 +56,8 @@ You can create external tables in Synapse SQL pools via the following steps:
 
 ### Security
 
-User must have `SELECT` permission on external table to read the data.
-External table access underlying Azure storage using the database scoped credential defined in data source using the following rules:
+User must have `SELECT` permission on an external table to read the data.
+External tables access underlying Azure storage using the database scoped credential defined in data source using the following rules:
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
 
@@ -330,7 +330,7 @@ Specifies the folder or the file path and file name for the actual data in Azure
 
 ![Recursive data for external tables](./media/develop-tables-external-tables/folder-traversal.png)
 
-Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder. Hadoop tables will return all files within any sub-folder.
+Unlike Hadoop external tables, native external tables don't return subfolders unless you specify /** at the end of path. In this example, if LOCATION='/webdata/', a serverless SQL pool query, will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder. Hadoop tables will return all files within any subfolder.
  
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
@@ -401,4 +401,4 @@ The external table is now created, for future exploration of the content of this
 
 ## Next steps
 
-Check the [CETAS](develop-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).
+See the [CETAS](develop-tables-cetas.md) article for how to save query results to an external table in Azure Storage. Or you can start querying [Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md).
