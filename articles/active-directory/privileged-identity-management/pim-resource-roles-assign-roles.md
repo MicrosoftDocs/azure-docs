@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2020
+ms.date: 05/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -103,6 +103,10 @@ Follow these steps to update or remove an existing role assignment.
 1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
 
     ![Update or remove role assignment](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. To add or update attributes to refine Azure resource access, select **Add** or **View/Edit** for the role. Currently, the Blob Storage Data Owner role and the Blob Storage Data Contributor role in Privileged Identity Management are the only two roles supported as part of the [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
+
+    ![Update or remove attributes for access control](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
 
