@@ -28,7 +28,7 @@ Unregistering a node from the service only sets the Local Configuration Manager 
 1. On the **Nodes** tab, select the name of the node you want to unregister.
 1. On the pane for that node, click **Unregister**.
 
-   :::image type="content" source="./media/remove-desired-state-configuration-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-desired-state-configuration-package/unregister-node.png":::
+   :::image type="content" source="./media/remove-node-and-configuration-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-node-and-configuration-package/unregister-node.png":::
 
 ### Unregister using PowerShell
 
@@ -51,11 +51,11 @@ You can delete configurations for both Windows and Linux nodes from the Azure po
 1. From your Automation account, select **State configuration (DSC)** under **Configuration Management**.
 1. On the **State configuration (DSC)** page, click the **Configurations** tab, then select the name of the configuration you want to delete.
 
-   :::image type="content" source="./media/remove-desired-state-configuration-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/remove-desired-state-configuration-package/configurations-tab.png":::
+   :::image type="content" source="./media/remove-node-and-configuration-package/configurations-tab.png" alt-text="Screenshot of configurations tab." lightbox="./media/remove-node-and-configuration-package/configurations-tab.png":::
 
 1. On the configuration's detail page, click **Delete** to remove the configuration.
 
-   :::image type="content" source="./media/remove-desired-state-configuration-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-desired-state-configuration-package/delete-extension.png":::
+   :::image type="content" source="./media/remove-node-and-configuration-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-node-and-configuration-package/delete-extension.png":::
 
 ## Manually delete a configuration file from a node
 
@@ -89,6 +89,6 @@ dpkg -P <package name>
 
  ## Next steps
 
-- If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](/azure/automation/tutorial-configure-servers-desired-state#register-a-vm-to-be-managed-by-state-configuration).
+- If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](../tutorial-configure-servers-desired-state.md#register-a-vm-to-be-managed-by-state-configuration).
 
-- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](/azure/automation/automation-dsc-compile).
+- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](../automation-dsc-compile.md).
