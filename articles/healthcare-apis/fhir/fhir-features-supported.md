@@ -63,7 +63,7 @@ All the operations that are supported that extend the RESTful API.
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
 | $convert-data          | Yes       | Yes       | Yes       |         |
-
+| $validate          | Yes       | Yes       | Yes       |         |
 
 ## Persistence
 
