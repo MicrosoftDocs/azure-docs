@@ -36,7 +36,7 @@ Before you can start building B2B logic app workflows with the EIP, you need the
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) with the artifacts that you want to use
 
-* To create maps and schemas, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsmapsandschemas) and Visual Studio 2019. Pleae note that this extension cannot be installed side by side with Biztalk Server Extension and doing so may result in unexpected behavior. We therefore recommend to only install one of them
+* To create maps and schemas, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools) and Visual Studio 2019. Pleae note that this extension cannot be installed side by side with Biztalk Server Extension and doing so may result in unexpected behavior. We therefore recommend to only install one of them
 
 > [!NOTE]
 
