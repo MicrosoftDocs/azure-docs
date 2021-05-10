@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/15/2021
+ms.date: 05/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -70,6 +70,26 @@ The **ContentDefinition** element contains the following elements:
 | DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |
 | Metadata | 0:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
+
+### LoadUri
+
+The **LoadUri** element is used to specify the page the URL of the HTML5 page for the content definition. The Azure AD B2C [custom policy starter-packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) come with content definitions that use Azure AD B2C HTML pages. The **LoadUri** starts with `~`, which is a relative path to your Azure AD B2C tenant.
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+  ...
+</ContentDefinition>
+```
+
+You can [customize the user interface with HTML templates](customize-ui-with-html.md). When using HTML templates, provide an absolute URL. The following example illustrates a content definition with HTML template:
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+  ...
+</ContentDefinition>
+``` 
 
 ### DataUri
 
