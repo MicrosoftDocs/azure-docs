@@ -18,7 +18,7 @@ Optimal system performance, as measured by cost and time, can be achieved by mat
 
 Consider the following scenario:
 
-* You provision Azure Cosmos DB with 20K RU. This implies that your target database will expect a maximum of no more than 20K RUs per second.
+* You provision Azure Cosmos DB with 20K RU/second.
 * Your application processes an ingestion job that contains 10K records, each of which
 costs 10 RU. Thus, the total capacity required to complete this job is 100K RU.
 * If you simply send the entire job to Azure Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This is because the total number of RUs needed for the job (100K) is much greater than the provisioned maximum (20K). ~2K of the records will be accepted into the database, but ~8K will be rejected. You will send ~8K records to Azure Cosmos DB on retry, of which ~2K will be accepted, and so on. You should expect this pattern would send ~30K records instead of 10K records.
