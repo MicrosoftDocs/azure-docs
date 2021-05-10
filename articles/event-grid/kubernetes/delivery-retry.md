@@ -9,7 +9,7 @@ ms.date: 05/04/2021
 ms.topic: conceptual
 ---
 
-# Event handlers and destinations in Event Grid on Kubernetes
+# Azure Event Grid on Kubernetes - event delivery and retry
 An event handler is the place where the event for further action or to process the event. Event subscriptions support the following kind of destinations.
 
 - Webhooks. The following destinations are supported through webhooks:
