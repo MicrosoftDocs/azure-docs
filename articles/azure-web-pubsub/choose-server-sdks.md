@@ -14,20 +14,16 @@ The Azure Web PubSub service provides server SDK with 4 languages: C#, Java, Jav
 
 ## Server SDK - C#
 
-- [Source code](https://github.com/Azure/azure-sdk-for-net-pr/pull/1400/files)
-- [Package](https://www.myget.org/feed/azure-webpubsub-dev/package/nuget/Azure.Messaging.WebPubSub/1.0.0-alpha.20210402.1)
+[C# Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/csharp-server-sdks)
 
 ## Server SDK - Java
 
-- [Source code](https://github.com/Azure/azure-sdk-for-java-pr/tree/master/sdk/webpubsub)
-- [Package](https://www.myget.org/feed/azure-webpubsub-dev/package/maven/com.azure/azure-messaging-webpubsub)
+[Java Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/java-server-sdks)
 
 ## Server SDK - JavaScript
 
-- [Source code](https://github.com/bterlson/azure-sdk-for-js-pr/tree/add-signalr/sdk/web-pubsub/web-pubsub)
-- [Package](https://www.myget.org/feed/azure-webpubsub-dev/package/npm/@azure/web-pubsub)
+[JavaScript Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/js-server-sdks)
 
 ## Server SDK - Python
 
-- [Source code](https://github.com/johanste/azure-sdk-for-python-pr/tree/webpubsub/sdk/signalr/azure-messaging-webpubsubservice/azure/messaging/webpubsubservice)
-- [Package](https://www.myget.org/feed/azure-webpubsub-dev/package/pythonwhl/azure-messaging-webpubsubservice)
+[Python Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/python-server-sdks)

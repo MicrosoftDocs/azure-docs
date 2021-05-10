@@ -18,15 +18,11 @@ You will need an Azure subscription and an Azure Storage account. The subscripti
 
 We provide PowerShell and Bash scripts to submit attestation requests.   The scripts use  Azure CLI, which can run on Windows and Linux. PowerShell can run on Windows, Linux, and macOS.  
 
-Azure CLI download (required):  
+[Azure CLI download (required)](/cli/azure/install-azure-cli)
 
-https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest  
+[PowerShell for Windows, Linux, and macOS download (only for PowerShell scripts)](/powershell/scripting/install/installing-powershell)
 
-PowerShell for Windows, Linux, and macOS download (only for PowerShell scripts):  
-
-https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7  
-
-You will need to have your tenant and subscription ID authorized to submit to the attestation service. Visit https://aka.ms/AzureFPGAAttestationPreview to request access. 
+You will need to have your tenant and subscription ID authorized to submit to the attestation service. Visit [https://aka.ms/AzureFPGAAttestationPreview](https://aka.ms/AzureFPGAAttestationPreview) to request access. 
 
 ## Building your design for attestation  
 
@@ -34,13 +30,11 @@ The preferred Xilinx toolset for building designs is Vitis 2020.2. Netlist files
 
 You must include the following argument to Vitis (v++ cmd line) to build an xclbin file that contains a netlist instead of a bitstream.   
 
-```--advanced.param compiler.acceleratorBinaryContent=dcp  ```
+`--advanced.param compiler.acceleratorBinaryContent=dcp`
 
 ## Logging into Azure  
 
-Prior to performing any operations with Azure, you must log into Azure and set the subscription that is authorized to call the service. Use the ```az login``` and ```az account set –s <Sub ID or Name>``` commands for this purpose. Further information about this process is documented here:  
-
-https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest. Use either the ‘sign in interactively’ or ‘sign in with credentials’ option on the command line.  
+Prior to performing any operations with Azure, you must log into Azure and set the subscription that is authorized to call the service. Use the `az login` and `az account set –s <Sub ID or Name>` commands for this purpose. Further information about this process is documented here:  [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli). Use either the **sign in interactively** or **sign in with credentials** option on the command line.  
 
 ## Creating a storage account and blob container  
 
@@ -60,7 +54,7 @@ There are several ways to copy the file; an example using the az storage upload 
 
 The Validation scripts can be downloaded from the following Azure storage blob container:  
 
-https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip  
+[https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip](https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip)
 
 The zip file has two PowerShell scripts, one to submit and the other to monitor while the third file is a bash script which performs both functions.  
 
@@ -76,15 +70,19 @@ If you wish to use virtual directories, you must include the directory hierarchy
 
 ### PowerShell   
 
-```$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
+```powershell
+$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)
 
-```.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>  ```
+.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>
+```
 
 ### Bash  
 
-``` sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
+```bash
+sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  
 
-```validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas ``` 
+validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas
+``` 
 
 ## Checking on the status of your submission  
 
@@ -92,23 +90,19 @@ The Attestation service will return the orchestration ID of your submission. The
 
 You can call the Monitor-Validation.ps1 script at any time to get status and results of attestation, providing the orchestration ID as an argument:  
 
-```.\Monitor-Validation.ps1 -OrchestrationId < Orchestration ID>  ```
+`.\Monitor-Validation.ps1 -OrchestrationId <orchestration ID>`
 
 Alternatively, you can submit HTTP post request to the attestation service endpoint:  
 
-https://fpga-attestation.azurewebsites.net/api/ComputeFPGA_HttpGetStatus  
+`https://fpga-attestation.azurewebsites.net/api/ComputeFPGA_HttpGetStatus`
 
 The request body should contain your Subscription ID, Tenant ID, and orchestration ID of your attestation request:  
 
-```
+```json
 {  
-
-  "OrchestrationId": ”< orchestration ID>”,  
-
-  "ClientSubscriptionId": “<your subscription ID>”,  
-
-  "ClientTenantId": “<your tenant ID>”  
-
+  "OrchestrationId": "<orchestration ID>",  
+  "ClientSubscriptionId": "<your subscription ID>",  
+  "ClientTenantId": "<your tenant ID>"
 }
 ```
 

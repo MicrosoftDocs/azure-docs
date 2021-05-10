@@ -24,11 +24,6 @@ Use the identity registry when you need to:
 * Provision devices or modules that connect to your IoT hub.
 * Control per-device/per-module access to your hub's device or module-facing endpoints.
 
-> [!NOTE]
-> * The identity registry does not contain any application-specific metadata.
-> * Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
->
-
 ## Identity registry operations
 
 The IoT Hub identity registry exposes the following operations:

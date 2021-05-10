@@ -21,6 +21,9 @@ Click the **Status** to drill in to see logs and further details, which may help
 ## Not collecting state 
 The monitoring machine has a state of *Not collecting* if there's no data in *InsightsMetrics* for SQL in the last 10 minutes. 
 
+> [!NOTE]
+> Please verify that your are trying to collect data from a [supported version of SQL](sql-insights-overview.md#supported-versions). For example, attempting to collect data with a valid profile and connection string but from an unsupported version of Azure SQL Database will result in a not collecting state.
+
 SQL insights uses the following query to retrieve this information:
 
 ```kusto
