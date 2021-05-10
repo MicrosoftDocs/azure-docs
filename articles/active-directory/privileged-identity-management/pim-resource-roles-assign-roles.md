@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manag
 
 ## Attribute-based conditions
 
-You can create Azure attribute-based access control (Azure ABAC) conditions when you create eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. PIM-based role assignments are time-limited and require your users to provide justification for access. Using Azure ABAC conditions in PIM enables you not only to limit a user’s access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on.
+You can create Azure attribute-based access control (Azure ABAC) conditions when you create eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using Azure ABAC conditions in PIM enables you not only to limit a user’s access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on.
 
 ## Assign a role
 
