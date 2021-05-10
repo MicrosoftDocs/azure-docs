@@ -18,16 +18,13 @@
     href: deploy-template.md
 - name: Tutorials
   items:
-  - name: Deploy and configure - classic
-    href: tutorial-firewall-deploy-portal.md
-  - name: Deploy and configure - policy
+  - name: Deploy and configure
     href: tutorial-firewall-deploy-portal-policy.md
-  - name: Deploy in hybrid network - classic
-    href: tutorial-hybrid-portal.md
-  - name: Deploy in hybrid network - policy
+  - name: Deploy in hybrid network
     href: tutorial-hybrid-portal-policy.md
   - name: Filter inbound traffic with DNAT
-    href: tutorial-firewall-dnat.md
+    href: tutorial-firewall-dnat-policy.md
+
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -72,8 +69,16 @@
       href: active-ftp-support.md
 - name: How-to guides
   items:
+    - name: Deploy and configure - classic
+      href: tutorial-firewall-deploy-portal.md
+    - name: Deploy in hybrid network - classic
+      href: tutorial-hybrid-portal.md
+    - name: Filter inbound traffic with DNAT - classic
+      href: tutorial-firewall-dnat.md
     - name: Deploy using Azure PowerShell
       href: deploy-ps.md
+    - name: Deploy policy using Azure PowerShell
+      href: deploy-ps-policy.md
     - name: Deploy in hybrid network - PowerShell
       href: tutorial-hybrid-ps.md
     - name: Deploy using Azure CLI

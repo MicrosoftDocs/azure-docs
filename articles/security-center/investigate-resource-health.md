@@ -11,9 +11,15 @@ ms.author: memildin
 ---
 # Tutorial: Investigate the health of your resources
 
+> [!NOTE]
+> The resource health page described in this tutorial is a preview release.
+> 
+> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Pricing:|**Azure Defender for DNS** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)
+
 The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using [Azure Defender](azure-defender.md), you can see outstanding security alerts for that specific resource too.
 
-This single page in Security Center's portal pages shows:
+This single page, currently in preview, in Security Center's portal pages shows:
 
 1. **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
 1. **Applied security feature** - Whether Azure Defender is enabled for the resource.

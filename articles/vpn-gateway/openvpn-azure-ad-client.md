@@ -1,6 +1,7 @@
 ---
-title: 'VPN Gateway: VPN client for P2S OpenVPN protocol connections: Azure AD authentication'
+title: 'Configure VPN clients for P2S OpenVPN protocol connections: Azure AD authentication'
 description: Learn how to configure a VPN client to connect to a virtual network using VPN Gateway Point-to-Site VPN and Azure Active Directory authentication.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
@@ -12,9 +13,9 @@ ms.author: alzam
 ---
 # Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections
 
-This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site, see [About Point-to-Site VPN](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="profile"></a>Working with client profiles
 
@@ -197,9 +198,9 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 
 Split tunneling is configured by default for the VPN client.
 
-### <a name="force-tunnel"></a>How do I direct all traffic to the VPN tunnel (force tunnel)?
+### <a name="forced-tunnel"></a>How do I direct all traffic to the VPN tunnel (forced tunneling)?
 
-You can configure force tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
+You can configure forced tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
 
 > [!NOTE]
 > Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
