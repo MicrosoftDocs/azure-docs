@@ -124,9 +124,9 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:Tenant} | Your tenant short name |  `your-tenant` - from your-tenant.onmicrosoft.com  |
 | {Settings:DeploymentMode}    |  Application Insights deployment mode to use   |  `Production` or `Development`  |
 |  {Settings:DeveloperMode}    | Whether to deploy the policies in Application Insights developer mode      |   `true` or `false`    |
-|  {your_tenant_extensions_appid}   |  App ID of your tenant's storage application   |  01234567-89ab-cdef-0123-456789abcdef  |
-|   {your_tenant_extensions_app_objectid}  | Object ID of your tenant's storage application    | 01234567-89ab-cdef-0123-456789abcdef   |
-|   {your_app_insights_instrumentation_key}  |   Instrumentation key of your app insights instance*  |   01234567-89ab-cdef-0123-456789abcdef |
+|  {Settings:AppInsightsInstrumentationKey}  |  Instrumentation key of your Application Insights instance*   |  `01234567-89ab-cdef-0123-456789abcdef` |
+|  {Settings:IdentityExperienceFrameworkAppId}  | App Id of the IdentityExperienceFramework app configured in your Azure AD B2C tenant  | `01234567-89ab-cdef-0123-456789abcdef`|
+|  {Settings:ProxyIdentityExperienceFrameworkAppId}  |   App Id of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant |   `01234567-89ab-cdef-0123-456789abcdef`|
 |  {your_ui_base_url}   | Endpoint in your app service from where your UI files are served    | `https://yourapp.azurewebsites.net/B2CUI/GetUIPage`   |
 |   {your_app_service_url}  | URL of your app service    |  `https://yourapp.azurewebsites.net`  |
 |   {your-facebook-app-id}  |  App ID of the facebook app you configured for federation with Azure AD B2C   | 000000000000000   |
