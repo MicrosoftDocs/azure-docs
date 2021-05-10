@@ -124,6 +124,7 @@ You'll need to configure a CNAME with your domain provider. Azure DNS is recomme
 Azure uses a TXT record to validate that you own a domain. This is useful when you want to do one of the following...
 
 1. You want to configure a root domain (i.e. `mydomain.com`). Validating that you own the domain is required before you can create an ALIAS record that configures the root domain.
+
 1. You want to transfer a subdomain without downtime. The TXT record validation method allows you to validate that you own the domain, and for static web apps to go through the process of issuing you a certificate for that domain. You can then switch your domain to point to your static web app at any time with a CNAME record.
 
 #### Enter your domain
@@ -220,7 +221,7 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 An ALIAS record maps one domain to another. It is used specifically for root domains (i.e. `mydomain.com`). In this section, you will create an ALIAS record that maps your root domain to the auto-generated URL of your static web app.
 
 > [!IMPORTANT]
-> Your domain provider must support [ALIAS records](https://docs.microsoft.com/azure/dns/dns-alias) or CNAME flattening.
+> Your domain provider must support [ALIAS records](../dns/dns-alias.md) or CNAME flattening.
 
 # [Azure DNS](#tab/azure-dns)
 
@@ -291,5 +292,4 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [!div class="nextstepaction"] > [Configure app settings](application-settings.md)
