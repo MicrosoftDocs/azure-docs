@@ -126,7 +126,7 @@ AzureWebJobsStorage {
     "queueServiceUri": "https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net", 
     "fileServiceUri": "https://<STORAGE_ACCOUNT_NAME>.file.core.windows.net", 
     "tableServiceUri": "https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net", 
-    "credential": "<MANAGED_IDENTITY>"
+    "credential": "managedidentity"
 } 
 ```
 
@@ -134,7 +134,7 @@ When not using a custom DNS or not running in sovereign clouds, the following fo
 ```json
 AzureWebJobsStorage {
     "accountName": "<STORAGE_ACCOUNT_NAME>", 
-    "credential": "<MANAGED_IDENTITY>"
+    "credential": "managedidentity"
 } 
 ```
 
@@ -180,10 +180,6 @@ Example of `local.settings.json` properties required for identity-based connecti
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage" {
-        "accountName": "<STORAGE ACCOUNT NAME>", 
-        "credential": "<MANAGEDIDENTITY>"
-    },
     "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
