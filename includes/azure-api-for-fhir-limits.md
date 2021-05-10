@@ -10,8 +10,6 @@ ms.author: v-stevewohl
 ms.custom: "include file"
 ---
 
-#### Azure API for FHIR service limits
-
 Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning.
 
 | **Quota Name** | **Default Limit**| **Maximum Limit** | **Notes** |
