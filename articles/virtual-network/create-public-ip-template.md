@@ -1,5 +1,6 @@
 ---
 title: Create a public IP using a Resource Manager template
+titleSuffix: Azure Virtual Network
 description: Learn how to create a public IP using a Resource Manager template
 services: virtual-network
 author: asudbring
