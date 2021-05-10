@@ -26,14 +26,11 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 ## Resource types and environments
 
-The following table briefly summarizes how the new **Logic App (Preview)** resource type compares to original **Logic App (Consumption)** resource type. The table also describes how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
+To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
-| Resource type | Host environment | Resource sharing and usage | [Pricing and billing model](logic-apps-pricing.md) | [Limits](logic-apps-limits-and-config.md) |
-|---------------|------------------|----------------------------|----------------------------------------------------|-------------------------------------------|
-| **Logic App (Consumption)** | Multi-tenant | A single logic app can have *only one* workflow. <p><p>Logic apps created by customers *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption (pay-per-use) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-| **Logic App (Consumption)** | Integration service environment <br>(ISE) | A single logic app can have *only one* workflow. <p><p>Logic apps *in the same environment* share the same processing (compute), storage, network, and so on. | ISE (fixed) | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-| **Logic App (Preview)** | Single-tenant <br>(Preview) | A single logic app can have multiple [*stateful* and *stateless*](#stateful-stateless) workflows. <p><p>Workflows *in a single logic app and tenant* share the same processing (compute), storage, network, and so on. | Preview <br>(Premium or App Service hosting plan) <p><p>If you run *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime also makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
-||||||
+The following table briefly summarizes between the new **Logic App (Preview)** resource type and the original **Logic App (Consumption)** resource type. You'll also learn how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
+
+[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="preview-resource-type-introduction"></a>
 
