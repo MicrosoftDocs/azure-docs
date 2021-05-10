@@ -1,6 +1,6 @@
 ---
-title: How to use Azure portal to invoke direct methods
-description: This article is an overview using the Azure portal to invoke direct methods.
+title: How to use Azure portal to invoke Live Video Analytics direct methods
+description: This article is an overview using the Azure portal to invoke Live Video Analytics direct methods.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,7 +16,7 @@ ms.date: 07/24/2020
 ms.author: inhenkel
 ---
 
-# How to use Azure portal to invoke direct methods
+# How to use Azure portal to invoke Live Video Analytics direct methods
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
