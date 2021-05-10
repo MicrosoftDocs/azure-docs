@@ -6,7 +6,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
-ms.author: tyao
+ms.author: victorh
 ---
 
 # Configure an IP restriction rule with a Web Application Firewall for Azure Front Door
