@@ -88,7 +88,7 @@ The following steps demonstrate how to create a new repository for a static web 
       </body>
     </html>
     ```
-    
+
 1. Scroll down and select **Commit new file** to save the file.
 
 ## Create the ARM Template
@@ -235,32 +235,32 @@ You need either Azure CLI or Azure PowerShell to deploy the template.
 
 To deploy a template sign in to either the Azure CLI or Azure PowerShell.
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az login
 ```
 
----
-
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+Connect-AzAccount
 ```
+
+---
+
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
 ```
 
 ---
@@ -272,16 +272,6 @@ When you deploy a template, you specify a resource group that contains related r
 > [!NOTE]
 > The CLI examples in this article are written for the Bash shell.
 
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$resourceGroupName = "myfirstswadeployRG"
-
-New-AzResourceGroup `
-  -Name $resourceGroupName `
-  -Location "Central US"
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -292,11 +282,35 @@ az group create \
   --location "Central US"
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName = "myfirstswadeployRG"
+
+New-AzResourceGroup `
+  -Name $resourceGroupName `
+  -Location "Central US"
+```
+
 ---
 
 ## Deploy template
 
 Use one of these deployment options to deploy the template.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az deployment group create \
+  --name DeployLocalTemplate \
+  --resource-group $resourceGroupName \
+  --template-file <PATH-TO-AZUREDEPLOY.JSON> \
+  --parameters <PATH-TO-AZUREDEPLOY.PARAMETERS.JSON> \
+  --verbose
+```
+
+To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -314,22 +328,10 @@ New-AzResourceGroupDeployment `
 
 To learn more about deploying templates using Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-
-az deployment group create \
-  --name DeployLocalTemplate \
-  --resource-group $resourceGroupName \
-  --template-file <PATH-TO-AZUREDEPLOY.JSON> \
-  --parameters <PATH-TO-AZUREDEPLOY.PARAMETERS.JSON> \
-  --verbose
-```
-
-To learn more about deploying templates using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
-
 ---
+
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+
 ## Clean up resources
 
 Clean up the resources you deployed by deleting the resource group.
