@@ -26,7 +26,7 @@ az group create --name $ResourceGroupName --location $Location
 az deployment group create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Creating a resource using Powershell
+Creating a resource using PowerShell
 
 ```powershell
 $ResourceGroupName="sfclustergroup"
@@ -88,7 +88,7 @@ microservices_sfpkg.close()
 
 ## Azure Virtual Machine Operating System Automatic Upgrade Configuration
 
-Upgrading your virtual machines is a user initiated operation, and it is recommended that you [enable virtual machine scale set automatic image upgrades](how-to-patch-cluster-nodes-windows.md) for your Service Fabric cluster node patch management. Patch Orchestration Application (POA) is an alternative solution that is intended for non-Azure hosted clusters. Although POA can be used in Azure, hosting it requires significantly more management than simply enabling scale set automatic OS image upgrades. The following are the virtual machine scale set Resource Manager template properties to enable automtic OS upgrades:
+Upgrading your virtual machines is a user initiated operation, and it is recommended that you [enable virtual machine scale set automatic image upgrades](how-to-patch-cluster-nodes-windows.md) for your Service Fabric cluster node patch management. Patch Orchestration Application (POA) is an alternative solution that is intended for non-Azure hosted clusters. Although POA can be used in Azure, hosting it requires more management than simply enabling scale set automatic OS image upgrades. The following are the virtual machine scale set Resource Manager template properties to enable automtic OS upgrades:
 
 ```json
 "upgradePolicy": {
@@ -99,11 +99,11 @@ Upgrading your virtual machines is a user initiated operation, and it is recomme
     }
 },
 ```
-When using automatic OS upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher.
+When using automatic OS upgrades with Service Fabric, the new OS image is rolled out one Update Domain at a time to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric, your cluster must be configured to use the Silver Durability Tier or higher.
 
 Ensure the following registry key is set to false to prevent your windows host machines from initiating uncoordinated updates: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-The following are the virtual machine scale set Resource Manager template properties to set the WindowsUpdate registry key to false:
+Set the following virtual machine scale set template properties to disable Windows Update:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -117,11 +117,14 @@ The following are the virtual machine scale set Resource Manager template proper
 ```
 
 ## Azure Service Fabric Cluster Upgrade Configuration
-The following is the Service Fabric cluster Resource Manager template property to enable automatic upgrade:
+The following is the Service Fabric cluster template property to enable automatic upgrade:
+
 ```json
 "upgradeMode": "Automatic",
 ```
+
 To manually upgrade your cluster, download the cab/deb distribution to a cluster virtual machine, and then invoke the following PowerShell:
+
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
