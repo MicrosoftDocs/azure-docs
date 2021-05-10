@@ -200,6 +200,8 @@
   items:
     - name: Develop and connect devices
       items:
+        - name: Create an application
+          href: core/howto-create-iot-central-application.md
         - name: Set up a device template
           href: core/howto-set-up-template.md
         - name: Version device template
@@ -250,6 +252,14 @@
           href: core/howto-build-iotc-device-bridge.md
         - name: Connect your application with Dynamics 365 Field Services
           href: government/how-to-configure-connected-field-services.md
+    - name: Use the REST API
+      items:
+        - name: Authenticate and authorize REST API calls
+          href: core/howto-authorize-rest-api.md
+        - name: Manage users and roles
+          href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Control devices
+          href: core/howto-control-devices-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Add and remove devices
