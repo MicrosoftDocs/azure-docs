@@ -1,12 +1,12 @@
 ---
-title: HTTP extension protocol - Azure
-description: In this article, you will learn about using HTTP extension protocol to send messages between Live Video Analytics module and your AI or CV module.
+title: HTTP extension protocol in Live Video Analytics- Azure
+description: In this article, you will learn about using HTTP extension protocol to send messages between Azure Live Video Analytics module and your AI or CV module.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# HTTP extension protocol
+# HTTP extension protocol in Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
