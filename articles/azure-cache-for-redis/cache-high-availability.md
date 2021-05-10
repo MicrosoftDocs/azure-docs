@@ -36,7 +36,7 @@ If the primary node in a Redis cache is unavailable, the replica will promote it
 A primary node can go out of service as part of a planned maintenance activity such as Redis software or operating system update. It also can stop working because of unplanned events such as failures in underlying hardware, software, or network. [Failover and patching for Azure Cache for Redis](cache-failover.md) provides a detailed explanation on types of Redis failovers. An Azure Cache for Redis will go through many failovers during its lifetime. The high availability architecture is designed to make these changes inside a cache as transparent to its clients as possible.
 
 >[!NOTE]
->Additional replica nodes in the Premium tier are available as a preview.
+>The following is available as a preview.
 >
 >
 
@@ -49,7 +49,7 @@ Azure Cache for Redis supports zone redundant configurations in the Premium and 
 ### Premium tier
 
 >[!NOTE]
->Zone redundant configuration for the Premium tier is available as a preview.
+>This is available as a preview.
 >
 >
 
@@ -85,7 +85,7 @@ Geo-replication doesn't provide automatic failover due to concerns over added ne
 ### Enterprise tiers
 
 >[!NOTE]
->Active geo-replication in the Enterprise tier is available as a preview.
+>This is available as a preview.
 >
 >
 
