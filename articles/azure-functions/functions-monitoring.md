@@ -16,6 +16,9 @@ Application Insights collects log, performance, and error data. By automatically
 
 As Application Insights instrumentation is built into Azure Functions, you need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key is added to your application settings as you create your function app resource in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
 
+> [!IMPORTANT]
+National Clouds such as Azure Government require the use of the [Application Insights connection string](../azure-monitor/app/sdk-connection-string.md) instead of the instrumenation key.
+
 ## Application Insights pricing and limits
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
@@ -30,6 +33,8 @@ The full list of Application Insights features available to your function app is
 ## Application Insights integration
 
 Typically, you create an Application Insights instance when you create your function app. In this case, the instrumentation key required for the integration is already set as an application setting named *APPINSIGHTS_INSTRUMENTATIONKEY*. If for some reason your function app doesn't have the instrumentation key set, you need to [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).  
+
+National Clouds such as Azure Government require the use of the [Application Insights connection string](../azure-monitor/app/sdk-connection-string.md) instead of the instrumenation key. The application setting is named *APPLICATIONINSIGHTS_CONNECTION_STRING*.
 
 ## Collecting telemetry data
 
