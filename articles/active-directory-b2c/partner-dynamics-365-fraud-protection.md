@@ -105,6 +105,15 @@ Configure the application settings in the [App service in Azure](../app-service/
 
 ## Azure AD B2C configuration
 
+### Add policy keys for your DFP client app ID and secret
+
+1. In the Azure AD tenant where Microsoft DFP is setup, create an [Azure AD application and grant admin consent](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications). 
+2. Create a secret value for this application registration and note the application's client ID and client secret value.
+3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/policy-keys-overview).
+
+>[!NOTE]
+>The policy keys will be needed to configure your Azure AD B2C policies. 
+
 ### Replace the configuration values
 
 In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies), find the following placeholders and replace them with the corresponding values from your instance.
