@@ -98,7 +98,7 @@ ms.author: lajanuar
 |Yucatec Maya | `yua` |
 |Zhuang | `za` |
 |Zulu  | `zu` |
-||||
+|||
 
 ### [v2.0](#tab/v2-0)
 
@@ -142,6 +142,8 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 
 ## Prebuilt invoice
 
+### [v2.1](#tab/v2-1)
+
 Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
@@ -155,8 +157,12 @@ Language| Locale code |
 
 ## Prebuilt identity documents
 
+### [v2.1](#tab/v2-1)
+
 > [!NOTE]
 > This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
+
+### [v2.0](#tab/v2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
