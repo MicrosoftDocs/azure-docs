@@ -1,5 +1,5 @@
 ---
-title: Continuous video recording to the cloud and playback from the cloud with Live Video Analytics - Azure
+title: Continuous video recording and playback to/from the cloud - Azure
 description: In this tutorial, you learn how to use Azure Live Video Analytics on Azure IoT Edge to continuously record video to the cloud and stream any portion of that video by using Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
