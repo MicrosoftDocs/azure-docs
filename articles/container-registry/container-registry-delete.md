@@ -203,11 +203,11 @@ Azure Container Registry provides the following automated methods to remove tags
 
 * Create an  ACR task that runs the `acr purge` container command to delete all tags that are older than a certain duration or match a specified name filter. Optionally configure `acr purge` to delete untagged manifests. 
 
-  For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
+  The `acr purge` container command is currently in preview. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
 * Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period. 
 
-  The retention policy is currently a preview feature of **Premium** container registries. The retention policy applies to untagged manifests created after the policy takes effect. 
+  The retention policy is currently a preview feature of **Premium** container registries. The retention policy only applies to untagged manifests created after the policy takes effect. 
 
 ## Next steps
 
