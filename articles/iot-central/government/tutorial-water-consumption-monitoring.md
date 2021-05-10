@@ -25,11 +25,6 @@ In this tutorial, you will learn how to:
 > * Configure jobs.
 > * Customize your application branding by using white labeling.
 
-## Prerequisites
-
-To complete this tutorial, you need:
-
-An Azure subscription. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Create a water consumption monitoring app with Azure IoT Central
 
@@ -83,7 +78,7 @@ After you create the application, the sample **Wide World water consumption dash
  :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard":::
 
 
-You can create and customize views on the dashboard for operators. Let's explore the dashboard before you try to customize it.
+You can create and customize views on the dashboard for operators.
 
 > [!NOTE]
 > All data displayed on the dashboard is based on simulated device data, which you will explore in the next section.
@@ -100,7 +95,7 @@ The dashboard consists of different kinds of tiles:
 
 * **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
 * **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
-* **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. We'll explore this option later in the [Configure jobs](../government/tutorial-water-consumption-monitoring.md#configure-jobs) section of this tutorial.
+* **Reset alert thresholds content tile**: You can include call-to-action content tiles and embed a link to an action page. In this case, the reset alert threshold takes you to the application **Jobs**, where you can run updates to device properties. You'll explore this option later in the [Configure jobs](../government/tutorial-water-consumption-monitoring.md#configure-jobs) section of this tutorial.
 * **Property tiles**: The dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** tiles.
 
 ### Customize the dashboard
@@ -236,7 +231,7 @@ Within a few minutes, you'll receive an email after the configured condition is 
   
 To create a new rule:
 
-1. Select **+ New** on the **Rules** tab on the left pane.
+To create a new rule, select **+ New** on the **Rules** tab on the left pane.
 
 ## Configure jobs
 
@@ -269,8 +264,5 @@ If you're not going to continue to use this application, delete it.
 1. Select **Application settings**, and then select **Delete** at the bottom of the page.
 
 ## Next steps
-
-* Learn more about 
-
-> [!div class="nextstepaction"]
-> [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).
+ 
+The suggested next step is to learn about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).
