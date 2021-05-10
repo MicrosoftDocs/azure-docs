@@ -246,13 +246,7 @@ Next, add the following build details.
 
 1. Click the **Go to Resource** button to take you to the web app's _Overview_ page.
 
-    As the app is being built in the background, you can click on the banner which contains a link to view the build status.
-
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="GitHub Workflow":::
-
-1. Once the deployment is complete, you can navigate to the web app, by clicking on the _URL_ link shown on the _Overview_ page.
-
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from the Azure portal":::
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## Clean up resources
 
