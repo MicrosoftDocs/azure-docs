@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -29,6 +29,10 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manag
 
 > [!NOTE]
 > Users or members of a group assigned to the Owner or User Access Administrator subscription roles, and Azure AD Global administrators that enable subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management for Azure resources. A user can't manage Privileged Identity Management for Resources without Resource administrator permissions. View the list of [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+## Attribute-based access control
+
+You can create Azure attribute-based access control (Azure ABAC) conditions when you create eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. PIM-based role assignments are time-limited and require your users to provide justification for access. Using Azure attribute-based access control conditions in PIM enables you to not only limit a user’s access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on.
 
 ## Assign a role
 
