@@ -294,6 +294,8 @@ To view and reuse some samples of standard custom setups, complete the following
       * A *MYSQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the MySQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC connectors (Connection Manager, Source, and Destination) to connect to the MySQL server. 
      
         First, [download the latest 64-bit and 32-bit versions of the MySQL ODBC driver installers](https://dev.mysql.com/downloads/connector/odbc/) (for example, *mysql-connector-odbc-8.0.13-winx64.msi* and *mysql-connector-odbc-8.0.13-win32.msi*), and then upload them all together with *main.cmd* to your blob container.
+        
+        If Data Source Name (DSN) is used in connection, DSN configuration is needed in setup script. For example: C:\Windows\SysWOW64\odbcconf.exe /A {CONFIGSYSDSN "MySQL ODBC 8.0 Unicode Driver" "DSN=\<dsnname\>|PORT=3306|SERVER=\<servername\>"}
 
       * An *ORACLE ENTERPRISE* folder, which contains a custom setup script (*main.cmd*) and silent installation config file (*client.rsp*) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination to connect to the Oracle server. 
       
