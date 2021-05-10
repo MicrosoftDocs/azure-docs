@@ -31,6 +31,9 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - A mock authentication and authorization server
 - Local routes and configuration settings enforcement
 
+> [!NOTE]
+> The Azure Static Web Apps CLI is currently a preview feature.
+
 ## How it works
 
 The following chart shows how requests are handled locally.
