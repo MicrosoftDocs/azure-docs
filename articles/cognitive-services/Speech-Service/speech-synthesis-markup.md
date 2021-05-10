@@ -368,6 +368,62 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 </speak>
 ```
 
+## Adjust speaking languages
+
+> [!IMPORTANT]
+>  You can only adjust speaking languages for neural voices.
+>  Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
+>  Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+
+**Syntax**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `lang` | Specifies the speaking languages. Currently, speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+
+Use this table to determine which speaking languages are supported for each neural voice.
+
+| Voice                            | Locale language           | Description                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | Speak en-US locale, which is the primary locale of this voice |
+|                                  | `lang="en-ca"`            | Speak en-CA locale language                                  |
+|                                  | `lang="en-au"`            | Speak en-AU locale language                                  |
+|                                  | `lang="en-gb"`            | Speak en-GB locale language                                  |
+|                                  | `lang="de-de"`            | Speak de-DE locale language                                  |
+|                                  | `lang="fr-fr"`            | Speak fr-FR locale language                                  |
+|                                  | `lang="fr-ca"`            | Speak fr-CA locale language                                  |
+|                                  | `lang="es-es"`            | Speak es-ES locale language                                  |
+|                                  | `lang="es-mx"`            | Speak es-MX locale language                                  |
+|                                  | `lang="zh-cn"`            | Speak zh-CN locale language                                  |
+|                                  | `lang="ko-kr"`            | Speak ko-KR locale language                                  |
+|                                  | `lang="ja-jp"`            | Speak ja-JP locale language                                  |
+|                                  | `lang="it-it"`            | Speak it-IT locale language                                  |
+|                                  | `lang="pt-br"`            | Speak pt-BR locale language                                  |
+
+**Example**
+This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX` and `de-DE`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-mx">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-de">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
+    </voice>
+</speak>
+```
+
 ## Add or remove a break/pause
 
 Use the `break` element to insert pauses (or breaks) between words, or prevent pauses automatically added by the text-to-speech service.
