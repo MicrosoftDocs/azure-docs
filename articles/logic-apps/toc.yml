@@ -65,11 +65,11 @@
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
-  - name: Preview for single-tenant Azure Logic Apps
+  - name: Preview - Single-tenant Azure Logic Apps
     items:
-    - name: Create stateful and stateless workflows - Azure portal
+    - name: Create preview single-tenant logic apps - Portal
       href: create-stateful-stateless-workflows-azure-portal.md
-    - name: Create stateful and stateless workflows - Visual Studio Code
+    - name: Create preview single-tenant logic apps - Visual Studio Code
       href: create-stateful-stateless-workflows-visual-studio-code.md
   - name: Develop
     items:
