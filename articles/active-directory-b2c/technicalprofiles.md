@@ -479,7 +479,8 @@ The following example illustrates the use of the inclusion:
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
-       <Metadata>
+      <DisplayName>Update the user profile</DisplayName>  
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/update</Item>
       </Metadata>
       <InputClaims>
