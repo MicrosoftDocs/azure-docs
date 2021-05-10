@@ -46,8 +46,6 @@
       href: ../connectors/built-in.md
   - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
-  - name: About single-tenant Azure Logic Apps Preview
-    href: logic-apps-overview-preview.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
@@ -67,9 +65,11 @@
   items:
   - name: Single-tenant Azure Logic Apps (Preview)
     items:
-    - name: Create preview single-tenant logic apps - Portal
+    - name: Single-tenant overview (Preview)
+      href: logic-apps-overview-preview.md
+    - name: Create preview logic apps - Portal
       href: create-stateful-stateless-workflows-azure-portal.md
-    - name: Create preview single-tenant logic apps - Visual Studio Code
+    - name: Create preview logic apps - Visual Studio Code
       href: create-stateful-stateless-workflows-visual-studio-code.md
   - name: Develop
     items:
