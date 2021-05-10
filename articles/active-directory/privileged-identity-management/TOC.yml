@@ -19,7 +19,7 @@
   - name: Email notifications
     href: pim-email-notifications.md
   - name: PIM API concepts
-    href: pim-apis-concept".md  
+    href: pim-apis-concept.md  
   - name: Microsoft Graph API and PIM
     href: pim-apis.md
 - name: How-to guides
