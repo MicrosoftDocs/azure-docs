@@ -23,10 +23,12 @@ Cascade 500 IoT gateway is a hardware offering from Rigado that is included as p
 Cascade 500 is certified for Azure IoT Plug and Play and allows you to easily onboard the device into your end to end solutions. The Cascade gateway allows you to wirelessly connect to a variety of condition monitoring sensors that are in proximity to the gateway device. These sensors can be onboarded into IoT Central via the gateway device.
 
 ## Prerequisites
-To step through this how-to guide, you need the following resources:
 
-* A Rigado Cascade 500 device. For more information, please visit [Rigado](https://www.rigado.com/).
-* An Azure IoT Central application. For more information, see the [create a new application](./quick-deploy-iot-central.md).
+To complete the steps in this how-to guide, you need:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+- A Rigado Cascade 500 device. For more information, please visit [Rigado](https://www.rigado.com/).
 
 ## Add a device template
 
