@@ -70,13 +70,13 @@ On the **Overview** tab you can see:
 #### Usage dashboard
 
 This tab provides information on the workspace's usage. 
-The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 most ingested tables in the selected time range (same tables displayed in the Overview page). You can choose which tables to display through the Worksace Tables dropdown. 
+The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 most ingested tables in the selected time range (same tables displayed in the Overview page). You can choose which tables to display through the Workspace Tables dropdown. 
 
 [![Screenshot of the workspace usage tab](./media/log-analytics-workspace-insights-overview/workspace-usage.png)](./media/log-analytics-workspace-insights-overview/workspace-usage.png#lightbox)
 
 * Main grid - here you can see tables grouped by solutions, and information about each table"
     - How much data was ingested to it (during the selected time range)
-    - The percentage this table takes, from the entire ingestion volume (during the selected time range). That helps identify the tables that affect your inegstion the most. In the below screenshot you can see AzureDiagnostics and ContainerLog alone stand for over 2 thirds (64%) of the data ingested to this workspace.
+    - The percentage this table takes, from the entire ingestion volume (during the selected time range). That helps identify the tables that affect your ingestion the most. In the below screenshot you can see AzureDiagnostics and ContainerLog alone stand for over 2 thirds (64%) of the data ingested to this workspace.
     - When was the last update of usage statistics regarding each table - we normally expect usage stats to refresh hourly. Since refreshing usage statistics is a recurrent service-internal operation, a delay in refreshing that data is only noted so you would know to interpret the data correctly. There is no action you (as a user) should take.
     - Billable - indicates which tables are billed for, and which are free.
 
@@ -84,7 +84,7 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
 
     On the bottom of the page, you can see detailed information on the table selected in the main grid.
     - Ingestion volume - how much data was ingested to the table from each resource, and how it spreads over time. Resources ingesting over 30% of the total volume sent to this table are marked with a warning sign, for you to take note of.
-    - Ingestion latency - how much time ingestion took, analyzed for the 50th, 90th or 95th percentiles of requests sent to this table. The top chart in this area depicts the total ingestion time of the reqeusts (for the selected percentile) from end to end - from the time the event occured, and until it was ingested to the workspace.
+    - Ingestion latency - how much time ingestion took, analyzed for the 50th, 90th or 95th percentiles of requests sent to this table. The top chart in this area depicts the total ingestion time of the requests (for the selected percentile) from end to end - from the time the event occurred, and until it was ingested to the workspace.
     The chart below it shows separately the latency of the agent (the time it took the agent to send the log to the workspace) and that of the pipeline (the time it took the service to process the data and push it to the workspace).
     [![Screenshot of the workspace usage tab](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png#lightbox)
 
@@ -113,7 +113,7 @@ This tab provides information on the agents sending logs to this workspace.
 [![Screenshot of the workspae agents tab](./media/log-analytics-workspace-insights-overview/workspace-agents.png)](./media/log-analytics-workspace-insights-overview/workspace-agents.png#lightbox)
 
 * Operation errors and warnings - these are errors and warning related specifically to agents. They are grouped by the error/warning title to help you get a clearer view of different issues that may occur, but can be expanded to show the exact times and resources they refer to. Also note you can click 'Run query in Logs' to query the _LogOperation table through the Logs experience, see the raw data and analyze if further.
-* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents are marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below gris.
+* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents are marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
 * Agents activity - this grid shows information on either all agents, healthy or unhealthy agents. Here too "Healthy" only indicated the agent send a heartbeat during the last hour. To understand its state better, review the trend shown in the grid - it shows how many heartbeats this agent sent over time. The true health state can only be inferred if you know how the monitored resource operates, for example - If a computer is intentionally shut down at particular times, you can expect the agent's heartbeats to appear intermittenly, in a matching pattern.
 
 
