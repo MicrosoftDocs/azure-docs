@@ -233,7 +233,7 @@ You can assign a node to use a different node configuration than the one you ini
 
 ## Unregister a node
 
-If you no longer want a node to be managed by State Configuration, you can unregister it. See [How to remove a configuration and node from Automation State Configuration](./how-to/remove-desired-state-configuration-package.md).
+If you no longer want a node to be managed by State Configuration, you can unregister it. See [How to remove a configuration and node from Automation State Configuration](./state-configuration/remove-node-and-configuration-package.md).
 
 ## Next steps
 
