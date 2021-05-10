@@ -89,6 +89,6 @@ dpkg -P <package name>
 
  ## Next steps
 
-- If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](../tutorial-configure-servers-desired-state#register-a-vm-to-be-managed-by-state-configuration).
+- If you want to re-register the node, or register a new one, see [Register a VM to be managed by State Configuration](../tutorial-configure-servers-desired-state.md#register-a-vm-to-be-managed-by-state-configuration).
 
-- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](../automation-dsc-compile).
+- If you want to add the configuration back and recompile, see [Compile DSC configurations in Azure Automation State Configuration](../automation-dsc-compile.md).
