@@ -15,7 +15,7 @@ ms.date: 05/10/2021
 
 ## False positive causes and prevention
 
-Even in a correctly built detection rule, false positives often stem from specific entities like users or IP addresses that should be excluded from the rule.
+Even in a correctly built analytics rule, false positives often stem from specific entities like users or IP addresses that should be excluded from the rule.
 
 Common scenarios include:
 
