@@ -92,7 +92,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 9. Click **Add**.
 
-10. Review the permissions.
+10. Review the permissions. If you need the JSON text of permissions, before you **Click Review and create**, you can click the **JSON** tab and get the JSON file.
 
 11. Click **Review and create**.
 
