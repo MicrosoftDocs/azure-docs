@@ -41,7 +41,7 @@ For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServic
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 > [!NOTE]
@@ -51,7 +51,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2
+sudo apt-get install build-essential libssl1.0.2 libasound2 wget
 ```
 
 > [!NOTE]
@@ -61,7 +61,8 @@ sudo apt-get install build-essential libssl1.0.2 libasound2
 
 ```Bash
 sudo yum update
-sudo yum install alsa-lib openssl
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib openssl wget
 ```
 
 > [!IMPORTANT]
