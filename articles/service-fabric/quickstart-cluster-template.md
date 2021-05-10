@@ -2,11 +2,13 @@
 title: Create a Service Fabric cluster using Azure Resource Manager template
 description: In this quickstart, you will create an Azure Service Fabric test cluster by using Azure Resource Manager template.
 author: erikadoyle
-ms.service: service-fabric
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
+ms.topic: quickstart
+ms.service: service-fabric
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create a Service Fabric cluster using ARM template

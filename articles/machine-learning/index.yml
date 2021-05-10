@@ -28,10 +28,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started with Python scripts
-            url: tutorial-1st-experiment-sdk-setup-local.md
-          - text: Get started with Jupyter notebooks (Python)
-            url: tutorial-1st-experiment-sdk-setup.md
+          - text: Get started with Azure Machine Learning
+            url: quickstart-create-resources.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
 
@@ -63,7 +61,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Deploy your model to the cloud
-          url: how-to-deploy-existing-model.md  
+          url: how-to-deploy-and-where.md  
         - text: Track MLflow models
           url: how-to-use-mlflow.md
  
@@ -85,7 +83,7 @@ landingContent:
           - text: REST API
             url: /rest/api/azureml/
           - text: Machine learning CLI
-            url: /cli/azure/ext/azure-cli-ml/ml
+            url: /cli/azure/ml
 
   # Studio (classic) catchall
   - title: 'Looking for Studio (classic)'

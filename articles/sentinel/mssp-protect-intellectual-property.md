@@ -59,7 +59,7 @@ In this image:
 
     This allows MSSPs to hide Azure Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
-For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
+For more information, also see the [Azure Lighthouse documentation](../lighthouse/concepts/cloud-solution-provider.md).
 
 ## Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 
@@ -123,7 +123,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/visualize/powerbi).
+For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md).
 
 ### Playbooks
 

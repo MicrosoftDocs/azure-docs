@@ -157,9 +157,9 @@ If you need additional troubleshooting data, you can [view the Kubernetes master
 
 <!-- INTERNAL LINKS -->
 [aks-windows-cli]: windows-container-cli.md
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-vm-delete]: /cli/azure/vm#az-vm-delete
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-vm-delete]: /cli/azure/vm#az_vm_delete
 [azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ssh-steps]: ssh.md

@@ -76,5 +76,5 @@ For general information about working with settings in VS Code, refer to [User a
 
 ## Next steps
 
-- For information about Azure HDInsight for VSCode, see [Spark & Hive for Visual Studio Code Tools](https://docs.microsoft.com/sql/big-data-cluster/spark-hive-tools-vscode).
+- For information about Azure HDInsight for VSCode, see [Spark & Hive for Visual Studio Code Tools](/sql/big-data-cluster/spark-hive-tools-vscode).
 - For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

@@ -5,11 +5,9 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt
-
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
 # Preview: Orchestration modes for virtual machine scale sets in Azure 
@@ -162,7 +160,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### Azure CLI 2.0 
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD

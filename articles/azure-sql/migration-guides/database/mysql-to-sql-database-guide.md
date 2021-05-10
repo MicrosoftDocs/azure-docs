@@ -5,7 +5,7 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
@@ -16,7 +16,7 @@ ms.date: 03/19/2021
 
 In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your MySQL database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for MySQL (SSMA for MySQL). 
 
-For other migration guides, see [Azure Database Migration Guide](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
 ## Prerequisites
 
@@ -175,4 +175,3 @@ The Data SQL Engineering team developed these resources. This team's core charte
 - For migration videos, see [Overview of the migration journey and recommended migration and assessment tools and services](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
 
 - For more [cloud migration resources](https://azure.microsoft.com/migration/resources/), see [cloud migration solutions](https://azure.microsoft.com/migration).
-
