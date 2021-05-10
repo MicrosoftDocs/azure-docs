@@ -83,6 +83,12 @@ for env in envs:
 > [!WARNING]
 >  Don't start your own environment name with the _AzureML_ prefix. This prefix is reserved for curated environments.
 
+To customize a curated environment, clone and rename the environment. 
+```python 
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+curated_clone = env.clone("customize_curated")
+```
+
 ### Use Conda dependencies or pip requirements files
 
 You can create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want. 
