@@ -56,40 +56,19 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 > Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
 ## Create a GitHub repo
 
-The following steps demonstrate how to create a new repository for a static web app.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
 
-> [!NOTE]
-> If you want to use an existing code repository you can skip this section.
+1. Navigate to the following location to create a new repository:
+    1. [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate)
 
-1. Log on to [GitHub](https://github.com) using your GitHub account credentials.
+1. Name your repository **myfirstswadeployment**
 
-1. Create a new repository named **myfirstswadeployment**.
+    > [!NOTE]
+    > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
-1. Define your GitHub repo as **Public**.
+1. Select **Create repository from template**.
 
-1. Select the checkbox next to **Add a Readme file**.
-
-1. Select **Create repository**.
-
-1. Once the repository is created, select **Add file**.
-
-1. Select **Create New file** and provide **index.html** as file name.
-
-1. Paste the following snippet of code in the **Edit new file** pane
-
-    ```html
-    <!doctype html>
-    <html>
-      <head>
-        <title>Hello World!</title>
-      </head>
-      <body>
-        <h1>Hello World!</h1>
-      </body>
-    </html>
-    ```
-
-1. Scroll down and select **Commit new file** to save the file.
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository from template":::
 
 ## Create the ARM Template
 
