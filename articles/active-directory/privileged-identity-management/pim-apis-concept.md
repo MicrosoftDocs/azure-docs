@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Understand the Privileged Identity Management APIs
 
-You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager (ARM) API for Azure resource roles (sometimes called Azure RBAC roles). This article describes important concepts for using the APIs for Privileged Identity Management.
+You can perform Privileged Identity Management (PIM) tasks using the Microsoft Graph APIs for Azure Active Directory (Azure AD) roles and the Azure Resource Manager API for Azure resource roles (sometimes called Azure RBAC roles). This article describes important concepts for using the APIs for Privileged Identity Management.
 
-For request ond other details about PIM APIs, check out:
+For requests and other details about PIM APIs, check out:
 
 - PIM for Azure AD roles API reference
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
@@ -39,9 +39,9 @@ Under the /beta/privilegedRoles endpoint, Microsoft had a classic version of the
 
 Under the /beta/privilegedAccess endpoint, Microsoft supported both /aadRoles and /azureResources. This endpoint is still available in your tenant but Microsoft recommends against starting any new development with this API. This beta API will never be released to general availability and will be eventually deprecated.
 
-### Current iteration – Azure AD roles in Microsoft Graph and Azure resource roles in ARM
+### Current iteration – Azure AD roles in Microsoft Graph and Azure resource roles in Azure Resource Manager
 
-Now in beta, Microsoft has the final iteration of the PIM API before we release the API to general availability. Based on customer feedback, the Azure AD PIM API is now under the unifiedRoleManagement set of API and the Azure Resource PIM API is now under the Azure ARM role assignment API. These locations also provide a few additional benefits including:
+Now in beta, Microsoft has the final iteration of the PIM API before we release the API to general availability. Based on customer feedback, the Azure AD PIM API is now under the unifiedRoleManagement set of API and the Azure Resource PIM API is now under the Azure Resource Manager role assignment API. These locations also provide a few additional benefits including:
 
 - Alignment of the PIM API for regular role assignment API for both Azure AD roles and Azure Resource roles.
 - Reducing the need to call additional PIM API to onboard a resource, get a resource, or get role definition.
@@ -63,7 +63,7 @@ In the current iteration, there is *no API support* for PIM alerts and privilege
 
 - Azure resource roles
 
-  The PIM API for Azure resource roles is developed on top of the ARM framework. You will need to give consent to Azure Resource Management but won’t need any graph permission. You will also need to make sure the user or the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
+  The PIM API for Azure resource roles is developed on top of the Azure Resource Manager framework. You will need to give consent to Azure Resource Management but won’t need any graph permission. You will also need to make sure the user or the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
 
 ## Calling PIM API with an app-only token
 
