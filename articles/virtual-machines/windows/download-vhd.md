@@ -17,7 +17,7 @@ In this article, you learn how to download a Windows virtual hard disk (VHD) fil
 
 ## Optional: Generalize the VM
 
-If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. 
+If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. Otherwise, you will have to make a copy the disk for each VM you want to create.
 
 To use the VHD as an image to create other VMs, generalize the VM.
 
@@ -28,15 +28,33 @@ To use the VHD as an image to create other VMs, generalize the VM.
 5. In the System Preparation Tool dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that **Generalize** is selected.
 6. In Shutdown Options, select **Shutdown**, and then click **OK**. 
 
+If you don't want to generalize your current VM, you can still create a generalized image by first [making a snapshot of the OS disk](#alternative-snapshot-the-vm-disk), creating a new VM from the snapshot, and then generalizing the copy.
 
 ## Stop the VM
 
-A VHD can’t be downloaded from Azure if it's attached to a running VM. You need to stop the VM to download a VHD. 
+A VHD can’t be downloaded from Azure if it's attached to a running VM. If you want to keep the VM running, you can [create a snapshot and then download the snapshot](#alternative-snapshot-the-vm-disk).
 
 1. On the Hub menu in the Azure portal, click **Virtual Machines**.
 1. Select the VM from the list.
 1. On the blade for the VM, click **Stop**.
 
+### Alternative: Snapshot the VM disk
+
+Take a snapshot of the disk to download.
+
+1. Select the VM in the [portal](https://portal.azure.com).
+2. Select **Disks** in the left menu and then select the disk you want to snapshot. The details of the disk will be displayed.  
+3. Select **Create Snapshot** from the menu at the top of the page. The **Create snapshot** page will open.
+4. In **Name**, type a name for the snapshot. 
+5. For **Snapshot type**, select **Full** or **Incremental**.
+6. When you are done, select **Review + create**.
+
+Your snapshot will be created shortly, and may then be used to download or create another VM from.
+
+> [!NOTE]
+> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
+>  
+> This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 
 ## Generate download URL
 
@@ -45,11 +63,11 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 1. On the page for the VM, click **Disks** in the left menu.
 1. Select the operating system disk for the VM.
 1. On the page for the disk, select **Disk Export** from the left menu.
-1. The default expiration time of the URL is *3600* seconds. Increase this to **36000** for Windows OS disks.
+1. The default expiration time of the URL is *3600* seconds (one hour). You may need to increase this for Windows OS disks or large data disks. **36000** seconds (10 hours) is usually sufficient.
 1. Click **Generate URL**.
 
 > [!NOTE]
-> The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. You can expect a VHD file that contains the Windows Server operating system to take several hours to download depending on your connection. If you are downloading a VHD for a data disk, the default time is sufficient. 
+> The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM. 
 > 
 > 
 

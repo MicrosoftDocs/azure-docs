@@ -24,11 +24,6 @@ Use the identity registry when you need to:
 * Provision devices or modules that connect to your IoT hub.
 * Control per-device/per-module access to your hub's device or module-facing endpoints.
 
-> [!NOTE]
-> * The identity registry does not contain any application-specific metadata.
-> * Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
->
-
 ## Identity registry operations
 
 The IoT Hub identity registry exposes the following operations:
@@ -97,7 +92,7 @@ A more complex implementation could include the information from [Azure Monitor]
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when an identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents* or *ModuleLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. The notification message includes properties, and body.
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events will be sent for both device identities and module identities; however, the message contents will differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  The notification message includes properties, and body.
 
 Properties: Message system properties are prefixed with the `$` symbol.
 

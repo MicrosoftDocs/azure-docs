@@ -89,7 +89,7 @@ To configure the agent to authenticate using a module identity connection string
 
 To authenticate using a certificate:
 
-1. Procure a certificate by following [these instructions](../iot-hub/iot-hub-security-x509-get-started.md).
+1. Procure a certificate by following [these instructions](../iot-hub/tutorial-x509-scripts.md).
 
 1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`. 
 

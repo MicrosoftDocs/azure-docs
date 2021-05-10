@@ -20,6 +20,9 @@ Complete the Azure Percept DK setup experience to configure your dev kit and dep
 
 If you experience any issues during this process, refer to the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for possible solutions.
 
+> [!TIP]
+> You can return to the setup experience at any time to reinitialize your dev kit for things like connecting to a new wi-fi network, creating a new SSH user, and reconnecting to IoT Hub.
+
 ## Prerequisites
 
 - An Azure Percept DK (dev kit).
@@ -125,7 +128,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     - Select the S1 (standard) pricing tier.
 
     > [!NOTE]
-    > If you end up needing a higher [message throughput](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
+    > If you end up needing a higher [message throughput](../iot-hub/iot-hub-scaling.md#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](../iot-hub/iot-hub-upgrade.md) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
 
 1. IoT Hub deployment may take a few minutes. When the deployment is complete, click **Register**.
 

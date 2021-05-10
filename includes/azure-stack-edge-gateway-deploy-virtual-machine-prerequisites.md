@@ -18,9 +18,9 @@ Make sure that you can use the following steps to access the device from your cl
 
 1. To call the local device APIs to authenticate, enter: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    To connect via Azure Resource Manager, provide the username *EdgeARMuser* and your password.
+    To connect via Azure Resource Manager, provide the username *EdgeArmUser* and your password.
 
 1. If you configured compute for Kubernetes, you can skip this step. Otherwise, ensure that you've enabled a network interface for compute by doing the following: 
 

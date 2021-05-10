@@ -94,6 +94,26 @@
     displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
+  - name: Enterprise readiness
+    items:
+    - name: Set up Virtual Networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Use customer-managed keys
+      href: encrypt-data-at-rest.md
+    - name: Use Azure AD authentication
+      href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for QnA Maker
+      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
 - name: Reference
   items:
   - name: Language support
@@ -125,6 +145,8 @@
       href: /rest/api/cognitiveservices/qnamaker4.0/alterations
     - name: QnA Maker 5.0 Preview 1
       href: /rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
+    - name: QnA Maker 5.0 Preview 2
+      href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/alterations
   - name: SDKs
     items:
     - name: C#
@@ -167,12 +189,14 @@
         href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
-  - name: Regional Availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

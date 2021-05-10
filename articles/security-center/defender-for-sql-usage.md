@@ -93,6 +93,20 @@ Azure Defender for SQL alerts are available in Security Center's alerts page, th
     [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
 
 
+## FAQ - Azure Defender for SQL servers on machines
+
+### If I enable this Azure Defender plan on my subscription, are all SQL servers on the subscription protected? 
+
+No. To defend a SQL Server deployment on an Azure Virtual Machine, or a SQL Server running on an Azure Arc enabled machine, Azure Defender requires both of the following:
+
+- a Log Analytics agent on the machine 
+- the relevant Log Analytics workspace to have the Azure Defender for SQL solution enabled 
+
+The subscription *status*, shown in the SQL server page in the Azure portal, reflects the default workspace status and applies to all connected machines. Only the SQL servers on hosts with a Log Analytics agent reporting to that workspace are protected by Azure Defender. 
+
+
+
+
 ## Next steps
 
 For related material, see the following article:

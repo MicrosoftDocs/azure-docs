@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/14/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -68,7 +68,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop selling an offer or plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [deprecate an offer or plan](./partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) (deprecate was formerly stop sell).
 
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
@@ -142,7 +142,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 
 ### Commercial marketplace service fees
 
-We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
+We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
 
 For certain transact offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as _Azure IP Co-sell incentivized_. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until _Azure IP Co-sell incentivized_ status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
@@ -173,7 +173,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+For more information and legal policies, see the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
 ## Transact requirements
 
@@ -184,7 +184,7 @@ This section covers transact requirements for different offer types.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md).
+For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](manage-account.md).
 
 ### Requirements for specific offer types
 

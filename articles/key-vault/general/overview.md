@@ -69,7 +69,7 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 As a secure store in Azure, Key Vault has been used to simplify scenarios like:
 -  [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
 -  The [always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) and [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) functionality in SQL server and Azure SQL Database
-- [Azure App Service](/azure/app-service/configure-ssl-certificate).
+- [Azure App Service](../../app-service/configure-ssl-certificate.md).
 
 Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
 

@@ -100,12 +100,7 @@ Here's a video that demonstrates how to create a cost allocation rule.
 
 You can edit a cost allocation rule to change the source or the target or if you want to update the prefilled percentage for either compute, storage, or network options. Edit the rules in the same way you create them. Modifying existing rules can take up to two hours to reprocess.
 
-## Frequently asked questions (FAQ)
-
-The following sections contain common questions people have about cost allocation.
-
-### What are the current limitations with cost allocation in public preview?
-<a name="limitations"></a>
+## Current limitations
 
 Currently, cost allocation is supported in Cost Management by Cost analysis, budgets, and forecast views. Allocated costs are also shown in the subscriptions list and on the Subscriptions overview page.
 
@@ -117,32 +112,9 @@ The following items are currently unsupported by the cost allocation public prev
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### Are costs factored into budgets and forecast views?
-<a name="budgets-forecast"></a>
-
-Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
-
-### If a cost allocation rule is deleted, what happens?
-<a name="delete-rule"></a>
-
-When a cost allocation rule is deleted, all open and current billing month costs being allocated to the targets are removed. If the cost allocation rule has existed for several months, the historical previous months of allocation data remain as originally set by the allocation rule.
-
-### Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
-<a name="why-admin"></a>
-
-Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
-
-### Why are sources and targets limited to 25 per rule?
-<a name="source-target-rule-limit"></a>
-
-The limit is a preview limitation to ensure good cost allocation performance and scalability. The limits will likely increase or get removed when cost allocation transitions to general availability (GA).
-
-### What can happen if cost allocation rules (sources/targets) overlap?
-<a name="rule-overlap"></a>
-
-Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
 
 ## Next steps
 
+- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about cost allocation.
 - Create or update allocation rules using the [Cost allocation Rest API](/rest/api/cost-management/costallocationrules)
 - Learn more about [How to optimize your cloud investment with Azure Cost Management](cost-mgt-best-practices.md)
