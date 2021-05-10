@@ -25,7 +25,13 @@ Given a standard firewall policy ID, the script transforms it to a Premium Azure
 
 Usage example:
 
-`Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name`
+`Transform-Policy -PolicyId`
+where PolicyId = /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name.
+
+Example:
+`Transform-Policy /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name`
+
+
 
 > [!IMPORTANT]
 > The script doesn't migrate Threat Intelligence settings. You'll need to note those settings before proceeding and migrate them manually.
