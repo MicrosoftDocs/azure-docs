@@ -12,7 +12,7 @@ ms.topic: how-to
 You can migrate ledger data from Azure Blockchain Service to an alternate offering.
 
 > [!IMPORTANT]
-> On **September 10th, 2021**, Azure Blockchain will be retired. Please migrate ledger data from Azure Blockchain Service to an alternative offering based on your development status in production or evaluation.
+> On **September 10, 2021**, Azure Blockchain will be retired. Please migrate ledger data from Azure Blockchain Service to an alternative offering based on your development status in production or evaluation.
 
 ## Evaluate alternatives
 
@@ -28,7 +28,7 @@ Quorum Blockchain Service is a managed offering by ConsenSys on Azure that suppo
 
 - **Managed offering** - Quorum Blockchain Service has no extra management overhead compared to Azure Blockchain Service.
 - **Ledger technology** - Based on ConsenSys Quorum which is an enhanced version of the GoQuorum Ledger technology used in Azure Blockchain Service. No new learning is required. For more information, see the [Consensys Quorum FAQ](https://consensys.net/quorum/faq).
-- **Continuity** - You can migrate your existing data on to Quorum Blockchain Service by ConsenSys. For more information, see [Migrate data from Azure Blockchain Service](#migrate-data-from-azure-blockchain-service)
+- **Continuity** - You can migrate your existing data on to Quorum Blockchain Service by ConsenSys. For more information, see [Export data from Azure Blockchain Service](#export-data-from-azure-blockchain-service)
 
 For more information, see [Quorum Blockchain Service](https://consensys.net/QBS).
 
@@ -46,7 +46,14 @@ If you are starting to develop a new solution or are in an evaluation phase, con
 - [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview)
 - [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
 
-## Migrate data from Azure Blockchain Service
+### How to migrate to an alternative
+
+To migrate a production workload, first [export your data from Azure Blockchain Service](#export-data-from-azure-blockchain-service). Once you have a copy of your data, you can transition this data to your preferred alternative.
+
+The recommended migration destination is ConsenSys Quorum Blockchain Service. To onboard to this service, register at the [Quorum Blockchain Service](https://consensys.net/QBS) page.
+
+To self-manage your blockchain solution using virtual machines in Azure, see [Azure VM-based Quorum guidance](#azure-vm-based-quorum-guidance) to set up transaction and validator nodes.
+## Export data from Azure Blockchain Service
 
 Based on your current development state, you can either opt to use existing ledger data on Azure Blockchain Service or start a new network and use the solution of your choice. We recommend creating a new consortium based on a solution of your choice in all scenarios where you do not need or intend to use existing ledger data on Azure Blockchain Service.
 
@@ -82,7 +89,7 @@ If your consortium has multiple members, each member is required to open a separ
 
 You are required to coordinate with members of consortium to data export since the consortium will be paused for data export and transactions during this time will fail.
 
-Azure Blockchain Service team pauses the consortium, exports a snapshot of data, and makes the data available through SAS URL for download in an encrypted format. The consortium is resumed after taking the snapshot.
+Azure Blockchain Service team pauses the consortium, exports a snapshot of data, and makes the data available through short-lived SAS URL for download in an encrypted format. The consortium is resumed after taking the snapshot.
 
 > [!IMPORTANT]
 > You should stop all applications initiating new
@@ -90,7 +97,7 @@ Azure Blockchain Service team pauses the consortium, exports a snapshot of data,
 
 ### Download data
 
-Download the data using the Microsoft Support provided SAS URL link.
+Download the data using the Microsoft Support provided short-lived SAS URL link.
 
 > [!IMPORTANT]
 > You are required to download your data within seven days.
@@ -233,16 +240,16 @@ Each node level folder contains a zip file that is encrypted using the encryptio
 
 ### What does service retirement mean for existing customers?
 
-The existing Azure Blockchain Service deployments cannot be continued beyond September 10th, 2021. Start evaluating alternatives suggested in this article before retirement based on your requirements.
+The existing Azure Blockchain Service deployments cannot be continued beyond September 10, 2021. Start evaluating alternatives suggested in this article before retirement based on your requirements.
 
 ### What happens to existing deployments after the announcement of retirement?
 
-Existing deployments are supported until September 10th, 2021. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
+Existing deployments are supported until September 10, 2021. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
 
 ### How long will the existing deployments be supported on Azure Blockchain Service?
 
-Existing deployments are supported until September 10th, 2021.
+Existing deployments are supported until September 10, 2021.
 
 ### Will I be allowed to create new Azure Blockchain members while in retirement phase?
 
-After May 10th, 2021, no new member creation or deployments are supported.
+After May 10, 2021, no new member creation or deployments are supported.
