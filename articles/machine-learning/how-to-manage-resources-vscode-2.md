@@ -54,9 +54,7 @@ Alternatively, you can create a resource by using the:
 1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
-## Manage workspaces
-
-### Remove a workspace
+### Remove workspace
 
 1. Expand the subscription node that contains your workspace.
 1. Right-click the workspace you want to remove.
@@ -64,7 +62,7 @@ Alternatively, you can create a resource by using the:
     - *Only the workspace*: This option deletes **only** the workspace Azure resource. The resource group, storage accounts, and any other resources the workspace was attached to are still in Azure.
     - *With associated resources*: This option deletes the workspace **and** all resources associated with it.
 
-Alternatively, using the command palette, use the **Azure ML: Remove Workspace** command and follow the prompts.
+Alternatively, use the **Azure ML: Remove Workspace** command in the command palette.
 
 ## Datastores
 
@@ -144,9 +142,9 @@ To edit the dependencies and configurations for a specific environment in the ex
 1. Right-click the environment you want to view and select **Edit Environment**.
 1. After making the modifications, if you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
-## Jobs
+## Experiments
 
-### Run Job
+### Run Experiment
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
@@ -192,6 +190,51 @@ Once a run is complete, you may want to download the logs and assets such as the
 ### View run metadata
 
 In the extension, you can inspect metadata such as the run configuration used for the run as well as run details.
+
+## Compute instances
+
+### Stop or restart compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instances** node inside your workspace.
+1. Right-click the compute instance you want to stop or restart and select **Stop Compute instance** or **Restart Compute instance** respectively.
+
+### View compute instance configuration
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instances** node inside your workspace.
+1. Right-click the compute instance you want to inspect and select **View Compute instance Properties**.
+
+### Delete compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instances** node inside your workspace.
+1. Right-click the compute instance you want to delete and select **Delete Compute instance**.
+
+Alternatively, use the `Azure ML: Delete Compute instance` command in the command palette and follow the prompts to delete your compute instance.
+
+## Compute clusters
+
+For more information, see [compute targets](concept-compute-target.md#train).
+
+### View compute configuration
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
+1. Right-click the compute you want to view and select **View Compute Properties**.
+
+### Edit compute scale settings
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
+1. Right-click the compute you want to edit and select **Edit Compute**.
+1. A configuration file for your compute opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+
+### Delete compute
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
+1. Right-click the compute you want to delete and select **Remove Compute**.
 
 ## Models
 
