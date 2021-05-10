@@ -88,17 +88,31 @@ You can also leverage this agent from portal with the following procedure.
 
 By default, Azure Spring Cloud will print the logs of **New Relic** java agent to `STDOUT`. It will mixed with the application logs. You can find the explicit agent version from the application logs.
 
+You can also get the logs of the `New Relic` agent from:
+
+* Azure Spring Cloud Logs.
+* Azure Spring Cloud Application Insights.
+* Azure Spring Cloud LogStream.
+
+You can leverage some environment variables provided by `New Relic` to configure the logging of the `New Agent`, for example, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+
+> [!CAUTION]
+> We strongly recommend that you _do not_ override the logging default behavior provided by Azure Spring Cloud for `New Relic`. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to you applications.
+>
+> * NEW_RELIC_LOG
+> * NEW_RELIC_LOG_FILE_PATH
+
 ## New Relic Java Agent Update/Upgrade
 
-The **New Relic** java agent will update/upgrade regularly with JDK, there agent update/upgrade may impact below scenarios.
+The **New Relic** java agent will update/upgrade regularly with JDK, the agent update/upgrade may impact following scenarios.
 
-* Your existed applications with **New Relic** java agent before update/upgrade will be unchanged.
-* Your new created applications after update/upgrade will take the new version of **New Relic** java agent.
-* Your existed applications need to restart or redeploy to take the new version of **New Relic** java agent.
+* Your existing applications with **New Relic** java agent before update/upgrade will be unchanged.
+* Your new applications created after update/upgrade will take the new version of **New Relic** java agent.
+* Your existing applications need to restart or redeploy to engage the new version of **New Relic** java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for **New Relic** java agent. Please reference the doc of [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
+For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for **New Relic** java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
 *  [Distributed tracing and App Insights](href: how-to-distributed-tracing.md)
