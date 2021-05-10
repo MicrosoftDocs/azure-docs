@@ -433,10 +433,6 @@ Solution 2: Perform these actions:
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade has not been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
 
-### Other limitations
-
-Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the required role assignments. For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
-
 ## Preview feedback
 
 Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
