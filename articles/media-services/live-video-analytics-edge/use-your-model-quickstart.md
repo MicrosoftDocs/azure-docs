@@ -1,12 +1,12 @@
 ---
-title:  Analyze live video by using your own HTTP model - Azure
-description: In this quickstart, you'll apply computer vision to analyze the live video feed from a (simulated) IP camera by using your own HTTP model. 
+title:  Analyze live video with your own HTTP model - Azure
+description: In this quickstart, you apply computer vision to analyze the live video feed from a (simulated) IP camera by using your own HTTP model. 
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
-# Quickstart: Analyze live video by using your own HTTP model
+# Quickstart: Analyze live video with your own HTTP model
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
