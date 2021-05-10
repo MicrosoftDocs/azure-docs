@@ -4,8 +4,7 @@ description: Get an overview of tracking customer usage for Azure Applications o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: cpercy737
-ms.author: camper
+ms.author: jasonh
 ms.date: 04/12/2021
 ms.custom: devx-track-terraform
 ---
