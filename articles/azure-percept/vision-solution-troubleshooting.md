@@ -89,7 +89,7 @@ To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-1. Scroll down to **properties**. Note that the properties "Running" and "Logging" are not active at this time.
+1. Scroll down to **properties**. The properties "Running" and "Logging" are not active at this time.
 
     :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
 
