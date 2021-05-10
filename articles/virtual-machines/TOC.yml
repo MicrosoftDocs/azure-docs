@@ -140,7 +140,7 @@
         href: dcv2-series.md
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
-      - name: Dv3 and Dsv3-series
+      - name: Dv3 and DSv3-series
         href: dv3-dsv3-series.md
       - name: Dav4 and Dasv4-series
         href: dav4-dasv4-series.md
@@ -1768,6 +1768,8 @@
   - name: Overview
     displayName: Infrastrucure automation overview
     href: infrastructure-automation.md
+  - name: User data
+    href: user-data.md
   - name: Custom data
     href: custom-data.md
   - name: Ansible
@@ -1778,8 +1780,8 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Troubleshoot
-  href: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
+- name: Support and troubleshooting
+  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework

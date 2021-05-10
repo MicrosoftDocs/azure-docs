@@ -1,5 +1,5 @@
 ---
-title: Set up sign-up and sign-in with a eBay account
+title: Set up sign-up and sign-in with an eBay account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with eBay accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
@@ -15,7 +15,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Set up sign-up and sign-in with a eBay account using Azure Active Directory B2C
+# Set up sign-up and sign-in with an eBay account using Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -67,7 +67,7 @@ You need to store the client secret that you previously recorded in your Azure A
 
 To enable users to sign in using an eBay account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define a eBay account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
+You can define an eBay account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
 1. Open the *TrustFrameworkExtensions.xml*.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
