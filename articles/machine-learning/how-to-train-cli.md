@@ -1,5 +1,6 @@
 ---
-title: 'Train models (create jobs) with the new Azure Machine Learning CLI'
+title: 'Train models (create jobs) with the 2.0 CLI'
+titleSuffix: Azure Machine Learning
 description: Learn how to train models (create jobs) using Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +13,7 @@ ms.date: 05/25/2021
 ms.reviewer: laobri
 ---
 
-# Train models (create jobs) with the new Azure Machine Learning CLI
+# Train models (create jobs) with the 2.0 CLI
 
 Training a machine learning model is generally an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated.
 
@@ -24,7 +25,7 @@ The Azure CLI extension for Machine Learning enables you to accelerate the itera
 - [Install and setup the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 - Clone the examples repository:
 
-    ```azurecli
+    ```azurecli-interactive
     git clone https://github.com/Azure/azureml-examples --depth 1
     cd azureml-examples/cli
     ```
@@ -33,11 +34,11 @@ The Azure CLI extension for Machine Learning enables you to accelerate the itera
 
 For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggregates:
 
-- what to run
-- how to run it
-- where to run it
+- What to run
+- How to run it
+- Where to run it
 
-The basic "hello world" job has all three:
+The "hello world" job has all three:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
 
@@ -75,10 +76,10 @@ This job can be created and run via `az ml job create` using the `--file/-f` par
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuit Docker images, such as the [curated environments for machine learning](), to avoid the image build time.
+> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images, such as the [curated environments for machine learning](), to avoid the image build time.
 
 > [!TIP]
-> While running this job locally is slower than running `python main.py` in a local Python enviornment with the required packages install, the above allows you to:
+> While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
 >   - save the run history in the Azure Machine Learning studio
 >   - reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
 >   - track run submission details, including source code git repository and commit
