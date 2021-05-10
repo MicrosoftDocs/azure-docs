@@ -37,7 +37,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
-Capacity also affects the cache's cost, and how many storage targets it can support. Read about storage target limits in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+Capacity also affects the cache's cost, and how many storage targets it can support.
 
 Choose the capacity by setting these two values:
 
@@ -47,7 +47,7 @@ Choose the capacity by setting these two values:
 Choose one of the available throughput values and cache storage sizes.
 
 > [!TIP]
-> If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value for your throughput size.
+> If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value for your throughput size. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 
