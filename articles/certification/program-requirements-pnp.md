@@ -22,7 +22,7 @@ Promise of IoT Plug and Play certification are:
 1.  Defined device models and interfaces are compliant with the  [Digital Twin Definition Language](https://github.com/Azure/opendigitaltwins-dtdl)  
 1.  Easy integration with Azure IoT based solutions using the [Digital Twin APIs](../iot-pnp/concepts-digital-twin.md)  : Azure IoT Hub and Azure IoT Central
 1.  Validated product truth on certified devices
-1.  Meets all requirements of [Azure Certified Device](./program-requirements-azure-certified-device)
+1.  Meets all requirements of [Azure Certified Device](./program-requirements-azure-certified-device.md)
 
 ## Requirements
 
