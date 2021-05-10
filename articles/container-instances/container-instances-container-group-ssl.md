@@ -187,13 +187,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Deploy the container group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
+Deploy the container group with the [az container create](/cli/azure/container#az_container_create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -201,7 +201,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### View deployment state
 
-To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az_container_show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

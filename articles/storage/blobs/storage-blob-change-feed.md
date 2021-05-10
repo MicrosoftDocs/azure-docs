@@ -62,14 +62,11 @@ Here's a few things to keep in mind when you enable the change feed.
 Enable change feed on your storage account by using Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account.
+1. Navigate to the **Data protection** option under **Data Management**.
+1. Under **Tracking**, select **Enable blob change feed**.
+1. Choose the **Save** button to confirm your data protection settings.
 
-2. Navigate to the **Data Protection** option under **Blob Service**.
-
-3. Click **Enabled** under **Blob change feed**.
-
-4. Choose the **Save** button to confirm your **Data Protection** settings.
-
-    ![Screenshot that shows the data protection settings.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Screenshot showing how to enable change feed in Azure portal":::
 
 ### [PowerShell](#tab/azure-powershell)
 

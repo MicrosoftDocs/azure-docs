@@ -1,6 +1,6 @@
 ---
 title: Monitor the health of an Azure IoT Central application | Microsoft Docs
-description: As an operator or administrator, monitor the overall health of the devices connected to your IoT Central application.
+description: Monitor the overall health of the devices connected to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/27/2021
@@ -15,8 +15,6 @@ services: iot-central
 
 > [!NOTE]
 > Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
-
-*This article applies to operators and administrators.*
 
 In this article, you learn how to use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
@@ -51,7 +49,7 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 
 - IoT Central [standard pricing plans](https://azure.microsoft.com/pricing/details/iot-central/) include two devices and varying message quotas for free. While the free items are excluded from billing, they're still counted in the metrics.
 
-- IoT Central autogenerates one test device ID for each device template in the application. This device ID is visible on the **Manage test device** page for a device template. Solution builders may choose to [validate their device templates](./overview-iot-central.md#create-device-templates) before publishing them by generating code that uses these test device IDs. While these devices are excluded from billing, they're still counted in the metrics.
+- IoT Central autogenerates one test device ID for each device template in the application. This device ID is visible on the **Manage test device** page for a device template. You may choose to validate your device templates before publishing them by generating code that uses these test device IDs. While these devices are excluded from billing, they're still counted in the metrics.
 
 - While metrics may show a subset of device-to-cloud communication, all communication between the device and the cloud [counts as a message for billing](https://azure.microsoft.com/pricing/details/iot-central/).
 

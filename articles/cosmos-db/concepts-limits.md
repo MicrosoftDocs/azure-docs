@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 04/07/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -26,7 +26,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | --- | --- |
 | Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
 | Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
-| Maximum RUs per (logical) partition | 10,000 |
+| Maximum RUs per partition (logical & physical) | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
@@ -231,8 +231,9 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Resource | Default limit |
 | --- | --- |
 | Maximum MongoDB query memory size (This limitation is only for 3.2 server version) | 40 MB |
-|Maximum execution time for MongoDB operations (for 3.2 server version)| 15 seconds|
-|Maximum execution time for MongoDB operations(for 3.6 server version)| 60 seconds|
+| Maximum execution time for MongoDB operations (for 3.2 server version)| 15 seconds|
+| Maximum execution time for MongoDB operations(for 3.6 and 4.0 server version)| 60 seconds|
+| Maximum level of nesting for embedded objects / arrays on index definitions | 6 |
 | Idle connection timeout for server side connection closure* | 30 minutes |
 
 \* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.

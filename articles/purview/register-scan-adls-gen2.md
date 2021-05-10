@@ -6,7 +6,7 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen2 into the catalog.
 ---
 # Register and scan Azure Data Lake Storage Gen2
@@ -96,7 +96,7 @@ It is required to get the Service Principal's application ID and secret:
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **Managed Identity** authentication method when setting up a scan.
 
-1. Go into your ASLS Gen2 storage account in [Azure portal](https://portal.azure.com)
+1. Go into your ADLS Gen2 storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Settings > Networking** and
 1. Choose **Selected Networks** under **Allow access from**
 1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
@@ -116,10 +116,10 @@ To register a new ADLS Gen2 account in your data catalog, do the following:
 On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-2. Choose your subscription to filter down storage accounts
-3. Select a storage account
-4. Select a collection or create a new one (Optional)
-5. **Finish** to register the data source.
+2. Choose your subscription to filter down storage accounts.
+3. Select a storage account.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="register sources options" border="true":::
 

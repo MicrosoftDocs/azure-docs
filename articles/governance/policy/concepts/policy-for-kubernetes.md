@@ -3,6 +3,7 @@ title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/22/2021
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -441,7 +442,7 @@ existing cluster.
      on GitHub.
 
      > [!NOTE]
-     > Because of the relationship between Azure Policy Add-on and the resource group id, Azure
+     > Because of the relationship between Azure Policy Add-on and the resource group ID, Azure
      > Policy supports only one AKS Engine cluster for each resource group.
 
 To validate that the add-on installation was successful and that the _azure-policy_ and _gatekeeper_
@@ -489,7 +490,7 @@ following steps:
 
 1. In the left pane of the Azure Policy page, select **Definitions**.
 
-1. From the Category drop-down list box, use **Select all** to clear the filter and then select
+1. From the Category dropdown list box, use **Select all** to clear the filter and then select
    **Kubernetes**.
 
 1. Select the policy definition, then select the **Assign** button.
@@ -650,7 +651,6 @@ aligns with how the add-on was installed:
 
   Redeploy the cluster definition to AKS Engine after changing the **addons** property for
   _azure-policy_ to false:
-
 
   ```json
   "addons": [{

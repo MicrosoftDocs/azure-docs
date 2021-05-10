@@ -179,7 +179,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
-    - title: Azure Communication Services (Preview)
+    - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
       azureCategories:
@@ -827,13 +827,6 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: https://code.visualstudio.com/docs
-    # Card
-    - title: Visual Studio Codespaces (Preview)
-      summary: Cloud-powered development environments accessible from anywhere
-      imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      azureCategories:
-        - developer-tools
-      url: /visualstudio/online/overview/what-is-vsonline
     # Card
     - title: Application Insights
       summary: Full observability into your applications, infrastructure, and network

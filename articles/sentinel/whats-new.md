@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/05/2021
 ---
 
 # What's new in Azure Sentinel
@@ -20,17 +20,64 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 
 > [!TIP]
-> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use. 
+> Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Azure Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
-> 
+>
+
+## May 2021
+
+- [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
+
+### Zero Trust (TIC3.0) workbook
+
+The new, Azure Sentinel Zero Trust (TIC3.0) workbook provides an automated visualization of [Zero Trust](/security/zero-trust/) principles, cross-walked to the [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC) framework.
+
+We know that compliance isn’t just an annual requirement, and organizations must monitor configurations over time like a muscle. Azure Sentinel's Zero Trust workbook uses the full breadth of Microsoft security offerings across Azure, Office 365, Teams, Intune, Windows Virtual Desktop, and many more.
+
+[ ![Zero Trust workbook.](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
+
+**The Zero Trust workbook**:
+
+- Enables Implementers, SecOps Analysts, Assessors, Security and Compliance Decision Makers, MSSPs, and others to gain situational awareness for cloud workloads' security posture.
+- Features over 75 control cards, aligned to the TIC 3.0 security capabilities, with selectable GUI buttons for navigation.
+- Is designed to augment staffing through automation, artificial intelligence, machine learning, query/alerting generation, visualizations, tailored recommendations, and respective documentation references.
+
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+
+## April 2021
+
+- [Azure Policy-based data connectors](#azure-policy-based-data-connectors)
+- [Incident timeline (Public preview)](#incident-timeline-public-preview)
+
+### Azure Policy-based data connectors
+
+Azure Policy allows you to apply a common set of diagnostics logs settings to all (current and future) resources of a particular type whose logs you want to ingest into Azure Sentinel.
+
+Continuing our efforts to bring the power of [Azure Policy](../governance/policy/overview.md) to the task of data collection configuration, we are now offering another Azure Policy-enhanced data collector, for [Azure Storage account](connect-azure-storage-account.md) resources, released to public preview.
+
+Also, two of our in-preview connectors, for [Azure Key Vault](connect-azure-key-vault.md) and [Azure Kubernetes Service](connect-azure-kubernetes-service.md), have now been released to general availability (GA), joining our [Azure SQL Databases](connect-azure-sql-logs.md) connector.
+
+### Incident timeline (Public preview)
+
+The first tab on an incident details page is now the **Timeline**, which shows a timeline of alerts and bookmarks in the incident. An incident's timeline can help you understand the incident better and reconstruct the timeline of attacker activity across the related alerts and bookmarks.
+
+- Select an item in the timeline to see its details, without leaving the incident context
+- Filter the timeline content to show alerts or bookmarks only, or items of a specific severity or MITRE tactic.
+- You can select the **System alert ID** link to view the entire record or the **Events** link to see the related events in the **Logs** area.
+
+For example:
+
+:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
+
+For more information, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
 
 ## March 2021
 
 - [Set workbooks to automatically refresh while in view mode](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [New detections for Azure Firewall](#new-detections-for-azure-firewall)
-- [Automation rules and incident-triggered playbooks](#automation-rules-and-incident-triggered-playbooks) (including all-new playbook documentation)
-- [New alert enrichments: enhanced entity mapping and custom details](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Automation rules and incident-triggered playbooks (Public preview)](#automation-rules-and-incident-triggered-playbooks-public-preview) (including all-new playbook documentation)
+- [New alert enrichments: enhanced entity mapping and custom details (Public preview)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
 - [Print your Azure Sentinel workbooks or save as PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
@@ -72,7 +119,7 @@ Detections for Azure Firewalls are continuously added to the built-in template g
 
 For more information, see [New detections for Azure Firewall in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
 
-### Automation rules and incident-triggered playbooks
+### Automation rules and incident-triggered playbooks (Public preview)
 
 Automation rules are a new concept in Azure Sentinel, allowing you to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents (not just to alerts as before), automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules will streamline automation use in Azure Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
 
@@ -82,7 +129,7 @@ As mentioned above, playbooks can now be activated with the incident trigger in 
 
 Learn more about [playbooks' enhanced capabilities](automate-responses-with-playbooks.md), and how to [craft a response workflow](tutorial-respond-threats-playbook.md) using playbooks together with automation rules.
 
-### New alert enrichments: enhanced entity mapping and custom details
+### New alert enrichments: enhanced entity mapping and custom details (Public preview)
 
 Enrich your alerts in two new ways to make them more usable and more informative.
 
@@ -129,7 +176,7 @@ Among the properties of resources that can be controlled by policies are the cre
 Azure Policy-based connectors are now available for the following Azure services:
 - [Azure Key Vault](connect-azure-key-vault.md) (public preview)
 - [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (public preview)
-- Azure SQL databases/servers (GA)
+- [Azure SQL databases/servers](connect-azure-sql-logs.md) (GA)
 
 Customers will still be able to send the logs manually for specific instances and don’t have to use the policy engine.
 

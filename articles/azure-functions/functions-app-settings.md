@@ -200,6 +200,45 @@ Valid values:
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
+## MDMaxBackgroundUpgradePeriod 
+
+Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly). 
+
+Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. 
+
+|Key|Sample value|
+|---|------------|
+|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
+## MDNewSnapshotCheckPeriod
+
+Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. The default frequency is `01:00:00` (hourly). 
+
+After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers completes within `MDNewSnapshotCheckPeriod`. 
+
+Within every `MDNewSnapshotCheckPeriod`, the PowerShell worker checks whether or not managed dependency upgrades have been installed. When upgrades have been installed, a restart is initiated. Increasing this value decreases the frequency of interruptions because of restarts. However, the increase might also increase the time during which function invocations could use either the old or the new module versions, non-deterministically. 
+
+|Key|Sample value|
+|---|------------|
+|MDNewSnapshotCheckPeriod|01:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
+
+## MDMinBackgroundUpgradePeriod
+
+The period of time after a previous managed dependency upgrade check before another upgrade check is started, with a default of  `1.00:00:00` (daily). 
+
+To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. 
+
+|Key|Sample value|
+|---|------------|
+|MDMinBackgroundUpgradePeriod|1.00:00:00|
+
+To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
+
 ## PIP\_EXTRA\_INDEX\_URL
 
 The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.   
@@ -260,7 +299,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using a Azure Resource Manager to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This application setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).   
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This application setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).   
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -269,6 +308,10 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_DNS\_SERVER|168.63.129.16|
+
+## WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+
+Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used. 
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -313,7 +356,7 @@ Allows you to set the timezone for your function app.
 
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need to use this setting when using using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). 
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). 
 
 |Key|Sample value|
 |---|------------|
