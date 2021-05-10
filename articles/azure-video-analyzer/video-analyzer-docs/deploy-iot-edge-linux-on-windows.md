@@ -73,17 +73,17 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
 
-    1. [Configure](get-started-detect-motion-emit-events.md#configure-the-azure-iot-tools-extension) the Azure IoT Tools extension.
+    1. [Configure](get-started-detect-motion-emit-events.md#prepare-to-monitor-the-modules) the Azure IoT Tools extension.
     1. Set the pipelineTopology, instantiate a livePipeline and activate it via these [direct method calls](get-started-detect-motion-emit-events.md#use-direct-method-calls).
     1. [Observe the results](get-started-detect-motion-emit-events.md#observe-results) on the Hub.
-    1. Invoke [clean up methods](get-started-detect-motion-emit-events.md#invoke-graphinstancedeactivate).
+    1. Invoke [clean up methods](get-started-detect-motion-emit-events.md#deactivate-the-live-pipeline).
     1. Delete your resources if not needed further.
 
         > [!IMPORTANT]
         > Undeleted resources can still be active and incur Azure costs. Please ensure that you delete the resources you do not intend to use.
 ## Next steps
 
-* Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-clips-edge-devices.md#review-the-sample-video) quickstart.
+* Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-clips-edge-devices.md) quickstart.
 * Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above)
 * Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional media graphs.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
