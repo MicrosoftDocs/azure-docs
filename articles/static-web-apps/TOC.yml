@@ -41,7 +41,7 @@
       href: custom-domain.md
 - name: How-to guides
   items:
-    - name: Setup local development
+    - name: Set up local development
       href: local-development.md
     - name: Add an API
       href: add-api.md
