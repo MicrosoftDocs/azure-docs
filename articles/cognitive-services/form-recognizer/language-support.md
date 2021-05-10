@@ -98,7 +98,7 @@ ms.author: lajanuar
 |Yucatec Maya | `yua` |
 |Zhuang | `za` |
 |Zulu  | `zu` |
-|||
+
 
 ### [v2.0](#tab/v2-0)
 
@@ -167,3 +167,4 @@ Language| Locale code |
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
 -----
+
