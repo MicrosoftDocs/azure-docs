@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/05/2021
 ---
 
-# Single-tenant (preview) versus multi-tenant and integration service environments for Azure Logic Apps
+# Single-tenant (preview) versus multi-tenant and integration service environment for Azure Logic Apps
 
 > [!IMPORTANT]
 > Currently in preview, the single-tenant Logic Apps environment and **Logic App (Preview)** resource type are subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
