@@ -82,16 +82,16 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 
 1. Click the **Verify and save domain** button.
 
-You are not required to keep up the resources used for verification after domain has been verified. Once the verification is done you can remove the hosted file.
+You're not required to maintain the resources that are used for verification after a domain has been verified. When the verification is finished, you can remove the hosted file.
 
 ### To select a verified domain
 
-- If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
 
->[!Note]
-> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
+> [!NOTE]
+> The expected `Content-Type` header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else, like `application/json; charset=utf-8`:
 > 
->``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+> `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
 ## Implications on the app consent prompt
