@@ -35,7 +35,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     ![Deployments steps - Azure IoT Edge Manager](./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager.png)
     
-3. Go to the command shell and type in the following command:
+1. Go to the command shell and type in the following command:
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
@@ -50,7 +50,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
 
-4. Now that you have the edge device set up, registered to the hub and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the LVA module. 
+1. Now that you have the edge device set up, registered to the hub and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the AVA module. 
 
     * Storage account
     * Azure Media Services account
@@ -66,10 +66,12 @@ The following depicts the overall flow of the document and in 5 simple steps you
     **`sudo iotedge list`**
 
     You should see the following four modules deployed and running on your edge device. Please note that the resource creation script deploys the AVA module along with IoT Edge modules (edgeAgent and edgeHub) and an RTSP simulator module to provide the simulated RTSP video feed.
+    
+    ![Deployed Modules](./media/vscode-common-screenshots/avaedge-module.png)
 
-5. With the modules deployed and set up, you are ready to run your first aVA media graph on EFLOW. You can run a simple motion detection graph as below and visualize the results by executing the following steps:
+1. With the modules deployed and set up, you are ready to run your first AVA media graph on EFLOW. You can run a simple motion detection graph as below and visualize the results by executing the following steps:
 
-    ![Video Analyzer based on motion detection](./media/deploy-iot-edge-linux-on-windows/motion-detection.svg)
+    ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
 
     1. [Configure](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension) the Azure IoT Tools extension.
     1. Set the pipelineTopology, instantiate a livePipeline and activate it via these [direct method calls](get-started-detect-motion-emit-events-quickstart.md#use-direct-method-calls).
