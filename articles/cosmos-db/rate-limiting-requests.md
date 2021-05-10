@@ -4,7 +4,7 @@ description: This article provides developers with a methodology to rate limit r
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 4/16/2021
+ms.date: 05/07/2021
 ms.author: pelasne
 ---
 
