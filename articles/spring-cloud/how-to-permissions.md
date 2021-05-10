@@ -94,6 +94,8 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 10. Review the permissions. If you need the JSON text of permissions, before you **Click Review and create**, you can click the **JSON** tab and get the JSON file.
 
+    ![JSON source for permissions](media/spring-cloud-permissions/json-source.png)
+
 11. Click **Review and create**.
 
 ## Define DevOps engineer role
