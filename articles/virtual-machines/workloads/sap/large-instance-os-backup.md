@@ -121,7 +121,7 @@ The following example shows a cron schedule in `/etc/crontab` for a Type-II SKU 
 ```
 
 Additional references -
-- [Set up storage snapshots](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)
+- [Set up storage snapshots](hana-backup-restore.md#set-up-storage-snapshots)
 - Microsoft Snapshot Tools for SAP HANA guide on [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md).
 
 ### How to restore a backup?
