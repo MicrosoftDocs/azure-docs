@@ -69,7 +69,9 @@ Another option for implementing exceptions is to modify the analytics rule query
 
 ### Modify the query
 
-To edit existing analytics rules, select **Automation** from the Azure Sentinel left navigation menu. Select the rule you want to edit, and select **Edit** at lower right to open the **Analytics Rules Wizard**. For detailed instructions on using the wizard to create and edit analytics rules, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+To edit existing analytics rules, select **Automation** from the Azure Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
+
+For detailed instructions on using the **Analytics Rules Wizard** to create and edit analytics rules, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 
 To implement an exception in a typical rule preamble, you can add a condition like `where IPAddress !in ('<ip addresses>')` near the beginning of the rule query. This line excludes specific IP addresses from the rule.
 
