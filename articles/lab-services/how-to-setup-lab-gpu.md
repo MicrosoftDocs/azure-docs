@@ -107,7 +107,7 @@ This section describes how to validate that your GPU drivers are properly instal
       > [!IMPORTANT]
       > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
- Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  For example, for Data Science frameworks and libraries, there may be a specific version of the the drivers that is needed.  Read the class type about [Python and Jupyter Notebooks](./class-type-jupyter-notebook.md#template-virtual-machine) that explains this further.
+ Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](./class-type-jupyter-notebook.md#template-virtual-machine) that explains an example where specific versions of drivers are needed.
 
 #### Linux images
 Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
