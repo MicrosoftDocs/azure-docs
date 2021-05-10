@@ -64856,6 +64856,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/alerts/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/samples/cli-samples.md",
       "redirect_url": "/azure/azure-monitor//cli-samples",
       "redirect_document_id": false
