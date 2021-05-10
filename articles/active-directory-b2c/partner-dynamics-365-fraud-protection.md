@@ -112,7 +112,7 @@ Configure the application settings in the [App service in Azure](../app-service/
 3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/policy-keys-overview).
 
 >[!NOTE]
->The policy keys will be needed to configure your Azure AD B2C policies. 
+>You'll later need the policy keys to configure your Azure AD B2C policies. 
 
 ### Replace the configuration values
 
