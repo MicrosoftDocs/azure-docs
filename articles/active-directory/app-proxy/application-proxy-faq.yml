@@ -260,6 +260,11 @@ sections:
               No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t fulfill the requirements to act as an AD FS proxy.
 
       - question: |
+         Can I use Azure AD Application Proxy to publish any AD FS endpoint (like /adfs/portal/updatepassword/)?
+        answer: |
+              No, this is not supported.
+                       
+      - question: |
          WebSocket
         answer: |
       - question: |
