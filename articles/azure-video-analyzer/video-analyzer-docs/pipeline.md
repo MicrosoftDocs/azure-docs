@@ -75,7 +75,7 @@ The gRPC extension processor node takes decoded video frames as the input, and r
 
 #### Cognitive Services extension processor
 
-The Cognitive Services extension processor node enables you to extend the pipeline to [Spatial Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) IoT Edge module. This node takes decoded video frames as input, and relays such frames to an  [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by, where you can analyze the frame with Spatial analysis skills and return inference results back. Learn more about the [processor here](pipeline-extension.md#cognitive-services-extension-processor).
+The Cognitive Services extension processor node enables you to extend the pipeline to [Spatial Analysis](https://azure.microsoft.com/services/cognitive-services/computer-vision/) IoT Edge module. This node takes decoded video frames as input, and relays such frames to an  [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by, where you can analyze the frame with Spatial analysis skills and return inference results back. Learn more about the [processor here](pipeline-extension.md#cognitive-services-extension-processor).
 
 #### Signal gate processor
 
