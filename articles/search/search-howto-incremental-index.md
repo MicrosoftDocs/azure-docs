@@ -69,6 +69,9 @@ Modify the cache object to include the following required and optional propertie
 }
 ```
 
+> [!NOTE]
+> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+
 ### Step 3: Reset the indexer
 
 A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](/rest/api/searchservice/reset-indexer) for this task.

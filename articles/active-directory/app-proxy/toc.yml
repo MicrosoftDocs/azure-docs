@@ -5,27 +5,8 @@
     items:
     - name: What is Application Proxy?
       href: what-is-application-proxy.md
-    # - name: What is single sign-on (SSO)?
-    #   href: what-is-single-sign-on.md
-    # - name: What's new in docs?
-    #   href: whats-new-docs.md
-  # - name: Quickstarts
-  #   expanded: false
-  #   items:
-    # - name: View your apps
-    #   href: view-applications-portal.md
-    # - name: Add an app
-    #   href: add-application-portal.md
-    # - name: Configure an app
-    #   href: add-application-portal-configure.md
-    # - name: Assign users to an app
-    #   href: add-application-portal-assign-users.md
-    # - name: Set up SAML-based single sign-on
-    #   href: add-application-portal-setup-sso.md
-    # - name: Set up OIDC-based single sign-on
-    #   href: add-application-portal-setup-oidc-sso.md
-    # - name: Delete an app
-    #   href: delete-application-portal.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Tutorials
     expanded: true
     items:
@@ -34,41 +15,40 @@
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
   - name: Samples
+    expanded: false
     items: 
-    - name: App Proxy PowerShell samples
-      items:
-      - name: Overview of App Proxy samples
-        href: application-proxy-powershell-samples.md
-      - name: List basic info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
-      - name: List extended info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
-      - name: List apps by connector group
-        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
-      - name: List apps with token lifetime policy
-        href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
-      - name: List connector groups and connectors
-        href: ./scripts/powershell-get-all-connectors.md
-      - name: Move apps between connector groups
-        href: ./scripts/powershell-move-all-apps-to-connector-group.md
-      - name: List users and groups assigned to app
-        href: ./scripts/powershell-display-users-group-of-app.md
-      - name: Assign user to an app
-        href: ./scripts/powershell-assign-user-to-app.md
-      - name: Assign group to an app
-        href: ./scripts/powershell-assign-group-to-app.md
-      - name: List apps using default domains
-        href: ./scripts/powershell-get-all-default-domain-apps.md
-      - name: List apps using wildcard publishing
-        href: ./scripts/powershell-get-all-wildcard-apps.md
-      - name: List all custom domains and certs
-        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
-      - name: List apps without certs
-        href: ./scripts/powershell-get-all-custom-domain-no-cert.md
-      - name: List apps with identical certs
-        href: ./scripts/powershell-get-custom-domain-identical-cert.md
-      - name: Replace identical certs
-        href: ./scripts/powershell-get-custom-domain-replace-cert.md
+    - name: Overview of App Proxy samples
+      href: application-proxy-powershell-samples.md
+    - name: List basic info about apps
+      href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+    - name: List extended info about apps
+      href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+    - name: List apps by connector group
+      href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+    - name: List apps with token lifetime policy
+      href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+    - name: List connector groups and connectors
+      href: ./scripts/powershell-get-all-connectors.md
+    - name: Move apps between connector groups
+      href: ./scripts/powershell-move-all-apps-to-connector-group.md
+    - name: List users and groups assigned to app
+      href: ./scripts/powershell-display-users-group-of-app.md
+    - name: Assign user to an app
+      href: ./scripts/powershell-assign-user-to-app.md
+    - name: Assign group to an app
+      href: ./scripts/powershell-assign-group-to-app.md
+    - name: List apps using default domains
+      href: ./scripts/powershell-get-all-default-domain-apps.md
+    - name: List apps using wildcard publishing
+      href: ./scripts/powershell-get-all-wildcard-apps.md
+    - name: List all custom domains and certs
+      href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+    - name: List apps without certs
+      href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+    - name: List apps with identical certs
+      href: ./scripts/powershell-get-custom-domain-identical-cert.md
+    - name: Replace identical certs
+      href: ./scripts/powershell-get-custom-domain-replace-cert.md
   - name: Concepts
     expanded: true
     items: 
@@ -96,16 +76,6 @@
       href: application-proxy-network-topology.md
     - name: Security
       href: application-proxy-security.md
-  #   - name: Comparison of remote access solutions
-  #     href: application-proxy-migration.md
-      # - name: OIDC-based SSO
-      #   href: configure-oidc-single-sign-on.md
-      # - name: SAML-based SSO
-      #   href: configure-saml-single-sign-on.md
-      # - name: Password-based SSO
-      #   href: configure-password-single-sign-on-non-gallery-applications.md
-      # - name: Linked-based SSO
-      #   href: configure-linked-sign-on.md
   - name: How-to guides
     expanded: true
     items:
@@ -131,16 +101,6 @@
       href: application-proxy-register-connector-powershell.md
     - name: Remove personal data
       href: application-proxy-remove-personal-data.md
-    #   - name: Secure legacy apps 
-    #     items:
-    #     - name: Secure hybrid access with Azure AD 
-    #       href: secure-hybrid-access.md
-    #     - name: F5 and Azure AD integration
-    #       href: f5-aad-integration.md
-    #     - name: F5 BIG-IP VE deployment in Azure IaaS
-    #       href: f5-bigip-deployment-guide.md
-    #     - name: F5 Big-IP with Azure AD for passwordless VPN
-    #       href: f5-aad-password-less-vpn.md
     - name: Publishing walkthroughs
       items:
       - name: Integrate with Application Proxy on an NDES server
@@ -185,8 +145,6 @@
         href: application-proxy-config-problem.md
       - name: Configure Kerberos Constrained Delegation
         href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
-    #   - name: Configure with PingAccess
-    #     href: ./application-proxy-ping-access-publishing-guide.md
       - name: Can't Access this Corporate Application error
         href: application-proxy-sign-in-bad-gateway-timeout-error.md
       - name: Problem installing the Application Proxy Agent Connector
