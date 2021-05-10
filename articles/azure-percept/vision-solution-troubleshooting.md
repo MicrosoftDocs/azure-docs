@@ -99,7 +99,7 @@ To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
 
 View your device's RTSP video stream in [Azure Percept Studio](./how-to-view-video-stream.md) or [VLC media player](https://www.videolan.org/vlc/index.html).
 
-To open the RTSP stream in VLC media player, go to **Media** -> **Open network stream** -> **rtsp://[device IP address]/result**.
+To open the RTSP stream in VLC media player, go to **Media** -> **Open network stream** -> **rtsp://[device IP address]:8554/result**.
 
 ## Next steps
 
