@@ -1,5 +1,5 @@
 ---
-title: Declarative canary deployments with managed endpoints 
+title: Safe rollout for online endpoints 
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy machine learning models for separate customer groups.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to 
 ---
 
-# Declarative canary deployments for managed endpoints (preview)
+# Safe rollout for online endpoints (preview)
 
 {>> Q: This seems more like blue-green than canary to me. The word 'canary' refers to _users_ being used as "the canary in the coalmine" while this deployment technique is traffic-based. <<}
 
