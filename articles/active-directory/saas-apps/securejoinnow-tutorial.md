@@ -127,7 +127,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SecureW2 JoinNow Connector Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SecureW2 JoinNow Connector tile in the My Apps, this will redirect to SecureW2 JoinNow Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the SecureW2 JoinNow Connector tile in the My Apps, this will redirect to SecureW2 JoinNow Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## Next steps
 
