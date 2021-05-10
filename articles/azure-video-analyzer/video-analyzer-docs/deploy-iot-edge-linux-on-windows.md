@@ -73,10 +73,10 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
 
-    1. [Configure](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension) the Azure IoT Tools extension.
-    1. Set the pipelineTopology, instantiate a livePipeline and activate it via these [direct method calls](get-started-detect-motion-emit-events-quickstart.md#use-direct-method-calls).
-    1. [Observe the results](get-started-detect-motion-emit-events-quickstart.md#observe-results) on the Hub.
-    1. Invoke [clean up methods](get-started-detect-motion-emit-events-quickstart.md#invoke-graphinstancedeactivate).
+    1. [Configure](get-started-detect-motion-emit-events.md#configure-the-azure-iot-tools-extension) the Azure IoT Tools extension.
+    1. Set the pipelineTopology, instantiate a livePipeline and activate it via these [direct method calls](get-started-detect-motion-emit-events.md#use-direct-method-calls).
+    1. [Observe the results](get-started-detect-motion-emit-events.md#observe-results) on the Hub.
+    1. Invoke [clean up methods](get-started-detect-motion-emit-events.md#invoke-graphinstancedeactivate).
     1. Delete your resources if not needed further.
 
         > [!IMPORTANT]
