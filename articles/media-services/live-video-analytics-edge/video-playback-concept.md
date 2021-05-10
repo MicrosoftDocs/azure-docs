@@ -1,6 +1,6 @@
 ---
 title: Video playback with Live Video Analytics - Azure
-description: In this artile, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Media Services.
+description: In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Media Services.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
