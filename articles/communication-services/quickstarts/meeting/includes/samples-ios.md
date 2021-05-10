@@ -22,7 +22,7 @@ Add the `MeetingUIClientDelegate` to your class.
 ```swift
 class ViewController: UIViewController, MeetingUIClientDelegate {
 
-    private var meetingClient: MeetingUIClient?
+    private var meetingUIClient: MeetingUIClient?
 ```
 
 Set the `meetingUIClientDelegate` to `self`.
@@ -31,14 +31,14 @@ Set the `meetingUIClientDelegate` to `self`.
 override func viewDidLoad() {
     super.viewDidLoad()
     
-    meetingClient?.meetingUIClientDelegate = self
+    meetingUIClient?.meetingUIClientDelegate = self
 }
 ```
 
 Implement the `didUpdateCallState` and `didUpdateRemoteParticipantCount` functions.
 
 ```swift
-    func meetingUIClient(didUpdateCallState callState: CallState) {
+    func meetingUIClient(didUpdateCallState callState: MeetingUIClientCallState) {
         switch callState {
         case .connecting:
             print("Call state has changed to 'Connecting'")
@@ -63,17 +63,17 @@ Add the `MeetingUIClientIdentityProviderDelegate` to your class.
 ```swift
 class ViewController: UIViewController, MeetingUIClientIdentityProviderDelegate {
 
-    private var meetingClient: MeetingUIClient?
+    private var meetingUIClient: MeetingUIClient?
 ```
 
 Set the `MeetingUIClientIdentityProviderDelegate` to `self` before joining the meeting.
 
 ```swift
 private func joinMeeting() {
-    meetingClient?.meetingUIClientIdentityProviderDelegate = self
-    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-
-    meetingClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    meetingUIClient?.meetingUIClientIdentityProviderDelegate = self
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: <MEETING_URL>)
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
@@ -81,7 +81,7 @@ private func joinMeeting() {
 }
 ```
 
-Map each `userMri` with the corresponding avatar.
+Add and implement `avatarFor` and map each `userMri` with the corresponding avatar.
 
 ```swift
     func avatarFor(userIdentifier: String, completionHandler: @escaping (UIImage?) -> Void) {
@@ -104,4 +104,14 @@ Map each `userMri` with the corresponding avatar.
             completionHandler(nil)
         }
 }
+
+```
+
+Add other mandatory MeetingUIClientIdentityProviderDelegate protocol methods to the class and they may be left with empty implementation.
+```swift
+    func displayNameFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
+    
+    func subTitleFor(userIdentifier: String, completionHandler: @escaping (String?) -> Void) {
+    }
 ```

@@ -293,11 +293,7 @@ kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 Verify that the contents of the secret are displayed.
 
 ## Resources
-[About Azure Key Vault](overview.md)
-[Azure Key Vault developer's guide](developers-guide.md)
-[CSI Secrets Driver](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html)
+- [About Azure Key Vault](overview.md)
+- [Azure Key Vault developer's guide](developers-guide.md)
+- [CSI Secrets Driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/)
 
-
-To help ensure that your key vault is recoverable, see:
-> [!div class="nextstepaction"]
-> [Turn on soft delete](./key-vault-recovery.md)

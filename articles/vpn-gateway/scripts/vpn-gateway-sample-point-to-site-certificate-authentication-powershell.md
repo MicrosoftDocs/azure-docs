@@ -108,7 +108,7 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Creates a new gateway ip configuration. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Creates a VPN gateway. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | Creates a new self-signed root certificate. |
+| [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) | Creates a new self-signed root certificate. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Sets the subnet configuration for the virtual network. |
 

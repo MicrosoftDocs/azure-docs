@@ -18,7 +18,7 @@ You must install certificates on all session hosts in the host pool that will ho
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab. Select that item to highlight the item, then select **Details**.
 3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.

@@ -17,21 +17,17 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) of your Azure Digital Twins instance using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
-
-Management operations include upload, validation, retrieval, and deletion of models. 
+This article describes how to manage the [models](concepts-models.md) in your Azure Digital Twins instance. Management operations include upload, validation, retrieval, and deletion of models. 
 
 ## Prerequisites
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## Ways to manage models
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 ## Create models
 
-Models for Azure Digital Twins are written in DTDL, and saved as *.json* files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
+Models for Azure Digital Twins are written in DTDL, and saved as .json files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
 
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
@@ -95,7 +91,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 
 ### Model versioning
 
-To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you want to change.
 
 Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
@@ -121,7 +117,7 @@ When you create a new twin, since the new model version and the old model versio
 
 This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
 
-You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
+You can update these existing twins to the new model version by patching them, as described in the [Update a digital twin's model](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
 ## Remove models
 
@@ -143,7 +139,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
@@ -199,4 +195,4 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [*How-to: Manage digital twins*](how-to-manage-twin.md)
+* [How-to: Manage digital twins](how-to-manage-twin.md)

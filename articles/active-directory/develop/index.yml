@@ -52,10 +52,8 @@ landingContent:
         links:
           - text: Angular
             url: quickstart-v2-angular.md
-          - text: JavaScript - Auth code flow
+          - text: JavaScript
             url: quickstart-v2-javascript-auth-code.md
-          - text: JavaScript - Implicit flow
-            url: quickstart-v2-javascript.md
   - title: Web app
     linkLists:
       - linkListType: get-started

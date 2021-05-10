@@ -8,12 +8,12 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 12/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.date: 05/25/2021
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
-# Deploy MLflow models as Azure web services (preview)
+# Deploy MLflow models as Azure web services
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
 
@@ -22,6 +22,7 @@ Azure Machine Learning offers deployment configurations for:
 * Azure Kubernetes Service (AKS) which is recommended for scalable production deployments.
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to deploy their MLflow model to an Azure Machine Learning web service endpoint. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## MLflow with Azure Machine Learning deployment
 
 MLflow is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond model training to the deployment phase of your production model.
@@ -29,10 +30,6 @@ MLflow is an open-source library for managing the life cycle of your machine lea
 The following diagram demonstrates that with the MLflow deploy API and Azure Machine Learning, you can deploy models created with popular frameworks, like PyTorch, Tensorflow, scikit-learn, etc., as Azure web services and manage them in your workspace. 
 
 ![ deploy mlflow models with azure machine learning](./media/how-to-deploy-mlflow-models/mlflow-diagram-deploy.png)
-
-
->[!NOTE]
-> As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
 
 ## Prerequisites
 

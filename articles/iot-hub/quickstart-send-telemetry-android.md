@@ -92,7 +92,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to monitor the device messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/iot) to monitor the device messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

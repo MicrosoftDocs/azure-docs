@@ -67,7 +67,7 @@ http.globalAgent.maxSockets = 200;
 var http = require('http');
 var httpAgent = new http.Agent();
 httpAgent.maxSockets = 200;
-options.agent = httpAgent;
+const options = { agent: httpAgent };
 http.request(options, onResponseCallback);
 ```
 

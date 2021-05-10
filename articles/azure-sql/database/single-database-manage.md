@@ -86,25 +86,25 @@ To create and manage the servers, databases, and firewalls with [the Azure CLI](
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Gets a database or data warehouse|
-|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Updates a database|
-|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Removes a database|
-|[az group create](/cli/azure/group#az-group-create)|Creates a resource group|
-|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Creates a server|
-|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Returns  server usages|
-|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Gets a server|
-|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Updates a server|
-|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Deletes a server|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Creates a server firewall rule|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lists the firewall rules on a server|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Shows the detail of a firewall rule|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Updates a firewall rule|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Creates a database|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Returns database usages|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Gets a database or data warehouse|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Updates a database|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Removes a database|
+|[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 ## Transact-SQL (T-SQL)
 
@@ -159,4 +159,3 @@ To create and manage the servers, databases, and firewalls, use these REST API r
 
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
 - For information about supported features, see [Features](features-comparison.md).
- 
