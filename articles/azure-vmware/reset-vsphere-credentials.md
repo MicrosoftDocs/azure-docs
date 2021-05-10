@@ -7,13 +7,13 @@ ms.date: 05/10/2021
 
 # Reset vSphere credentials for Azure VMware Solution
 
-This article walks you through the steps to reset the vCenter Server and NSX-T Manager credentials for your Azure VMware Solution private cloud. It allows you to ensure the HCX connector has the latest vCenter Server credentials.
+This article walks you through the steps to rotate the cloudadmin credentials for your Azure VMware Solution private cloud.  Although your vCenter Server CloudAdmin and NSX-T Manager admin credentials don't expire, you can generate new passwords for these accounts. After rotating the credentials, you'll verify that the HCX Connector has the latest vCenter Server credentials.
 
 In addition to this how-to, you can also view the video for [resetting the vCenter CloudAdmin & NSX-T Admin password](https://youtu.be/cK1qY3knj88).
 
 ## Prerequisites
 
-If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections will stop working once you update your password.  Stop these services before initiating the password rotation. If you don't stop these services, you'll experience temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections stop working once you update your password.  Stop these services before initiating the password rotation. If you don't, you'll experience temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 ## Reset your Azure VMware Solution credentials
 
