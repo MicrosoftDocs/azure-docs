@@ -1,14 +1,10 @@
 ---
 title: End-to-end content protection using Azure AD
 description: This article teaches you how to protect your content with Azure Media Services and Azure Active Directory
-services: media-services
-documentationcenter: ''
 author: willzhan
 manager: femila
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
@@ -129,7 +125,7 @@ The screen for parsing JWT tokens (access_token or id_token):
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
 ![Screenshot that shows testing protected content with different combinations of D R M or A E S versus Streaming Protocols versus Container Format](media/aad-ams-content-protection/testing-protected-content.png)
--->
+
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
