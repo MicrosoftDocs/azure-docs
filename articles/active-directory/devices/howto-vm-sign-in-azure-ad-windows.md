@@ -58,24 +58,24 @@ This feature is now available in the following Azure clouds:
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
 For Azure Global
-- https://enterpriseregistration.windows.net For device registration.
-- http://169.254.169.254 For Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.com For authentication flows.
-- https://pas.windows.net For Azure RBAC flows.
+- `https://enterpriseregistration.windows.net` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.com` - For authentication flows.
+- `https://pas.windows.net` - For Azure RBAC flows.
 
 
 For Azure Government
-- https://enterpriseregistration.microsoftonline.us For device registration.
-- http://169.254.169.254 For Azure Instance Metadata Service.
-- https://login.microsoftonline.us For authentication flows.
-- https://pasff.usgovcloudapi.net For Azure RBAC flows.
+- `https://enterpriseregistration.microsoftonline.us` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service.
+- `https://login.microsoftonline.us` - For authentication flows.
+- `https://pasff.usgovcloudapi.net` - For Azure RBAC flows.
 
 
 For Azure China
-- https://enterpriseregistration.partner.microsoftonline.cn For device registration.
-- http://169.254.169.254 Azure Instance Metadata Service endpoint.
-- https://login.chinacloudapi.cn For authentication flows.
-- https://pas.chinacloudapi.cn For Azure RBAC flows.
+- `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
+- `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
+- `https://login.chinacloudapi.cn` - For authentication flows.
+- `https://pas.chinacloudapi.cn' - For Azure RBAC flows.
 
 
 ## Enabling Azure AD login in for Windows VM in Azure
@@ -238,6 +238,10 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 
 > [!NOTE]
 > You can save the .RDP file locally on your computer to launch future remote desktop connections to your virtual machine instead of having to navigate to virtual machine overview page in the Azure portal and using the connect option.
+
+## Using Azure Policy to ensure standards and assess compliance
+
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag VMs have non-approved local accounts on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
 
 ## Troubleshoot
 
