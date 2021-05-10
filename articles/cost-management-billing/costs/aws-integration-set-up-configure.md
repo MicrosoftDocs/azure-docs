@@ -147,7 +147,7 @@ Use the following information to create an AWS connector and start monitoring yo
 ### Prerequisites
 
 - Ensure you have at least one management group enabled. A management group is required to link your subscription to the AWS service. For more information about creating a management group, see [Create a management group in Azure](../../governance/management-groups/create-management-group-portal.md). 
-- You must be an administrator of the subscription.
+- Ensure that you're an administrator of the subscription.
 - Complete the set up required for a new AWS connector, as described in the [Create a Cost and Usage report in AWS](#create-a-cost-and-usage-report-in-aws) section.
 
 
