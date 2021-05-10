@@ -126,8 +126,14 @@
     href: disaster-recovery.md
   - name: Set up the KDC proxy
     href: key-distribution-center-proxy.md
-  - name: Set up the RD Gateway role
-    href: rd-gateway-role.md
+  - name: Start VM on Connect
+    items:
+    - name: Set up Start VM on Connect
+      href: start-virtual-machine-connect.md
+    - name: Start VM on Connect FAQ
+      href: start-virtual-machine-connect-faq.md
+  - name: Set drain mode
+    href: drain-mode.md
 - name: Concepts
   items:
   - name: Built-in roles
@@ -150,6 +156,8 @@
         href: safe-url-list.md
       - name: Bandwidth considerations
         href: rdp-bandwidth.md
+      - name: Proxy support guidelines
+        href: proxy-server-support.md
       - name: Determine user connection latency
         href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
@@ -160,12 +168,10 @@
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
-  - name: Partner integrations
-    href: partners.md
   - name: Windows Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
-    href: windows-10-multisession-faq.md
+    href: windows-10-multisession-faq.yml
   - name: MSIX app attach
     items:
       - name: What is MSIX app attach?
@@ -181,7 +187,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -210,6 +216,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Azure CLI
+    href: /cli/azure/desktopvirtualization
   - name: Estimate Azure Monitor costs
     href: azure-monitor-costs.md
   - name: Supported RDP file settings
@@ -217,7 +225,7 @@
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
-    href: /cli/azure/ext/desktopvirtualization/
+    href: /cli/azure/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
   - name: Email discovery
@@ -238,11 +246,12 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: UserVoice forum
-    href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
   - name: Microsoft 365 roadmap
     href: https://aka.ms/wvdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Azure Advisor
+    href: ../advisor/advisor-overview.md
+

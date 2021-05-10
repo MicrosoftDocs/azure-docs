@@ -15,11 +15,10 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
-
 
 ## Setting up
 
@@ -51,7 +50,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.7</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -61,7 +60,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -77,7 +76,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ChatThreadAsyncClient | This class is needed for the asynchronous Chat Thread functionality. You obtain an instance via the ChatAsyncClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
 
 ## Create a chat client
-To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common SDK to pass the token to your chat client. 
+To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common SDK to pass the token to your chat client.
 
 Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
@@ -89,8 +88,6 @@ package com.communication.quickstart;
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
-import com.azure.core.http.HttpClient;
-import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
@@ -101,14 +98,9 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         System.out.println("Azure Communication Services - Chat Quickstart");
-        
+
         // Your unique Azure Communication service endpoint
         String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-        // Create an HttpClient builder of your choice and customize it
-        // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
-        NettyAsyncHttpClientBuilder yourHttpClientBuilder = new NettyAsyncHttpClientBuilder();
-        HttpClient httpClient = yourHttpClientBuilder.build();
 
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
@@ -119,8 +111,7 @@ public class App
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
         builder.endpoint(endpoint)
-            .credential(userCredential)
-            .httpClient(httpClient);
+            .credential(userCredential);
         ChatClient chatClient = builder.buildClient();
     }
 }
@@ -134,17 +125,20 @@ Use the `createChatThread` method to create a chat thread.
 - Use the `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
-`CreateChatThreadResult` is the response returned from creating a chat thread. 
+`CreateChatThreadResult` is the response returned from creating a chat thread.
 It contains a `getChatThread()` method which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
 The `ChatThread` object also contains the `getId()` method which retrieves the unique ID of the thread.
 
 ```Java
+CommunicationUserIdentifier identity1 = new CommunicationUserIdentifier("<USER_1_ID>");
+CommunicationUserIdentifier identity2 = new CommunicationUserIdentifier("<USER_2_ID>");
+
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(firstUser)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Participant Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(secondUser)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Participant Display Name 2");
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
@@ -245,12 +239,15 @@ Use the `addParticipants` method to add participants to the thread.
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
+CommunicationUserIdentifier identity3 = new CommunicationUserIdentifier("<USER_3_ID>");
+CommunicationUserIdentifier identity4 = new CommunicationUserIdentifier("<USER_4_ID>");
+
 ChatParticipant thirdThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user3)
+    .setCommunicationIdentifier(identity3)
     .setDisplayName("Display Name 3");
 
 ChatParticipant fourthThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(user4)
+    .setCommunicationIdentifier(identity4)
     .setDisplayName("Display Name 4");
 
 participants.add(thirdThreadParticipant);

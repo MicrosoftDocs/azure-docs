@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
 ## Azure Security Benchmark
 
-The [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) provides
-recommendations on how you can secure your cloud solutions on Azure. To see how this service
-completely maps to the Azure Security Benchmark, see the
+The [Azure Security Benchmark](/security/benchmark/azure/introduction) provides recommendations on
+how you can secure your cloud solutions on Azure. To see how this service completely maps to the
+Azure Security Benchmark, see the
 [Azure Security Benchmark mapping files](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
@@ -33,9 +33,9 @@ standard, see
 
 ## Azure Security Benchmark v1
 
-The [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) provides
-recommendations on how you can secure your cloud solutions on Azure. To see how this service
-completely maps to the Azure Security Benchmark, see the
+The [Azure Security Benchmark](/security/benchmark/azure/introduction) provides recommendations on
+how you can secure your cloud solutions on Azure. To see how this service completely maps to the
+Azure Security Benchmark, see the
 [Azure Security Benchmark mapping files](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
@@ -58,6 +58,19 @@ standard, see
 |Logging and Monitoring |2.3 |Enable audit logging for Azure resources |[Resource logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
 |Logging and Monitoring |2.3 |Enable audit logging for Azure resources |[Resource logs in Service Bus should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |Data Protection |4.9 |Log and alert on changes to critical Azure resources |[Azure Monitor should collect activity logs from all regions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+
+## Canada Federal PBMM
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance - Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+For more information about this compliance standard, see
+[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Audit and Accountability |AU-5 |Response to Audit Processing Failures |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+|Audit and Accountability |AU-12 |Audit Generation |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 
 ## CIS Microsoft Azure Foundations Benchmark 1.1.0
 
@@ -232,6 +245,19 @@ For more information about this compliance standard, see
 |Administrator and Operator Logs |1271.09ad1System.1 - 09.ad |An intrusion detection system managed outside of the control of system and network administrators is used to monitor system and network administration activities for compliance. |[An activity log alert should exist for specific Administrative operations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |Network Controls |0860.09m1Organizational.9 - 09.m |The organization formally manages equipment on the network, including equipment in user areas. |[Deploy Diagnostic Settings for Network Security Groups](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
 
+## IRS 1075 September 2016
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance - IRS 1075 September 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+For more information about this compliance standard, see
+[IRS 1075 September 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Awareness and Training |9.3.3.5 |Response to Audit Processing Failures (AU-5) |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+|Awareness and Training |9.3.3.11 |Audit Generation (AU-12) |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+
 ## ISO 27001:2013
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
@@ -287,4 +313,16 @@ For more information about this compliance standard, see
 |---|---|---|---|---|
 |Audit and Accountability |AU-5 |Response to Audit Processing Failures |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 |Audit and Accountability |AU-12 |Audit Generation |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+
+## UK OFFICIAL and UK NHS
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance - UK OFFICIAL and UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+For more information about this compliance standard, see
+[UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Audit information for users |13 |Audit information for users |[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 

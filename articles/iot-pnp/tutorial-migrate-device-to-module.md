@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
+#Customer intent: As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---
 
 # Tutorial: Connect an IoT Plug and Play module (C#)

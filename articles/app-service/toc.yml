@@ -11,10 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET Core
-    href: quickstart-dotnetcore.md
   - name: ASP.NET
-    href: quickstart-dotnet-framework.md
+    href: quickstart-dotnetcore.md
   - name: Node.js
     href: quickstart-nodejs.md
   - name: PHP
@@ -117,7 +115,7 @@
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -187,6 +185,10 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
+      - name: GitHub Actions
+        href: deploy-github-actions.md
+      - name: GitHub Actions for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -215,8 +217,6 @@
         href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
         href: configure-authentication-provider-google.md
-      - name: Authenticate with Microsoft account
-        href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)
@@ -320,8 +320,8 @@
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Kudu service
     href: resources-kudu.md
-  - name: Migration Assistant guides
-    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
+  - name: Migration Assistant
+    href: app-service-migration-assistant.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples

@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 04/04/2021
 ms.author: memildin
 
 ---
@@ -20,6 +20,274 @@ This page provides you with information about:
 - Bug fixes
 - Deprecated functionality
 
+
+## November 2020
+
+Updates in November include:
+
+- [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+- [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
+- [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
+- [Secure score is now available in continuous export (preview)](#secure-score-is-now-available-in-continuous-export-preview)
+- ["System updates should be installed on your machines" recommendation now includes subrecommendations](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
+- [Policy management page in the Azure portal now shows status of default policy assignments](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
+
+### 29 preview recommendations added to increase coverage of Azure Security Benchmark
+
+Azure Security Benchmark is the Microsoft-authored, Azure-specific, set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
+
+The following 29 preview recommendations have been added to Security Center to increase the coverage of this benchmark.
+
+Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+
+| Security control                     | New recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Encrypt data in transit              | - Enforce SSL connection should be enabled for PostgreSQL database servers<br>- Enforce SSL connection should be enabled for MySQL database servers<br>- TLS should be updated to the latest version for your API app<br>- TLS should be updated to the latest version for your function app<br>- TLS should be updated to the latest version for your web app<br>- FTPS should be required in your API App<br>- FTPS should be required in your function App<br>- FTPS should be required in your web App                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Manage access and permissions        | - Web apps should request an SSL certificate for all incoming requests<br>- Managed identity should be used in your API App<br>- Managed identity should be used in your function App<br>- Managed identity should be used in your web App                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Restrict unauthorized network access | - Private endpoint should be enabled for PostgreSQL servers<br>- Private endpoint should be enabled for MariaDB servers<br>- Private endpoint should be enabled for MySQL servers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Enable auditing and logging          | - Diagnostic logs in App Services should be enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Implement security best practices    | - Azure Backup should be enabled for virtual machines<br>- Geo-redundant backup should be enabled for Azure Database for MariaDB<br>- Geo-redundant backup should be enabled for Azure Database for MySQL<br>- Geo-redundant backup should be enabled for Azure Database for PostgreSQL<br>- PHP should be updated to the latest version for your API app<br>- PHP should be updated to the latest version for your web app<br>- Java should be updated to the latest version for your API app<br>- Java should be updated to the latest version for your function app<br>- Java should be updated to the latest version for your web app<br>- Python should be updated to the latest version for your API app<br>- Python should be updated to the latest version for your function app<br>- Python should be updated to the latest version for your web app<br>- Audit retention for SQL servers should be set to at least 90 days |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Related links:
+
+- [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
+- [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
+- [Learn more about Azure function apps](../azure-functions/functions-overview.md)
+- [Learn more about Azure web apps](../app-service/overview.md)
+- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
+- [Learn more about Azure Database for MySQL](../mysql/overview.md)
+- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
+
+
+### NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard
+
+The NIST SP 800-171 R2 standard is now available as a built-in initiative for use with Azure Security Center's regulatory compliance dashboard. The mappings for the controls are described in [Details of the NIST SP 800-171 R2 Regulatory Compliance built-in initiative](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
+
+For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
+
+### Recommendations list now includes filters
+
+You can now filter the list of security recommendations according to a range of criteria. In the following example, the recommendations list has been filtered to show recommendations that:
+
+- are **generally available** (that is, not preview)
+- are for **storage accounts**
+- support **quick fix** remediation
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="Filters for the recommendations list":::
+
+
+### Auto provisioning experience improved and expanded
+
+The auto provisioning feature helps reduce management overhead by installing the required extensions on new - and existing - Azure VMs so they can benefit from Security Center's protections. 
+
+As Azure Security Center grows, more extensions have been developed and Security Center can monitor a larger list of resource types. The auto provisioning tools have now been expanded to support other extensions and resource types by leveraging the capabilities of Azure Policy.
+
+You can now configure the auto provisioning of:
+
+- Log Analytics agent
+- (New) Azure Policy Add-on for Kubernetes
+- (New) Microsoft Dependency agent
+
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
+
+
+### Secure score is now available in continuous export (preview)
+
+With continuous export of secure score, you can stream changes to your score in real time to Azure Event Hubs or a Log Analytics workspace. Use this capability to:
+
+- track your secure score over time with dynamic reports
+- export secure score data to Azure Sentinel (or any other SIEM)
+- integrate this data with any processes you might already be using to monitor secure score in your organization
+
+Learn more about how to [Continuously export Security Center data](continuous-export.md).
+
+
+### "System updates should be installed on your machines" recommendation now includes subrecommendations
+
+The **System updates should be installed on your machines** recommendation has been enhanced. The new version includes subrecommendations for each missing update and brings the following improvements:
+
+- A redesigned experience in the Azure Security Center pages of the Azure portal. The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the subrecommendations in the portal experience for the updated recommendation":::
+
+- Enriched data for the recommendation from Azure Resource Graph (ARG). ARG is an Azure service that's designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+    For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
+
+    Previously, if you queried this recommendation in ARG, the only available information was that the recommendation needs to be remediated on a machine. The following query of the enhanced version  will return each missing system updates grouped by machine.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### Policy management page in the Azure portal now shows status of default policy assignments
+
+You can now see whether or not your subscriptions have the default Security Center policy assigned, in the Security Center's **security policy** page of the Azure portal.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="The policy management page of Azure Security Center showing the default policy assignments":::
+
+
+
+## October 2020
+
+Updates in October include:
+- [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
+- [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Regulatory compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
+- [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### Vulnerability assessment for on-premise and multi-cloud machines (preview)
+
+[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc enabled servers.
+
+When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
+
+With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+
+Main capabilities:
+
+- Monitoring the VA (vulnerability assessment) scanner provisioning state on Azure Arc machines
+- Provisioning the integrated VA agent to unprotected Windows and Linux Azure Arc machines (manually and at-scale)
+- Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
+- Unified experience for Azure VMs and Azure Arc machines
+
+[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Learn more about Azure Arc enabled servers](../azure-arc/servers/index.yml).
+
+
+### Azure Firewall recommendation added (preview)
+
+A new recommendation has been added to protect all your virtual networks with Azure Firewall.
+
+The recommendation, **Virtual networks should be protected by Azure Firewall** advises you to restrict access to your virtual networks and prevent potential threats by using Azure Firewall.
+
+Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix
+
+The recommendation **Authorized IP ranges should be defined on Kubernetes Services** now has a quick fix option.
+
+For more information about this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
+
+
+### Regulatory compliance dashboard now includes option to remove standards
+
+Security Center's regulatory compliance dashboard provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
+
+The dashboard includes a default set of regulatory standards. If any of the supplied standards isn't relevant to your organization, it's now a simple process to remove them from the UI for a subscription. Standards can be removed only at the *subscription* level; not the management group scope.
+
+Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+
+
+### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
+
+Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
+
+- Asset inventory utilizes (ARG)
+- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+
+Within ARG, there are tables of data for you to use in your queries.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer and the available tables":::
+
+> [!TIP]
+> The ARG documentation lists all the available tables in [Azure Resource Graph table and resource type reference](../governance/resource-graph/reference/supported-tables-resources.md).
+
+From this update, the **Microsoft.Security/securityStatuses** table has been removed. The securityStatuses API is still available.
+
+Data replacement can be used by Microsoft.Security/Assessments table.
+
+The major difference between Microsoft.Security/securityStatuses and Microsoft.Security/Assessments is that while the first shows aggregation of assessments, the seconds holds a single record for each.
+
+For example, Microsoft.Security/securityStatuses would return a result with an array of two policyAssessments:
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
+}
+```
+Whereas, Microsoft.Security/Assessments will hold a record for each such policy assessment as follows:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Example of converting an existing ARG query using securityStatuses to now use the assessments table:**
+
+Query that references SecurityStatuses:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Replacement query for the Assessments table:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Learn more at the following links:
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## September 2020
@@ -736,7 +1004,7 @@ Now, you can add standards such as:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
 
-In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+In addition, we've recently added the [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
  
 Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 

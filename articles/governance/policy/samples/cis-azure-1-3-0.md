@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.3.0
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.3.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 03/24/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -18,19 +18,19 @@ The following mappings are to the **CIS Microsoft Azure Foundations Benchmark 1.
 navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
-Then, find and select the **CIS Microsoft Azure Foundations Benchmark 1.3.0** Regulatory Compliance built-in
+Then, find and select the **CIS Microsoft Azure Foundations Benchmark v1.3.0** Regulatory Compliance built-in
 initiative definition.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
 > These policies may help you [assess compliance](../how-to/get-compliance-data.md) with the
-> control; however, there often is not a 1:1 or complete match between a control and one or more
-> policies. As such, **Compliant** in Azure Policy refers only to the policy definitions themselves;
-> this doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between compliance domains, controls, and Azure Policy definitions for
-> this compliance standard may change over time. To view the change history, see the
+> control; however, there often is not a one-to-one or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policy definitions
+> themselves; this doesn't ensure you're fully compliant with all requirements of a control. In
+> addition, the compliance standard includes controls that aren't addressed by any Azure Policy
+> definitions at this time. Therefore, compliance in Azure Policy is only a partial view of your
+> overall compliance status. The associations between compliance domains, controls, and Azure Policy
+> definitions for this compliance standard may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json).
 
 ## Identity and Access Management
@@ -669,8 +669,8 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Ensure that 'PHP version' is the latest, if used as a part of the API app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality. Using the latest PHP version for API apps is recommended in order to take advantage of security fixes, if any, and/or new functionalities of the latest version. Currently, this policy only applies to Linux web apps. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Ensure that 'PHP version' is the latest, if used as a part of the WEB app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality. Using the latest PHP version for web apps is recommended in order to take advantage of security fixes, if any, and/or new functionalities of the latest version. Currently, this policy only applies to Linux web apps. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Ensure that 'PHP version' is the latest, if used as a part of the API app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality. Using the latest PHP version for API apps is recommended in order to take advantage of security fixes, if any, and/or new functionalities of the latest version. Currently, this policy only applies to Linux web apps. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Ensure that 'PHP version' is the latest, if used as a part of the WEB app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodically, newer versions are released for PHP software either due to security flaws or to include additional functionality. Using the latest PHP version for web apps is recommended in order to take advantage of security fixes, if any, and/or new functionalities of the latest version. Currently, this policy only applies to Linux web apps. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
 
 ### Ensure that 'Python version' is the latest, if used to run the web app
 
@@ -717,7 +717,7 @@ initiative definition.
 |[FTPS should be required in your Web App](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4d24b6d4-5e53-4a4f-a7f4-618fa573ee4b) |Enable FTPS enforcement for enhanced security |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_AuditFTPS_WebApp_Audit.json) |
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
 > clouds.
 
 ## Next steps

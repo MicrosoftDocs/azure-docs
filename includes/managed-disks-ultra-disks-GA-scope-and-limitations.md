@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 04/21/2021
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -25,6 +25,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |East Asia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Germany West Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Korea Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|North Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
@@ -57,6 +58,17 @@ The following table outlines the regions ultra disks are available in, as well a
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
 - Not every VM size is available in every supported region with ultra disks.
 - Are only available as data disks. 
 - Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.

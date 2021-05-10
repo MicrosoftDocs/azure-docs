@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ---
 
-# Delivery with custom headers
-Event subscriptions allow you to set up http headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes.
+# Custom delivery properties
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes.
 
 You can set custom headers on the events that are delivered to the following destinations:
 
@@ -15,7 +15,7 @@ You can set custom headers on the events that are delivered to the following des
 - Azure Event Hubs
 - Relay Hybrid Connections
 
-When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom http headers. This page lets you set fixed and dynamic header values.
+When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom HTTP headers. This page lets you set fixed and dynamic header values.
 
 ## Setting static header values
 To set headers with a fixed value, provide the name of the header and its value in the corresponding fields:
@@ -25,7 +25,7 @@ To set headers with a fixed value, provide the name of the header and its value 
 You may want check **Is secret?** when providing sensitive data. Sensitive data won't be displayed on the Azure portal. 
 
 ## Setting dynamic header values
-You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event’s property value to be used as the value for a header in outgoing requests. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
+You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Delivery properties - dynamic":::
 
@@ -53,7 +53,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
+> Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
 
 ### Service Bus example
 Azure Service Bus supports the use of a [BrokerProperties HTTP header](/rest/api/servicebus/message-headers-and-properties#message-headers) to define message properties when sending single messages. The value of the `BrokerProperties` header should be provided in the JSON format. For example, if you need to set message properties when sending a single message to Service Bus, set the  header in the following way:
@@ -73,7 +73,7 @@ If you need to publish events to a specific partition within an event hub, defin
 
 
 ### Configure time to live on outgoing events to Azure Storage Queues
-For the Azure Storage Queues destination, you can only configure the time-to-live the outgoing message will have once it has been delivered to an Azure Storage queue. If no time is provided, the message’s default time to live is 7 days. You can also set the event to never expire.
+For the Azure Storage Queues destination, you can only configure the time-to-live the outgoing message will have once it has been delivered to an Azure Storage queue. If no time is provided, the message's default time to live is 7 days. You can also set the event to never expire.
 
 :::image type="content" source="./media/delivery-properties/delivery-properties-storage-queue.png" alt-text="Delivery properties - storage queue":::
 

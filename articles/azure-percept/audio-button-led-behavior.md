@@ -23,7 +23,7 @@ Use the buttons to control the behavior of the device.
 
 ## LED behavior
 
-Use the LED indicators to understand which state you device is in.
+Use the LED indicators to understand which state your device is in.
 
 |LED|LED State|Ear SoM Status|
 |---|------------|----------------|

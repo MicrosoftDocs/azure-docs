@@ -1,7 +1,7 @@
 ---
 title: SWIFT CSP-CSCF v2020 blueprint sample controls
 description: Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample
@@ -60,7 +60,7 @@ help you verify need and proper implementation, as custom Azure RBAC rules are e
 - Audit VMs that do not use managed disks
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
-## 2.9A  Account Management | Account Monitoring / Atypical Usage
+## 2.9A Account Management | Account Monitoring / Atypical Usage
 
 Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure virtual machines,
 reducing exposure to attacks while providing easy access to connect to VMs when needed. All JIT
@@ -193,7 +193,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application allowed list is recommended but has not yet been configured.
+virtual machines where an application allowlist is recommended but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
@@ -203,7 +203,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application allowed list is recommended but has not yet
+helps you monitor virtual machines where an application allowlist is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -214,7 +214,7 @@ Adaptive application control in Azure Security Center is an intelligent, automat
 application filtering solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allowed list is recommended
+definition that helps you monitor virtual machines where an application allowlist is recommended
 but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -296,15 +296,15 @@ vulnerabilities in your deployed resources.
 - Advanced data security should be enabled on your SQL servers
 - Auditing on SQL server should be enabled
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
-- Vulnerabilities on your SQL databases should be remediated 
+- Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities in security configuration on your machines should be remediated
 
 ## 1.3 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -348,10 +348,10 @@ can support just-in-time access but have not yet been configured.
 
 ## 2.1, 2.4, 2.4A, 2.5A, and 2.6 Transmission Confidentiality and Integrity | Cryptographic or Alternate Physical Protection
 
-This blueprint helps you protect the confidential and integrity of transmitted information by 
-assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor 
-cryptographic mechanism implemented for communications protocols. Ensuring communications are 
-properly encrypted can help you meet your organization's requirements or protecting information 
+This blueprint helps you protect the confidential and integrity of transmitted information by
+assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor
+cryptographic mechanism implemented for communications protocols. Ensuring communications are
+properly encrypted can help you meet your organization's requirements or protecting information
 from unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
@@ -452,7 +452,7 @@ exfiltration of information.
 - Deploy Threat Detection on SQL servers
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
 > clouds.
 
 ## Next steps

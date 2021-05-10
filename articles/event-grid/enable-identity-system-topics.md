@@ -38,4 +38,4 @@ You can enable system-managed identity only for the regional Azure resources. Yo
 
 
 ## Next steps
-Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For detailed steps, see [Add identity to Azure roles on destinations](add-identity-roles.md). 
+Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For detailed steps, see [Grant managed identity the access to Event Grid destination](add-identity-roles.md). 

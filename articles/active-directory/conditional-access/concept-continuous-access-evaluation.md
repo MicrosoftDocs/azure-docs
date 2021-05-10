@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,7 +50,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
 > [!NOTE] 
-> Teams does not support user risk events yet.
+> Teams and SharePoint Online does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
@@ -127,8 +127,12 @@ In the following example, a Conditional Access administrator has configured a lo
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
 1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
 1. Choose **Enable preview**.
+1. Select **Save**.
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
+
+> [!WARNING]
+> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -139,7 +143,7 @@ From this page, you can optionally limit the users and groups that will be subje
 For CAE, we only have insights into named IP-based named locations. We have no insights into other location settings like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When user comes from an MFA trusted IP or trusted locations that include MFA Trusted IPs or country location, CAE will not be enforced after user move to a different location. In those cases, we will issue a 1-hour CAE token without instant IP enforcement check.
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### IP address configuration
 
@@ -160,11 +164,11 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 
 For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
-### Policy change timing
+### Group membership and Policy update effective time
 
-Policy changes made by administrators could take up to one day to be effective. Some optimization has been done to reduce the delay to two hours. However, it does not cover all the scenarios yet. 
+Group membership and policy update made by administrators could take up to one day to be effective. Some optimization has been done for policy updates which reduce the delay to two hours. However, it does not cover all the scenarios yet. 
 
-If there is an emergency and you need to have your updated policies to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
+If there is an emergency and you need to have your policies updated or group membership change to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
 
 ### Coauthoring in Office apps
 

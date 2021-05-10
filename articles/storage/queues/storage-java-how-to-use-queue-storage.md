@@ -1,8 +1,8 @@
 ---
 title: How to use Queue Storage from Java - Azure Storage
 description: Learn how to use Queue Storage to create and delete queues. Learn to insert, peek, get, and delete messages with the Azure Storage client library for Java.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 08/19/2020
 ms.topic: how-to
@@ -43,50 +43,50 @@ To create a Java application named `queues-how-to-v12`:
    ```
 
    ```powershell
-    mvn archetype:generate `
-        --define interactiveMode=n `
-        --define groupId=com.queues.howto `
-        --define artifactId=queues-howto-v12 `
-        --define archetypeArtifactId=maven-archetype-quickstart `
-        --define archetypeVersion=1.4
-    ```
+   mvn archetype:generate `
+       --define interactiveMode=n `
+       --define groupId=com.queues.howto `
+       --define artifactId=queues-howto-v12 `
+       --define archetypeArtifactId=maven-archetype-quickstart `
+       --define archetypeVersion=1.4
+   ```
 
 1. The output from generating the project should look something like this:
 
-    ```console
-    [INFO] Scanning for projects...
-    [INFO]
-    [INFO] ------------------< org.apache.maven:standalone-pom >-------------------
-    [INFO] Building Maven Stub Project (No POM) 1
-    [INFO] --------------------------------[ pom ]---------------------------------
-    [INFO]
-    [INFO] >>> maven-archetype-plugin:3.1.2:generate (default-cli) > generate-sources @ standalone-pom >>>
-    [INFO]
-    [INFO] <<< maven-archetype-plugin:3.1.2:generate (default-cli) < generate-sources @ standalone-pom <<<
-    [INFO]
-    [INFO]
-    [INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ standalone-pom ---
-    [INFO] Generating project in Batch mode
-    [INFO] ----------------------------------------------------------------------------
-    [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
-    [INFO] ----------------------------------------------------------------------------
-    [INFO] Parameter: groupId, Value: com.queues.howto
-    [INFO] Parameter: artifactId, Value: queues-howto-v12
-    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parameter: package, Value: com.queues.howto
-    [INFO] Parameter: packageInPathFormat, Value: com/queues/howto
-    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parameter: package, Value: com.queues.howto
-    [INFO] Parameter: groupId, Value: com.queues.howto
-    [INFO] Parameter: artifactId, Value: queues-howto-v12
-    [INFO] Project created from Archetype in dir: C:\queues\queues-howto-v12
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  6.775 s
-    [INFO] Finished at: 2020-08-17T15:27:31-07:00
-    [INFO] ------------------------------------------------------------------------
-        ```
+   ```console
+   [INFO] Scanning for projects...
+   [INFO]
+   [INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+   [INFO] Building Maven Stub Project (No POM) 1
+   [INFO] --------------------------------[ pom ]---------------------------------
+   [INFO]
+   [INFO] >>> maven-archetype-plugin:3.1.2:generate (default-cli) > generate-sources @ standalone-pom >>>
+   [INFO]
+   [INFO] <<< maven-archetype-plugin:3.1.2:generate (default-cli) < generate-sources @ standalone-pom <<<
+   [INFO]
+   [INFO]
+   [INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ standalone-pom ---
+   [INFO] Generating project in Batch mode
+   [INFO] ----------------------------------------------------------------------------
+   [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
+   [INFO] ----------------------------------------------------------------------------
+   [INFO] Parameter: groupId, Value: com.queues.howto
+   [INFO] Parameter: artifactId, Value: queues-howto-v12
+   [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+   [INFO] Parameter: package, Value: com.queues.howto
+   [INFO] Parameter: packageInPathFormat, Value: com/queues/howto
+   [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+   [INFO] Parameter: package, Value: com.queues.howto
+   [INFO] Parameter: groupId, Value: com.queues.howto
+   [INFO] Parameter: artifactId, Value: queues-howto-v12
+   [INFO] Project created from Archetype in dir: C:\queues\queues-howto-v12
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  6.775 s
+   [INFO] Finished at: 2020-08-17T15:27:31-07:00
+   [INFO] ------------------------------------------------------------------------
+   ```
 
 1. Switch to the newly created `queues-howto-v12` directory.
 

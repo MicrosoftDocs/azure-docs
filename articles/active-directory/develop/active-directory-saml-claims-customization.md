@@ -72,7 +72,7 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 | Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
-For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+For more info, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
 
 You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 

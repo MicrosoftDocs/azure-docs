@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
+# This article applies to device developers.
 ---
 
 # IoT Central device development guide
-
-*This article applies to device developers.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
@@ -118,7 +118,7 @@ To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play co
 
 ### Device SDKs
 
-Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the behavior of your device. The code should:
+Use one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to implement the behavior of your device. The code should:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
 - Announce the DTMI of the model the device implements.

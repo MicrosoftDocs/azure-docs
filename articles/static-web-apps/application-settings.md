@@ -163,4 +163,4 @@ Application settings are available to view through the Azure CLI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup local development](local-development.md)
+> [Configure front-end frameworks](front-end-frameworks.md)

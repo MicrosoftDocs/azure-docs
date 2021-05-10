@@ -74,6 +74,14 @@ If you want to run the local agent from a different computer than it is currentl
 4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 
+### How do I delete the Sync metadata database if the Sync agent is still associated with it
+
+In order to delete a Sync metadata database that has a Sync agent associated with it, you must first delete the Sync agent. To delete the agent, do the following things: 
+
+1. Select the Sync database. 
+2. Go to the **Sync to other databases** page.
+3. Select the Sync agent and click on **Delete**. 
+
 ## <a name="agent-tshoot"></a> Troubleshoot Data Sync Agent issues
 
 - [The client agent install, uninstall, or repair fails](#agent-install)

@@ -48,7 +48,6 @@ The following document file types are supported by Document Translation:
 |Microsoft Word|.docx| A text document file.|
 |Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|.txt| An unformatted text document.|
-|Translation Memory Exchange|.tmx|An open XML standard used for exchanging translation memory (TM) data created by Computer Aided Translation (CAT) and localization applications.|
 
 ## Supported glossary formats
 

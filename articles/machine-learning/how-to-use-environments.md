@@ -9,8 +9,8 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -82,6 +82,12 @@ for env in envs:
 
 > [!WARNING]
 >  Don't start your own environment name with the _AzureML_ prefix. This prefix is reserved for curated environments.
+
+To customize a curated environment, clone and rename the environment. 
+```python 
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+curated_clone = env.clone("customize_curated")
+```
 
 ### Use Conda dependencies or pip requirements files
 
