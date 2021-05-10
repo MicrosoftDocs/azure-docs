@@ -11,7 +11,7 @@ ms.date: 05/10/2021
 
 # Handle false positives in Azure Sentinel
 
-[Azure Sentinel detection rules](tutorial-detect-threats-built-in.md) notify you when something suspicious occurs in your network. No detection rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives by using automation or scheduled analytics rules.
+[Azure Sentinel analytics rules](tutorial-detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 
