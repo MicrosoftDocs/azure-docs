@@ -22,7 +22,7 @@ landingContent:
           url: speech-container-howto.md
         - text: Speech containers with Kubernetes and Helm
           url: speech-container-howto-on-premises.md
-        - text: Speech containers on Azure container instances
+        - text: Speech containers on Azure Container Instances
           url: ../containers/azure-container-instance-recipe.md
 - title: Create and configure
   linkLists:
