@@ -12,13 +12,7 @@
 - name: Quickstarts
   items:
   - name: Onboard to Sentinel
-    items:
-    - name: Onboard in the portal
-      href: quickstart-onboard.md
-    - name: Onboard with PowerShell
-      href: quickstart-onboard-powershell.md
-    - name: Onboard with Resource Manager templates
-      href: quickstart-onboard-template.md
+    href: quickstart-onboard.md
 - name: Tutorials
   items:
   - name: Investigate incidents
@@ -47,7 +41,7 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Detection and analysis
     items:
-    - name: Visualizing data 
+    - name: Visualizing data
       href: quickstart-get-visibility.md
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
@@ -55,7 +49,7 @@
       href: quickstart-get-visibility.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
-    - name: Incidents 
+    - name: Incidents
       href: create-incidents-from-alerts.md
     - name: Incident metrics
       href: manage-soc-with-incident-metrics.md
@@ -77,8 +71,6 @@
       href: hunting.md
 - name: How-Tos
   items:
-  - name: Get started
-    items:
   - name: Collect data
     items:
     - name: Create a custom connector method
@@ -90,49 +82,38 @@
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
-      items:
-      - name: Use the dashboard
-        href: quickstart-get-visibility.md
-      - name: Use Azure Monitor workbooks
-        href: tutorial-monitor-your-data.md
-      - name: Use PowerBI
-        href: quickstart-get-visibility.md
-      - name: Use Excel
-        href: quickstart-get-visibility.md
+      href: quickstart-get-visibility.md
+    - name: Use Azure Monitor workbooks
+      href: tutorial-monitor-your-data.md
   - name: Detect and analyze data
-    items:
-    - name: Use analytics rules
+    - name: Use built-in rules
+      href: tutorial-detect-threats-built-in.md
+    - name: Create custom rules
       items:
-      - name: Use built-in rules
-        href: tutorial-detect-threats-built-in.md
-      - name: Create custom rules
-        items:
-        - name: Create a rule
-          href: tutorial-detect-threats-custom.md
-        - name: Map data fields to entities
-          href: map-data-fields-to-entities.md
-        - name: Surface custom details in alerts
-          href: surface-custom-details-in-alerts.md
-      - name: Enable user and entity behavior analytics
-        href: enable-entity-behavior-analytics.md
-      - name: Create incidents from Microsoft Security alerts
-        href: create-incidents-from-alerts.md
-  - name: Investigate and respond
-    items:
-    - name: Hunt for threats
-      items:
-      - name: Hunt with Jupyter notebooks
-        href: notebooks.md
-      - name: Hunt with bookmarks
-        href: bookmarks.md
-      - name: Hunt with livestream
-        href: livestream.md
+      - name: Create a rule
+        href: tutorial-detect-threats-custom.md
+      - name: Map data fields to entities
+        href: map-data-fields-to-entities.md
+      - name: Surface custom details in alerts
+        href: surface-custom-details-in-alerts.md
     - name: Use UEBA to investigate incidents
       items:
         - name: Enable UEBA
           href: enable-entity-behavior-analytics.md
         - name: Common UEBA investigation methods
           href: investigate-with-ueba.md
+    - name: Enable user and entity behavior analytics
+      href: enable-entity-behavior-analytics.md
+    - name: Create incidents from Microsoft Security alerts
+      href: create-incidents-from-alerts.md
+  - name: Investigate, hunt, and respond
+    items:
+    - name: Hunt with Jupyter notebooks
+      href: notebooks.md
+    - name: Hunt with bookmarks
+      href: bookmarks.md
+    - name: Hunt with livestream
+      href: livestream.md
   - name: Manage Sentinel
     items:
     - name: Manage Sentinel Permissions
@@ -157,46 +138,52 @@
       href: offboard.md
 - name: Reference
   items:
-  - name: Top Azure Sentinel workbooks
-    href: top-workbooks.md
-  - name: Azure CLI
-    href: /cli/azure/sentinel
-  - name: Azure RBAC roles
+  - name: Management references
     items:
-    - name: All Azure roles
-      href: ../role-based-access-control/built-in-roles.md#all
-    - name: Azure Sentinel roles
-      href: ../role-based-access-control/built-in-roles.md#security
-  - name: REST APIs
+    - name: Azure Sentinel Logic Apps connector
+      href: /connectors/azuresentinel/
+    - name: Azure CLI
+      href: /cli/azure/sentinel
+    - name: Azure RBAC roles
+      items:
+      - name: All Azure roles
+        href: ../role-based-access-control/built-in-roles.md#all
+      - name: Azure Sentinel roles
+        href: ../role-based-access-control/built-in-roles.md#security
+  - name: Data connector references
     items:
-    - name: Azure Sentinel REST-API
-      href: /rest/api/securityinsights/
-    - name: Manage hunting queries with REST-API
-      href: hunting-with-rest-api.md
-    - name: Manage watchlists with REST-API
-      href: watchlist-with-rest-api.md
-  - name: Azure Sentinel Logic Apps connector
-    href: /connectors/azuresentinel/
-  - name: Entities reference
-    href: entities-reference.md
-  - name: Network normalization schema
-    href: normalization-schema.md
-  - name: Data source schema reference
-    href: data-source-schema-reference.md
-  - name: Kusto Query Language
+    - name: Data source schema reference
+      href: data-source-schema-reference.md
+    - name: CEF log field mapping
+      href: cef-name-mapping.md
+    - name: Network normalization schema
+      href: normalization-schema.md
+  - name: Detection and analysis references
     items:
-    - name: Kusto query overview
-      href: /azure/data-explorer/kusto/query/
-    - name: Kusto Query Language quick reference
-      href: /azure/data-explorer/kql-quick-reference
-    - name: Azure Monitor log query optimizations
-      href: ../azure-monitor/logs/query-optimization.md
-  - name: UEBA enrichments
-    href: ueba-enrichments.md
-  - name: CEF log field mapping
-    href: cef-name-mapping.md
-  - name: MCAS alerts not onboarded to Microsoft 365 Defender
-    href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+    - name: Top Azure Sentinel workbooks
+      href: top-workbooks.md
+    - name: Entities reference
+      href: entities-reference.md
+    - name: UEBA enrichments
+      href: ueba-enrichments.md
+    - name: Kusto Query Language
+      items:
+      - name: Kusto query overview
+        href: /azure/data-explorer/kusto/query/
+      - name: Kusto Query Language quick reference
+        href: /azure/data-explorer/kql-quick-reference
+      - name: Azure Monitor log query optimizations
+        href: ../azure-monitor/logs/query-optimization.md
+    - name: REST APIs
+      items:
+      - name: Azure Sentinel REST-API
+        href: /rest/api/securityinsights/
+      - name: Manage hunting queries with REST-API
+        href: hunting-with-rest-api.md
+      - name: Manage watchlists with REST-API
+        href: watchlist-with-rest-api.md
+    - name: MCAS alerts not onboarded to Microsoft 365 Defender
+      href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: Resources
   items:
   - name: Useful resources
