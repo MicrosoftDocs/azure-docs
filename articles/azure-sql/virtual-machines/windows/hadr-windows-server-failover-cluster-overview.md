@@ -144,7 +144,7 @@ For example, a restarted availability group comes online per the following seque
 1. Listener IP comes online
 1. Listener network name comes online
 1. Availability group comes online
-1. Individual databases go through recovery, which can take some time depending on a number of factors, such as the length of the redo log. Connections are routed by the listener only once the database is fully recovered. To learn more, see [Estimating failover time (RTO)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups). 
+1. Individual databases go through recovery, which can take some time depending on a number of factors, such as the length of the redo log. Connections are routed by the listener only once the database is fully recovered. To learn more, see [Estimating failover time (RTO)](/sql/database-engine/availability-groups/windows/monitor-performance-for-always-on-availability-groups). 
 
 Since recovery could take some time, aggressive monitoring set to detect a failure in 20 seconds could result in an outage of minutes if a transient event occurs (such as memory-preserving [Azure VM maintenance](#azure-platform-maintenance)). Setting the monitoring to a more relaxed value of 40 seconds can help avoid a longer interruption of service. 
 

@@ -65,7 +65,7 @@ The following is a quick checklist of storage configuration best practices for r
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
 - Provision the storage account in the same region as the SQL Server VM. 
 - Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
-- Format your data disk to use 64 KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
+- Format your data disk to use 64-KB allocation unit size for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with allocation unit size and interleave for the storage pool set to 64 KB. 
 
 To learn more, see the comprehensive [Storage best practices](performance-guidelines-best-practices-storage.md). 
 
@@ -90,7 +90,7 @@ The following is a quick checklist of best practices for SQL Server configuratio
 - Enable [automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning) on mission critical application databases.
 - Ensure that all [tempdb best practices](/sql/relational-databases/databases/tempdb-database#optimizing-tempdb-performance-in-sql-server) are followed.
 - Place tempdb on the ephemeral D:/ drive.
-- [Use the recommended number of files](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with 1 file per core, up to 8 files.
+- [Use the recommended number of files](/troubleshoot/sql/performance/recommendations-reduce-allocation-contention#resolution), using multiple tempdb data files starting with one file per core, up to eight files.
 - Schedule SQL Server Agent jobs to run [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql#a-checking-both-the-current-and-another-database), [index reorganize](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#reorganize-an-index), [index rebuild](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes#rebuild-an-index), and [update statistics](/sql/t-sql/statements/update-statistics-transact-sql#examples) jobs.
 - Monitor and manage the health and size of the SQL Server [transaction log file](/sql/relational-databases/logs/manage-the-size-of-the-transaction-log-file#Recommendations).
 - Take advantage of any new [SQL Server features](/sql/sql-server/what-s-new-in-sql-server-ver15) available for the version being used.
@@ -107,19 +107,21 @@ The following is a quick checklist of best practices for Azure-specific guidance
 - Leverage [Azure Defender](../../../security-center/azure-defender.md), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including vulnerability assessments, and just-in-time access, which reduces the attack service while allowing legitimate users to access virtual machines when necessary. To learn more, see [vulnerability assessments](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [enable vulnerability assessments for SQL Server VMs](sql-vulnerability-assessment-enable.md) and [just-in-time access](../../../security-center/just-in-time-explained.md). 
 - Leverage [Azure Advisor](../../../advisor/advisor-overview.md) to address [performance](../../../advisor/advisor-performance-recommendations.md), [cost](../../../advisor/advisor-cost-recommendations.md), [reliability](../../../advisor/advisor-high-availability-recommendations.md), [operational excellence](../../../advisor/advisor-operational-excellence-recommendations.md), and [security recommendations](../../../advisor/advisor-security-recommendations.md).
 - Leverage [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
-- Enable [Auto-shutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
+- Enable [Autoshutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
 - Implement a high availability and disaster recovery (HADR) solution that meets  your business continuity SLAs, see the [HADR options](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) options available for SQL Server on Azure VMs. 
 - Use the Azure portal (support + troubleshooting) to evaluate [resource health](../../../service-health/resource-health-overview.md) and history; submit new support requests when needed.
 
 ## HADR configuration
 
-Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail: 
+High availability and disaster recovery features, such as the [Always On availability group](availability-group-overview.md) and the [failover cluster instance](failover-cluster-instance-overview.md), rely on underlying [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md) technology. Review the best practices for modifying your HADR settings to better support the cloud environment. 
+
+The following checklist is best practices for running HADR for SQL Server on Azure VMs: 
 
 * Change the cluster [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold) to less aggressive parameters to avoid the possibility of transient network failures, or Azure platform maintenance leading to unexpected outages, or consuming higher computing resources. Choose values based on how much down time is tolerable and how long a corrective action will take depending on your application, business needs, and environment. 
     - Do not set any values lower than their default values. 
     - SameSubnetThreshold <= CrossSubnetThreshold
     - SameSubnetDelay <= CrossSubnetDelay
-    - These change take effect immediately, no restart required. 
+    - These changes take effect immediately, no restart required. 
 * To reduce the impact of downtime, choose the [VM availability settings](hadr-cluster-best-practices.md#vm-availability-settings) that best suit your business needs and environment, such as availability sets, proximity placement groups and/or availability zones. 
 * Use a single NIC per cluster node and a single subnet. 
 * Configure cluster [quorum voting](hadr-cluster-best-practices.md#quorum-voting) to use 3 or more odd number of votes, and do not assign votes to DR regions. 
@@ -132,7 +134,7 @@ Review the following checklist for a brief overview of the HADR best practices t
 * If you're still experiencing unexpected failures, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so simply reduces the likelihood of failure but is unlikely to eliminate the underlying source of the issue. You may still need to investigate and address the underlying root cause. 
    - Do not set any values lower than their default values. 
    - The lease interval for an availability group ((1/2)*Lease timeout) must be shorter than SameSubnetThreshold * SameSubnetDelay.
-   - Consider relaxing your monitoring during certain highload activities, such as index maintenance, or DBCC Checkdb. 
+   - Consider relaxing your monitoring during certain high load activities, such as index maintenance, or DBCC Checkdb. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:
@@ -148,9 +150,9 @@ To ensure recovery during legitimate outages while providing greater tolerance f
 
 | Setting | Windows Server 2012 or later | Windows Server 2008R2 |
 |:---------------------|:----------------------------|:-----------------------|
-| **SameSubnetDelay**      | 1 second                    | 2 second               |
+| **SameSubnetDelay**      | 1 second                    | 2 seconds               |
 | **SameSubnetThreshold**  | 40 heartbeats               | 10 heartbeats (max)         |
-| **CrossSubnetDelay**     | 1 second                    | 2 second               |  
+| **CrossSubnetDelay**     | 1 second                    | 2 seconds               |  
 | **CrossSubnetThreshold** | 40 heartbeats               | 20 heartbeats (max)         |
 
 If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolving it. 

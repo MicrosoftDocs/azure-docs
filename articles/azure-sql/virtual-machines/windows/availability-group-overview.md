@@ -52,34 +52,7 @@ While Availability Zones may provide better availability than Availability Sets 
 
 You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
-There are two main options for setting up your VNN listener: external (public) or internal. The external (public) listener uses an internet-facing load balancer and is associated with a public virtual IP that's accessible over the internet. An internal listener uses an internal load balancer and supports only clients within the same virtual network. For either load balancer type, you must enable Direct Server Return. 
-
-If the availability group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include `MultisubnetFailover=True`. This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see [Configure an ILB listener for availability groups in Azure](availability-group-listener-powershell-configure.md).
-
-
-You can still connect to each availability replica separately by connecting directly to the service instance. Also, because availability groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similarly to database mirroring:
-
-* There's one primary replica and one secondary replica.
-* The secondary replica is configured as non-readable (**Readable Secondary** option set to **No**).
-
-Here's an example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client:
-
-```console
-Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
-```
-
-For more information on client connectivity, see:
-
-* [Using Connection String Keywords with SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
-* [Connect Clients to a Database Mirroring Session (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
-* [Connecting to Availability Group Listener in Hybrid IT](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-* [Using Database-Mirroring Connection Strings with Availability Groups](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-
-
-If you are using DNN or if your AG spans across multiple subnets like multiple Azure regions and you are using client libraries that support the MultiSubnetFailover connection option in the connection string, you can optimize availability group failover to a different subnet by setting MultiSubnetFailover to `True` or `Yes`. The MultiSubnetFailover connection option only works with the TCP network protocol.
-
-Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
+Most SQL Server features work transparently availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
 Additionally, there are some behavior differences between the functionality of the VNN listener and DNN listener that are important to note: 
 
@@ -87,9 +60,7 @@ Additionally, there are some behavior differences between the functionality of t
 - **Existing connections**: Connections made to a *specific database* within a failing-over availability group will close, but other connections to the primary replica will remain open since the DNN stays online during the failover process. This is different than a traditional VNN environment where all connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. When using a DNN listener, you may need to adjust application connection strings to ensure that connections are redirected to the new primary replica upon failover.
 - **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back, and you need to *manually* reconnect. For example, in SQL Server Management Studio, close the query window and open a new one. 
 
-There are two main options for setting up your listener: external (public) or internal. The external (public) listener uses an internet-facing load balancer and is associated with a public virtual IP that's accessible over the internet. An internal listener uses an internal load balancer and supports only clients within the same virtual network. For either load balancer type, you must enable Direct Server Return. 
-
-
+There are two main options for setting up your VNN listener: external (public) or internal. The external (public) listener uses an internet-facing load balancer and is associated with a public virtual IP that's accessible over the internet. An internal listener uses an internal load balancer and supports only clients within the same virtual network. For either load balancer type, you must enable Direct Server Return. 
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, because availability groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similarly to database mirroring:
 
@@ -109,7 +80,6 @@ For more information on client connectivity, see:
 * [Connecting to Availability Group Listener in Hybrid IT](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
 * [Using Database-Mirroring Connection Strings with Availability Groups](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-
 
 ## Lease mechanism 
 
@@ -141,7 +111,7 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available:
 
-| | Azure portal | Azure CLI / PowerShell | Quickstart Templates | Manual |
+| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual](availability-group-manually-configure-prerequisites-tutorial.md) |
 |---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -157,8 +127,6 @@ The following table provides a comparison of the options available:
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes|
 |**Distributed AG with no cluster** |No|No|No|Yes|
-
-For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## Next steps
 
