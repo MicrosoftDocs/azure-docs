@@ -66,6 +66,12 @@ The following architecture diagram shows the implementation.
 
 [Set up your Azure AD tenant](/dynamics365/fraud-protection/integrate-real-time-api) to use Microsoft DFP.
 
+## Custom domain setup requirements
+
+In a production environment, you must use a custom domain for Azure AD B2C and Microsoft DFP fingerprinting service. The domain for both services should reside in the same root DNS zone in order to prevent browser privacy settings from blocking cross-domain cookies. This is not necessary in a non-production environment.
+
+For example:
+
 ## Deploy to the web application
 
 ### Implement Microsoft DFP service fingerprinting
