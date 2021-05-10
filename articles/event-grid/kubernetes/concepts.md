@@ -51,7 +51,7 @@ Event publishers are applications or systems that send events to Event Grid to b
 ## Topics
 A topic is a form of input channel that exposes an endpoint to which publishers send events to Event Grid.
 
-A topic can be used for a collection of related events. You could create a topic for each category of related events. In some cases, the source can be used to organize events into categories because sources are usually associated with a set of closely related event types (“MyApp.OrderCreated”, “MyApp.OderDeleted”, “MyApp.OrderRejected”, and so on.). 
+A topic can be used for a collection of related events. You could create a topic for each category of related events. In some cases, the source can be used to organize events into categories because sources are usually associated with a set of closely related event types (“MyApp.OrderCreated”, “MyApp.OderDeleted”, “MyApp.OrderRejected”, and so on). 
 
 Consider an application that sends events related to managing user accounts and processing orders. It's unlikely that an event subscriber is interested in consuming both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. 
 
