@@ -368,7 +368,7 @@ For customers who are using previous version of Azure AD login for Linux that wa
       ```
 ## Using Azure Policy to ensure standards and assess compliance
 
-Use Azure policy to ensure Azure AD login is enabled for your new and existing Windows virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Windows VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Windows VMs that do not have Azure AD login enabled, as well as remediate existing Windows VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag VMs have non-approved local accounts on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Linux virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Linux VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Linux VMs that do not have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Linux VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
 
 ## Troubleshoot sign-in issues
 
