@@ -13,7 +13,7 @@ ms.author: v-erkel
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
-You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#create-the-correct-sized-cache-to-support-your-storage-targets).
+You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
 The cache presents all of the storage targets in one aggregated namespace. The namespace paths are configured separately after you add the storage targets.
 
@@ -31,8 +31,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
-## Create the correct sized cache to support your storage targets
-<!-- size your cache correctly for your number of storage targets -->
+## Size your cache correctly to support your storage targets
 
 The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 

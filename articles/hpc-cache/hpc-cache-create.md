@@ -37,7 +37,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
-Capacity also affects the cache's cost, and how many storage targets it can support.
+Capacity also affects the cache's cost, and how many storage targets it can support. Read about storage target limits in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 Choose the capacity by setting these two values:
 
