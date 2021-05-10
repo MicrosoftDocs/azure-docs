@@ -170,6 +170,7 @@ Create a directory on your Linux system, and then mount a container in the stora
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Ensure sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).Also, make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
+|`mount: /mnt/test: bad option;`| We need to install the nfs helper program using **sudo apt install nfs-common**.|
 
 ## See also
 
