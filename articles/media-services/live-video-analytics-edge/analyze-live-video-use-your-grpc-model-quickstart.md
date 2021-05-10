@@ -1,12 +1,12 @@
 ---
-title:  Analyze live video by using your own gRPC model - Azure
-description: In this quickstart, you'll apply computer vision to analyze the live video feed from a (simulated) IP camera. 
+title: Analyze live video by using your own gRPC model with Live Video Analytics - Azure
+description: In this quickstart, you'll apply computer vision to analyze the live video feed from a (simulated) IP camera with Live Video Analytics. 
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
-# Quickstart: Analyze live video by using your own gRPC model
+# Quickstart: Analyze live video by using your own gRPC model with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

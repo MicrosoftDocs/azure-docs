@@ -1,12 +1,12 @@
 ---
-title: Configure a signal gate for event-based video recording - Azure
-description: This article provides guidance about how to configure a signal gate in a media graph.
+title: Configure a signal gate for event-based video recording with Live Video Analytics - Azure
+description: This article provides guidance about how to configure a signal gate in a media graph with Live Video Analytics.
 ms.topic: how-to
 ms.date: 11/3/2020
 
 ---
 
-# Configure a signal gate for event-based video recording
+# Configure a signal gate for event-based video recording with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

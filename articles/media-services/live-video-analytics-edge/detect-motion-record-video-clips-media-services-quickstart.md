@@ -1,11 +1,11 @@
 ---
-title: Detect motion, record video to Azure Media Services
-description: This quickstart shows how to use Live Video Analytics on IoT Edge in order to detect motion in a live video stream and record video clips to Azure Media Services.
+title: Detect motion, record video to Azure Media Services with Live Video Analytics
+description: This quickstart shows how to use Azure Live Video Analytics on IoT Edge in order to detect motion in a live video stream and record video clips to Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Detect motion, record video to Media Services
+# Quickstart: Detect motion, record video to Azure Media Services
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
