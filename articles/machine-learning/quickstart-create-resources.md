@@ -26,7 +26,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 
 ## Create the workspace
 
-If you  already have a workspace, skip this section and continue to [Explore the workspace](#studio).
+If you  already have a workspace, skip this section and continue to [Create a compute instance](#instance).
 
 If you don't yet have a workspace, create one now:
 
