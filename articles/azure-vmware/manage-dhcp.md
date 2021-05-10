@@ -90,7 +90,7 @@ If you want to use a third-party external DHCP server, you'll need to create a D
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP server pool assigned to segment" border="true":::
 
 ## Send DHCP requests to a non-NSX-T based DHCP server
-If you want to send DHCP requests from your Azure VMware Solution VMs a non-NSX-T DHCP server, you'll create a new security segment profile.
+If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll create a new security segment profile.
 
 >[!IMPORTANT]
 >VMs on the same L2 segment that runs as DHCP servers are blocked from serving client requests.  Because of this, it's important to follow the steps in this section.
