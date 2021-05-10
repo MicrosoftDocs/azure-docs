@@ -1,6 +1,6 @@
 ---
 title: DevOps deployment from single-tenant Azure Logic Apps (preview)
-description: Learn about DevOps support for deploying from single-tenant Azure Logic Apps (preview).
+description: Learn about DevOps deployment from single-tenant Azure Logic Apps (preview).
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -243,7 +243,7 @@ For logic apps that run in your local development environment using Visual Studi
 * [Create preview logic apps - Azure portal](create-stateful-stateless-workflows-azure-portal.md)
 * [Create preview logic apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 
-We'd also like to hear about your experiences with the preview logic app resource type and preview single-tenant model!
+We'd like to hear about your experiences with the preview logic app resource type and preview single-tenant model!
 
-For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
-For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
+- For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
+- For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
