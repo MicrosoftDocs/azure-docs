@@ -1,11 +1,11 @@
 ---
-title: Live Video Analytics on IoT Edg terminology - Azure
-description: This article provides an overview of Live Video Analytics on IoT Edge terminology.
+title: Azuren Live Video Analytics on IoT Edg terminology 
+description: This article provides an overview of AzurenLive Video Analytics on IoT Edge terminology.
 ms.topic: conceptual
 ms.date: 05/30/2020
 
 ---
-# Terminology
+# Live Video Analytics terminology
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
