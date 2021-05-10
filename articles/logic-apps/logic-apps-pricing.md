@@ -94,7 +94,7 @@ When you create the **Logic App (Preview)** resource in the Azure portal or depl
 > [![NOTE]
 > During preview, running preview version logic apps in App Service doesn't incur *extra* charges on top of your selected hosting plan.
 
-When your logic app includes and runs enabled *stateful* workflows, which use [external storage](../azure-functions/storage-considerations#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. These storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/).
+When your logic app includes and runs enabled *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. These storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/).
 
 For more information about the pricing models that apply to preview logic apps, review the following documentation:
 
