@@ -118,9 +118,6 @@ Identity-based connections are supported by the following trigger and binding ex
 | Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Yes                                    |
 | Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | Yes                                    |
 
-> [!NOTE]
-> Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
-
 Storage connections used by the Functions runtime for core behaviors still require the `AzureWebJobsStorage` setting. Support for identity-based connections is available and follows the below format.
 
 ```json
