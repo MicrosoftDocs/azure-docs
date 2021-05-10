@@ -5,7 +5,7 @@ services: static-web-apps
 author: petender
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 04/18/2021
+ms.date: 05/10/2021
 ms.author: petender
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn to:
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com) 
+- **GitHub Account:** If you don't have one, you can [create a GitHub Account for free](https://github.com)
 - **Editor for ARM Templates:** Reviewing and editing templates requires a JSON editor. Visual Studio Code with the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) is well suited for editing ARM Templates. For instructions on how to install and configure Visual Studio Code, see [Quickstart: Create ARM templates with Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md).
 
 - **Azure CLI or Azure PowerShell**: Deploying ARM templates requires a command line tool. For the installation instructions, see:
@@ -31,7 +31,6 @@ In this tutorial, you learn to:
   - [Install Azure CLI on Linux OS](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
   - [Install Azure CLI on macOS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
   - [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-
 
 ## Create a GitHub personal access token
 
