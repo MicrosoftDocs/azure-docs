@@ -66009,5 +66009,10 @@
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
     }
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/form-recognizer-tool.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/label-tool",
+      "redirect_document_id": false
+    }
   ]
 }
