@@ -53,7 +53,8 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 1. Copy the token value and paste it into a text editor for later use.
 
 > [!IMPORTANT]
-> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template. 
+> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template.
+
 ## Create a GitHub repo
 
 This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
