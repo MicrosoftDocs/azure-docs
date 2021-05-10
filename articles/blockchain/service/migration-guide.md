@@ -184,7 +184,7 @@ For versions 2.5.0, there are some minor genesis file changes. Make the followin
 1. Run geth to reinitialize genesis block using following command:
 
     ```bash
-    `geth --datadir "Data Directory Path" init "genesis file path"`
+    geth --datadir "Data Directory Path" init "genesis file path"
     ```
 
 1.  Run Geth.
