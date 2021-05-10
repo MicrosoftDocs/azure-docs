@@ -14001,11 +14001,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
-      "redirect_url": "/azure/blockchain/service/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/blockchain/templates/ethereum-deployment.md",
       "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
@@ -47386,6 +47381,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": false
@@ -50031,6 +50031,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
+      "redirect_document_id": false
+      },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
       "redirect_document_id": false
@@ -51036,14 +51041,14 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-b2b-add-guest-to-role.md",
-      "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
+      "source_path_from_root": "/articles/active-directory/active-directory-b2b-admin-add-users.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-b2b-admin-add-users.md",
-      "redirect_url": "/azure/active-directory/b2b/add-users-administrator",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/active-directory/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-iw-add-users.md",
@@ -52988,17 +52993,17 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-guest-to-role",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/b2b/add-users-administrator.md",
-      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-users-information-worker.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-information-worker",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/b2b/add-users-administrator.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
