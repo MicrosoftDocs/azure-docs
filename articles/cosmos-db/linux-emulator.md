@@ -41,6 +41,8 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 - The Linux emulator supports a maximum ID property size of 254 characters.
 
 ## Run Cosmos DB Linux Emulator on macOS
+> [!NOTE]
+> The emulator only supports MacBooks with Intel processors. 
 
 1. To get started, visit Docker Hub and install Docker Desktop for macOS. More details here: https://hub.docker.com/editions/community/docker-ce-desktop-mac/ 
 
@@ -59,7 +61,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 4. Run the Docker image with the following configurations:
 
     ```bash
-    docker run -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10350:10350  -m 3g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    docker run -p 8081:8081 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254  -m 3g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
     ```
 
     Alternatively, you can use the Docker compose file available at <ADD GIST LINK>.
@@ -101,6 +103,10 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 
 In order to consume the endpoint via the UI using your desired web browser, follow the below steps:
 
+-   Make sure you've downloaded the emulator self-signed certificate
+    ```bash
+    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
+    ```
 -	Open Keychain Access
 -	File > Import Items > emulatorcert.crt
 -	Once the emulatorcert.crt is loaded into KeyChain
@@ -132,21 +138,21 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 4. Run the Docker image with the following configurations:
 
     ```bash
-    docker run -p 8081:8081 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -m 4g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    docker run -p 8081:8081 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -m 4g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
    ```
     Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
 5. Next, download the certificate for the emulator.
 
     ```bash
-    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
+    curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
 
 6. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
-   cp YourCTR.crt /usr/local/share/ca-certificates/
+   cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
    ```
 
 7. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
@@ -158,7 +164,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     For Java-based applications, the certificate must be imported in the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
     ```bash
-    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/my_emulator.cer
+    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/emulatorcert.crt
     java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
     ```
 
@@ -170,6 +176,8 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 | `AZURE_COSMOS_EMULATOR_PARTITION_COUNT`    |    10     |    Controls the total number of physical partitions, which in return controls the number of containers that can be created and can exist at a given point in time. We recommend to start small to improve the emulator start up time, i.e 3.     |
 |  Memory: `-m`   |         | On memory, 3 GB or more is required.     |
 | Cores:   `--cpus`  |         |   Make sure to provision enough memory and CPU cores; while the emulator might run with as little as 0.5 cores (very slow though) at least 2 cores are recommended.      |
+|`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  |true  | This setting used by itself will help persist the data between container's restarts.  |
+|`AZURE_COSMOS_EMULATOR_CERTIFICATE`  |Default  |Description  |
 
 ## Troubleshooting
 
@@ -190,6 +198,16 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
         - .NET: See the [certificates section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
+2. The Docker container failed to start and has the following error message:
+
+```
+/palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
+    1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
+    2. The process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
+    3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layou
+```
+
+The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
 2. My app received too many connectivity-related timeouts.
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
