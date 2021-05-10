@@ -39,8 +39,6 @@
       href: https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
   - name: Data collection
     items:
-    - name: Connecting to data sources
-      href: data-connection-methods.md
     - name: Normalizing and parsing data
       href: normalization.md
     - name: Watchlists
@@ -83,30 +81,6 @@
     items:
   - name: Collect data
     items:
-    - name: Microsoft data connectors
-      href: microsoft-connectors.md
-    - name: Third-party data connectors
-      href: third-party-connectors.md
-    - name: Connect service-to-service
-      items:
-      - name: Connect to AWS data
-        href: connect-service-to-service-aws.md
-      - name: Connect to Azure data
-        href: connect-service-to-service-azure.md
-      - name: Connect to Microsoft 365 data
-        href: connect-service-to-service-m365.md
-      - name: Connect to Windows data
-        href: connect-service-to-service-windows.md
-    - name: Connect with an API
-      items:
-      - name: Connect to external data with an API
-        href: connect-external-api.md
-    - name: Connect with an agent
-      items:
-      - name: Connect to external data with an agent
-        href: connect-external-agent.md
-      - name: Connect to external data with an agent running on a proxy
-        href: connect-external-agent-proxy.md
     - name: Create a custom connector method
       href: create-custom-connector.md
     - name: Monitor data connector health

@@ -1,12 +1,12 @@
 ---
-title: What's the difference between Azure Sentinel and Azure Security Center? 
+title: What's the difference between Azure Sentinel and Azure Security Center?
 description: Learn the difference between Azure Sentinel and Azure Security Center.
 services: sentinel
 author: yelevin
 ms.service: azure-sentinel
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/03/2021
+ms.date: 05/10/2021
 ms.author: yelevin
 
 ---
