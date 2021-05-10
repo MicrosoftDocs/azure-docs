@@ -88,6 +88,8 @@
       href: tutorial-blazor-webassembly.md
     - name: JavaScript
       href: tutorial-v2-javascript-auth-code.md
+    - name: React
+      href: tutorial-v2-react.md
   - name: Web app
     items:
     - name: ASP.NET
