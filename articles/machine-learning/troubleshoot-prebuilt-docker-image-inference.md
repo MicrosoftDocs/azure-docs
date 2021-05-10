@@ -1,7 +1,7 @@
 ---
-title: Prebuilt Docker Images - Troubleshooting Guide
+title: Troubleshoot prebuilt docker images
 titleSuffix: Azure Machine Learning
-description: 'Prebuilt Docker Images - Troubleshooting Guide'
+description: 'Troubleshooting steps for using prebuilt Docker images for inference.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,63 +12,66 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
 ---
-# Troubleshooting Guide
+# Troubleshooting prebuilt docker images for inference
 
-### Model deployment failed
+Learn how to troubleshoot problems you may see when using prebuilt docker images for inference with Azure Machine Learning.
+
+## Model deployment failed
 
 If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return **None**.
 
 So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path in this [table of curated images]().
 
-#### Mounting extensibility solution
+### Mounting extensibility solution
 
-Go to the folder containing `score.py` and run:
-```sh
+Go to the directory containing `score.py` and run:
+
+```bash
 docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_PYTHON_LIB_PATH="myenv/lib/python3.7/site-packages" <mcr-path>
 ```
 
-#### requirements.txt extensibility solution
+### requirements.txt extensibility solution
 
-Go to the folder containing `score.py` and run:
-```sh
+Go to the directory containing `score.py` and run:
+
+```bash
 docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_REQUIREMENTS_TXT="requirements.txt" <mcr-path>
 ```
 
-### Enable Local Debugging by using Azure Machine Learning Inference HTTP Server
+## Enable local debugging by using Azure Machine Learning inference HTTP server
 
-The local inference server allows users to quickly debug their score script. In the case that the underlying score script has a bug, the server will fail to initialize/serve and will instead throw an exception & LOC where the issues occurred at. Please follow [Azure Machine Learning Inference HTTP Server Guide.]()
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. For more information on debugging locally, see [Azure Machine Learning inference HTTP server]().
 
-### For common model deployment issues
+## For common model deployment issues
 
-Learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model to Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning. Please read our public documentation - [Troubleshoot model deployment.](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment?tabs=azcli)
+For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](how-to-troubleshoot-deployment.md).
 
+## init() or run() failing to write a file in the container
 
-### init() or run() trying to write a file in the container, but its failing?
+HTTP server in our Prebuilt Docker Images run as `non-root user`, it may not have access right to all directories. 
+Only write to directories you have access rights to. For example, the `/tmp` directory in the container.
 
-HTTP server in our Prebuilt Docker Images run as `non-root user`, it may not have access right to all folders. 
-Please only write to folders you have access right, e.g. /tmp folder
+## Extra python packages not installed
 
-### Extra python packages not installed?
-
-* Check if there is any typo in the environment variable or file name.
+* Check if there is a typo in the environment variable or file name.
 * Check the container log to see if `pip install -r <your_requirements.txt>` is installed or not.
-* If installation not found and log says "file not found", please check if the file name shows in the log is right or not.
-* If installation started but end up failed or timeout, please try to install the same requirements.txt locally with same python and pip version, see if the problem could be reproduced locally.
+* If installation not found and log says "file not found", check if the file name shown in the log is correct.
+* If installation started but failed or timed out, try to install the same `requirements.txt` locally with the same Python and pip version to see if the problem can be reproduced locally.
 
-### Mounting solution failed?
+## Mounting solution failed
 
-* Check  if there is any typo in the environment variable or folder name.
-* The environment variable need to set to the path relative to the path of the score.py
-* The folder needs to be the "site-packages" folder of the environment.
-* If score.py still hits `ModuleNotFound` and the module supposed to be in the folder mounted, please try to print out the `sys.path` in init() or run() to see if any path is missing.
+* Check if there is a typo in the environment variable or directory name.
+* The environment variable must be set to the relative path of the `score.py` file.
+* The directory needs to be the "site-packages" directory of the environment.
+* If `score.py` still returns `ModuleNotFound` and the module is supposed to be in the directory mounted, try to print the `sys.path` in `init()` or `run()` to see if any path is missing.
 
-### Building an image based on the Prebuilt Docker Image failed?
+## Building an image based on the prebuilt Docker image failed
 
 * If failed during apt package installation, check if the user has been set to root before running the apt command? (Make sure switch back to non-root user)
 
-### Image built based on the Prebuilt Docker Image can't boot up?
+## Image built based on the prebuilt Docker image can't boot up
 
-* The non-root user needs to be "dockeruser". Otherwise, the following folders owner need to be set to the user name you want to use when running the image:
+* The non-root user needs to be `dockeruser`. Otherwise, the owner of the following directories must be set to the user name you want to use when running the image:
 
 ```sh
 /var/runit
@@ -80,4 +83,9 @@ Please only write to folders you have access right, e.g. /tmp folder
 /var/azureml-app
 ```
 
-* If the "ENTRYPOINT" has been changed in the new built image, then the HTTP server and related components needs to be loaded manually by `runsvdir /var/runit`
+* If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components needs to be loaded manually by `runsvdir /var/runit`
+
+## Next steps
+
+* [Add Python packages to prebuilt images](how-to-prebuilt-docker-images-inference-python-extensibility.md).
+* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md).
