@@ -37,7 +37,7 @@ In Azure Functions, a function project is a container for one or more individual
 
     Python requires a virtual environment:
 
-    # [bash](#tab/bash)
+    # [Python](#tab/python/bash)
     
     ```bash
     python -m venv .venv
@@ -46,8 +46,12 @@ In Azure Functions, a function project is a container for one or more individual
     ```bash
     source .venv/bin/activate
     ```
+
+    ```console
+    func init LocalFunctionProj --python
+    ```
     
-    # [Cmd](#tab/cmd)
+    # [Python](#tab/python/cmd)
     
     ```cmd
     py -m venv .venv
@@ -56,13 +60,10 @@ In Azure Functions, a function project is a container for one or more individual
     ```cmd
     .venv\scripts\activate
     ```      
-
-    ---
  
     ```console
     func init LocalFunctionProj --python
     ```
-
 
     ---
 
