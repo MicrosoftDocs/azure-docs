@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid on Kubernetes - event handlers and destinations
-description: This article describes different types of event handlers and destinations supported by Event Grid on Kubernetes
+title: Azure Event Grid on Kubernetes - event delivery and retry
+description: This article describes event delivery and retry schedules and policies supported by Event Grid on Kubernetes
 author: spelluru
 manager: JasonWHowell
 ms.author: spelluru
