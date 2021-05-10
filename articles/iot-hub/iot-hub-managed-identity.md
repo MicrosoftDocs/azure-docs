@@ -266,6 +266,11 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 > 1. If the IoT Hub is not configured with the user-assigned managed identity, the job will fail.
 > 1. If **storageAuthenticationType** is set to **identityBased** and neither **user-assigned** nor **system-assigned** managed identities are configured on the hub, the job will fail.
 
+## SDK samples
+- [.NET SDK sample](https://aka.ms/iothubmsicsharpsample)
+- [Java SDK sample](https://aka.ms/iothubmsijavasample)
+- [Python SDK sample](https://aka.ms/iothubmsipythonsample)
+- Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
 ## Next steps
 
 Use the links below to learn more about IoT Hub features:
