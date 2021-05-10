@@ -14,7 +14,7 @@ Applications and workloads running in a private cloud environment require DHCP s
 - If you're using a third-party external DHCP server in your network, you'll need to [create DHCP relay service](#create-dhcp-relay-service). When you create a relay to a DHCP server, whether using NSX-T or a third-party to host your DHCP server, you'll need to specify the DHCP IP address range.
 
 >[!IMPORTANT]
->DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Send DHCP requests to the on-premises DHCP server](#send-dhcp-requests-to-the-on-premises-dhcp-server) procedure.
+>DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Send DHCP requests to a non-NSX-T based DHCP server](#send-dhcp-requests-to-a-non-nsx-t-based-dhcp-server) procedure.
 
 
 ## Create a DHCP server
