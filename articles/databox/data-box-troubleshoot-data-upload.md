@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 05/07/2021
+ms.date: 05/10/2021
 ms.author: alkohli
 ---
 
@@ -29,6 +29,13 @@ You'll see the following notification in the Azure portal. The errors are listed
 You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
 After you review the errors and confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+
+
+## Review errors and proceed
+
+The order will be completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
+
+[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
 
 
 ## Summary of non-retryable upload errors
@@ -143,12 +150,6 @@ Other REST API errors might occur during data uploads. For more information, see
 **Error description:** The listed page blobs failed to upload because they are not a size that can be converted to a Managed Disk. To be converted to a Managed Disk, a page blob must be from 20 MB (20,971,520 Bytes) to 8192 GiB in size.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
-
-## Review errors and proceed
-
-The order will be completed automatically after 14 days. By acting on the notification, you can move things along more quickly.
-
-[!INCLUDE [data-box-review-nonretryable-errors](../../includes/data-box-review-nonretryable-errors.md)]
 
 
 ## Next steps
