@@ -60,7 +60,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 ```
 
 > [!NOTE]
-> The Form Recognizer 3.1.0-beta.4 SDK reflects _API version 2.1-preview.3.
+> The Form Recognizer 3.1.0-beta.4 SDK reflects _API version 2.1-ga.3.
 
 #### [v2.0](#tab/ga)
 
@@ -93,7 +93,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 #### [v2.1 preview](#tab/preview)
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_main)]
 
 #### [v2.0](#tab/ga)
 
@@ -182,7 +182,7 @@ You'll also need to add references to the URLs for your training and testing dat
 
 #### [v2.1 preview](#tab/preview)
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_urls)]
 
 #### [v2.0](#tab/ga)
 
@@ -307,14 +307,14 @@ This section demonstrates how to analyze and extract common fields from English 
 
 To analyze business cards from a URL, use the `StartRecognizeBusinessCardsFromUriAsync` method.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_bc_call)]
 
 > [!TIP]
 > You can also analyze local receipt images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the business card at the given URI and prints the major fields and values to the console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_bc_print)]
 
 #### [v2.0](#tab/ga)
 
@@ -331,14 +331,14 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 To analyze invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` method.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_invoice_call)]
 
 > [!TIP]
 > You can also analyze local invoice images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the invoice at the given URI and prints the major fields and values to the console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs?name=snippet_invoice_print)]
 
 #### [v2.0](#tab/ga)
 
@@ -355,14 +355,14 @@ This section demonstrates how to analyze and extract key information from govern
 
 To analyze identity documents from a URI use the `StartRecognizeIdDocumentsFromUriAsync` method.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_call":::
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs" id="snippet_id_call":::
 
 > [!TIP]
 > You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeIdDocumentsAsync**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-ga.cs" id="snippet_id_print":::
 
 #### [v2.0](#tab/ga)
 
