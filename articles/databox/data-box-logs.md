@@ -260,6 +260,7 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
   <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
   <Type>File</Type>
 </ErroredEntity>
+```
 
 ### Upload completed with errors
 
