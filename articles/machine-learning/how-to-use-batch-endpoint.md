@@ -282,13 +282,13 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 
 1. Get the `scoring_uri`:  
 
-```bash
+```azurecli
 scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
 ```
 
 2. Get the access token:
 
-```bash
+```azurecli
 auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
