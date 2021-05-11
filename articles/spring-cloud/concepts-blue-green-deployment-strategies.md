@@ -75,7 +75,7 @@ There's no risk of another version being deployed in parallel. First, Azure Spri
 
 ![New version receives production traffic named deployment](media/spring-cloud-blue-green-patterns/named-deployment-2.png)
 
-Once the deployment created for the new version receives production traffic, it is necessary to remove the deployment containing the previous version, to make room for future deployments. You may wish to postpone by some number of minutes or hours so you can roll back to the previous version should a critical issue be discovered in the new version.
+After the deployment created for the new version receives production traffic, you'll need to remove the deployment containing the previous version to make room for future deployments. You may wish to postpone by some number of minutes or hours so you can roll back to the previous version if you discover a critical issue in the new version.
 
 ![After a fallback period, deleting the previous deployment](media/spring-cloud-blue-green-patterns/named-deployment-3.png)
 
