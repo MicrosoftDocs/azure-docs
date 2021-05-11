@@ -40,7 +40,7 @@ Follow these additional tips to further optimize your data set for training.
 
 When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
-If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample labeling tool](./quickstarts/label-tool.md) (or your own UI) to generate these files.
+If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample labeling tool](label-tool.md) (or your own UI) to generate these files.
 
 ### Organize your data in subfolders (optional)
 
@@ -70,7 +70,7 @@ If you add the following content to the request body, the API will train with do
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
 * [Train a model and extract form data using the client library or REST API](./quickstarts/client-library.md)
-* [Train with labels using the sample labeling tool](./quickstarts/label-tool.md)
+* [Train with labels using the sample labeling tool](label-tool.md)
 
 ## See also
 

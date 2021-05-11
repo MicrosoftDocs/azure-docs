@@ -122,7 +122,7 @@ landingContent:
       - linkListType: quickstart
         links:
             - text: Train using the sample labeling tool
-              url: quickstarts/label-tool.md
+              url: label-tool.md
 
   - title: API and client libraries
     linkLists:

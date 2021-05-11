@@ -59,7 +59,7 @@ When you train with labeled data, the model uses supervised learning to extract 
 
 Form Recognizer uses the [Layout](#layout) API to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
 
-[Get started with Train with labels](./quickstarts/label-tool.md)
+[Get started with Train with labels](label-tool.md)
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 

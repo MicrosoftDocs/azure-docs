@@ -23,7 +23,7 @@ The Form Recognizer sample labeling tool is an application that provides a simpl
 
 The fastest way to start labeling data is to run the sample labeling tool locally. The following quickstart uses the Form Recognizer REST API and the sample labeling tool to train a custom model with manually labeled data. 
 
-* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](./quickstarts/label-tool.md).
+* [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](label-tool.md).
 
 ## Deploy with Azure Container Instances (ACI)
 
@@ -163,4 +163,4 @@ The OCR Form Labeling Tool is also available as an open-source project on GitHub
 
 ## Next steps
 
-Use the [Train with labels](./quickstarts/label-tool.md) quickstart to learn how to use the tool to manually label training data and perform supervised learning.
+Use the [Train with labels](label-tool.md) quickstart to learn how to use the tool to manually label training data and perform supervised learning.

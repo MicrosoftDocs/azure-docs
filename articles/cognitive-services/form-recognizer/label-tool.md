@@ -295,7 +295,7 @@ Once you have defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](includes\quickstarts\rest-api.md) or [client library guide](./client-library-guide.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](includes\quickstarts\rest-api.md) or [client library guide](quickstarts/client-library-guide.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -361,4 +361,4 @@ In this quickstart, you've learned how to use the Form Recognizer sample labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](client-library.md)
+* [Form Recognizer quickstart](quickstarts/client-library.md)
