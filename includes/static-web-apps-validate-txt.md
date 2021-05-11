@@ -8,7 +8,7 @@ ms.author: buhollan
 
 #### Validate TXT record
 
-1. Return to the _Validate + configure_ screen in the Azure Portal.
+1. Return to the _Validate + configure_ screen in the Azure portal.
 
 During this step, Azure automatically verifies the TXT record with your DNS provider. Once the validation process is complete, a green indicator appears next to the added domain.
 
