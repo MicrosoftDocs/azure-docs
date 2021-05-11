@@ -35,21 +35,7 @@ This quickstart uses the Azure Identity library with Azure CLI to authenticate u
 
 ### Sign in to Azure
 
-1. Run the `login` command.
-
-    ```azurecli-interactive
-    az login
-    ```
-
-    ```azurepowershell-interactive
-    Login-AzAccount
-    ```
-
-    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
-
-    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal.
-
-2. Sign in with your account credentials in the browser.
+[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
 
 ### Install the packages
 
@@ -73,7 +59,13 @@ This quickstart uses the Azure Identity library with Azure CLI to authenticate u
     pip install azure.confidentialledger 
     ```
 
-[!INCLUDE [Create a resource group](../../includes/confidential-ledger-rg-register-rp.md)]
+### Create a resource group
+
+[!INCLUDE [Create a resource group](../../includes/confidential-ledger-rg-create.md)]
+
+### Register the microsoft.ConfidentialLedger resource provider
+
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
 ## Create your python app
 
