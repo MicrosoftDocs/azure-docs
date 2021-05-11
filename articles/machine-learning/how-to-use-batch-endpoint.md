@@ -166,13 +166,13 @@ az ml endpoint invoke --name mybatchedp --type batch --input-local-path <localPa
 
 ### Configure the output location
 
-The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Name (a system-generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path.
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by Job Name (a system-generated GUID). You can configure where to store the scoring outputs when you start a batch scoring job. Use `--output-datastore` to configure any registered datastore, and use `--output-path` to configure the relative path. Use `--set output_file_name` to configure a new output file name.
 
 > [!IMPORTANT]
-> You must use a unique output location. If the output location exists, the batch scoring job will fail. 
+> You must use a unique output location. If the output file exists, the batch scoring job will fail. 
 
 ```azurecli
-az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --output-datastore azureml:workspaceblobstore --output-path mypath
+az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --output-datastore azureml:workspaceblobstore --output-path mypath --set output_file_name=mypredictions.csv
 ```
 
 ### Overwrite settings
