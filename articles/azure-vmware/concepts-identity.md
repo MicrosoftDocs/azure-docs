@@ -26,8 +26,10 @@ The private cloud user doesn't have access to and can't configure specific manag
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Log into the SDDC vSphere Client and go to **Menu** > **Administration**.
+1. Log into the vSphere Client and go to **Menu** > **Administration**.
+
 1. Under **Access Control**, select **Roles**.
+
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
@@ -59,31 +61,38 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
 
-The CloudAdmin role can create, modify, or delete custom roles that have privileges lesser than or equal to their current role. You may be able to create roles that have privileges greater than CloudAdmin but you will not be able to assign the role to any users or groups or delete the role.
+The CloudAdmin role can create, modify, or delete custom roles that have privileges lesser than or equal to their current role. You may be able to create roles that have privileges greater than CloudAdmin, but you won't be able to assign the role to any users or groups or delete the role.
 
 To prevent the creation of roles that can't be assigned or deleted, Azure VMware Solution recommends cloning the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
 1. Sign into vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
-2. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
-3. Select the **CloudAdmin** role and select the **Clone role action** icon.
 
-   > [!NOTE] 
-   > Do not clone the **Administrator** role. This role cannot be used and the custom role created cannot be deleted by cloudadmin\@vsphere.local.
+1. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
 
-4. Provide the name you want for the cloned role.
-5. Add or remove privileges for the role and select **OK**. The cloned role should now be visible in the **Roles** list.
+1. Select the **CloudAdmin** role and select the **Clone role action** icon.
+
+   >[!NOTE] 
+   >Don't clone the **Administrator** role because you can't use it. Also, the custom role created can't be deleted by cloudadmin\@vsphere.local.
+
+1. Provide the name you want for the cloned role.
+
+1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
 
 
 #### Use a custom role
 
-1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**
+1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**.
+
 1. Right-click the object and select **Add Permission**.
+
 1. In the **Add Permission** window, select the Identity Source in the **User** drop-down where the group or user can be found.
+
 1. Search for the user or group after selecting the Identity Source under the **User** section. 
+
 1. Select the role that will be applied for the user or group.
-1. Check the **Propagate to children** if needed, and select **OK**.
-   The added permission displays in the **Permissions** section for the object.
+
+1. Check the **Propagate to children** if needed, and select **OK**. The added permission displays in the **Permissions** section.
 
 ## NSX-T Manager access and identity
 
