@@ -22,7 +22,7 @@ You can have up to one free tier Azure Cosmos DB account per an Azure subscripti
 
 ## Free tier with shared throughput database
 
-When using free tier, you can create a shared throughput database with 25 containers that share 1000 RU/s throughput at the database level. In a free tier account, you can create a max of 5 shared throughput databases.
+When using free tier, you can create a shared throughput database with 25 containers that share up to 1000 RU/s throughput for free at the database level. In a free tier account, you can create a max of 5 shared throughput databases.
 
 When using the free tier, if you provision a shared database with a minimum throughput of 1000 RU/s, all the containers within that database share the throughput. Any new databases with shared throughput or containers with dedicated throughput are billed at the regular pricing.
 
