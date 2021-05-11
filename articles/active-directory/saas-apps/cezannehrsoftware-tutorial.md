@@ -126,11 +126,11 @@ To configure Azure AD single sign-on with Cezanne HR Software, perform the follo
 
 2. On the side menu, click **Administration**. Then navigate to **Security Settings** and click on **Single Sign-On**.
 
-	![image](https://user-images.githubusercontent.com/80324891/115692888-4c266900-a357-11eb-867d-7408b0ef16aa.png)
+	![Screenshot shows the Cezanne H R Software tenant with Security Settings and Single Sign-On Configuration selected.](https://user-images.githubusercontent.com/80324891/115692888-4c266900-a357-11eb-867d-7408b0ef16aa.png)
 
 3. In the **Allow users to log in using the following Single Sign-On (SSO) Service** panel, check the **SAML 2.0** box and select the **Advanced Configuration** option.
 
-	![image](https://user-images.githubusercontent.com/80324891/115693054-72e49f80-a357-11eb-93c7-9986770ac17e.png)
+	![Screenshot shows the Allow users pane with SAML 2.0 and Advanced Configuration selected.](https://user-images.githubusercontent.com/80324891/115693054-72e49f80-a357-11eb-93c7-9986770ac17e.png)
 
 4. Click **Add New** button.
 
@@ -218,11 +218,11 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 2. On the side menu, click **Administration**. Then navigate to **Users** and click **Add New User**
 
-    ![image](https://user-images.githubusercontent.com/80324891/115694050-6ad92f80-a358-11eb-81be-148de665e185.png)
+    ![Screenshot shows the Cezanne H R Software tenant with Manage Users and Add New User selected.](https://user-images.githubusercontent.com/80324891/115694050-6ad92f80-a358-11eb-81be-148de665e185.png)
 
 3. On **PERSON DETAILS** section, perform below steps:
 
-    ![image](https://user-images.githubusercontent.com/80324891/115694321-a70c9000-a358-11eb-8325-de2582d135ec.png)
+    ![Screenshot shows the PERSON DETAILS section where you can enter the values described in this step.](https://user-images.githubusercontent.com/80324891/115694321-a70c9000-a358-11eb-8325-de2582d135ec.png)
 
 	a. Set **Internal User** as OFF.
 
@@ -234,7 +234,7 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 4. On **Account Information** section, perform below steps:
 
-    ![image](https://user-images.githubusercontent.com/80324891/115694501-d3c0a780-a358-11eb-8873-0fc778b43775.png)
+    ![Screenshot shows ACCOUNT INFORMATION where you can enter the values described in this step.](https://user-images.githubusercontent.com/80324891/115694501-d3c0a780-a358-11eb-8873-0fc778b43775.png)
 
 	a. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
@@ -243,19 +243,19 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 	c. Select **HR Professional** as **Security Role**.
 
 	d. Click **OK**.
-	![image](https://user-images.githubusercontent.com/80324891/115694644-f6eb5700-a358-11eb-9b23-a87a24921052.png)
+	![Screenshot shows OK button.](https://user-images.githubusercontent.com/80324891/115694644-f6eb5700-a358-11eb-9b23-a87a24921052.png)
 
 5. Navigate to **Single Sign-On** tab and select **Add New** in the **SAML 2.0 Identifiers** area.
 
-	![image](https://user-images.githubusercontent.com/80324891/115694716-0b2f5400-a359-11eb-9192-d31f6c9d3e3e.png)
+	![Screenshot shows the Single Sign-On tab where you can select Add New.](https://user-images.githubusercontent.com/80324891/115694716-0b2f5400-a359-11eb-9192-d31f6c9d3e3e.png)
 
 6. Choose your Identity Provider for the **Identity Provider** and in the text box of **User Identifier**, enter the user email address.
 
-	![image](https://user-images.githubusercontent.com/80324891/115694865-28fcb900-a359-11eb-9cd3-496a93124cc4.png)
+	![Screenshot shows the SAML 2.0 Identifiers where you can select your Identity Provider and User Identifier.](https://user-images.githubusercontent.com/80324891/115694865-28fcb900-a359-11eb-9cd3-496a93124cc4.png)
 
 7. Click **Save** button.
 
-	![image](https://user-images.githubusercontent.com/80324891/115694880-3023c700-a359-11eb-85d4-83d057660cfb.png)
+	![Screenshot shows the Save button for User Settings.](https://user-images.githubusercontent.com/80324891/115694880-3023c700-a359-11eb-85d4-83d057660cfb.png)
 
 ### Test single sign-on
 
