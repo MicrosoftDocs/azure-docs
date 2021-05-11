@@ -6,8 +6,7 @@ services: media-services
 author: Juliako
 manager: femila
 
-ms.service: media-services
-ms.subservice: video-indexer
+ms.service: azure-video-analyzer
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: juliako

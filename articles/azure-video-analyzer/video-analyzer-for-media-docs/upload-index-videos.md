@@ -13,45 +13,45 @@ ms.custom: devx-track-csharp
 
 # Upload and index your videos  
 
-Once your video has been uploaded, Azure Video Analyzer for Media (formerly Video Indexer) encodes (optionally) the video (discussed in the article). When creating a Video Analyzer for Media account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Analyzer for Media account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
+Once your video has been uploaded, Video Indexer (optionally) encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
-When uploading videos with Video Analyzer for Media API, you have the following upload options: 
+When uploading videos with Video Indexer API, you have the following upload options: 
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,
-* Use existing Azure Media Services asset by providing the [asset ID](../../media-services/latest/assets-concept.md) (supported in paid accounts only).
+* Use existing Azure Media Services asset by providing the [asset ID](../latest/assets-concept.md) (supported in paid accounts only).
 
 The article shows how to upload and index your videos with these options:
 
-* The Video Analyzer for Media website 
-* The Video Analyzer for Media APIs 
+* [The Video Indexer website](#upload-and-index-a-video-using-the-video-indexer-website) 
+* [The Video Indexer APIs](#upload-and-index-with-api)
 
-## Supported file formats for Video Analyzer for Media
+## Supported file formats for Video Indexer
 
-See the [input container/file formats](../../media-services/latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Analyzer for Media.
+See the [input container/file formats](../latest/encode-media-encoder-standard-formats-reference.md) article for a list of file formats that you can use with Video Indexer.
 
 ## Video files storage
 
-- With a paid Video Analyzer for Media account, you create a Video Analyzer for Media account that's connected to your Azure subscription and an Azure Media Services account. For more information, see [Create a Video Analyzer for Media account connected to Azure](connect-to-azure.md).
+- With a paid Video Indexer account, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. For more information, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
 - Video files are stored in Azure storage by Azure Media Services. There is no time limitation.
-- You can always delete your video and audio files as well as any metadata and insights extracted from them by Video Analyzer for Media. Once you delete a file from Video Analyzer for Media, the file and its metadata and insights are permanently removed from Video Analyzer for Media. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
-- The persistency of a video is identical, regardless if the upload is done form the Video Analyzer for Media website or using the Upload API.
+- You can always delete your video and audio files as well as any metadata and insights extracted from them by Video Indexer. Once you delete a file from Video Indexer, the file and its metadata and insights are permanently removed from Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
+- The persistency of a video is identical, regardless if the upload is done form the Video Indexer website or using the Upload API.
    
-## Upload and index a video using the Video Analyzer for Media website
+## Upload and index a video using the Video Indexer website
 
 > [!NOTE]
 > A name of the video must be no greater than 80 characters.
 
-1. Sign in on the [Video Analyzer for Media](https://www.videoindexer.ai/) website.
+1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
 1. To upload a video, press the **Upload** button or link.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
-1. Once your video has been uploaded, Video Analyzer for Media starts indexing and analyzing the video.
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
-1. Once Video Analyzer for Media is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
 ## Upload and index with API
 
@@ -63,7 +63,7 @@ This section describes some of the optional parameters and when you would want t
 
 #### externalID 
 
-This parameter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration. The videos that are located in the Video Analyzer for Media portal can be searched using the specified external ID.
+This parameter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration. The videos that are located in the Video Indexer portal can be searched using the specified external ID.
 
 #### callbackUrl
 
@@ -71,7 +71,7 @@ This parameter enables you to specify an ID that will be associated with the vid
 
 ##### Other considerations
 
-- Video Analyzer for Media returns any existing parameters provided in the original URL.
+- Video Indexer returns any existing parameters provided in the original URL.
 - The provided URL must be encoded.
 
 #### indexingPreset
@@ -99,20 +99,20 @@ Price depends on the selected indexing option. For more information refer to [Me
 
 #### priority
 
-Videos are indexed by Video Analyzer for Media according to their priority. Use the **priority** parameter to specify the index priority. The following values are valid: **Low**, **Normal** (default), and **High**.
+Videos are indexed by Video Indexer according to their priority. Use the **priority** parameter to specify the index priority. The following values are valid: **Low**, **Normal** (default), and **High**.
 
 **Priority** parameter is only supported for paid accounts.
 
 #### streamingPreset
 
-Once your video has been uploaded, Video Analyzer for Media, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Analyzer for Media is done analyzing, you will get a notification with the video ID.  
+Once your video has been uploaded, Video Indexer, optionally encodes the video. Then, proceeds to indexing, and analyzing the video. When Video Indexer is done analyzing, you will get a notification with the video ID.  
 
 When using the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) or [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
-For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Analyzer for Media encodes it as 1280x720. Otherwise, as 640x468.
-The Default setting is [content aware encoding](../../media-services/latest/encode-content-aware-concept.md).
+For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
+The Default setting is [content aware encoding](../latest/encode-content-aware-concept.md).
 
-In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Analyzer for Media account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../../media-services/previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
+In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
 
@@ -120,17 +120,17 @@ If you only want to index your video but not encode it, set `streamingPreset`to 
 
 A URL of the video/audio file to be indexed. The URL must point at a media file (HTML pages are not supported). The file can be protected by an access token provided as part of the URI and the endpoint serving the file must be secured with TLS 1.2 or higher. The URL needs to be encoded. 
 
-If the `videoUrl` is not specified, the Video Analyzer for Media expects you to pass the file as a multipart/form body content.
+If the `videoUrl` is not specified, the Video Indexer expects you to pass the file as a multipart/form body content.
 
 ### Code sample
 
-The following C# code snippet demonstrates the usage of all the Video Analyzer for Media APIs together.
+The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
 **Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 
-* API key – API key is your personal API management subscription key, that will allow you to get an access token in order to perform operations on your Video Analyzer for Media account. 
+* API key – API key is your personal API management subscription key, that will allow you to get an access token in order to perform operations on your Video Indexer account. 
 
     To get your API key, go through this flow:
 
@@ -334,7 +334,7 @@ The status codes listed in the following table may be returned by the Upload ope
 - The byte array option times out after 30 min.
 - The URL provided in the `videoURL` param needs to be encoded.
 - Indexing Media Services assets has the same limitation as indexing from URL.
-- Video Analyzer for Media has a max duration limit of 4 hours for a single file.
+- Video Indexer has a max duration limit of 4 hours for a single file.
 - The URL needs to be accessible (for example a public URL). 
 
     If it is a private URL, the access token need to be provided in the request.
@@ -348,4 +348,4 @@ The status codes listed in the following table may be returned by the Upload ope
 
 ## Next steps
 
-[Examine the Azure Video Analyzer for Media output produced by API](video-indexer-output-json-v2.md)
+[Examine the Azure Video Indexer output produced by API](video-indexer-output-json-v2.md)
