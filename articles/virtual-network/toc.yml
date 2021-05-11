@@ -266,6 +266,8 @@
         href: public-ip-upgrade-portal.md
       - name: Upgrade public IP address - PowerShell
         href: public-ip-upgrade-powershell.md
+      - name: Upgrade a public IP address - Azure CLI
+        href: public-ip-upgrade-cli.md
       - name: Add or remove IP address from NICs
         href: virtual-network-network-interface-addresses.md
       - name: Routing preference
