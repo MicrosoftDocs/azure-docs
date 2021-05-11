@@ -70,7 +70,7 @@ A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can
 > [!NOTE]
 > When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads. You'll need to enable MPS again.
 
-## Enable compute on private network
+<!--## Enable compute on private network
 
 Use the `Add-HcsNetRoute` cmdlet to enable compute on a private network. This cmdlet lets you add custom routes on Kubernetes master and worker VMs. 
 #### Add new route configuration
@@ -124,7 +124,7 @@ Use this cmdlet to remove a route configuration that you added on your device.
 ```powershell
 Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
 ```
- 
+-->
 
 ## Reset your device
 
