@@ -21,7 +21,7 @@ The simplest way to implement blue-green deployment with Azure Spring Cloud is t
 
 Here's how the alternating deployments approach works in practice:
 
-Suppose an application has two deployments: `deployment1` and `deployment2`. Currently, `deployment1` is set as the production deployment, and is running version `v3` of the application.
+Suppose your application has two deployments: `deployment1` and `deployment2`. Currently, `deployment1` is set as the production deployment, and is running version `v3` of the application.
 
 This makes `deployment2` the staging deployment. Thus, when the Continuous Delivery (CD) pipeline is ready to run, it deploys the next version of the app, version `v4`, onto the staging deployment `deployment2`.
 
