@@ -25,7 +25,7 @@ At this time, Microsoft has worked with partners to develop an ontology for [sma
 
 ## RealEstateCore smart building ontology
 
-For more information on this ontology, see the [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
+*Find the ontology here:* [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
 
 Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/), a Swedish consortium of real estate owners, software vendors, and research institutions, to deliver this open-source DTDL ontology for the real estate industry.
 
@@ -37,7 +37,7 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 ## Smart cities ontology
 
-For more information on this ontology, see the [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities).
+*Find the ontology here:* [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities).
 
 Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). In addition to ETSI NGSI-LD, we’ve also evaluated Saref4City, CityGML, ISO and others.
 

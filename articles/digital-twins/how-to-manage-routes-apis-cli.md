@@ -246,7 +246,7 @@ You can restrict the events being sent by adding a **filter** for an endpoint to
 >
 > For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device, not necessarily the casing defined in the twin's model. 
 
-To add a filter, you can use a PUT request to https://{Your-azure-digital-twins-host-name}/eventRoutes/{event-route-name}?api-version=2020-10-31 with the following body:
+To add a filter, you can use a PUT request to `https://{Your-azure-digital-twins-host-name}/eventRoutes/{event-route-name}?api-version=2020-10-31` with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 

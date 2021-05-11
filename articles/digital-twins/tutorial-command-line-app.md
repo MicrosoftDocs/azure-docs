@@ -139,7 +139,7 @@ You can also modify the properties of a twin you've created.
 > [!NOTE]
 > The underlying REST API uses [JSON Patch](http://jsonpatch.com/) format to define updates to a twin. The command-line app also uses this format, to give a truer experience with what the underlying APIs expect.
 
-1. Run this command to change room0's RoomName from Room0 to PresidentialSuite:
+1. Run this command to change room0's RoomName from "Room0" to "PresidentialSuite":
     
     ```cmd/sh
     UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
