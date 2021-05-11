@@ -38,7 +38,7 @@ For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2
 
 ### NCasT4_v3-series (Preview)
 
-These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.<!--Add product link? Nvidia T4 product overview: https://www.nvidia.com/en-us/data-center/tesla-t4/. Data sheet (Nvidia T4 GPU): https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf. Inference technical overview requires registration to download.-->
+These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.
 
 | Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
 |-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|------|-------------------|-----------|
