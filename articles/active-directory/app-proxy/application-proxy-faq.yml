@@ -246,7 +246,7 @@ sections:
               Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-sharepoint-server.md).
           
       - question: |
-         Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
+         Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint Server?
         answer: |
               The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
           
@@ -259,6 +259,11 @@ sections:
         answer: |
               No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t fulfill the requirements to act as an AD FS proxy.
 
+      - question: |
+         Can I use Azure AD Application Proxy to publish any AD FS endpoint (like /adfs/portal/updatepassword/)?
+        answer: |
+              No, this is not supported.
+                       
       - question: |
          WebSocket
         answer: |

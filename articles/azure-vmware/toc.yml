@@ -32,7 +32,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 7 - Deploy and configure VMware HCX
     href: tutorial-deploy-vmware-hcx.md
-  - name: 8 - Scale a private cloud
+  - name: 8 - Expand or shrink clusters in a private cloud
     href: tutorial-scale-private-cloud.md
   - name: 9 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
@@ -47,7 +47,11 @@
   - name: Access and identity for private clouds
     href: concepts-identity.md
   - name: Monitor and repair private clouds
-    href: /azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation
+    href: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+  - name: API Management
+    href: concepts-api-management.md
+  - name: Hub and spoke
+    href: concepts-hub-and-spoke.md    
 - name: How-to guides
   items:
   - name: Request host quota for Azure VMware Solution
@@ -68,12 +72,20 @@
     href: github-enterprise-server.md
   - name: Enable public internet access
     href: enable-public-internet-access.md
-  - name: Configure site-to-site VPN gateway
+  - name: Configure a site-to-site VPN in vWAN 
     href: configure-site-to-site-vpn-gateway.md
-  - name: Windows Server Failover Cluster
+  - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
-  - name: Reset vSphere credentials
-    href: reset-vsphere-credentials.md
+  - name: Rotate cloudadmin credentials
+    href: rotate-cloudadmin-credentials.md
+  - name: Backup and restore with Azure Backup Server
+    items:
+    - name: Back up VMware VMs 
+      href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - name: Restore VMware virtual machines 
+      href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - name: Monitor Azure Backup workloads
+      href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context 
   - name: Disaster recovery
     items:
     - name: Deploy disaster recovery for VMs
@@ -96,25 +108,17 @@
         href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
   - name: Azure native integration
     items:
-    - name: API Management
-      href: concepts-api-management.md
-    - name: Hub and spoke
-      href: concepts-hub-and-spoke.md
-    - name: Azure Security Center
+    - name: Protect VMs with Azure Security Center
       href: azure-security-integration.md
-    - name: Azure Backup Server
-      items:
-      - name: Set up Backup Server
-        href: set-up-backup-server-for-azure-vmware-solution.md
-      - name: Back up private cloud VMs with Backup Server
-        href: backup-azure-vmware-solution-virtual-machines.md
-    - name: Lifecycle management of VMs
+    - name: Back up VMware VMs with Azure Backup Server
+      href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+    - name: Monitor and manage VMs
       href: lifecycle-management-of-azure-vmware-solution-vms.md
-    - name: Azure NetApp Files
+    - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
-    - name: Application Gateway
+    - name: Protect web apps with Azure Application Gateway
       href: protect-azure-vmware-solution-with-application-gateway.md
-    - name: Traffic Manager
+    - name: Deploy Traffic Manager to balance workloads
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
