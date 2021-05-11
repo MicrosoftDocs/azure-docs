@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 05/11/2021
 ms.author: inhenkel
 ms.custom: seodec18
 ---
@@ -55,4 +55,4 @@ The following example defines a set of outputs that we want to be generated when
 
 ## Next steps
 
-[Streaming files](stream-files-tutorial-with-api.md) 
+[Streaming files](stream-files-tutorial-with-api.md)
