@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/10/202
+ms.date: 05/10/2021
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
