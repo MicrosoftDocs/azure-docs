@@ -71,7 +71,7 @@ In the illustration below, version `v5` is running on the deployment `deployment
 
 ![Deploying new version on a named deployment](media/spring-cloud-blue-green-patterns/named-deployment-1.png)
 
-Note that there is no risk of another version being deployed in parallel. First, Azure Spring Cloud does not allow the creation of a third deployment while two deployments already exist. Second, even if it was possible to have more than two deployments, each deployment is identified by the version of the application it contains. Thus, the pipeline orchestrating the deployment of `v6` would only attempt to set `deployment-v6` as the production deployment.
+There's no risk of another version being deployed in parallel. First, Azure Spring Cloud doesn't allow the creation of a third deployment while two deployments already exist. Second, even if it was possible to have more than two deployments, each deployment is identified by the version of the application it contains. Thus, the pipeline orchestrating the deployment of `v6` would only attempt to set `deployment-v6` as the production deployment.
 
 ![New version receives production traffic named deployment](media/spring-cloud-blue-green-patterns/named-deployment-2.png)
 
