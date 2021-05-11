@@ -1,3 +1,12 @@
+---
+title: Using the Azure Video Analyzer player widget
+description: This reference article explains how to add a Video Analyzer player widget to your application.
+ms.service: azure-video-analyzer
+ms.topic: reference
+ms.date: 05/11/2021
+
+---
+
 # Using the Azure Video Analyzer player widget
 
 In this tutorial you will learn how to use Azure Video Analyzer Player widget within your application.  This code is an easy to embed widget which will allow your end users to play video and navigate through the portions of a segmented video file.  To do this you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
