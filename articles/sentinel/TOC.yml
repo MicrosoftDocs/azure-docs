@@ -53,8 +53,6 @@
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
-  - name: Threat intelligence integrations
-    href: threat-intelligence-integration.md
   - name: Bring your own machine learning platform
     href: bring-your-own-ml.md
   - name: Integrate Microsoft 365 Defender with Azure Sentinel

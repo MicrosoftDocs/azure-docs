@@ -88,7 +88,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
     :::image type="content" source="media/sap/required-sap-role-authorizations.png" alt-text="Required SAP role permissions for the Azure Sentinel SAP data connector.":::
 
-    For more information, see [authorizations for the ABAP backend user](sap-solution-detailed-requirements.md#required-abap-backend-authorizations).
+    For more information, see [authorizations for the ABAP user](sap-solution-detailed-requirements.md#required-abap-authorizations).
 
 1. Create a non-dialog, RFC/NetWeaver user for the SAP solution deployment, and attach the newly created **/MSFTSEN/SENTINEL_CONNECTOR** role.
 
