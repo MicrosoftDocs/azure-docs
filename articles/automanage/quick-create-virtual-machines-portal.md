@@ -2,12 +2,14 @@
 title: Quickstart - Enable Azure Automanage for VMs in the Azure portal
 description: Learn how to quickly enable Automanage for virtual machines on a new or existing VM in the Azure portal.
 author: ju-shim
+ms.author: jushiman
+ms.date: 02/17/2021
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 02/17/2021
-ms.author: jushiman
+ms.custom:
+  - mode-portal
 ---
 
 

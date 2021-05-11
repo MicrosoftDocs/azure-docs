@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
+  ms.date: 04/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,6 +25,13 @@ landingContent:
       links:
       - text: What are Azure reservations?
         url: save-compute-costs-reservations.md
+      - text: Reservation purchase recommendations
+        url: reserved-instance-purchase-recommendations.md
+      - text: Instance size flexibility
+        url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Windows and SQL software cost charged separately
+        url: reserved-instance-windows-software-costs.md
+                
     - linkListType: how-to-guide
       links:
       - text: Buy a reservation
@@ -41,16 +48,26 @@ landingContent:
         url: reservation-discount-application.md
 
   # Card (optional)
-  - title: Manage reservations
+  - title: Manage reservations after purchase
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: Manage reservations
-        url: manage-reserved-vm-instance.md
-      - text: View reservations and manage permissions
+      - text: Permissions to view and manage reservations
         url: view-reservations.md
+      - text: Change reservation scope, split, merge
+        url: manage-reserved-vm-instance.md
       - text: Exchange and refund reservations
         url: exchange-and-refund-azure-reservations.md
+
+  # Card (optional)
+  - title: Report costs after purchase
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Charge back Azure Reservation costs
+        url: charge-back-usage.md
+      - text: View reservation purchase and refund transactions
+        url: view-purchase-refunds.md
 
     - linkListType: reference
       links:

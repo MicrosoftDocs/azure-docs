@@ -203,11 +203,11 @@ For more information about using Helm, see the Helm documentation.
 > [!div class="nextstepaction"]
 > [Helm documentation][helm-documentation]
 
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

@@ -23,7 +23,7 @@ You can use Media Encoder Standard to generate one or more thumbnails from your 
 
 ## Recommended reading and practice
 
-It is recommended that you become familiar with custom transforms by reading [How to encode with a custom transform - .NET](encode-custom-presets-how-to.md).
+It is recommended that you become familiar with custom transforms by reading [How to encode with a custom transform - .NET](transform-custom-presets-how-to.md).
 
 ## Transform code example
 
@@ -88,7 +88,3 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
     return transform;
 }
 ```
-
-## Next steps
-
-[Generate thumbnails using REST](transform-generate-thumbnails-rest-how-to.md)

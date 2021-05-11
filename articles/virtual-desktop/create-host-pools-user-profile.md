@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a profile container for a host pool using a file share
 
@@ -22,7 +22,7 @@ When creating the virtual machine, be sure to place it on either the same virtua
 
 - [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 After creating the virtual machine, join it to the domain by doing the following things:
 

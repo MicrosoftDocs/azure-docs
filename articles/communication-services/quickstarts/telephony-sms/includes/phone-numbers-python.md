@@ -33,7 +33,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-phone-numbers
+pip install azure-communication-phonenumbers
 ```
 
 ## Authenticate the Phone Numbers Client

@@ -1,11 +1,11 @@
 ---
 title: XML format in Azure Data Factory 
 description: 'This topic describes how to deal with XML format in Azure Data Factory.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.author: jingwang
+ms.date: 04/29/2021
+ms.author: jianleishen
 ---
 
 # XML format in Azure Data Factory
@@ -86,7 +86,7 @@ Supported **XML read settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+In mapping data flows, you can read XML format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to XML files either using XML dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
 
 ### Source properties
 

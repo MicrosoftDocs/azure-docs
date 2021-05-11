@@ -18,7 +18,7 @@
     - name: Security
       items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/cloud-services-security-baseline?toc=/azure/cloud-services/toc.json
   - name: How To
     items:
     - name: Plan
@@ -198,6 +198,8 @@
           href: cloud-services-deployment-faq.md
   - name: Reference
     items:
+    - name: Azure CLI
+      href: /cli/azure/cloud
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=cloud-services
     - name: .csdef XML Schema

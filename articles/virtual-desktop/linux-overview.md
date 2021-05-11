@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Thin client support
 

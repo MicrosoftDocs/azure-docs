@@ -171,7 +171,7 @@ This is to rebuild and to redeploy only the web apps, and to rebuild the Docker 
 [azure-free]:https://azure.microsoft.com/free/
 [powershell-install]:https://azure.microsoft.com/downloads/#powershell
 [docker-url]: https://www.docker.com/
-[dotnet-install]: https://www.microsoft.com/net/learn/get-started
+[dotnet-install]: https://dotnet.microsoft.com/download
 
 ## Next steps
 

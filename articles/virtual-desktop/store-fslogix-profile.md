@@ -3,9 +3,9 @@ title: Storage FSLogix profile container Windows Virtual Desktop - Azure
 description: Options for storing your Windows Virtual Desktop FSLogix profile on Azure Storage.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 04/27/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Storage options for FSLogix profile containers in Windows Virtual Desktop
 
@@ -23,8 +23,8 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|All regions|
 |Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
-|Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 320k (16K) IOPS with 4.5 GBps per volume at about 1 ms latency|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
-|Capacity|100 TiB per share, Upto 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
+|Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 4.5GBps per volume at about 1 ms latency. For IOPS and performance details, see [Azure NetApp Files performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) and [the FAQ](../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops).|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
+|Capacity|100 TiB per share, Up to 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
 |Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 4 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
 |Protocols|SMB 3.0/2.1, NFSv4.1 (preview), REST|NFSv3, NFSv4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
