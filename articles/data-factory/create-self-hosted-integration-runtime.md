@@ -325,7 +325,7 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company's allow list. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
@@ -382,7 +382,7 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 ### Get URL of Azure Relay
 
-One required domain and port that need to be put in the allow list of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
+One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
 
 1. Go to ADF portal and select your self-hosted integration runtime.
 2. In Edit page, select **Nodes**.
@@ -390,7 +390,7 @@ One required domain and port that need to be put in the allow list of your firew
 
    ![Azure Relay URLs](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
 
-4. You can add these FQDNs in the allow list of firewall rules.
+4. You can add these FQDNs in the allowlist of firewall rules.
 
 ### Copy data from a source to a sink
 
