@@ -22,16 +22,6 @@ keywords: on-premises, Docker, container, identify
  > Containers offer encapsulation, isolation, and portability in a predictable environment and can add a layer of security to your application. However, containers should only be considered one part of the overall program for securing your app. To learn more about container security, *see* our [**Container security**](/azure/security-center/container-security) documentation.
 <!-- markdownlint-disable MD033 -->
 
-The following Translator container is in gated preview:
-
-|Container| Features|
-|---|---|
-|Text Translator| You provide an input sentence in a source language and Azure's pre-trained model translates that sentence into a chosen target language.|
-
-* The Translator container provides multi-language support for standard text translation. It does not provide support for custom models, transliteration, dictionaries, or language detection. *See* our [Translator container: supported parameters](translator-container-supported-parameters.md) documentation.
-
-* **Language detection** container support is available in our [**Text Analytics containers**](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language#get-the-container-image-with-docker-pull)
-
 ## Prerequisites
 
 To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
@@ -61,7 +51,8 @@ All Cognitive Services containers require three primary elements:
 :::image type="content" source="../media/keys-and-endpoint.png" alt-text="location of endpoint url on resource overview page":::
 
 > [!IMPORTANT]
->Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../../cognitive-services-security.md) for ways to securely store and access your credentials.
+>* Translator containers are **not** available in the global region location. 
+> * Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../../cognitive-services-security.md) for ways to securely store and access your credentials.
 
 ## Host computer
 
@@ -73,7 +64,7 @@ The following table describes the minimum and recommended specifications for Tra
 
 | Container | Minimum |Recommended | Language Pair |
 |-----------|---------|---------------|----------------------|
-| Text Translator |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
+| Translator connected |2 core, 2-GB memory |4 core, 8-GB memory | 4 |
 |||
 
 For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
@@ -96,7 +87,7 @@ Container images for Translator are available in the following container registr
 
 |Container|Repository|
 |-----------|-----------|
-|Text Translator| translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator|
+|Translator connected| translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator|
 
 ## Get container images with **docker  pull**
 
@@ -338,4 +329,4 @@ In this article, you learned concepts and workflows for downloading, installing,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Cognitive Services containers ](/azure/cognitive-services/cognitive-services-container-support)
+> [Learn more about Azure Cognitive Services containers](/azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context)

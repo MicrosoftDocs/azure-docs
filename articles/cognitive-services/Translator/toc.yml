@@ -58,10 +58,22 @@
       href: containers/translator-container-configuration.md
     - name: Use container instances
       href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/translator/context/context
-    - name: "Reference: supported translation parameters"
-      href: containers/translator-container-supported-parameters.md
-    - name: Cognitive Services containers documentation
-      href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context
+    - name: Container reference
+      items:
+      - name: "Reference: supported translation parameters"
+        href: containers/translator-container-supported-parameters.md
+      - name: Languages
+        href: reference/v3-0-languages.md
+      - name: Translate
+        href: reference/v3-0-translate.md
+      - name: BreakSentence
+        href: reference/v3-0-break-sentence.md
+      - name: Request limits
+        href: request-limits.md
+      - name: Dictionary Lookup
+        href: reference/v3-0-dictionary-lookup.md
+      - name: Dictionary Examples
+        href: reference/v3-0-dictionary-examples.md
   - name: Concepts
     items:
     - name: How the API counts characters
