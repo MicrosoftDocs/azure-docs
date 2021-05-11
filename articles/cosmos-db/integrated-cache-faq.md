@@ -12,6 +12,8 @@ ms.author: tisande
 # Azure Cosmos DB integrated cache frequently asked questions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
+The Azure Cosmos DB integrated cache is an in-memory cache that is built-in to Azure Cosmos DB. This article answers commonly asked questions about the Azure Cosmos DB integrated cache.
+
 ## Frequently asked questions
 
 ### Why does the integrated cache require a dedicated gateway?
@@ -49,7 +51,7 @@ We will have an availability SLA/SLO on the dedicated gateway (and therefore the
 
 Expanding the integrated cache beyond SQL API is planned on the long-term roadmap but beyond the initial public preview of the integrated cache.
 
-Next steps:
+## Next steps
 
 - [Integrated cache](integrated-cache.md)
 - [Configure the integrated cache](how-to-configure-integrated-cache.md)

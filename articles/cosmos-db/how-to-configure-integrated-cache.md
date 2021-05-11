@@ -14,7 +14,7 @@ ms.author: tisande
 
 This article describes how to provision a dedicated gateway, configure the integrated cache, and connect your application. 
 
-## Prerequisites:
+## Prerequisites
 
 - If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - An existing application that uses Azure Cosmos DB. If you don't have one, [here are some examples](https://github.com/AzureCosmosDB/labs).
@@ -44,13 +44,13 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 2.	Modify your application's connection string to use the new dedicated gateway endpoint.
 
-   The updated dedicated gateway connection string is in the **Keys** blade:
+      The updated dedicated gateway connection string is in the **Keys** blade:
+   
+      :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" border="false":::
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" border="false":::
+      All dedicated gateway connection strings follow the same pattern. Remove `documents.azure.com` from your original connection string and replace it with `sqlx.cosmos.azure.com`. A dedicated gateway will always have the same connection string, even if you remove and reprovision it.
 
-   All dedicated gateway connection strings follow the same pattern. Remove `documents.azure.com` from your original connection string and replace it with `sqlx.cosmos.azure.com`. A dedicated gateway will always have the same connection string, even if you remove and reprovision it.
-
-   You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways of connecting to Azure Cosmos DB.
+      You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways of connecting to Azure Cosmos DB.
 
 3. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mode.
 
@@ -92,7 +92,7 @@ For a read request (point read or query) to utilize the integrated cache, **all*
 -  Your client uses gateway mode (Python and Node.js SDK's always use gateway mode)
 -	The consistency for the request must be set to eventual.
 
-Next steps:
+## Next steps
 
 - [Integrated cache FAQ](integrated-cache-faq.md)
 - [Integrated cache overview](integrated-cache.md)

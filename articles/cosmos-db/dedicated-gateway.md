@@ -30,7 +30,7 @@ There are three ways to connect to an Azure Cosmos DB account:
 - [Gateway mode using the standard gateway](#connect-to-azure-cosmos-db-using-gateway-mode)
 - [Gateway mode using the dedicated gateway](#connect-to-azure-cosmos-db-using-the-dedicated-gateway) (only available for SQL API accounts)
 
-### Connect to Azure Cosmos DB using direct mode:
+### Connect to Azure Cosmos DB using direct mode
 
 When you connect to Azure Cosmos DB using direct mode, your application connects directly to the Azure Cosmos DB backend. Even if you have many physical partitions, request routing is handled entirely client-side. Direct mode offers low latency because your application can communicate directly with the Azure Cosmos DB backend and doesn't need an intermediate network hop.
 
@@ -38,7 +38,7 @@ Graphical representation of direct mode connection:
 
 :::image type="content" source="./media/dedicated-gateway/direct-mode.png" alt-text="An image that shows how Cosmos DB direct mode works" border="false":::
 
-### Connect to Azure Cosmos DB using gateway mode:
+### Connect to Azure Cosmos DB using gateway mode
 
 If you connect to Azure Cosmos DB using gateway mode, your application will connect to a front-end node first, which handles routing the request to the appropriate backend nodes. Because gateway mode involves an additional network hop, you may observe slightly higher latency when compared to direct mode. 
 
@@ -47,7 +47,7 @@ When connecting to Azure Cosmos DB with gateway mode, you can connect with eithe
 * **Standard gateway** -  While the backend, which includes your provisioned throughput and storage, has dedicated capacity per container, the standard gateway is shared between many Azure Cosmos accounts. It is practical for many customers to share a standard gateway since the compute resources consumed by each individual customer is small.
 * **Dedicated gateway** - In this gateway, the backend and gateway both have dedicated capacity. The integrated cache requires a dedicated gateway because it requires significant CPU and memory that is specific to your Azure Cosmos account.
 
-### Connect to Azure Cosmos DB using the dedicated gateway:
+### Connect to Azure Cosmos DB using the dedicated gateway
 
 You must connect to Azure Cosmos DB using the dedicated gateway in order to use the integrated cache. The dedicated gateway has a different endpoint from the standard one provided with your Azure Cosmos DB account. When you connect to your dedicated gateway endpoint, your application sends a request to the dedicated gateway, which then routes the request to different backend nodes. If possible, the integrated cache will serve the result.
 
@@ -89,9 +89,9 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 
 The dedicated gateway has the following limitations during the public preview:
 
-- Dedicated gateways are only supported on SQL API accounts
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled
+- Dedicated gateways are only supported on SQL API accounts.
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
 
 ## Next steps
 
