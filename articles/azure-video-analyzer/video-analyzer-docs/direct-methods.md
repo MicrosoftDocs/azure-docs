@@ -7,7 +7,7 @@ ms.date: 05/06/2021
 ---
 # Azure Video Analyzer Direct methods
 
-Azure Video Analyzer exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
+Azure Video Analyzer IoT edge module `avaedge` exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 This topic describes these methods and conventions.
 
@@ -30,9 +30,9 @@ The direct methods are based on the following conventions:
   }
 ```
 
-2. A given version of Video Analyzer module will support all the direct methods up-to its current version. For example, module version 1.3 will support direct methods with versions 1.3, 1.2, 1.1, and 1.0 versions.
+2. A given version of Video Analyzer module supports all minor versions of a direct method call up-to its current version. Support across major versions is not guaranteed.
 3. All direct methods are synchronous.
-4. Error results follow OData error schema.
+4. Error results are based on the [OData error schema](http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse).
 5. Names should observe the following constraints:
     
     * Only alphanumeric characters and dashes as long as it doesn't start and end with a dash
@@ -144,12 +144,12 @@ Creates a single pipeline topology if there is no existing one with the given na
 
 Key aspects:
 
-* Pipeline topology can be freely updated if there are no pipeline referencing it.
-* Pipeline topology can be freely updated if all referencing pipeline are deactivated as long as:
+* A Pipeline topology can be freely updated if there are no pipeline referencing it.
+* A Pipeline topology can be freely updated if all referencing pipeline are deactivated as long as:
 
     * Newly added parameters have default values
     * Removed parameters are not referenced by any pipeline
-* Pipeline updates are not allowed if there are active pipelines
+* Only some pipeline updates are allowed while the pipeline is active.
 
 #### Request
 
@@ -194,11 +194,15 @@ General server errors	|500 range	||
 
 Deletes a single live pipeline topology.
 
+* Note that there cannot be any live pipelines referencing a pipeline topology being deleted. If this is the case you will receive a `TopologyInUse` error.
+
 #### Request
 
 ```
   {
-    "methodName": "pipelineTopologyDelete",
+    "methodName": "pipeline
+    
+    Delete",
     "payload": {
         "@apiVersion": "1.0",
         "name": "{TopologyName}"
@@ -222,58 +226,6 @@ Deletes a single live pipeline topology.
 | Entity not found | 204 | N/A |
 | General user errors | 400 range |  |
 | Pipeline topology is being referenced by one or more Pipelines | 409 | PipelineTopologyInUse |
-| General server errors | 500 range |  |
-
-### pipelineTopologyList
-
-Retrieves a list of all the pipelines that matches the filter criteria.
-
-#### Request
-
-```
-  {
-        "@apiVersion": "1.0",
-        "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
-        "@query": "$orderby=name asc"
-  }
-```
-#### Response
-
-```
-  {
-    "status": 200,
-    "payload": {
-      "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",
-      "value": [
-        {
-            "name": "{TopologyName}",
-            "properties": {
-                // Complete Topology
-            }
-        },
-        {
-            "name": "{TopologyName}",
-            "properties": {
-                // Complete Topology
-            }
-        }
-      ]
-    }
-  }
-```
-#### Filter support
-
-|Operation |Field(s)	|Operators|
-|---|---|---|
-|$orderby|name	|asc|
-
-
-#### Status codes
-
-| Condition | Status code | Detailed error code |
-|--|--|--|
-| Success | 200 | N/A |
-| General user errors | 400 range |  |
 | General server errors | 500 range |  |
 
 ### livePipelineList
@@ -316,11 +268,11 @@ Creates a single pipeline if there is no existing one with the given name or upd
 
 Key aspects:
 
-* Pipeline can be freely updated while in "Deactivated" state.
+* A Pipeline can be freely updated while in "Deactivated" state.
 
-* Pipeline is revalidated on every update.
+* A Pipeline is revalidated on every update.
 * Pipeline updates are partially restricted while the pipeline is not in the “Inactive” state.
-* Pipeline updates are not allowed on active pipeline.
+* Only some pipeline updates are allowed while the pipeline is active.
 
 #### Request
 
@@ -394,16 +346,13 @@ Key aspects:
 
 ### livePipelineList
 
-This is similar to liveTopologyList. It enables use to enumerate the pipelines.
-Retrieves a list of all the pipelines that matches the filter criteria.
+This is similar to liveTopologyList. It retrieves a list of all the pipelines.
 
 #### Request
 
 ```
   {
-        "@apiVersion": "1.0",
-        "@continuationToken": "aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==",    
-        "@query": "$orderby=name asc"
+        "@apiVersion": "1.0"
   }
 ```
 #### Response
@@ -443,12 +392,6 @@ Retrieves a list of all the pipelines that matches the filter criteria.
   }
 }
 ```
-
-#### Filter support
-
-|Operation	|	Field(s)|	Operators|
-|---|---|---|
-|$orderby|	name|	asc|
 
 #### Status codes
 
@@ -521,16 +464,16 @@ Key aspects:
 
 ```
   {
-        "@apiVersion": "1.0",
-        "name": "{livePipelineName}"
+    "@apiVersion": "1.0",
+    "name": "{livePipelineName}"
   }
 ```
 #### Response
 
 ```
 {
-    "status": 200,
-    "payload": null
+ "status": 200,
+ "payload": null
 }
 ```
 | Condition | Status code | Detailed error code |
