@@ -53,7 +53,7 @@ The alternating deployments approach is simple and fast, as it doesn't require t
 
 #### Persistent staging deployment
 
-The staging deployment always remains running, and thus consuming resources of the Azure Spring Cloud instance. This effectively doubles the resources requirements of each application on Azure Spring Cloud.
+The staging deployment always remains running, and thus consuming resources of the Azure Spring Cloud instance. This effectively doubles the resource requirements of each application on Azure Spring Cloud.
 
 #### The approval race condition
 
