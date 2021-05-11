@@ -67,29 +67,31 @@ The location is the region where the custom image will be created. For the Image
 - West US 2
 - North Europe
 - West Europe
+- South Central US
 
 Coming soon (mid 2021):
 - South East Asia
+- Australia Southeast
 - Australia East
 - UK South
+- UK West
 
 ```json
     "location": "<region>",
 ```
 
 ### Data Residency
-The Image Builder stores customer image template configuration data. By default, the image template configuration data is replicated to the paired region (e.g., EastUS, WestCentralUS). However, the customer can choose to replicate data/keep it within the same region using XYZ controls.
+The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
-For regions that in single-region geography (e.g., South East Asia) and to respect data residency, there is no way for ImageBuilder to provide such failover solutions as no pair region existing in the same Geo. Customers will be responsible to take action if they still want Geo-Resiliency, for example, create templates in different regions across geography in accordance with . 
-
+ 
 ## vmProfile
 ## buildVM
 By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
-3. Require [VM isolation](https://docs.microsoft.com/en-us/azure/virtual-machines/isolation).
+3. Require [VM isolation](https://docs.microsoft.com/azure/virtual-machines/isolation).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
  
 This is optional.
 
