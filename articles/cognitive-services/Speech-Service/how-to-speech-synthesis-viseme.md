@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events
 
 > [!NOTE]
-> Viseme events are only available for `en-US-AriaNeural` voice for now.
+> Viseme events are only available for `en-US` English (United States) [neural voices](language-support.md#text-to-speech) for now.
 
 A _viseme_ is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.

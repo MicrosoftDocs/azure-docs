@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/18/2020
+ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
 ---
@@ -12,6 +12,8 @@ ms.topic: overview
 # What is Azure Web Application Firewall?
 
 Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
 
 ![WAF overview](media/overview/wafoverview.png)
 
