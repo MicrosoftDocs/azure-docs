@@ -253,7 +253,7 @@
       - name: Create public IP addresses - Azure CLI
         href: create-public-ip-cli.md
       - name: Create public IP address - ARM template
-        href: create-public-ip-template.md                
+        href: create-public-ip-template.md
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
       - name: Manage public IP addresses
