@@ -1,14 +1,14 @@
 ---
-title: Enhance port and VLAN name resolution
-description: Customize port and VLAN names on your sensors to enrich device resolution.
-ms.date: 04/28/2021
+title: Configure Windows endpoint monitoring
+description: Enrich data resolved on devices by working with Windows endpoint monitoring (WMI).
+ms.date: 05/03/2021
 ms.topic: how-to
 ---
 
 
-# Configure Windows Endpoint Monitoring
+# Configure Windows endpoint monitoring (WMI)
 
-With the Windows Endpoint Monitoring capability, you can configure Azure Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
+With the Windows endpoint monitoring capability, you can configure Azure Defender for IoT to selectively probe Windows systems. This provides you with more focused and accurate information about your devices, such as service pack levels.
 
 You can configure probing with specific ranges and hosts, and configure it to be performed only as often as desired. You accomplish selective probing by using the Windows Management Instrumentation (WMI), which is Microsoft's standard scripting language for managing Windows systems.
 

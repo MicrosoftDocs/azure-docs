@@ -4,7 +4,8 @@ description: Learn how to troubleshoot problems in Application Change Analysis.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
-ms.date: 02/11/2021
+ms.date: 02/11/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 

@@ -8,11 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
+
+# Administrator
 ---
 
 # Manage users and roles in your IoT Central application
 
-This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
+This article describes how you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
 
