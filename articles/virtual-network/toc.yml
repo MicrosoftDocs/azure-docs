@@ -364,14 +364,14 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.md
-      - name: Create VM - multiple NICs
-        items:
-        - name: Azure PowerShell
-          href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-        - name: Azure CLI
-          href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Add or remove network interfaces
+      href: virtual-network-network-interface-vm.md
+    - name: Create VM - multiple NICs
+      items:
+      - name: Azure PowerShell
+        href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+      - name: Azure CLI
+        href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Create VM - accelerated networking
       items:
       - name: Azure PowerShell
