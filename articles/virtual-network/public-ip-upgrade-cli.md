@@ -27,7 +27,7 @@ In this article, you'll learn how to upgrade a static basic SKU public IP addres
 
 ## Upgrade public IP address
 
-In this section, you'll sign in to the Azure portal and upgrade your static basic SKU public IP to the standard SKU.
+In this section, you'll use the Azure CLI and upgrade your static basic SKU public IP to the standard SKU.
 
 ```azurecli-interactive
 az network public-ip update \
@@ -40,7 +40,7 @@ az network public-ip update \
 > The basic public IP you are upgrading must have the static allocation type. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard sku can't be reversed.
+> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Verify upgrade
 
