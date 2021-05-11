@@ -25,7 +25,7 @@ Suppose an application has two deployments: `deployment1` and `deployment2`. Cur
 
 This makes `deployment2` the staging deployment. Thus, when the Continuous Delivery (CD) pipeline is ready to run, it deploys the next version of the app, version `v4`, onto the staging deployment `deployment2`.
 
-![Two deployments, deployment 1 receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-1.png)
+![Two deployments: deployment1 receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-1.png)
 
 Once `v4` has started up on `deployment2`, automated and manual tests can be run against it through a private test endpoint to ensure `v4` meets all expectations.
 
