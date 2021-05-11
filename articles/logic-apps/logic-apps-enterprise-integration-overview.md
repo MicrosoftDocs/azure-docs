@@ -50,7 +50,7 @@ Before you can start building B2B logic app workflows with the EIP, you need the
 
 After you create an integration account and add your artifacts, you can start building B2B workflows with these artifacts by creating a logic app in the Azure portal. If you're new to logic apps, try [creating a basic logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To work with these artifacts, make sure that you first link your integration account to your logic app. After that, your logic app can access your integration account. You can also create, manage, and deploy logic apps by using Visual Studio or [PowerShell](/powershell/module/az.logicapp).
 
-* If you are using Visual Studio 2015, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) and Visual Studio 2015.
+* If you are using Visual Studio 2015, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
 
 Here are the high-level steps to get started building B2B logic apps:
 
