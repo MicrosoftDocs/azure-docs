@@ -15,7 +15,7 @@ Event Grid on Kubernetes with Azure Arc has support to deliver more than one eve
 > [!WARNING]
 > The maximum allowed duration to process each delivery request does not change, even though the event handler code potentially has to do more work per batched request. Delivery timeout defaults to 60 seconds.
 
-## Event delivery in batches policy
+## Batch event delivery policy
 The batch event delivery behavior in Event Grid on Kubernetes can be customized per event subscription, by tweaking the following two settings:
 
 - **Maximum events per batch**
@@ -41,7 +41,7 @@ The batch event delivery behavior in Event Grid on Kubernetes can be customized 
     It isn't necessary to specify both the settings (Maximum events per batch and Approximate batch size in kilo bytes) when creating an event subscription. If only one setting is set, Event Grid on Kubernetes uses (configurable) default values. 
 
 ## Example
-The following examples shows an example of setting `maxEventsPerBatch` and `preferredBatchSizeInKilobytes` to enable batching. 
+The following example shows how to se set `maxEventsPerBatch` and `preferredBatchSizeInKilobytes` in endpoint properties to enable batching. 
 
 ```json
 {
