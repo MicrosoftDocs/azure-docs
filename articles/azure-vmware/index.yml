@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 05/04/2021 
+  ms.date: 05/11/2021 
 
 
 # card 1
@@ -40,7 +40,7 @@ landingContent:
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
 
-# card 2 - FAQ
+# card 2
   - title: FAQ
     linkLists:
       - linkListType: reference
@@ -66,7 +66,7 @@ landingContent:
           - text: Billing and support
             url: /azure/azure-vmware/faq#billing-and-support
 
-# card 3 
+# card 3
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -97,6 +97,17 @@ landingContent:
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
+
+# card 12
+  - title: Identity management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Access and identity for private clouds
+          url: concepts-identity.md
+        - text: Rotate cloudadmin credentials
+          url: rotate-cloudadmin-credentials.md
+
 
 # card 4
   - title: Extend Azure VMware Solution
@@ -142,7 +153,7 @@ landingContent:
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
 
-# card 6 
+# card 6 == backup and restore
   - title: Backup and restore with Azure Backup Server
     linkLists:
       - linkListType: how-to-guide
@@ -207,10 +218,12 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Move subscriptions
-            url: move-ea-csp-subscriptions.md
-          - text: Moves across regions
-            url: move-azure-vmware-solution-across-regions.md
+        - text: Move Azure VMware Solution subscriptions
+          url: move-ea-csp-subscriptions.md
+        - text: Move Azure VMware Solution across regions
+          url: move-azure-vmware-solution-across-regions.md
+
+
 
 # card 11
   - title: Troubleshooting
