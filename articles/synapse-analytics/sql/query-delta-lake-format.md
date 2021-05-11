@@ -40,6 +40,7 @@ from openrowset(
 ```
 
 Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
+The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
 
 To improve the performance of your queries, consider specifying explicit types in [the `WITH` cause](#explicitly-specify-schema).
 
@@ -146,6 +147,8 @@ ORDER BY
 
 The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
 reduce your data set, improve performance, and reduce the cost of the query.
+
+The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
 
 ## Limitation
 
