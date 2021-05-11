@@ -8,9 +8,9 @@ manager: martinco
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
-ms.date: 04/30/2021
+ms.date: 05/11/2021
 ms.author: nichola
 ms.reviewer: kkrishna, kylemar
 # Customer intent: As an application developer, I want to learn how to claims challenges returned from APIs protected by the Microsoft identity platform. 
