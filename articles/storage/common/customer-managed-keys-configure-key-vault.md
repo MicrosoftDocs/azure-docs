@@ -365,11 +365,12 @@ You can configure customer-managed keys on existing or new accounts. First, sele
 
 Select the managed identity that your storage account will use to authorize access to the key vault. If you've [configured the key vault access policy](#configure-a-key-vault-access-policy), then you've already chosen the identity. Use that same identity in this step. 
 
-To use the system-assigned managed identity of the storage account, then call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `SystemAssigned`:
+To use the system-assigned managed identity of the storage account, call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `SystemAssigned`:
 
 ```powershell
-Set-AzStorageAccount 
--IdentityType SystemAssigned 
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -IdentityType SystemAssigned 
 ```          
 
 > [!TIP]
@@ -378,7 +379,8 @@ Set-AzStorageAccount
 To use a user-assigned managed identity, call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `UserAssigned`. Then, set the `UserAssignedIdentities` and `-KeyVaultUserAssignedIdentity` parameters to the object ID of the user-assigned managed identity: 
 
 ```powershell
-Set-AzStorageAccount 
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
     -IdentityType UserAssigned ` 
     -UserAssignedIdentities @($UserAssignedIdentity) `  
     -KeyVaultUserAssignedIdentity $UserAssignedIdentity 
@@ -435,24 +437,46 @@ When you manually update the key version, you'll need to update the storage acco
 
 You can configure customer-managed keys on existing or new accounts. First, select an identity to authorize the storage account to the key vault. Then, decide how you want key versions to be updated.
 
+#### Ensure that you have the correct version of Azure CLI installed
+
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. Verify that the version of Azure CLI that have installed is `2.23.0` or higher by using the following command.
+
+   ```azurecli
+    az --version
+   ```
+
+   If your version of Azure CLI is lower than `2.23.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+
 #### Select an identity
 
 Select the managed identity that your storage account will use to authorize access to the key vault. If you've [configured the key vault access policy](#configure-a-key-vault-access-policy), then you've already chosen the identity. Use that same identity in this step. 
 
-To use the system-assigned managed identity of the storage account, If you configured the key vault access policy by using the system-assigned managed identity of the storage account, then call the `<need api names here>`:
+To use the system-assigned managed identity of the storage account, call the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command, and set the `--identity-type` parameter to `SystemAssigned`:
 
-```powershell
-Code goes here.
+   ```azurecli
+az storage account update -resource-group <resource_group> \
+   --name <storage-account> \
+   --identity-type SystemAssigned 
 ```          
 
 > [!TIP]
 > This parameter is also available with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
-To use a user-assigned managed identity, call the `<need api names here>` 
+To use a user-assigned managed identity, call the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--identity-type` parameter to `UserAssigned`. Then, set the `--user-identity-id` and `--key-vault-user-identity-id` parameters to the object ID of the user-assigned managed identity: 
 
-```powershell
-code goes here.
+```azurecli
+az storage account update -resource-group <resource_group> \
+   --name <storage-account> \ 
+   --identity-type UserAssigned \
+   --user-identity-id <object-id> \
+   --key-vault-user-identity-id <object-id>
 ```
+
+> [!TIP]
+> These parameters are also available with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+
 #### Decide how to update key versions
 
 When you configure encryption with customer-managed keys, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
