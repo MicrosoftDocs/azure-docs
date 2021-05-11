@@ -26,7 +26,7 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
 
 1. Create a new repository under your GitHub account from a template repository.
 1. Navigate to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
-1. Name the repository **nuxtjs-starter**
+1. Name the repository **nuxtjs-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
@@ -113,11 +113,11 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Create an Azure Static Web Apps resource
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Select **Create a Resource**
-1. Search for **Static Web Apps**
-1. Select **Static Web Apps**
-1. Select **Create**
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Select **Create a Resource**.
+1. Search for **Static Web Apps**.
+1. Select **Static Web Apps**.
+1. Select **Create**.
 1. On the _Basics_ tab, enter the following values.
 
     | Property | Value |
@@ -141,7 +141,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 
-1. In the _App location_ box, enter **./**.
+1. In the _App location_, enter **./** in the box.
 1. Leave the _Api location_ box empty.
 1. In the _Output location_ box, enter **out**.
 
