@@ -174,7 +174,7 @@ Also, use the information in [forced tunneling](how-to-secure-training-vnet.md#f
 
 For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-> [TIP]
+> [!TIP]
 > If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### Python hosts
 
