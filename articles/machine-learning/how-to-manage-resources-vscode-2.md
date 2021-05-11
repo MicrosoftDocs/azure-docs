@@ -26,6 +26,8 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 ## Create resources
 
+The quickest way to create resources is using the extension's toolbar.
+
 1. Open the Azure Machine Learning view.
 1. Select **+** in the extension toolbar.
 1. Choose your resource from the dropdown list.
@@ -87,7 +89,7 @@ The Visual Studio Code extension currently supports datastores of the following 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Datastores** node inside your workspace.
-1. Select the datastore you want to:
+1. Right-click the datastore you want to:
     - *Set Default Datastore*. Whenever you run experiments, this is the datastore that will be used.
     - *Unregister Datastore*. Removes datastore from your workspace.
     - *Update credentials*. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
@@ -104,38 +106,17 @@ The Visual Studio Code extension currently supports datastores of the following 
 1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
-### Version datasets
-
-When building machine learning models, as data changes, you may want to version your dataset. To do so in the VS Code extension:
+### Manage a dataset
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
-1. Right-click the dataset you want to version and select **Create New Version**.
-1. In the prompts:
-    1. Choose your data source
-    1. Choose your dataset type
-
-### View dataset properties
-
-This option allows you to see metadata associated with a specific dataset.
-
-1. Expand the subscription node that contains your workspace.
-1. Expand your workspace node.
-1. Expand the **Datasets** node.
-1. Right-click the dataset you want to inspect and select **View Dataset Properties**. This will display a configuration file with the properties of the latest dataset version.
-
-> [!NOTE]
-> If you have multiple version of your dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
-
-### Unregister datasets
-
-To remove a dataset and all version of it, unregister it.
-
-1. Expand the subscription node that contains your workspace.
-1. Expand your workspace node.
-1. Expand the **Datasets** node.
-1. Right-click the dataset you want to unregister and select **Unregister Dataset**.
+1. Right-click the dataset you want to:
+    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset.
+    > [!NOTE]
+    > If you have multiple version of your dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
+    - Preview dataset. This option is only available for tabular datasets.
+    - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
 ## Environments
 
