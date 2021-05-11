@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/03/2021
+ms.date: 05/11/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -67,9 +67,9 @@ To add an account by scanning a QR Code, do the following:
 
 If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera.
 
-## Device code sign-in
+## Sign in on a remote computer
 
-Many common apps allow you to authenticate by entering a code on another device suh as a PC. If you want to sign in on a remote computer and install the Microsoft Authenticator:
+Many apps allow you to authenticate by entering a code on another device such as a PC. If you want to sign in on a remote computer to install the Microsoft Authenticator app:
 
 1. Open the Microsoft Authenticator app, select the **+** button &gt; **Add work or school account** &gt; **Sign in**.
 1. Select **Sign in from another device**.
