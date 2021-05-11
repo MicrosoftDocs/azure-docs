@@ -26,7 +26,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Upgrade public IP address
 
-In this section, you'll sign in to the Azure portal and upgrade your static basic SKU public IP to the standard SKU.
+In this section, you'll use the Azure CLI to upgrade your static basic SKU public IP to the standard SKU.
 
 ```azurepowershell-interactive
 ### Place the public IP address into a variable. ###
@@ -45,7 +45,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 > The basic public IP you are upgrading must have the static allocation type. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard SKU can't be reversed.
+> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ## Verify upgrade
 
