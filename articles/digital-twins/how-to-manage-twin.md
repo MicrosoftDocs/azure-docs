@@ -94,11 +94,11 @@ Only properties that have been set at least once are returned when you retrieve 
 
 To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a *Moon*:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
-The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a *Moon*-type twin might look like this:
+The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a Moon-type twin might look like this:
 
 ```json
 {
@@ -182,8 +182,8 @@ For example, consider the following JSON Patch document that replaces the digita
 This operation will only succeed if the digital twin being modified by the patch conforms with the new model. 
 
 Consider the following example:
-1. Imagine a digital twin with a model of *foo_old*. *foo_old* defines a required property *mass*.
-2. The new model *foo_new* defines a property mass, and adds a new required property *temperature*.
+1. Imagine a digital twin with a model of foo_old. foo_old defines a required property *mass*.
+2. The new model foo_new defines a property mass, and adds a new required property *temperature*.
 3. After the patch, the digital twin must have both a mass and temperature property. 
 
 The patch for this situation needs to update both the model and the twin's temperature property, like this:
@@ -197,11 +197,11 @@ Azure Digital Twins ensures that all incoming requests are processed one after t
 This behavior is on a per-twin basis. 
 
 As an example, imagine a scenario in which these three calls arrive at the same time: 
-*	Write property A on *Twin1*
-*	Write property B on *Twin1*
-*	Write property A on *Twin2*
+*	Write property A on Twin1
+*	Write property B on Twin1
+*	Write property A on Twin2
 
-The two calls that modify *Twin1* are executed one after another, and change messages are generated for each change. The call to modify *Twin2* may be executed concurrently with no conflict, as soon as it arrives.
+The two calls that modify Twin1 are executed one after another, and change messages are generated for each change. The call to modify Twin2 may be executed concurrently with no conflict, as soon as it arrives.
 
 ## Delete a digital twin
 
