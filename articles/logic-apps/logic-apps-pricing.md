@@ -89,7 +89,7 @@ For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-a
 
 ## Preview pricing (single-tenant)
 
-When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing model that applies when running your logic app in the preview single-tenant Logic Apps environment.
+When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Functions Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing model that applies when running your logic app in the preview single-tenant Logic Apps environment.
 
 > [!NOTE]
 > During preview, running preview logic app resources in App Service doesn't incur *extra* charges on top of your selected hosting plan.
