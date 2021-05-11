@@ -101,9 +101,6 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 
->[!TIP]
->You can use the [simplified NSX feature in the Azure portal](configure-nsx-network-components-azure-portal.md) as an alternative to using NSX-T Manager.
-
  
 ## Next steps
 
