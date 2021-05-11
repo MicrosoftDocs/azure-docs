@@ -7,7 +7,7 @@ ms.date: 04/07/2021
 ---
 # Deploy Azure Video Analyzer on an IoT Edge device
 
-This article describes how you can deploy the Azure Video Analyzer edge module on your IoT Edge device. It is meant to be used with an edge device that does not have other modules already deployed - such as a local Linux machine with only the IoT Edge runtime installed.
+This article describes how you can deploy the Azure Video Analyzer edge module on your IoT Edge device.
 When you finish the steps in this article you will have a Video Analyzer account and the Video Analyzer module deployed to your IoT Edge device.
 
 ## Prerequisites
@@ -21,13 +21,22 @@ When you finish the steps in this article you will have a Video Analyzer account
 
 ## Create resources on IoT Edge device
 
-The following script will create the mandatory folders, users and groups needed to successfully deploy Video Analyzer on your IoT device.
+The following script will prepare your device to be able to be used with our Quickstarts and Tutorials.
 
 https://aka.ms/ava/prepare-device
 
-```
-bash -c "$(curl -sL https://aka.ms/ava/prepare-device)"
-```
+`bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
+
+Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+
+The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
+
+    * `/home/localedgeuser/samples`
+    * `/home/localedgeuser/samples/input`
+    * `/var/lib/videoanalyzer`
+    * `/var/media`
+
+    Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
 
 ## Configuring Azure resources and deploying edge modules
 
@@ -55,7 +64,7 @@ It may take a few moments for the Azure resources to be created and the edge mod
 
 ### Verify your deployment
 
-After creating the deployment, return to the IoT Edge page of your IoT hub.
+After creating the deployment, in the azure portal navigate to the IoT Edge page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 2. In the device details, verify that the modules are listed as both **Specified in deployment and Reported by device**.
