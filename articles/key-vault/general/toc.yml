@@ -137,7 +137,7 @@
   - name: Secure
     items:
     - name: Configure key vault networking settings 
-      href: how-to-akvnetworksecurity.md
+      href: how-to-azure-key-vault-network-security.md
     - name: Access Key Vault behind a firewall
       href: access-behind-firewall.md
     - name: Azure Private Link
