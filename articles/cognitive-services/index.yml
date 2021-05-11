@@ -145,7 +145,7 @@ conceptualContent:
           itemType: reference
           text: Cognitive Services containers FAQ
     - title: Cognitive Services for Big Data
-      summary: The Cognitive Services for Big Data allows developers to use cognitive services within databases to apply intelligent algorithms over large datasets
+      summary: The Cognitive Services for Big Data allows developers to use Cognitive Services within databases to apply intelligent algorithms over large datasets
       links:
         - url: ./big-data/cognitive-services-for-big-data.md
           itemType: overview
