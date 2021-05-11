@@ -1,15 +1,16 @@
 ---
 title: Azure Active Directory and Workday integration reference
-description: Technical deep dive into Workday-HR driven provisioning 
+description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/09/2021
-ms.author: chmutali
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: arvinh, chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with Workday
@@ -45,7 +46,7 @@ To further secure the connectivity between Azure AD provisioning service and Wor
 
 The default steps to [configure the Workday integration system user](../saas-apps/workday-inbound-tutorial.md#configure-integration-system-user-in-workday) grants access to retrieve all users in your Workday tenant. In certain integration scenarios, you may want to limit the access, so that users belonging only to certain supervisory organizations are returned by the Get_Workers API call and processed by the Workday Azure AD connector. 
 
-You can fulfil this requirement by working with your Workday admin and configuring constrained integration system security groups. For more information on how this is done, please refer to [this Workday community article](https://community.workday.com/forums/customer-questions/620393) (*Workday Community login credentials are required to access this article*)
+You can fulfill this requirement by working with your Workday admin and configuring constrained integration system security groups. For more information on how this is done, please refer to [this Workday community article](https://community.workday.com/forums/customer-questions/620393) (*Workday Community login credentials are required to access this article*)
 
 This strategy of limiting access using constrained ISSG (Integration System Security Groups) is particularly useful in the following scenarios: 
 * **Phased rollout scenario**: You have a large Workday tenant and plan to perform a phased rollout of Workday to Azure AD automated provisioning. In this scenario, rather than excluding users who are not in scope of the current phase with Azure AD scoping filters, we recommend configuring constrained ISSG so that only in-scope workers are visible to Azure AD.
