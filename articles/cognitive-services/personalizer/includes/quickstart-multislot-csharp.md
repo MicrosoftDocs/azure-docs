@@ -22,7 +22,7 @@ ms.date: 03/23/2021
 
 ## Setting Up
 
-[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](upgrade-personalizer-to-multislot.md)]
+[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](https://aka.ms/personalizer/upgrade-multi-slot)]
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
@@ -82,7 +82,7 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks by sending HTTP requests for .NET:
 
-* [Create base URLs](#create-base-URLs)
+* [Create base URLs](#create-base-urls)
 * [Multi-Slot Rank API](#request-the-best-action)
 * [Multi-Slot Reward API](#send-a-reward)
 
@@ -270,7 +270,7 @@ private static async Task SendMultiSlotReward(HttpClient client, string rewardRe
 }
 ```
 
-## Classes for constructing rank/reward requests/responses
+## Classes for constructing rank/reward requests and responses
 
 Add the following nested classes that are used to constructing the rank/reward requests and parsing their responses.
 
@@ -462,7 +462,7 @@ static async Task Main(string[] args)
 }
 ```
 Take a closer look at the rank and reward calls in the following sections.
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), [get slots](#get-slots), and [send multi-slot rank and reward requests](#make-HTTP-requests) before running the code file:
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), [get slots](#get-slots), and [send multi-slot rank and reward requests](#make-http-requests) before running the code file:
 
 * `GetActions`
 * `GetSlots`
@@ -473,7 +473,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 * `SendMultiSlotRank`
 * `SendMultiSlotReward`
 
-Add the following classes, which [construct the bodies of the rank/reward requests and parse their responses](#classes-for-constructing-rank/reward-requests/responses) before running the code file:
+Add the following classes, which [construct the bodies of the rank/reward requests and parse their responses](#classes-for-constructing-rank%2Freward-requests-and-responses) before running the code file:
 
 * `Action`
 * `Slot`

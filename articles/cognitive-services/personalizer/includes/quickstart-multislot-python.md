@@ -9,6 +9,7 @@ ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
 ---
+
 [Reference documentation](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
 ## Prerequisites
@@ -21,7 +22,7 @@ ms.date: 03/23/2021
 
 ## Setting Up
 
-[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](upgrade-personalizer-to-multislot.md)]
+[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](https://aka.ms/personalizer/upgrade-multi-slot)]
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
@@ -55,11 +56,11 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks by sending HTTP requests for Python:
 
-* [Create base URLs](#create-base-URLs)
+* [Create base URLs](#create-base-urls)
 * [Rank API](#request-the-best-action)
 * [Reward API](#send-a-reward)
 
-## Create Base URLs
+## Create base URLs
 
 In this section you'll do two things:
 * Construct the Rank and Reward UR's
@@ -276,7 +277,7 @@ while run_loop:
 
 Take a closer look at the rank and reward calls in the following sections.
 
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), [get user preferences for context](#get-user-preferences-for-context), [get the slots](#get-slots), [Make HTTP requests](#make-HTTP-requests), [Get reward for each slot](#get-feedback-for-personalizer-decisions) before running the code file:
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), [get user preferences for context](#get-user-preferences-for-context), [get the slots](#get-slots), [Make HTTP requests](#make-http-requests), [Get reward for each slot](#get-feedback-for-personalizer-decisions) before running the code file:
 
 * get_actions
 * get_context_features
@@ -338,7 +339,7 @@ Run the application with the python from your application directory.
 python sample.py
 ```
 
-![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example.png)
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](./media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example.png)
 
 
 [comment]: <> (Need to add a link to the multi slot sample source code)
