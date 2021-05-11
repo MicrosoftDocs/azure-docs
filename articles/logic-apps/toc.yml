@@ -71,6 +71,10 @@
       href: create-stateful-stateless-workflows-azure-portal.md
     - name: Create preview logic apps - Visual Studio Code
       href: create-stateful-stateless-workflows-visual-studio-code.md
+    - name: DevOps deployment for single-tenant
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: DevOps deployment for single-tenant
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
