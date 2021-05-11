@@ -15,23 +15,23 @@ Personalizer automatic optimization saves you manual effort in keeping a Persona
 
 Personalizer Auto-Optimize is in Public Preview and features, approaches and processes will change based on user feedback.
 
-## When to Use Auto-Optimize
+## When to sse Auto-Optimize
 In most cases, the best option is to have Auto-Optimize turned on. Auto-Optimize is *on* for default for new Personalizer loops.
 
 Auto-optimize may help in the following situations:
-1. You build applications that are used by many tenants, and each gets their own Personalizer loop(s); for example, if you host multiple e-commerce sites. Auto-Optimize allows you to avoid the manual effort you'd need to tune learning settings for large numbers of Personalizer loops.
-1. You have deployed Personalizer and validated that it is working well, getting good rewards, and you have made sure there are no bugs or problems in your features.
+* You build applications that are used by many tenants, and each gets their own Personalizer loop(s); for example, if you host multiple e-commerce sites. Auto-Optimize allows you to avoid the manual effort you'd need to tune learning settings for large numbers of Personalizer loops.
+* You have deployed Personalizer and validated that it is working well, getting good rewards, and you have made sure there are no bugs or problems in your features.
 
-Note: Auto-Optimize will periodically overwrite Personalizer Learning Settings. If your use case or industry requires audit and archive of models and settings, or if you need backups of previous settings, you can use the Personalizer API to retrieve Learning Settings, or download them via the Azure Portal.
+Note: Auto-Optimize will periodically overwrite Personalizer Learning Settings. If your use case or industry requires audit and archive of models and settings, or if you need backups of previous settings, you can use the Personalizer API to retrieve Learning Settings, or download them via the Azure portal.
 
-## How to Enable and Disable Auto-Optimize
-To Enable Auto-Optimize, use the toggle switch in the "Model and Learning Settings" blade in the Azure Portal. 
+## How to enable and disable Auto-Optimize
+To Enable Auto-Optimize, use the toggle switch in the "Model and Learning Settings" blade in the Azure portal. 
 
 Alternatively, you can activate Auto-Optimize using the Personalizer `/configurations/service` API.
 
 To disable Auto-Optimize, turn off the toggle.
 
-## Auto-Optimize Reports
+## Auto-Optimize reports
 
 In the Model and Learning Settings blade you can see the history of auto-optimize runs and the action taken on each. 
 
@@ -47,23 +47,23 @@ Reward performance of different learning settings in each auto-optimization hist
 
 A history of up to 24 previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, the reports contain any Learning Settings that are in this history, which you can find and download or apply.
 
-## How it Works
+## How it works
 Personalizer is constantly training the AI models it uses based on rewards. This training is done following some *Learning Settings*, which contain hyper-parameters and other values used in the training process. These learning settings can be "tuned" to your specific Personalizer instance. 
 
 Personalizer also has the ability to perform *Offline Evaluations*. Offline Evaluations look at past data, and can produce a statistical estimation of the average reward that Personalizer different algorithms and models could have attained. During this process Personalizer will also search for better Learning Settings, estimating their performance (how many rewards they would have gotten) over that past time period.
 
-#### Auto-Optimize Frequency
+#### Auto-Optimize frequency
 Auto-Optimize will run periodically, and will perform the Auto-Optimize based on past data
 * If your application sends to Personalizer more than approximately 20Mb of data in the last 2 weeks, it will use the last 2 weeks of data.
 * If your application sends less than this amount, Personalizer will add data from previous days until there is enough data to do the optimize, or it reaches the earliest data stored (up to the Data Retention number of days).
 
 The exact times and days in which Auto-Optimize is run is determined by the Personalizer service, and will fluctuate over time.
 
-#### Criteria for Updating Learning Settings
+#### Criteria for updating learning settings
 
 Personalizer uses these reward estimations to decide whether to change the current Learning Settings for others. Each estimation is a distribution curve, with upper and lower 95% confidence bounds. Personalizer will only apply new Learning Settings if:
-  1. They showed higher average rewards in the evaluation period, AND
-  1. They have a lower bound of the 95% confidence interval, that is *higher* than the lower bound of the 95% confidence interval of the online Learning Settings.
+  * They showed higher average rewards in the evaluation period, AND
+  * They have a lower bound of the 95% confidence interval, that is *higher* than the lower bound of the 95% confidence interval of the online Learning Settings.
 This criteria to maximize the reward improvement, while trying to eliminate the probability of future rewards lost is managed by Personalizer and draws from research in [Seldonian algorithms](https://aisafety.cs.umass.edu/overview.html) and AI safety.
 
 #### Limitations of Auto-Optimize
@@ -72,7 +72,7 @@ Personalizer Auto-Optimize relies on an evaluation of a past period to estimate 
 
 Automatic Optimization Preview is unavailable for Personalizer loops that have enabled the Multi-Slot personalization API Preview functionality. 
 
-## Read More
+## Next steps
 
 * [Offline evaluations](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-offline-evaluation)
 * [Learning Policy and Settings](https://docs.microsoft.com/azure/cognitive-services/personalizer/concept-active-learning)
