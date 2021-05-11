@@ -41,7 +41,7 @@ Now, `deployment1` is the staging deployment. So the next run of the deployment 
 
 ![V5 deployed on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-4.png)
 
-`V5` can now be tested on `deployment1`'s private test endpoint.
+You can now test `V5` on `deployment1`'s private test endpoint.
 
 ![V5 tested on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-5.png)
 
