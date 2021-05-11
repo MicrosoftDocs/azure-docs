@@ -11,11 +11,11 @@ ms.date: 03/08/2021
 
 
 ## Introduction
-Personalizer automatic optimization saves you manual effort in keeping a Personalizer loop at it's best machine learning performance, by automatically searching for improved Learning Settings used to train your models and applying them. Personalizer has strict criteria to apply new Learning Settings to insure improvements are unlikely to introduce loss in rewards.
+Personalizer automatic optimization saves you manual effort in keeping a Personalizer loop at its best machine learning performance, by automatically searching for improved Learning Settings used to train your models and applying them. Personalizer has strict criteria to apply new Learning Settings to insure improvements are unlikely to introduce loss in rewards.
 
 Personalizer Auto-Optimize is in Public Preview and features, approaches and processes will change based on user feedback.
 
-## When to sse Auto-Optimize
+## When to use Auto-Optimize
 In most cases, the best option is to have Auto-Optimize turned on. Auto-Optimize is *on* for default for new Personalizer loops.
 
 Auto-optimize may help in the following situations:
@@ -43,7 +43,7 @@ The table shows:
 
 Reward performance of different learning settings in each auto-optimization history row are shown in absolute numbers, and as percentages relative to baseline performance. 
 
-**Example**:if your baseline average reward is estimated to be 0.20, and the online Personalizer behavior is achieving 0.30, these will be shown as 100% and 150% respectively. If the auto optimization found learning settings capable of achieving 0.40 average reward, it will be shown as 200% (0.40 is 200% of 0.20). Assuming the confidence margins allow for it, the new settings would be applied, and then these would drive Personalizer as the Online settings until the next run.
+**Example**: If your baseline average reward is estimated to be 0.20, and the online Personalizer behavior is achieving 0.30, these will be shown as 100% and 150% respectively. If the auto optimization found learning settings capable of achieving 0.40 average reward, it will be shown as 200% (0.40 is 200% of 0.20). Assuming the confidence margins allow for it, the new settings would be applied, and then these would drive Personalizer as the Online settings until the next run.
 
 A history of up to 24 previous Auto-Optimize runs is kept for your analysis. You can seek out more details about those Offline Evaluations and reports for each. Also, the reports contain any Learning Settings that are in this history, which you can find and download or apply.
 
@@ -54,10 +54,10 @@ Personalizer also has the ability to perform *Offline Evaluations*. Offline Eval
 
 #### Auto-Optimize frequency
 Auto-Optimize will run periodically, and will perform the Auto-Optimize based on past data
-* If your application sends to Personalizer more than approximately 20Mb of data in the last 2 weeks, it will use the last 2 weeks of data.
-* If your application sends less than this amount, Personalizer will add data from previous days until there is enough data to do the optimize, or it reaches the earliest data stored (up to the Data Retention number of days).
+* If your application sends to Personalizer more than approximately 20 Mb of data in the last two weeks, it will use the last two weeks of data.
+* If your application sends less than this amount, Personalizer will add data from previous days until there is enough data to optimize, or it reaches the earliest data stored (up to the Data Retention number of days).
 
-The exact times and days in which Auto-Optimize is run is determined by the Personalizer service, and will fluctuate over time.
+The exact times and days when Auto-Optimize runs is determined by the Personalizer service, and will fluctuate over time.
 
 #### Criteria for updating learning settings
 
