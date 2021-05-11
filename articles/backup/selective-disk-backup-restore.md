@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 05/11/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
  
@@ -317,6 +317,8 @@ Selective disks backup functionality isn't supported for classic virtual machine
 The restore options to **Create new VM** and **Replace existing** aren't supported for the VM for which selective disks backup functionality is enabled.
 
 Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup can't be used to in such cases, which exclude the disk and backup the VM.
+
+If exclusion settings on IAAS VM in a setup are stopped to back up selective disk and  protect the retention of data, when resuming protection, you need to set up the exclusion settings again.
 
 ## Billing
 
