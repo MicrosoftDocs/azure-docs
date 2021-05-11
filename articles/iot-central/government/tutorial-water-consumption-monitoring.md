@@ -179,7 +179,7 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 1. Select **Smart Valve 1**.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitor-device1.png" alt-text="Smart Valve 1":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitor-device-1.png" alt-text="Smart Valve 1":::
 
 1. On the **Commands** tab, you can see the three device commands (**Close valve**, **Open valve**, and **Set valve position**) that are capabilities defined in the **Smart Valve** device template.
 
