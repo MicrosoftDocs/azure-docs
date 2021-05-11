@@ -29,7 +29,8 @@ This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos D
 
 ## Prerequisites to run the sample app
 
-To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) and a valid Azure Cosmos DB account.
+* [Visual Studio](https://www.visualstudio.com/downloads/)
+* An Azure Cosmos DB account.
 
 If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
 
@@ -44,35 +45,29 @@ The sample described in this article is compatible with MongoDB.Driver version 2
 
 ## Clone the sample app
 
-First, download the sample app from GitHub. 
+Run the following commands in a GitHub enabled command windows such as [Git bash](https://git-scm.com/downloads):
 
-1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+```bash
+mkdir "C:\git-samples"
+cd "C:\git-samples"
+git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.it
+```
 
-    ```bash
-    mkdir "C:\git-samples"
-    ```
+The preceding commands:
 
-2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
-    ```
+1. Creates the *C:\git-samples* directory for the sample. Chose a folder appropriate for your operating system.
+1. Changes to the *C:\git-samples* folder.
+1. Clones the sample into the *C:\git-samples* folder.
 
 If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
 
 The following snippets are all taken from the Dal.cs file in the DAL directory.
 
-* Initialize the client.
+* The following code initializes the client:
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -89,7 +84,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
         MongoClient client = new MongoClient(settings);
     ```
 
-* Retrieve the database and the collection.
+* The following code retrieves the database and the collection:
 
     ```cs
     private string dbName = "Tasks";
@@ -99,13 +94,13 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
     var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
     ```
 
-* Retrieve all documents.
+* The following code retrieves all documents:
 
     ```cs
     collection.Find(new BsonDocument()).ToList();
     ```
 
-Create a task and insert it into the collection
+The following code creates a task and insert it into the collection:
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -121,7 +116,7 @@ Create a task and insert it into the collection
         }
     }
    ```
-   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods. 
+   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods.
 
 ## Update your connection string
 
