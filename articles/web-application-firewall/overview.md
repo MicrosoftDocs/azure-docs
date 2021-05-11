@@ -13,7 +13,7 @@ ms.topic: overview
 
 Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
-[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
 
 ![WAF overview](media/overview/wafoverview.png)
 
