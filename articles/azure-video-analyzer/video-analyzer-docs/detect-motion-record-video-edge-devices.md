@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Quickstart: Detect motion and record video on edge devices
 
-This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
+This quickstart shows you how to use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
    - A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 
 1. The output in the TERMINAL window pauses at Press Enter to continue. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see the messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. Switch to the OUTPUT window in Visual Studio Code. You see the messages that the Video Analyzer edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline topology continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline topology, return to the TERMINAL window and select Enter.
 
 The next series of calls cleans up the resources:
@@ -131,7 +131,7 @@ The next series of calls cleans up the resources:
 
 When you run the pipeline topology, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window of Visual Studio Code contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
+In the following messages, the Video Analyzer edge module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
