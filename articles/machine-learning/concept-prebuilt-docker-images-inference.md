@@ -1,7 +1,7 @@
 ---
-title: Prebuilt Docker Images
+title: Prebuilt Docker images
 titleSuffix: Azure Machine Learning
-description: 'Prebuilt Docker images for Inferencing in Azure Machine Learning'
+description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,21 +13,25 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Use Prebuilt Docker images for Inference in Azure Machine Learning (Preview)
+# Prebuilt Docker images for inference (Preview)
 
-In this article you will learn about Prebuilt Docker container images for Inferencing needs in Azure Machine Learning. 
-These Docker images come pre-built with popular machine learning frameworks and Python packages.
+Prebuilt Docker container images for inference are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
 
-We also provide extensibility solutions with our Prebuilt Docker images.
+* [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
+* [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md). Using this method, you can install both Python packages and `apt` packages.
 
-1. __Python Extensibility Solution__
-2. __Extending Inferencing Images with a Dockerfile__
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Why should I use prebuilt images?
 
-## List of Prebuilt Docker images for Inference 
+* Reduces model deployment latency.
+* Improves model deployment success rate.
+* Avoid unnecessary image build during model deployment.
+* Only have required dependencies and access right in the image/container. 
+* The inference process in the deployment runs as non-root.
+## List of prebuilt Docker images for inference 
 
-* Run as non-root.
-
-Framework | Framework Version | CPU/GPU | Pre-installed packages | MCR Path | Curated Environment
+Framework | Framework version | CPU/GPU | Pre-installed packages | Image path | Curated environment
 --- | --- | --- | --- | --- | --- |
 TensorFlow | 1.15 | CPU | pandas==0.25.1 <br/> numpy==1.20.1 | `mcr.microsoft.com/azureml/tensorflow1.15-py3.7-inference-cpu:latest` | AzureML-TensorFlow-1.15-Inference-CPU  |
 PyTorch | 1.6 | CPU | pandas==0.25.1 <br/> numpy==1.20.1 | `mcr.microsoft.com/azureml/pytorch1.6-py3.7-inference-cpu:latest` | AzureML-PyTorch-1.6-Inference-CPU |
@@ -40,10 +44,7 @@ ONNX Runtime | 1.6 | CPU | numpy== </br> pandas== | | |
 TensorFlow | 2.4 | GPU | numpy== </br> pandas == </br> CUDA==11.0.3 | | |
 None | None | CPU | None | `mcr.microsoft.com/azureml/minimal-py3.7-inference-cpu:latest` | AzureML-Minimal-Inference-CPU  |
 
-### Why should I use this feature
+## Next steps
 
-* Reduces model deployment latency.
-* Improves model deployment success rate.
-* Avoid unnecessary image build during model deployment.
-* Only have required dependencies and access right in the image/container. 
-
+* [Add Python packages to prebuilt images](how-to-prebuilt-docker-images-inference-python-extensibility.md).
+* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md).

@@ -1,5 +1,5 @@
 ---
-title: Extend Prebuilt Docker Image in Azure Machine Learning
+title: Extend prebuilt Docker image
 titleSuffix: Azure Machine Learning
 description: 'Extend Prebuilt docker images in Azure Machine Learning'
 services: machine-learning
@@ -13,15 +13,31 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Extend a Prebuilt Docker Image in Azure Machine Learning
+# Extend a prebuilt Docker image (Preview)
 
-If existing Azure Machine Learning Prebuilt Docker image and our [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions cannot fulfill your inference service requirements then you can easily extend from one of Prebuilt docker images to accommodate your needs directly with a Dockerfile.
+In some cases, the prebuilt Docker images and [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions for Azure Machine Learning may not meet your inference service needs.
 
-By extending from Azure Machine Learning Prebuilt Docker image, you can leverage existing Azure Machine Learning network stack and prebuilt machine learning libraries without creating an image from scratch.
+In this case, you can use a Dockerfile to create a new image, using one of the prebuilt images as the starting point. By extending from an existing prebuilt Docker image, you can use the Azure Machine Learning network stack and libraries without creating an image from scratch.
 
-## Create Dockerfile and Build It
+> [!IMPORTANT]
+> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Below is a sample Dockerfile to use Azure Machine Learning Prebuilt Docker image as a base image:
+**Benefits and tradeoffs**
+
+Using a Dockerfile allows for full customization of the image before deployment. It allows you to have maximum control over what dependencies or environment variables, among other things, are set in the container.
+
+The main tradeoff for this approach is that an extra image build will take place during deployment, which slows down the deployment process. If you can use the [Python package extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) method, deployment will be faster.
+## Prerequisites
+
+* An Azure Machine Learning workspace. For a tutorial on creating a workspace, see [Get started with Azure Machine Learning](quickstart-create-resources.md).
+* Familiarity with authoring a [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+* Either a local working installation of [Docker](https://www.docker.com/), including the `docker` CLI, **OR** an Azure Container Registry (ACR) associated with your Azure Machine Learning workspace.
+
+    > [!WARNING]
+    > The Azure Container Registry for your workspace is created the first time you train or deploy a model using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
+## Create and build Dockerfile
+
+Below is a sample Dockerfile that uses an Azure Machine Learning prebuilt Docker image as a base image:
 
 ```Dockerfile
 FROM mcr.microsoft.com/azureml/<image_name>:<tag>
@@ -29,21 +45,25 @@ FROM mcr.microsoft.com/azureml/<image_name>:<tag>
 <Additional steps>
 ```
 
-Then put the above Dockerfile into the folder with all the necessary files and run the following command to build the image:
+Then put the above Dockerfile into the directory with all the necessary files and run the following command to build the image:
 
 ```bash
 docker build -f <above dockerfile> -t <image_name>:<tag> .
 ```
 
-More details about `docker build` can be found here in the [official documentation](https://docs.docker.com/engine/reference/commandline/build/).
+> [!TIP]
+> More details about `docker build` can be found here in the [Docker documentation](https://docs.docker.com/engine/reference/commandline/build/).
 
-If the `docker build` command is not feasible locally, using the ACR associated with the Azure Machine Learning Workspace can help with building the Docker image in the cloud. Here is the [tutorial](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task).
+If the `docker build` command isn't available locally, use the Azure Container Registry ACR for your Azure Machine Learning Workspace to build the Docker image in the cloud. For more information, see [Tutorial: Build and deploy container images with Azure Container Registry](/azure/container-registry/container-registry-tutorial-quick-task).
 
-The following sections contain more specific details in the Dockerfile.
+> [!IMPORTANT]
+> Microsoft recommends that you first validate that your Dockerfile works locally before trying to create a custom base image via Azure Container Registry.
 
-## Install Additional Packages
+The following sections contain more specific details on the Dockerfile.
 
-If there are any additional `apt` packages needs to be installed in the Ubuntu container, the following Dockerfile is a good starting point:
+## Install extra packages
+
+If there are any other `apt` packages that need to be installed in the Ubuntu container, you can add them in the Dockerfile. The following example demonstrates how to use the `apt-get` command from a Dockerfile:
 
 ```Dockerfile
 FROM <prebuilt docker image from MCR>
@@ -63,36 +83,36 @@ RUN apt-get update && \
 USER dockeruser
 ```
 
-You can also install addition pip packages with the following command in the Dockerfile:
+You can also install addition pip packages from a Dockerfile. The following example demonstrates using `pip install`:
 
 ```Dockerfile
 RUN pip install <library>
 ```
 
-## Build Model and Code into Images
+## Build model and code into images
 
 If the model and code need to be built into the image, the following environment variables need to be set in the Dockerfile:
 
-* `AML_APP_ROOT`: the directory containers user code
-* `AZUREML_ENTRY_SCRIPT`: the entry script of the user code. `init()` and `run()` need to be in this file.
-* `AZUREML_MODEL_DIR`: the folder contains model files. the entry script should use this folder as the root folder of the model.
+* `AML_APP_ROOT`: The directory that contains your code.
+* `AZUREML_ENTRY_SCRIPT`: The entry script of your code. This file contains the `init()` and `run()` methods.
+* `AZUREML_MODEL_DIR`: The directory that contains the model file(s). The entry script should use this directory as the root directory of the model.
 
-Here is a template:
+The following example demonstrates setting these environment variables in the Dockerfile:
 
 ```Dockerfile
 FROM <prebuilt docker image from MCR>
 
 # Code
-COPY <local_code_folder> /var/azureml-app
+COPY <local_code_directory> /var/azureml-app
 ENV AML_APP_ROOT=/var/azureml-app
 ENV AZUREML_ENTRY_SCRIPT=<entryscript_file_name>
 
 # Model
-COPY <model_folder> /var/azureml-app/azureml-models
+COPY <model_directory> /var/azureml-app/azureml-models
 ENV AZUREML_MODEL_DIR=/var/azureml-app/azureml-models
 ```
 
-A sample folder structure in the container will be like this:
+The directory structure created in the container will be similar to the following tree diagram:
 
 ``` bash
 └── var
@@ -111,9 +131,9 @@ A sample folder structure in the container will be like this:
             └── misc.py
 ```
 
-## Dockerfile Sample
+## Example Dockerfile
 
-A full sample Dockerfile with additional packages, model and code could look like this:
+The following example demonstrates installing `apt` packages, setting environment variables, and including code and models as part of the Dockerfile:
 
 ```Dockerfile
 FROM mcr.microsoft.com/azureml/pytorch1.6-py3.7-inference-cpu:latest
@@ -141,14 +161,13 @@ COPY model /var/azureml-app/azureml-models
 ENV AZUREML_MODEL_DIR=/var/azureml-app/azureml-models
 ```
 
-## Using Dockerfile in Azure ML SDK
+## Next steps
 
-To use a Dockerfile via the AML SDK, one can either [use your own local Dockerfile](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-environments#use-your-own-dockerfile) or use a [pre-built Docker image and create a custom base image](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-environments#use-a-prebuilt-docker-image).
+To use a Dockerfile with the Azure Machine Learning Python SDK, see the following documents:
 
-For simplicity, we recommend first validating a Dockerfile works locally before trying to create a custom base image via Azure Container Registry.
+* [Use your own local Dockerfile](how-to-use-environments.md#use-your-own-dockerfile)
+* [Use a pre-built Docker image and create a custom base image](how-to-use-environments.md#use-a-prebuilt-docker-image)
 
-## Benefits and Tradeoffs
+To learn more about deploying a model, see [How to deploy a model](how-to-deploy-and-where.md).
 
-Using a Dockerfile allows for full customization of the image before deployment. This allows you to have maximum control over what dependencies or environment variables,among other things, are set in the container.
-
-The main tradeoff for this approach is that an extra image build will take place during deployment, which will slow down the deployment process. We encourage to use the other extensibility solutions if possible, as this cuts down on the time it takes to deploy the container.
+To learn how to troubleshoot prebuilt docker image deployments, see [how to troubleshoot prebuilt Docker image deployments](how-to-troubleshoot-prebuilt-docker-image-inference.md).
