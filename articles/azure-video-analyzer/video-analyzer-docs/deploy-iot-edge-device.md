@@ -31,10 +31,10 @@ Azure Video Analyzer module runs on the edge device with non-privileged local us
 
 The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
 
-    * `/home/localedgeuser/samples`
-    * `/home/localedgeuser/samples/input`
-    * `/var/lib/videoanalyzer`
-    * `/var/media`
+* `/home/localedgeuser/samples`
+* `/home/localedgeuser/samples/input`
+* `/var/lib/videoanalyzer`
+* `/var/media`
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
 
