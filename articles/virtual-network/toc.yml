@@ -101,8 +101,11 @@
       href: manage-public-ip-address-prefix.md
     - name: IPv6
       href: ipv6-overview.md
+<<<<<<< HEAD
     - name: Public IPv6 prefix
       href: ipv6-public-ip-address-prefix.md
+=======
+>>>>>>> 31fa70a5966ecb75464d90dbb8a35c6cf306a925
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
@@ -227,20 +230,24 @@
       - name: Create public IP addresses - Azure CLI
         href: create-public-ip-cli.md
       - name: Create public IP address - ARM template
-        href: create-public-ip-template.md                
+        href: create-public-ip-template.md
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
       - name: Create public IPv6 prefix
         href: ipv6-reserve-public-ip-address-prefix.md
       - name: Upgrade public IP addresses
         href: virtual-network-public-ip-address-upgrade.md
+      - name: Manage public IP addresses
+        href: virtual-network-public-ip-address.md
+      - name: Manage public IP prefixes
+        href: manage-public-ip-address-prefix.md
       - name: Upgrade public IP address - Portal
         href: public-ip-upgrade-portal.md
       - name: Upgrade public IP address - PowerShell
         href: public-ip-upgrade-powershell.md
       - name: Upgrade a public IP address - Azure CLI
         href: public-ip-upgrade-cli.md
-      - name: Migrate a classic reserved IP to ARM
+      - name: Migrate a classic reserved IP
         href: public-ip-upgrade-classic.md
       - name: Add IPv6 to IPv4 application - PowerShell
         href: ipv6-add-to-existing-vnet-powershell.md

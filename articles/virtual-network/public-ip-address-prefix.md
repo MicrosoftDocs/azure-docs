@@ -14,7 +14,7 @@ ms.author: allensu
 
 # Public IP address prefix
 
-A public IP address prefix is a reserved range of [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.  Public IP prefixes are assigned from a [pool of addresses](https://www.microsoft.com/download/details.aspx?id=56519) in each Azure region. 
+A public IP address prefix is a reserved range of [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure. Public IP prefixes are assigned from a [pool of addresses](https://www.microsoft.com/download/details.aspx?id=56519) in each Azure region. 
 You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size. The prefix size is the number of addresses available for use. Public IP address prefixes consist of IPv4 or IPv6 addresses.  After the public IP prefix is created, you can create public IP addresses.
 
 ## Benefits
@@ -27,9 +27,9 @@ You create a public IP address prefix in an Azure region and subscription by spe
 
 The following public IP prefix sizes are available:
 
--  /28 (IPv4) or /127 (IPv6) = 16 addresses
--  /29 (IPv4) or /127 (IPv6) = 8 addresses
--  /30 (IPv4) or /127 (IPv6) = 4 addresses
+-  /28 (IPv4) or /124 (IPv6) = 16 addresses
+-  /29 (IPv4) or /125 (IPv6) = 8 addresses
+-  /30 (IPv4) or /126 (IPv6) = 4 addresses
 -  /31 (IPv4) or /127 (IPv6) = 2 addresses
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
@@ -55,7 +55,7 @@ Resource|Scenario|Steps|
 | NAT Gateway | A public IP prefix can be used to scale a NAT gateway by using the public IPs in the prefix for outbound connections. | To associate a prefix to your NAT Gateway: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. When creating the NAT Gateway, select the IP prefix as the Outbound IP. |
 | VPN Gateway (AZ SKU) or Application Gateway v2 | You can use a public IP from a prefix for your zone-redundant VPN or Application gateway v2. | To associate an IP from a prefix to your gateway: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. [Create an IP from the prefix.](manage-public-ip-address-prefix.md) </br> 3. When you deploy the [VPN Gateway](../vpn-gateway/tutorial-create-gateway-portal.md) or [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), be sure to select the IP you previously gave from the prefix.|
 
-## Constraints
+## Limitations
 
 - You can't specify the IP addresses for the prefix. Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 - You can create a prefix of up to 16 IP addresses. Review [Network limits increase requests](../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
@@ -64,6 +64,9 @@ Resource|Scenario|Steps|
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses can't be assigned to resources in the classic deployment model.
 - You can't delete a prefix if any addresses within it are assigned to public IP address resources associated to a resource. Dissociate all public IP address resources that are assigned IP addresses from the prefix first. For more information on disassociating public IP addresses, see [Manage public IP addresses](/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address).
 - Public IP address prefixes aren't currently compatible with *Internet* **Routing Preference** or *Global* **Tier** (for cross-region load-balancing).
+- IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address will change if you delete and redeploy your resource in Azure. 
+- Standard IPv6 public IPs support static (reserved) allocation. 
+- Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.  
 
 ## Pricing
  

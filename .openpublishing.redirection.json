@@ -13521,6 +13521,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
+      "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
       "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
       "redirect_document_id": false
@@ -64856,6 +64861,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/alerts/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/samples/cli-samples.md",
       "redirect_url": "/azure/azure-monitor//cli-samples",
       "redirect_document_id": false
@@ -66007,6 +66017,16 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-python.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/public-ip-address-prefix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address-upgrade.md",
+      "redirect_url": "/azure/virtual-network/public-ip-upgrade-portal",
       "redirect_document_id": false
     }
   ]
