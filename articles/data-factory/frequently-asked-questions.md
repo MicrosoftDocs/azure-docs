@@ -5,7 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 05/11/2021
 ---
 
 # Azure Data Factory FAQ
