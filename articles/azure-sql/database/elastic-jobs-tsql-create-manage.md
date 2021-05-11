@@ -202,7 +202,7 @@ EXEC jobs.sp_add_jobstep
 @output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = '<resultsdb>',
-@output_table_name = '<resutlstable>';
+@output_table_name = '<resultstable>';
 
 --Create a job to monitor pool performance
 
