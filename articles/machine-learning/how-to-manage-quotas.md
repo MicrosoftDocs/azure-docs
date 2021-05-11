@@ -103,10 +103,9 @@ Azure Machine Learning managed online endpoints have the following limits.
 
 | **Resource** | **Limit** |
 | --- | --- |
-| Endpoint name| Endpoint names must <li> Begin with a letter <li>Be 3-32 characters in length  <li>  Only consist of letters and numbers  |
-| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers |
+| Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
+| Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> |
 | Number of endpoints per subscription | 50 |
-| Number of deployments that can be created per time period per subscription | Per hour: 300 <br>Per 30 minutes: 150 <br> Per 5 minutes: 25 |
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
 | Number of instances per deployment | 20 |
@@ -114,6 +113,7 @@ Azure Machine Learning managed online endpoints have the following limits.
 | Max request time out at endpoint level  | 60 seconds |
 | Total QPS at endpoint level for all deployments  | 100 |
 
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names
 
 #### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
