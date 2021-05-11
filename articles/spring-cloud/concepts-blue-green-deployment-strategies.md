@@ -57,7 +57,7 @@ The staging deployment always remains running, and thus consuming resources of t
 
 #### The approval race condition
 
-Suppose in the above application, the release pipeline requires manual approval before each new version of the application can receive production traffic. This creates the risk that while one version (`v6`) awaits manual approval on the staging deployment, the deployment pipeline will run again and overwrite it with a newer version (`v7`). Then, when the approval for `v6` is granted, the pipeline that deployed `v6` will set the staging deployment as production. But now it will be the unapproved `v7` not the approved `v6` that is deployed on that deployment and receives traffic.
+Suppose in the above application, the release pipeline requires manual approval before each new version of the application can receive production traffic. This creates the risk that while one version (`v6`) awaits manual approval on the staging deployment, the deployment pipeline will run again and overwrite it with a newer version (`v7`). Then, when the approval for `v6` is granted, the pipeline that deployed `v6` will set the staging deployment as production. But now it will be the unapproved `v7`, not the approved `v6`, that is deployed on that deployment and receives traffic.
 
 ![The approval race condition](media/spring-cloud-blue-green-patterns/alternating-deployments-race-condition.png)
 
