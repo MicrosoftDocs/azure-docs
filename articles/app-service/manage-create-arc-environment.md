@@ -82,23 +82,13 @@ Because App Service on Arc is currently validated only on [Azure Kubernetes Serv
     az group create -n $groupName -l "East US"
     ```
     
-4. Run the following commands on the resource group so that the Azure Arc resources you create later can work with your cluster.
-
-    `TODO: delete later?`
-    
-    ```azurecli-interactive
-    subscriptionId=$(az account show --query id --output tsv)
-    MicrosoftAzureWebsitesOid=$(az ad sp show --id 'abfa0a7c-a6b6-4736-8310-5855508787cd' --query objectId --output tsv)
-    az role assignment create --assignee-object-id $MicrosoftAzureWebsitesOid --role Owner --scope "/subscriptions/${subscriptionId}/resourceGroups/${groupName}" --output none
-    ```
-    
-5. Connect the cluster you created to Azure Arc.
+4. Connect the cluster you created to Azure Arc.
 
     ```azurecli-interactive
     az connectedk8s connect --resource-group $groupName --name $clusterName
     ```
     
-6. Validate the connection with the following command. It should show the `provisioningState` property as `Succeeded`. If not, run the command again after a minute.
+5. Validate the connection with the following command. It should show the `provisioningState` property as `Succeeded`. If not, run the command again after a minute.
 
     ```azurecli-interactive
     az connectedk8s show --resource-group $groupName --name $clusterName
@@ -280,4 +270,4 @@ Before you can start creating apps on the custom location, you need an [App Serv
 ## Next steps
 
 - [Quickstart: Create a web app on Azure Arc](quickstart-arc.md)
-- [Create and deploy single-tenant based logic app workflows with Arc enabled Logic Apps](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md) <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/157287 -->
+<!-- - [Create and deploy single-tenant based logic app workflows with Arc enabled Logic Apps](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md) https://github.com/MicrosoftDocs/azure-docs-pr/pull/157287 -->
