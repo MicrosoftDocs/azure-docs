@@ -314,7 +314,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 ### Move subscriptions in ARM template
 
 To move a subscription in an Azure Resource Manager template (ARM template), use the following
-template.
+template and deploy it at [tenant level](../../azure-resource-manager/templates/deploy-to-tenant.md).
 
 ```json
 {
