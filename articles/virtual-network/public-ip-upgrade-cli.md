@@ -27,7 +27,7 @@ In this article, you'll learn how to upgrade a static basic SKU public IP addres
 
 ## Upgrade public IP address
 
-In this section, you'll you'll use the Azure CLI and upgrade your static basic SKU public IP to the standard SKU.
+In this section, you'll use the Azure CLI and upgrade your static basic SKU public IP to the standard SKU.
 
 ```azurecli-interactive
 az network public-ip update \
