@@ -35,7 +35,7 @@ The easiest way to see to the content of your `DELTA` file is to provide the fil
 ```sql
 select top 10 *
 from openrowset(
-    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet',
+    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/'
     format = 'delta') as rows
 ```
 
@@ -70,14 +70,14 @@ If you created your database, and switched the context to your database (using `
 your external data source containing the root URI to your data set and use it to query Delta Lake files:
 
 ```sql
-create external data source covid
-with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+create external data source DeltaLake
+with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
 go
 
 select top 10 *
 from openrowset(
-        bulk 'latest/ecdc_cases.parquet',
-        data_source = 'covid',
+        bulk 'covid',
+        data_source = 'DeltaLake',
         format = 'delta'
     ) as rows
 ```
@@ -91,8 +91,8 @@ If a data source is protected with SAS key or custom identity, you can configure
 ```sql
 select top 10 *
 from openrowset(
-        bulk 'latest/ecdc_cases.parquet',
-        data_source = 'covid',
+        bulk 'covid',
+        data_source = 'DeltaLake',
         format = 'delta'
     )
     with ( date_rep date,
@@ -123,25 +123,25 @@ columns in your Delta Lake folder structure and enable you to directly query dat
 
 ```sql
 SELECT
-        YEAR(tpepPickupDateTime),
-        passengerCount,
+        YEAR(pickup_datetime) AS year,
+        passenger_count,
         COUNT(*) AS cnt
 FROM  
     OPENROWSET(
-        BULK 'yellowTaxi',
-        DATA_SOURCE = 'Samples',
+        BULK 'yellow',
+        DATA_SOURCE = 'DeltaLake',
         FORMAT='DELTA'
     ) nyc
 WHERE
     nyc.year = 2017
     AND nyc.month IN (1, 2, 3)
-    AND tpepPickupDateTime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
+    AND pickup_datetime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
 GROUP BY
-    passengerCount,
-    YEAR(tpepPickupDateTime)
+    passenger_count,
+    YEAR(pickup_datetime)
 ORDER BY
-    YEAR(tpepPickupDateTime),
-    passengerCount;
+    YEAR(pickup_datetime),
+    passenger_count;
 ```
 
 The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
