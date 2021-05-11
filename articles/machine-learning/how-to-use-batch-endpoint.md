@@ -57,15 +57,13 @@ az upgrade
 >
 > This command will also update all installed extensions by default. For more `az upgrade` options, please refer to the [command reference page](https://docs.microsoft.com/cli/azure/reference-index#az_upgrade).
 
-Add the Azure ML extension:
+Add and configure the Azure ML extension:
 
 ```azurecli
 az extension -add  ml
 ```
 
-* An Azure Machine Learning workspace
-
-If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete your [setup](https://github.com/Azure/azureml-examples/blob/main/experimental/using-cli/setup.sh).
+For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
 
 * The example repository
 
@@ -266,7 +264,7 @@ For batch inference, you must send 100% of inquiries to the wanted deployment. T
 az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
 ```
 
-If you re-examine the details of your deployment, you will see changes:
+If you re-examine the details of your deployment, you will see your changes:
 
 ```azurecli
 az ml endpoint show --name mybatchedp --type batch
@@ -288,13 +286,13 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
 ```
 
-1. Get the access token:
+2. Get the access token:
 
 ```azurecli
 auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
-1. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
+3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
 
 ```bash
 curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
