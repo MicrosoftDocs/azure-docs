@@ -25,7 +25,7 @@ Before taking an action to change the RU/s, it's important to understand the roo
 
 There are different error messages that correspond to different types of 429 exceptions:
 - [Request rate is large. More Request Units may be needed, so no changes were made.](#request-rate-is-large)
-- [The request did not complete due to a high rate of metadata requests.](#rate-limiting-due-to-high-volume-of-metadata-requests)
+- [The request did not complete due to a high rate of metadata requests.](#rate-limiting-on-metadata-requests)
 - [The request did not complete due to a transient service error.](#rate-limiting-due-to-transient-service-error)
 
 
@@ -80,9 +80,9 @@ AzureDiagnostics
 | summarize sum(todouble(requestCharge_s)) by partitionKey_s, operationType_s, bin(TimeGenerated, 1s)
 | order by sum_requestCharge_s desc
 ```
-This sample output shows that in a particular minute, the logical partition key with value "Contoso" consumed around 12,000 RU/s, while the logical partition key with value "Fabrikam" consumed less than 600 RU/s. If this pattern was consistent during the time period where rate-limiting occurred, this would indicate a hot partition. 
+This sample output shows that in a particular minute, the logical partition key with value "Contoso" consumed around 12,000 RU/s, while the logical partition key with value "Fabrikam" consumed less than 600 RU/s. If this pattern was consistent during the time period where rate limiting occurred, this would indicate a hot partition. 
 
-:::image type="content" source="media/troubleshoot-request-rate-too-large/hot-logical-partition-key-results.png" alt-text="Requests with 429 in Diagnostic Logs.":::
+:::image type="content" source="media/troubleshoot-request-rate-too-large/hot-logical-partition-key-results.png" alt-text="Logical partition keys consuming the most request units per second.":::
 
 > [!TIP]
 > In any workload, there will be natural variation in request volume across logical partitions. You should determine if the hot partition is caused by a fundamental skewness due to choice of partition key (which may require changing the key) or temporary spike due to natural variation in workload patterns.
