@@ -88,9 +88,18 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. Navigate into the project folder:
 
+    # [bash](#tab/bash)
+
     ```console
     cd LocalFunctionProj
     ```
+
+    # [cmd](#tab/cmd)
+
+    ```console
+    cd LocalFunctionProj
+    ```
+    ---
 
     This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
