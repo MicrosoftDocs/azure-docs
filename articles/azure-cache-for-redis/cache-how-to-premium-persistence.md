@@ -23,6 +23,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 > 
 > Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
+> Redis persistence to a firewall storage account isn't supported. For more information, see the prerequisites in [Azure Cache for Redis with Azure Private Link](cache-private-link.md#prerequisites).
 > 
 
 ## Set up data persistence
