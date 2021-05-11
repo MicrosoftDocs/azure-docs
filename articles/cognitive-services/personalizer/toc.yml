@@ -31,6 +31,8 @@
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
   - name: Use Apprentice mode
     href: how-to-learning-behavior.md
+  - name: Use multi-slot
+    href: how-to-multi-slot.md
   - name: Manage model and learning settings
     href: how-to-manage-model.md
   - name: Analyze with an offline evaluation
