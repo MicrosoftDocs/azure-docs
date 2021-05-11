@@ -3,7 +3,7 @@ title: Azure Maps Long-Running Operation API
 description: Learn about long-running asynchronous background processing in Azure Maps
 author: anastasia-ms 
 ms.author: v-stharr 
-ms.date: 05/04/2020
+ms.date: 05/11/2020
 ms.topic: conceptual 
 ms.service: azure-maps 
 services: azure-maps 
@@ -57,8 +57,7 @@ Resource-Location: "https://atlas.microsoft.com/tileset/{tileset-id}"
  {
     "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
     "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
-    "status": "Succeeded",
-    "resourceLocation": "https://atlas.microsoft.com/tileset/{tileset-id}"
+    "status": "Succeeded"
 }
 ```
 
