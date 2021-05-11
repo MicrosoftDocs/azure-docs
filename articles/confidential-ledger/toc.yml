@@ -1,0 +1,34 @@
+- name: Azure Confidential Ledger 
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Confidential Ledger
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Python
+    href: quickstart-python.md
+  - name: ARM template
+    href: quickstart-template.md 
+- name: Tutorials
+  items:
+  - name: Create a client certificate
+    href: create-client-certificate.md 
+  - name: Register a Ledger service principal
+    href: register-ledger-service-principal.md
+- name: Concepts
+  items:
+  - name: Workflows
+    href: workflows.md
+  - name: Architecture
+    href: architecture.md
+  - name: Authenticating Ledger nodes
+    href: authenticate-ledger-nodes.md
+- name: References
+  items:
+  - name: FAQ
+    href: faq.md
+- name: Resources
+  items:
+  - name: Offline Ledger verification tool
+    href: offline-ledger-verification.md
