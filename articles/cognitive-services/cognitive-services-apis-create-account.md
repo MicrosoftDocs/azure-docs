@@ -37,7 +37,7 @@ At this time, the multi-service resource enables access to the following Cogniti
 * **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
 * **Speech** - Speech
 * **Language** - Language Understanding (LUIS), Text Analytics, Translator
-* **Decision** - Personalizer, Content Moderator
+* **Decision** - Content Moderator
 
 ### [Single-service resource](#tab/singleservice)
 
