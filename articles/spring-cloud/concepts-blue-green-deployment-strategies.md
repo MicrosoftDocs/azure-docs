@@ -31,7 +31,7 @@ After `v4` has started up on `deployment2`, you can run automated and manual tes
 
 ![V4 is now deployed on deployment2 and undergoes testing](media/spring-cloud-blue-green-patterns/alternating-deployments-2.png)
 
-Once confidence in `v4` has been established, `deployment2` can be set as the production deployment. Now, it receives all production traffic. `v3` remains running on `deployment1` in case a critical issue is discovered that requires rolling back.
+When you have confidence in `v4`, you can set `deployment2` as the production deployment so that it receives all production traffic. `v3` will remain running on `deployment1` in case you discover a critical issue that requires rolling back.
 
 ![V4 on deployment2 now receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-3.png)
 
