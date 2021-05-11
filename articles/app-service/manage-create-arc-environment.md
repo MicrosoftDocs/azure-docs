@@ -6,9 +6,9 @@ ms.date: 05/03/2021
 ---
 # Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
-If you have a Kubernetes cluster that's connected to Azure Arc, you can use it to create an App Service Kubernetes environment and deploy web apps, function apps, and logic apps to it.
+If you have an [Azure Arc enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
 
-Azure Arc with Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
+Azure Arc enabled Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
 
 ## Prerequisites
 
@@ -52,9 +52,11 @@ az extension add --yes --source "https://aka.ms/az-appservice-kube/appservice_ku
 ## Create an test connected cluster
 
 > [!NOTE]
-> As more Kubernetes distributions are validated for App Service Kubernetes environments, see [TODO]() for general instructions on creating an Azure Arc enabled Kubernetes cluster.
+> As more Kubernetes distributions are validated for App Service Kubernetes environments, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc enabled Kubernetes cluster.
 
-Because App Service on Arc is currently validated only on Azure Kubernetes Service, create an Azure Arc enabled cluster on Azure Kubernetes Service. 
+<!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
+
+Because App Service on Arc is currently validated only on [Azure Kubernetes Service](/azure/aks/), create an Azure Arc enabled cluster on Azure Kubernetes Service. 
 
 1. Create a cluster with a public IP address.
 
@@ -66,7 +68,7 @@ Because App Service on Arc is currently validated only on Azure Kubernetes Servi
     staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
     
-2. Get the Kubeconfig file and test your connection to the cluster.
+2. Get the [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file and test your connection to the cluster. By default, the kubeconfig file is saved to `~/.kube/config`.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group $aksClusterGroupName --name $aksName --admin
@@ -104,7 +106,7 @@ Because App Service on Arc is currently validated only on Azure Kubernetes Servi
     
 ## Create a Log Analytics workspace
 
-While a Log Analytic workspace is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc enabled Kubernetes cluster. 
+While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc enabled Kubernetes cluster. 
 
 1. For simplicity, create the workspace now.
 
@@ -136,7 +138,7 @@ While a Log Analytic workspace is not required to run App Service in Azure Arc, 
     
 ## Install the App Service extension
 
-1. Set the following environment variable for the desired name of the App Service extension.
+1. Set the following environment variable for the desired name of the [App Service extension](overview-arc-integration.md).
 
     ```bash
     extensionName="app-service-ext"
@@ -161,7 +163,7 @@ While a Log Analytic workspace is not required to run App Service in Azure Arc, 
         --configuration-settings "loadBalancerIp=${staticIp}" \
         --configuration-settings "buildService.storageClassName=default" \
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \ TODO: is this necessary without AKS?
+        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \
         --configuration-settings "customConfigMap=appservice-ns/kube-environment-config" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
         --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
@@ -196,7 +198,9 @@ While a Log Analytic workspace is not required to run App Service in Azure Arc, 
     
 ## Create a custom location
 
-The custom location in Azure is used to assign the App Service Kubernetes environment.
+The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is used to assign the App Service Kubernetes environment.
+
+<!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
 
 1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc connected cluster.
 
@@ -217,7 +221,7 @@ The custom location in Azure is used to assign the App Service Kubernetes enviro
         --cluster-extension-ids $extensionId
     ```
     
-    <!-- --kubeconfig ~/.kube/config # TODO: needed for non-Azure -->
+    <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
 
 4. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
@@ -238,6 +242,8 @@ The custom location in Azure is used to assign the App Service Kubernetes enviro
     ```
     
 ## Create the App Service Kubernetes environment
+
+Before you can start creating apps on the custom location, you need an [App Service Kubernetes environment](overview-arc-integration.md#app-service-kubernetes-environment).
 
 1. Set the following environment variable for the App Service Kubernetes environment. Choose a unique name for `kubeEnvironmentName`, because it will be part of the domain name for app created in the App Service Kubernetes environment. For `envLocation`, choose one of the [currently supported Azure regions](overview-arc-integration.md#public-preview-limitations).
 
@@ -274,3 +280,4 @@ The custom location in Azure is used to assign the App Service Kubernetes enviro
 ## Next steps
 
 - [Quickstart: Create a web app on Azure Arc](quickstart-arc.md)
+- [Create and deploy single-tenant based logic app workflows with Arc enabled Logic Apps](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md) <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/157287 -->
