@@ -22,7 +22,7 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
-- VS Code Azure Machine Learning Extension. Follow the [Azure Machine Learning VS Code extension installation guide](how-to-setup-vs-code-extension.md) to set up the extension.
+- VS Code Azure Machine Learning Extension. Follow the [Azure Machine Learning VS Code extension installation guide](how-to-setup-vs-code.md) to set up the extension.
 
 ## Create resources
 
@@ -174,7 +174,13 @@ For more information, see [experiments](concept-azure-machine-learning-architect
 
 ### Create experiment
 
-
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Right-click the **Experiments** node in your workspace and select **Create Job**.
+1. Choose your job type.
+1. A resource template appears. Configure the resource template.
+1. Save the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
 
 ### Run Experiment
 
@@ -219,11 +225,21 @@ Once a run is complete, you may want to download the logs and assets such as the
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
 
-### View run metadata
-
-In the extension, you can inspect metadata such as the run configuration used for the run as well as run details.
-
 ## Compute instances
+
+### Create compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Right-click the **Compute instances** node in your workspace and select **Create Job**.
+1. Choose your job type.
+1. A resource template appears. Configure the resource template.
+1. Save the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
+
+### Connect to compute instance
+
+To use a compute instance as a full development environment or Jupyter server, see [Connect to a compute instance][https://docs.microsoft.com/en-us/azure/machine-learning/how-to-set-up-vs-code-remote?tabs=extension].
 
 ### Stop or restart compute instance
 
@@ -255,18 +271,19 @@ For more information, see [compute targets](concept-compute-target.md#train).
 1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute you want to view and select **View Compute Properties**.
 
-### Edit compute scale settings
-
-1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute clusters** node inside your workspace.
-1. Right-click the compute you want to edit and select **Edit Compute**.
-1. A configuration file for your compute opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
-
-### Delete compute
+### Delete compute cluster
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute you want to delete and select **Remove Compute**.
+
+## Attached Compute
+
+TODO
+
+## Inference Clusters
+
+TODO
 
 ## Models
 
