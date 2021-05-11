@@ -12,6 +12,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
+ms.custom: devx-track-azurepowershell
 
 ---
 # Using Azure API Management service with an internal virtual network
@@ -46,7 +47,7 @@ To perform the steps described in this article, you must have:
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
-When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
+When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened.
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
 The API Management service in an internal virtual network is hosted behind an internal load balancer Basic SKU if the service is created with client API version 2020-12-01. For service created with clients having API version 2021-01-01-preview and having a public IP address from the customer's subscription, it is hosted behind an internal load balancer Standard SKU. For more information, see [Azure Load Balancer SKUs](../load-balancer/skus.md).
@@ -75,9 +76,9 @@ You can also enable virtual network connectivity by using the following methods.
 
 ### API version 2020-12-01
 
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-internal-vnet)
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet)
 
-     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 * Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a virtual network
 
@@ -117,7 +118,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 ### Access on custom domain names
 
-1. If you don’t want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
+1. If you don't want to access the API Management service with the default host names, you can set up custom domain names for all your service endpoints as shown in the following image:
 
    ![Setting up a custom domain for API Management][api-management-custom-domain-name]
 

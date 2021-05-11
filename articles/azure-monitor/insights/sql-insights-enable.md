@@ -10,11 +10,17 @@ ms.date: 03/15/2021
 # Enable SQL insights (preview)
 This article describes how to enable [SQL insights](sql-insights-overview.md) to monitor your SQL deployments. Monitoring is performed from an Azure virtual machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data. You can control what datasets are collected and the frequency of collection using a monitoring profile.
 
+> [!NOTE]
+> To enable SQL insights by creating the monitoring profile and virtual machine using a resource manager template, see [Resource Manager template samples for SQL insights](resource-manager-sql-insights.md).
+
 ## Create Log Analytics workspace
 SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces).  Before you can enable  SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
 You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
+
+The instructions below cover the process per type of SQL that you can monitor.  To accomplish this with a script on several SQL resouces at once, please refer to the following [README file](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) and [example script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1).
+
 
 ### Azure SQL database
 Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.
@@ -82,7 +88,7 @@ Verify the user was created.
 select name as username,
        create_date,
        modify_date,
-       type_desc as type,
+       type_desc as type
 from sys.server_principals
 where type not in ('A', 'G', 'R', 'X')
        and sid is not null
@@ -114,7 +120,7 @@ Each type of SQL offers methods for your monitoring virtual machine to securely 
 
 SQL insights supports accessing your Azure SQL Database via it's public endpoint as well as from it's virtual network.
 
-For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) section.  For specifying access from a virtual network, you can set [virtual network firewall rules](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [This article](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
+For access via the public endpoint, you would add a rule under the **Firewall settings** page and the [IP firewall settings](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) section.  For specifying access from a virtual network, you can set [virtual network firewall rules](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) and set the [service tags required by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#networking).  [This article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) describes the differences between these two types of firewall rules.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
@@ -123,11 +129,11 @@ For access via the public endpoint, you would add a rule under the **Firewall se
 
 ### Azure SQL Managed Instances 
 
-If your monitoring virtual machine will be in the same VNet as your SQL MI resources, then see [Connect inside the same VNet](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet). If your monitoring virtual machine will be in the different VNet than your SQL MI resources, then see [Connect inside a different VNet](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet).
+If your monitoring virtual machine will be in the same VNet as your SQL MI resources, then see [Connect inside the same VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). If your monitoring virtual machine will be in the different VNet than your SQL MI resources, then see [Connect inside a different VNet](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
 
 
 ### Azure virtual machine and Azure SQL virtual machine  
-If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
+If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
 
 ## Store monitoring password in Key Vault
 You should store your SQL user connection passwords in a Key Vault rather than entering them directly into your monitoring profile connection strings.

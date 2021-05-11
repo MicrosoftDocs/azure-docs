@@ -81,6 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	 b. In the **Identifier (Entity ID)** text box, type the value:
     `Dropbox`
 	
+	c. In the **Reply URL** field, enter `https://www.dropbox.com/saml_login`
 	> [!NOTE]
 	> The **Dropbox Sign SSO ID** can be found in the Dropbox site at Dropbox > Admin console > Settings > Single sign-on > SSO sign-in URL.
 

@@ -5,19 +5,31 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
+author: lzchen
+ms.author: lechen
 ---
 
 # Set up Azure Monitor for your Python application
 
-Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article walks you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
+Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
+
+Microsoft's supported solution for tracking and exporting data for your Python applications is through the [Opencensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
+
+Any other telemetry SDKs for Python are UNSUPPORTED and are NOT recommended by Microsoft to use as a telemetry solution.
+
+You may have noted that OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). However, we continue to recommend OpenCensus while OpenTelemetry gradually matures.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python v2.7 and v3.4-v3.7.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4-v3.7.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
-## Instrument with OpenCensus Python SDK for Azure Monitor
+## Introducing Opencensus Python SDK
+
+[OpenCensus](https://opencensus.io) is a set of open source libraries to allow collection of distributed tracing, metrics and logging telemetry. Through the use of [Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), you will be able to send this collected telemetry to Application insights. This article walks you through the process of setting up OpenCensus and Azure Monitor Exporters for Python to send your monitoring data to Azure Monitor.
+
+## Instrument with OpenCensus Python SDK with Azure Monitor exporters
 
 Install the OpenCensus Azure Monitor exporters:
 
@@ -532,4 +544,3 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 * [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
 * [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
-

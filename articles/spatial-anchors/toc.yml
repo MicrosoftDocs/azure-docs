@@ -122,7 +122,7 @@
   - name: SDK for HoloLens C++/WinRT
     href: /cpp/api/spatial-anchors/winrt/
   - name: Azure CLI
-    href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+    href: /cli/azure/spatial-anchors-account
   - name: Azure PowerShell
     href: /powershell/module/az.mixedreality
 - name: Resources

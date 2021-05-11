@@ -6,7 +6,8 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/08/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Scale an Azure Cache for Redis instance
 Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. For a Basic, Standard or Premium cache, you can change its size and tier after it's been created to keep up with your application needs. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.

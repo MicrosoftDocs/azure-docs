@@ -11,8 +11,9 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2021
-ms.author: bwren
+ms.date: 04/30/2021
+ms.author: bwren 
+ms.custom: devx-track-azurepowershell
 ---
  
 # Manage usage and costs with Azure Monitor Logs	
@@ -32,7 +33,10 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level (overage) will be billed at that same price per GB as provided by the current capacity reservation level. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+
+> [!NOTE]
+> Until early May 2021, capacity reservation overage was billed at the Pay-As-You-Go price. The change to bill overage at the same price-per-GB as the current capacity reservation level reduces the need for users with large reservation levels to fine-tune their reservation level. 
 
 In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
 
@@ -123,7 +127,7 @@ None of the legacy pricing tiers has regional-based pricing.
 
 ## Log Analytics and Azure Defender (Security Center)
 
-[Azure Defender (Security Center)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Azure Defender provides 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled [learn more](https://docs.microsoft.com/azure/security-center/security-center-pricing#what-data-types-are-included-in-the-500-mb-free-data-limit). If the workspace is in the legacy Per Node pricing tier, the Azure Defender and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
+[Azure Defender (Security Center)](../../security-center/index.yml) billing is closely tied to Log Analytics billing. Azure Defender provides 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled [learn more](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance). If the workspace is in the legacy Per Node pricing tier, the Azure Defender and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
 ## Change the data retention period
 
@@ -235,7 +239,7 @@ You can track changes made to the daily cap using this query:
 _LogOperation | where Operation == "Workspace Configuration" | where Detail contains "Daily quota"
 ```
 
-Learn more about the [_LogOperation](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace) function. 
+Learn more about the [_LogOperation](./monitor-workspace.md) function. 
 
 ### View the effect of the Daily Cap
 
@@ -257,7 +261,7 @@ Usage
 
 While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](../alerts/alerts-metric.md).
 
-To get you started, here are the recommended settings for the alert querying the `Operation` table using the `_LogOperation` function ([learn more](https://docs.microsoft.com/azure/azure-monitor/logs/monitor-workspace)). 
+To get you started, here are the recommended settings for the alert querying the `Operation` table using the `_LogOperation` function ([learn more](./monitor-workspace.md)). 
 
 - Target: Select your Log Analytics resource
 - Criteria: 
@@ -349,7 +353,7 @@ Note that the clause `where _IsBillable = true` filters out data types from cert
 
 ### Data volume by solution
 
-The query used to view the billable data volume by solution over the last month (excluding the last partial day) can be built using the [Usage](https://docs.microsoft.com/azure/azure-monitor/reference/tables/usage) data type as:
+The query used to view the billable data volume by solution over the last month (excluding the last partial day) can be built using the [Usage](/azure/azure-monitor/reference/tables/usage) data type as:
 
 ```kusto
 Usage 
@@ -484,7 +488,7 @@ Some suggestions for reducing the volume of logs collected include:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
-| Data Collection Rules      | The [Azure Monitor Agent](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) uses Data Collection Rules to manage the collection of data. You can [limit the collection of data](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent#limit-data-collection-with-custom-xpath-queries) using custom XPath queries. | 
+| Data Collection Rules      | The [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) uses Data Collection Rules to manage the collection of data. You can [limit the collection of data](../agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) using custom XPath queries. | 
 | Container Insights         | [Configure Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to collect only the data you required. |
 | Security events            | Select [common or minimal security events](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [audit registry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
 | Performance counters       | Change [performance counter configuration](../agents/data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
@@ -687,7 +691,7 @@ To be notified when data collection stops, use the steps described in *Create da
 
 ## Late arriving data 	
 
-Situations can arise where data is ingested with very old timestamps, for instance if an agent cannot communicate to Log Analytics due to a connectivity issue, or situations when a host has an incorrectly time date/time. To diagnose these issues, use the `_TimeReceived` column ([learn more](https://docs.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_timereceived)) in addition to the `TimeGenerated` column. `TimeReceived` is the time when the the record was received by the Azure Monitor ingestion point in the Azure cloud.  
+Situations can arise where data is ingested with very old timestamps, for instance if an agent cannot communicate to Log Analytics due to a connectivity issue, or situations when a host has an incorrectly time date/time. To diagnose these issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `TimeReceived` is the time when the the record was received by the Azure Monitor ingestion point in the Azure cloud.  
 
 ## Limits summary
 

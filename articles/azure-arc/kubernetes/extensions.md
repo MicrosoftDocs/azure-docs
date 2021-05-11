@@ -22,7 +22,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 - `connectedk8s` (version >= 1.1.0) and `k8s-extension` (version >= 0.2.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
@@ -96,7 +96,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 
 > [!NOTE]
 > * The service is unable to retain sensitive information for more than 48 hours. If Azure Arc enabled Kubernetes agents don't have network connectivity for more than 48 hours and cannot determine whether to create an extension on the cluster, then the extension transitions to `Failed` state. Once in `Failed` state, you will need to run `k8s-extension create` again to create a fresh extension Azure resource.
-> * * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid).
+> * * Azure Monitor for containers is a singleton extension (only one required per cluster). You'll need to clean up any previous Helm chart installations of Azure Monitor for containers (without extensions) before installing the same via extensions. Follow the instructions for [deleting the Helm chart before running `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Required parameters**
 

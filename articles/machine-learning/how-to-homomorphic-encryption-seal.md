@@ -8,8 +8,8 @@ ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, responsible-ml
+ms.topic: how-to
+ms.custom: devx-track-python, deploy, responsible-ml
 #Customer intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data.
 ---
 

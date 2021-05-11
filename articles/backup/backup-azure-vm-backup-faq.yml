@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 01/26/2021
+  ms.date: 04/30/2021
     
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -212,4 +212,6 @@ sections:
           One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
           
           You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Navigate to Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
+      - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
+        answer: Azure VM Backup uses [HTTPS communication for encryption in transit](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest). The data transfer uses Azure fabric (and not public endpoints), which do not need Internet access for VM backup.
           
