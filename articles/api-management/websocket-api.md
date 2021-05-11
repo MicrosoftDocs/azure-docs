@@ -54,10 +54,11 @@ API Management supports WebSocket passthrough. During the WebSocket passthrough 
 
 ### Limitations
 
-WebSocket APIs are available through Azure portal and Management API and currently supported in public preview. They are not currently supported in the following:
-* Consumption tier
-* Self-hosted gateway
-* Azure CLI, PowerShell, and SDK
+WebSocket APIs are available through Azure portal, Management API, and Azure Resource Manager. They are currently supported in public preview. Below are the current restrictions of WebSocket support in API Management:
+
+* WebSocket APIs are not supported in the Consumption tier.
+* WebSocket APIs are not supported in the [self-hosted gateway](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Azure CLI, PowerShell, and SDK do not support managing WebSocket APIs.
 
 ## onHandshake operation
 
