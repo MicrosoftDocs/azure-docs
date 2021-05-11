@@ -130,7 +130,8 @@ AzureWebJobsStorage {
 } 
 ```
 
-When not using a custom DNS or not running in sovereign clouds, the following format can be used.
+When your AzureWebJobsStorage storage account follows the `https://<accountName>.blob/queue/file/table.core.windows.net` format, is not using a custom DNS, and not running in sovereign clouds, the following simplified format can be used.
+
 ```json
 AzureWebJobsStorage {
     "accountName": "<STORAGE_ACCOUNT_NAME>", 
