@@ -37,7 +37,6 @@ When you have confidence in `v4`, you can set `deployment2` as the production de
 
 Now, `deployment1` is the staging deployment. So the next run of the deployment pipeline deploys onto `deployment1`.
 
-
 ![V5 deployed on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-4.png)
 
 You can now test `V5` on `deployment1`'s private test endpoint.
