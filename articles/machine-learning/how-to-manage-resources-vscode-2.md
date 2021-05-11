@@ -90,9 +90,7 @@ The Visual Studio Code extension currently supports datastores of the following 
 1. Expand your workspace node.
 1. Expand the **Datastores** node inside your workspace.
 1. Right-click the datastore you want to:
-    - *Set Default Datastore*. Whenever you run experiments, this is the datastore that will be used.
     - *Unregister Datastore*. Removes datastore from your workspace.
-    - *Update credentials*. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
     - *View Datastore*. Display read-only datastore settings
 
 ## Datasets
