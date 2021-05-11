@@ -129,7 +129,7 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
     
 ### Is the content indexed by Video Indexer kept within the Azure region where I am using Video Indexer?
 
-Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
+Yes, the content and its insights are kept within the Azure region (except for Signapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
 
 Customer data in a region is replicated for BCDR reasons to the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
 
