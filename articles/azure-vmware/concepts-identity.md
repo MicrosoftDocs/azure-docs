@@ -80,7 +80,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
 
 
-#### Use a custom role
+#### Apply a custom role
 
 1. Navigate to the object that requires the added permission. For example, to apply the permission to a folder, navigate to **Menu** > **VMs and Templates** > **Folder Name**.
 
