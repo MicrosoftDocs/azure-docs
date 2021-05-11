@@ -9,7 +9,7 @@ ms.date: 04/02/2021
 ms.custom: devx-track-java
 ---
 
-# Blue-Green Deployment Strategies in Azure Spring Cloud
+# Blue-green deployment strategies in Azure Spring Cloud
 
 This article describes the blue-green deployment support in Azure Spring Cloud.
 
