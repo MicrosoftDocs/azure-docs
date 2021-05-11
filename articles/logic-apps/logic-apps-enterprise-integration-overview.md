@@ -44,7 +44,9 @@ Before you can start building B2B logic app workflows with the EIP, you need the
 
 > [!NOTE]
 
-> You may notice [display issues with map designer on high DPI monitors](https://docs.microsoft.com/visualstudio/designers/disable-dpi-awareness?view=vs-2019). To resolve them, restart Visual Studio in [DPI-unaware mode by setting DPIUNAWARE registry value](https://docs.microsoft.com/visualstudio/designers/disable-dpi-awareness?view=vs-2019#add-a-registry-entry) according to your Visual Studio version and edition.
+> On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+> in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+> or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
 After you create an integration account and add your artifacts, you can start building B2B workflows with these artifacts by creating a logic app in the Azure portal. If you're new to logic apps, try [creating a basic logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To work with these artifacts, make sure that you first link your integration account to your logic app. After that, your logic app can access your integration account. You can also create, manage, and deploy logic apps by using Visual Studio or [PowerShell](/powershell/module/az.logicapp).
 
