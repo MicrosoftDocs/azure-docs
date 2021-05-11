@@ -5241,6 +5241,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/how-to/remove-desired-state-configuration-package.md",
+      "redirect_url": "/azure/automation/state-configuration/remove-node-and-configuration-package",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-watchers-tutorial.md",
       "redirect_url": "/azure/automation/automation-scenario-using-watcher-task",
       "redirect_document_id": false
@@ -13513,6 +13518,11 @@
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-debug-java-web-app-in-intellij.md",
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
+      "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
     },
     {
@@ -64848,6 +64858,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-response.md",
       "redirect_url": "/azure/azure-monitor/alerts/tutorial-response",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/alerts/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
       "redirect_document_id": false
     },
     {
