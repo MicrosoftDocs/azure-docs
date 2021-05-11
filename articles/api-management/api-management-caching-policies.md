@@ -50,7 +50,7 @@ Use the `cache-lookup` policy to perform cache look up and return a valid cached
 ```
 
 > [!NOTE]
-> When using **vary-by-query-parameter** you might need to declare the parameters in the rewrite-uri template or set the attribute **copy-unmatched-params** to false - Note that by deactivating this flag, not declared parameters are going to be send to the back-end.
+> When using **vary-by-query-parameter** you might want to declare the parameters in the rewrite-uri template or set the attribute **copy-unmatched-params** to false - Note that by deactivating this flag, not declared parameters are going to be send to the back-end.
 
 ### Examples
 
