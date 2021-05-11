@@ -278,6 +278,7 @@
     - name: Use Azure Monitor workbooks
       href: tutorial-monitor-your-data.md
   - name: Detect and analyze data
+    items:
     - name: Use built-in rules
       href: tutorial-detect-threats-built-in.md
     - name: Create custom rules
