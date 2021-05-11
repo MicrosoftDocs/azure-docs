@@ -381,6 +381,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Authentication / Authorization
 - Managed Identities
 - CORS
+- VNET integration is not supported for Docker Compose scenarios
 
 ### Docker Compose options
 
