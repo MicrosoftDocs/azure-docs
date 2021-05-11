@@ -27,7 +27,7 @@ This makes `deployment2` the staging deployment. Thus, when the Continuous Deliv
 
 ![Two deployments: deployment1 receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-1.png)
 
-Once `v4` has started up on `deployment2`, automated and manual tests can be run against it through a private test endpoint to ensure `v4` meets all expectations.
+After `v4` has started up on `deployment2`, you can run automated and manual tests against it through a private test endpoint to ensure `v4` meets all expectations.
 
 ![V4 is now deployed on deployment2 and undergoes testing](media/spring-cloud-blue-green-patterns/alternating-deployments-2.png)
 
