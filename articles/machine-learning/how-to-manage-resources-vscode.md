@@ -9,7 +9,7 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/11/2021
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension(preview)
@@ -228,7 +228,8 @@ To use a compute instance as a development environment or remote Jupyter server,
 ### Stop or restart compute instance
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute instances** node inside your workspace.
+1. Expand your workspace node.
+1. Expand the **Compute instances** node inside your **Computes** node.
 1. Right-click the compute instance you want to stop or restart and select **Stop Compute instance** or **Restart Compute instance** respectively.
 
 Alternatively, use the `> Azure ML: Stop Compute instance` and `Restart Compute instance` commands respectively in the command palette.
@@ -236,7 +237,8 @@ Alternatively, use the `> Azure ML: Stop Compute instance` and `Restart Compute 
 ### View compute instance configuration
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute instances** node inside your workspace.
+1. Expand your workspace node.
+1. Expand the **Compute instances** node inside your **Computes** node.
 1. Right-click the compute instance you want to inspect and select **View Compute instance Properties**.
 
 Alternatively, use the `Azure ML: View Compute instance Properties` command in the command palette.
@@ -244,14 +246,15 @@ Alternatively, use the `Azure ML: View Compute instance Properties` command in t
 ### Delete compute instance
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute instances** node inside your workspace.
+1. Expand your workspace node.
+1. Expand the **Compute instances** node inside your **Computes** node.
 1. Right-click the compute instance you want to delete and select **Delete Compute instance**.
 
 Alternatively, use the `Azure ML: Delete Compute instance` command in the command palette.
 
 ## Compute clusters
 
-For more information, see [compute targets](concept-compute-target.md#train).
+For more information, see [training compute targets](concept-compute-target.md#train).
 
 ### Create compute cluster
 
@@ -267,7 +270,8 @@ Alternatively, use the `> Azure ML: Create Compute` command in the command palet
 ### View compute configuration
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute clusters** node inside your workspace.
+1. Expand your workspace node.
+1. Expand the **Compute clusters** node inside your **Computes** node.
 1. Right-click the compute you want to view and select **View Compute Properties**.
 
 Alternatively, use the `> Azure ML: View Compute Properties` command in the command palette.
@@ -275,18 +279,50 @@ Alternatively, use the `> Azure ML: View Compute Properties` command in the comm
 ### Delete compute cluster
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the **Compute clusters** node inside your workspace.
+1. Expand your workspace node.
+1. Expand the **Compute clusters** node inside your **Computes** node.
+1. Right-click the compute you want to delete and select **Remove Compute**.
+
+Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
+
+## Inference Clusters
+
+For more information, see [compute targets for inference](concept-compute-target.md#deploy).
+
+### Manage inference clusters
+
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Expand the **Attached computes** node inside your **Computes** node.
+1. Right-click the compute you want to:
+    - **View Compute Properties**. Displays read-only configuration data about your attached compute.
+    - **Detach compute**. Detaches the compute from your workspace.
+
+Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: Detach Compute` commands respectively in the command palette.
+
+### Delete inference clusters
+
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Expand the **Attached computes** node inside your **Computes** node.
 1. Right-click the compute you want to delete and select **Remove Compute**.
 
 Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
 
 ## Attached Compute
 
-TODO
+For more information, see [unmanaged compute](concept-compute-target.md#unmanaged-compute).
 
-## Inference Clusters
+### Manage attached compute
 
-TODO
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Expand the **Attached computes** node inside your **Computes** node.
+1. Right-click the compute you want to:
+    - **View Compute Properties**. Displays read-only configuration data about your attached compute.
+    - **Detach compute**. Detaches the compute from your workspace.
+
+Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: Detach Compute` commands respectively in the command palette.
 
 ## Models
 
