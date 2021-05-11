@@ -22,7 +22,7 @@ ms.date: 03/23/2021
 
 ## Setting Up
 
-[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](https://aka.ms/personalizer/upgrade-multi-slot)]
+[!INCLUDE [Upgrade Personalizer instance to multi-slot](upgrade-personalizer-multi-slot.md)]
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
