@@ -19,18 +19,17 @@ ms.author: lajanuar
 
 ### Choose your SDK programming language or the REST API
 
-:::image type="icon" source="/media/logos/logo_NET.svg":::
+:::image type="icon" source="../media/logos/logo_NET.svg":::
+### [**C#**](client-library.md?tabs=preview%2Cv2-1&pivots=programming-language-csharp#analyze-layout)
 
-[**C#**](client-library.md?tabs=preview%2Cv2-1&pivots=programming-language-csharp#analyze-layout)
+:::image type="icon" source="../media/logos/logo_java.svg":::
+### [**Java**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-java#analyze-layout)
 
-:::image type="icon" source="/media/logos/logo_java.svg":::
-[**Java**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-java#analyze-layout)
+:::image type="icon" source="../media/logos/logo_js.svg":::
+ ### [**JavaScript**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-javascript#analyze-layout)
 
-:::image type="icon" source="/media/logos/logo_js.svg":::
- [**Javascript**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-javascript#analyze-layout)
+:::image type="icon" source="../media/logos/logo_python.svg ":::
+### [**Python**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-python#analyze-layout)
 
-:::image type="icon" source="/media/logos/logo_python.svg ":::
-[**Python**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-python#analyze-layout)
-
-:::image type="icon" source="/media/logos/logo_REST.svg":::
-[**Rest API**](client-library?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-rest-api#analyze-layout)
+:::image type="icon" source="../media/logos/logo_REST.svg":::
+### [**Rest API**](client-library?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-rest-api#analyze-layout)
