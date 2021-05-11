@@ -74,7 +74,7 @@ To add up to 10,000 subscription IDs with a .CSV file:
 
 ## Technical configuration
 
-This section creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+This section creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../lighthouse/concepts/architecture.md).
 
 Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) to understand which roles are supported and the best practices for defining your authorizations.
 
