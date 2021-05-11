@@ -49,8 +49,6 @@ This template includes a sample connected waste bin device template, a simulated
     * **URL**. Optionally, you can choose your desired URL. You can change the URL later. 
     * **Pricing plan**. If you have an Azure subscription, enter your directory, Azure subscription, and region in the appropriate fields of the **Billing info** dialog box. If you don't have a subscription, select **Free** to enable 7-day trial subscription, and complete the required contact information.  
 
-    For more information about directories and subscriptions, see [Quickstart - Create an Azure IoT Central application](../core/quick-deploy-iot-central.md).
-
 1. At the bottom of the page, select **Create**. 
 
     ![Screenshot of Azure IoT Central Create New application dialog box.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
