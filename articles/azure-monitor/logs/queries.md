@@ -1,11 +1,11 @@
 ---
-title: Log Analytics in Azure Monitor offers sets of example queries that you can run on their own or use as a starting point for your own queries. 
-description: Queries you can start from and modify for your needs 
+title: Using queries in Azure Monitor Log Analytics 
+description: Overview of log queries in Azure Monitor Log Analytics including different types of queries and sample queries that you can use.
 ms.subservice: logs
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 01/13/2020
+ms.date: 05/11/2021
 ---
 
 # Using queries in Azure Monitor Log Analytics

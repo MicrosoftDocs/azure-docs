@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 01/13/2020
+ms.date: 05/11/2021
 ---
 
 # Save a query in Azure Monitor Log Analytics (preview)
