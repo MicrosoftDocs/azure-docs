@@ -58,23 +58,31 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
-    **Spring Cloud 1.1.x**
+    **Spring Boot 2.3**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.9</version>
     </dependency>
     ```
 
-    **Spring Cloud 1.2.x**
+    **Spring Boot 2.4**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.2.7</version>
+        <version>1.3.0</version>
+    </dependency>
+    
+    <!-- New Library -->
+
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
+        <version>2.0.0-beta.1</version>
     </dependency>
     ```
 

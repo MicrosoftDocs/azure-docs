@@ -47,23 +47,23 @@ To use automated refresh, start with a Spring Boot app that uses App Configurati
 
 Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `spring-cloud-azure-appconfiguration-config-web`.
 
-**Spring Cloud 1.1.x**
+**Spring Boot 2.3**
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.5</version>
+    <version>1.2.9</version>
 </dependency>
 ```
 
-**Spring Cloud 1.2.x**
+**Spring Boot 2.4**
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.7</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
@@ -78,8 +78,8 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 
 1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
 
-    You can also use *curl* to test your application, for example: 
-    
+    You can also use *curl* to test your application, for example:
+
     ```cmd
     curl -X GET http://localhost:8080/
     ```
@@ -89,6 +89,64 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
     | Key | Value |
     |---|---|
     | application/config.message | Hello - Updated |
+
+1. Refresh the browser page to see the new message displayed.
+
+## New Library
+
+**Spring Boot 2.4**
+
+```xml
+<dependency>
+    <groupId>com.azure.microsoft</groupId>
+    <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+    <version>2.0.0</version>
+</dependency>
+```
+
+1. Update bootstrap.properties to enable refresh
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
+spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
+```
+
+1. Open the Azure App Configuration portal associated with your application. Select **Configuration Explorer**, select **+ Create** > **Key-value** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | sentinel | 1 |
+
+    Leave **Label** and **Content Type** empty for now.
+
+1. Select **Apply**.
+
+1. 1. Build your Spring Boot application with Maven and run it.
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
+
+    You can also use *curl* to test your application, for example:
+
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. To test dynamic configuration, open the Azure App Configuration portal associated with your application. Select **Configuration Explorer**, and update the value of your displayed key, for example:
+
+    | Key | Value |
+    |---|---|
+    | /application/config.message | Hello - Updated |
+
+1. Update your sentinel key.
+
+    | Key | Value |
+    |---|---|
+    | sentinel | 2 |
 
 1. Refresh the browser page to see the new message displayed.
 
