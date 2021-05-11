@@ -103,7 +103,7 @@ steps:
 
 The deployment shown in the previous section immediately receives application traffic upon deployment. Sometimes, developers want to test their applications in the production environment but before the application receives any customer traffic.
 
-The snippet below builds the application as above and then deploys it to a staging deployment. In this example, the staging deployment must already exist (see [Blue Green Deployment Strategies](concepts-blue-green-deployment-strategies.md) for an alternate approach).
+The following snippet builds the application the same way as above and then deploys it to a staging deployment. In this example, the staging deployment must already exist. For an alternative approach, see [Blue-green deployment strategies](concepts-blue-green-deployment-strategies.md).
 
 
 ```yaml
