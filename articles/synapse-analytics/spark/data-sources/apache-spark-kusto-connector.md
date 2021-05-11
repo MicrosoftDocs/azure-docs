@@ -2,7 +2,7 @@
 title: Azure Data Explorer (Kusto) 
 description: This article provides information on how to use the  connector for moving data between Azure Data Explorer (Kusto) and serverless Apache Spark pools.
 services: synapse-analytics 
-author: midesa 
+ms.author: midesa 
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
@@ -10,7 +10,7 @@ ms.date: 05/19/2020
 ms.reviewer: ManojRaheja
 ---
 
-# Introduction 
+# Azure Data Explorer (Kusto) connector for Apache Spark
 The Azure Data Explorer (Kusto) connector for Apache Spark is designed to efficiently transfer data between Kusto clusters and Spark. This connector is available in Python, Java, and .NET. It is built in to the Azure Synapse Apache Spark 2.4 runtime.
 
 ## Authentication
@@ -72,7 +72,7 @@ df.write \
     .mode("Append") \
     .save()
 ```
-In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/en-us/azure/data-explorer/ingestion-properties).
+In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/azure/data-explorer/ingestion-properties).
 
 
  ```python

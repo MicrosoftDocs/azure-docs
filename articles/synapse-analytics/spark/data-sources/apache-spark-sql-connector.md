@@ -2,14 +2,14 @@
 title: Azure SQL and SQL Server 
 description: This article provides information on how to use the  connector for moving data between Azure MS SQL and serverless Apache Spark pools.
 services: synapse-analytics 
-author: midesa 
+,s.author: midesa 
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/19/2020 
 ---
 
-# Introduction
+# Azure SQL Database and SQL Server connector for Apache Spark
 The Apache Spark connector for Azure SQL Database and SQL Server enables these databases to act as input data sources and output data sinks for Apache Spark jobs. It allows you to use real-time transactional data in big data analytics and persist results for ad-hoc queries or reporting.
 
 Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Azure Active Directory (Azure AD) [authentication](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
