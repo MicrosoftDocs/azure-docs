@@ -53,7 +53,7 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more details about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
 If you have this role assignment already *and* you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution did not resolve the 403 issue.
 
@@ -81,12 +81,12 @@ Next, select *API permissions* from the menu bar to verify that this app registr
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [*How-to: Create an app registration*](how-to-create-app-registration.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [How-to: Create an app registration](how-to-create-app-registration.md).
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md)
+* [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
-* [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
+* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)

@@ -71,7 +71,6 @@ Once the script is run, the SAP HANA instance can be registered with the Recover
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
     --vault-name saphanaVault \
-    --location westus2 \
     --workload-type SAPHANA \
     --backup-management-type AzureWorkload \
     --resource-id VMResourceId
@@ -120,6 +119,7 @@ To protect and configure backup on a database, one at a time, we use the [az bac
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
     --policy-name saphanaPolicy \
     --protectable-item-name "saphanadatabase;hxe;hxe"  \
     --protectable-item-type SAPHANADatabase \

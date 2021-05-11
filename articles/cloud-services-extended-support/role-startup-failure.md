@@ -137,4 +137,4 @@ To deploy your cloud service with IntelliTrace turned on:
 
 ## Next steps
 
-- Learn how to [troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+- Learn how to [troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 05/05/2021
 ms.author: alkohli
 ---
 
@@ -19,14 +19,12 @@ This article describes how to reset, reconfigure, and reactivate an Azure Stack 
 
 After you reset the device to remove the data, you'll need to reactivate the device as a new resource. Resetting a device removes the device configuration, so you'll need to reconfigure the device via the local web UI.
 
-In this article, you learn how to:
+For example, you might need to move an existing Azure Stack Edge resource to a new subscription. To do so, you would:
 
-> [!div class="checklist"]
->
-> * Wipe the data off the data disks on the device
-> * Reactivate the device by creating a new order, reconfiguring the device, and activating it
+1. Reset data on the device by following the steps in [Reset device](#reset-device).
+2. Create a new resource that uses the new subscription with your existing device, and then activate the device. Follow the steps in [Reactivate device](#reactivate-device).
 
-## Reset data from the device
+## Reset device
 
 To wipe the data off the data disks of your device, you need to reset your device.
 

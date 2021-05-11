@@ -10,7 +10,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/08/2021
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure scoped synchronization from Azure AD to Azure Active Directory Domain Services using Azure AD PowerShell

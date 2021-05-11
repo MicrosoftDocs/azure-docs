@@ -45,5 +45,5 @@ Select **Create** and continue below.
 ## Next steps
 
 - [+ Create new plan](azure-container-plan-setup.md), or
-- Exit plan setup and continue with optional [Co-sell with Microsoft](marketplace-co-sell.md), or
+- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
 - [Review and publish your offer](review-publish-offer.md)

@@ -266,8 +266,12 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Enable user and entity behavior analytics
-    href: enable-entity-behavior-analytics.md
+  - name: Use user and entity behavior analytics
+    items:
+    - name: Enable UEBA
+      href: enable-entity-behavior-analytics.md
+    - name: Investigate with UEBA
+      href: investigate-with-ueba.md
   - name: Map data fields to entities
     href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
@@ -282,6 +286,8 @@
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: Handle false positives
+    href: false-positives.md
   - name: Audit Azure Sentinel queries and activities
     href: audit-sentinel-data.md
   - name: Hunting
@@ -347,3 +353,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+  - name: Feature availability for US Government clouds
+    href: /azure/security/fundamentals/feature-availability

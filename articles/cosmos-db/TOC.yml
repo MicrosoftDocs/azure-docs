@@ -65,7 +65,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?toc=/azure/cosmos-db/TOC.json
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Cosmos DB
@@ -87,7 +87,7 @@
           - name: Continuous backup - Introduction
             href: continuous-backup-restore-introduction.md
           - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
+            href: continuous-backup-restore-frequently-asked-questions.yml
           - name: Continuous backup - Resource model
             href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
@@ -979,7 +979,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Partitioning
@@ -1059,7 +1059,7 @@
   items:
     - name: Overview
       items:
-        - name: What is MongoDB API in Cosmos DB?
+        - name: What is the API for MongoDB in Cosmos DB?
           href: mongodb-introduction.md
     - name: Quickstarts
       items:
@@ -1069,8 +1069,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
