@@ -248,6 +248,16 @@ This example reflects [pricing for multi-region writes](https://azure.microsoft.
 - With the free tier discount, after removing 1000 RU/s and 25 GB of storage, we will be billed for an effective 2600 RU/s (26 units) of provisioned throughput at the multiple write region rate and 5 GB of storage.
 - The monthly cost for RU/s would be: 26 units * $0.016 * 24 hours * 31 days = $309.50. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $309.50 + $1.25 = $310.75.
 
+### Billing example – Azure free account
+
+Let's suppose you have an Azure free account and an Azure Cosmos DB free tier account within it.
+
+- You created a database or container with 2000 RU/s and 55 GB of storage.
+- For the first 12 months, your bill will not show any charge for 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account).
+- After removing 1400 RU/s and 50 GB of storage, we will be billed for an effective 600 RU/s (6 units) of provisioned throughput at the single write region rate and 5 GB of storage.
+- The monthly cost for RU/s would be: 6 units * $0.008 * 24 hours * 31 days = $35.72. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $35.72+ $1.25 = $36.97.
+- After the 12 month period, the Azure free account discount is no longer applicable. You are billed for an effective 1000 RU/s (10 units) of provisioned throughput at the single write region rate and 30 GB of storage.
+
 ## Proactively estimating your monthly bill  
 
 Let's consider another example, where you want to proactively estimate your bill before the month's end. You can estimate your bill as follows:
