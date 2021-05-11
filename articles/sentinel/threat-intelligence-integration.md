@@ -150,21 +150,21 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 ### HYAS Insight
 
 - Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-Sentinel-Incident-HYAS-Insight-".
-- See the HYAS Insight Logic App [connector documentation](https://docs.microsoft.com/connectors/hyasinsight/).
+- See the HYAS Insight Logic App [connector documentation](/connectors/hyasinsight/).
 
     :::image type="content" source="media/threat-intelligence-integration/hyas.png" alt-text="HYAS logo":::
 
 ### Recorded Future Security Intelligence Platform
 
 - Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/azure/) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "RecordedFuture_".
-- See the Recorded Future Logic App [connector documentation](https://docs.microsoft.com/connectors/recordedfuture/).
+- See the Recorded Future Logic App [connector documentation](/connectors/recordedfuture/).
 
     :::image type="content" source="media/threat-intelligence-integration/recorded-future.png" alt-text="Recorded future logo":::
 
 ### ReversingLabs TitaniumCloud
 
 - Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
-- See the ReversingLabs Intelligence Logic App [connector documentation](https://docs.microsoft.com/connectors/reversinglabsintelligence/).
+- See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
 
     :::image type="content" source="media/threat-intelligence-integration/reversing-labs.png" alt-text="Reversing labs logo":::
 
@@ -172,14 +172,14 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 - Find and enable incident enrichment playbooks for [RiskIQ Passive Total](https://www.riskiq.com/products/passivetotal/) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-SentinelIncident-RiskIQ-".
 - See [more information](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412) on working with RiskIQ playbooks.
-- See the RiskIQ PassiveTotal Logic App [connector documentation](https://docs.microsoft.com/connectors/riskiqpassivetotal/).
+- See the RiskIQ PassiveTotal Logic App [connector documentation](/connectors/riskiqpassivetotal/).
 
     :::image type="content" source="media/threat-intelligence-integration/risk-iq.png" alt-text="Risk I Q logo":::
 
 ### Virus Total
 
 - Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Get-VirusTotal" and "Get-VTURL".
-- See the Virus Total Logic App [connector documentation](https://docs.microsoft.com/connectors/virustotal/).
+- See the Virus Total Logic App [connector documentation](/connectors/virustotal/).
 
     :::image type="content" source="media/threat-intelligence-integration/virus-total.png" alt-text="Virus total logo":::
 
