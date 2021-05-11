@@ -35,7 +35,7 @@ If the request is successful, a status of **201 Created** gets returned. The res
 
 ```json
 HTTP/1.1 201 Created 
-Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
+Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
 
 {
   "resourceType": "Parameters",
@@ -85,9 +85,7 @@ Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7
 ```
 
 > [!NOTE]
-> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource (shown above) and can also be found as the GUID at the end of the Content-Location string:
-
-`https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e`
+> To check the status of or to cancel a reindex job, you’ll need the reindex ID. This is the ID of the resulting Parameters resource (shown above). Reindex ID can also be found at the end of the Content-Location string. In the example above, it would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
