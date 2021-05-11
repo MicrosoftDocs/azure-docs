@@ -20,7 +20,7 @@ This article shows you how to use the [Azure Spring Cloud task for Azure Pipelin
 
 Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
-## Build and Deploy Apps
+## Build and deploy apps
 
 ::: zone pivot="programming-language-csharp"
 ### Deploy artifacts
