@@ -11,6 +11,7 @@ ms.reviewer: ravastra
 
 In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
