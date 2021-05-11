@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 05/08/2021
 ---
 # Register and scan Dedicated SQL pools (formerly SQL DW)
 
@@ -116,19 +116,19 @@ When authentication method selected is **SQL Authentication**, you need to get y
 
 To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
 
-1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
-1. Select **Register**
-1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**
-1. Select **Continue**
+1. Navigate to your Purview account.
+1. Select **Sources** on the left navigation.
+1. Select **Register**.
+1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**.
+1. Select **Continue**.
 
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired logical SQL Server:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
-   1. Or, you can select **Enter manually** and enter a **Server name**.
-1. **Finish** to register the data source.
+2. Choose your Azure subscription to filter down Azure Synapse workspaces.
+3. Select an Azure Synapse workspace.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="register sources options" border="true":::
 
