@@ -245,9 +245,9 @@
       - name: Saving queries
         href: logs/save-query.md
       - name: Using queries
-        href: log-s/queries.md
+        href: logs/queries.md
       - name: Query packs
-        href: log-s/query-packs.md
+        href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview
