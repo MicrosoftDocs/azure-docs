@@ -204,6 +204,8 @@ In the **Alert grouping** section, if you want a single incident to be generated
 
 - To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](tutorial-investigate-cases.md), and remediate the threats.
 
+- You can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](false-positives.md).
+
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](/graph/security-concept-overview). For more information, see the [Microsoft Graph Security alerts documentation](/graph/api/resources/security-api-overview).
 

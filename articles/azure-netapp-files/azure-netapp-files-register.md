@@ -48,13 +48,13 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 2. If you have multiple subscriptions on your Azure account, select the one that has been approved for Azure NetApp Files:
     
-    ```azurepowershell
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
 3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been approved:
     
-    ```azurepowershell
+    ```azurecli
     az feature list | grep NetApp
     ```
 
@@ -71,7 +71,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
-    ```azurepowershell
+    ```azurecli
     az provider register --namespace Microsoft.NetApp --wait
     ```
 
@@ -79,7 +79,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered: 
     
-    ```azurepowershell
+    ```azurecli
     az provider show --namespace Microsoft.NetApp
     ```
 
