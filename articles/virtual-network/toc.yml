@@ -258,8 +258,6 @@
         href: virtual-network-public-ip-address.md
       - name: Manage public IP prefixes
         href: manage-public-ip-address-prefix.md
-      - name: Upgrade public IP addresses
-        href: virtual-network-public-ip-address-upgrade.md
       - name: Upgrade public IP address - Portal
         href: public-ip-upgrade-portal.md
       - name: Upgrade public IP address - PowerShell
