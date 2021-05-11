@@ -562,7 +562,7 @@ ___
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
 Normalizes the string value to separate accented unicode characters.  
-* ``regexReplace(normalize('bo<sup>2</sup>s'), `\p{M}`, '') -> 'boys'``  
+* ``regexReplace(normalize('bo²s'), `\p{M}`, '') -> 'boys'``
 ___
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
