@@ -13,7 +13,8 @@ ms.author: mbaldwin
 
 To register a Ledger Service Principal, the Tenant Admin can run the following commands using Azure PowerShell:
 
-- Install Azure Powershell. Instructions can be found here. o Run Connect-AzureAD -TenantId "[The tenant Id of the customer]"
+- Install Azure Powershell. Instructions can be found here.
+- o Run Connect-AzureAD -TenantId "[The tenant Id of the customer]"
 - o Run New-AzureADServicePrincipal -AppId 4353526e-1c33-4fcf-9e82-9683edf52848 - DisplayName ConfidentialLedger
 - Set IAM "Storage Blob Data Contributor" for the ConfidentialLedger service principal for the Storage Account via the [Azure CLI](../storage/common/storage-auth-aad-rbac-cli.md#container-scope) or [Azure PowerShell](../storage/common/storage-auth-aad-rbac-powershell.md#container-scope)
 

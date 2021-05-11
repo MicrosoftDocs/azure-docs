@@ -16,6 +16,8 @@ Get started with the Microsoft Azure Confidential Ledger client library for Pyth
 
 Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger write-only) and tamperproofing (to ensure all records are kept intact).
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 
 [API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
 
@@ -39,10 +41,13 @@ This quickstart uses the Azure Identity library with Azure CLI to authenticate u
     az login
     ```
 
+    ```azurepowershell-interactive
+    Login-AzAccount
+    ```
+
     If the CLI can open your default browser, it will do so and load an Azure sign-in page.
 
-    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
-    authorization code displayed in your terminal.
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal.
 
 2. Sign in with your account credentials in the browser.
 
@@ -61,19 +66,14 @@ This quickstart uses the Azure Identity library with Azure CLI to authenticate u
     ```terminal
     pip install azure.mgmt.confidentialledger
     ```
+
 1. Install the Confidential Ledger data plane client library.
 
     ```terminal
     pip install azure.confidentialledger 
     ```
 
-### Create a resource group
-
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure CLI [az group create](/cli/azure/group#az_group_create) command to create a resource group named *myResourceGroup* in the *eastus* location.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-```
+[!INCLUDE [Create a resource group](../../includes/confidential-ledger-rg-register-rp.md)]
 
 ## Create your python app
 
