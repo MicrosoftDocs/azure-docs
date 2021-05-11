@@ -219,8 +219,6 @@ In this section, a user called Britta Simon is created in Deputy. Deputy support
    
 	c. Click **Save** button.
 
-5. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision Azure AD user accounts.
-
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
