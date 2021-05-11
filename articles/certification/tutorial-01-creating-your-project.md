@@ -27,7 +27,7 @@ In this tutorial, you will learn how to:
 - Verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin. 
 
 > [!NOTE] 
-> If you are having problems setting up or validating your MPN account, please visit the [Partner Center Support](https://docs.microsoft.com/partner-center) docs.
+> If you're having problems setting up or validating your MPN account, see the [Partner Center Support](https://docs.microsoft.com/partner-center) documentation.
 
 
 ## Signing into the Azure Certified Device portal
