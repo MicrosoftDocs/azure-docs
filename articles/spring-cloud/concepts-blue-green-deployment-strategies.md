@@ -47,9 +47,9 @@ Finally, after `v5` meets all your expectations, you set `deployment1` as the pr
 
 ![V5 receives traffic on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-6.png)
 
-### Tradeoffs of the Alternating Deployments Approach
+### Tradeoffs of the alternating deployments approach
 
-The Alternating Deployments approach is simple and fast, as it does not require the creation of new deployments. However, it does present several disadvantages:
+The alternating deployments approach is simple and fast, as it doesn't require the creation of new deployments. However, it does present several disadvantages, as described in the following sections.
 
 #### Persistent staging deployment
 
