@@ -68,7 +68,7 @@ When you create the **Logic App (Preview)** resource in the Azure portal or depl
 > [!NOTE]
 > During preview, running preview logic app resources and workflows in App Service doesn't incur *extra* charges on top of your selected hosting plan.
 
-Azure Logic Apps uses [Azure Storage](../storage/) for any storage operations. With multi-tenant Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
+Azure Logic Apps uses [Azure Storage](/storage) for any storage operations. With multi-tenant Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
 
 When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
 
