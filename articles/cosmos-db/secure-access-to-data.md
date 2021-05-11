@@ -58,7 +58,7 @@ The following code sample illustrates how to use the Azure Cosmos DB account end
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
-## <a id="rbac"></a> Role-based access control (Preview)
+## <a id="rbac"></a> Role-based access control
 
 Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
 
