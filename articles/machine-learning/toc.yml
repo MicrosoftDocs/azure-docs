@@ -288,6 +288,8 @@
           href: how-to-configure-environment.md
         - name: Set up studio environment
           items:
+            - name: Install and set up the CLI 2.0
+              href: how-to-configure-cli.md
             - name: Create and manage files
               href: how-to-manage-files.md
               displayName: Jupyter, notebooks, clone, samples
@@ -371,6 +373,8 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
+        - name: Train with the CLI 2.0
+          href: how-to-train-cli.md
         - name: Configure & submit training run 
           displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
           href: how-to-set-up-training-targets.md
@@ -387,6 +391,8 @@
           href: how-to-train-pytorch.md
         - name: Train with custom Docker image
           href: how-to-train-with-custom-image.md
+        - name: Train with the REST API
+          href: how-to-train-with-rest.md
         - name: Migrate from Estimators to ScriptRunConfig
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Track & monitor training
@@ -423,7 +429,10 @@
           href: how-to-use-mlflow.md
         - name: Track Azure Databricks runs with MLflow
           displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-use-mlflow-azure-databricks.md              
+          href: how-to-use-mlflow-azure-databricks.md
+        - name: Train experiments with MLflow Projects 
+          displayName: log, monitor, metrics, model registry, register
+          href: how-to-train-mlflow-projects.md              
         - name: Deploy MLflow models
           displayName: log, monitor, deploy, metrics, databricks, aci, aks
           href: how-to-deploy-mlflow-models.md              
@@ -491,6 +500,10 @@
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
+      - name: Monitoring managed online endpoints
+        href: how-to-monitor-online-endpoints.md
+      - name: Viewing managed online endpoint costs
+        href: how-to-view-online-endpoints-costs.md
       - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
