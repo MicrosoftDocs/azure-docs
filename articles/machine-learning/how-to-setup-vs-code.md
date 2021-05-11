@@ -39,7 +39,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 1. Select **Install**.
 
     > [!div class="mx-imgBorder"]
-    > ![Install Azure Machine Learning VS Code Extension](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)
+    > ![Install Azure Machine Learning VS Code Extension](./media/how-to-setup-vs-code/install-aml-vscode-extension.PNG)
 
 > [!NOTE]
 > Alternatively, you can install the Azure Machine Learning extension via the Visual Studio Marketplace by [downloading the installer directly](https://aka.ms/vscodetoolsforai).

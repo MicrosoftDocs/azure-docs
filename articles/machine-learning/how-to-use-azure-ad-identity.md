@@ -19,7 +19,7 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 ## Prerequisites
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
