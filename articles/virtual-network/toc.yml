@@ -264,6 +264,8 @@
         href: virtual-network-public-ip-address-upgrade.md
       - name: Upgrade public IP address - Portal
         href: public-ip-upgrade-portal.md
+      - name: Upgrade public IP address - PowerShell
+        href: public-ip-upgrade-powershell.md
       - name: Add or remove IP address from NICs
         href: virtual-network-network-interface-addresses.md
       - name: Routing preference
