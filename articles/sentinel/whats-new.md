@@ -27,7 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## May 2021
 
-- [Azure Sentinel incident teams - collaborate in Microsoft Teams](#azure-sentinel-war-rooms-in-microsoft-teams-public-preview) (Public preview)
+- [Azure Sentinel incident teams - collaborate in Microsoft Teams](#azure-sentinel-incident-teams-collaborate-in-microsoft-teams-public-preview) (Public preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
 ### Azure Sentinel incident teams - collaborate in Microsoft Teams (public preview)
