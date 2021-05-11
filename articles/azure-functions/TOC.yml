@@ -349,6 +349,8 @@
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
+        - name: Bring dependencies to function apps
+          href: bring-dependency-to-functions.md
     - name: Deploy
       items:
         - name: Continuous deployment

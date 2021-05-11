@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -272,14 +272,14 @@ Key rotation has two modes:
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-## Customer-managed key for saved queries
+## Customer-managed key for saved queries and log alerts
 
-The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
+The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected under Customer-managed key policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
 > Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless Customer-managed key configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+When you Bring Your Own Storage (BYOS) and link it to your workspace, the service uploads *saved-searches* and *log alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/customer-managed-keys-overview.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
@@ -287,8 +287,9 @@ When you Bring Your Own Storage (BYOS) and link it to your workspace, the servic
 * The *saves searches* in storage is considered as service artifacts and their format may change
 * Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Query history isn't supported and you won't be able to see queries that you ran
-* You can link a single storage account to workspace for the purpose of saving queries, but is can be used fro both *saved-searches* and *log-alerts* queries
+* You can link a single storage account to workspace for the purpose of saving queries, but is can be used fro both *saved-searches* and *log alerts* queries
 * Pin to dashboard isn't supported
+* Fired log alerts will not contains search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved-searches queries**
 
@@ -334,9 +335,9 @@ Content-type: application/json
 
 After the configuration, any new *saved search* query will be saved in your storage.
 
-**Configure BYOS for log-alerts queries**
+**Configure BYOS for log alerts queries**
 
-Link a storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
+Link a storage account for *Alerts* to your workspace -- *log alerts* queries are saved in your storage account. 
 
 # [Azure portal](#tab/portal)
 
