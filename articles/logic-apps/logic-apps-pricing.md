@@ -59,6 +59,25 @@ To help you estimate more accurate consumption costs, review these tips:
 
   For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
+<a name="preview-pricing"></a>
+
+## Preview pricing (single-tenant)
+
+When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Functions Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing model that applies when running your logic app in the preview single-tenant Logic Apps environment.
+
+> [!NOTE]
+> During preview, running preview logic app resources in App Service doesn't incur *extra* charges on top of your selected hosting plan.
+
+When your logic app includes and runs enabled *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. These storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/).
+
+For more information about the pricing models that apply to preview logic apps, review the following documentation:
+
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [Scale up an app in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
+* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
+
 <a name="fixed-pricing"></a>
 
 ## ISE pricing (dedicated)
@@ -84,25 +103,6 @@ A fixed pricing model applies to logic apps that run in the dedicated [*integrat
 |||
 
 For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
-
-<a name="preview-pricing"></a>
-
-## Preview pricing (single-tenant)
-
-When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Functions Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing model that applies when running your logic app in the preview single-tenant Logic Apps environment.
-
-> [!NOTE]
-> During preview, running preview logic app resources in App Service doesn't incur *extra* charges on top of your selected hosting plan.
-
-When your logic app includes and runs enabled *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. These storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/).
-
-For more information about the pricing models that apply to preview logic apps, review the following documentation:
-
-* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
-* [Scale up an app in Azure App Service](../app-service/manage-scale-up.md)
-* [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
-* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
-* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
 <a name="integration-accounts"></a>
 
