@@ -134,7 +134,7 @@ To customize the device template:
 1. Update the unit of measurement, or set the **Min value** and **Max value**.
 1. Select **Save** to save any changes.
 
-    ![Customize the device template.](./media/tutorial-waterconsumptionmonitoring/waterconsumption-monitoring-device-template-customize.png)
+    ![Customize the device template.](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-customize.png)
 
 ### Add a cloud property
 
@@ -150,7 +150,7 @@ To learn more, see [Cloud properties](../core/quick-create-simulated-device.md#a
 
 The water consumption monitor device template comes with predefined views. The views define how operators see the device data, and set the values of cloud properties.
 
-  ![Device template views](./media/tutorial-waterconsumptionmonitoring/water-consumptionmonitoring-devicetemplate-views.png)
+  ![Device template views](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
 To learn more, see [Views](../core/quick-create-simulated-device.md#views).
 
