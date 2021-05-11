@@ -47,15 +47,6 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
 
-### NCasT4_v3-series (Preview)
-
-These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU. 
-
-| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | GPU  | GPU memory (GiB)  |
-|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|------|-------------------|
-| **Standard_NC4as_T4_v3**  | 4     | 28            | 180                 | 2000                           | 48000                               | 1    | 16                |
-| **Standard_NC8as_T4_v3**  | 8     | 56            | 360                 | 2000                           | 48000                               | 1    | 16                |
-
 ### F-series
 
 These series are optimized for computational workloads and run on Intel Xeon processors. 
