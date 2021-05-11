@@ -230,9 +230,9 @@
       href: create-public-ip-prefix-portal.md
     - name: Create public IPv6 prefix
       href: ipv6-reserve-public-ip-address-prefix.md
-    - name: Upgrade public IP address - Portal
+    - name: Upgrade a public IP address - Portal
       href: public-ip-upgrade-portal.md
-    - name: Upgrade public IP address - PowerShell
+    - name: Upgrade a public IP address - PowerShell
       href: public-ip-upgrade-powershell.md
     - name: Upgrade a public IP address - Azure CLI
       href: public-ip-upgrade-cli.md
