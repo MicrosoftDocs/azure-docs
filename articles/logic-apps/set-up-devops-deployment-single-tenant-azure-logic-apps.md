@@ -23,7 +23,7 @@ For more information about DevOps for single-tenant, review [DevOps deployment f
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A single-tenant based logic app project created with [Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-statless-workflows-visual-studio-code.md#prerequisites).
+- A single-tenant based logic app project created with [Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md#prerequisites).
 
   If you don't already have a logic app project or infrastructure set up, you can use the included sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use. For more information about these sample projects and the resources included to run the example logic app, review [Deploy your infrastructure](#deploy-infrastructure).
 
