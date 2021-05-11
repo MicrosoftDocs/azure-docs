@@ -95,7 +95,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Performance expectations
 
-The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you're' performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
+The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you're performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
 
 | # of RUs | Resources/sec |    Max Storage (GB)*    |
 |----------|---------------|--------|                 
