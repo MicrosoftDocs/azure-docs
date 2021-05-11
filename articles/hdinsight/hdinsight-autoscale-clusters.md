@@ -248,7 +248,7 @@ The running jobs will continue. The pending jobs will wait for scheduling with f
 
 ### Configure schedule-based Autoscale based on usage pattern
 
-You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](./interactive-query/hdinsight-grafana)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard.
+You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](./interactive-query/hdinsight-grafana.md)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard.
 
 Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload.
 
