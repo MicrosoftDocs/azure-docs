@@ -212,7 +212,7 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 
 ## <a id="azure-free-tier"></a>Billing examples with Azure Cosmos DB free tier accounts
 
-With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 1000 RU/s and 25 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 1000 Ru/s and 25 GB, only the RU/s and storage beyond what is covered by free tier. To learn more, see how to [create a free tier account](free-tier.md) article.
+With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 1000 RU/s and 25 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 1000 RU/s and 25 GB, only the RU/s and storage beyond what is covered by free tier. To learn more, see how to [create a free tier account](free-tier.md) article.
 
 ### Billing example - container or database with provisioned throughput
 
