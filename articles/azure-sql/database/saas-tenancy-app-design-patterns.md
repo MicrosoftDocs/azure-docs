@@ -109,7 +109,7 @@ Other management features that scale well include the following:
 
 #### Automation
 
-The management operations can be scripted and offered through a [devops][http-visual-studio-devops-485m] model.  The operations can even be automated and exposed in the application.
+The management operations can be scripted and offered through a [devops](/azure/devops/user-guide/what-is-azure-devops) model.  The operations can even be automated and exposed in the application.
 
 For example, you could automate the recovery of a single tenant to an earlier point in time.  The recovery only needs to restore the one single-tenant database that stores the tenant.  This restore has no impact on other tenants, which confirms that management operations are at the finely granular level of each individual tenant.
 
@@ -198,7 +198,7 @@ The following table summarizes the differences between the main tenancy models.
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -215,4 +215,3 @@ The following table summarizes the differences between the main tenancy models.
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design of multi-tenant app with database-per-tenant, using elastic pool."
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design of multi-tenant app with sharded multi-tenant databases."
-

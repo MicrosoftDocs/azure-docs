@@ -1,6 +1,6 @@
 ---
 title: Decode EDIFACT messages
-description: Validate EDI and generate acknowledgements with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
+description: Validate EDI and generate acknowledgments with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -93,20 +93,20 @@ more than one transaction based on the agreement's receive settings configuratio
 * Splits the interchange into transaction sets, or preserves the entire interchange:
   * Split Interchange as transaction sets - suspend transaction sets on error: 
   Splits interchange into transaction sets and parses each transaction set. 
-  The X12 Decode action outputs only those transaction sets 
+  The EDIFACT Decode action outputs only those transaction sets 
   that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
   * Split Interchange as transaction sets - suspend interchange on error: 
   Splits interchange into transaction sets and parses each transaction set. 
   If one or more transaction sets in the interchange fail validation, 
-  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  the EDIFACT Decode action outputs all the transaction sets in that interchange to `badMessages`.
   * Preserve Interchange - suspend transaction sets on error: 
   Preserve the interchange and process the entire batched interchange. 
-  The X12 Decode action outputs only those transaction sets that fail validation to `badMessages`, 
+  The EDIFACT Decode action outputs only those transaction sets that fail validation to `badMessages`, 
   and outputs the remaining transactions sets to `goodMessages`.
   * Preserve Interchange - suspend interchange on error: 
   Preserve the interchange and process the entire batched interchange. 
   If one or more transaction sets in the interchange fail validation, 
-  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  the EDIFACT Decode action outputs all the transaction sets in that interchange to `badMessages`.
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group

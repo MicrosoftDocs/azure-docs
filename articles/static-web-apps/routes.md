@@ -4,12 +4,15 @@ description: Learn about back-end routing rules and how to secure routes with ro
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  conceptual
-ms.date: 05/08/2020
+ms.topic: conceptual
+ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
 # Routes in Azure Static Web Apps Preview
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
 
 Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs<sup>1</sup>. The rules are defined as an array of rules in the _routes.json_ file.
 
@@ -25,29 +28,41 @@ See the [example route file](#example-route-file) for details.
 
 ## Location
 
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#file-location).
+
 The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
 
-The following table lists the appropriate location to put your _routes.json_ file for a number of front-end JavaScript frameworks and libraries.
+The following table lists the appropriate location to put your _routes.json_ file for a number of front-end frameworks and libraries.
 
-|Framework / library | Location  |
-|---------|----------|
-| Angular | _assets_   |
-| React   | _public_  |
-| Svelte  | _public_   |
-| Vue     | _public_ |
+| Framework / library | Location  |
+| ------------------- | --------- |
+| Angular             | _assets_  |
+| React               | _public_  |
+| Svelte              | _public_  |
+| Vue                 | _public_  |
+| Blazor              | _wwwroot_ |
+
+The above table is only representative of a few frameworks and libraries compatible with Azure Static Web Apps. Refer to [Configure front-end frameworks and libraries](./front-end-frameworks.md) for more information.
 
 ## Defining routes
 
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
+
 Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.
 
-| Rule property  | Required | Default value | Comment                                                      |
-| -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route's default file is _index.html_.</ul>|
-| `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If a `serve` value is not defined, then the requested path is used. Querystring parameters are not supported; `serve` values must point to actual files.  |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
-| `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request. |
+| Rule property  | Required | Default value | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------- | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `route`        | Yes      | n/a           | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route's default file is _index.html_.</ul>                                                                                                                                                                                                                                               |
+| `serve`        | No       | n/a           | Defines the file or path returned from the request. The file path and name can be different from the requested path. If a `serve` value is not defined, then the requested path is used. Querystring parameters are not supported; `serve` values must point to actual files.                                                                                                                                                                                                                 |
+| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request.                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ## Securing routes with roles
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#securing-routes-with-roles).
 
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example route file](#example-route-file) for usage examples.
 
@@ -69,10 +84,13 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 }
 ```
 
-- You have full control over role names; there's no master list to which your roles must adhere.
+- You have full control over role names; there's no list to which your roles must adhere.
 - Individual users are associated to roles through [invitations](authentication-authorization.md).
 
 ## Wildcards
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#wildcards).
 
 Wildcard rules match all requests under a given route pattern. If you define a `serve` value in your rule, the named file or path is served as the response.
 
@@ -101,7 +119,10 @@ You can also secure routes with wildcards. In the following example, any file re
 
 ## Fallback routes
 
-Front-end JavaScript frameworks or libraries often rely on client-side routing for web app navigation. These client-side routing rules update the browser's window location without making requests back to the server. If you refresh the page, or navigate directly to locations generated by client-side routing rules, a server-side fallback route is required to serve the appropriate HTML page.
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#fallback-routes).
+
+Single Page Applications, whether they are using front-end JavaScript frameworks or libraries or WebAssembly platforms like Blazor, often rely on client-side routing for web app navigation. These client-side routing rules update the browser's window location without making requests back to the server. If you refresh the page, or navigate directly to locations generated by client-side routing rules, a server-side fallback route is required to serve the appropriate HTML page.
 
 A common fallback route is shown in the following example:
 
@@ -120,6 +141,9 @@ A common fallback route is shown in the following example:
 The fallback route must be listed last in your routing rules, as it catches all requests not caught by previously defined rules.
 
 ## Redirects
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#routes).
 
 You can use [301](https://en.wikipedia.org/wiki/HTTP_301) and [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP status codes to redirect requests from one route to another.
 
@@ -145,6 +169,9 @@ Redirects also work with paths that don't define distinct files.
 
 ## Custom error pages
 
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#response-overrides).
+
 Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
 
 > [!NOTE]
@@ -152,26 +179,29 @@ Users may encounter a number of different situations that may result in an error
 
 The following table lists the available platform error overrides:
 
-| Error type  | HTTP status code | Description |
-|---------|---------|---------|
-| `NotFound` | 404  | A page is not found on the server. |
-| `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
-| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error may happen in situations like when the app asks the authentication provider for the user's email address, but the user chose to restrict access to the email address. |
-| `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed an invitation link generated for another recipient.  |
-| `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
-| `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
-| `Unauthorized_Unknown` | 401 | There is an unknown problem while trying to authenticate the user. One cause for this error may be that the user isn't recognized because they didn't grant consent to the application.|
+| Error type                                 | HTTP status code | Description                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NotFound`                                 | 404              | A page is not found on the server.                                                                                                                                                                                                                                                               |
+| `Unauthenticated`                          | 401              | The user is not logged in with an [authentication provider](authentication-authorization.md).                                                                                                                                                                                                    |
+| `Unauthorized_InsufficientUserInformation` | 401              | The user's account on the authentication provider is not configured to expose required data. This error may happen in situations like when the app asks the authentication provider for the user's email address, but the user chose to restrict access to the email address.                    |
+| `Unauthorized_InvalidInvitationLink`       | 401              | An invitation has either expired, or the user followed an invitation link generated for another recipient.                                                                                                                                                                                       |
+| `Unauthorized_MissingRoles`                | 401              | The user is not a member of a required role.                                                                                                                                                                                                                                                     |
+| `Unauthorized_TooManyUsers`                | 401              | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation. |
+| `Unauthorized_Unknown`                     | 401              | There is an unknown problem while trying to authenticate the user. One cause for this error may be that the user isn't recognized because they didn't grant consent to the application.                                                                                                          |
 
 ## Custom mime types
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
 The `mimeTypes` object, listed at the same level as the `routes` array, allows you to associate [MIME types](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) with file extensions.
 
 ```json
 {
-    "routes": [],
-    "mimeTypes": {
-        "custom": "text/html"
-    }
+  "routes": [],
+  "mimeTypes": {
+    "custom": "text/html"
+  }
 }
 ```
 
@@ -182,7 +212,13 @@ The following considerations are important as you work with MIME types:
 - Keys cannot be null or empty, or more than 50 characters
 - Values cannot be null or empty, or more than 1000 characters
 
+> [!NOTE]
+> Static Web Apps understands Blazor applications and the expected MIME types for the WASM and DLL files, you do not need to add mappings for those.
+
 ## Default headers
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
 The `defaultHeaders` object, listed at the same level as the `routes` array, allows you to add, modify, or remove [response headers](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -190,16 +226,16 @@ Providing a value for a header either adds or modifies the header. Providing an 
 
 ```json
 {
-    "routes": [],
-    "defaultHeaders": {
-      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
-      "cache-control": "must-revalidate, max-age=6000",
-      "x-dns-prefetch-control": ""
-    }
+  "routes": [],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+    "cache-control": "must-revalidate, max-age=6000",
+    "x-dns-prefetch-control": ""
+  }
 }
 ```
 
-In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefectch-control` header is removed.
+In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefetch-control` header is removed.
 
 The following considerations are important as you work with headers:
 
@@ -210,6 +246,9 @@ The following considerations are important as you work with headers:
 - Headers defined in _routes.json_ only apply to static content. You can customize response headers of a API endpoint in the function's code.
 
 ## Example route file
+
+> [!IMPORTANT]
+> Functionality defined in the _routes.json_ file is now deprecated and better implemented in the Azure Static Web Apps [configuration file](./configuration.md#example-configuration-file).
 
 The following example shows how to build route rules for static content and APIs in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
 
@@ -269,28 +308,28 @@ The following example shows how to build route rules for static content and APIs
     "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
   },
   "mimeTypes": {
-      "custom": "text/html"
+    "custom": "text/html"
   }
 }
 ```
 
 The following examples describe what happens when a request matches a rule.
 
-| Requests to... | Result in... |
-|--|--|--|
-| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
-| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>2</sup>. Unauthenticated users redirected to _/login_. |
-| _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>2</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
-| _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error. |
-| _/logout_ | Users are logged out of any authentication provider. |
-| _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
-| _/specials_ | The browser is redirected to _/deals_. |
-| _/unknown-folder_ | The _/custom-404.html_ file is served. |
-| Files with the `.custom` extension | Are served with the `text/html` MIME type |
+| Requests to...                     | Result in...                                                                                                                                                                                                                                                                                                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _/profile_                         | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_.                                                                                                                                                                                                   |
+| _/admin/reports_                   | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>2</sup>. Unauthenticated users redirected to _/login_.                                                                       |
+| _/api/admin_                       | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error.                                                                                                                     |
+| _/customers/contoso_               | Authenticated users who belong to either the _administrators_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>2</sup>. Authenticated users not in the _administrators_ or _customers_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
+| _/login_                           | Unauthenticated users are challenged to authenticate with GitHub.                                                                                                                                                                                                                                              |
+| _/.auth/login/twitter_             | Authorization with Twitter is disabled. The server responds with a 404 error.                                                                                                                                                                                                                                  |
+| _/logout_                          | Users are logged out of any authentication provider.                                                                                                                                                                                                                                                           |
+| _/calendar/2020/01_                | The browser is served the _/calendar.html_ file.                                                                                                                                                                                                                                                               |
+| _/specials_                        | The browser is redirected to _/deals_.                                                                                                                                                                                                                                                                         |
+| _/unknown-folder_                  | The _/custom-404.html_ file is served.                                                                                                                                                                                                                                                                         |
+| Files with the `.custom` extension | Are served with the `text/html` MIME type                                                                                                                                                                                                                                                                      |
 
-- All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
+All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
 <sup>1</sup> Route rules for API functions only support [redirects](#redirects) and [securing routes with roles](#securing-routes-with-roles).
 

@@ -6,7 +6,8 @@ author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy a managed application for service catalog with Azure CLI
@@ -29,7 +30,7 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps

@@ -64,12 +64,12 @@ The template reference is linked from each of the Azure service documentation si
 
 Resource Explorer is embedded in the Azure portal. Before using this method, you need a storage account. If you don't have one, select the following button to create one:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **resource explorer**, and then select **Resource Explorer**.
 
-    ![Azure portal Resource Explorer](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Screenshot shows searching for the Resource Explorer in the Azure portal.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. From left, expand **Subscriptions**, and then expand your Azure subscription. You can find the storage account under either **Providers** or **ResourceGroups**.
 
@@ -92,7 +92,7 @@ Resources.azure.com is a public website can be accessed by anyone with an Azure 
 
 To demonstrate how to retrieve schema information by using this tool, you need a storage account. If you don't have one, select the following button to create one:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Browse to [resources.azure.com](https://resources.azure.com/). It takes a few moments for the tool to popular the left pane.
 1. Select **subscriptions**.

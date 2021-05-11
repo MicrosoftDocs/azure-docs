@@ -6,7 +6,8 @@ author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a managed application definition with Azure CLI
@@ -29,7 +30,7 @@ This script uses the following command to create the managed application definit
 
 | Command | Notes |
 |---|---|
-| [az managedapp definition create](/cli/azure/managedapp/definition#az-managedapp-definition-create) | Create a managed application definition. Provide the package that contains the required files. |
+| [az managedapp definition create](/cli/azure/managedapp/definition#az_managedapp_definition_create) | Create a managed application definition. Provide the package that contains the required files. |
 
 
 ## Next steps

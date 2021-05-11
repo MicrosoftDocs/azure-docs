@@ -1,13 +1,14 @@
 ---
 title: Connect to a Web Feature Service (WFS) service | Microsoft Azure Maps
 description: Learn how to connect to a WFS service, then query the WFS service using the Azure Maps web SDK and the Spatial IO module.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 ---
 
 # Connect to a WFS service
@@ -21,7 +22,7 @@ The following features are supported by the `WfsClient` class:
 - Requests are made using `HTTP GET` only.
 - Supported operations:
 
-    | | |
+    | Operation | Description |
     | :-- | :-- |
     | GetCapabilities | Generates a metadata document with valid WFS operations and parameters |
     | GetFeature | Returns a selection of features from a data source |
@@ -104,10 +105,10 @@ client = new atlas.io.ogc.WfsClient({
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient](/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions](/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
 See the following articles for more code samples to add to your maps:
 

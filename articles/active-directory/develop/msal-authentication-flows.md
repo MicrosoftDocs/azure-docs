@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 # Customer intent: As an application developer, I want to learn about the authentication flows supported by MSAL.
@@ -216,11 +216,11 @@ Because IWA is a silent flow, one of the following must be true:
 This means that one of the following is true:
 
 - You as a developer have selected **Grant** in the Azure portal for yourself.
-- A tenant admin has selected **Grant/revoke admin consent for {tenant domain}** in the **API permissions** tab of the app registration in the Azure portal (see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- A tenant admin has selected **Grant/revoke admin consent for {tenant domain}** in the **API permissions** tab of the app registration in the Azure portal (see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - You've provided a way for users to consent to the application; see [Requesting individual user consent](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - You've provided a way for the tenant admin to consent for the application; see [admin consent](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core you must provide the username to IWA, because .NET Core can't obtain usernames from the operating system.
+The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps.
 
 For more information on consent, see [v2.0 permissions and consent](v2-permissions-and-consent.md).
 

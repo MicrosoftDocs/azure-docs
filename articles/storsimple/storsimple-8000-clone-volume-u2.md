@@ -4,16 +4,12 @@ description: Describes the different clone types and usage, and explains how you
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 12/05/2017
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -47,7 +43,7 @@ Consider the following information when cloning a volume.
 
 You can create a clone on the same device, another device, or even a cloud appliance by using a local or cloud snapshot.
 
-The procedure below describes how to create a clone from the backup catalog.  An alternative method to initiate clone is to go to **Volumes**, select a volume, then right-click to invoke the context menu and select **Clone**.
+The procedure below describes how to create a clone from the backup catalog.  
 
 Perform the following steps to create a clone of your volume from the backup catalog.
 
@@ -64,11 +60,11 @@ Perform the following steps to create a clone of your volume from the backup cat
 
       The backups associated with the selected volume or backup policy should appear in the list of backup sets.
    
-      ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Backup set list 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expand the backup set to view the associated volume and select a volume in a backup set. Right-click and then from the context menu, select **Clone**.
 
-   ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Backup set list 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. In the **Clone** blade, do the following steps:
    
@@ -84,17 +80,17 @@ Perform the following steps to create a clone of your volume from the backup cat
           
    3. Under **Connected hosts**, specify an access control record (ACR) for the clone. You can add a new ACR or choose from the existing list. The ACR will determine which hosts can access this clone.
       
-       ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Backup set list 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. Click **Clone** to complete the operation.
 
 4. A clone job is initiated and you are notified when the clone is successfully created. Click the job notification or go to **Jobs** blade to monitor the clone job.
 
-    ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Backup set list 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. After the clone job is complete, go to your device and then click **Volumes**. In the list of volumes, you should see the clone that was just created in the same volume container that has the source volume.
 
-    ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Backup set list 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs-permanent-clones).
 

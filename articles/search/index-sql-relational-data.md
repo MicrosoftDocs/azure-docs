@@ -102,7 +102,7 @@ The solution is to capture the room detail as nested JSON, and then insert the J
 This rowset is now ready for import into Azure Cognitive Search.
 
 > [!NOTE]
-> This approach assumes that embedded JSON is under the [maximum column size limits of SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
+> This approach assumes that embedded JSON is under the [maximum column size limits of SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
  ## Use a complex collection for the "many" side of a one-to-many relationship
 

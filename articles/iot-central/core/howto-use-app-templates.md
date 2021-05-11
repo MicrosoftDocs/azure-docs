@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-# As a solution manager, I want to have one or more application templates available in my library that I can use when deploying to new organizations.
+#Customer intent: As a solution manager, I want to have one or more application templates available in my library that I can use when deploying to new organizations.
 ---
 
 # Export your application
 
-This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
+This article describes how to export an IoT Central application to be able to reuse it.
 
 You have two options:
 
@@ -24,9 +24,9 @@ You have two options:
 
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy uses a standard pricing plan that you'll be billed for. You can't create an application that uses the free pricing plan by copying an application.
 
-Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-![Application settings page](media/howto-use-app-templates/appcopy2.png)
+![Screenshot that shows the "Copy Application" settings page.](media/howto-use-app-templates/appcopy2.png)
 
 After the app copy operation succeeds, you can navigate to the new application using the link.
 

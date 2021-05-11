@@ -3,7 +3,8 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # View deployment history with Azure Resource Manager
 
@@ -15,7 +16,7 @@ For help with resolving particular deployment errors, see [Resolve common errors
 
 ## Get deployments and correlation ID
 
-You can view details about a deployment through the Azure portal, PowerShell, Azure CLI, or REST API. Each deployment has a correlation ID, which is used to track related events. It can be helpful when working with technical support to troubleshoot a deployment.
+You can view details about a deployment through the Azure portal, PowerShell, Azure CLI, or REST API. Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
 
 # [Portal](#tab/azure-portal)
 
@@ -55,13 +56,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -141,7 +142,7 @@ To get the status message of failed operations, use the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) command. You must have Azure CLI 2.6.0 or later.
+To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list) command. You must have Azure CLI 2.6.0 or later.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -208,4 +209,3 @@ The response includes an error message.
 * For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](common-deployment-errors.md).
 * To learn about how deployments are managed in the history, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 * To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](deploy-powershell.md).
-

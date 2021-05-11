@@ -3,7 +3,7 @@ title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -11,7 +11,9 @@ ms.custom: mvc
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module
 
-Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](../stream-analytics/index.yml) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
 Azure IoT Edge and Azure Stream Analytics are integrated to simplify your workload development. You can create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.  
 
@@ -94,7 +96,7 @@ Using the three elements of input, output, and query, this section creates a job
 
 1. Navigate to your Stream Analytics job in the Azure portal.
 
-1. Under **Job Topology**, select **Inputs** then **Add stream input**.
+1. Under **Job topology**, select **Inputs** then **Add stream input**.
 
    ![Azure Stream Analytics - add input](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
@@ -129,19 +131,19 @@ Using the three elements of input, output, and query, this section creates a job
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Select **Save**.
+1. Select **Save query**.
 
 ### Configure IoT Edge settings
 
-To prepare your Stream Analytics job to be deployed on an IoT Edge device, you need to associate the job with a container in a storage account. When you go to deploy your job, the job definition is exported to the storage container.
+To prepare your Stream Analytics job to be deployed on an IoT Edge device, you need to associate the job with a storage account. When you go to deploy your job, the job definition is exported to the storage account in the form of a container.
 
 1. Under **Configure**, select **Storage account settings** then select **Add storage account**.
 
    ![Azure Stream Analytics - add storage account](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. Select the **Storage account** that you created at the beginning of this tutorial from the drop-down menu.
+1. Choose the **Select Blob storage/ADLS Gen 2 from your subscriptions** option.
 
-1. For the **Container** field, select **Create new** and provide a name for the storage container.
+1. Use the drop-down menus to select the **Subscription** and **Storage account** that you set up at the beginning of this tutorial.
 
 1. Select **Save**.
 
@@ -184,7 +186,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. Select **Update** or **Cancel**.
 
-1. Make a note of the name of your Stream Analytics module because you'll need it in the next step, then select **Next: Routes** to continue.
+1. Make a note of the name of your Stream Analytics module because you'll need it in the next step. Then, select **Next: Routes** to continue.
 
 1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Replace the default `route` and `upstream` name and values with the pairs shown in following table, the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
 

@@ -14,7 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: sasolank
+ms.author: sasolank 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Integrate API Management in an internal VNET with Application Gateway
@@ -84,6 +85,11 @@ In this guide we will also expose the **developer portal** to external audiences
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
+> 
+> Application Gateway WAF rules, which may break portal's functionality include:
+> 
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
+> - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
 ## Create a resource group for Resource Manager
 
@@ -284,7 +290,7 @@ Create custom probes to the API Management service `ContosoApi` proxy domain end
 
 ```powershell
 $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/internal-status-0123456789abcdef" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### Step 7

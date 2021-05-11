@@ -6,6 +6,7 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
+ms.custom: devx-track-csharp
 ---
 
 # Scale a Service Fabric cluster programmatically 
@@ -116,5 +117,5 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 To get started implementing your own auto-scaling logic, familiarize yourself with the following concepts and useful APIs:
 
 - [Scaling manually or with auto-scale rules](./service-fabric-cluster-scale-in-out.md)
-- [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (useful for interacting with a Service Fabric cluster's underlying virtual machine scale sets)
+- [Azure Management Libraries for .NET](https://github.com/Azure/azure-libraries-for-net) (useful for interacting with a Service Fabric cluster's underlying virtual machine scale sets)
 - [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient) (useful for interacting with a Service Fabric cluster and its nodes)

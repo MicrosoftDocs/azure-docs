@@ -23,8 +23,6 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * The AKS API server creates a Certificate Authority (CA) called the Cluster CA.
 * The API server has a Cluster CA, which signs certificates for one-way communication from the API server to kubelets.
 * Each kubelet also creates a Certificate Signing Request (CSR), which is signed by the Cluster CA, for communication from the kubelet to the API server.
-* The etcd key value store has a certificate signed by the Cluster CA for communication from etcd to the API server.
-* The etcd key value store creates a CA that signs certificates to authenticate and authorize data replication between etcd replicas in the AKS cluster.
 * The API aggregator uses the Cluster CA to issue certificates for communication with other APIs. The API aggregator can also have its own CA for issuing those certificates, but it currently uses the Cluster CA.
 * Each node uses a Service Account (SA) token, which is signed by the Cluster CA.
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
@@ -32,7 +30,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 > [!NOTE]
 > AKS clusters created prior to March 2019 have certificates that expire after two years. Any cluster created after March 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other certificates expire after two years. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
 > 
-> Additionally, you can check the expiration date of your cluster's certificate. For example, the following command displays the certificate details for the *myAKSCluster* cluster.
+> Additionally, you can check the expiration date of your cluster's certificate. For example, the following Bash command displays the certificate details for the *myAKSCluster* cluster.
 > ```console
 > kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
@@ -85,9 +83,9 @@ This article showed you how to automatically rotate your cluster's certificates,
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
 [dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

@@ -1,25 +1,35 @@
 ---
-title: Monitor Python applications with Azure Monitor (preview) | Microsoft Docs
+title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
+ms.date: 09/24/2020
+ms.reviewer: mbullwin
+ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.date: 10/11/2019
-ms.reviewer: mbullwin
-ms.custom: tracking-python
 ---
 
 # Set up Azure Monitor for your Python application
 
-Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article walks you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
+Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
+
+Microsoft's supported solution for tracking and exporting data for your Python applications is through the [Opencensus Python SDK](#introducing-opencensus-python-sdk) via the [Azure Monitor exporters](#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters).
+
+Any other telemetry SDKs for Python are UNSUPPORTED and are NOT recommended by Microsoft to use as a telemetry solution.
+
+You may have noted that OpenCensus is converging into [OpenTelemetry](https://opentelemetry.io/). However, we continue to recommend OpenCensus while OpenTelemetry gradually matures.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The SDK only supports Python v2.7 and v3.4-v3.7.
+- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4-v3.7.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
-## Instrument with OpenCensus Python SDK for Azure Monitor
+## Introducing Opencensus Python SDK
+
+[OpenCensus](https://opencensus.io) is a set of open source libraries to allow collection of distributed tracing, metrics and logging telemetry. Through the use of [Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure), you will be able to send this collected telemetry to Application insights. This article walks you through the process of setting up OpenCensus and Azure Monitor Exporters for Python to send your monitoring data to Azure Monitor.
+
+## Instrument with OpenCensus Python SDK with Azure Monitor exporters
 
 Install the OpenCensus Azure Monitor exporters:
 
@@ -27,12 +37,10 @@ Install the OpenCensus Azure Monitor exporters:
 python -m pip install opencensus-ext-azure
 ```
 
-For a full list of packages and integrations, see [OpenCensus packages](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
-
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](../data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
 
 ## Telemetry type mappings
 
@@ -106,7 +114,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 1. The exporter sends log data to Azure Monitor. You can find the data under `traces`. 
 
     > [!NOTE]
-    > In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](./distributed-tracing.md).
 
     > [!NOTE]
     > The root logger is configured with the level of WARNING. That means any logs that you send that have less of a severity are ignored, and in turn, won't be sent to Azure Monitor. For more information, see [documentation](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
@@ -211,14 +219,23 @@ For information on sampling in OpenCensus, take a look at [sampling in OpenCensu
 
 #### Log correlation
 
-For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
+For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](./correlation.md#log-correlation).
 
 #### Modify telemetry
 
-For details on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+For details on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 
 ### Metrics
+
+OpenCensus.stats supports 4 aggregation methods but provides partial support for Azure Monitor:
+
+- **Count:** The count of the number of measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **Sum:** A sum up of the measurement points. The value is cumulative, can only increase and resets to 0 on restart. 
+- **LastValue:** Keeps the last recorded value, drops everything else.
+- **Distribution:** Histogram distribution of the measurement points. This method is **NOT supported by the Azure Exporter**.
+
+### Count Aggregation example
 
 1. First, let's generate some local metric data. We'll create a simple metric to track the number of times the user selects the **Enter** key.
 
@@ -319,7 +336,55 @@ For details on how to modify tracked telemetry before it's sent to Azure Monitor
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. You can find the data under `customMetrics`.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
+
+### Setting custom dimensions in metrics
+
+Opencensus Python SDK allows adding custom dimensions to your metrics telemetry by the way of `tags`, which are essentially a dictionary of key/value pairs. 
+
+1. Insert the tags that you want to use into the tag map. The tag map acts like a sort of "pool" of all available tags you can use.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. For a specific `View`, specify the tags you want to use when recording metrics with that view via the tag key.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. Be sure to use the tag map when recording in the measurement map. The tag keys that are specified in the `View` must be found in the tag map used to record.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. Under the `customMetrics` table, all metrics records emitted using the `prompt_view` will have custom dimensions `{"url":"http://example.com"}`.
+
+1. To produce tags with different values using the same keys, create new tag maps for them.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
 
 #### Performance counters
 
@@ -342,16 +407,16 @@ These performance counters are currently sent:
 - Process CPU Usage (percentage)
 - Process Private Bytes (bytes)
 
-You should be able to see these metrics in `performanceCounters`. For more information, see [performance counters](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+You should be able to see these metrics in `performanceCounters`. For more information, see [performance counters](./performance-counters.md).
 
 #### Modify telemetry
 
-For information on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+For information on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 ### Tracing
 
 > [!NOTE]
-> In OpenCensus, `tracing` refers to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). The `AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
+> In OpenCensus, `tracing` refers to [distributed tracing](./distributed-tracing.md). The `AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
 
 1. First, let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code:
 
@@ -415,8 +480,8 @@ For information on how to modify tracked telemetry before it's sent to Azure Mon
         main()
     ```
 
-1. Now when you run the Python script, you should still be prompted to enter values, but only the value is being printed in the shell. The created `SpanData` is sent to Azure Monitor. You can find the emitted span data under `dependencies`. For more information about outgoing requests, see OpenCensus Python [dependencies](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
-For more information on incoming requests, see OpenCensus Python [requests](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
+1. Now when you run the Python script, you should still be prompted to enter values, but only the value is being printed in the shell. The created `SpanData` is sent to Azure Monitor. You can find the emitted span data under `dependencies`. For more information about outgoing requests, see OpenCensus Python [dependencies](./opencensus-python-dependency.md).
+For more information on incoming requests, see OpenCensus Python [requests](./opencensus-python-request.md).
 
 #### Sampling
 
@@ -424,11 +489,11 @@ For information on sampling in OpenCensus, take a look at [sampling in OpenCensu
 
 #### Trace correlation
 
-For more information on telemetry correlation in your trace data, take a look at OpenCensus Python [telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python).
+For more information on telemetry correlation in your trace data, take a look at OpenCensus Python [telemetry correlation](./correlation.md#telemetry-correlation-in-opencensus-python).
 
 #### Modify telemetry
 
-For more information on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+For more information on how to modify tracked telemetry before it's sent to Azure Monitor, see OpenCensus Python [telemetry processors](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 ## Configure Azure Monitor exporters
 
@@ -437,7 +502,7 @@ As shown, there are three different Azure Monitor exporters that support OpenCen
 Each exporter accepts the same arguments for configuration, passed through the constructors. You can see details about each one here:
 
 - `connection_string`: The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.
-- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
+- `enable_standard_metrics`: Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](../essentials/app-insights-metrics.md#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
 - `export_interval`: Used to specify the frequency in seconds of exporting.
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
@@ -457,7 +522,7 @@ In the list under **Active**:
 - For telemetry sent with the Azure Monitor metrics exporter, sent metrics appear under `customMetrics`.
 - For telemetry sent with the Azure Monitor logs exporter, logs appear under `traces`. Exceptions appear under `exceptions`.
 
-For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 ## Learn more about OpenCensus for Python
 
@@ -469,13 +534,13 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 ## Next steps
 
-* [Tracking incoming requests](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Tracking out-going requests](./../../azure-monitor/app/opencensus-python-request.md)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Tracking incoming requests](./opencensus-python-dependency.md)
+* [Tracking out-going requests](./opencensus-python-request.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../app/tutorial-performance.md)
 
 ### Alerts
 
-* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
-* [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Metric alerts](../alerts/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.

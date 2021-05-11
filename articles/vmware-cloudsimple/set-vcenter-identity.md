@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up vCenter identity sources on Private Cloud
 description: Describes how to set up your Private Cloud vCenter to authenticate with Active Directory for  VMware administrators to access vCenter
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -36,6 +36,9 @@ Before [adding an identity source](#add-an-identity-source-on-vcenter), temporar
 * [Add on-premises Active Directory as a single sign-on identity source](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Set Up New Active Directory on a Private Cloud](#set-up-new-active-directory-on-a-private-cloud)
 * [Set Up Active Directory on Azure](#set-up-active-directory-on-azure)
+
+> [!IMPORTANT]
+> **Active Directory (Windows Integrated Authentication) is not supported.** Only Active Directory over LDAP option is supported as an identity source.
 
 ## Add On-Premises Active Directory as a Single Sign-On Identity Source
 
@@ -119,7 +122,7 @@ After the network connection is established, follow the steps in [Add On-Premise
 
 6. Select **Active Directory as an LDAP Server** and click **Next**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Screenshot that highlights the Active Directory as an LDAP Server option.](media/OnPremAD04.png)
 
 7. Specify the identity source parameters for your environment and click **Next**.
 

@@ -55,13 +55,13 @@ No, Video Indexer provides the integration of multiple machine learning models i
 
 ### What media formats does Video Indexer support?
 
-Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) list for more details.
+Video Indexer supports most common media formats. Refer to the [Azure Media Encoder standard formats](../latest/encode-media-encoder-standard-formats-reference.md) list for more details.
 
 ### How do I upload a media file into Video Indexer and what are the limitations?
 
 In the Video Indexer web-based portal, you can upload a media file using the file upload dialog or by pointing to a URL that directly hosts the source file (see [example](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Any URL that hosts the media content using an iFrame or embed code will not work (see [example](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
 
-For more information, please see this [how-to guide](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+For more information, please see this [how-to guide](./upload-index-videos.md).
 
 #### Limitations
 
@@ -72,7 +72,7 @@ For the comprehensive list, see [Uploading considerations and limitations](uploa
 
 ### How long does it take Video Indexer to extract insights from media?
 
-The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
+The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](../previous/media-services-scale-media-processing-overview.md) available, and whether the [streaming endpoint](../previous/media-services-streaming-endpoints-overview.md) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
 ### Can I create customized workflows to automate processes with Video Indexer?
 
@@ -129,10 +129,12 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
 ### Are the custom models that I build in my Video Indexer account available to other accounts?
 
  No, the custom models that you create in your account are not available to any other account. Video Indexer currently allows you to build custom [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md) models in your account. These models are only available in the account in which you created the models.
-  
+    
 ### Is the content indexed by Video Indexer kept within the Azure region where I am using Video Indexer?
 
-Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions. 
+Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
+
+Customer data in a region is replicated for BCDR reasons to the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
 
 ### What is the privacy policy for Video Indexer?
 
@@ -193,7 +195,7 @@ Access tokens expire every hour, so you need to generate a new access token ever
 
 ### What are the login options to Video Indexer Developer portal?
 
-You can login using Azure AD, Microsoft account, Google account or Facebook account. 
+See a release note regarding [login information](release-notes.md#october-2020).
 
 Once you register your email account using an identity provider, you cannot use this email account with another identity provider.
 
@@ -213,4 +215,5 @@ Yes, Video Indexer offers a free trial that gives full service and API functiona
 
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
+* [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)

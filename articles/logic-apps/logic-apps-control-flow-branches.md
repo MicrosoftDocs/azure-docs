@@ -59,7 +59,7 @@ and then choose **Add a parallel branch**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select the action you want](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Screenshot that shows the "Choose an action" window in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Your selected action now appears in the parallel branch, for example:
 
@@ -75,7 +75,7 @@ and then select **Add an action**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select sequential action](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Screenshot that shows the "Choose an action" window and search box in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    Your selected action now appears within the current branch, for example:
 
@@ -206,7 +206,7 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Get support
 
-* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

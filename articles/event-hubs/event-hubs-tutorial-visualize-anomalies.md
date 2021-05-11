@@ -21,14 +21,12 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
 
-## Prerequisites
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Set up resources
 
@@ -303,7 +301,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select `fraudulentuses`.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -324,9 +322,9 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
 12. Under **Visualization Type**, select **Line chart**.
 
-13. Under **Axis**, click **Add Value**, and select **windowend**. 
+13. Under **Axis**, click **Add Value**, and select `windowend`. 
 
-14. Under **Values**, click **Add value** and select **fraudulentuses**.
+14. Under **Values**, click **Add value** and select `fraudulentuses`.
 
 15. Under **Time window to display**, select the last five minutes. Click **Next**.
 
@@ -346,7 +344,7 @@ Log into your Power BI account. Go to **My Workspace**. On the line with your da
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -373,6 +371,6 @@ In this tutorial, you learned how to:
 Advance to the next article to learn more about Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Get started sending messages to Azure Event Hubs in .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

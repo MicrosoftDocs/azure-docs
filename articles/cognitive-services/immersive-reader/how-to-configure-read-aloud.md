@@ -7,9 +7,9 @@ manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2020
-ms.author: metan
+ms.author: metang
 ---
 
 # How to configure Read Aloud

@@ -12,7 +12,7 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 05/29/2020
+ms.date: 09/28/2020
 ---
 # Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Completing this quickstart requires the following items:
 
 - A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -58,6 +58,8 @@ Get the connection information you need to connect to your database. You'll need
 
 ## Connect to your database
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 In SSMS, connect to your server.
 
 > [!IMPORTANT]
@@ -77,6 +79,9 @@ In SSMS, connect to your server.
    ||||
 
    ![connect to server](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> This tutorial utilizes SQL Server Authentication.
 
 3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. Completing the quickstart in the [Prerequisites section](#prerequisites) creates an AdventureWorksLT database named mySampleDatabase. If your working copy of the AdventureWorks database has a different name than mySampleDatabase, then select it instead.
 
@@ -149,7 +154,7 @@ Run this [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL code 
 
 ### Update data
 
-Run this [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL code to modify your new product.
+Run this [UPDATE](/sql/t-sql/queries/update-transact-sql) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one that returns the new record created previously:
 

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
   ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/25/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search
             url: search-what-is-azure-search.md
+          - text: What is semantic search
+            url: semantic-search-overview.md
           - text: What is AI enrichment
             url: cognitive-search-concept-intro.md
           - text: What is an indexer
@@ -76,9 +78,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Create Index (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-index
+            url: /rest/api/searchservice/create-index
           - text: Create Indexer (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+            url: /rest/api/searchservice/create-indexer
 
   # Card
   - title: Enrich with AI
@@ -118,7 +120,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
-            url: search-query-simple-examples.md
+            url: search-query-create.md
           - text: Use full syntax
             url: search-query-lucene-examples.md
       - linkListType: reference
@@ -126,7 +128,7 @@ landingContent:
           - text: OData language reference
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+            url: /rest/api/searchservice/search-documents
 
   # Card
   - title: Help and feedback

@@ -1,12 +1,13 @@
 ---
 title: Backup and restore - Azure PowerShell - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
+ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for MariaDB server using PowerShell
 
@@ -18,7 +19,7 @@ server.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
@@ -29,7 +30,7 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -163,4 +164,4 @@ original server are restored.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Azure Database for MariaDB server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [How to generate an Azure Database for MariaDB connection string with PowerShell](howto-connection-string-powershell.md)

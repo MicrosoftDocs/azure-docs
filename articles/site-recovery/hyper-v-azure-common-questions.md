@@ -152,9 +152,17 @@ When you replicate to Azure, replication traffic reaches the public endpoints of
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
+### Why is an additional standard storage account required if I replicate my virtual machine disks to premium storage?
+
+When you replicate your on-premises virtual machines/physical servers to premium storage, all the data residing on the protected machine’s disks is replicated to the premium storage account. An additional standard storage account is required for storing replication logs. After the initial phase of replicating disk data is complete, all changes to the on-premises disk data are tracked continuously and stored as replication logs in this additional standard storage account.
+
 ### How often can I replicate to Azure?
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or 5 minutes.
+
+### Can Azure Site Recovery and Hyper-V Replica be configured together on a Hyper-V machine?
+
+Yes, both Azure Site Recovery and Hyper-V Replica can be configured together for a machine. But the machine will have to protected as a physical machine and will be replicated to Azure using a Configuration / Process server. Learn more about protecting physical machines [here](./physical-azure-architecture.md).
 
 ### Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

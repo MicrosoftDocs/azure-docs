@@ -1,11 +1,12 @@
 ---
 title: Create your first durable function in Azure using JavaScript
-description: Create and publish an Azure Durable Function using Visual Studio Code.
+description: Create and publish an Azure Durable Function in JavaScript using Visual Studio Code.
 author: anthonychu
 
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
+ms.custom: devx-track-js
 ---
 
 # Create your first durable function in JavaScript
@@ -181,7 +182,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 

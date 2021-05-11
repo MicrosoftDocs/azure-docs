@@ -4,9 +4,9 @@ description: Learn how to use Power Automate and an HTTPS endpoint to manage lea
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2020
+author: trkeya
+ms.author: trkeya
+ms.date: 04/09/2021
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads
@@ -26,13 +26,13 @@ This article explains how to create a new flow in Power Automate to generate the
 
     ![Sign in My flows](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Under **+ New**, select **+ Instant—from blank**.
+1. Under **+ New**, select **+ Instant cloud flow**.
 
-    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Click the flow step to expand it.
 
@@ -61,6 +61,10 @@ This article explains how to create a new flow in Power Automate to generate the
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -123,14 +127,18 @@ This article explains how to create a new flow in Power Automate to generate the
     ```
 
 >[!NOTE]
->At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
+>At this point in the configuration, you can select to either connect to a CRM system, or configure an email notification. Follow the remaining instructions based on your choice.
 
 ### Connect to a CRM system
 
 1. Select **+ New step**.
-1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. Select it on the **Actions** tab with the action to create a new record. The following screen shows **Create a new record (Dynamics 365)** as an example.
+1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. The following screen shows Create a new record (Common Data Service) as an example.
 
     ![Create a new record](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Select the **Actions tab** with the action to **create a new record**.
+
+    ![Select create a new record](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Provide the **Organization Name** associated with the CRM system. Select **Leads** from the **Entity Name** drop-down list.
 

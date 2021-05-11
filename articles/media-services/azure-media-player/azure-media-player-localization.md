@@ -5,10 +5,10 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ---
 
-# Localization #
+# Azure Media Player localization #
 
 Multiple language support allows for users of non-English locales to natively interact with the player. Azure Media Player will instantiate with a global dictionary of languages, which will localize the error messages based on the page language. A developer can also create a player instance with a forced set language. The default language is English (en).
 

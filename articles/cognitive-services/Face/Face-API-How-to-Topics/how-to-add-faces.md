@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Add faces to a PersonGroup
@@ -131,8 +132,8 @@ The following features were explained and demonstrated:
 - Create persons by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API.
 - Add faces to persons by using the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API.
 
-## Related topics
+## Next steps
 
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
-- [Detect faces in an image](HowtoDetectFacesinImage.md)
-- [Use the large-scale feature](how-to-use-large-scale.md)
+In this guide, you learned how to add face data to a **PersonGroup**. Next, learn how to use the enhanced data structure **PersonDirectory** to do more with your face data.
+
+- [Use the PersonDirectory structure](use-persondirectory.md)

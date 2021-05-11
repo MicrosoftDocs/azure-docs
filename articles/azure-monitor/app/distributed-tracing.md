@@ -2,6 +2,7 @@
 title: Distributed Tracing in Azure Application Insights | Microsoft Docs
 description: Provides information about Microsoft's support for distributed tracing through our partnership in the OpenCensus project
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
@@ -17,9 +18,9 @@ In monolithic architectures, we've gotten used to debugging with call stacks. Ca
 
 That's where distributed tracing comes in.  
 
-Distributed tracing is the equivalent of call stacks for modern cloud and microservices architectures, with the addition of a simplistic performance profiler thrown in. In Azure Monitor, we provide two experiences for consuming distributed trace data. The first is our [transaction diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) view, which is like a call stack with a time dimension added in. The transaction diagnostics view provides visibility into one single transaction/request, and is helpful for finding the root cause of reliability issues and performance bottlenecks on a per request basis.
+Distributed tracing is the equivalent of call stacks for modern cloud and microservices architectures, with the addition of a simplistic performance profiler thrown in. In Azure Monitor, we provide two experiences for consuming distributed trace data. The first is our [transaction diagnostics](./transaction-diagnostics.md) view, which is like a call stack with a time dimension added in. The transaction diagnostics view provides visibility into one single transaction/request, and is helpful for finding the root cause of reliability issues and performance bottlenecks on a per request basis.
 
-Azure Monitor also offers an [application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) view which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are. 
+Azure Monitor also offers an [application map](./app-map.md) view which aggregates many transactions to show a topological view of how the systems interact, and what the average performance and error rates are. 
 
 ## How to Enable Distributed Tracing
 
@@ -29,16 +30,16 @@ Enabling distributed tracing across the services in an application is as simple 
 
 The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available below:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](asp-net.md)
+* [.NET Core](asp-net-core.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../app/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in [the Dependency auto-collection documentation](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in [the Dependency auto-collection documentation](./auto-collect-dependencies.md).
 
- Additionally, any technology can be tracked manually with a call to [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) on the [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Additionally, any technology can be tracked manually with a call to [TrackDependency](./api-custom-events-metrics.md) on the [TelemetryClient](./api-custom-events-metrics.md).
 
 ## Enable via OpenCensus
 
@@ -51,5 +52,6 @@ The OpenCensus website maintains API reference documentation for [Python](https:
 ## Next steps
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../app/tutorial-performance.md)
+

@@ -1,12 +1,11 @@
 ---
 title: Failover and patching - Azure Cache for Redis
 description: Learn about failover, patching, and the update process for Azure Cache for Redis.
-author: asasine
-
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: adsasine
 ---
 
 # Failover and patching for Azure Cache for Redis
@@ -68,6 +67,10 @@ Most client libraries attempt to reconnect to the cache if they're configured to
 Because you can't avoid failovers completely, write your client applications for resiliency to connection breaks and failed requests. Although most client libraries automatically reconnect to the cache endpoint, few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache. Tell the management service to apply Redis runtime patches during specified weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
+
+### Can I be notified in advance of a planned maintenance?
+
+Azure Cache for Redis now publishes notifications on a publish/subscribe channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. These are runtime notifications, and they're built especially for applications that can use circuit breakers to bypass the cache or buffer commands, for example, during planned updates. It's not a mechanism that can notify you days or hours in advance.
 
 ### Client network-configuration changes
 

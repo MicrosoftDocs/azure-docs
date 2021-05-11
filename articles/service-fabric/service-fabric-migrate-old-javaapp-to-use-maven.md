@@ -5,6 +5,7 @@ author: rapatchi
 
 ms.topic: conceptual
 ms.date: 08/23/2017
+ms.custom: devx-track-java
 ms.author: rapatchi
 ---
 # Update your previous Java Service Fabric application to fetch Java libraries from Maven
@@ -379,20 +380,20 @@ Changes here are similar to the changes discussed in previous section, that is, 
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-	  compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
 .
 jar
 {
-	manifest {
+    manifest {
     attributes(
-		'Main-Class': 'reliableactor.test.MyactorTestClient',
-		"Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
-	}
-	baseName "myactor-test"
-  destinationDir = file('out/lib')
+        'Main-Class': 'reliableactor.test.MyactorTestClient',
+        "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
+    }
+    baseName "myactor-test"
+    destinationDir = file('out/lib')
 }
 .
 .

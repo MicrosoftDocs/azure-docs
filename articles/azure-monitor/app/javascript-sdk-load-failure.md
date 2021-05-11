@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
+ms.custom: devx-track-js
 ---
 
 # Troubleshooting SDK load failure for JavaScript web apps
@@ -58,11 +59,11 @@ The same is also true when using the SDK via NPM packages solution. However, fro
 
 You can also try to use [NPM packages](#use-npm-packages-to-embed-the-application-insight-sdk) to embed the Application Insights SDK.
 
-To minimize intermittent network connectivity failure, we have implemented Cache-Control headers on all of the CDN files so that once the end user's browser has downloaded the current version of the SDK it will not need to download again and the browser will reuse the previously obtained copy (see [how caching works](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). If the caching check fails or there has been a new release, then your end user's browser will need to download the updated version. So you may see a background level of _"noise"_ in the check failure scenario or a temporary spike when a new release occurs and is made generally available (deployed to the CDN).
+To minimize intermittent network connectivity failure, we have implemented Cache-Control headers on all of the CDN files so that once the end user's browser has downloaded the current version of the SDK it will not need to download again and the browser will reuse the previously obtained copy (see [how caching works](../../cdn/cdn-how-caching-works.md)). If the caching check fails or there has been a new release, then your end user's browser will need to download the updated version. So you may see a background level of _"noise"_ in the check failure scenario or a temporary spike when a new release occurs and is made generally available (deployed to the CDN).
  
 ## Application Insights CDN outage
 
-You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
+You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js or https://js.monitor.azure.com/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
 
 If you confirm there is an outage, you can [create a new support ticket](https://azure.microsoft.com/support/create-ticket/) or try changing the URL used to download the SDK.
 
@@ -100,7 +101,7 @@ If there are exceptions being reported in the SDK script (for example ai.2.min.j
 
 To check for faulty configuration, change the configuration passed into the snippet (if not already) so that it only includes your instrumentation key as a string value.
 
-> src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",<br />
+> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",<br />
 > cfg:{<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -128,7 +129,7 @@ If it still fails to initialize, try enabling the ```enableDebug``` configuratio
 > [!WARNING]
 > This is a developer only setting and should NEVER be enabled in a full production environment as you will lose telemetry.
 
-> src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.js",<br />
+> src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",<br />
 > cfg:{<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: true<br />

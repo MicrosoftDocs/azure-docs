@@ -8,7 +8,7 @@ ms.date: 01/23/2019
 ms.author: pepogors
 ---
 
-# Monitoring and diagnostics
+# Monitoring and diagnostic best practices for Azure Service Fabric
 
 [Monitoring and diagnostics](./service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
 
@@ -30,7 +30,7 @@ For Linux clusters, Azure Monitor logs is also the recommended tool for Azure pl
 
 ## Watchdogs
 
-Generally, a watchdog is a separate service that watches health and load across services, pings endpoints, and reports unexpected health events in the cluster. This can help prevent errors that may not be detected based only on the performance of a single service. Watchdogs are also a good place to host code that performs remedial action that don't require user interaction such as cleaning up log files in storage at certain time intervals. See a sample watchdog service implementation in  [Service Fabric Linux cluster events in Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+Generally, a watchdog is a separate service that watches health and load across services, pings endpoints, and reports unexpected health events in the cluster. This can help prevent errors that may not be detected based only on the performance of a single service. Watchdogs are also a good place to host code that performs remedial actions that don't require user interaction, such as cleaning up log files in storage at certain time intervals. If you want a fully implemented, open source SF watchdog service that includes an easy-to-use watchdog extensibility model and that runs in both Windows and Linux clusters, see the [FabricObserver](https://aka.ms/sf/FabricObserver) project. FabricObserver is production-ready software. We encourage you to deploy FabricObserver to your test and production clusters and extend it to meet your needs either through its plug-in model or by forking it and writing your own built-in observers. The former (plug-ins) is the recommended approach.
 
 ## Next steps
 

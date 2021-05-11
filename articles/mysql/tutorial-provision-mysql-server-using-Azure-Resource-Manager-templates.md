@@ -12,10 +12,9 @@ ms.custom: mvc
 
 # Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager template
 
-The [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
+The [Azure Database for MySQL REST API](/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 
-Azure Resource Manager 
-leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
+Azure Resource Manager leverages the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) or [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
 
 In this tutorial, you use Azure Resource Manager template and other utilities to learn how to:
 
@@ -25,6 +24,8 @@ In this tutorial, you use Azure Resource Manager template and other utilities to
 > * Load sample data
 > * Query data
 > * Update data
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -88,10 +89,10 @@ In this request, the values that need to be customized are:
 +	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
 +	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
-If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
+If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) in Azure Quickstart GitHub Gallery first and build on top of it. 
 
 If you are new to Azure Resource Manager templates and would like to try it, you can start by following these steps:
-+	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
++	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) from Azure Quickstart gallery.  
 +	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
 +	Use Azure CLI to create the Azure MySQL server using the following commands
 
@@ -102,7 +103,7 @@ You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your o
 ```azurecli-interactive
 az login
 az group create -n ExampleResourceGroup  -l "West US2"
-az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+az deployment group create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
 ## Get the connection information
@@ -195,13 +196,47 @@ The row gets updated accordingly when you retrieve data.
 SELECT * FROM inventory;
 ```
 
+## Clean up resources
+
+When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
+
+# [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
+
+2. In the resource group list, choose the name of your resource group.
+
+3. In the **Overview** page of your resource group, select **Delete resource group**.
+
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager template
-> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use the mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data
-> 
+
+> [!div class="nextstepaction"]
 > [How to connect applications to Azure Database for MySQL](./howto-connection-string.md)

@@ -1,12 +1,12 @@
 ---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: rajanaki
+ms.author: ramamill
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -194,7 +194,7 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](/powershell/module/servicemanagement/azure/set-azureautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 

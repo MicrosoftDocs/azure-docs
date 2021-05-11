@@ -3,7 +3,7 @@ title: Run privileged containers in an Azure Red Hat OpenShift cluster | Microso
 description: Run privileged containers to monitor security and compliance.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
@@ -11,6 +11,12 @@ keywords: aro, openshift, aquasec, twistlock, red hat
 ---
 
 # Run privileged containers in an Azure Red Hat OpenShift cluster
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 You can't run arbitrary privileged containers on Azure Red Hat OpenShift clusters.
 Two security monitoring and compliance solutions are allowed to run on ARO clusters.
@@ -125,7 +131,7 @@ Create a new OpenShift project
 oc new-project twistlock
 ```
 
-Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat Openshift. Use the online registry instead.
+Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat OpenShift. Use the online registry instead.
 
 You can follow the official documentation while applying the corrections described below.
 Start with the "Install Console" section.

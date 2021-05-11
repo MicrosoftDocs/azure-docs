@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Ally.io | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Ally.io.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e4a57e15-5095-4407-b58d-fbe77ad41863
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 05/05/2021
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Ally.io
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Ally.io with Azure Active Direct
 * Enable your users to be automatically signed-in to Ally.io with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Ally.io supports **SP and IDP** initiated SSO
 * Ally.io supports **Just In Time** user provisioning
-* Once you configure Ally.io you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Ally.io, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Ally.io from the gallery
 
@@ -50,7 +44,7 @@ To configure the integration of Ally.io into Azure AD, you need to add Ally.io f
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Ally.io** in the search box.
 1. Select **Ally.io** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
@@ -65,7 +59,6 @@ To configure and test Azure AD SSO with Ally.io, complete the following building
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Ally.io SSO](#configure-allyio-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Ally.io test user](#create-allyio-test-user)** - to have a counterpart of B.Simon in Ally.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -78,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
@@ -96,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Ally.io application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot that shows the list of default attributes.](common/default-attributes.png)
 
 1. In addition to above, Ally.io application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
@@ -110,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Ally.io** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Ally.io** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -146,29 +139,43 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Ally.io SSO
 
-To configure single sign-on on **Ally.io** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Ally.io support team](mailto:contact@ally.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Ally.io side, you need to copy the Certificate (Base64) and appropriate URLs from Azure portal and add them in Ally.io.
 
-### Create Ally.io test user
+1. Sign in to Ally.io using an Admin account.
+1. Using the navigation bar on the left of the screen, select **Admin** > **Integrations**.
+1. Scroll to the **Authentication** section and select **Single Sign-On**. Then, select **Enable**.
 
-In this section, a user called B.Simon is created in Ally.io. Ally.io supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Ally.io, a new one is created when you attempt to access Ally.io.
+    ![Screenshot that shows the Enable button in Ally I O.](./media/ally-tutorial/ally-enable.png)
+
+    The **SSO Configuration** page opens, and you can configure the certificate and the copied URLs from the Azure portal.
+
+    ![Screenshot that shows the S S O configuration pane in Ally I O.](./media/ally-tutorial/ally-single-sign-on-configuration.png)
+
+1. In **SSO Configuration**, enter or select the following settings: 
+
+    * **Ally**: Azure AD
+    * **SAML 2.0 Endpoint URL**: Login URL
+    * **Identity Provider Issuer URL**: Azure AD Identifier
+    * **Public(X.509) Certificate**: Certificate (base 64)
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Ally.io tile in the Access Panel, you should be automatically signed in to the Ally.io for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Ally.io tile in the Access Panel, you should be automatically signed in to the Ally.io for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+
+A user called B.Simon is created in Ally.io. Ally.io supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Ally.io, a new one is created when you attempt to access Ally.io.
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Ally.io with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Ally.io with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect Ally.io with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -11,8 +11,8 @@ metadata:
   ms.subservice:
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: Juliako
-  ms.author: juliako
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
   ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -28,7 +28,7 @@ landingContent:
           - text: Azure Media Services v2 overview
             url: media-services-overview.md
           - text: Migrate to Media Services v3
-            url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+            url: ../latest/migrate-v-2-v-3-migration-introduction.md
       - linkListType: whats-new
         links:         
         - text: "What's new in Media Services v2?"
@@ -67,5 +67,3 @@ landingContent:
             url: media-services-dotnet-get-started.md
           - text: Use REST
             url: media-services-rest-get-started.md
-
-

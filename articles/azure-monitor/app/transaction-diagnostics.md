@@ -60,7 +60,7 @@ This collapsible pane shows the other results that meet the filter criteria. Cli
 
 ## Profiler and snapshot debugger
 
-[Application Insights profiler](../../azure-monitor/app/profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
+[Application Insights profiler](./profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
 
 If you could not get Profiler working, please contact **serviceprofilerhelp\@microsoft.com**
 
@@ -76,8 +76,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, do you have required access to their telemetry?
-
+* If these components are separate Application Insights resources, do you have required [access](resources-roles-access-control.md)
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the top right feedback channel.
 
 *I see duplicate rows for the dependencies. Is this expected?*
@@ -91,3 +90,7 @@ Timelines are adjusted for clock skews in the transaction chart. You can see the
 *Why is the new experience missing most of the related items queries?*
 
 This is by design. All of the related items, across all components, are already available on the left side (top and bottom sections). The new experience has two related items that the left side doesn't cover: all telemetry from five minutes before and after this event and the user timeline.
+
+*I see more events than expected in the transaction diagnostics experience when using the Application Insights JavaScript SDK. Is there a way to see fewer events per transaction?*
+
+The transaction diagnostics experience shows all telemetry in a [single operation](correlation.md#data-model-for-telemetry-correlation) that share an [Operation Id](data-model-context.md#operation-id). By default, the Application Insights SDK for JavaScript creates a new operation for each unique page view. In a Single Page Application (SPA), only one page view event will be generated and a single Operation Id will be used for all telemetry generated, this can result in many events being correlated to the same operation. In these scenarios, you can use Automatic Route Tracking to automatically create new operations for navigation in your single page app. You must turn on [enableAutoRouteTracking](javascript.md#single-page-applications) so a page view is generated every time the URL route is updated (logical page view occurs). If you want to manually refresh the Operation Id, you can do so by calling `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`. Manually triggering a PageView event will also reset the Operation Id.

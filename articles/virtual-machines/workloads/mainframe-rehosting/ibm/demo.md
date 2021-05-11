@@ -1,8 +1,9 @@
 ---
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
-services: virtual-machines-linux
-ms.service: virtual-machines-linux
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -51,7 +52,7 @@ Access to the ADCD media is required. The steps below assume you are an IBM cust
 
 4. Enter the part description or part number, and click **Finder**.
 
-5. Optionally, click the alphabetical order list to display and view theproduct by name.
+5. Optionally, click the alphabetical order list to display and view the product by name.
 
 6. Select **All Operating Systems** in the **Operating system field**, and **All Languages** in the **Languages field**. Then, click **Go**.
 
@@ -67,7 +68,7 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 2. Select the **SSH** tab, and then copy the ssh command to the clipboard.
 
-3. Log on to your VM using your credentials and the [SSH client](/azure/virtual-machines/linux/use-remote-desktop) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
+3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
@@ -183,9 +184,9 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 
 ## Learn more
 
-- [Mainframe migration: myths and facts](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale on Azure](ibm-db2-purescale-azure.md)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

@@ -1,22 +1,16 @@
 ---
 title: Windows Virtual Desktop diagnostics log analytics - Azure
 description: How to use log analytics with the Windows Virtual Desktop diagnostics feature.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Log Analytics for the diagnostics feature
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Windows Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:
 
@@ -39,23 +33,23 @@ Connections that don't reach Windows Virtual Desktop won't show up in diagnostic
 Azure Monitor lets you analyze Windows Virtual Desktop data and review virtual machine (VM) performance counters, all within the same tool. This article will tell you more about how to enable diagnostics for your Windows Virtual Desktop environment.
 
 >[!NOTE]
->To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md). Also, make sure to [review the performance counter thresholds](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) for a better understanding of your user experience on the session host.
+>To learn how to monitor your VMs in Azure, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md). Also, make sure to [review the performance counter thresholds](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) for a better understanding of your user experience on the session host.
 
 ## Before you get started
 
 Before you can use Log Analytics, you'll need to create a workspace. To do that, follow the instructions in one of the following two articles:
 
-- If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/learn/quick-create-workspace.md).
-- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+- If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace
 
 You'll need this information later in the setup process.
 
-Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Windows Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md).
+Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Windows Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## Push diagnostics data to your workspace
 
@@ -73,7 +67,7 @@ To set up Log Analytics for a new object:
 
     The options shown in the Diagnostic Settings page will vary depending on what kind of object you're editing.
 
-    For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
+    For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Remember to enable diagnostics for each Azure Resource Manager object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.
@@ -83,7 +77,7 @@ To set up Log Analytics for a new object:
 6. Select **Save**.
 
 >[!NOTE]
->Log Analytics gives you the option to stream data to [Event Hubs](../event-hubs/event-hubs-about.md) or archive it in a storage account. To learn more about this feature, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) and [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md).
+>Log Analytics gives you the option to stream data to [Event Hubs](../event-hubs/event-hubs-about.md) or archive it in a storage account. To learn more about this feature, see [Stream Azure monitoring data to an event hub](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) and [Archive Azure resource logs to storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 ## How to access Log Analytics
 
@@ -114,7 +108,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 >[!NOTE]
->For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](https://docs.microsoft.com/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
+>For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
 
 ## Cadence for sending diagnostic events
 
@@ -128,52 +122,16 @@ Log Analytics only reports in these intermediate states for connection activitie
 
 ## Example queries
 
-The following example queries show how the diagnostics feature generates a report for the most frequent activities in your system.
+Access example queries through the Azure Monitor Log Analytics UI:
+1. Go to your Log Analytics workspace, and then select **Logs**. The example query UI is shown automatically.
+1. Change the filter to **Category**.
+1. Select **Windows Virtual Desktop** to review available queries.
+1. Select **Run** to run the selected query.
 
-To get a list of connections made by your users, run this cmdlet:
+Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/logs/example-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+The following query list lets you review connection information or issues for a single user. You can run these queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
-To view feed activity of your users:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 To find all connections for a single user:
 
@@ -194,7 +152,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 To find session duration by user:
 
@@ -219,7 +176,7 @@ WVDErrors
 |take 100
 ```
 
-To find out whether a specific error occurred:
+To find out whether a specific error occurred for other users:
 
 ```kusto
 WVDErrors
@@ -227,27 +184,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-To find the occurrence of an error across all users:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-To query apps users have opened, run this query:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- When a user opens Full Desktop, their app usage in the session isn't tracked as checkpoints in the WVDCheckpoints table.
 >- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.

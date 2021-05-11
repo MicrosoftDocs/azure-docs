@@ -1,12 +1,13 @@
 ---
 title: Use an Azure file share with Windows | Microsoft Docs
-description: Learn how to use an Azure file share with Windows and Windows Server.
+description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.0 on Windows installations running on-premises or on Azure VMs.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use an Azure file share with Windows
@@ -28,8 +29,8 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903, and 1909.  
-<sup>2</sup>Windows Server, versions 1809, 1903, and 1909.  
+<sup>1</sup>Windows 10, versions 1507, 1607, 1803, 1809, 1903, 1909, and 2004.  
+<sup>2</sup>Windows Server, versions 1809, 1903, 1909, 2004.  
 <sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
@@ -40,9 +41,9 @@ You can use Azure file shares on a Windows installation that is running either i
 Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to work around a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
 
 ## Using an Azure file share with Windows
-To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](/windows/win32/fileio/naming-a-file). 
 
-This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-sync-files-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
+This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](../file-sync/file-sync-planning.md) may be used, or you may use [identity-based authentication over SMB](storage-files-active-directory-overview.md).
 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
@@ -57,7 +58,7 @@ To get this script:
 1. Select **File shares**.
 1. Select the file share you'd like to mount.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted.":::
 
 1. Select **Connect**.
 
@@ -66,7 +67,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Example text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 
@@ -190,11 +191,11 @@ After creating this registry key, you must restart your server to disable SMB 1.
 ### SMB resources
 - [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
 - [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Discover SMB 1 in your environment with DSCEA](/archive/blogs/ralphkyttle/discover-smb1-in-your-environment-with-dscea)
+- [Disabling SMB 1 through Group Policy](/archive/blogs/secguide/disabling-smbv1-through-group-policy)
 
 ## Next steps
 See these links for more information about Azure Files:
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-- [FAQ](../storage-files-faq.md)
-- [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FAQ](./storage-files-faq.md)
+- [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)

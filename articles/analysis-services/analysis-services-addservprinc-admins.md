@@ -36,11 +36,11 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 
 4. Verify the service principal account ID, and then click **OK**.
     
-    ![Search for service principal account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Screenshot that shows the service principal account ID and highlights the OK button.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## Using a Resource Manager template
 
-You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. The identity running the deployment must belong to the **Contributor** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
+You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. The identity running the deployment must belong to the **Contributor** role for the resource in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > The service principal must be added using the format `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
@@ -113,7 +113,5 @@ You can then use this client ID in conjunction with the tenant ID to add the man
 
 ## Related information
 
-* [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-
+* [Download SQL Server PowerShell Module](/sql/ssms/download-sql-server-ps-module)   
+* [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

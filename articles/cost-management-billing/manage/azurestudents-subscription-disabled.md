@@ -4,10 +4,12 @@ description: Explains why your Azure for Students subscription is disabled and h
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Why is my Azure for Students subscription disabled and how do I reactivate it?
 
 Your Azure for Students subscription might get disabled because you've used all of your credit, your credit has expired, or you've accidentally canceled your subscription. See what issue applies to you and learn how you can get your subscription reactivated.

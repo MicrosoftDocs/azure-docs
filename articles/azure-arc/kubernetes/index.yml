@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Azure Arc enabled Kubernetes
+summary: Learn how to manage Kubernetes clusters with Azure Arc
+
+metadata:
+  title: Azure Arc enabled Kubernetes
+  description: Learn about how to manage on-premises machines in Azure
+  author: shashankbarsin
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 03/02/2021
+  ms.author: shasb
+
+landingContent:
+  - title: About Azure Arc enabled Kubernetes
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc enabled Kubernetes?
+            url: overview.md
+          - text: Azure Arc Validation Program
+            url: validation-program.md
+      - linkListType: concept
+        links:
+          - text: Agent architecture
+            url: conceptual-agent-architecture.md
+          - text: Configurations and GitOps
+            url: conceptual-configurations.md
+          - text: CI/CD workflow using GitOps
+            url: conceptual-gitops-ci-cd.md
+          - text: Frequently Asked Questions
+            url: faq.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Connect a cluster to Azure Arc
+            url: quickstart-connect-cluster.md
+
+  - title: Deploy configurations using GitOps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy configurations using GitOps
+            url: tutorial-use-gitops-connected-cluster.md
+          - text: Implement CI/CD with GitOps
+            url: tutorial-gitops-ci-cd.md
+
+  - title: Configure, govern, and monitor clusters
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+          - text: Deploy Helm charts using GitOps
+            url: use-gitops-with-helm.md
+          - text: Enforce GitOps using Azure Policy
+            url: use-azure-policy.md
+          - text: Deploy extensions on clusters
+            url: extensions.md
+          - text: Deploy Azure IoT edge workloads
+            url: deploy-azure-iot-edge-workloads.md
+ 
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+  
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage deployments and configurations for hybrid Kubernetes clusters
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes

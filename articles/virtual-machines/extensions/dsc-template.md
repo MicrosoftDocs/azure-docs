@@ -1,28 +1,29 @@
-﻿---
+---
 title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
-services: virtual-machines-windows
-author: bobbytreed
-manager: carmonm
+services: virtual-machines
+author: mgoedtel
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 10/05/2018
-ms.author: robreed
+ms.date: 02/09/2021
+ms.author: magoedte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
 This article describes the Azure Resource Manager template for the [Desired State Configuration
 (DSC) extension handler](dsc-overview.md). Many of the examples use **RegistrationURL** (provided
 as a String) and **RegistrationKey** (provided as a
-[PSCredential](/dotnet/api/system.management.automation.pscredential)) to onboard with Azure
+[PSCredential](/dotnet/api/system.management.automation.pscredential) to onboard with Azure
 Automation. For details about obtaining those values, see [Onboarding machines for management by
 Azure Automation State Configuration - Secure
-registration](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+registration](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
@@ -32,13 +33,13 @@ registration](/azure/automation/automation-dsc-onboarding#onboarding-securely-us
 The following snippet goes in the **Resource** section of the template.
 The DSC extension inherits default extension properties.
 For more information, see
-[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+[VirtualMachineExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2018-06-30",
+  "name": "[concat(parameters('VMName'), '/Microsoft.Powershell.DSC')]",
+  "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -87,7 +88,7 @@ Under **extensions**, add the details for DSC Extension.
 
 The DSC extension inherits default extension properties.
 For more information,
-see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

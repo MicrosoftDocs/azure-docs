@@ -1,10 +1,10 @@
 ---
 title: Manage your Azure Maps account in the Azure portal | Microsoft Azure Maps 
-description: In this article, you will learn how to use the Azure portal to manage your Microsoft Azure Maps account.
-author: philmea
-ms.author: philmea
-ms.date: 01/27/2020
-ms.topic: conceptual
+description: Learn how to use the Azure portal to manage an Azure Maps account. See how to create a new account and how to delete an existing account.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 04/26/2021
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. Enter the information for your new account.
 
-[![Enter Azure Maps account information in the Azure portal](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
+:::image type="content" source="./media/how-to-manage-account-keys/create-account.png" border="true" alt-text="Enter Azure Maps account information in the Azure portal.":::
 
 ## Delete an account
 

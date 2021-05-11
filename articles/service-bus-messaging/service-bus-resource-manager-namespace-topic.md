@@ -3,10 +3,13 @@ title: Create Azure Service Bus namespace topic using a template
 description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
 documentationcenter: .net
 author: spelluru
+ms.author: spelluru
+ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
-ms.author: spelluru
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-arm
 ---
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
@@ -138,7 +141,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ## Azure CLI
 
 ```azurecli-interactive
-az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Next steps
@@ -151,6 +154,6 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
 [Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/

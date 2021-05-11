@@ -11,7 +11,7 @@ ms.author: trbye
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -24,7 +24,7 @@ Before you get started, make sure to:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](../../../../regions.md) associated with your subscription.
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 

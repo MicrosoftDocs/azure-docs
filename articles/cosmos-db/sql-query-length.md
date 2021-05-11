@@ -3,12 +3,15 @@ title: LENGTH in Azure Cosmos DB query language
 description: Learn about SQL system function LENGTH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # LENGTH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the number of characters of the specified string expression.  
   
 ## Syntax

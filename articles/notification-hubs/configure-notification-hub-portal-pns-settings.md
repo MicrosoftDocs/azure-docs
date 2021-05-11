@@ -11,16 +11,17 @@ ms.topic: quickstart
 ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019
+ms.lastreviewed: 02/14/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Set up push notifications in a notification hub
 
 Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.  [Google Firebase Cloud Messaging](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-cli#google-firebase-cloud-messaging-fcm) includes instructions for using the Azure CLI.
+In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal. [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) includes instructions for using the Azure CLI.
 
-If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md)
+If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md).
 
 ## Apple Push Notification Service
 
@@ -62,24 +63,21 @@ When you complete these steps, an alert indicates that the notification hub has 
 
 # [Azure CLI](#tab/azure-cli)
 
-### Prerequisites
+You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) project.
 
-Before you begin, you must have the following:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-* The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
-
-* The Azure CLI [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub).
-* The **API Key** for a Google Firebase Cloud Messaging (FCM) project.
+- This article requires version 2.0.67 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Set up push notifications for Google FCM
 
-1. Use the [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) command to add your Google API key to your notification hub.
+1. Use the [az notification-hub credential gcm update](/cli/azure/notification-hub/credential/gcm#az_notification_hub_credential_gcm_update) command to add your Google API key to your notification hub.
 
    ```azurecli
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
    ```
 
-2. The Android App needs a connection string to connect with the notification hub.  Use the [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command to list the available access policies.  Use the [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command to get the access policy connection strings.  Specify the **primaryConnectionString** or **secondaryConnectionString** in the `--query` parameter to get the primary connection string directly.
+2. The Android App needs a connection string to connect with the notification hub.  Use the [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list) command to list the available access policies.  Use the [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) command to get the access policy connection strings.  Specify the **primaryConnectionString** or **secondaryConnectionString** in the `--query` parameter to get the primary connection string directly.
 
    ```azurecli
    #list access policies for a notification hub
@@ -92,7 +90,7 @@ Before you begin, you must have the following:
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name myAccessPolicyName --query primaryConnectionString
    ```
 
-3. Use the [az notification-hub test-send](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-test-send) command to test sending messages to the Android App.
+3. Use the [az notification-hub test-send](/cli/azure/notification-hub#az_notification_hub_test_send) command to test sending messages to the Android App.
 
    ```azurecli
    #test with message body
@@ -102,11 +100,11 @@ Before you begin, you must have the following:
    az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --payload "{\"data\":{\"message\":\"my JSON string\"}}"
    ```
 
-Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) command.
+Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/notification-hub/credential) command.
+
+For more information about sending notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ---
-
-For more information on pushing notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## Windows Push Notification Service
 

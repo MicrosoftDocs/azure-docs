@@ -83,15 +83,15 @@ The following articles discuss how different Azure networking features can be us
 | [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | Use Azure Virtual WAN to address the remote connectivity needs of your organization.|
 | [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | Use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. |
 | [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)|Review guidance about leveraging NVAs in Azure to provide remote access solutions. |
-| [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.|
+| [Transition to OpenVPN protocol or IKEv2 from SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md) | Overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.|
 | [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | Provide secure and seamless RDP/SSH connectivity to virtual machines within the Azure virtual network, directly in the Azure portal, without the use of a public IP address. |
 | [Using Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | Use ExpressRoute for hybrid connectivity to enable users in your organization to work remotely.|
 | [Azure Firewall remote work support](../firewall/remote-work-support.md)|Protect your Azure virtual network resources using Azure Firewall. |
 
 <!--Link References-->
-[VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[S2S]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[ExR-eco]: https://docs.microsoft.com/azure/expressroute/expressroute-locations
-[ExR-D]: https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about
-[Az-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[VNet-peer]: ../virtual-network/virtual-network-peering-overview.md
+[S2S]: ../vpn-gateway/tutorial-site-to-site-portal.md
+[ExR]: ../expressroute/expressroute-introduction.md
+[ExR-eco]: ../expressroute/expressroute-locations.md
+[ExR-D]: ../expressroute/expressroute-erdirect-about.md
+[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

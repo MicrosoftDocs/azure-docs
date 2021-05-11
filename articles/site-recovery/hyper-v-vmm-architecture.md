@@ -1,12 +1,9 @@
 ---
 title: Architecture-Hyper-V disaster recovery to a secondary site with Azure Site Recovery 
 description: This article provides an overview of the architecture for disaster recovery of on-premises Hyper-V VMs to a secondary System Center VMM site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
 ---
 
 # Architecture - Hyper-V replication to a secondary site
@@ -27,7 +24,7 @@ The following table and graphic provide a high-level view of the components used
 
 **On-premises to on-premises architecture**
 
-![On-premises to on-premises](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagram showing on-premises to on-premises protection.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## Replication process
 

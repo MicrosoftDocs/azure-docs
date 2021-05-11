@@ -43,11 +43,11 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create application with simple commands
-          url: how-to-custom-commands-create-application-with-simple-commands.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Add parameters to your commands
-          url: how-to-custom-commands-add-parameters-to-commands.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Add validations to parameters and prompts for correction
-          url: how-to-custom-commands-add-parameter-configuration.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Integrate using the Speech SDK
           url: how-to-custom-commands-setup-speech-sdk.md
         - text: Setup Continuous Deployment for your Custom Commands app using Azure DevOps
@@ -57,11 +57,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: C# (UWP)
-          url: quickstart-voice-assistant-csharp-uwp.md
+          url: ./quickstarts/voice-assistants.md?pivots=programming-language-csharp
         - text: Java (Windows, macOS, Linux)
-          url: quickstart-voice-assistant-java-jre.md
+          url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
         - text: Java (Android)
-          url: quickstart-voice-assistant-java-android.md
+          url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
     - linkListType: tutorial
       links:
         - text: Voice enable your bot with Speech SDK
@@ -71,8 +71,14 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create a Custom Keyword
-          url: speech-devices-sdk-create-kws.md
+          url: ./custom-keyword-basics.md
     - linkListType: reference
       links:
         - text: Custom Keyword naming guidelines
-          url: speech-devices-sdk-kws-guidelines.md
+          url: ./custom-keyword-overview.md
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

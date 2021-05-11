@@ -1,8 +1,8 @@
 ---
-title: Create a private endpoint in Azure Private Link
+title: 'Quickstart - Create a private endpoint by using an ARM template'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
@@ -32,7 +32,7 @@ This template creates a private endpoint for an instance of Azure SQL Database.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
+:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -132,4 +132,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-Learn more about [Azure Private Link](private-link-overview.md).
+For more information on the services that support a private endpoint, see:
+> [!div class="nextstepaction"]
+> [Private Link availability](private-link-overview.md#availability)

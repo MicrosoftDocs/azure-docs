@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hub Planner | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Hub Planner.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7dca6768-1d0a-4e05-ad2e-8db7508ca3c1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Hub Planner
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Hub Planner with Azure Active Di
 * Enable your users to be automatically signed-in to Hub Planner with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Hub Planner supports **SP** initiated SSO.
-* Once you configure Hub Planner you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Hub Planner you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Hub Planner from the gallery
 
@@ -90,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.hubplanner.com/sso/callback`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Hub Planner Client support team](mailto:hello@hubplanner.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are the ones you will use. The only change you need to make is to replace \<SUBDOMAIN\> in the **Sign-on URL** with the subdomain you received when you signed up for Hub Planner. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -99,6 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Hub Planner** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -131,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Hub Planner SSO
 
-To configure single sign-on on **Hub Planner** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hub Planner support team](mailto:hello@hubplanner.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hub Planner** side, you need to sign in to your Hub Planner account and complete the following tasks. 
 
 ### Install the extension in Hub Planner
 
-To enable  SSO functionality, you must first enable the extension. As the account owner or with equivalent permissions, complete these steps:
+To enable SSO functionality, you must first enable the extension. As the account owner or with equivalent permissions, complete these steps:
 
 1. Go to **Settings**.
 1. In the side menu, select **Manage Extensions** > **Add/Remove Extensions**.
@@ -161,18 +156,18 @@ If you want to add other users go to **Settings** > **Manage resources** and add
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Hub Planner tile in the Access Panel, you should be automatically signed in to the Hub Planner for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Hub Planner tile in the Access Panel, you should be automatically signed in to the Hub Planner for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Hub Planner with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Hub Planner with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Hub Planner with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

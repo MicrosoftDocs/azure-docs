@@ -3,21 +3,21 @@ title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
 description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.author: diberry
+ms.date: 05/05/2021
+
 ---
 
 # How to improve the LUIS app by reviewing endpoint utterances
 
 The process of reviewing endpoint utterances for correct predictions is called [Active learning](luis-concept-review-endpoint-utterances.md). Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these real-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 
-## Enable active learning
+## Log user queries to enable active learning
 
 To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
 
@@ -29,7 +29,7 @@ Use the LUIS portal to construct the correct endpoint query.
 1. For the assigned prediction resource, select **Change query parameters**.
 
     > [!div class="mx-imgBorder"]
-    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Screenshot shows the Change query parameters link.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Toggle **Save logs** then save by selecting **Done**.
 
@@ -38,14 +38,17 @@ Use the LUIS portal to construct the correct endpoint query.
 
      This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
 
-## Correct intent predictions to align utterances
+## Correct predictions to align utterances
 
-Each utterance has a suggested intent displayed in the **Aligned intent** column.
+Each utterance has a suggested intent displayed in the **Predicted Intent** column, and the suggested entities in dotted bounding boxes.
 
 > [!div class="mx-imgBorder"]
 > [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list.
+If you agree with the predicted intent and entities, select the check mark next to the utterance. If the check mark is disabled, this means that there is nothing to confirm.  
+If you disagree with the suggested intent, select the correct intent from the Predicted intent drop-down list. 
+If you disagree with the suggested entities, start labeling them.
+After you are done, select the check mark next to the utterance to confirm what you labeled. Select **save utterance** to move it from the review list and add it its respective intent.
 
 > [!TIP]
 > It is important to go to the Intent details page to review and correct the entity predictions from all example utterances from the **Review Endpoint Utterances** list.
@@ -58,7 +61,8 @@ If you are unsure if you should delete the utterance, either move it to the None
 
 ## Disable active learning
 
-To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=false` querystring parameter and value or not using the querystring value because the default value is false.
+To disable active learning, don't log user queries. This is accomplished by changing the query parameters as shown above or by setting the `log=false` parameter in the endpoint query, or you may omit the `log` parameter because the default value is `false`.
+
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
-description: In this article, you'll learn how to build an application with accessibility features using Microsoft Azure Maps.
+description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
 services: azure-maps 
 author: rbrundritt
 ms.author: richbrun
@@ -174,4 +174,4 @@ Take a look at these useful accessibility tools:
 > [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)
 
 > [!div class="nextstepaction"]
-> [No Coffee Vision Simulator](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
+> [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)

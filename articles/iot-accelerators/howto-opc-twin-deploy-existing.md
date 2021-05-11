@@ -12,6 +12,9 @@ manager: philmea
 
 # Deploy OPC Twin to an existing project
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The OPC Twin module runs on IoT Edge and provides several edge services to the OPC Twin and Registry services.
 
 The OPC Twin microservice facilitates the communication between factory operators and OPC UA server devices on the factory floor via an OPC Twin IoT Edge module. The microservice exposes OPC UA services (Browse, Read, Write, and Execute) via its REST API. 
@@ -25,7 +28,7 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 
 ## Prerequisites
 
-Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
+Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git
@@ -63,8 +66,8 @@ It is possible that the name of the website is already in use.  If you run into 
 
 The deployment script tries to register two AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, the deployment might fail. There are two options:
 
-1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
-2. Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
+* If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
+* Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
 
 > [!WARNING]
 > NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Twin endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.

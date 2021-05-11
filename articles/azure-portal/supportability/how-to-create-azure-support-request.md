@@ -1,19 +1,14 @@
 ---
-title: How to create an Azure support request | Microsoft Docs
+title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
-services: Azure Supportability
-author: mgblythe
-manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.author: mblythe
+ms.date: 03/16/2021
 ---
 
 # Create an Azure support request
 
-Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
+Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
@@ -34,15 +29,15 @@ Azure provides unlimited support for subscription management, which includes bil
 
 You can get to **Help + support** in the Azure portal. It's available from the Azure portal menu, the global header, or the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
 
-### Role-based access control
+### Azure role-based access control
 
-To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ### Go to Help + support from the global header
 
 To start a support request from anywhere in the Azure portal:
 
-1. Select the **?** in the global header. Then select **Help + support**.
+1. Select the **?** in the global header, then select **Help + support**.
 
    ![Help and Support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +47,7 @@ To start a support request from anywhere in the Azure portal:
 
 ### Go to Help + support from a resource menu
 
-To start a support request in the context of the resource, you're currently working with:
+To start a support request in the context of the resource you're currently working with:
 
 1. From the resource menu, in the **Support + Troubleshooting** section, select **New support request**.
 
@@ -109,5 +104,5 @@ Follow these links to learn more:
 * [Azure support ticket REST API](/rest/api/support)
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure)
+* Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)

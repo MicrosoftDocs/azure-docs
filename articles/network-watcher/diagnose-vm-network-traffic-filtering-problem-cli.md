@@ -1,34 +1,36 @@
 ---
 title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure CLI'
 titleSuffix: Azure Network Watcher
-description:  In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
+description:  Learn how to use Azure CLI to diagnose a virtual machine network traffic filter problem using the IP flow verify capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
+# Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: kumud
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI
 
 In this quickstart you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the Azure CLI version, run `az login`  to create a connection with Azure. The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
+- This quickstart requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+
+- The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -56,7 +58,7 @@ To test network communication with Network Watcher, you must first enable a netw
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
+If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) command to create a network watcher in the EastUS region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -67,7 +69,7 @@ az network watcher configure \
 
 ### Use IP flow verify
 
-When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command.
+When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow) command.
 
 Test outbound communication from the VM to one of the IP addresses for www.bing.com:
 
@@ -119,7 +121,7 @@ The result returned informs you that access is denied because of a security rule
 
 ## View details of a security rule
 
-To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg) command:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -129,7 +131,7 @@ az network nic list-effective-nsg \
 
 The returned output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Use IP flow verify](#use-ip-flow-verify):
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -170,7 +172,7 @@ You can see in the previous output that **destinationAddressPrefix** is **Intern
 
 When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -203,7 +205,7 @@ The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denie
 
 When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -246,6 +248,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem-cli.md) or, to diagnose outbound routing, latency, and traffic filtering problems, with one tool, see [Connection troubleshoot](network-watcher-connectivity-cli.md).

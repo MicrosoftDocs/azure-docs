@@ -41,13 +41,13 @@ The Anomaly Detection offering comes with useful tools to get you started.
 -->
 
 ## API Deployment
-In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](/azure/machine-learning/studio/manage-new-webservice).
+In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](../classic/manage-new-webservice.md).
 
 ## Scaling the API
 By default, your deployment will have a free Dev/Test billing plan that includes 1,000 transactions/month and 2 compute hours/month.  You can upgrade to another plan as per your needs.  Details on the pricing of different plans are available [here](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API pricing".
 
 ## Managing AML Plans
-You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](/azure/machine-learning/studio/manage-new-webservice) under the "Managing billing plans" section.
+You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](../classic/manage-new-webservice.md) under the "Managing billing plans" section.
 
 ## API Definition
 The web service provides a REST-based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described below.
@@ -192,4 +192,3 @@ The API runs all detectors on your time series data and returns anomaly scores a
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

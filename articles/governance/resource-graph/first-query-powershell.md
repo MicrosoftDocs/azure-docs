@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Your first PowerShell query"
+title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 05/20/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -30,9 +32,11 @@ with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell
 
 The Azure Resource Graph module requires the following software:
 
-- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
+  [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 
@@ -104,7 +108,7 @@ top five results.
 > subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
 > cmdlet by running
 > `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
-   
+
 ## Clean up resources
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
@@ -119,7 +123,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]
-> This does not delete the module file downloaded earlier. It only removes it from the running
+> This doesn't delete the module file downloaded earlier. It only removes it from the running
 > PowerShell session.
 
 ## Next steps

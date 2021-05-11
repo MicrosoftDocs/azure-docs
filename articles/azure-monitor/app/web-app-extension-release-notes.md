@@ -17,12 +17,30 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 ## Frequently asked questions
 
 - How to find which version of the extension I am currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) for more information.
+    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](./azure-web-apps.md?tabs=net#troubleshooting) for more information.
 
 - What if I'm using private extensions?
     - Uninstall private site extensions since it's no longer supported.
 
 ## Release notes
+
+### 2.8.38
+
+- JAVA extension: upgraded to [Java Agent 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) from 2.5.1.
+- Node.js extension: Updated AI SDK to [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) from 1.8.7.
+- .NET Core: Removed out-of-support versions (2.0, 2.2, 3.0). Supported versions are 2.1 and 3.1.
+
+### 2.8.37
+
+- AppSvc Windows extension: Made .Net Core work with any version of System.Diagnostics.DiagnosticSource.dll.
+
+### 2.8.36
+
+- AppSvc Windows extension: Enabled Inter-op with AI SDK in .NET Core.
+
+### 2.8.35
+
+- AppSvc Windows extension: Added .NET Core 3.1 support.
 
 ### 2.8.33
 

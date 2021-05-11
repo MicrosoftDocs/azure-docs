@@ -4,12 +4,12 @@ description: Use the Azure CLI example script to create a database in Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: carlrab
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 07/16/2019
 ---
 # Use the Azure CLI to add a database to a failover group
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command-specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | Database commands. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | Failover group commands. |

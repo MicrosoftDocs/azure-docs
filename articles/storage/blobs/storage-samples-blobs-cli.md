@@ -1,13 +1,14 @@
 ---
 title: Azure CLI samples for Blob storage | Microsoft Docs
-description: Azure CLI samples for working with Azure Blob Storage
-author: mhopkins-msft
+description: See links to Azure CLI samples for working with Azure Blob Storage, such as creating a storage account, deleting containers with a specific prefix, and more.
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Blob storage

@@ -10,7 +10,7 @@ ms.date: 12/08/2017
 
 Application Insights automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.
 
-This feature requires no special setup, other than [configuring exception reporting](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) for your app. It is active when your app generates enough exception telemetry.
+This feature requires no special setup, other than [configuring exception reporting](./asp-net-exceptions.md#set-up-exception-reporting) for your app. It is active when your app generates enough exception telemetry.
 
 ## When would I get this type of smart detection notification?
 You might get this type of notification if your app is exhibiting an abnormal rise in the number of exceptions of a specific type during a day, compared to a baseline calculated over the previous seven days.

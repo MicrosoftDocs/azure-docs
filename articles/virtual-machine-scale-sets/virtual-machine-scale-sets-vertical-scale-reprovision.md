@@ -84,7 +84,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 ## Create an Azure Automation Account with run-as capability
 The first thing you need to do is create an Azure Automation account that hosts the runbooks used to scale the virtual machine scale set instances. Recently [Azure Automation](https://azure.microsoft.com/services/automation/) introduced the "Run As account" feature that makes setting up the Service Principal for automatically running the runbooks on a user's behalf. For more information, see:
 
-* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authenticate Runbooks with Azure Run As account](../automation/manage-runas-account.md)
 
 ## Import Azure Automation Vertical Scale runbooks into your subscription
 
@@ -114,7 +114,7 @@ Once you've imported the runbooks, add a webhook to the runbook so it can be tri
 ## Add an alert to your virtual machine scale set
 
 Below is a PowerShell script that shows how to add an alert to a virtual machine scale set. Refer to the following article to get the name of the metric to fire the alert on:
-[Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
+[Azure Monitor autoscaling common metrics](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -149,8 +149,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
-* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor/powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor/cli-samples.md)
 
 ## Summary
 

@@ -3,9 +3,10 @@ title: OpenShift in Azure overview
 description: An overview of OpenShift in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
@@ -25,7 +26,7 @@ There are multiple versions of OpenShift available.  Of these versions, only two
 
 ## Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) documentation.
+Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](../../openshift/index.yml) documentation.
 
 ## OpenShift Container Platform
 

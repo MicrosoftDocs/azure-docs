@@ -3,7 +3,7 @@ title: Create an access review of an access package in Azure AD entitlement mana
 description: Learn how to create an access review policy for entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -29,7 +29,7 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
 - Azure AD Premium P2
-- Global administrator, User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 

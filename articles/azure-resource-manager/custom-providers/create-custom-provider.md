@@ -4,7 +4,8 @@ description: Describes how to create a resource provider and deploy its custom r
 author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: evanhi
+ms.author: evanhi 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create a custom provider and deploy custom resources
@@ -18,8 +19,11 @@ In this quickstart, you create your own resource provider and deploy custom reso
 
 # [Azure CLI](#tab/azure-cli)
 
-- The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az_rest).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -28,8 +32,6 @@ In this quickstart, you create your own resource provider and deploy custom reso
 - After the **ARMClient** is installed you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Deploy custom provider
 
@@ -46,7 +48,7 @@ To deploy the custom provider, use Azure CLI, PowerShell, or the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [az group create](/cli/azure/group#az-group-create) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) commands deploy the resources.
+This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [az group create](/cli/azure/group#az_group_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) commands deploy the resources.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -259,7 +261,7 @@ You receive the response:
 
 ## Custom resource provider commands
 
-Use the [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands to work with your custom resource provider.
+Use the [custom-providers](/cli/azure/custom-providers/resource-provider) commands to work with your custom resource provider.
 
 ### List custom resource providers
 

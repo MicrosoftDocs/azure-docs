@@ -5,7 +5,8 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
+ms.custom: devx-track-js
 ---
 
 # Writing plugins for Azure Media Player #

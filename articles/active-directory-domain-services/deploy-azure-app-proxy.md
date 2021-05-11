@@ -2,7 +2,7 @@
 title: Deploy Azure AD Application Proxy for Azure AD Domain Services | Microsoft Docs
 description: Learn how to provide secure access to internal applications for remote workers by deploying and configuring Azure Active Directory Application Proxy in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Deploy Azure AD Application Proxy for secure access to internal applications in an Azure Active Directory Domain Services managed domain
@@ -109,13 +109,13 @@ If you deploy multiple Azure AD Application Proxy connectors, you must configure
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
-[Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
+[Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer

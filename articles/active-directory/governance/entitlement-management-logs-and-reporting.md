@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 
 
 #Customer intent: As an administrator, I want to extend data retention in entitlement management past the default period by using Azure Monitor.
@@ -58,7 +59,7 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -129,7 +130,7 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven't already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps) (if you haven't already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
@@ -157,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
  
@@ -168,8 +168,7 @@ $wks | ft CustomerId, Name
 ```
 
 ### Send the query to the Log Analytics workspace
-Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) to send a Kusto query to that workspace. These queries are written in [Kusto query language](https://docs.microsoft.com/azure/kusto/query/).
+Finally, once you have a workspace identified, you can use [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) to send a Kusto query to that workspace. These queries are written in [Kusto query language](/azure/kusto/query/).
  
 For example, you can retrieve the date range of the audit event records from the Log Analytics workspace, with PowerShell cmdlets to send a query like:
  
@@ -188,5 +187,4 @@ $bResponse.Results |ft
 ```
 
 ## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

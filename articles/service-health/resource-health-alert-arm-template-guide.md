@@ -12,17 +12,14 @@ This article will show you how to create Resource Health Activity Log Alerts pro
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
-> [!NOTE]
-> Resource Health alerts currently are in preview.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
-1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)
-2. You need to [create or reuse an Action Group](../azure-monitor/platform/action-groups.md) configured to notify you
+1. You need to install the [Azure PowerShell module](/powershell/azure/install-az-ps)
+2. You need to [create or reuse an Action Group](../azure-monitor/alerts/action-groups.md) configured to notify you
 
 ## Instructions
 1. Using PowerShell, log in to Azure using your account, and select the subscription you want to interact with
@@ -450,5 +447,5 @@ Learn more about Resource Health:
 
 
 Create Service Health Alerts:
--  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Azure Activity Log event schema](../azure-monitor/platform/activity-log-schema.md)
+-  [Configure Alerts for Service Health](./alerts-activity-log-service-notifications-portal.md) 
+-  [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md)

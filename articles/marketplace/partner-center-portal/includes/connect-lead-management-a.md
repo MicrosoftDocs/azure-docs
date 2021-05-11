@@ -7,6 +7,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
 ms.custom: include file
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.

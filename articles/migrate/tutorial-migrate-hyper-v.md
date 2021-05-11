@@ -1,8 +1,11 @@
 ---
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
@@ -18,7 +21,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migration:Server Migration tool.
+> * Add the Azure Migrate:Server Migration tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -36,23 +39,8 @@ Before you begin this tutorial, you should:
 2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
 3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 4. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
-
-   
-## Add the Azure Migrate:Server Migration tool
-
-Add the Azure Migrate:Server Migration tool. If you don't yet have an Azure Migrate project [create that first](how-to-add-tool-first-time.md) to set up an Azure Migrate project. You add the Azure Migrate:Server Migration tool when you create the project.
-
-If you have a project set up, add the tool as follows:
-
-1. In the Azure Migrate project, click **Overview**. 
-2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
-3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
-
-    ![Select a tool](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
-
-4. In the tools list, select **Azure Migrate: Server Migration** > **Add tool**
-
-    ![Server Migration tool](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
+5. Go to the already created project or [create a new project](./create-manage-projects.md)
+6. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Download and install the provider
 
@@ -107,28 +95,32 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 5. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
 7. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
 8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-9. In **Azure Hybrid Benefit**:
+9. In **Availability options**, select:
+    -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+10. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
-    - **Availability set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
     ![VM compute settings](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+12. In **Disks**, specify the VM disks that needs to be replicated to Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
-    ![Disks](./media/tutorial-migrate-hyper-v/disks.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-hyper-v/disks.png)
 
-10. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+13. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, in **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -136,12 +128,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 ## Provision for the first time
 
 If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate: Server Migration automatically provisions these resources in same resource group as the project.
-
-- **Service bus**: Azure Migrate: Server Migration uses the Service Bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
-- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
-
+- **Cache storage account**: The Azure Site Recovery provider software installed on Hyper-V hosts uploads replication data for the VMs configured for replication to a storage account (known as the cache storage account, or log storage account) in your subscription. The Azure Migrate service then copies the uploaded replication data from the storage account to the replica-managed disks corresponding to the VM. The cache storage account needs to be specified while configuring replication for a VM and The Azure Migrate portal automatically creates one for the Azure Migrate project when replication is configured for the first time in the project.
 
 ## Track and monitor
 
@@ -221,7 +208,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
-    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:

@@ -9,11 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Diagnose and solve issues in your Azure Time Series Insights Gen1 environment
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes issues that you might encounter in your Azure Time Series Insights environment. The article offers potential causes and solutions for resolution.
 
@@ -29,7 +32,7 @@ If no data is appearing in the [Azure Time Series Insights explorer](https://ins
 
 ### Cause A: Event source data isn't in JSON format
 
-Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
 ### Cause B: The event source key is missing a required permission
 
@@ -61,12 +64,12 @@ For example, if you have 5 million events in an event source when you connect to
 
 If you have old events in your event source, you can approach throttling in one of two ways:
 
-- Change your event source's retention limits to help remove old events that you don't want to show up in Azure Time Series Insights.
-- Provision a larger environment size (number of units) to increase the throughput of old events. In the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the event capacity to one unit after Azure Time Series Insights catches up.
+* Change your event source's retention limits to help remove old events that you don't want to show up in Azure Time Series Insights.
+* Provision a larger environment size (number of units) to increase the throughput of old events. In the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the event capacity to one unit after Azure Time Series Insights catches up.
 
 The enforced throttling limit is based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you'll experience throttling and a lag.
 
-The following figure shows a Azure Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
+The following figure shows an Azure Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
 [![Environment capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
@@ -77,7 +80,7 @@ Imagine an environment that ingests messages from an event hub. It has a daily i
 
 An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute).
 
-To get a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
+To get a high-level understanding of how flattening logic works, see [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
 #### Recommended resolutions for excessive throttling
 
@@ -123,12 +126,12 @@ The first column header should be your timestamp property name. Next to the word
 
 The following values won't be displayed:
 
-- *(abc)*: Indicates that Azure Time Series Insights is reading the data values as strings.
-- *Calendar icon*: Indicates that Azure Time Series Insights is reading the data values as datetime values.
-- *#*: Indicates that Azure Time Series Insights is reading the data values as integers.
+* *(abc)*: Indicates that Azure Time Series Insights is reading the data values as strings.
+* *Calendar icon*: Indicates that Azure Time Series Insights is reading the data values as datetime values.
+* *#*: Indicates that Azure Time Series Insights is reading the data values as integers.
 
 ## Next steps
 
-- Read about [how to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Read about [how to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Learn [how to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+* Learn [how to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).

@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT for Azure demo projects
-description: links to code demonstration tutorials for Avere vFXT
+description: "These samples show key features and use cases for Avere vFXT for Azure: video rendering, high-performance computing, vFXT performance, and client setup."
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
@@ -24,7 +24,7 @@ Sample tutorials are provided on [GitHub](https://github.com/Azure/Avere). These
 
 ## vFXT performance
 
-* [Measure vFXT performance with vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - A basic test setup to generate small and medium-sized workloads to test the vFXT memory and disk subsystems
+* [Measure vFXT performance with vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - A basic test setup to generate small and midsize workloads to test the vFXT memory and disk subsystems
 
 ## Client setup
 

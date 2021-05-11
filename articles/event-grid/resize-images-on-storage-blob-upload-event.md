@@ -15,11 +15,11 @@ You use the Azure CLI and the Azure portal to add the resizing functionality to 
 
 # [\.NET v12 SDK](#tab/dotnet)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Screenshot that shows a published web app in a browser for the \.NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -38,7 +38,7 @@ To complete this tutorial:
 
 You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -278,7 +278,7 @@ An event subscription indicates which provider-generated events you want sent to
 
 1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
-    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
+    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
@@ -296,7 +296,7 @@ Click the **Upload photos** region to select and upload a file. You can also dra
 
 Notice that after the uploaded image disappears, a copy of the uploaded image is displayed in the **Generated Thumbnails** carousel. This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
-![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot that shows a published web app titled "ImageResizer" in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 
@@ -324,3 +324,4 @@ Advance to part three of the Storage tutorial series to learn how to secure acce
 + To try another tutorial that features Azure Functions, see [Create a function that integrates with Azure Logic Apps](../azure-functions/functions-twitter-email.md).
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
+

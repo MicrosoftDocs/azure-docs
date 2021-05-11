@@ -39,12 +39,22 @@ landingContent:
             url: ./first-query-azurecli.md
           - text: First query (Azure PowerShell)
             url: ./first-query-powershell.md
+          - text: First query (.NET)
+            url: ./first-query-dotnet.md
           - text: First query (Go)
             url: ./first-query-go.md
+          - text: First query (Java)
+            url: ./first-query-java.md
+      - linkListType: quickstart
+        links:
           - text: First query (JavaScript)
             url: ./first-query-javascript.md
           - text: First query (Python)
             url: ./first-query-python.md
+          - text: First query (Ruby)
+            url: ./first-query-ruby.md
+          - text: First query (REST)
+            url: ./first-query-rest-api.md
           - text: Share queries (Portal)
             url: ./tutorials/create-share-query.md
       - linkListType: concept
@@ -96,15 +106,15 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/resource-graph/graph
+            url: /cli/azure/graph
           - text: Azure PowerShell
-            url: /powershell/module/az.resourcegraph/
+            url: /powershell/module/az.resourcegraph/#resourcegraph
           - text: Azure SDK for .NET
             url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
           - text: Azure SDK for Go
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
           - text: Azure SDK for Java
-            url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+            url: /java/api/overview/azure/resourcegraph/management
           - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Azure SDK for Python

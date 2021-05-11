@@ -3,21 +3,22 @@ title: Create content keys with REST | Microsoft Docs
 description: This article demonstrates how to create content keys that provide secure access to assets.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Create content keys with REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -37,7 +38,7 @@ The following are general steps for generating content keys that you associate w
 1. Randomly generate a 16-byte AES key (for common and envelope encryption) or a 32-byte AES key (for storage encryption). 
    
     This is the content key for your asset, which means all files associated with that asset need to use the same content key during decryption. 
-2. Call the [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2. Call the [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3. Encrypt your content key with the public key of the X.509 Certificate. 
    
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -264,4 +265,3 @@ HTTP/1.1 204 No Content
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

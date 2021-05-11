@@ -1,11 +1,11 @@
 ---
 title: Use Azure Active Directory - Azure Database for PostgreSQL - Single Server
 description: Learn about how to set up Azure Active Directory (AAD) for authentication with Azure Database for PostgreSQL - Single Server
-author: lfittl
-ms.author: lufittl
+author: sunilagarwal 
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 07/23/2020
 ---
 
 # Use Azure Active Directory for authentication with PostgreSQL

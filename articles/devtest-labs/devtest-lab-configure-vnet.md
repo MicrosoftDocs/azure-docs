@@ -50,10 +50,9 @@ The following steps walk you through adding an existing virtual network (and sub
 Now that the virtual network is configured, it can be selected when creating a VM. 
     To see how to create a VM and specify a virtual network, refer to the article, [Add a VM to a lab](devtest-lab-add-vm.md). 
 
-Azure's [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network) provides more information about how to use VNets, including how to set up and manage a VNet and connect it to your on-premises network.
+Azure's [Virtual Network Documentation](../virtual-network/index.yml) provides more information about how to use VNets, including how to set up and manage a VNet and connect it to your on-premises network.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 Once you have added the desired virtual network to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).
-

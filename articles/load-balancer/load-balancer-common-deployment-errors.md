@@ -30,11 +30,11 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for virtual machine scale set health. Ensure that the probe that is set up is being actively used. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type (internal, public). You can have a maximum of one internal and one public Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group virtual machine scale sets or cross-availability zone virtual machine scale set. Use Standard Load Balancer instead. |
-|MarketplacePurchaseEligibilityFailed | Switch to the correct Administrative account to enable purchases due to subscription being an EA Subscription. You can read more [here](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Switch to the correct Administrative account to enable purchases due to subscription being an EA Subscription. You can read more [here](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
 |ResourceDeploymentFailure| If your load balancer is in a failed state, follow these steps to bring it back from the failed state:<ol><li>Go to https://resources.azure.com, and sign in with your Azure portal credentials.</li><li>Select **Read/Write**.</li><li>On the left, expand **Subscriptions**, and then expand the Subscription with the Load Balancer to update.</li><li>Expand **ResourceGroups**, and then expand the resource group with the Load Balancer to update.</li><li>Select **Microsoft.Network** > **LoadBalancers**, and then select the Load Balancer to update, **LoadBalancer_1**.</li><li>On the display page for **LoadBalancer_1**, select **GET** > **Edit**.</li><li>Update the **ProvisioningState** value from **Failed** to **Succeeded**.</li><li>Select **PUT**.</li></ol>|
 |  |  |
 
 ## Next steps
 
 * Look through the Azure Load Balancer [SKU comparison table](./skus.md)
-* Learn about [Azure Load Balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* Learn about [Azure Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

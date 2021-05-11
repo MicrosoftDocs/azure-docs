@@ -26,11 +26,11 @@ landingContent:
         links:
           - text: About Lab Services and DevTest Labs
             url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json                        
-          - text: About Classroom Labs
+          - text: About labs
             url: classroom-labs-overview.md
       - linkListType: concept
         links:
-          - text: Classroom Labs concepts
+          - text: Labs concepts
             url: classroom-labs-concepts.md
   # Card
   - title: Lab accounts
@@ -45,7 +45,7 @@ landingContent:
           url: how-to-manage-lab-accounts.md
         - text: Configure lab accounts
           url: how-to-configure-lab-accounts.md
-  - title: Set up classroom labs
+  - title: Set up labs
     linkLists:
     - linkListType: tutorial
       links:
@@ -53,7 +53,7 @@ landingContent:
           url: tutorial-setup-classroom-lab.md
     - linkListType: how-to-guide
       links:
-        - text: Create and manage classroom labs
+        - text: Create and manage labs
           url: how-to-manage-lab-accounts.md
         - text: Set up, customize, and publish templates
           url: how-to-create-manage-template.md
@@ -63,7 +63,7 @@ landingContent:
           url: how-to-configure-student-usage.md
         - text: Create and manage schedules
           url: how-to-create-schedules.md
-  - title: Use classroom labs
+  - title: Use labs
     linkLists:
       - linkListType: tutorial
         links:

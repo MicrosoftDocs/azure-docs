@@ -19,7 +19,7 @@ ms.subservice: B2C
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Using an open standard protocol offers more developer choice when selecting a library to integrate with our services. We've provided this walkthrough and others like it to aid developers with writing applications that connect to the Microsoft Identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) are able to connect to the Microsoft Identity platform.
 
 > [!WARNING]
-> Microsoft does not provide fixes for third-party libraries and has not done a review of those libraries. This sample is using a third-party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. For more information, see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Microsoft does not provide fixes for third-party libraries and has not done a review of those libraries. This sample is using a third-party library called AppAuth that has been tested for compatibility in basic scenarios with the Azure AD B2C. Issues and feature requests should be directed to the library's open-source project. For more information, see [this article](../active-directory/develop/reference-v2-libraries.md).
 >
 >
 

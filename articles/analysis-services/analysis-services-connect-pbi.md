@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -13,8 +13,8 @@ ms.reviewer: minewiskan
 
 Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
 
-> [!TIP]
-> Be sure to use the latest version of [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> If publishing a Power BI Desktop model to the Power BI service, on the Azure Analysis Services server, ensure the Case-Sensitive collation server property is not selected (default). The Case-Sensitive server property can be set by using SQL Server Management Studio.
 > 
 > 
   
@@ -32,6 +32,9 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 5. If prompted, enter your login credentials. 
 
+   > [!NOTE]
+   > One-time passcode (OTP) accounts aren't supported. 
+
 6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
     The model opens in Power BI Desktop with a blank report in Report view. The Fields list displays all non-hidden model objects. Connection status is displayed in the lower-right corner.
@@ -43,5 +46,4 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
-[Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
-
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

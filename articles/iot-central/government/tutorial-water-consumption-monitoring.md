@@ -3,7 +3,7 @@ title: 'Tutorial: Create a water consumption monitoring app with Azure IoT Centr
 description: 'Tutorial: Learn to create a water consumption monitoring application by using Azure IoT Central application templates.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -54,8 +54,6 @@ This template includes a sample water consumption device template, a simulated d
     * **Application name**: By default, the application uses *Water consumption monitoring* followed by a unique ID string that Azure IoT Central generates. Optionally, choose a friendly application name. You can change the application name later, too.
     * **URL**: Azure IoT Central autogenerates a URL based on the application name. You can choose to update the URL to your liking. You can change the URL later, too.
     * If you have an Azure subscription, enter your **Directory**, **Azure subscription**, and **Location** information. If you don't have a subscription, you can select the **7-day free trial** option and complete the required contact information.
-
-    For more information about directories and subscriptions, see [Create an application quickstart](../core/quick-deploy-iot-central.md).
 
 1. Select **Create** at the bottom of the page.
 
@@ -195,22 +193,23 @@ The water consumption monitoring application you created has three preconfigured
 
    ![Rules pane](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-1. Select **High pH alert**, which is one of the preconfigured rules in the application.
+1. Select **High water flow alert**, which is one of the preconfigured rules in the application.
 
      ![High pH alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    The `High flow alert` rule is configured to check against the condition `Acidity (pH)` is `greater than` the `Max flow threshold`. Max flow threshold is a cloud property defined in the **Smart Valve** device template. The value of `Max flow threshold` is set per device instance.
+    The `High water flow alert` rule is configured to check against the condition `Flow` is `greater than` the `Max flow threshold`. Max flow threshold is a cloud property defined in the **Smart Valve** device template. The value of `Max flow threshold` is set per device instance.
 
 Now let's create an email action.
 
 To add an action to the rule:
 
 1. Select **+ Email**.
-1. Enter **High pH alert** as the friendly **Display name** for the action.
+1. Enter **High flow alert** as the friendly **Display name** for the action.
 1. Enter the email address associated with your Azure IoT Central account in **To**.
 1. Optionally, enter a note to include in the text of the email.
 1. Select **Done** to complete the action.
-1. Select **Save** to save and activate the new rule.
+1. Select **Save** to save the new rule.
+1. Enable the rule.
 
 Within a few minutes, you should receive an email after the configured condition is met.
 
@@ -251,4 +250,7 @@ If you're not going to continue to use this application, delete it.
 
 ## Next steps
 
-* Learn more about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).
+* Learn more about 
+
+> [!div class="nextstepaction"]
+> [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).

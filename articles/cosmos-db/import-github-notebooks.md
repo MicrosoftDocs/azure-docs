@@ -4,12 +4,14 @@ description: Learn how to connect to GitHub and import the notebooks from a GitH
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 02/22/2021
 
 ---
 
 # Import notebooks from a GitHub repo into Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 After you [enable notebook support](enable-notebooks.md) for your Azure Cosmos accounts, you can create new notebooks, upload new notebooks from your local computer, or import the existing notebooks from your GitHub accounts. This article shows how to connect your notebooks workspace to GitHub and import the notebooks from a GitHub repo to your Azure Cosmos account. After importing, you can run them, make changes, and save the changes back to GitHub.
 
@@ -51,7 +53,12 @@ In the regular GitHub flow after committing the changes, you will typically push
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edit notebooks and commit changes to GitHub":::
 
+After editing the notebook, you can [Publish it to the notebook gallery](publish-notebook-gallery.md). 
+
 ## Next steps
 
 * Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](cosmosdb-jupyter-notebooks.md)
-
+* [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
+* [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
+* [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
+* [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)

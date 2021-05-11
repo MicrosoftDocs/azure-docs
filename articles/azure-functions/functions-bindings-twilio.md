@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017
+ms.custom: "devx-track-csharp, H1Hack27Feb2017"
 ---
 
 # Twilio binding for Azure Functions
@@ -199,7 +199,7 @@ module.exports = function (context, myQueueItem) {
 
 # [Python](#tab/python)
 
-The following example shows how to send an SMS message using the output binding as defined in the following *function.js*.
+The following example shows how to send an SMS message using the output binding as defined in the following *function.json*.
 
 ```json
     {
@@ -237,7 +237,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # [Java](#tab/java)
 
-The following example shows how to use the [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
+The following example shows how to use the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
 
 ```java
 package com.function;
@@ -297,7 +297,7 @@ public static CreateMessageOptions Run(
 {
     ...
 }
- ```
+```
 
 For a complete example, see [C# example](#example).
 
@@ -315,7 +315,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-Place [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
+Place [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
 ---
 
@@ -332,7 +332,7 @@ The following table explains the binding configuration properties that you set i
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
 |**to**| N/A - specify in code | **To**| This value is set to the phone number that the SMS text is sent to.|
 |**from**|**from** | **From**| This value is set to the phone number that the SMS text is sent from.|
-|**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |  
+|**body**|**body** | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

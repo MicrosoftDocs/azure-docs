@@ -1,13 +1,13 @@
 ---
 title: 'Azure ExpressRoute: Router configuration samples'
-description: This page provides router config samples for Cisco and Juniper routers.
+description: Use these interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers as examples to work with Azure ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: osamaz
+ms.date: 04/27/2021
+ms.author: duau
 
 ---
 # Router configuration samples to set up and manage routing
@@ -48,7 +48,7 @@ This sample provides the subinterface definition for a subinterface with two VLA
 
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 ```
 
@@ -107,7 +107,7 @@ You'll configure BFD in two places: one at the interface level and another at BG
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
  bfd interval 300 min_rx 300 multiplier 3
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 
 router bgp <Customer_ASN>

@@ -41,7 +41,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the impacted app's management page. In a failed Azure region, the impacted app shows a warning text. Click the warning text.
 
-    ![](media/manage-disaster-recovery/restore-start.png)
+    ![Screenshot of the impacted app's page. A warning notification is visible that describes the situation and provides a link for restoring the app.](media/manage-disaster-recovery/restore-start.png)
 
 1. In the **Restore Backup** page, configure the restore operation according to the following table. When finished, click **OK**.
 
@@ -51,7 +51,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
    | **Restore destination** | **Existing app** | Click the note below that says **Click here to change the restore destination app** and select the target app. In a disaster scenario, you can only restore the snapshot to an app in a different Azure region. |
    | **Restore site configuration** | **Yes** | |
 
-    ![](media/manage-disaster-recovery/restore-configure.png)
+    ![Screenshot of the Restore Backup page. A specific snapshot, the options that the preceding table lists, and the OK button are highlighted.](media/manage-disaster-recovery/restore-configure.png)
 
 3. Configure [everything else](#prepare) in the target app to mirror the impacted app and verify your configuration.
 
@@ -63,7 +63,7 @@ If you only want to recover the files from the impacted app without restoring it
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the impacted app's management page and click **Get publish profile**.
 
-    ![](media/manage-disaster-recovery/get-publish-profile.png)
+    ![Screenshot of the impacted app's page. A warning notification is visible but is not highlighted. The Get publish profile item is highlighted instead.](media/manage-disaster-recovery/get-publish-profile.png)
 
 1. Open the downloaded file and find the publishing profile that contains `ReadOnly - FTP` in its name. This is the disaster recovery profile. For example:
 
@@ -82,7 +82,7 @@ If you only want to recover the files from the impacted app without restoring it
 
 1. Once connected, download the entire */site/wwwroot* folder. The following screenshot shows how you download in [FileZilla](https://filezilla-project.org/).
 
-    ![](media/manage-disaster-recovery/download-content.png)
+    ![Screenshot of a FileZilla file hierarchy. The wwwroot folder is highlighted, and its shortcut menu is visible. In that menu, Download is highlighted.](media/manage-disaster-recovery/download-content.png)
 
 ## Next steps
 [Restore an app in Azure from a snapshot](app-service-web-restore-snapshots.md)

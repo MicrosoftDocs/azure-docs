@@ -3,12 +3,14 @@ title: WHERE clause in Azure Cosmos DB
 description: Learn about SQL WHERE clause for Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 
 ---
 # WHERE clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The optional WHERE clause (`WHERE <filter_condition>`) specifies condition(s) that the source JSON items must satisfy for the query to include them in results. A JSON item must evaluate the specified conditions to `true` to be considered for the result. The index layer uses the WHERE clause to determine the smallest subset of source items that can be part of the result.
   
@@ -100,7 +102,7 @@ You can also use the unary operators +,-, ~, and NOT in queries, as shown in the
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result.
+You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. Additionally, you can use the `IS_DEFINED` type checking function to query based on the presence or absence of a given JSON property. For instance, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` returns any JSON item that does not have a value for `isRegistered`.
 
 ## Next steps
 
