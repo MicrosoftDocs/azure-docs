@@ -16,7 +16,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 ## Prerequisites:
 
-- If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - An existing application that uses Azure Cosmos DB. If you don't have one, [here are some examples](https://github.com/AzureCosmosDB/labs).
 - An existing [Azure Cosmos DB SQL (core) API account](create-cosmosdb-resources-portal.md).
 
@@ -24,7 +24,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 1. Navigate to an Azure Cosmos DB account in the Azure portal and select the **Dedicated Gateway** tab.
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="An image that shows how to navigate to the dedicated gateway tab" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" alt-text="An image that shows how to navigate to the dedicated gateway tab" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-tab.png" border="false":::
 
 2. Fill out the **Dedicated gateway** form with the following details:
 
@@ -32,11 +32,11 @@ This article describes how to provision a dedicated gateway, configure the integ
    * **SKU** - Select a SKU with the required compute and memory size. 
    *  **Number of instances** - Number of nodes. For development purpose, we recommend starting with one node of the D4 size. Based on the amount of data you need to cache, you can increase the node size after initial testing.
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" alt-text="An image that shows sample input settings for creating a dedicated gateway cluster" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-input.png" border="false":::
 
 3. Select **Save** and wait about 5-10 minutes for the dedicated gateway provisioning to complete. When the provisioning is done, you'll see the following notification:
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" lightbox="An image that shows how to check if dedicated gateway provisioning is complete" border="false":::
 
 ## Configuring the integrated cache
 
@@ -46,17 +46,17 @@ This article describes how to provision a dedicated gateway, configure the integ
 
    The updated dedicated gateway connection string is in the **Keys** blade:
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" alt-text="An image that shows the dedicated gateway connection string" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-connection-string.png" border="false":::
 
    All dedicated gateway connection strings follow the same pattern. Remove `documents.azure.com` from your original connection string and replace it with `sqlx.cosmos.azure.com`. A dedicated gateway will always have the same connection string, even if you remove and reprovision it.
 
-   You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways to connect to Azure Cosmos DB.
+   You don’t need to modify the connection string in all applications using the same Azure Cosmos DB account. For example, you could have one `CosmosClient` connect using gateway mode and the dedicated gateway endpoint while another `CosmosClient` uses direct mode. In other words, adding a dedicated gateway doesn't impact the existing ways of connecting to Azure Cosmos DB.
 
 3. If you're using the .NET or Java SDK, set the connection mode to [gateway mode](sql-sdk-connection-modes.md#available-connectivity-modes). This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mode.
 
 ## Adjust request consistency
 
-Adjust request consistency. The easiest way to configure eventual consistency for all reads is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
+You must adjust the request consistency to eventual, if not, the request will always bypass the integrated cache. The easiest way to configure eventual consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
 
 > [!NOTE]
 > If you are using the Python SDK, you **must** explicitly set the consistency level for each request. The default account-level setting will not automatically apply.
@@ -80,7 +80,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> You can only adjust the MaxIntegratedCacheStaleness using the latest .NET and Java preview SDK's
+> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest .NET and Java preview SDK's.
 
 ## Verify cache hits
 
@@ -90,7 +90,7 @@ For a read request (point read or query) to utilize the integrated cache, **all*
 
 -	Your client connects to the dedicated gateway endpoint
 -  Your client uses gateway mode (Python and Node.js SDK's always use gateway mode)
--	The consistency for the request must be set to eventual consistency.
+-	The consistency for the request must be set to eventual.
 
 Next steps:
 

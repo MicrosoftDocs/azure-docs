@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Dedicated gateway
+title: Azure Cosmos DB dedicated gateway
 description: A dedicated gateway is compute that is a front-end to your Azure Cosmos DB account. When you connect to the dedicated gateway, it routes requests and caches data.
 author: timsander1
 ms.service: cosmos-db
@@ -26,9 +26,9 @@ There are only minimal code changes required in order for your application to us
 
 There are three ways to connect to an Azure Cosmos DB account:
 
-- Direct mode
-- Gateway mode using the standard gateway
-- Gateway mode using the dedicated gateway (only available for SQL API accounts)
+- [Direct mode](#connect-to-azure-cosmos-db-using-direct-mode)
+- [Gateway mode using the standard gateway](#connect-to-azure-cosmos-db-using-gateway-mode)
+- [Gateway mode using the dedicated gateway](#connect-to-azure-cosmos-db-using-the-dedicated-gateway) (only available for SQL API accounts)
 
 ### Connect to Azure Cosmos DB using direct mode:
 

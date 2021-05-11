@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB integrated cache
-description: Learn about the integrated cache in Azure Cosmos DB
+description: The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -14,7 +14,12 @@ ms.author: tisande
 
 The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
 
-An integrated cache is automatically configured within the dedicated gateway. The integrated cache has two components: an item cache for point reads and a query cache for queries. The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
+An integrated cache is automatically configured within the dedicated gateway. The integrated cache has two components: 
+
+* An item cache for point reads 
+* A query cache for queries
+
+The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
 
 ## Workloads that benefit from the integrated cache
 
@@ -34,7 +39,7 @@ The biggest factor in expected savings is the degree to which reads repeat thems
 Some workloads should not consider the integrated cache, including:
 
 -	Write-heavy workloads
--   Rarely repeated point reads or queries
+-  Rarely repeated point reads or queries
 
 ## Item cache:
 
@@ -68,7 +73,7 @@ The query cache can be used to cache queries. The query cache transforms a query
 
 You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same, whether your query hits the integrated cache or is executed on the backend query engine.
 
-The query cache will automaticlaly cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the cache will have an RU charge of 0. If you subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
+The query cache will automaticlaly cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If you subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
 
 > [!NOTE]
 > Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others.
@@ -109,11 +114,11 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 
 When using the integrated cache, it is helpful to monitor a few key metrics. Useful integrated cache metrics include:
 
-- `DedicatedGatewayRequestCount` - the total number of requests routed through a dedicated gateway
-- `IntegratedCacheEvictedEntriesSize` – the total amount of data evicted from the cache
-- `IntegratedCacheTTLExpirationCount`  - the amount of data evicted from the cache specifically due to cached data exceeding the `MaxCacheStaleness` time.
-- `IntegratedCacheHitRate` – the number of requests that used the cache.
-- `IntegratedCacheSize` – the amount of data in the cache.
+- `DedicatedGatewayRequests` - The total number of requests routed through a dedicated gateway
+- `IntegratedCacheEvictedEntriesSize` – The total amount of data evicted from the cache
+- `IntegratedCacheTTLExpirationCount`  - The amount of data evicted from the cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheHitRate` – The number of requests that used the cache.
+- `IntegratedCacheSize` – The amount of data in the cache.
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
@@ -125,7 +130,7 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my application is using the dedicated gateway:
 
-Check the `DedicatedGatewayRequestCount`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application using the standard gateway or direct mode with your original connection string, you won't see an error message but the `DedicatedGatewayRequestCount` will be zero.
+Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application using the standard gateway or direct mode with your original connection string, you won't see an error message but the `DedicatedGatewayRequests` will be zero.
 
 ### I can’t tell if my requests are hitting the integrated cache:
 

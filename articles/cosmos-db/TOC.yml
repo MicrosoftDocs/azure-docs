@@ -628,9 +628,9 @@
               href: javascript-query-api.md
         - name: Integrated cache
           items:
-            - name: Dedicated gateway
+            - name: Dedicated gateway overview
               href: dedicated-gateway.md
-            - name: Integrated cache
+            - name: Integrated cache overview
               href: integrated-cache.md
             - name: Integrated cache FAQ
               href: integrated-cache-faq.md
