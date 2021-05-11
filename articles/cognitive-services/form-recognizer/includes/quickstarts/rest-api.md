@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-# Quickstart: Use the Form Recognizer REST API
+# Use the Form Recognizer REST API
 
 Get started with Form Recognizer, a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -1326,7 +1326,7 @@ To train a custom model, you'll need a set of training data in an Azure Storage 
 Training without labeled data is the default operation and is simpler. Alternatively, you can manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](label-tool.md).
 
 
 ### Train a model without labels
@@ -1357,7 +1357,7 @@ You'll receive a `201 (Success)` response with a **Location** header. The value 
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 

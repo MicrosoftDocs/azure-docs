@@ -44,7 +44,7 @@ Here are some examples of when using table tags would be appropriate:
 Follow our quickstart to train and use your  custom Form Recognizer model:
 
 > [!div class="nextstepaction"]
-> [Train with labels using the sample labeling tool](quickstarts/label-tool.md)
+> [Train with labels using the sample labeling tool](label-tool.md)
 
 ## See also
 

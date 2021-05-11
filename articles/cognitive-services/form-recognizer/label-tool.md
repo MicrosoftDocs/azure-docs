@@ -18,7 +18,7 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the sample labeling tool
 
-In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
+In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -34,7 +34,7 @@ To complete this quickstart, you must have:
 
 ## Create a Form Recognizer resource
 
-[!INCLUDE [create resource](../includes/create-resource.md)]
+[!INCLUDE [create resource](includes/create-resource.md)]
 
 ## Try it out
 
@@ -61,7 +61,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 > [!TIP]
 > The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).
 
-1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide.
+1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](deploy-label-tool.md) how-to guide.
 
    The host computer must meet the following hardware requirements:
 
@@ -127,7 +127,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 * Max age = 200
 
 > [!div class="mx-imgBorder"]
-> ![CORS setup in the Azure portal](../media/label-tool/cors-setup.png)
+> ![CORS setup in the Azure portal](media/label-tool/cors-setup.png)
 
 ## Connect to the sample labeling tool
 
@@ -141,11 +141,11 @@ Fill in the fields with the following values:
 
 * **Display Name** - The connection display name.
 * **Description** - Your project description.
-* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](includes/sas-instructions.md)]
 
-   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+   :::image type="content" source="media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-:::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
+:::image type="content" source="media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
 
 ## Create a new project
 
@@ -159,7 +159,7 @@ In the sample labeling tool, projects store your configurations and settings. Cr
 * **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="New project page on sample labeling tool.":::
+:::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on sample labeling tool.":::
 
 ## Label your forms
 
@@ -175,7 +175,7 @@ Select **Run OCR on all files** on the left pane to get the text and table layou
 
 The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+:::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
 
 In v2.1, if your training document does not have a value filled in, you can draw a box where the value should be. Use **Draw region** on the upper left corner of the window to make the region taggable.
 
@@ -228,7 +228,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
 ---
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
+:::image type="content" source="media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
 
 Follow the steps above to label at least five of your forms.
 
@@ -237,7 +237,7 @@ Follow the steps above to label at least five of your forms.
 You can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the **fields.json** file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
-> ![Value type selection with sample labeling tool](../media/whats-new/value-type.png)
+> ![Value type selection with sample labeling tool](media/whats-new/value-type.png)
 
 The following value types and variations are currently supported:
 
@@ -285,22 +285,22 @@ The following value types and variations are currently supported:
 
 At times, your data might lend itself better to being labeled as a table rather than key-value pairs. In this case, you can create a table tag by clicking on "Add a new table tag," specify whether the table will have a fixed number of rows or variable number of rows depending on the document, and define the schema.
 
-:::image type="content" source="../media/label-tool/table-tag.png" alt-text="Configuring a table tag.":::
+:::image type="content" source="media/label-tool/table-tag.png" alt-text="Configuring a table tag.":::
 
 Once you have defined your table tag, tag the cell values.
 
-:::image type="content" source="../media/table-labeling.png" alt-text="Labeling a table.":::
+:::image type="content" source="media/table-labeling.png" alt-text="Labeling a table.":::
 
 ## Train a custom model
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./client-library.md?pivots=programming-language-rest-api) or [client library](./client-library.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](includes\quickstarts\rest-api.md) or [client library guide](./client-library-guide.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Training view.":::
+:::image type="content" source="media/label-tool/train-screen.png" alt-text="Training view.":::
 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
@@ -316,7 +316,7 @@ With Model Compose, you can compose up to 100 models to a single model ID. When 
 To compose models in the sample labeling tool, select the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
 Choose the **Compose button**. In the pop-up, name your new composed model and select **Compose**. When the operation completes, your newly composed model should appear in the list.
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
+:::image type="content" source="media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
 
 ### [v2.0](#tab/v2-0)
 
@@ -360,5 +360,5 @@ In this quickstart, you've learned how to use the Form Recognizer sample labelin
 > [!div class="nextstepaction"]
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
-* [What is Form Recognizer?](../overview.md)
+* [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](client-library.md)

@@ -13,18 +13,19 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with client library or REST API
     items:
-  - name: "C#/.NET SDK"
+  - name: "Get started with C#/.NET SDK"
     href: includes/quickstarts/csharp-sdk.md
-  - name: "Java SDK"
+  - name: "Get started with Java SDK"
     href: includes/quickstarts/java-sdk.md
-  - name: "Python SDK"
+  - name: "Get started with Python SDK"
     href: includes/quickstarts/python-sdk.md
-  - name: "JavaScript SDK"
+  - name: "Get started with JavaScript SDK"
     href: includes/quickstarts/javascript-sdk.md
-   - name: "REST API"
+  - name: "Get started with REST API"
     href: includes/quickstarts/rest-api.md
+ - name: Client library guide
+   href: quickstarts/client-library-guide.md
 - name: Samples
   items:
   - name: "C#/.NET"

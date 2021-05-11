@@ -86,7 +86,7 @@ ms.author: lajanuar
 |Slovenian  | `slv` |
 |Spanish | `es` |
 |Swahili (Latin)  | `sw` |
-|Swedish | `sv` | |
+|Swedish | `sv` | 
 |Tatar (Latin)  | `tat` |
 |Tetum    | `tet` |
 |Turkish | `tr` |
@@ -98,7 +98,6 @@ ms.author: lajanuar
 |Yucatec Maya | `yua` |
 |Zhuang | `za` |
 |Zulu  | `zu` |
-
 
 ### [v2.0](#tab/v2-0)
 
@@ -127,11 +126,11 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 
 |Language| Locale code |
 |:-----|:----:|
-|Engish (Austrialia)|en-au|
-|English (Canada)|en-ca|
-|English (United Kingdom)|en-gb|
-|English (India|en-in|
-|English (United States)| en-us|
+|English (Austrialia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
 
 ### [v2.0](#tab/v2-0)
 
@@ -166,4 +165,8 @@ Language| Locale code |
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
+
 -----
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer](https://aka.ms/fott-2.1-ga)
