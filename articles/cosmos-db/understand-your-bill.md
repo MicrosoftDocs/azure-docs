@@ -256,7 +256,7 @@ Let's suppose you have an Azure free account and an Azure Cosmos DB free tier ac
 - For the first 12 months, your bill will not show any charge for 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account).
 - After removing 1400 RU/s and 50 GB of storage, we will be billed for an effective 600 RU/s (6 units) of provisioned throughput at the single write region rate and 5 GB of storage.
 - The monthly cost for RU/s would be: 6 units * $0.008 * 24 hours * 31 days = $35.72. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $35.72+ $1.25 = $36.97.
-- After the 12 month period, the Azure free account discount is no longer applicable. You are billed for an effective 1000 RU/s (10 units) of provisioned throughput at the single write region rate and 30 GB of storage.
+- After the 12 month period, the Azure free account discount is no longer applicable. With the Azure Cosmos DB free tier discount applied, you are billed for an effective 1000 RU/s (10 units) of provisioned throughput at the single write region rate and 30 GB of storage.
 
 ## Proactively estimating your monthly bill  
 
