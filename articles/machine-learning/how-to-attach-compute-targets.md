@@ -337,19 +337,24 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Connect to your Kubernetes cluster using Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster)
+* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Configure Azure Arc enabled Kubernetes cluster for machine learning training (preview)](/azure/azure-arc/kubernetes/how-to-train-machine-learning.md)
 
 > [!IMPORTANT]
-> Kubernetes attached compute clusters for training are only suppoerted in the EastUS2EUAP, EastUS and West Europe regions.
+> Kubernetes attached compute clusters for training are only supported in the EastUS2EUAP, EastUS and West Europe regions.
 
 To attach your Kubernetes cluster use the Azure Machine Learning SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
 The following code shows how to attach an Azure Kubernetes cluster to your Azure Machine Learning workspace.
 
 ```python
-from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
+from azureml.core.compute import KubernetesCompute
 
+# Optional
 k8s_config = {
+    "namespace": "<KUBERNETES-NAMESPACE>",
+    "nodeSelector: {
+        "VMSizes": "<VM-SIZE>"
+    }
 }
 
 attach_config = KubernetesCompute.attach_configuration(
@@ -357,7 +362,7 @@ attach_config = KubernetesCompute.attach_configuration(
     aml_k8s_config=k8s_config
 )
 
-compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
+compute_target = KubernetesCompute.attach(ws, "<COMPUTE-NAME>", attach_config)
 compute_target.wait_for_completion(show_output=True)
 ```
 

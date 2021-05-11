@@ -75,10 +75,10 @@ The example code in this article assumes that you have already created a compute
 >Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks. 
 
 > [!IMPORTANT]
-> To use Azure Kubernetes Service or Azure Arc enabled Kubernetes attached compute target for training, you have to install the `azureml-contrib-k8s` Python package and add the following import statement to your job submission script
+> To use Azure Kubernetes Service or Azure Arc enabled Kubernetes attached compute target for training, add the following import statement to your job submission script
 >
 >```python
->from azureml.contrib.core.compute.arckubernetescompute import ArcKubernetesCompute
+>from azureml.core.compute import KubernetesCompute
 >```
 
 ## Create an environment
