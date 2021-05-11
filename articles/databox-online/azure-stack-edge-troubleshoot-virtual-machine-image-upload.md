@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/07/2021
+ms.date: 05/10/2021
 ms.author: alkohli
 ---
 # Troubleshoot virtual machine image uploads in Azure Stack Edge Pro
@@ -48,7 +48,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 - Follow the steps in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) to create a fixed-size VHD for a Generation 1 virtual machine from your source VHD or VHDX.
 
-- You can also use the [Convert-VHD](https://docs.microsoft.com/en-us/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps) cmdlet in Hyper-V PowerShell to convert your VHDX or VHD to a fixed-size VHD.<!--Can they use this cmdlet in all cases? If they convert a Gen 2 VHDX to a fixed-size VHD, will it become a Gen 1 VHD?-->
+- You can also use the [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps&preserve-view=true) cmdlet in Hyper-V PowerShell to convert your VHDX or VHD to a fixed-size VHD.<!--Can they use this cmdlet in all cases? If they convert a Gen 2 VHDX to a fixed-size VHD, will it become a Gen 1 VHD?-->
 
 
 ## The condition specified using HTTP conditional header(s) is not met
