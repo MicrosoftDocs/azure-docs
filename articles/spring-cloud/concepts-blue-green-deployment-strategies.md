@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 Azure Spring cloud (Standard tier and higher) permits two deployments for every app, of which only one receives production traffic - a pattern commonly known as Blue-Green deployment. Azure Spring Cloud's support for Blue-Green deployment, together with a [Continuous Delivery (CD)](/azure/devops/learn/what-is-continuous-delivery) pipeline and rigorous automated testing, allows agile application deployments with high confidence.
 
-## Alternating Deployments
+## Alternating deployments
 
 The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that is not receiving production traffic. With the Azure Spring Cloud task for Azure Pipelines, you can accomplish this just by setting the `UseStagingDeployment` flag to `true`.
 
