@@ -23,9 +23,10 @@ In most cases, app developers need to know nothing more than how to deploy to th
 
 The following public preview limitations apply to App Service Kubernetes environments. They will be updated when additional distributions are validated and more regions are supported.
 
-| Validated Kubernetes distributions | Azure Kubernetes Service |
+| | |
 |-|-|
-| Supported Azure regions | East US, West Europe |
+| **Validated Kubernetes distributions** | Azure Kubernetes Service |
+| **Supported Azure regions** | East US, West Europe |
 
 ## Pods created by the App Service extension
 
