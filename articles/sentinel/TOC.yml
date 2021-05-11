@@ -296,6 +296,8 @@
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: Handle false positives
+    href: false-positives.md
   - name: Audit Azure Sentinel queries and activities
     href: audit-sentinel-data.md
   - name: Hunting
