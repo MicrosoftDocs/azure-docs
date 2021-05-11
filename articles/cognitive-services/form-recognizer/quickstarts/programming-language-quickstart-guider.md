@@ -17,15 +17,15 @@ ms.author: lajanuar
 
 ### Choose your SDK programming language or the REST API:
 
-## Analyze layout 
+## Analyze layout
 
-|Language|Quickstart|
-|-----------|------------------|
-|[**C#**](client-library.md?tabs=preview%2Cv2-1&pivots=programming-language-csharp#analyze-layout)|<a href="client-library.md?tabs=preview%2Cv2-1&pivots=programming-language-csharp#analyze-layout"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a> |
-|[**Java**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-java#analyze-layout)|<a href="client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-java#analyze-layout"><img src="../media/logos/logo_java.svg" alt="java logo" width="32px" height="32px"></a>|
-| [**JavaScript**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-javascript#analyze-layout)|<a href="client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-javascript#analyze-layout"><img src="../media/logos/logo_js.svg" alt="javaScript logo" width="32px" height="32px"></a>|
-| [**Python**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-python#analyze-layout)|<a href="client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-python#analyze-layout"><img src="../media/logos/logo_python.svg" alt="python logo" width="32px" height="32px"></a>|
-| [**Rest**](client-library?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-rest-api)|<a href="client-library?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-rest-api"><img src="../media/logos/logo_REST.svg" alt="rest logo" width="32px" height="32px"></a>|
+|Quickstart programming language|
+|-----------------------------|
+|<img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></br>[**C#**](client-library.md?tabs=preview%2Cv2-1&pivots=programming-language-csharp#analyze-layout)| |
+|<img src="../media/logos/logo_java.svg" alt="java logo" width="32px" height="32px"></br>[**Java**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-java#analyze-layout)|
+|<img src="../media/logos/logo_js.svg" alt="javaScript logo" width="32px" height="32px"></br>[**JavaScript**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-javascript#analyze-layout)|
+| <img src="../media/logos/logo_python.svg" alt="python logo" width="32px" height="32px"></br>[**Python**](client-library.md?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-python#analyze-layout)||
+|<img src="../media/logos/logo_REST.svg" alt="rest logo" width="32px" height="32px"></br> [**Rest**](client-library?branch=main&tabs=preview%2Cv2-1&pivots=programming-language-rest-api)|
 
 ## Analyze receipts
 
