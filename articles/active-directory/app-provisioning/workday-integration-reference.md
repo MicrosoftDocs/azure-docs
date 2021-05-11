@@ -1,15 +1,16 @@
 ---
 title: Azure Active Directory and Workday integration reference
-description: Technical deep dive into Workday-HR driven provisioning 
+description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/09/2021
-ms.author: chmutali
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: arvinh, chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with Workday
