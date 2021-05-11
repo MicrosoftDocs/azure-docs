@@ -101,11 +101,8 @@
       href: manage-public-ip-address-prefix.md
     - name: IPv6
       href: ipv6-overview.md
-<<<<<<< HEAD
     - name: Public IPv6 prefix
       href: ipv6-public-ip-address-prefix.md
-=======
->>>>>>> 31fa70a5966ecb75464d90dbb8a35c6cf306a925
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
