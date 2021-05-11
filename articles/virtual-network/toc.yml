@@ -230,10 +230,6 @@
       href: create-public-ip-prefix-portal.md
     - name: Create public IPv6 prefix
       href: ipv6-reserve-public-ip-address-prefix.md
-    - name: Manage public IP addresses
-      href: virtual-network-public-ip-address.md
-    - name: Manage public IP prefixes
-      href: manage-public-ip-address-prefix.md
     - name: Upgrade public IP address - Portal
       href: public-ip-upgrade-portal.md
     - name: Upgrade public IP address - PowerShell
