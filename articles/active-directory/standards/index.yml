@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Azure Active Directory configuring to standards documentation 
+summary: Azure and Azure Active Directory enable you to leverage their compliance certifications and configure your environment to meet governmental and industry standards.
+
+metadata:
+  title: Azure Active Directory configuring to standards documentation 
+  description: "Learn to configure Azure and Azure Active directory to meet governmental and industry standards."
+  manager: mtillman
+  ms.author: baselden
+  ms.collection: na
+  ms.date: 04/26/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card 
+  - title: Standards overviews
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Configure to identity standards
+            url: standards-overview.md
+          - text: NIST AAL overview
+            url: nist-overview.md
+          - text: FedRAMP High impact overview
+            url: configure-azure-active-directory-for-fedramp-high-impact.md
+    
+  # Card 
+  - title: Configure NIST AALs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Achieve NIST AAL 1
+            url: nist-authenticator-assurance-level-1.md
+          - text: Achieve NIST AAL 2
+            url: nist-authenticator-assurance-level-2.md
+          - text: Achieve NIST AAL 3
+            url:  nist-authenticator-assurance-level-3.md
+
+  # Card
+  - title: Configure FedRAMP controls
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure access controls
+            url: fedramp-access-controls.md
+          - text: Configure identification and authentication controls
+            url: fedramp-identification-and-authentication-controls.md
+          - text: Configure additional controls
+            url: fedramp-other-controls.md
+  

@@ -76,6 +76,9 @@ If you just created a free Azure account, you're the owner of your subscription.
 Set up an account that the appliance can use to access the physical servers.
 
 - For **Windows servers**, use a domain account for domain-joined servers, and a local account for server that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+    > [!Note]
+    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers and the domain/local account used to access the servers is added to these groups: Performance Monitor Users, Performance Log Users and WinRMRemoteWMIUsers.
+
 - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
 
 **Command** | **Purpose**
@@ -159,7 +162,7 @@ The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
 - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Download and installs an IIS rewritable module.
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config

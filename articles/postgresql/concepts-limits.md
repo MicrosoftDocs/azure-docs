@@ -1,8 +1,8 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Single Server
 description: This article describes limits in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020

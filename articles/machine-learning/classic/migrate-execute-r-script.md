@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning - Execute R Scrip
 description: Rebuild Studio (classic) Execute R script modules to run on Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper

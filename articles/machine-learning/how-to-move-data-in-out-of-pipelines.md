@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-# As a data scientist using Python, I want to get data into my pipeline and flowing between steps
+ms.topic: how-to
+ms.custom: contperf-fy20q4, devx-track-python, data4ml
+#Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 
 # Moving data into and between ML pipeline steps (Python)
@@ -24,7 +24,7 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wisƒh to persist
+- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()],
     inputs=[test.as_named_input('test').as_download()]
 )
 

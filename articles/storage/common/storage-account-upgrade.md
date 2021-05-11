@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 04/29/2021
 ms.author: tamram   
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -24,7 +24,7 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 > [!NOTE]
 > Although Microsoft recommends general-purpose v2 accounts for most scenarios, Microsoft will continue to support general-purpose v1 accounts for new and existing customers. You can create general-purpose v1 storage accounts in new regions whenever Azure Storage is available in those regions. Microsoft does not currently have a plan to deprecate support for general-purpose v1 accounts and will provide at least one year's advance notice before deprecating any Azure Storage feature. Microsoft will continue to provide security updates for general-purpose v1 accounts, but no new feature development is expected for this account type.
 >
-> As of October 1, 2020, pricing for general-purpose v1 accounts in new Azure Storage regions is equivalent to pricing for general-purpose v2 accounts in those regions. Pricing in existing Azure Storage regions has not changed. For pricing details for general-purpose v1 accounts in a specific region, see the Azure Storage pricing page. Choose your region, and then next to **Pricing offers**, select **Other**.
+> For new Azure regions that have come online after October 1, 2020, pricing for general-purpose v1 accounts has changed and is equivalent to pricing for general-purpose v2 accounts in those regions. Pricing for general-purpose v1 accounts in Azure regions that existed prior to October 1, 2020 has not changed. For pricing details for general-purpose v1 accounts in a specific region, see the Azure Storage pricing page. Choose your region, and then next to **Pricing offers**, select **Other**.
 
 ## Upgrade an account
 
@@ -34,12 +34,12 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your storage account.
-3. In the **Settings** section, click **Configuration**.
-4. Under **Account kind**, click on **Upgrade**.
-5. Under **Confirm upgrade**, type in the name of your account.
-6. Click **Upgrade** at the bottom of the blade.
+3. In the **Settings** section, select **Configuration**.
+4. Under **Account kind**, select on **Upgrade**.
+5. Under **Confirm upgrade**, enter the name of your account.
+6. Select **Upgrade** at the bottom of the blade.
 
-    ![Upgrade Account Kind](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    :::image type="content" source="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png" alt-text="Screenshot of configuration blade, upgrade account kind highlighted." lightbox="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

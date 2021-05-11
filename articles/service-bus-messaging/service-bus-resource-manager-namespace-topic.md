@@ -3,11 +3,13 @@ title: Create Azure Service Bus namespace topic using a template
 description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
 documentationcenter: .net
 author: spelluru
+ms.author: spelluru
+ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
-ms.author: spelluru 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-arm
 ---
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
@@ -20,12 +22,12 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 
 > [!NOTE]
 > The following Azure Resource Manager templates are available for download and deployment.
-> 
+>
 > * [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 > * [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
 > * [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
-> 
+>
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for **Service Bus**.
 
 ## What do you deploy?
@@ -36,7 +38,7 @@ With this template, you deploy a Service Bus namespace with topic and subscripti
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
+[![Deploy to Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicebus%2Fservicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -79,11 +81,11 @@ The name of the subscription created in the Service Bus namespace.
 The Service Bus API version of the template.
 
 ```json
-"serviceBusApiVersion": { 
-       "type": "string", 
-       "defaultValue": "2017-04-01", 
-       "metadata": { 
-           "description": "Service Bus ApiVersion used by the template" 
+"serviceBusApiVersion": {
+       "type": "string",
+       "defaultValue": "2017-04-01",
+       "metadata": {
+           "description": "Service Bus ApiVersion used by the template"
        }
 ```
 

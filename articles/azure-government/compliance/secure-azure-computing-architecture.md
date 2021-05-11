@@ -1,22 +1,13 @@
 ---
-# This basic template provides core metadata fields for Markdown articles on docs.microsoft.com.
-
-# Mandatory fields.
 title: Secure Azure Computing Architecture
 description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows U.S. DoD and civilian customers to comply with the SCCA FRD.
 author: jahender
 ms.author: jahender 
 ms.date: 4/9/2019
 ms.topic: article
-# Use ms.service for services or ms.prod for on-premises products. Remove the # before the relevant field.
 ms.service: azure-government
-# ms.prod: product-name-from-allow-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
+
 # Secure Azure Computing Architecture
 
 U.S. Department of Defense (DoD) customers who deploy workloads to Azure have asked for guidance to set up secure virtual networks and configure the security tools and services that are stipulated by DoD standards and practice. 

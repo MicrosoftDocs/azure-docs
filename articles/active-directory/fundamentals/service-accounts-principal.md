@@ -33,7 +33,7 @@ A given application instance has two distinct properties: the ApplicationID (als
 > You may find that the terms application and service principal are used interchangeably when loosely referring to an application in the context of authentication related tasks. However, they are two different representations of applications in Azure AD.
  
 
-The ApplicationID represents the global application and is the same for all the application instances across tenants. The ObjectID is a unique value for an application object and represents the service principal. As with users, groups, and other resources, the ObjectID helps uniquely identify an application instance in Azure AD.
+The ApplicationID represents the global application and is the same for all the application instances across tenants. The ObjectID is a unique value for an application object. As with users, groups, and other resources, the ObjectID helps uniquely identify an application instance in Azure AD.
 
 ​​For more detailed information on this topic, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md).
 
@@ -93,6 +93,7 @@ For more information see [Get-AzureADServicePrincipal](/powershell/module/azurea
 To assess the security of your service principals, ensure you evaluate privileges and credential storage.
 
 Mitigate potential challenges using the following information.
+
 |Challenges | Mitigations|
 | - | - |
 | Detect the user that consented to a multi-tenant app​, and detect illicit consent grants to a multi-tenant app | Run the following PowerShell to find multi-tenant apps.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Disable user consent. ​<br>Allow user consent from verified publishers, for selected permissions (recommended) <br> Use conditional access to block service principals from untrusted locations. Configure them under the user context, and their tokens should be used to trigger the service principal.|
@@ -112,7 +113,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
+ [Monitor service principal sign-ins](../reports-monitoring/concept-sign-ins.md)
 
 **To learn more about securing service accounts:**
 

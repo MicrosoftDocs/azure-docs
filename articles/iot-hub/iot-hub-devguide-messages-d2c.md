@@ -31,7 +31,7 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
-If your custom endpoint has firewall configurations, consider using the Microsoft trusted first party exception, to give your IoT Hub access to the specific endpoint - [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) and [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). This is available in select regions for IoT Hubs with [managed service identity](./virtual-network-support.md).
+If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 IoT Hub currently supports the following endpoints:
 
@@ -52,7 +52,7 @@ IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro
 
 The encoding format can be only set when the blob storage endpoint is configured; it can't be edited for an existing endpoint. To switch encoding formats for an existing endpoint, you'll need to delete and re-create the custom endpoint with the format you want. One helpful strategy might be to create a new custom endpoint with your desired encoding format and add a parallel route to that endpoint. In this way you can verify your data before deleting the existing endpoint.
 
-You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or the [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
+You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint), or [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -64,7 +64,7 @@ IoT Hub batches messages and writes data to storage whenever the batch reaches a
 
 You may use any file naming convention, however you must use all listed tokens. IoT Hub will write to an empty blob if there is no data to write.
 
-We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) for the list of files. Please see the following sample as guidance.
+We recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover). You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. Please see the following sample as guidance.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -98,7 +98,7 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
 
-Use the following tutorials to learn how to read message from an endpoint.
+Use the following tutorials to learn how to read messages from an endpoint.
 
 * Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
 

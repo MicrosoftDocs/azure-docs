@@ -1,5 +1,5 @@
 ---
-title: Agentless solution architecture
+title: What is agentless solution architecture
 description: Learn about Azure Defender for IoT agentless architecture and information flow.
 ms.topic: overview
 ms.date: 1/25/2021
@@ -102,7 +102,7 @@ The Defender for IoT portal in Azure is used to help you:
 
 - Update Threat Intelligence packages
 
-## See also
+## Next steps
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 

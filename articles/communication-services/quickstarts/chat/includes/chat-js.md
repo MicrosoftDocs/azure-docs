@@ -16,7 +16,7 @@ ms.author: mikben
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+- Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
 - Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
 
@@ -160,35 +160,37 @@ When resolved, `createChatThread` method returns a `CreateChatThreadResult`. Thi
 
 ```JavaScript
 async function createChatThread() {
-    let createThreadRequest = {
-        topic: 'Preparation for London conference',
-        participants: [{
-                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
-                    displayName: 'Jack'
-                }, {
-                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
-                    displayName: 'Geeta'
-                }]
-    };
-    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createChatThreadResult.chatThread.id;
-    return threadId;
-    }
+  const createChatThreadRequest = {
+    topic: "Hello, World!"
+  };
+  const createChatThreadOptions = {
+    participants: [
+      {
+        id: { communicationUserId: '<USER_ID>' },
+        displayName: '<USER_DISPLAY_NAME>'
+      }
+    ]
+  };
+  const createChatThreadResult = await chatClient.createChatThread(
+    createChatThreadRequest,
+    createChatThreadOptions
+  );
+  const threadId = createChatThreadResult.chatThread.id;
+  return threadId;
+}
 
 createChatThread().then(async threadId => {
-    console.log(`Thread created:${threadId}`);
-    // PLACEHOLDERS
-    // <CREATE CHAT THREAD CLIENT>
-    // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
-    // <SEND MESSAGE TO A CHAT THREAD>
-    // <LIST MESSAGES IN A CHAT THREAD>
-    // <ADD NEW PARTICIPANT TO THREAD>
-    // <LIST PARTICIPANTS IN A THREAD>
-    // <REMOVE PARTICIPANT FROM THREAD>
-    });
+  console.log(`Thread created:${threadId}`);
+  // PLACEHOLDERS
+  // <CREATE CHAT THREAD CLIENT>
+  // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
+  // <SEND MESSAGE TO A CHAT THREAD>
+  // <LIST MESSAGES IN A CHAT THREAD>
+  // <ADD NEW PARTICIPANT TO THREAD>
+  // <LIST PARTICIPANTS IN A THREAD>
+  // <REMOVE PARTICIPANT FROM THREAD>
+  });
 ```
-
-Replace **USER_ID_FOR_JACK** and **USER_ID_FOR_GEETA** with the user IDs obtained from creating users and tokens ([User Access Tokens](../../access-tokens.md))
 
 When you refresh your browser tab you should see the following in the console:
 ```console
@@ -209,6 +211,18 @@ Add this code in place of the `<CREATE CHAT THREAD CLIENT>` comment in **client.
 Chat Thread client for threadId: <threadId>
 ```
 
+## List all chat threads
+
+The `listChatThreads` method returns a `PagedAsyncIterableIterator` of type `ChatThreadItem`. It can be used for listing all chat threads.
+An iterator of `[ChatThreadItem]` is the response returned from listing threads
+
+```JavaScript
+const threads = chatClient.listChatThreads();
+for await (const thread of threads) {
+   // your code here
+}
+```
+
 ## Send a message to a chat thread
 
 Use `sendMessage` method to sends a message to a thread identified by threadId.
@@ -225,17 +239,17 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```JavaScript
-let sendMessageRequest =
+const sendMessageRequest =
 {
-    content: 'Hello Geeta! Can you share the deck for the conference?'
+  content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    senderDisplayName : 'Jack',
-    type: 'text'
+  senderDisplayName : 'Jack',
+  type: 'text'
 };
-let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-let messageId = sendChatMessageResult.id;
+const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
+const messageId = sendChatMessageResult.id;
 ```
 
 Add this code in place of the `<SEND MESSAGE TO A CHAT THREAD>` comment in **client.js**, refresh your browser tab and check the console.
@@ -245,15 +259,15 @@ Message sent!, message id:<number>
 
 ## Receive chat messages from a chat thread
 
-With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-signaling).
+With real-time signaling, you can subscribe to listen for new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
 ```JavaScript
 // open notifications channel
 await chatClient.startRealtimeNotifications();
 // subscribe to new notification
 chatClient.on("chatMessageReceived", (e) => {
-    console.log("Notification chatMessageReceived!");
-    // your code here
+  console.log("Notification chatMessageReceived!");
+  // your code here
 });
 
 ```
@@ -264,32 +278,16 @@ Alternatively you can retrieve chat messages by polling the `listMessages` metho
 
 ```JavaScript
 
-let pagedAsyncIterableIterator = await chatThreadClient.listMessages();
-let nextMessage = await pagedAsyncIterableIterator.next();
-    while (!nextMessage.done) {
-        let chatMessage = nextMessage.value;
-        console.log(`Message :${chatMessage.content}`);
-        // your code here
-        nextMessage = await pagedAsyncIterableIterator.next();
-    }
+const messages = chatThreadClient.listMessages();
+for await (const message of messages) {
+   // your code here
+}
 
 ```
 Add this code in place of the `<LIST MESSAGES IN A CHAT THREAD>` comment in **client.js**.
 Refresh your tab, in the console you should find the list of messages sent in this chat thread.
 
-
-`listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `updateMessage` and `deleteMessage`.
-For deleted messages `chatMessage.deletedOn` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.editedOn` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.createdOn` which can be used for ordering the messages.
-
-`listMessages` returns different types of messages which can be identified by `chatMessage.type`. These types are:
-
-- `Text`: Regular chat message sent by a thread participant.
-
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
-
-- `ThreadActivity/AddParticipant`: System message that indicates one or more participants have been added to the chat thread.
-
-- `ThreadActivity/RemoveParticipant`: System message that indicates a participant has been removed from the chat thread.
+`listMessages` returns different types of messages which can be identified by `chatMessage.type`. 
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -306,14 +304,14 @@ Before calling the `addParticipants` method, ensure that you have acquired a new
 
 ```JavaScript
 
-let addParticipantsRequest =
+const addParticipantsRequest =
 {
-    participants: [
-        {
-            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
-            displayName: 'Jane'
-        }
-    ]
+  participants: [
+    {
+      id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+      displayName: 'Jane'
+    }
+  ]
 };
 
 await chatThreadClient.addParticipants(addParticipantsRequest);
@@ -324,16 +322,10 @@ Add this code in place of the `<ADD NEW PARTICIPANT TO THREAD>` comment in **cli
 
 ## List users in a chat thread
 ```JavaScript
-async function listParticipants() {
-   let pagedAsyncIterableIterator = await chatThreadClient.listParticipants();
-   let next = await pagedAsyncIterableIterator.next();
-   while (!next.done) {
-      let user = next.value;
-      console.log(`User :${user.displayName}`);
-      next = await pagedAsyncIterableIterator.next();
-   }
+const participants = chatThreadClient.listParticipants();
+for await (const participant of participants) {
+   // your code here
 }
-await listParticipants();
 ```
 Add this code in place of the `<LIST PARTICIPANTS IN A THREAD>` comment in **client.js**, refresh your browser tab and check the console, you should see information about users in a thread.
 

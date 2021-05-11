@@ -67,13 +67,13 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 
 ### Attach disk at VM creation
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Create a VM using the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli-interactive
 az vm create \
@@ -88,7 +88,7 @@ az vm create \
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli-interactive
 az vm disk attach \
@@ -187,7 +187,7 @@ When you take a disk snapshot, Azure creates a read only, point-in-time copy of 
 
 ### Create snapshot
 
-Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az-vm-show) to shot the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
+Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az_vm_show) to shot the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -197,7 +197,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Now that you have the ID, use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to create a snapshot of the disk.
+Now that you have the ID, use [az snapshot create](/cli/azure/snapshot#az_snapshot_create) to create a snapshot of the disk.
 
 ```azurecli-interactive
 az snapshot create \
@@ -208,7 +208,7 @@ az snapshot create \
 
 ### Create disk from snapshot
 
-This snapshot can then be converted into a disk using [az disk create](/cli/azure/disk#az-disk-create), which can be used to recreate the virtual machine.
+This snapshot can then be converted into a disk using [az disk create](/cli/azure/disk#az_disk_create), which can be used to recreate the virtual machine.
 
 ```azurecli-interactive
 az disk create \
@@ -219,7 +219,7 @@ az disk create \
 
 ### Restore virtual machine from snapshot
 
-To demonstrate virtual machine recovery, delete the existing virtual machine using [az vm delete](/cli/azure/vm#az-vm-delete).
+To demonstrate virtual machine recovery, delete the existing virtual machine using [az vm delete](/cli/azure/vm#az_vm_delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -241,7 +241,7 @@ az vm create \
 
 All data disks need to be reattached to the virtual machine.
 
-Find the data disk name using the [az disk list](/cli/azure/disk#az-disk-list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
+Find the data disk name using the [az disk list](/cli/azure/disk#az_disk_list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
@@ -250,7 +250,7 @@ datadisk=$(az disk list \
    -o tsv)
 ```
 
-Use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command to attach the disk.
+Use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command to attach the disk.
 
 ```azurecli-interactive
 az vm disk attach \

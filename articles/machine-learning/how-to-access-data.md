@@ -5,12 +5,12 @@ description: Learn how to use datastores to securely connect to Azure storage se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.topic: how-to
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
@@ -89,18 +89,21 @@ We recommend creating a datastore for an [Azure Blob container](../storage/blobs
 
 To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you have permission to access the corresponding data storage container. This access depends on the authentication credentials used to register the datastore. 
 
-### Virtual network 
-
-By default, Azure Machine Learning cannot communicate with a storage account that is behind a firewall or within a virtual network. If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. 
-
 > [!NOTE]
 > This guidance also applies to [datastores created with identity-based data access (preview)](how-to-identity-based-data-access.md). 
 
-**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage.  
+### Virtual network 
+
+Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [allow list the IP address via the Azure portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link.md).
+
+**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. 
 
 **For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset; such as dataset previews, profiles and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 
-Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link.md).
+> [!NOTE]
+> If your data storage is an Azure SQL Database behind a virtual network, be sure to set *Deny public access* to **No** via the [Azure portal](https://ms.portal.azure.com/) to allow Azure Machine Learning to access the storage account.
 
 ### Access validation
 

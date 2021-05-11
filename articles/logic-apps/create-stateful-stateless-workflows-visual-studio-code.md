@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 04/23/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -100,9 +100,9 @@ To locally build and run your logic app project in Visual Studio Code when using
 1. Save the connection string somewhere safe. After you create your logic app project in Visual Studio Code, you have to add the string to the **local.settings.json** file in your project's root level folder.
 
    > [!IMPORTANT]
-   > If you plan to deploy to a Docker container, you also need to add 
-   > this connection string to the Docker file that you use for deployment.
-
+   > If you plan to deploy to a Docker container, you also need to use this connection string with the Docker file that you use for deployment. 
+   > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
+  
 ### Tools
 
 * [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
@@ -314,6 +314,9 @@ Before you can create your logic app, create a local project so that you can man
       }
       ```
 
+      > [!IMPORTANT]
+      > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
+
    1. When you're done, make sure that you save your changes.
 
 <a name="enable-built-in-connector-authoring"></a>
@@ -367,7 +370,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
    > which are deployed in Azure, and not triggers. Although you have the option to enable connectors in Azure for your stateless workflow, 
    > the designer doesn't show any managed connector triggers for you to select.
 
@@ -1058,7 +1061,12 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app.
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+
+   > [!NOTE]
+   > The stop logic app and delete logic app operations affect workflow instances in different ways. 
+   > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
+   > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
@@ -1082,11 +1090,45 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="considerations-stop-logic-apps"></a>
+
+### Considerations for stopping logic apps
+
+Stopping a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels all in-progress and pending runs immediately.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+
+  To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
+
+  1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
+  1. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+  1. Expand your logic app, and then expand the **Workflows** node.
+  1. Open a workflow, and edit any part of that workflow's trigger.
+  1. Save your changes. This step resets the trigger's current state.
+  1. Repeat for each workflow.
+  1. When you're done, restart your logic app.
+
+<a name="considerations-delete-logic-apps"></a>
+
+### Considerations for deleting logic apps
+
+Deleting a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
 <a name="manage-deployed-apps-portal"></a>
 
 ## Manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 
@@ -1238,7 +1280,12 @@ If you're not familiar with Docker, review these topics:
 
 * A Docker file for the workflow that you use when building your Docker container
 
-  For example, this sample Docker file deploys a logic app. The specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string).
+  For example, this sample Docker file deploys a logic app and specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string). For more information, review [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. 
+  > For Docker files specifically, review [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) 
+  > and [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1252,8 +1299,6 @@ If you're not familiar with Docker, review these topics:
 
    RUN cd /home/site/wwwroot
    ```
-
-   For more information, see [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 

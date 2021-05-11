@@ -33,7 +33,7 @@ To complete this tutorial, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* A [Git](https://www.git-scm.com/downloads) installation.
+* A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
@@ -77,14 +77,14 @@ In this step, you'll deploy your .NET Core application to Azure App Service by u
 In the terminal window, select **Ctrl+C** to close the web server.  Initialize a Git repository for the .NET Core project:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
 
 You can use FTP and local Git to deploy an Azure web app by using a *deployment user*. After you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment user name and password are different from your Azure subscription credentials. 
 
-To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set) command. Choose a user name and password that adheres to these guidelines: 
+To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set) command. Choose a user name and password that adheres to these guidelines: 
 
 - The user name must be unique within Azure. For local Git pushes, it can't contain the at sign symbol (@). 
 - The password must be at least eight characters long and contain two of the following three elements: letters, numbers, and symbols. 
@@ -99,7 +99,7 @@ Record your user name and password so you can use it to deploy your web apps.
 
 ### Create a resource group
 
-A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az-group-create) command:
+A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az_group_create) command:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -166,8 +166,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL. You'll need it later.
+
+Now configure your web app to deploy from the `main` branch:
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
+```
 
 Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
 
@@ -237,7 +242,7 @@ In this section, you'll configure web access to Key Vault and update your applic
 
 In this tutorial, we'll use [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to Key Vault. Managed identity automatically manages application credentials.
 
-In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
+In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) command:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -253,7 +258,7 @@ The command will return this JSON snippet:
 }
 ```
 
-To give your web app permission to do **get** and **list** operations on your key vault, pass the `principalId` to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) command:
+To give your web app permission to do **get** and **list** operations on your key vault, pass the `principalId` to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) command:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -337,4 +342,4 @@ Where before you saw "Hello World!", you should now see the value of your secret
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
 - Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
 - View the [Developer's Guide](./developers-guide.md)
-- [Secure access to a key vault](./secure-your-key-vault.md)
+- [Secure access to a key vault](./security-features.md)

@@ -8,7 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-# As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
+#Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
 # Configure HTTPS on a Front Door Standard/Premium SKU (Preview) custom domain using the Azure portal
@@ -45,7 +45,7 @@ Azure Front Door Standard/Premium supports both Azure managed certificate and cu
 
 1. Validate and associate the custom domain to an endpoint by following the steps in enabling [custom domain](how-to-add-custom-domain.md).
 
-1. Once the custom domain gets associated to endpoint successfully, an Azure managed certificate gets deployed to Front Door. This process may take a few minutes to complete.
+1. Once the custom domain gets associated to endpoint successfully, an Azure managed certificate gets deployed to Front Door. This process may take several minutes to complete.
 
 ## Using your own certificate
 

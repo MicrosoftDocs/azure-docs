@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-#As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
+#Customer intent: As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
 
 # Quickstart: Get started with Azure Sentinel

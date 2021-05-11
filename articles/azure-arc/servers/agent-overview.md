@@ -1,8 +1,9 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 03/15/2021
-ms.topic: conceptual
+ms.date: 05/10/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of Azure Arc enabled servers agent
@@ -13,6 +14,8 @@ The Azure Arc enabled servers Connected Machine agent enables you to manage your
 >Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
 
 ## Agent component details
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Arc enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -34,6 +37,7 @@ Metadata information about the connected machine is collected after the Connecte
 
 * Operating system name, type, and version
 * Computer name
+* Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
 * Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
@@ -42,6 +46,8 @@ Metadata information about the connected machine is collected after the Connecte
 * Connected Machine agent version
 * Public key for managed identity
 * Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+* SQL Server installed (Boolean value)
+* Cluster resource ID (for Azure Stack HCI nodes) 
 
 The following metadata information is requested by the agent from Azure:
 
@@ -73,10 +79,10 @@ Arc enabled servers support the installation of the Connected Machine agent on a
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
 - Windows Server 2008 R2, Windows Server 2012 R2 and higher (including Server Core)
-- Ubuntu 16.04 and 18.04 LTS (x64)
-- CentOS Linux 7 (x64)
-- SUSE Linux Enterprise Server (SLES) 15 (x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
+- CentOS Linux 7 and 8  (x64)
+- SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 - Amazon Linux 2 (x64)
 - Oracle Linux 7
 
