@@ -63,7 +63,11 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
+1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**.
+1. In the NuGet **Browse** box, type *MongoDB.Driver*.
+1. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
+
+The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
 
 The following snippets are from the *DAL/Dal.cs* file.
 
@@ -140,15 +144,8 @@ You've now updated your app with all the info it needs to communicate with Cosmo
 
 ## Run the web app
 
-1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
-
-2. In the NuGet **Browse** box, type *MongoDB.Driver*.
-
-3. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
-
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
-
-5. Click **Create** in the browser and create a few new tasks in your task list app.
+1. Click CTRL + F5 to run the app. The default browser is launched with the app. 
+1. Click **Create** in the browser and create a few new tasks in your task list app.
 
 <!-- 
 ## Deploy the app to Azure 
