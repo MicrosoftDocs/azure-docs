@@ -48,7 +48,7 @@ www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonl
 | Realm | Optional | The tenant ID or tenant domain name (for example, microsoft.com) being accessed. MUST be an empty string in the case where the authentication goes through the [common endpoint](howto-convert-app-to-be-multi-tenant.md#update-your-code-to-send-requests-to-common). |
 | `authorization_uri` | Required | The URI of the authorize endpoint where an interactive authentication can be performed if necessary. If specified in realm, the tenant information MUST be included in the authorization_uri. If realm is an empty string, the authorization_uri MUST be against the [common endpoint](howto-convert-app-to-be-multi-tenant.md#update-your-code-to-send-requests-to-common). |
 | `error` | Required | Must be "insufficient_claims" when a claims challenge should be generated. | 
-| `claims` | Required when error is "insufficient_claims". | A quoted string containing a base 64 encoded [claims request](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter). The claims request should request claims for the "access_token" at the top level of the JSON object. The value (claims requested) will be context dependent and specified later in this document. For size reasons, relying party applications SHOULD minify the JSON before base 64 encoding. The raw JSON of the example above is {"access_token":{"acrs":{"essential":true,"value":"cp1"}}}. |
+| `claims` | Required when error is "insufficient_claims". | A quoted string containing a base 64 encoded [claims request](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter). The claims request should request claims for the "access_token" at the top level of the JSON object. The value (claims requested) will be context-dependent and specified later in this document. For size reasons, relying party applications SHOULD minify the JSON before base 64 encoding. The raw JSON of the example above is {"access_token":{"acrs":{"essential":true,"value":"cp1"}}}. |
 
 The 401 response may contain more than one www-authenticate header. All above fields must be contained within the same www-authenticate header. The www-authenticate header with the claims challenge MAY contain other fields. Fields in the header are unordered. According to RFC 7235, each parameter name must occur only once per authentication scheme challenge.
 
@@ -77,7 +77,7 @@ To populate the claims parameter, the developer has to:
 1. Decode the base64 string received earlier.
 2. URL Encode the string and add again to the **claims** parameter.
 
-Upon completion of this flow, the application will receive an Access Token that has the additional claims that proves that the user satisfied the conditions required.
+Upon completion of this flow, the application will receive an Access Token that has the additional claims that prove that the user satisfied the conditions required.
 
 ## Client Capabilities
 
@@ -87,7 +87,7 @@ To avoid extra traffic or impacts to user experience, Azure AD does not assume t
 
 ### How to communicate client capabilities to Azure AD
 
-The following example claims parameter shows how a client applications communicates its capability to Azure AD in an [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+The following example claims parameter shows how a client application communicates its capability to Azure AD in an [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 ```json
 Claims: {"access_token":{"xms_cc":{"values":["cp1"]}}}
@@ -149,7 +149,7 @@ To receive information about whether client applications can handle claims chall
 
 The **xms_cc** claim with a value of "cp1" in the access token is the authoritative way to identify a client application is capable of handling a claims challenge. **xms_cc** is an optional claim that will not always be issued in the access token, even if the client sends a claims request with "xms_cc". In order for an access token to contain the **xms_cc** claim, the resource application (that is, the API implementer) must request xms_cc as an [optional claim](active-directory-optional-claims.md) in its application manifest. When requested as an optional claim, **xms_cc** will be added to the access token only if the client application sends **xms_cc** in the claims request. The value of the **xms_cc** claim request will be included as the value of the **xms_cc** claim in the access token, if it is a known value. The only currently known value is **cp1**.
 
-The values are not case sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
+The values are not case-sensitive and unordered. If more than one value is specified in the **xms_cc** claim request, those values will be a multi-valued collection as the value of the **xms_cc** claim.
 
 A request of :
 
