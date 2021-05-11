@@ -11,7 +11,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
-ms.date: 05/10/2021
+ms.date: 05/11/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -336,6 +336,9 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 ## Set or unset the Azure AD admin using service principals
 
 If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+> [!NOTE]
+> This section on setting the Azure AD admin only applies to using PowerShell or CLI commands, as you cannot use the Azure portal as an Azure AD service principal.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
 
