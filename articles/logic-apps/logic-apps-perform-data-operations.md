@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 05/11/2021
 ---
 
 # Perform data operations in Azure Logic Apps
@@ -726,38 +726,42 @@ If your [CSV table](#create-csv-table-action) or [HTML table](#create-html-table
 
 Incorrect formatting:
 
-```json
-    Fruit,Number Apples,1 Oranges,2
+```text
+Fruit,Number Apples,1 Oranges,2
 ```
 
 Correct formatting:
 
-```json
-    Fruit,Number
-    Apples,1
-    Oranges,2
+```text
+Fruit,Number
+Apples,1
+Oranges,2
 ```
 
 To add line breaks between rows, add one of the following expressions to your table:
 
-```azurecli
+```text
 replace(body('Create_CSV_table'),'','<br/>')
 ```
-```azurecli
+
+```text
 replace(body('Create_HTML_table'),'','<br/>')
 ```
 
 For example: 
 
 ```json
-"Send_an_email_": {
-                "inputs": {
-                    "body": {
-                        "Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
-                        "Subject": "Create CSV table results",
-                        "To": sophia.owen@fabrikam.com
-                    },
-
+{
+	"Send_an_email_": {
+		"inputs": {
+			"body": {
+				"Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+				"Subject": "Create CSV table results",
+				"To": "sophia.owen@fabrikam.com"
+			}
+		}
+	}
+}
 ```
 ## Next steps
 
