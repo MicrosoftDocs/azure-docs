@@ -29,7 +29,7 @@ By default, when you create a new key vault, the Azure Key Vault firewall is dis
 When you enable the Key Vault Firewall, you will be given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps is not on the trusted services list. **This does not imply that services that do not appear on the trusted services list not trusted or insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios. 
 
 To determine if a service you are trying to use is on the trusted service list, please see the following document [here](./overview-vnet-service-endpoints.md#trusted-services).
-For how-to guide, follow the instructions here for [Portal, Azure CLI and Powershell](how-to-akvnetworksecurity.md)
+For how-to guide, follow the instructions here for [Portal, Azure CLI and PowerShell](how-to-akvnetworksecurity.md)
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
