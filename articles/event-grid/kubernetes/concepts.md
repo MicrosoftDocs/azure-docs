@@ -31,9 +31,9 @@ Event Grid on Kubernetes supports [CloudEvents](https://github.com/cloudevents/s
        "subject" : "account/acct-123224/order/o-123456",
        "dataSchema" : "1.0",
        "data" : {
-          "orderId" : “123”,
-          “orderType” : “PO”,
-          “reference” : “https://www.myCompanyName.com/orders/123”
+          "orderId" : "123",
+          "orderType" : "PO",
+          "reference" : "https://www.myCompanyName.com/orders/123"
       }
 }]
 ```
