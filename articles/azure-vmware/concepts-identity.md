@@ -26,7 +26,7 @@ The private cloud user doesn't have access to and can't configure specific manag
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Log into the vSphere Client and go to **Menu** > **Administration**.
+1. Sign into the vSphere Client and go to **Menu** > **Administration**.
 
 1. Under **Access Control**, select **Roles**.
 
@@ -61,9 +61,9 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
 
-The CloudAdmin role can create, modify, or delete custom roles that have privileges lesser than or equal to their current role. You may be able to create roles that have privileges greater than CloudAdmin, but you won't be able to assign the role to any users or groups or delete the role.
+You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin, but you can't assign the role to any users or groups or delete the role.
 
-To prevent the creation of roles that can't be assigned or deleted, Azure VMware Solution recommends cloning the CloudAdmin role as the basis for creating new custom roles.
+To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
 1. Sign into vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
