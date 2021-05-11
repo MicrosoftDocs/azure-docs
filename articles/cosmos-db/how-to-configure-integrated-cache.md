@@ -36,7 +36,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 3. Select **Save** and wait about 5-10 minutes for the dedicated gateway provisioning to complete. When the provisioning is done, you'll see the following notification:
 
-   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" lightbox="An image that shows how to check if dedicated gateway provisioning is complete" border="false":::
+   :::image type="content" source="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" alt-text="An image that shows how to check if dedicated gateway provisioning is complete" lightbox="./media/how-to-configure-integrated-cache/dedicated-gateway-notification.png" border="false":::
 
 ## Configuring the integrated cache
 
@@ -56,7 +56,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 
 ## Adjust request consistency
 
-You must adjust the request consistency to eventual, if not, the request will always bypass the integrated cache. The easiest way to configure eventual consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
+You must adjust the request consistency to eventual. If not, the request will always bypass the integrated cache. The easiest way to configure eventual consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
 
 > [!NOTE]
 > If you are using the Python SDK, you **must** explicitly set the consistency level for each request. The default account-level setting will not automatically apply.

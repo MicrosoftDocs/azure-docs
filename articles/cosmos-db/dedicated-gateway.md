@@ -16,7 +16,7 @@ A dedicated gateway is server-side compute that is a front-end to your Azure Cos
 
 ## Overview
 
-You can provision a dedicated gateway to improve performance at scale. The most common reason that you would want to provision a dedicated gateway would be for caching. When you provision a dedicated gateway, an [integrated cache](integrated-cache.md) is automatically configured within the dedicated gateway. Point reads and queries that hit the integrated cache do not use any of your RUs. Provisioning a dedicated gateway with an integrated cache can help read-heavy workloads cost-effectively scale on Azure Cosmos DB.
+You can provision a dedicated gateway to improve performance at scale. The most common reason that you would want to provision a dedicated gateway would be for caching. When you provision a dedicated gateway, an [integrated cache](integrated-cache.md) is automatically configured within the dedicated gateway. Point reads and queries that hit the integrated cache do not use any of your RUs. Provisioning a dedicated gateway with an integrated cache can help read-heavy workloads lower costs on Azure Cosmos DB.
 
 The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedicated gateway](how-to-configure-integrated-cache.md), you have a fully-managed node that routes requests to backend partitions. Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway. Even cache misses will see latency improvements when comparing the dedicated gateway and standard gateway.
 
@@ -61,7 +61,7 @@ A dedicated gateway cluster can be provisioned in Core (SQL) API accounts. A ded
 
 Dedicated gateway nodes are independent from one another. When you provision multiple dedicated gateway nodes, any single node can route any given request. In addition, each node has a separate cache from the others. The cached data within each node depends on the data that was recently [written or read](integrated-cache.md#item-cache) through that specific node. In other words, if an item or query is cached on one node, it isn't necessarily cached on the others.
 
-For development, we recommend starting with one node but for production, you should provision three or more nodes for high availability. [Learn how to provision a dedicated gateway cluster with an integrated cache.](how-to-configure-integrated-cache.md). Provisioning multiple dedicated gateway nodes allows the dedicated gateway cluster to continue to route requests and serve cached data, even when one of the dedicated gateway nodes is unavailable.
+For development, we recommend starting with one node but for production, you should provision three or more nodes for high availability. [Learn how to provision a dedicated gateway cluster with an integrated cache](how-to-configure-integrated-cache.md). Provisioning multiple dedicated gateway nodes allows the dedicated gateway cluster to continue to route requests and serve cached data, even when one of the dedicated gateway nodes is unavailable.
 
 Because it is in public preview, the dedicated gateway does not have an availability SLA. However, you should generally expect comparable availability to the rest of your Azure Cosmos DB account.
 
