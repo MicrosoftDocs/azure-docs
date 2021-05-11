@@ -1,5 +1,5 @@
 ---
-title: 'How to view and configure alerts for ExpressRoute circuit maintenance'
+title: 'How to view and configure alerts for Azure ExpressRoute circuit maintenance'
 description: Learn how to configure custom alerts for ExpressRoute circuit maintenance using the Service Health page in the Azure portal.
 services: expressroute
 author: mialdrid
@@ -9,7 +9,7 @@ ms.date: 05/10/2021
 ms.author: mialdrid
 ---
 
-# How to view and configure alerts for ExpressRoute circuit maintenance
+# How to view and configure alerts for Azure ExpressRoute circuit maintenance
 
 ExpressRoute uses Azure Service Health to notify you of planned and upcoming ExpressRoute circuit maintenance. With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suits your needs. To learn more about Azure Service Health refer to [What is Azure Service Health?](../service-health/overview.md)
 
