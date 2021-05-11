@@ -32,7 +32,6 @@ The quickest way to create resources is using the extension's toolbar.
 1. Select **+** in the activity bar.
 1. Choose your resource from the dropdown list.
 1. Configure the resource template. The information required depends on the type of resource you want to create.
-1. Save the resource template
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, you can create a resource by using the command palette:
@@ -40,7 +39,6 @@ Alternatively, you can create a resource by using the command palette:
 1. Open the command palette **View > Command Palette**
 1. Enter `> Azure ML: Create <RESOURCE-TYPE>` into the text box. Replace `RESOURCE-TYPE` with the type of resource you want to create.
 1. Configure the resource template.
-1. Save the resource template.
 1. Open the command palette **View > Command Palette**
 1. Enter `> Azure ML: Create Resource` into the text box.
 
@@ -68,12 +66,14 @@ Alternatively, use the `> Azure ML: Remove Workspace` command in the command pal
 
 ## Datastores
 
-The Visual Studio Code extension currently supports datastores of the following types:
+The extension currently supports datastores of the following types:
 
 - Azure Blob
 - Azure Data Lake Gen 1
 - Azure Data Lake Gen 2
 - Azure File
+
+For more information, see [datastores](concept-data.md#datastores).
 
 ### Create a datastore
 
@@ -82,7 +82,6 @@ The Visual Studio Code extension currently supports datastores of the following 
 1. Right-click the **Datastores** node and select **Create Datastore**.
 1. Choose the datastore type.
 1. A resource template appears. Configure the resource template.
-1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Datastore` command in the command palette.
@@ -100,13 +99,19 @@ Alternatively, use the `> Azure ML: Unregister Datastore` and `> Azure ML: View 
 
 ## Datasets
 
+The extension currently supports the following dataset types:
+
+- *Tabular*: Allows you to materialize data into a DataFrame.
+- *File*: A file or collection of files. Allows you to download or mount files to your compute.
+
+For more information, see [datasets](concept-data.md#datasets)
+
 ### Create dataset
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Datasets** node and select **Create Dataset**.
 1. A resource template appears. Configure the resource template.
-1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Dataset` command in the command palette.
@@ -117,9 +122,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to:
-    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset.
-    > [!NOTE]
-    > If you have multiple version of your dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
+    - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple version of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
     - **Preview dataset**. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
@@ -165,7 +168,6 @@ Using the resource nodes in the Azure Machine Learning view:
 1. Right-click the **Experiments** node in your workspace and select **Create Job**.
 1. Choose your job type.
 1. A resource template appears. Configure the resource template.
-1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Job` command in the command palette.
@@ -176,7 +178,7 @@ To view your job in Azure Machine Learning Studio:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
-1. Right-click the experiment you want to view and select **View Experiment**.
+1. Right-click the experiment you want to view and select **View Experiment in Studio**.
 1. A prompt appears asking you to open the experiment URL in Azure Machine Learning studio. Select **Open**.
 
 Alternatively, use the `> Azure ML: View Experiment in Studio` command respectively in the command palette.
@@ -187,17 +189,17 @@ As you're running your job, you may want to see its progress. To track the progr
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
-1. Expand the experiment node you want to track progress for.
-1. Right-click the run and select **View Run in Studios**.
+1. Expand the job node you want to track progress for.
+1. Right-click the run and select **View Run in Studio**.
 1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
 
 ### Download run logs & outputs
 
-Once a run is complete, you may want to download the logs and assets such as the model generated as part of an experiment run.
+Once a run is complete, you may want to download the logs and assets such as the model generated as part of a run.
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
-1. Expand the experiment node you want to track progress for.
+1. Expand the job node you want to download logs and outputs for.
 1. Right-click the run:
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
@@ -221,7 +223,7 @@ Alternatively, use the `> Azure ML: Create Compute` command in the command palet
 
 ### Connect to compute instance
 
-To use a compute instance as a full development environment or Jupyter server, see [Connect to a compute instance][https://docs.microsoft.com/en-us/azure/machine-learning/how-to-set-up-vs-code-remote?tabs=extension].
+To use a compute instance as a development environment or remote Jupyter server, see [Connect to a compute instance](how-to-set-up-vs-code-remote.md?tabs=extension).
 
 ### Stop or restart compute instance
 
@@ -258,7 +260,6 @@ For more information, see [compute targets](concept-compute-target.md#train).
 1. Expand the **Compute** node.
 1. Right-click the **Compute clusters** node in your workspace and select **Create Compute**.
 1. A resource template appears. Configure the resource template.
-1. Save the resource template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
@@ -322,23 +323,33 @@ Alternatively, use the `> Azure ML: Download Model File` command in the command 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Models** node inside your workspace.
 1. Right-click the model you want to delete and select **Remove Model**.
+1. A prompt appears confirming you want to remove the model. Select **Ok**.
 
 Alternatively, use the `> Azure ML: Remove Model` command in the command palette.
 
 ## Endpoints
 
-For more information, see [web service endpoints](concept-azure-machine-learning-architecture.md#endpoints).
+For more information, see [endpoints](concept-azure-machine-learning-architecture.md#endpoints).
 
 ### Create endpoint
 
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Right-click the **Models** node in your workspace and select **Create Endpoint**.
+1. Choose your endpoint type.
+1. A resource template appears. Configure the resource template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
 
+Alternatively, use the `> Azure ML: Create Endpoint` command in the command palette.
 
 ### Delete endpoint
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Endpoints** node inside your workspace.
-1. Right-click the deployment you want to remove and select **Remove service**.
+1. Right-click the deployment you want to remove and select **Remove Service**.
 1. A prompt appears confirming you want to remove the service. Select **Ok**.
+
+Alternatively, use the `> Azure ML: Remove Service` command in the command palette.
 
 ### View service properties
 
@@ -348,6 +359,8 @@ In addition to creating and deleting deployments, you can view and edit settings
 1. Expand the **Endpoints** node inside your workspace.
 1. Right-click the deployment you want to manage:
     - To view deployment configuration settings, select **View Service Properties**.
+
+Alternatively, use the `> Azure ML: View Service Properties` command in the command palette.
 
 ## Next steps
 
