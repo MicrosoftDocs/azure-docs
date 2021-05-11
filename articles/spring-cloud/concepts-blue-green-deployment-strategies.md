@@ -67,7 +67,7 @@ You may be able to prevent the race condition by ensuring that the deployment fl
 
 In the named deployments approach, a new deployment is created for each new version of the application being deployed. After the application is tested on its bespoke deployment, that deployment is set as the production deployment. The deployment containing the previous version can be allowed to persist just long enough to be confident that a rollback won't be needed.
 
-In the illustration below, version `v5` is running on the deployment `deployment-v5`. The deployment name now contains the version as the deployment was created specifically for this version. There is no other deployment at the outset. Now, to deploy version `v6`, the deployment pipeline creates a new deployment `deployment-v6` and deploys app version `v6` there.
+In the illustration below, version `v5` is running on the deployment `deployment-v5`. The deployment name now contains the version because the deployment was created specifically for this version. There's no other deployment at the outset. Now, to deploy version `v6`, the deployment pipeline creates a new deployment `deployment-v6` and deploys app version `v6` there.
 
 ![Deploying new version on a named deployment](media/spring-cloud-blue-green-patterns/named-deployment-1.png)
 
