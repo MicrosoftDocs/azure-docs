@@ -14,6 +14,8 @@ ms.custom:
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using the Azure portal.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -23,8 +25,6 @@ None.
 ## Create a blockchain member
 
 An Azure Blockchain Service member is a blockchain node in a private consortium blockchain network.
-
-[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 When provisioning a member, you can create or join a consortium network. You need at least one member for a consortium network. The number of blockchain members needed by participants depends on your scenario. Consortium participants may have one or more blockchain members or they may share members with other participants. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
 
