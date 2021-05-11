@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 04/16/2021 
+ms.date: 05/11/2021
 ---
 
 # Azure Resource Manager templates for Azure Front Door
@@ -26,7 +26,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [WAF policy with geo-filtering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-geo-filtering/) | Creates a Front Door profile and WAF with a custom rule to perform geo-filtering.  |
 |**App Service origins**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
-| [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
+| [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
 |**Azure Functions origins**| **Description** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
 | [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |
