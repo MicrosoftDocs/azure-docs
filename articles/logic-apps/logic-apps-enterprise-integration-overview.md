@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 03/24/2021
+ms.date: 05/11/2021
 ---
 
 # B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack
@@ -36,7 +36,19 @@ Before you can start building B2B logic app workflows with the EIP, you need the
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) with the artifacts that you want to use
 
-* To create maps and schemas, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) and Visual Studio 2015.
+* To create maps and schemas, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools) and Visual Studio 2019. 
+
+   > [!IMPORTANT]
+   > Don't install this extension alongside the BizTalk Server extension. Having both extensions might 
+   > produce unexpected behavior. Make sure that you only have one of these extensions installed.
+
+   > [!NOTE]
+   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+
+* If you are using Visual Studio 2015, you can use the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
 
 After you create an integration account and add your artifacts, you can start building B2B workflows with these artifacts by creating a logic app in the Azure portal. If you're new to logic apps, try [creating a basic logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To work with these artifacts, make sure that you first link your integration account to your logic app. After that, your logic app can access your integration account. You can also create, manage, and deploy logic apps by using Visual Studio or [PowerShell](/powershell/module/az.logicapp).
 

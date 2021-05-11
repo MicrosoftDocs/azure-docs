@@ -154,5 +154,5 @@ Other REST API errors might occur during data uploads. For more information, see
 
 ## Next steps
 
-- Review [common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
+- [Review common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
 - [Verify a data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)
