@@ -22,13 +22,13 @@ You can have up to one free tier Azure Cosmos DB account per an Azure subscripti
 
 ## Free tier with shared throughput database
 
-When using free tier, you can create a shared throughput database with 25 containers that share 1000 RU/s throughput at the database level. In a free tier account, you can create a max of 5 shared throughput databases.
+In shared throughput model, when you provision throughput on a database, the throughput is shared across all the containers in the database. When using the free tier, you can provision a shared database with a maximum throughput of 1000 RU/s and all the containers within that database share this throughput.
 
-When using the free tier, if you provision a shared database with a minimum throughput of 1000 RU/s, all the containers within that database share the throughput. Any new databases with shared throughput or containers with dedicated throughput are billed at the regular pricing.
+Just like the regular account, in the free tier account you can create a shared throughput database with a max of 25 containers. These 25 containers share up to 1000 RU/s throughput for free at the database level. Any additional databases with shared throughput or containers with dedicated throughput are billed at the regular pricing. In a free tier account, you can create a max of 5 shared throughput databases.
 
 ## Free tier with Azure discount
 
-The Azure Cosmos DB free tier is compatible with the [Azure free account](optimize-dev-test.md#azure-free-account). To opt-in, create an Azure Cosmos DB free tier account in your Azure free account subscription. For the first 12 months, you will get a combined discount of 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account). After the 12 months expires, you will continue to get 1000 RU/s and 25 GB from the Azure Cosmos DB free tier, for the lifetime of the Azure Cosmos DB account.
+The Azure Cosmos DB free tier is compatible with the [Azure free account](optimize-dev-test.md#azure-free-account). To opt-in, create an Azure Cosmos DB free tier account in your Azure free account subscription. For the first 12 months, you will get a combined discount of 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account). After the 12 months expires, you will continue to get 1000 RU/s and 25 GB from the Azure Cosmos DB free tier, for the lifetime of the Azure Cosmos DB account. For an example of how the charges are stacked, see [Billing examples with free tier accounts](understand-your-bill.md#azure-free-tier).
 
 > [!NOTE]
 > Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
@@ -41,7 +41,7 @@ For example, the following are some options that don’t result in any monthly c
 
 * One database with a max of 1000 RU/s provisioned throughput.
 * Two containers one with a max of 400 RU/s and other with a max of 600 RU/s provisioned throughput.
-* Account with 2 regions with a single write region that has one container with a max of 500 RU/s provisioned throughput.
+* Account with 2 regions with a single region that has one container with a max of 500 RU/s provisioned throughput.
 
 ## Create an account with free tier
 
@@ -86,8 +86,9 @@ New-AzCosmosDBAccount -ResourceGroupName MyResourcegroup" `
 
 ## Next steps
 
-You can learn more about optimizing the costs for your Azure Cosmos DB resources in the following articles:
+After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
-* Learn about [Optimizing for development and testing](optimize-dev-test.md)
+* [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
+* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
+* [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
-* Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
