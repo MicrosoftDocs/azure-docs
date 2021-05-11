@@ -17,7 +17,7 @@ Azure Spring Cloud (Standard tier and higher) permits two deployments for every 
 
 ## Alternating deployments
 
-The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that is not receiving production traffic. With the Azure Spring Cloud task for Azure Pipelines, you can accomplish this just by setting the `UseStagingDeployment` flag to `true`.
+The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that isn't receiving production traffic. With the Azure Spring Cloud task for Azure Pipelines, you can deploy this way just by setting the `UseStagingDeployment` flag to `true`.
 
 Here's how the alternating deployments approach works in practice:
 
