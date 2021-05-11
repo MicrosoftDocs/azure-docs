@@ -14,7 +14,7 @@ ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, cont
 adobe-target: true
 ---
 
-# Deploy machine learning models to Azure
+# Deploy machine learning models to Azure 
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
