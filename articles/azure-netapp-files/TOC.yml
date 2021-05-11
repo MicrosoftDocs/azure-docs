@@ -79,15 +79,17 @@
     href: azure-netapp-files-register.md
   - name: Create a NetApp account
     href: azure-netapp-files-create-netapp-account.md
-  - name: Set up a capacity pool
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Manage a manual QoS capacity pool
-    href: manage-manual-qos-capacity-pool.md
+  - name: Create and manage capacity pools
+    items:
+    - name: Set up a capacity pool
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Manage a manual QoS capacity pool
+      href: manage-manual-qos-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
   - name: Create and manage Active Directory connections
     href: create-active-directory-connections.md
-  - name: Create and manage an NFS volume
+  - name: Create and manage NFS volumes
     items:
     - name: Create an NFS volume
       href: azure-netapp-files-create-volumes.md
@@ -99,8 +101,12 @@
       href: configure-ldap-extended-groups.md
     - name: Configure an NFS client for Azure NetApp Files
       href: configure-nfs-clients.md
-  - name: Create an SMB volume
-    href: azure-netapp-files-create-volumes-smb.md
+  - name: Create and manage SMB volumes
+    items:
+    - name: Create an SMB volume
+      href: azure-netapp-files-create-volumes-smb.md
+    - name: Convert existing SMB volumes to use Continuous Availability
+      href: convert-smb-continuous-availability.md
   - name: Create a dual-protocol volume 
     href: create-volumes-dual-protocol.md
   - name: Configure ADDS LDAP over TLS
