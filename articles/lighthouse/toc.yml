@@ -14,7 +14,7 @@
   items:
   - name: Architecture
     displayName: delegation, projection, resource, registration
-    href: ./concepts/azure-delegated-resource-management.md
+    href: ./concepts/architecture.md
   - name: Cross-tenant management experiences
     displayName: scenarios, supported, enhanced, services, limitations, current
     href: ./concepts/cross-tenant-management-experience.md

@@ -1,7 +1,7 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 04/28/2021
+ms.date: 05/11/2021
 ms.topic: overview
 ---
 
@@ -27,7 +27,7 @@ Azure Lighthouse helps service providers efficiently build and deliver managed s
 
 Azure Lighthouse includes multiple ways to help streamline engagement and management:
 
-- **Azure delegated resource management**: [Manage your customers' Azure resources securely from within your own tenant](concepts/azure-delegated-resource-management.md), without having to switch context and control planes. Customer subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed.
+- **Azure delegated resource management**: [Manage your customers' Azure resources securely from within your own tenant](concepts/architecture.md), without having to switch context and control planes. Customer subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed.
 - **New Azure portal experiences**: View cross-tenant information in the [**My customers** page](how-to/view-manage-customers.md) in the Azure portal. A corresponding [**Service providers** page](how-to/view-manage-service-providers.md) lets customers view and manage their service provider access.
 - **Azure Resource Manager templates**: Use ARM templates to [onboard delegated customer resources](how-to/onboard-customer.md) and [perform cross-tenant management tasks](samples/index.md).
 - **Managed Service offers in Azure Marketplace**: [Offer your services to customers](concepts/managed-services-offers.md) through private or public offers, and automatically onboard them to Azure Lighthouse.
@@ -43,13 +43,13 @@ There are no additional costs associated with using Azure Lighthouse to manage A
 
 Azure Lighthouse is a non-regional service. You can manage delegated resources that are located in different [regions](../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
 
-## Support for Azure delegated resource management
+## Support for Azure Lighthouse
 
-For help using Azure delegated resource management, open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Lighthouse** (under **Monitoring & Management**).
+For help using Azure Lighthouse, open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Lighthouse** (under **Monitoring & Management**).
 
 ## Next steps
 
-- Learn more about [Azure Lighthouse architecture](concepts/azure-delegated-resource-management.md).
+- Learn more about [how Azure Lighthouse works on a technical level](concepts/architecture.md).
 - Explore [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
 - See how to [use Azure Lighthouse within an enterprise](concepts/enterprise.md).
 - View [availability](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) and [FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) details for Azure Lighthouse.
