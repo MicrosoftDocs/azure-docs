@@ -17,7 +17,7 @@ In addition to the resources mentioned above, following items are also created i
 
 * ***appsettings.json*** - This file contains the **device connection string** and other properties needed to run the sample application in Visual Studio Code.
 * ***env*** - This file contains the environment variables that you will need to generate deployment manifests using Visual Studio Code.
-* ***deployment.amd64.json*** - This is the deployment manifest used by the template to deploy edge modules to the simulated edge device.
+* ***deploy.modules.json*** - This is the deployment manifest used by the template to deploy edge modules to the simulated edge device.
 
 <!-- TODO: provide a link to the readme.md in github.com/azure-video-analyzer/setup/readme.md where we can list out all resources like virtual network etc. -->
 
