@@ -86,7 +86,7 @@ The Named Deployments approach has some significant benefits. It...
 * Prevents the approval race condition
 * Reduces resource consumption by deleting the staging deployment when it's not in use.
 
-However, there are drawbacks as well:
+However, there are drawbacks as well, as described in the following section.
 
 #### Deployment pipeline failures
 
