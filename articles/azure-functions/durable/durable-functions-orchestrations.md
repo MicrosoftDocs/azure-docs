@@ -101,6 +101,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Tokyo'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Seattle'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'London'
+
+$output
+```
 ---
 
 At each `await` (C#) or `yield` (JavaScript/Python) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (typically Azure Table storage). This state is what is referred to as the *orchestration history*.
@@ -274,6 +288,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if res.status_code >= 400:
         # handing of error code goes here
 ```
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$url = $Context.Input
+
+$res = Invoke-WebRequest -Method 'GET' -Uri $url
+
+if($response.StatusCode -ge 400) {
+    # handling of error codes goes here
+}
+
+```
 ---
 
 In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -384,6 +412,34 @@ def main(location: Location) -> str:
     return f"Hello {city}, {state}!"
 ```
 
+# [PowerShell](#tab/powershell)
+
+#### Orchestrator
+
+```powershell
+param($Context)
+
+$output = @()
+
+$location = @{
+    City = 'Seattle'
+    State  = 'WA'
+}
+
+Invoke-ActivityFunction -FunctionName 'GetWeather' -Input ($location | ConvertTo-Json)
+
+# ...
+
+```
+#### `GetWeather` Activity
+
+```powershell
+param($location)
+
+$City, $State = $location[('City','State')]
+
+# ...
+```
 ---
 
 ## Next steps

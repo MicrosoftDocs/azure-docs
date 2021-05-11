@@ -103,7 +103,33 @@ def main(name: str) -> str:
     return f"Hello {name}!"
 
 ```
+# [PowerShell](#tab/powershell)
 
+### `E1_HelloSequence` Orchestrator function
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Tokyo'
+Set-DurableCustomStatus -CustomStatus 'Tokyo'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Seattle'
+Set-DurableCustomStatus -CustomStatus 'Seattle'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'London'
+Set-DurableCustomStatus -CustomStatus 'London'
+
+
+return $output
+```
+
+### `E1_SayHello` Activity function
+```powershell
+param($name)
+
+"Hello $name"
+```
 ---
 
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
@@ -198,6 +224,27 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 > [!NOTE]
 > In Python, the `custom_status` field will be set when the next `yield` or `return` action is scheduled.
 
+# [PowerShell](#tab/powershell)
+```powershell
+param($Request, $TriggerMetadata)
+
+$FunctionName = $Request.Params.FunctionName
+$InstanceId = Start-NewOrchestration -FunctionName $FunctionName
+
+Write-Host "Started orchestration with ID = '$InstanceId'"
+
+$jobStatus = Invoke-DurableActivity -FunctionName $FunctionName -InstanceId $InstanceId
+
+while ($jobStatus != 'London') {
+    Start-DurableTimer -Duration 0.2
+    $jobStatus = Invoke-DurableActivity -FunctionName $FunctionName -InstanceId $InstanceId
+}
+
+Push-OutputBinding -Name Response -Value -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = 'Success'
+})
+```
 ---
 
 ### Output customization
@@ -310,6 +357,36 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+#### `CityRecommender` orchestrator
+
+```powershell
+param($Context)
+
+$userChoice = $Context.Input -as [int]
+
+if ($userChoice -eq 1) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'Seattle'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 2) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Seattle', 'London'); 
+                                             recommendedSeasons = @('Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 3) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'London'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+# Wait for user selection and refine the recommendation
+```
 ---
 
 ### Instruction specification
@@ -394,7 +471,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# [PowerShell](#tab/powershell)
 
+```powershell
+param($Context)
+
+$userId = $Context.Input -as [int]
+
+$discount = Invoke-DurableActivity -FunctionName 'CalculateDiscount' -Input $userId
+
+$status = @{
+            discount = $discount;
+            discountTimeout = 60;
+            bookingUrl = "https://www.myawesomebookingweb.com"
+            }
+
+Set-DurableCustomStatus -CustomStatus $status
+
+$isBookingConfirmed = Invoke-DurableActivity -FunctionName 'BookingConfirmed'
+
+if ($isBookingConfirmed) {
+    Set-DurableCustomStatus -CustomStatus @{message = 'Thank you for confirming your booking.'}
+} else {
+    Set-DurableCustomStatus -CustomStatus @{message = 'The booking was not confirmed on time. Please try again.'}
+}
+
+return $isBookingConfirmed
+```
 ---
 
 ## Sample
@@ -447,6 +550,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # ...do more work...
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+# ...do work...
+
+Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C'); 
+                                         foo = 2 
+                                        }  
+
+# ...do more work...
 ```
 ---
 
