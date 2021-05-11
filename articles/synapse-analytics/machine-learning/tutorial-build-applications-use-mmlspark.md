@@ -240,7 +240,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1973-03-01T00:00:00Z|9000.0|true|
 
 
-## Speech-to-Text sample
+## Speech-to-text sample
 
 The [Speech-to-text](../../cognitive-services/speech-service/index-text-to-speech.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
 
@@ -270,7 +270,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 ## Clean up resources
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
 
-![stop-session](./media/tutorial-build-applications-use-mmlspark/stop_session.png)
+![stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
 ## Next steps
 
