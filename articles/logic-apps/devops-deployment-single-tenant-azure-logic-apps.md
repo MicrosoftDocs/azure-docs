@@ -20,7 +20,7 @@ This article provides an introduction and overview about the current continuous 
 
 ## Single-tenant versus multi-tenant
 
-In the original multi-tenant Logic Apps, resource deployment is completely based on Azure Resource Manager (ARM) templates, which combine and handle resource provisioning for both logic apps and infrastructure. In single-tenant Logic Apps, deployment becomes easier because you can use separate provisioning between apps and infrastructure.
+In the original multi-tenant Logic Apps, resource deployment is based on Azure Resource Manager (ARM) templates, which combine and handle resource provisioning for both logic apps and infrastructure. In single-tenant Logic Apps, deployment becomes easier because you can use separate provisioning between apps and infrastructure.
 
 When you create logic apps using the **Logic App (Preview)** resource type, your workflows are powered by the redesigned Azure Logic Apps (Preview) runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) extensibility and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564). This design provides portability, flexibility, and more performance for your logic apps plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
@@ -126,7 +126,7 @@ In the single-tenant Logic Apps service, you can call and reference your environ
 
 The Azure Logic Apps ecosystem provides [hundreds of Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and built-in operations as part of a constantly growing collection that you can use in the single-tenant Logic Apps service. The way that Microsoft maintains these connectors and built-in operations stays mostly the same in single-tenant Logic Apps.
 
-The most significant improvement is that the single-tenant service makes some commonly-used managed connectors additionally available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
+The most significant improvement is that the single-tenant service makes more popular managed connectors also available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
 
 The connections that you create using built-in operations are called built-in connections, or *service provider connections*. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the redesigned Logic Apps runtime. In contrast, managed connections, or API connections, are created and run separately as Azure resources, which you deploy using ARM templates. As a result, built-in operations and their connections provide better performance due to their proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
@@ -161,7 +161,7 @@ The following example shows how the service provider connection for a built-in S
 
 ### Managed connections
 
-When you use a managed connector for the first time in your workflow, you're usually prompted to create a managed connection or API connection for the target service or system and authenticate your identity. These connectors are managed by the shared connectors ecosystem in Azure. Their connections, or API connections, exist and run as separate resources in Azure.
+When you use a managed connector for the first time in your workflow, you're prompted to create a managed API connection for the target service or system and authenticate your identity. These connectors are managed by the shared connectors ecosystem in Azure. The API connections exist and run as separate resources in Azure.
 
 In Visual Studio Code, while you continue to create and develop your workflow using the designer, the Logic Apps engine automatically creates the necessary resources in Azure for the managed connectors in your workflow. The engine automatically adds these connection resources to the Azure resource group that you designed to contain your logic app.
 
