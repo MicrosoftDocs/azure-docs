@@ -175,7 +175,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-# [PowerShell](#tab/python)
+# [PowerShell](#tab/powershell)
 ```powershell
 param($Context)
 
