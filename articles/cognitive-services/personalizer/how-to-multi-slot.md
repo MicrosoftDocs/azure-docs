@@ -1,6 +1,6 @@
 ---
-title: How to use multi-slot with Azure Personalizer
-description: TBD
+title: How to use multi-slot with Personalizer
+description: Learn how to use multi-slot with Personalizer to improve content recommendations provided by the service.
 services: cognitive-services
 ms.author: edjez
 manager: nitinme
@@ -17,19 +17,19 @@ Product description here...
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [Get intent with C# SDK](./includes/quickstart-multislot-csharp.md)]
+[!INCLUDE [Try multi-slot with C#](./includes/quickstart-multislot-csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [Get intent with C# SDK](./includes/quickstart-multislot-nodejs.md)]
+[!INCLUDE [Try multi-slot with Node.js](./includes/quickstart-multislot-nodejs.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Get intent with C# SDK](./includes/quickstart-multislot-python.md)]
+[!INCLUDE [Try multi-slot with Python](./includes/quickstart-multislot-python.md)]
 
 ::: zone-end
 

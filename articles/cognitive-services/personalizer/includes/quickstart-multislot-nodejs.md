@@ -413,7 +413,7 @@ Run the application with the Node.js from your application directory.
 node sample.js
 ```
 
-![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example.png)
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
 [comment]: <> (Need to add a link to the multi slot sample source code)
