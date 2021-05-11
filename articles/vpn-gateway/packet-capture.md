@@ -325,6 +325,12 @@ You can set up packet capture in the Azure portal.
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
+> [!NOTE]
+>
+> Packet capture data will need to be logged into a storage container on your subscription.  Refer to this  [how-to article](../storage-account/storage-account-create.md) to complete the prerequisites for this task.
+>
+>
+
 ### Start packet capture for a VPN gateway
 
 ```azurepowershell-interactive
@@ -338,6 +344,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
+
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture?view=azps-5.9.0).
 
 ### Start packet capture for a VPN gateway connection
 
