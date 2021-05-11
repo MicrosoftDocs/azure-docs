@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 03/24/2021
+ms.date: 05/11/2021
 ---
 
 # B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack
