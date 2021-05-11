@@ -27,7 +27,7 @@ There are many security benefits of using Azure AD based authentication to login
 - With Conditional Access, configure policies to require multi-factor authentication and other signals such as low user and sign in risk before you can RDP to Windows VMs. 
 - Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag use of no approved local account on the VMs.
 - Login to Windows VMs with Azure Active Directory also works for customers that use Federation Services.
-- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. MDM enrollment does not apply to Windows Server 2019 VM deployments.
+- Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. Auto MDM enrollment requires Azure AD P1 license. Windows Server 2019 VMs do not support MDM enrollment.
 
 
 > [!NOTE]
@@ -75,7 +75,7 @@ For Azure China
 - `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
 - `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn` - For authentication flows.
-- `https://pas.chinacloudapi.cn' - For Azure RBAC flows.
+- `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
 
 
 ## Enabling Azure AD login in for Windows VM in Azure
