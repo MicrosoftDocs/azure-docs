@@ -65,7 +65,7 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 
 This step is optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
 
-The following snippets are all taken from the Dal.cs file in the DAL directory.
+The following snippets are from the *DAL/Dal.cs* file.
 
 * The following code initializes the client:
 
@@ -118,19 +118,22 @@ The following code creates a task and insert it into the collection:
    ```
    Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods.
 
-## Update your connection string
+## Update the connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+From the Azure portal copy the connection string information:
 
-1. In the [Azure portal](https://portal.azure.com/), in your Cosmos account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), select your Cosmos account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
 
-2. Open the **Dal.cs** file in the **DAL** directory. 
+2. Open the *DAL/Dal.cs* file.
 
-3. Copy your **username** value from the portal (using the copy button) and make it the value of the **username** in your **Dal.cs** file. 
+3. Copy the **username** value from the portal (using the copy button) and make it the value of the **username** in the **Dal.cs** file.
 
-4. Then copy your **host** value from the portal and make it the value of the **host** in your **Dal.cs** file. 
+4. Copy the **host** value from the portal and make it the value of the **host** in the **Dal.cs** file.
 
-5. Finally copy your **password** value from the portal and make it the value of the **password** in your **Dal.cs** file. 
+5. Copy the **password** value from the portal and make it the value of the **password** in your **Dal.cs** file.
+
+> [!WARNING]
+> Never check passwords or other sensitive data into source code.
 
 You've now updated your app with all the info it needs to communicate with Cosmos DB. 
     
