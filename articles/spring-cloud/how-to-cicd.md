@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Automate Application Deployments to Azure Spring Cloud
+# Automate application deployments to Azure Spring Cloud
 
 Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
 
