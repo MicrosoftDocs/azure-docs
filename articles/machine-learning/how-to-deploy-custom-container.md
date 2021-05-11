@@ -56,7 +56,7 @@ az configure --defaults group="<resource_group>" workspace="<workspace_name>"
 ## Download source code
 
 ```azurecli-interactive
-git clone https://github.com/Azure/azureml-examples.git --branch gopalv/triton-sample
+git clone https://github.com/Azure/azureml-examples.git --branch cli-preview
 cd azureml-examples/cli
 ```
 
