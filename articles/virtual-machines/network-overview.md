@@ -68,7 +68,7 @@ This table lists the methods that you can use to create an IP address.
 | [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic and the address associated to them may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
 | [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **-AllocationMethod** parameter as Dynamic or Static. |
 | [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **--allocation-method** parameter as Dynamic or Static. |
-| [Template](../virtual-network/template-samples.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a public IP address using a template. |
+| [Template](../virtual-network/template-samples.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet) as a guide for deploying a public IP address using a template. |
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
 
@@ -89,7 +89,7 @@ This table lists the methods that you can use to create a VNet and subnets.
 | [Azure portal](../virtual-network/quick-create-portal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
 | [Azure PowerShell](../virtual-network/quick-create-powershell.md) | You use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworkSubnetConfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create a subnet and a VNet. You can also use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/Az.Network/Add-AzVirtualNetworkSubnetConfig) to add a subnet to an existing VNet. |
 | [Azure CLI](../virtual-network/quick-create-cli.md) | The subnet and the VNet are created at the same time. Provide a **--subnet-name** parameter to [az network vnet create](/cli/azure/network/vnet) with the subnet name. |
-| Template | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets/), and modify it for your needs. |
+| Template | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets), and modify it for your needs. |
 
 ## Network security groups
 
