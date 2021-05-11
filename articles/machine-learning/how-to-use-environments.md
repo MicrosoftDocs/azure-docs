@@ -131,6 +131,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
 > * Python 3.6+.
+> * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 #### Use your own Dockerfile 
 
