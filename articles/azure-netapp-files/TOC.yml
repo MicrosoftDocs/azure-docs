@@ -83,7 +83,7 @@
     items:
     - name: Set up a capacity pool
       href: azure-netapp-files-set-up-capacity-pool.md
-     - name: Manage a manual QoS capacity pool
+    - name: Manage a manual QoS capacity pool
       href: manage-manual-qos-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
