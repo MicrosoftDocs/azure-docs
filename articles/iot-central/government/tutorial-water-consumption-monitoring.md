@@ -55,9 +55,9 @@ This template includes a sample water consumption device template, a simulated d
 
 1. Select **Create** at the bottom of the page.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png" alt-text="Azure IoT Central New application page.":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring.png" alt-text="Azure IoT Central New application page.":::
 
-    ![Azure IoT Central Billing info page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
+    ![Azure IoT Central Billing info page](./media/tutorial-waterconsumptionmonitoring/new-application-water-consumption-monitoring-billing-info.png)
 
 You've now created a water consumption monitoring app by using the Azure IoT Central water consumption monitoring template.
 
@@ -75,7 +75,7 @@ It's your application, and you can modify it anytime. Next, you explore the appl
 
 After you create the application, the sample **Wide World water consumption dashboard** opens.
   
- :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard.":::
+ :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-full.png" alt-text="Water consumption monitoring dashboard.":::
 
 
 You can create and customize views on the dashboard for operators.
@@ -122,7 +122,7 @@ To view the device template:
 
 1. Select the **Flow meter** device template, and familiarize yourself with the device capabilities.
 
-     ![Device template Flow meter](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-flowmeter.png)
+     ![Device template Flow meter](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-flow-meter.png)
 
 ### Customize the device template
 
