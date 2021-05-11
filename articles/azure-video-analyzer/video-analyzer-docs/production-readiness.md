@@ -136,7 +136,10 @@ Some system defined variables that you can use are:
 > [!Tip]
 > System.Runtime.PreciseDateTime and System.Runtime.DateTime cannot be used when naming videos in the cloud
 
-### Keeping your VM clean
+### Tips about maintaining your edge device
+
+> [!Note]
+> The tips below are not an exhaustive list but should help with commonly known issues we have encountered.
 
 The Linux VM that you are using as an edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
 
