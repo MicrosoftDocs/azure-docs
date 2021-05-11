@@ -39,6 +39,17 @@ To use an availability zone, create your virtual machine in a [supported Azure r
 
 1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
 
+## Confirm zone for managed disk and IP address
+
+When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone.
+
+You can confirm the zone settings for these resources in the portal.  
+
+1. Select **Disks** from the left menu and then select the OS disk. The page for the disk includes details about the location and availability zone of the disk.
+
+1. Back on the page for the VM, select the public IP address. In the left menu, select **Properties**. The properties page includes details about the location and availability zone of the public IP address.
+
+    
 ## Next steps
 
 In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.
