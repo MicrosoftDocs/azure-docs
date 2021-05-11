@@ -32,6 +32,7 @@ landingContent:
           - text: Useful resources
             url: resources.md
       - linkListType: whats-new
+        links:
           - text: What's new in Azure Sentinel?
             url: whats-new.md
 
