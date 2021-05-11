@@ -39,9 +39,9 @@ To complete this quickstart, you'll need to:
 
 Clone or download the [Azure Resource Manager quickstart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
 
-* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefacric/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
-* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefacric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
-* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefacric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
+* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
 ### Sign in to Azure
 
@@ -88,7 +88,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). The template for this article is too long to show here. To view the template, see the [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefacric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) file.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). The template for this article is too long to show here. To view the template, see the [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) file.
 
 Multiple Azure resources have been defined in the template:
 
