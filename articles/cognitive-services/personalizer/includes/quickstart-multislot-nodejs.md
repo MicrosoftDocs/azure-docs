@@ -249,7 +249,7 @@ async function sendMultiSlotReward(rewardRequest, eventId) {
 ## Get feedback for Personalizer decisions
 
 
-Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command line prompt.
+Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command-line prompt.
 
 ```javascript
 function getRewardForSlot() {
