@@ -22,7 +22,7 @@ You can have up to one free tier Azure Cosmos DB account per an Azure subscripti
 
 ## Free tier with shared throughput database
 
-In shared throughput model, when you provision throughput on a database, the throughput is shared across all the containers in the database. When using the free tier, you can provision a shared database with a maximum throughput of 1000 RU/s and all the containers within that database share this throughput.
+In Shared throughput model, when you provision throughput on a database, the throughput is shared across all the containers in the database. When using the free tier, you can provision a shared database with a maximum throughput of 1000 RU/s and all the containers within that database share this throughput.
 
 Just like the regular account, in the free tier account you can create a shared throughput database with a max of 25 containers. These 25 containers share up to 1000 RU/s throughput for free at the database level. Any additional databases with shared throughput or containers with dedicated throughput are billed at the regular pricing. In a free tier account, you can create a max of 5 shared throughput databases.
 
@@ -88,7 +88,13 @@ New-AzCosmosDBAccount -ResourceGroupName MyResourcegroup" `
 
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
+<<<<<<< HEAD
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
 * [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
+=======
+* Learn about [Optimizing for development and testing](optimize-dev-test.md)
+* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
+>>>>>>> bbc9c2375ce879fc7910f6bb567e74232f72c62b
