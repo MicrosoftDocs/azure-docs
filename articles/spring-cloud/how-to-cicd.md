@@ -79,7 +79,7 @@ steps:
 ::: zone pivot="programming-language-java"
 ### Deploy artifacts
 
-#### To Production
+#### To production
 
 You can build and deploy your projects using a series of tasks. This snippet first defines a Maven task to build the application, followed by a second task that deploys the JAR file using the Azure Spring Cloud task for Azure Pipelines.
 
