@@ -41,14 +41,14 @@ from openrowset(
 
 Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
 
-The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
+The URI in the `OPENROWSET` function must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
 
 > [!div class="mx-imgBorder"]
 >![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
 
-If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
+If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
 
-```
+```python
 %%pyspark
 from delta.tables import *
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
@@ -165,15 +165,15 @@ The URI in the `OPENROWSET` function (concatenated using the `LOCATION` in  ) mu
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
+If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
 
-```
+```python
 %%pyspark
 from delta.tables import *
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
 ```
 
-The second argument of `convertToDeltaLake` function represents the partitioning columns (year and month) that are a part of folder pattern and their types.
+The second argument of `DeltaTable.convertToDeltaLake` function represents the partitioning columns (year and month) that are a part of folder pattern (`year=*/month=*` in this example) and their types.
 
 ## Limitation
 
@@ -187,5 +187,6 @@ Advance to the next article to learn how to [Query Parquet nested types](query-p
 ## See also
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
-- [Azure Databricks Delta lake best practices](/azure/databricks/delta/best-practices.md)
+- [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
+- [Azure Databricks Delta Lake best practices](/azure/databricks/delta/best-practices.md)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
