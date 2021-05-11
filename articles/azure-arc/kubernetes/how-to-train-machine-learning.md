@@ -30,9 +30,9 @@ Azure Arc enabled Kubernetes has a cluster extensions functionality that enables
 
     > [!NOTE]
     > Arc cluster and AML workspace must be in the same region.
-    
+
     ```azurecli
-    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <myRG> --name <compute-name> --extension-type Microsoft.AzureML.Kubernetes --scope cluster --configuration-settings enableTraining=True --release-train experimental
+    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <myRG> --name <compute-name> --extension-type Microsoft.AzureML.Kubernetes --scope cluster --configuration-settings enableTraining=True
     ```
 
 Running this command will create a Service Bus and Relay resource under the same resource group as the Arc cluster.  These resources are used to communicate with the cluster and modifying them will break attached compute targets.
