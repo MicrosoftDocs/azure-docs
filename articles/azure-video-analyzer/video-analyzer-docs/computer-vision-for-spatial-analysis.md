@@ -43,6 +43,12 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 * [Azure Cognitive Service Computer Vision container](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for spatial analysis.  
     In order to use this container, you must have a Computer Vision resource to get the associated **API key** and an **endpoint URI**. The API key is available on the Azure portal's Computer Vision Overview and Keys pages. The key and endpoint are required to start the container.
 
+## Set up Azure resources
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
+
+[!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+
 ## Overview
 
 > [!div class="mx-imgBorder"]
@@ -68,7 +74,7 @@ There are three primary parameters for all Cognitive Services' containers that a
 A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
+> :::image type="content" source="../../media-services/live-video-analytics-edge/media/spatial-analysis-tutorial/keys-endpoint.png" alt-text="Endpoint URI":::
 
 ## Set up Azure Stack Edge
 
@@ -225,7 +231,7 @@ In operations.json:
 {
     "opName": "pipelineTopologySet",
     "opParams": {
-        "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/topology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
     }
 },
 ```
@@ -263,45 +269,51 @@ In operations.json:
 
 ```json
 {
-        "@type": "#Microsoft.VideoAnalyzer.CognitiveServicesVisionExtension",
-        "name": "CognitiveServicesVisionExtension",
+        "@type": "#Microsoft.VideoAnalyzer.CognitiveServicesVisionProcessor",
+        "name": "computerVisionExtension",
         "endpoint": {
           "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
           "url": "${grpcUrl}",
           "credentials": {
             "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
-            "username": "not-in-use",
-            "password": "not-in-use"
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
           }
         },
-        "image": {
-          "scale": {
-            "mode": "pad",
-            "width": "1408",
-            "height": "786"
-          },
-          "format": {
-            "@type": "#Microsoft.VideoAnalyzer.ImageFormatRaw",
-            "pixelFormat": "bgr24"
-          }
-        },
-        "samplingOptions": {
-          "skipSamplesWithoutAnnotation": "false",
-          "maximumSamplesPerSecond": "15"
-          },
         "inputs": [
           {
             "nodeName": "rtspSource",
             "outputSelectors": [
-            {
-              "property": "mediaType",
-              "operator": "is",
-              "value": "video"
-            }
+              {
+                "property": "mediaType",
+                "operator": "is",
+                "value": "video"
+              }
             ]
           }
-        ]
-      },
+        ],
+        "operation": {
+          "@type": "#Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation",
+          "zones": [
+            {
+              "zone": {
+                "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
+                "polygon": "[[0.37,0.43],[0.48,0.42],[0.53,0.56],[0.34,0.57],[0.34,0.46]]",
+                "name": "stairlanding"
+              },
+              "events": [
+                {
+                  "trigger": "event",
+                  "outputFrequency": "1",
+                  "threshold": "16",
+                  "focus": "bottomCenter"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
 ```
 
 Run a debug session and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
@@ -667,88 +679,73 @@ You can use a video player to view the generated video including the inferences 
 The spatialanalysis is a large container and its startup time can take up to 60 seconds. Once the spatialanalysis container is up and running it will start to send the inferences events.
 
 ``` JSON
-[IoTHubMonitor] [10:21:27 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:37:28 PM] Message received from [ase03-edge/avaedge]:
 {
-  "sdp": "SDP:\nv=0\r\no=- 1619018487348148 1 IN IP4 172.27.86.110\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/bulldozer_new.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-918.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/bulldozer_new.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D4020;sprop-parameter-sets=Z01AIJWgFAFuwEQAAA+gAAOpgD0qgA==,aO48gA==\r\na=control:track1\r\nm=audio 0 RTP/AVP 97\r\nc=IN IP4 0.0.0.0\r\nb=AS:96\r\na=rtpmap:97 MPEG4-GENERIC/48000/2\r\na=fmtp:97 streamtype=5;profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3;config=1190\r\na=control:track2\r\n"
+  "sdp": "SDP:\nv=0\r\no=- 1620671848135494 1 IN IP4 172.27.86.122\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/cafeteria.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.066\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/cafeteria.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=Z2QAKKzZQHgCHoQAAAMABAAAAwDwPGDGWA==,aOvssiw=\r\na=control:track1\r\n"
 }
-[IoTHubMonitor] [10:21:30 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:37:30 PM] Message received from [ase03-edge/avaedge]:
 {
   "type": "video",
-  "location": "zonecrossing-04152021",
-  "startTime": "2021-04-21T15:21:27.017Z"
+  "location": "/videos/customoperation-05102021",
+  "startTime": "2021-05-10T18:37:27.931Z"
 }
-[IoTHubMonitor] [10:21:40 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:37:40 PM] Message received from [ase03-edge/avaedge]:
 {
-  "code": "media_stream_descriptor_not_received",
-  "target": "spatialanalysis:50051",
-  "protocol": "grpc"
+  "state": "initializing"
 }
-[IoTHubMonitor] [10:21:50 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:37:50 PM] Message received from [ase03-edge/avaedge]:
 {
-  "code": "media_stream_descriptor_not_received",
-  "target": "spatialanalysis:50051",
-  "protocol": "grpc"
+  "state": "initializing"
 }
-[IoTHubMonitor] [10:22:00 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:38:18 PM] Message received from [ase03-edge/avaedge]:
 {
-  "code": "media_stream_descriptor_not_received",
-  "target": "spatialanalysis:50051",
-  "protocol": "grpc"
+  "type": "video",
+  "location": "/videos/customoperation-05102021",
+  "startTime": "2021-05-10T18:37:27.931Z"
 }
-[IoTHubMonitor] [10:22:10 AM] Message received from [ase03-edge/avaedge]:
+[IoTHubMonitor] [3:38:42 PM] Message received from [ase03-edge/avaedge]:
 {
-  "code": "media_stream_descriptor_not_received",
-  "target": "spatialanalysis:50051",
-  "protocol": "grpc"
-}
-[IoTHubMonitor] [10:22:20 AM] Message received from [ase03-edge/avaedge]:
-{
-  "code": "media_stream_descriptor_not_received",
-  "target": "spatialanalysis:50051",
-  "protocol": "grpc"
-}
-[IoTHubMonitor] [10:22:30 AM] Message received from [ase03-edge/avaedge]:
-{
-  "timestamp": 145666599533564,
+  "timestamp": 145860472980260,
   "inferences": [
     {
       "type": "entity",
-      "inferenceId": "5b8076753b8c47bba8c72a7e0f7c5cc0",
+      "inferenceId": "647aacf9d8bc47078a1ed31d1c459c24",
       "entity": {
         "tag": {
           "value": "person",
-          "confidence": 0.9458008
+          "confidence": 0.7583008
         },
         "box": {
-          "l": 0.474487,
-          "t": 0.26522297,
-          "w": 0.066929355,
-          "h": 0.2828749
+          "l": 0.48213565,
+          "t": 0.21217245,
+          "w": 0.056364775,
+          "h": 0.29961595
         }
       },
       "extensions": {
-        "centerGroundPointX": "0.0",
         "centerGroundPointY": "0.0",
-        "footprintX": "inf",
-        "footprintY": "inf"
+        "centerGroundPointX": "0.0",
+        "footprintX": "0.5087100982666015",
+        "footprintY": "0.49634415356080924"
       }
     },
     {
       "type": "event",
-      "inferenceId": "fb309c9285f94f268378540b5fbbf5ad",
+      "inferenceId": "dae6c2b742634196b615c128654845dc",
       "relatedInferences": [
-        "5b8076753b8c47bba8c72a7e0f7c5cc0"
+        "647aacf9d8bc47078a1ed31d1c459c24"
       ],
       "event": {
         "name": "personCountEvent",
         "properties": {
           "personCount": "1.0",
-          "zone": "demo"
+          "zone": "stairlanding"
         }
       }
     }
   ]
 }
+
 ```
 
 > [!NOTE]
