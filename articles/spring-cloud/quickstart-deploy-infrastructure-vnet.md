@@ -10,34 +10,17 @@ ms.author: rhudson
 ms.date: 05/23/2021
 ---
 
-<!-- ms.topic and ms.custom in the metadata section are required -->
-
-<!-- 
-Remove all the comments from this template before your article is pushed to GitHub and published.
--->
-
-<!-- The H1 must begin with Quickstart: and include the words ARM template. -->
-
 # Quickstart: Deploy an Azure Spring Cloud Cluster into an existing Virtual Network by using an ARM Template
 
-<!-- 
-First paragraph: Include a sentence that uses Azure Resource Manager template (ARM template) for the first occurrence about the template. For example:
--->
+
 
 Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications to Azure without any code changes. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create \<service>.
 
 
-<!--
-Second paragraph: Use the following include file. This include file is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content. You might need to change the file path of the include file depending on your content structure. 
-.-->
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-<!-- 
-Final paragraph: Explains that readers who are experienced with ARM templates can continue to the deployment. For information about the button image and how to create the template's URI, see "Deploy the template" for Portal.
--->
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -45,9 +28,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-<!-- 
-This section must begin with a sentence that includes a link to create a free Azure account. If your service has other prerequisites, list them after the free account sentence.
--->
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -71,7 +51,7 @@ Two Azure resources are defined in the template:
 * [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring): Create an Azure Spring Cloud instance.
 * [Microsoft.Insights/components](/azure/templates/microsoft.insights/components): Create an Application Insights workspace.
 
-
+For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference Architecture][10] repository on GitHub.
 
 ## Deploy the template
 
@@ -98,7 +78,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI or Azure PowerShell:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -125,7 +105,12 @@ Make the next steps similar to other quickstarts and use a blue button to link t
 To include additional links for more information about the service, it's acceptable to use a paragraph and bullet points.
 -->
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+In this quickstart, you created an Azure Spring Cloud instance into an existing Virtual Network using an ARM template and validated the deployment. To learn more about Azure Spring Cloud and Azure Resource Manager, continue on to the articles below.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+- Deploy one of the following sample applications from the locations below:
+    * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
+    * [Simple Hello World](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart?tabs=Azure-CLI&pivots=programming-language-java).
+- Use [custom domains](https://docs.microsoft.com/en-us/azure/spring-cloud/tutorial-custom-domain) with Azure Spring Cloud.
+- Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/spring-cloud/expose-apps-gateway-azure-firewall).
+- View a secure end-to-end [Reference Architecture](https://docs.microsoft.com/en-us/azure/spring-cloud/reference-architecture) for Azure Spring Cloud that is based on the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
