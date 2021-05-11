@@ -74,7 +74,7 @@ Automatic Optimization Preview is unavailable for Personalizer loops that have e
 
 ## Next steps
 
-* [Offline evaluations](https://docs.microsoft.com/azure/cognitive-services/personalizer/concepts-offline-evaluation)
-* [Learning Policy and Settings](https://docs.microsoft.com/azure/cognitive-services/personalizer/concept-active-learning)
-* [How To Analyze Personalizer with an Offline Evaluation](https://docs.microsoft.com/azure/cognitive-services/personalizer/how-to-offline-evaluation) 
+* [Offline evaluations](concepts-offline-evaluation.md)
+* [Learning Policy and Settings](concept-active-learning.md)
+* [How To Analyze Personalizer with an Offline Evaluation](how-to-offline-evaluation.md) 
 * [Research in AI Safety](https://aisafety.cs.umass.edu/overview.html) 
