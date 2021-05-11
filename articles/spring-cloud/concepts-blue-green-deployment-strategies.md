@@ -61,7 +61,7 @@ Suppose in the above application, the release pipeline requires manual approval 
 
 ![The approval race condition](media/spring-cloud-blue-green-patterns/alternating-deployments-race-condition.png)
 
-You may be able to prevent the race condition by ensuring that the deployment flow for one version cannot begin until the deployment flow for all previous versions is complete or aborted. Another way to prevent the approval race condition is to use the Named Deployments approach described below.
+You may be able to prevent the race condition by ensuring that the deployment flow for one version can't begin until the deployment flow for all previous versions is complete or aborted. Another way to prevent the approval race condition is to use the Named Deployments approach described below.
 
 ## Named deployments
 
