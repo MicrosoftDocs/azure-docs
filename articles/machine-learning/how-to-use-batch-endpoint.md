@@ -83,7 +83,7 @@ az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-in
 
 ## Create a batch endpoint
 
-If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated.
+If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
 
 ```azurecli
 az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpoint.yml
@@ -114,7 +114,8 @@ Deployment Attributes:
 | output_file_name | [Optional] The name of the batch scoring output file. Default is `parallel_run_step.txt`. |
 | retry_settings.max_retries | [Optional] The number of max tries for a failed `scoring_script` `run()`. Default is`3`. |
 | retry_settings.timeout | [Optional] The timeout in seconds for a `scoring_script` `run()`. Default is `60`. |
-| error_threshold | [Optional] The number of file failures that should be ignored. If the error count for the entire input goes above this value, the job will be canceled. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. Default is `-1`, which specifies that any number of failures is allowed without canceling the run. |
+| error_threshold | [Optional] The number of file failures that should be ignored. If the error count for the entire input goes above this value, the job will be terminated. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. Default is `-1`, which specifies that any number of failures is allowed without terminating the run. | 
+| logging_level | [Optional] Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. Default is INFO. |
 
 ## Check batch endpoint details
 
@@ -284,30 +285,26 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 1. Get the `scoring_uri`:  
 
 ```azurecli
-az ml endpoint show --name mybatchedp --type batch --query scoring_uri
+scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring_uri -o tsv)
 ```
 
 1. Get the access token:
 
 ```azurecli
-az account get-access-token
+auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
-1. Use the `scoring_uri` and access token to POST a request and start a batch scoring job:
-
-```JSON
-{
-    "properties": {
-        "dataset": {
-            "dataInputType": "DataUrl",
-            "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
-        }
-    }
-}
-```
+1. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
 
 ```bash
-tk curl command here
+curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
+"properties": {
+  "dataset": {
+    "dataInputType": "DataUrl",
+    "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
+    }
+  }
+}'
 ```
 
 ## Clean up resources
