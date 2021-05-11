@@ -47,8 +47,6 @@
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
     href: visualize/tutorial-logs-dashboards.md
-  - name: Create alert from log query
-    href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights

@@ -120,7 +120,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 
 5. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
-   * C#: [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-scripts.md)
+   * C#: [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
@@ -138,19 +138,19 @@ Next, [Retrieve and modify the connection string](#retrieve-and-modify-connectio
 
 For X.509 certificate authority (CA) signed authentication, you need a root CA certificate registered in IoT Hub that you use to sign certificates for your downstream device. Any device using a certificate that was issues by the root CA certificate or any of its intermediate certificates will be permitted to authenticate.
 
-This section is based on the instructions detailed in the IoT Hub article [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-scripts.md).
+This section is based on the IoT Hub X.509 certificate tutorial series. See [Understanding Public Key Cryptography and X.509 Public Key Infrastructure](../iot-hub/tutorial-x509-introduction.md) for the introduction of this series.
 
 1. Using your CA certificate, create two device certificates (primary and secondary) for the downstream device.
 
    If you don't have a certificate authority to create X.509 certificates, you can use the IoT Edge demo certificate scripts to [Create downstream device certificates](how-to-create-test-certificates.md#create-downstream-device-certificates). Follow the steps for creating CA-signed certificates. Use the same root CA certificate that generated the certificates for your gateway device.
 
-2. Follow the instructions in the [Register X.509 CA certificates to your IoT hub](../iot-hub/tutorial-x509-scripts.md) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
+2. Follow the instructions in the [Demonstrate proof of possession](../iot-hub/tutorial-x509-openssl.md#step-7---demonstrate-proof-of-possession) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
 
    1. Upload a root CA certificate. If you're using the demo certificates, the root CA is **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
 
    2. Verify that you own that root CA certificate.
 
-3. Follow the instructions in the [Create an X.509 device for your IoT hub](../iot-hub/tutorial-x509-scripts.md) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
+3. Follow the instructions in the [Create a device in your IoT Hub](../iot-hub/tutorial-x509-openssl.md#step-8---create-a-device-in-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps:
 
    1. Add a new device. Provide a lowercase name for **device ID**, and choose the authentication type **X.509 CA Signed**.
 
@@ -164,7 +164,7 @@ This section is based on the instructions detailed in the IoT Hub article [Set u
 
 6. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
-   * C#: [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-scripts.md)
+   * C#: [Set up X.509 security in your Azure IoT hub](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
