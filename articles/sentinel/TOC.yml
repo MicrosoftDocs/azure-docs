@@ -276,8 +276,6 @@
         href: sentinel-solutions-building.md
       - name: Deploy the SAP data connector on-premises
         href: sap-solution-deploy-alternate.md
-  - name: Enable user and entity behavior analytics
-    href: enable-entity-behavior-analytics.md
   - name: Use user and entity behavior analytics
     items:
     - name: Enable UEBA
