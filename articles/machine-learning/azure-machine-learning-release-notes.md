@@ -45,8 +45,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-mlflow**
     + Added support for deploying to AzureML via our MLFlow plugin.
-  + **azureml-pipeline-core**
-    + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
   + **azureml-pipeline-steps**
     + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
   + **azureml-synapse**
