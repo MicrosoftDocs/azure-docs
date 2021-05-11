@@ -43,7 +43,7 @@ To add an account by signing into your work or school account using your credent
 
    - If you receive the message `You might be signing in from a location that is restricted by your admin`, your admin hasn't enabled this feature for you. You can try to set up your account by scanning a QR Code from the **Additional security verification** page or in [Security info](https://mysignins.microsoft.com/security-info).
 
-1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA).
+1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA). However, you'll still be able to set up MFA whether or not you are enabled for phone sign-in.
 
 1. At this point, you could be asked to scan a QR Code provided by your organization to set up an on-premises multi-factor authentication account in the app. You're required to do this only if your organization uses on-premises MFA Server.
 
@@ -67,7 +67,17 @@ To add an account by scanning a QR Code, do the following:
 
 If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera.
 
-## Next steps
+## Device code sign-in
+
+Many common apps allow you to authenticate by entering a code on another device suh as a PC. If you want to sign in on a remote computer and install the Microsoft Authenticator:
+
+1. Open the Microsoft Authenticator app, select the **+** button &gt; **Add work or school account** &gt; **Sign in**.
+1. Select **Sign in from another device**.
+1. On the remote screen, open the [**Sign in to your account** page](https://microsoft.com/devicelogin) and enter the code that you see in your Authenticator app.
+1. On your remote screen, sign in using your work or school account credentials. If you have a Temporary Access Pass (TAP) you can use that to sign in.
+1. After you complete your authentication on the remote screen, return to the Authenticator app to complete setup.
+
+ ## Next steps
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
 
