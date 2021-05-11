@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure. 
 ---
@@ -169,20 +169,15 @@ Follow these steps to enable compute and configure compute network.
 This is an optional configuration.
 
 > [!IMPORTANT]
-> * If you enable compute and use IoT Edge module on your Azure Stack Edge Mini R device, we recommend you set web proxy authentication as **None**. NTLM is not supported.
->* Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's certificate is not trusted. Typically transparent proxies work well with Azure Stack Edge Mini R. Non-transparent web proxies are not supported.
+> Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's certificate is not trusted. Typically transparent proxies work well with Azure Stack Edge Mini R. Non-transparent web proxies are not supported.
 
 
 1. On the **Web proxy settings** page, take the following steps:
 
-    1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
-    2. Under **Authentication**, select **None** or **NTLM**. If you enable compute and use IoT Edge module on your Azure Stack Edge Mini R device, we recommend you set web proxy authentication to **None**. **NTLM** is not supported.
+   2. To validate and apply the configured web proxy settings, select **Apply**.
 
-    3. If you're using authentication, enter a username and password.
-
-    4. To validate and apply the configured web proxy settings, select **Apply**.
-    
    ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
 
 2. After the settings are applied, select **Next: Device**.
