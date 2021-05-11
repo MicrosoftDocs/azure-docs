@@ -45,7 +45,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 > The basic public IP you are upgrading must have the static allocation type. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard sku can't be reversed.
+> Upgrading a basic public IP to standard SKU can't be reversed.
 
 ## Verify upgrade
 
@@ -66,7 +66,7 @@ The command should display **Standard**.
 
 ## Next steps
 
-In this article, you upgrade a basic SKU public IP address to standard SKU.
+In this article, you upgraded a basic SKU public IP address to standard SKU.
 
 For more information on public IP addresses in Azure, see:
 
