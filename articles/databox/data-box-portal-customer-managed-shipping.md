@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 05/08/2021
 ms.author: alkohli
 ---
 
@@ -58,7 +58,7 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
 
-   ```xml
+   ```
    Subject: Request Azure Data Box Disk pickup for order: <ordername>
 
    - Order name
@@ -105,12 +105,12 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
 
-   ```xml
-   Subject: Request Azure Data Box Disk dropoff for order: <ordername>
+   ```
+   Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 
    - Order name
    - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
-   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at dropoff.)   
+   - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
    ```
 
 10. If you've received an appointment for drop-off, the order should have **Ready to receive at Azure datacenter** status in the Azure portal. Follow the instructions under **Schedule drop-off** to return the device.
