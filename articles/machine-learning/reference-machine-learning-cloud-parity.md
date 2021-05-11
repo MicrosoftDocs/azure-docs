@@ -176,7 +176,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
-| Workplace Private link                                                     | Public Preview   | NO        | N/A        |
+| Workplace Private link                                                     | GA               | NO        | N/A        |
 | ACI behind VNet                                                            | Public Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | Public Preview   | NO        | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
