@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: pvicencio
+author: paolamvhz
 manager: ankita
 
 ms.service: azure-communication-services
