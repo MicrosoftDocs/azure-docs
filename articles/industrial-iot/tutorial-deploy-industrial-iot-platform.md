@@ -57,13 +57,15 @@ Application Insights
 
 On Windows:
     ```
-    .\deploy
+    .\deploy -version <version>
     ```
 
 On Linux or Mac:
     ```
-    ./deploy.sh
+    ./deploy.sh -version <version>
     ```
+
+Replace \<version> with the version you want to deploy.
 
 3. The microservices and the UI are web applications that require authentication, this requires three app registrations in the AAD. If the required rights are missing, there are two possible solutions:
 
