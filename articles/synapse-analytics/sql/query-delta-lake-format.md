@@ -43,6 +43,8 @@ Column names and data types are automatically read from Delta Lake files. The `O
 
 The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
 
+> [!div class="mx-imgBorder"]
+>![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
 
 If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
 
@@ -160,6 +162,8 @@ reduce your data set, improve performance, and reduce the cost of the query.
 
 The URI in the `OPENROWSET` function (concatenated using the `LOCATION` in  ) must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
 
+> [!div class="mx-imgBorder"]
+>![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
 If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
 
