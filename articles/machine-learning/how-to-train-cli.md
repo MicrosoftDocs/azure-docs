@@ -202,4 +202,4 @@ Create the job and open in the studio:
 
 ## Next steps
 
-- [Deploy models with a managed endpoint](how-to-deploy-managed-endpoints.md)
+-

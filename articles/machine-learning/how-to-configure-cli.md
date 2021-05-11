@@ -108,4 +108,3 @@ Submit the job, streaming the logs to the console output, and opening the run in
 ## Next steps
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
-- [Deploy models with a managed endpoint](how-to-deploy-managed-endpoints.md)
