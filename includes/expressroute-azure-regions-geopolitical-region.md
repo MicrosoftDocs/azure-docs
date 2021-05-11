@@ -28,7 +28,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **South America** | Brazil South |Bogota, Rio de Janeiro, Sao Paulo |
 
 
-## Regions and geopolitical boundaries for national clouds
+## Azure regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
