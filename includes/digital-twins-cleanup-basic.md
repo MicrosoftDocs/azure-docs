@@ -7,7 +7,7 @@ ms.date: 2/4/2021
 ms.author: baanders
 ---
 
-* **If you do not need any of the resources you created in this tutorial**, you can delete the Azure Digital Twins instance and all other resources from this article with the [az group delete](/cli/azure/group#az-group-delete) command. This deletes all Azure resources in a resource group, as well as the resource group itself.
+* **If you do not need any of the resources you created in this tutorial**, you can delete the Azure Digital Twins instance and all other resources from this article with the [az group delete](/cli/azure/group#az_group_delete) command. This deletes all Azure resources in a resource group, as well as the resource group itself.
     
     > [!IMPORTANT]
     > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources.

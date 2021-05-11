@@ -17,12 +17,14 @@
       href: ./quickstarts/client-libraries.md
 - name: Samples
   items:
-    - name: Interactive demo
+    - name: Interactive demo (univariate)
       href: https://aka.ms/adDemo
-    - name: Jupyter Notebook
+    - name: Jupyter Notebook (univariate)
       href: https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook
+    - name: Jupyter Notebook (multivariate)
+      href: https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb
     - name: Azure samples
-      href: https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector
+      href: /samples/browse/?products=azure&terms=anomaly-detector
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
@@ -33,8 +35,6 @@
           href: how-to/deploy-anomaly-detection-on-iot-edge.md
         - name: Containers
           items:
-            - name: Cognitive Services containers documentation
-              href: https://docs.microsoft.com/azure/cognitive-services/containers/
             - name: Install and run containers
               displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
               href: anomaly-detector-container-howto.md
@@ -43,6 +43,9 @@
               displayName: docker, container, apikey, billing, log, mount, run, pull, port
             - name: Use container instances
               href: how-to/deploy-anomaly-detection-on-container-instances.md
+            - name: All Cognitive Services containers documentation
+              href: ../containers/index.yml
+              maintainContext: true
     - name: Enterprise readiness
       items:
         - name: Set up Virtual Networks
@@ -71,14 +74,16 @@
   items:
     - name: Anomaly Detector REST API
       href: https://aka.ms/anomaly-detector-rest-api-ref
-    - name: .NET
-      href: https://aka.ms/anomaly-detector-dotnet-ref
-    - name: Go
-      href: https://go.microsoft.com/fwlink/?linkid=2089915
+    - name: Anomaly Detector REST API preview (multivariate)
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+    - name: .NET 
+      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3
+    - name: Java
+      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/
     - name: Python
-      href: https://go.microsoft.com/fwlink/?linkid=2090370
+      href: https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/
     - name: Node.js
-      href: https://go.microsoft.com/fwlink/?linkid=2090788
+      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3
 - name: Resources
   items:
     - name: Enterprise readiness
@@ -90,7 +95,7 @@
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Microsoft Learn modules
-      href: https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/
+      href: /learn/modules/intro-to-anomaly-detector/
     - name: User-generated content
       href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams

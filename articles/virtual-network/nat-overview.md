@@ -139,5 +139,6 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 ## Next steps
 
+* Learn [how to get better outbound connectivity using an Azure NAT Gateway](https://www.youtube.com/watch?v=2Ng_uM0ZaB4).
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).

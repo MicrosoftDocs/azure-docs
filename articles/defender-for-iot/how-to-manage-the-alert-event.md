@@ -18,15 +18,28 @@ The following options are available for managing alert events:
 You can also export alert information.
 ## About learning and unlearning events
 
-Events that indicate deviations of the learned network might reflect valid network changes. Examples might include a new authorized device that joined the network or an authorized firmware update.
+Events that indicate deviations of the learned network might reflect valid network changes. When you want to approve these changes, you can instruct Defender for IoT to *learn* the behavior. Examples might include:
 
-When you select **Learn**, the sensor considers traffic, configurations, or activity valid. This means alerts will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+- New activity was detected on existing device. For example, an authorized device attempted to access a new resource on another device.
 
-For example, you receive an alert that indicates address scanning activity on a device that a network scanner didn't previously define. If this device was added to the network for the purpose of scanning, you can instruct the sensor to learn the device as a scanning device.
+- A new device is added to the network.  
+
+- Firmware version changes following standard maintenance procedures.
+
+- A new  device performed a read/write operation on a destination controller.
+
+- A new device performs a read/write operation on a destination controller and should be defined as a programming device.
+
+- New legitimate scanning is carried out and the device should be defined as a scanning device.
+
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="The Address Detected Scan window.":::
 
-Learned events can be unlearned. When the sensor unlearns events, it will retrigger alerts related to this event.
+Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
+
+When you select **Learn**, the sensor considers traffic, configurations, or activity valid. This means alerts will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+
+Learned events can be unlearned. When the sensor unlearns events, it will re-trigger alerts related to this event.
 
 ## About acknowledging and unacknowledging events
 
@@ -118,5 +131,7 @@ To export:
 1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
 
 ## See also
+
+[Alert types and descriptions](alert-engine-messages.md)
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
