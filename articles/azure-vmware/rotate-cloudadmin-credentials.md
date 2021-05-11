@@ -1,19 +1,22 @@
 ---
-title: Reset vSphere credentials for Azure VMware Solution
-description: Learn how to reset vSphere credentials for your Azure VMware Solution private cloud and ensure the HCX connector has the latest vSphere credentials.
+title: Rotate the cloudadmin credentials for Azure VMware Solution
+description: Learn how to rotate the vCenter Server and NSX-T Manager credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/11/2021
+
+#Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter CloudAdmin and NSX-T admin credentials.
+
 ---
 
-# Reset vSphere credentials for Azure VMware Solution
+# Rotate the cloudadmin credentials for Azure VMware Solution
 
-This article walks you through the steps to rotate the cloudadmin credentials for your Azure VMware Solution private cloud.  Although your vCenter Server CloudAdmin and NSX-T Manager admin credentials don't expire, you can generate new passwords for these accounts. After rotating the credentials, you'll verify that the HCX Connector has the latest vCenter Server credentials.
+This article walks you through the steps to rotate the cloudadmin credentials for your Azure VMware Solution private cloud.  Although your vCenter Server CloudAdmin and NSX-T Manager admin credentials don't expire, you can generate new passwords for these accounts. After rotating the credentials, you'll verify the HCX Connector has the latest vCenter Server credentials.
 
-In addition to this how-to, you can also view the video for [resetting the vCenter CloudAdmin & NSX-T Admin password](https://youtu.be/cK1qY3knj88).
+You can also view the video for [resetting the vCenter CloudAdmin & NSX-T Admin password](https://youtu.be/cK1qY3knj88).
 
 ## Prerequisites
 
-If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections stop working once you update your password.  Stop these services before initiating the password rotation. If you don't, you'll experience temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections stop working once you update your password.  Stop these services before initiating the password rotation. Otherwise, you'll experience temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 ## Reset your Azure VMware Solution credentials
 
@@ -38,15 +41,17 @@ In this step, you'll rotate the cloudadmin credentials for your Azure VMware Sol
 
 ## Verify HCX Connector has the latest credentials
 
-In this step, you'll verify that the HCX connector has the updated credentials.
+In this step, you'll verify that the HCX Connector has the updated credentials.
 
-1. Once your password is changed, go to the on-premises HCX connector web interface using https://{ip of the HCX connector appliance}:443. Be sure to use port 443. Log in using your new credentials.
+1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
+
+   Be sure to use port 443. 
 
 2. On the VMware HCX Dashboard, select **Site Pairing**.
     
    :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
  
-3. Select the correct connection to Azure VMware Solution (if there is more than one) and select **Edit Connection**.
+3. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
  
 4. Provide the new vCenter Server CloudAdmin user credentials and select **Edit**, which saves the credentials. Save should show successful.
 
