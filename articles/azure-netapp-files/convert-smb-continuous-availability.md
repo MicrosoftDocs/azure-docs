@@ -35,7 +35,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 
 6. In the Create a Volume window that appears, provide information for the new volume:  
 
-    * **Name**    
+    * **Volume name**    
     Specify the name for the volume that you are creating.   
     The name must be unique within a resource group. It must be at least three characters long. It can use any alphanumeric characters.
 
@@ -58,7 +58,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 
 11.	Restart the application that you stopped during Step 2. 
 
-12.	After the application begins to leverage the new volume, and when the process of restoring to new volume is completed, you can optionally delete the original volume.  
+12.	After the application begins to leverage the new volume, and when the process of restoring to the new volume is complete, you can optionally delete the original volume.  
 
 ## Next steps  
 
