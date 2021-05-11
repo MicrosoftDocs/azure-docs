@@ -190,7 +190,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 ## Check batch scoring job execution progress
 
-Batch scoring jobs usually take some time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.studio`.
+Batch scoring jobs usually take some time to process the entire set of inputs. You can monitor the job progress from Azure Machine Learning studio. The studio link is provided in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
 You can also check job details along with status using CLI.
 
@@ -236,7 +236,7 @@ One batch endpoint can have multiple deployments. Each deployment hosts one mode
 Use the following command to add a new deployment to an existing batch endpoint.
 
 ```azurecli
-az ml endpoint update --name mybatchedp --type batch --deployment mnist_deployment --deployment-file cli/endpoints/batch/add-deployment.yml
+az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
 ```
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
@@ -254,7 +254,7 @@ More deployment attributes for the non-MLflow model:
 To review the details of your deployment, run:
 
 ```azurecli
-az ml endpoint show
+az ml endpoint show --name mybatchedp --type batch
 ```
 
 ### Activate the new deployment
@@ -263,6 +263,12 @@ For batch inference, you must send 100% of inquiries to the wanted deployment. T
 
 ```azurecli
 az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+```
+
+If you re-examine the details of your deployment, you will see changes:
+
+```azurecli
+az ml endpoint show --name mybatchedp --type batch
 ```
 
 Now you can invoke a batch scoring job with this new deployment:
