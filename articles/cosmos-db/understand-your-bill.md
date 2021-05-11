@@ -250,7 +250,7 @@ This example reflects [pricing for multi-region writes](https://azure.microsoft.
 
 ### Billing example – Azure free account
 
-Let's suppose you have an Azure free account and an Azure Cosmos DB free tier account within it.
+Let's suppose you have an Azure free account and an Azure Cosmos DB free tier account within it. The Azure Cosmos DB account has a single write region.
 
 - You created a database or container with 2000 RU/s and 55 GB of storage.
 - For the first 12 months, your bill will not show any charge for 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account).

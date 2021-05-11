@@ -33,7 +33,7 @@ The Azure Cosmos DB free tier is compatible with the [Azure free account](optimi
 > [!NOTE]
 > Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
 
-## Free tier without additional charges
+## Best practices to keep your account feee
 
 When using Azure Cosmos DB free tier, to keep your account completely free of charge, your account should not have any additional RU/s or storage consumption other than the one offered by the free tier.
 
