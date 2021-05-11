@@ -97,8 +97,6 @@
       href: public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
       href: ipv6-overview.md
-    - name: Public IPv6 address prefix
-      href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
