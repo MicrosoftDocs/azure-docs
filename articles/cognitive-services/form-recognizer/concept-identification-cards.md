@@ -17,6 +17,25 @@ ms.author: lajanuar
 
 Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service. 
 
+## Customer scenarios
+
+The data extracted with the IDs API can be used to perform a variety of tasks for scenarios like Know Your Customer (KYC) in industries including finance, health & insurance, government, etc. Below are a few examples:
+
+* Digital onboarding - End user can use a mobile application to scan the their IDs and onboard to various services. Remote customer verification is aided by IDs data extraction. 
+
+* Validation and IDs matching - End user can fill out an application and attach images of IDs. Pre-built IDs enables a bank to verify the information matches with data on hand.
+
+* Forms pre-population - As part of an insurance claim process, end user submits their IDs and fields are pre-populated in online documents, saving time in the process.
+
+The IDs API also powers the [AI Builder ID reader feature](/ai-builder/prebuilt-id-reader).
+
+## Try it out
+
+To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+
 ## What does the ID service do?
 
 The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response.
@@ -51,7 +70,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 The IDs API also returns the following information:
 
 * Field confidence level (each field returns an associated confidence value)
-* OCR raw text (OCR-extracted text output for the entire receipt)
+* OCR raw text (OCR-extracted text output for the entire identity document)
 * Bounding box of each extracted field in U.S. Driver's Licenses
 * Bounding box for Machine Readable Zone (MRZ) on Passports
 
@@ -59,13 +78,6 @@ The IDs API also returns the following information:
   > Pre-built IDs does not detect ID authenticity
   >
   > Form Recognizer Pre-built IDs extracts key data from ID data. However, it does not detect the validity or authenticity of the original identity document.
-
-## Try it out
-
-To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
-
-> [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
 
 ## Input requirements
 
@@ -77,7 +89,7 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 ## Supported Identity document types
 
-* **Pre-built IDs v2.1** Extracts key values from worldwide passports, and U.S. Driver's Licenses.
+* **Pre-built IDs v2.1** extracts key values from worldwide passports, and U.S. Driver's Licenses.
 
   > [!NOTE]
   > ID type support
@@ -92,7 +104,7 @@ The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-r
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## GET Analyze Id Document Result
+## GET Analyze ID Document Result
 
 <!---
 Need to update this with updated APIM links when available
@@ -253,7 +265,4 @@ The `readResults` node contains all of the recognized text. Text is organized by
 * Try your own IDs and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
 * Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
-## See also
 
-* [**What is Form Recognizer?**](./overview.md)
-* [**REST API reference docs**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

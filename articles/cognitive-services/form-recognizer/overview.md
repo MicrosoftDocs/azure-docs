@@ -16,7 +16,7 @@ keywords: automated data processing, document processing, automated data entry, 
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents&mdash;the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.
+Azure Form Recognizer is an Applied AI service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents&mdash;the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
@@ -29,7 +29,7 @@ This documentation contains the following article types:
 
 ## Form Recognizer features
 
-With Form Recognizer, you can easily extract and analyze form data with these features:
+With Form Recognizer, you can easily extract and analyze document data with these features:
 
 ### [Layout](concept-layout.md)
 

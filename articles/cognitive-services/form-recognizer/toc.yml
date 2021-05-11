@@ -13,24 +13,32 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with Form Recognizer
-    href: quickstarts/label-tool.md
   - name: Get started with client library or REST API
-    href: quickstarts/client-library.md
+    items:
+  - name: "C#/.NET SDK"
+    href: includes/quickstarts/csharp-sdk.md
+  - name: "Java SDK"
+    href: includes/quickstarts/java-sdk.md
+  - name: "Python SDK"
+    href: includes/quickstarts/python-sdk.md
+  - name: "JavaScript SDK"
+    href: includes/quickstarts/javascript-sdk.md
+   - name: "REST API"
+    href: includes/quickstarts/rest-api.md
 - name: Samples
   items:
-  - name: "C#/.NET SDK"
+  - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java SDK"
+  - name: "Java"
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-  - name: "Python SDK"
+  - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
-  - name: "JavaScript SDK"
+  - name: "JavaScript"
     href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: How-to guides
   items:
   - name: Use the sample labeling tool
-    href: quickstarts/label-tool.md
+    href: label-tool.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Use table tags to train your custom model
@@ -103,6 +111,10 @@
       href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
+  - name:  Customer spotlight
+    href: resource-customer-stories.md
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Enterprise readiness
     items:
     - name: Region support
@@ -111,7 +123,5 @@
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
