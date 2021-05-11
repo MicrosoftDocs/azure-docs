@@ -459,6 +459,29 @@ This action enables a **Download** link in the TWIN GRAPH box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
+## Share environment
+
+You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
+
+To share your environment, you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your **tenant ID** and the **host name** of your Azure Digital Twins instance. 
+
+`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
+
+>[!NOTE]
+> The value for the host name placeholder is **not** preceded by *https://* here.
+
+For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Concepts: Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+
+### Share environment with query
+
+You may want to share a link to an environment where a specific query has been executed, to highlight a certain part of the graph for a teammate. To do this, start with the URL for the environment and add the query text to the URL as a querystring parameter:
+
+`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>&query=<query-text>`
+
+Here's an example of the parameter for a query to **SELECT * FROM digitaltwins**:
+
+`..&query=SELECT%20*%20FROM%20digitaltwins`
+
 ## Advanced settings
 
 You can enable several advanced setting options for Azure Digital Twins Explorer.
