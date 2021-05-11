@@ -150,7 +150,7 @@ To learn more, see [Cloud properties](../core/quick-create-simulated-device.md#a
 
 The water consumption monitor device template comes with predefined views. The views define how operators see the device data, and set the values of cloud properties.
 
-  ![Device template views](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
+  ![Device template views](./media/tutorial-waterconsumptionmonitoring/water-consumptionmonitoring-devicetemplate-views.png)
 
 To learn more, see [Views](../core/quick-create-simulated-device.md#views).
 
