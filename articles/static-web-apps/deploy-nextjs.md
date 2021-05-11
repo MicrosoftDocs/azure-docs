@@ -65,7 +65,7 @@ When you click on a framework/library, you should see a details page about the s
 
 When you build a Next.js site using `npm run build`, the app is built as a traditional web app, not a static site. To generate a static site, use the following application configuration.
 
-1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code..
+1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code.
 
     ```javascript
     module.exports = {
@@ -77,7 +77,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
       }
     };
     ```
-    
+
       This configuration maps `/` to the Next.js page that is served for the `/` route, and that is the _pages/index.js_ page file.
 
 1. Update the _package.json_'s build script to also generate a static site after building, using the `next export` command. The `export` command generates a static site.
@@ -130,11 +130,11 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Create a static app
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Select **Create a Resource**
-1. Search for **Static Web Apps**
-1. Select **Static Web Apps**
-1. Select **Create**
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Select **Create a Resource**.
+1. Search for **Static Web Apps**.
+1. Select **Static Web Apps**.
+1. Select **Create**.
 1. On the _Basics_ tab, enter the following values.
 
     | Property | Value |
@@ -153,12 +153,12 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
     | Property | Value |
     | --- | --- |
     | _Organization_ | Select your desired GitHub organization. |
-    | _Repository_ | Select the repository you created earlier. |
+    | _Repository_ | Select **nextjs-starter**. |
     | _Branch_ | Select **main**. |
 
 1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 
-1. In the _App location_ box, enter **./**.
+1. In the _App location_, enter **/** in the box.
 1. Leave the _Api location_ box empty.
 1. In the _Output location_ box, enter **out**.
 
