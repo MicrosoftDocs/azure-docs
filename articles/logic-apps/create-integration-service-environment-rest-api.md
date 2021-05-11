@@ -193,7 +193,7 @@ Before you update your ISE with a custom trusted root certificate, review these 
 
 * Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
 
-* For Logic Apps, the subject name on the certificate MUST match the hostname of the target endpoint that you are wanting to call. 
+* The subject name on the certificate must match the host name for the target endpoint that you want to call from Azure Logic Apps. 
 
 * Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
 
