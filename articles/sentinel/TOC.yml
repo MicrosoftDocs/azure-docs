@@ -7,11 +7,11 @@
     href: overview.md
   - name: Compare Azure Sentinel and Azure Security Center
     href: difference-sentinel-security-center.md
-  - name: What's new in Sentinel?
+  - name: What's new in Azure Sentinel?
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Onboard to Sentinel
+  - name: Onboard to Azure Sentinel
     href: quickstart-onboard.md
 - name: Tutorials
   items:
@@ -19,9 +19,9 @@
     href: tutorial-investigate-cases.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate Microsoft 365 Defender with Sentinel
+  - name: Integrate with Microsoft 365 Defender
     href: microsoft-365-defender-sentinel-integration.md
-  - name: Create KQL queries for Sentinel (Learn module)
+  - name: Create KQL queries for Azure Sentinel (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concepts
   items:
@@ -35,10 +35,6 @@
     items:
     - name: Normalizing and parsing data
       href: normalization.md
-    - name: Watchlists
-      href: watchlists.md
-    - name: Integrating with Data Explorer
-      href: store-logs-in-azure-data-explorer.md
   - name: Detection and analysis
     items:
     - name: Visualizing data
@@ -53,7 +49,7 @@
       href: create-incidents-from-alerts.md
     - name: Incident metrics
       href: manage-soc-with-incident-metrics.md
-  - name: Investigation
+  - name: Investigation and response
     items:
     - name: Response and automation (SOAR)
       href: automation-in-azure-sentinel.md
@@ -69,6 +65,8 @@
       href: bring-your-own-ml.md
     - name: Hunting
       href: hunting.md
+    - name: Watchlists
+      href: watchlists.md
 - name: How-Tos
   items:
   - name: Collect data
@@ -261,7 +259,7 @@
             href: connect-zscaler.md
         - name: STEP 3 Validate connectivity
           href: connect-cef-verify.md
-    - name: Create a custom connector method
+    - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md
@@ -269,7 +267,7 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-    - name: Use Azure Data Explorer for long-term retention
+    - name: Integrate Azure Data Explorer
       href: store-logs-in-azure-data-explorer.md
   - name: Monitor and visualize data
     items:
@@ -289,28 +287,24 @@
         href: map-data-fields-to-entities.md
       - name: Surface custom details in alerts
         href: surface-custom-details-in-alerts.md
+    - name: Create incidents from Microsoft Security alerts
+      href: create-incidents-from-alerts.md
+  - name: Investigate, hunt, and respond
+    items:
     - name: Use UEBA to investigate incidents
       items:
         - name: Enable UEBA
           href: enable-entity-behavior-analytics.md
         - name: Common UEBA investigation methods
           href: investigate-with-ueba.md
-    - name: Enable user and entity behavior analytics
-      href: enable-entity-behavior-analytics.md
-    - name: Create incidents from Microsoft Security alerts
-      href: create-incidents-from-alerts.md
-  - name: Investigate, hunt, and respond
-    items:
     - name: Hunt with Jupyter notebooks
       href: notebooks.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
-  - name: Manage Sentinel
+  - name: Manage Azure Sentinel
     items:
-    - name: Manage Sentinel Permissions
-      href: roles.md
     - name: Manage workspace access
       href: resource-context-rbac.md
     - name: Azure Sentinel for MSSPs
@@ -319,13 +313,13 @@
         href: multiple-tenants-service-providers.md
       - name: Work with incidents in multiple workspaces
         href: multiple-workspace-view.md
-      - name: Manage your intellectual property in Sentinel
+      - name: Manage your intellectual property in Azure Sentinel
         href: mssp-protect-intellectual-property.md
     - name: Extend Azure Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
-    - name: Set up customer managed keys for Sentinel
+    - name: Set up customer managed keys=
       href: customer-managed-keys.md
-    - name: Auditing Sentinel with Azure Activity Logstash
+    - name: Auditing Azure Sentinel with Azure Activity Logstash
       href: audit-sentinel-data.md
     - name: Remove Azure Sentinel from your workspaces
       href: offboard.md
