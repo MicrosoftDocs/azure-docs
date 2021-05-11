@@ -50,7 +50,11 @@ WITH (
 ) AS [r];
 ```
 
-The view in this example uses `OPENROWSET` function that uses absolute path to the underlying files. If you have `EXTERNAL DATA SOURCE` with a root URL of your storage, you can use `OPENROWSET` with `DATA_SOURCE` and relative file path:
+The view uses an `EXTERNAL DATA SOURCE` with a root URL of your storage, as a `DATA_SOURCE` and adds a relative file path to the files.
+
+## Create a partitioned view
+
+If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
 
 ```sql
 CREATE VIEW TaxiView
@@ -62,6 +66,8 @@ FROM
         FORMAT='PARQUET'
     ) AS nyc
 ```
+
+The partitioned views will perform folder partition elimination if you query this view with the filters on the partitioning columns. This might improve performance of your queries.
 
 ## Use a view
 
