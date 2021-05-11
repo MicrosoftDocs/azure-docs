@@ -534,6 +534,17 @@ See the following table for supported languages for the various Speaker Recognit
 |Spanish (Mexico)     | es-MX     | n/a |     yes |     yes|
 |Spanish (Spain)     | es-ES | n/a     | yes |     yes|
 
+## Custom Keyword and Keyword Verification
+
+The following table outlines supported languages for Custom Keyword and Keyword Verification.
+
+| Language | Locale (BCP-47) | Custom Keyword | Keyword Verification |
+| -------- | --------------- | -------------- | -------------------- |
+| Chinese (Mandarin, Simplified) | zh-CN | Yes | Yes |
+| English (United States) | en-US | Yes | Yes |
+| Japanese (Japan) | ja-JP | No | Yes |
+| Portuguese (Brazil) | pt-BR | No | Yes |
+
 ## Next steps
 
 * [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)

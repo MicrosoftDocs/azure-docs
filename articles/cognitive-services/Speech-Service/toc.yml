@@ -301,16 +301,12 @@
   items:
     - name: Keyword recognition overview
       href: keyword-recognition-overview.md
-    - name: Custom Keyword overview
-      href: custom-keyword-overview.md
     - name: Custom Keyword quickstart
       href: custom-keyword-basics.md
-    - name: Keyword Verification overview
-      href: keyword-verification-overview.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
-    - name: Language and region support
-      href: keyword-recognition-language-region-support.md
+    - name: Region support
+      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios

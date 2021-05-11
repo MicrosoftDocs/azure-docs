@@ -1,7 +1,7 @@
 ---
-title: Keyword recognition language and region support - Speech service
+title: Keyword recognition region support - Speech service
 titleSuffix: Azure Cognitive Services
-description: An overview of the languages and Azure regions supported for keyword recognition.
+description: An overview of the Azure regions supported for keyword recognition.
 services: cognitive-services
 author: hasyashah
 manager: nitinme
@@ -13,18 +13,7 @@ ms.author: hasshah
 ms.custom: devx-track-csharp
 ---
 
-# Keyword recognition language and region support
-
-## Supported languages
-
-| Language | Locale (BCP-47) | Custom Keyword | Keyword Verification |
-| -------- | --------------- | -------------- | -------------------- |
-| Chinese (Mandarin, Simplified) | zh-CN | Yes | Yes |
-| English (United States) | en-US | Yes | Yes |
-| Japanese (Japan) | ja-JP | No | Yes |
-| Portuguese (Brazil) | pt-BR | No | Yes |
-
-## Supported regions
+# Keyword recognition region support
 
 | Region | Custom Keyword (Basic models) | Custom Keyword (Advanced models) | Keyword Verification |
 | ------ | ----------------------------- | -------------------------------- | -------------------- |

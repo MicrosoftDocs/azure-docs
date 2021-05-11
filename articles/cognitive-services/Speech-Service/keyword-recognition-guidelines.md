@@ -31,7 +31,7 @@ Creating an effective keyword is vital to ensuring your product will consistentl
 
 ## User experience recommendations with Keyword Verification
 
-With a multi-stage keyword recognition scenario where [Keyword Verification](keyword-verification-overview.md) is used, applications can choose when the end-user is notified of a keyword detection. The recommendation for rendering any visual or audible indicator is to rely upon on responses from the Keyword Verification service:
+With a multi-stage keyword recognition scenario where [Keyword Verification](keyword-recognition-overview.md#keyword-verification) is used, applications can choose when the end-user is notified of a keyword detection. The recommendation for rendering any visual or audible indicator is to rely upon on responses from the Keyword Verification service:
 
 ![User experience guideline when optimizing for accuracy.](media/custom-keyword/keyword-verification-ux-accuracy.png)
 
