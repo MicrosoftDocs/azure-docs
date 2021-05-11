@@ -51,7 +51,7 @@ To create and manage a logic app using other tools, review these other Logic App
 
 * If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where your logic app exists.
 
-  This example also uses the RSS and Office 365 Outlook connectors [managed by Microsoft](/connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
+  This example also uses the RSS and Office 365 Outlook connectors, which are [managed by Microsoft](../connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
 
 <a name="create-logic-app-resource"></a>
 
