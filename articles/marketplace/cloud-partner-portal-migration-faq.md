@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/14/2021
+ms.date: 07/14/2020
 ---
 
 # Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
@@ -165,14 +165,11 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 ![Shows the Partner Center Offer ID location](media/cpp-pc-faq/offer-id.png)
 
-### Deprecate an offer
+### Stop selling an offer
 
-> [!IMPORTANT]
-> Stop sell has changed to deprecate.
+You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
-You can request to [deprecate (formerly stop sell) an offer](partner-center-portal/update-existing-offer.md#deprecate-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
-
-[![Screenshot shows the Partner Center page to deprecate (formerly stop sell) an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to deprecate an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## Are the Cloud Partner Portal REST APIs still supported?
