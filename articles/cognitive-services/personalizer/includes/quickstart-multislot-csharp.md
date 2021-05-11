@@ -17,7 +17,7 @@ ms.date: 03/23/2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting Up
@@ -52,7 +52,7 @@ Build succeeded.
 ...
 ```
 
-[comment]: <> (TODO: when the SDK is ready, need to add installation istructions for client library)
+[comment]: <> (TODO: when the SDK is ready, need to add installation instructions for client library)
 
 From the project directory, open the `Program.cs` file in your preferred editor or IDE. Add the following using directives:
 
@@ -82,16 +82,16 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks by sending HTTP requests for .NET:
 
-* [Create base URL's](#create-base-URL's)
+* [Create base URLs](#create-base-URLs)
 * [Multi-Slot Rank API](#request-the-best-action)
 * [Multi-Slot Reward API](#send-a-reward)
 
 
-## Create Base URL's
+## Create Base URLs
 
 In this section you'll do two things:
 * Specify your key and endpoint
-* Construct the Rank and Reward URL's
+* Construct the Rank and Reward URLs
 
 Start by adding the following lines to your Program class. Make sure to add your key and endpoint from your Personalizer resource.
 
@@ -102,7 +102,7 @@ private static readonly string ResourceKey = "REPLACE-WITH-YOUR-PERSONALIZER-KEY
 private static readonly string PersonalizationBaseUrl = "https://REPLACE-WITH-YOUR-PERSONALIZER-RESOURCE-NAME.cognitiveservices.azure.com";
 ```
 
-Next, construct the Rank and Reward URL's.
+Next, construct the Rank and Reward URLs.
 
 ```csharp
 private static string MultiSlotRankUrl = string.Concat(PersonalizationBaseUrl, "personalizer/v1.1-preview.1/multislot/rank");
@@ -149,7 +149,7 @@ private static IList<Action> GetActions()
 
 ## Get slots
 
-Slots make up the the page which the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
+Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
 [comment]: <> (Need to add the slot documentation links)
@@ -272,7 +272,7 @@ private static async Task SendMultiSlotReward(HttpClient client, string rewardRe
 
 ## Classes for constructing rank/reward requests/responses
 
-Add the following nested classes which will be used in constructing the rank/reward requests and parsing their responses.
+Add the following nested classes that are used to constructing the rank/reward requests and parsing their responses.
 
 ```csharp
 private class Action
@@ -486,7 +486,7 @@ Add the following classes, which [construct the bodies of the rank/reward reques
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create a `context` of the content choices. The request body contains the context features, actions and their features, and a unique event ID, to receive the response. The `SendMultiSlotRank` method needs the HTTP client, request body and url to send the requst.
+To complete the Rank request, the program asks the user's preferences to create a `context` of the content choices. The request body contains the context features, actions and their features, and a unique event ID, to receive the response. The `SendMultiSlotRank` method needs the HTTP client, request body and url to send the request.
 
 This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
@@ -513,7 +513,7 @@ MultiSlotRankResponse multiSlotRankResponse = await SendMultiSlotRank(client, ra
 
 ## Send a reward
 
-To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the Reward API. Note that a reward does not need to be defined for each slot.
+To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the Reward API. A reward does not need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 

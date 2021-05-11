@@ -17,7 +17,7 @@ ms.date: 03/23/2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org) and NPM.
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting Up
@@ -64,7 +64,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid axios -
 ## Object model
 
 
-[comment]: <> (TODO: change links to ccb docs and add personalizer client info once sdk is ready)
+[comment]: <> (TODO: change links to ccb docs and add Personalizer client info once sdk is ready)
 
 To ask for the single best item of the content for each slot, create a [rankRequest], then send a post request to the [multislot/rank] endpoint (/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank). The response is then parsed into a [rankResponse].
 
@@ -76,18 +76,18 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks by sending HTTP requests for NodeJS:
 
-* [Create base URL's](#create-base-URL's)
+* [Create base URLs](#create-base-URLs)
 * [Rank API](#request-the-best-action)
 * [Reward API](#send-a-reward)
 
 
-## Create Base URL's
+## Create Base URLs
 
 In this section you'll do two things:
-* Construct the Rank and Reward URL's
+* Construct the Rank and Reward URLs
 * Construct the rank/reward request headers
 
-Construct the Rank / Reward URL's using the base url and the request headers using the resource key.
+Construct the Rank / Reward URLs using the base url and the request headers using the resource key.
 
 ```javascript
 const MultiSlotRankUrl = PersonalizationBaseUrl.concat('personalizer/v1.1-preview.1/multislot/rank');
@@ -183,7 +183,7 @@ function getContextFeatures() {
 
 ## Get slots
 
-Slots make up the the page which the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
+Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
 [comment]: <> (Need to add the slot documentation links)
@@ -246,7 +246,7 @@ async function sendMultiSlotReward(rewardRequest, eventId) {
 }
 ```
 
-## Get feedback for personalizer decisions
+## Get feedback for Personalizer decisions
 
 
 Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command line prompt.
@@ -378,7 +378,7 @@ catch (err) {
 
 ## Send a reward
 
-To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `sendMultiSlotReward` method. Note that a reward does not need to be defined for each slot.
+To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `sendMultiSlotReward` method. A reward does not need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 

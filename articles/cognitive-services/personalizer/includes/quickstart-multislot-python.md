@@ -16,7 +16,7 @@ ms.date: 03/23/2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting Up
@@ -55,17 +55,17 @@ Determining the reward score, in this quickstart is trivial. In a production sys
 
 These code snippets show you how to do the following tasks by sending HTTP requests for Python:
 
-* [Create base URL's](#create-base-URL's)
+* [Create base URLs](#create-base-URLs)
 * [Rank API](#request-the-best-action)
 * [Reward API](#send-a-reward)
 
-## Create Base URL's
+## Create Base URLs
 
 In this section you'll do two things:
-* Construct the Rank and Reward URL's
+* Construct the Rank and Reward UR's
 * Construct the rank/reward request headers
 
-Construct the Rank / Reward URL's using the base url and the request headers using the resource key.
+Construct the Rank / Reward URLs using the base url and the request headers using the resource key.
 
 ```python
 MULTI_SLOT_RANK_URL = '{0}personalizer/v1.1-preview.1/multislot/rank'.format(PERSONALIZATION_BASE_URL)
@@ -163,7 +163,7 @@ def get_context_features():
 
 ## Get slots
 
-Slots make up the the page which the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
+Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
 [comment]: <> (Need to add the slot documentation links)
@@ -215,7 +215,7 @@ def send_multi_slot_reward(reward_request, event_id):
 
 ## Get feedback for personalizer decisions
 
-Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command line prompt.
+Add the following method to the script. You will signal if Personalizer made a good decision for each slot through command-line prompt.
 
 ```python
 def get_reward_for_slot():
@@ -311,7 +311,7 @@ multi_slot_rank_response = send_multi_slot_rank(rank_request)
 
 ## Send a reward
 
-To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `send_multi_slot_reward` method. Note that a reward does not need to be defined for each slot.
+To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `send_multi_slot_reward` method. A reward does not need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
