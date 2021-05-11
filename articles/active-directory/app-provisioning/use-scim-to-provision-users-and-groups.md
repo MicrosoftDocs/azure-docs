@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
 # Tutorial: Develop and plan provisioning for a SCIM endpoint
 
@@ -78,7 +77,7 @@ To design your schema, follow these steps:
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
 **Example list of required attributes**
@@ -98,7 +97,7 @@ To design your schema, follow these steps:
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
      "Manager": "123456"
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "tag": "701984",
    },
    "meta": {
