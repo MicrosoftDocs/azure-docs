@@ -899,17 +899,20 @@ ___
 Based on a criteria, gets the sample covariance of two columns.  
 * ``covarianceSampleIf(region == 'West', sales, profit)``  
 ___
+
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false.  
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
 Finds if a column or set of columns is distinct. It does not count null as a distinct value
 *    ``isDistinct(custId, custName) => boolean``
-*    ___
+___
+
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Gets the kurtosis of a column.  
