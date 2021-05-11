@@ -34,7 +34,7 @@ fs_setup:
     filesystem: swap
 mounts:
   - ["ephemeral0.1", "/mnt"]
-  - ["ephemeral0.2", "none", "swap", "nofail,x-systemd.requires=cloud-init.service", "0", "0"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
 The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
