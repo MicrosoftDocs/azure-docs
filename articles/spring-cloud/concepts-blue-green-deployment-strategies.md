@@ -83,8 +83,8 @@ Once the deployment created for the new version receives production traffic, it 
 
 The Named Deployments approach has some significant benefits. It...
 
-* Prevents the approval race condition
-* Reduces resource consumption by deleting the staging deployment when it's not in use.
+* It prevents the approval race condition.
+* It reduces resource consumption by deleting the staging deployment when it's not in use.
 
 However, there are drawbacks as well, as described in the following section.
 
