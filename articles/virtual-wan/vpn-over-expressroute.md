@@ -27,6 +27,10 @@ The diagram shows a network within the on-premises network connected to the Azur
 
 An important aspect of this configuration is routing between the on-premises networks and Azure over both the ExpressRoute and VPN paths.
 
+> [!NOTE]
+> This topology requires two VNet Gateways, an ExpressRoute and a VPN virtual network gateway. Bandwidth egress charges will be applied to traffic traversing across both gateways. 
+>
+
 ### Traffic from on-premises networks to Azure
 
 For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) are advertised via both the ExpressRoute private peering BGP and the VPN BGP. This results in two network routes (paths) toward Azure from the on-premises networks:
