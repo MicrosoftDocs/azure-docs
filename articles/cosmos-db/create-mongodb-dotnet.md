@@ -50,7 +50,7 @@ Run the following commands in a GitHub enabled command windows such as [Git bash
 ```bash
 mkdir "C:\git-samples"
 cd "C:\git-samples"
-git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.it
+git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
 ```
 
 The preceding commands:
