@@ -11,10 +11,29 @@ In this quickstart, you create an Azure Functions project and deploy it to a fun
 
 ## Prerequisites
 
-- [Create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster.
-- 
+On your local computer:
 
-`TODO: Do we need a CLI extension for this?`
+# [C\#](#tab/csharp)
+
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+# [JavaScript](#tab/nodejs)
+
++ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+# [Python](#tab/python)
+
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+---
+
+You must also first [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster.
 
 ## Create the local function project
 
