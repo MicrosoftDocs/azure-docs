@@ -50,8 +50,9 @@ The following Linux distributions are currently supported during the preview of 
 The following Azure regions are currently supported during the preview of this feature:
 
 - Azure Global
-- Azure Government
-- Azure China
+
+> [!Note]
+> The preview of this feature will be supported in Azure Government and Azure China by June of 2021.
  
 It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
