@@ -58,6 +58,8 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
+        - name: Java Spring
+          href: enable-dynamic-configuration-java-spring-push-refresh.md
     - name: Use Key Vault references
       items:
         - name: ASP.NET Core
