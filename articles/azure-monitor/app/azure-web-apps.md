@@ -326,9 +326,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
 
-To check which version of the extension you are running visit `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+To check which version of the extension you are running visit `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Screenshot of url path http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot of url path https://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
 ### Upgrade from versions 1.0.0 - 2.6.5
 
