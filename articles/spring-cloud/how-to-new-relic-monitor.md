@@ -15,8 +15,8 @@ ms.custom: devx-track-java
 This feature enables monitoring of Azure Spring Cloud apps with the **New Relic** Java in-process agent.
 
 With the **New Relic** Java in-process agent, you can:
-* Consume the **New Relic** java in-process agent.
-* Configure the **New Relic** java in-process agent using **Environment Variables**.
+* Consume the **New Relic** Java in-process agent.
+* Configure the **New Relic** Java in-process agent using **Environment Variables**.
 * Check all monitoring data from the **New Relic** dashboard.
 
 ## Prerequisites
@@ -24,7 +24,7 @@ With the **New Relic** Java in-process agent, you can:
 * A **New Relic** account.
 * The [Azure CLI version, 2.0.67 or later](/cli/azure/install-azure-cli).
 
-## Leverage the New Relic java in process agent
+## Leverage the New Relic Java in process agent
 
 Use the following procedure to access the in-process agent:
 
@@ -46,7 +46,7 @@ Use the following procedure to access the in-process agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-  Azure Spring Cloud pre-installs the **New Relic** java agent to the following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
   ```shell
   /opt/agents/newrelic/java/newrelic-agent.jar
@@ -86,7 +86,7 @@ You can also leverage this agent from portal with the following procedure.
 
 ## New Relic Java Agent Logging
 
-By default, Azure Spring Cloud will print the logs of the **New Relic** java agent to `STDOUT`. It will be combined with the application logs. You can get the explicit agent version from the application logs.
+By default, Azure Spring Cloud will print the logs of the **New Relic** Java agent to `STDOUT`. It will be combined with the application logs. You can get the explicit agent version from the application logs.
 
 You can also get the logs of the `New Relic` agent from:
 
@@ -108,11 +108,11 @@ The **New Relic** Java agent will update/upgrade the JDK regularly. The agent up
 
 * Existing applications that use the **New Relic** Java agent before update/upgrade will be unchanged.
 * New applications created after update/upgrade will use the new version of the **New Relic** Java agent.
-* Existing applications that did not use the **New Relic** Java agent before update/upgrade require restart or redeploy to engage the new version of the **New Relic** java agent.
+* Existing applications that did not use the **New Relic** Java agent before update/upgrade require restart or redeploy to engage the new version of the **New Relic** Java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the **New Relic** java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
+For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the **New Relic** Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
 *  [Distributed tracing and App Insights](href: how-to-distributed-tracing.md)
