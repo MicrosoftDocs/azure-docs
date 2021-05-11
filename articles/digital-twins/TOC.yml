@@ -141,6 +141,8 @@
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md
+    - name: Troubleshoot performance
+      href: troubleshoot-performance.md
     - name: Understand your resource health
       href: troubleshoot-resource-health.md
     - name: Known issues
