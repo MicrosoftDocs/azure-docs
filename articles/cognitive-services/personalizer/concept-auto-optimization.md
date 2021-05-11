@@ -22,7 +22,8 @@ Auto-optimize may help in the following situations:
 * You build applications that are used by many tenants, and each gets their own Personalizer loop(s); for example, if you host multiple e-commerce sites. Auto-Optimize allows you to avoid the manual effort you'd need to tune learning settings for large numbers of Personalizer loops.
 * You have deployed Personalizer and validated that it is working well, getting good rewards, and you have made sure there are no bugs or problems in your features.
 
-Note: Auto-Optimize will periodically overwrite Personalizer Learning Settings. If your use case or industry requires audit and archive of models and settings, or if you need backups of previous settings, you can use the Personalizer API to retrieve Learning Settings, or download them via the Azure portal.
+> [!NOTE]
+> Auto-Optimize will periodically overwrite Personalizer Learning Settings. If your use case or industry requires audit and archive of models and settings, or if you need backups of previous settings, you can use the Personalizer API to retrieve Learning Settings, or download them via the Azure portal.
 
 ## How to enable and disable Auto-Optimize
 To Enable Auto-Optimize, use the toggle switch in the "Model and Learning Settings" blade in the Azure portal. 
