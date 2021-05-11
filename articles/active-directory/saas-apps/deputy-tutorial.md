@@ -205,7 +205,7 @@ In this section, a user called Britta Simon is created in Deputy. Deputy support
 
 2. On the top navigation pane, click **People**.
 
-3. Click the **Add People** button and click **Add single person**.
+3. Click the **Add People** button and click **Add Single Person**.
    
 	![Add People](./media/deputy-tutorial/create-user-1.png "Add People")
 
