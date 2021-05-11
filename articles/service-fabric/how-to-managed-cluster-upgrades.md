@@ -41,7 +41,7 @@ You can also toggle between available automatic waves from the **Fabric upgrades
 
 ### Resource Manager template
 
-To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `ClusterUpgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#query-for-supported-cluster-versions).
+To change your cluster upgrade mode using a Resource Manager template, specify either *Automatic* or *Manual* for the  `ClusterUpgradeMode` property of the *Microsoft.ServiceFabric/clusters* resource definition. If you choose manual upgrades, also set the `clusterCodeVersion` to a currently [supported fabric version](#Query-for-supported-cluster-versions).
 
 #### Manual upgrade
 
