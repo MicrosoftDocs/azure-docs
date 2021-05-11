@@ -26,7 +26,9 @@ This tutorial takes you step by step through the process of deploying the Azure 
 
 Azure Sentinel [solutions](/sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Azure Sentinel security content for a specific data connector using a single process.
 
-The Azure Sentinel SAP data connector enables SAP logs to be ingested into your Azure Sentinel workspace, where you can view your data, create custom alerts, investigate, and more. The SAP data connector provides both stateless and stateful connections for logs from the entire SAP system landscape and collects logs from both Advanced Business Application Programming (ABAP) and the OS.
+The Azure Sentinel SAP data connector enables SAP logs to be ingested into your Azure Sentinel workspace, where you can view your data, create custom alerts, investigate, and more.
+
+The SAP data connector provides both stateless and stateful connections for logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls, and file storage data via OSSAP Control interface.
 
 To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment. We recommend that you use a Docker container on an Azure VM for the deployment, as described in this tutorial.
 
@@ -46,11 +48,20 @@ In order to deploy the Azure Sentinel SAP data connector and security content as
 |Area  |Description  |
 |---------|---------|
 |**Azure prerequisites**     |  **Access to Azure Sentinel**. Make a note of your Azure Sentinel workspace ID and key to use in this tutorial when [deploying your SAP data connector](#deploy-your-sap-data-connector). <br>To view these details from Azure Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](/azure/azure-resource-manager/management/manage-resources-portal). <br><br>**Access to Azure Key Vault**. This tutorial describes the recommended steps for using Azure Key Vault to store your credentials. For more information, see the [Azure Key Vault documentation](/azure/key-vault/).       |
-|**System prerequisites**     |    **Required software**. Make sure the following software is installed on your SAP client machine: <br>- [GitHub](https://github.com/)<br>    - [Python 3.8 or higher](https://www.python.org/downloads/) <br>- [Python3-pip](https://pypi.org/project/pip/)<br>   - [Docker](https://www.docker.com/) <br><br>**System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Azure Sentinel <br>- Azure Key Vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx* <br><br>Make sure that you also have a SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. <br>Your VM and the Azure Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
-|**SAP prerequisites**     |   **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or higher. <br>Select steps in this tutorial provide alternate instructions if you are working on SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>    - SAP system IP address<br>- SAP system number, such as `00`<br>    - SAP System ID, from the SAP NetWeaver system. For example, `NPL`. <br>- SAP client ID, such as`001`.<br><br> **SAP instance access**.  Access to your SAP instances must use one of the following options: <br>    - A user with an X509 certificate (recommended)<br> - User/password (less secure)<br><br>**sapcontrol configuration access**. Access to the **sapcontrol** configuration must use one of the following options:<br>    - PKI certificate (recommended)<br>- User/password (less secure)<br>    For more information, see the [SAP documentation](https://launchpad.support.sap.com/#/notes/927637).<br><br>**Support from your SAP team**.  You'll need the support of your SAP team in order to ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment.      |
+|**System prerequisites**     |   **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Azure Sentinel <br>- Azure Key Vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, where *xx* is the SAP instance number. <br><br>Make sure that you also have a SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. <br>Your VM and the Azure Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.<br><br>For more information, see [Automatically installed software](#automatically-installed-software).|
+|**SAP prerequisites**     |   **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or higher. <br>Select steps in this tutorial provide alternate instructions if you are working on SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>    - SAP system IP address<br>- SAP system number, such as `00`<br>    - SAP System ID, from the SAP NetWeaver system. For example, `NPL`. <br>- SAP client ID, such as`001`.<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option may require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team in order to ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment.   <br><br>  **sapcontrol configuration access**. Optional, expert option, relevant for JAVA / file-based log sources only. <br> Access to the **sapcontrol** configuration must use one of the following options with an OS user:<br>    - PKI certificate<br>- User/password stored in Azure Key Vault<br>    For more information, see the [SAP note 9727637](https://launchpad.support.sap.com/#/notes/927637). |
 |     |         |
 
 
+### Automatically installed software
+
+The [SAP data connector deployment script](#deploy-your-sap-data-connector) installs the following software on your VM using SUDO (root) privileges:
+
+- [Unzip.](https://www.microsoft.com/en-us/p/unzip/9mt44rnlpxxt?activetab=pivot:overviewtab)
+- [NetCat](https://sectools.org/tool/netcat/)
+- [Python 3.6 or higher](https://www.python.org/downloads/)
+- [Python3-pip](https://pypi.org/project/pip/)
+- [Docker](https://www.docker.com/)
 
 ## Configure your SAP system
 
@@ -64,9 +75,9 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. If you are using a version of SAP earlier than 750, ensure that the following SAP notes are deployed in your system:
 
-    - *2502336*
-    - *2173545*
-    - *2641084*
+    - **2502336**. For systems running SAP versions earlier than SAP BASIS 750 SPS1
+    - **2173545**. For systems running SAP versions earlier than SAP BASIS 750
+    - **SPS12641084**. For systems running SAP versions earlier than SAP BASIS 750 SPS13
 
     Access these SAP notes at the [SAP support Launchpad site](https://support.sap.com/en/index.html), using a SAP user account.
 
@@ -84,7 +95,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *86 (S4HK900114)*. Use the **STMS_IMPORT** SAP transaction code.
 
-    Verify that the role is created with the required permissions, such as: <!--need updated image>
+    Verify that the role is created with the required permissions, such as:
 
     :::image type="content" source="media/sap/required-sap-role-authorizations.png" alt-text="Required SAP role permissions for the Azure Sentinel SAP data connector.":::
 
@@ -95,9 +106,9 @@ This procedure describes how to ensure that your SAP system has the correct prer
     - After attaching the role, verify that the role permissions are distributed to the user.
     - This process requires that you use a username and password for the ABAP user. After the new user is created and has required permissions, make sure to change the ABAP user password.
 
-1. Download and install the **SAP NetWeaver RFC SDK 7.50 for Linux on x86_64 64 BIT**.
+1. Download and place the **SAP NetWeaver RFC SDK 7.50 for Linux on x86_64 64 BIT** version on your VM, as it's required during the installation process.
 
-    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/templateproducts/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATEENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option.
+    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/templateproducts/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATEENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option. Copy the file, such as by using SCP, to your VM.
 
     You'll need an SAP user account to access the SAP software download page.
 
@@ -106,9 +117,13 @@ This procedure describes how to ensure that your SAP system has the correct prer
     Therefore, if you have a multi-client SAP system, we recommend that you enable the **Auditlog** file only for the client where you deploy the SAP solution to avoid data duplication.
 
 
-## Deploy a VM for your SAP data connector
+## Deploy a Linux VM for your SAP data connector
 
-Use the Azure CLI to deploy an Ubuntu Server 18.04 LTS VM, and assign it with a [system-managed identity](/azure/active-directory/managed-identities-azure-resources/).
+Use the Azure CLI to deploy an Ubuntu server 18.04 LTS VM, and assign it with a [system-managed identity](/azure/active-directory/managed-identities-azure-resources/).
+
+> [!TIP]
+> You can also deploy the data connector on RHEL, versions 7.7 and higher or SUSE versions 15 and higher. Note that any OS and patch levels should be completely up to date.
+>
 
 **To deploy and prepare your Ubuntu VM**:
 
@@ -206,6 +221,11 @@ To run the SAP data connector deployment script, you'll need the following detai
 1. In Azure Sentinel, browse to **Azure Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
 
     [ ![Azure Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
+
+1. We recommend 
+
+3.	It is advised to review the logs (Batami – we should add reference to the section) and ensure that the connector is transmitting data :
+Execute: docker logs -f sapcon-[SID]
 
 SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
 
