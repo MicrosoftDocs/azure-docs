@@ -250,7 +250,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = 'resultsdb',
-@output_table_name = 'resutlstable';
+@output_table_name = 'resultstable';
 ```
 
 ## View job definitions
