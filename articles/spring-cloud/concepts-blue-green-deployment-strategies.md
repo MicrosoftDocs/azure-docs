@@ -35,7 +35,6 @@ When you have confidence in `v4`, you can set `deployment2` as the production de
 
 ![V4 on deployment2 now receives production traffic](media/spring-cloud-blue-green-patterns/alternating-deployments-3.png)
 
-
 Now, `deployment1` is the staging deployment. So the next run of the deployment pipeline deploys onto `deployment1`.
 
 
