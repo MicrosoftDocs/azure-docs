@@ -458,4 +458,4 @@ See the following example of a successful JSON response:
 ## Next steps
 
 * Try your own receipts and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
-* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.
+* Complete a [Form Recognizer quickstart](quickstarts/client-library-guide.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.

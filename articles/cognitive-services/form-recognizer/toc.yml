@@ -15,15 +15,15 @@
   items:
     items:
     - name: "Get started with C#/.NET SDK"
-      href: includes/quickstarts/csharp-sdk.md
+      href: quickstarts/csharp-sdk.md
     - name: "Get started with Java SDK"
-      href: includes/quickstarts/java-sdk.md
+      href: quickstarts/java-sdk.md
     - name: "Get started with Python SDK"
-      href: includes/quickstarts/python-sdk.md
+      href: quickstarts/python-sdk.md
     - name: "Get started with JavaScript SDK"
-      href: includes/quickstarts/javascript-sdk.md
+      href: quickstarts/javascript-sdk.md
     - name: "Get started with REST API"
-      href: includes/quickstarts/rest-api.md
+      href: quickstarts/rest-api.md
     - name: Client library guide
       href: quickstarts/client-library-guide.md
 - name: Samples

@@ -21,7 +21,7 @@ In this tutorial, we'll look at how to use Azure services to ingest a large batc
 
 Most organizations are now aware of the value of the data they have in various formats (PDF, images, videos). They're looking for the best practices and most cost-effective ways to digitize those assets.
 
-Also, our customers often have various types of forms that come from their many clients and customers. Unlike the [quickstarts](./quickstarts/client-library.md), this tutorial shows you how to automatically train a model with new and different types of forms by using a metadata-driven approach. If you don't have an existing model for the given form type, the system will create one and give you the model ID. 
+Also, our customers often have various types of forms that come from their many clients and customers. Unlike the [quickstarts](./quickstarts/client-library-guide.md), this tutorial shows you how to automatically train a model with new and different types of forms by using a metadata-driven approach. If you don't have an existing model for the given form type, the system will create one and give you the model ID. 
 
 By extracting the data from forms and combining it with existing operational systems and data warehouses, businesses can get insights and deliver value to their customers and business users.
 

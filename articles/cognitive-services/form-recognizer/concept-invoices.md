@@ -121,7 +121,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 ## Next steps
 
 - Try your own invoices and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an invoice processing app with Form Recognizer in the development language of your choice.
+- Complete a [Form Recognizer quickstart](quickstarts/client-library-guide.md) to get started writing an invoice processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 
