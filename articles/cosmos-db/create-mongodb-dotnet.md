@@ -132,11 +132,12 @@ From the Azure portal copy the connection string information:
 
 5. Copy the **password** value from the portal and make it the value of the **password** in your **Dal.cs** file.
 
+<!-- TODO Store PW correctly-->
 > [!WARNING]
 > Never check passwords or other sensitive data into source code.
 
-You've now updated your app with all the info it needs to communicate with Cosmos DB. 
-    
+You've now updated your app with all the info it needs to communicate with Cosmos DB.
+
 ## Run the web app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
@@ -149,6 +150,11 @@ You've now updated your app with all the info it needs to communicate with Cosmo
 
 5. Click **Create** in the browser and create a few new tasks in your task list app.
 
+<!-- 
+## Deploy the app to Azure 
+1. In VS, right click .. publish
+2. This is so easy, why is this critical step missed?
+-->
 ## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
