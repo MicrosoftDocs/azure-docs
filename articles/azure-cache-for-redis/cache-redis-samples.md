@@ -59,7 +59,7 @@ The [Use Azure Cache for Redis to store ASP.NET SessionState and OutputCache](ht
 The [Manage Azure Cache for Redis using Azure Management Libraries](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample demonstrates how to use Azure Management Libraries to manage - (Create/ Update/ delete) your Cache. 
 
 ## Custom monitoring sample
-The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how to access monitoring data for your Azure Cache for Redis outside of the Azure Portal.
+The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how to access monitoring data for your Azure Cache for Redis outside of the Azure portal.
 
 ## A Twitter-style clone written using PHP and Redis
 The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It's a minimal Twitter-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be simple and at the same time to show different Redis data structures.
