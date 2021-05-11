@@ -145,7 +145,7 @@ Livy Server cannot be started on an Apache Spark [(Spark 2.1 on Linux (HDI 3.6)]
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.name=livy
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.home=/home/livy
 17/07/27 17:52:50 INFO ZooKeeper: Client environment:user.dir=/home/livy
-17/07/27 17:52:50 INFO ZooKeeper: Initiating client connection, connectString=zk2-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,zk3-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,zk6-kcspark.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@25fb8912
+17/07/27 17:52:50 INFO ZooKeeper: Initiating client connection, connectString=<zookeepername1>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,<zookeepername2>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181,<zookeepername3>.cxtzifsbseee1genzixf44zzga.gx.internal.cloudapp.net:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@25fb8912
 17/07/27 17:52:50 INFO StateStore$: Using ZooKeeperStateStore for recovery.
 17/07/27 17:52:50 INFO ClientCnxn: Opening socket connection to server 10.0.0.61/10.0.0.61:2181. Will not attempt to authenticate using SASL (unknown error)
 17/07/27 17:52:50 INFO ClientCnxn: Socket connection established to 10.0.0.61/10.0.0.61:2181, initiating session
@@ -205,13 +205,13 @@ Delete all entries using steps detailed below.
 1. Above command listed all the zookeepers for my cluster
 
     ```bash
-    /etc/hadoop/conf/core-site.xml:      <value>zk1-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk2-      hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk4-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
+    /etc/hadoop/conf/core-site.xml:      <value><zookeepername1>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername2>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,<zookeepername3>.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
 1. Get all the IP address of the zookeeper nodes using ping Or you can also connect to zookeeper from headnode using zk name
 
     ```bash
-    /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server zk2-hwxspa:2181
+    /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server <zookeepername1>:2181
     ```
 
 1. Once you are connected to zookeeper execute the following command to list all the sessions that are attempted to restart.
