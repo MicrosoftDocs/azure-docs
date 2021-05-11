@@ -25,7 +25,7 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
 ## Analyze NYC Taxi data with a serverless SQL pool
  
 > [!NOTE]
-> Make sure you have [placed the sample data into the primary storage account](https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-create-workspace#place-sample-data-into-the-primary-storage-account)
+> Make sure you have [placed the sample data into the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account)
 
 1. In Synapse Studio, go to the **Develop** hub
 1. Create a new SQL script.
