@@ -359,6 +359,8 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
 
+The maximum number of private endpoints per Azure SQL Database logical server is 250.
+
 ## Azure Synapse Analytics limits
 
 [!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
