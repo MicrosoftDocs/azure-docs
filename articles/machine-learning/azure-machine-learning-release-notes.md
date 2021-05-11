@@ -33,7 +33,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
     +  Updated default CPU image to mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04 - Updated default GPU image to mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
-    + [Put release notes here] az ml computetarget attach kubernetes --name {compute_target_name} --compute-resource-id {resource-id} --amlk8s-config {config_file} https://msdata.visualstudio.com/DefaultCollection/Vienna/_wiki/wikis/Vienna.wiki/20404/AMLK8s-compute-attach-experience
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
     + Updated documentation description with indication that libfuse should be installed while using mount.
     + Enable audience in msi authentication
@@ -45,8 +44,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-mlflow**
     + Added support for deploying to AzureML via our MLFlow plugin.
-  + **azureml-pipeline-core**
-    + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
   + **azureml-pipeline-steps**
     + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
   + **azureml-synapse**
