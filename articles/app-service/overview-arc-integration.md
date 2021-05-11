@@ -12,19 +12,11 @@ You can run App Service, Functions, and Logic Apps an Azure Arc enabled Kubernet
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).
 
----
-author: cephalin
-ms.service: app-service
-ms.topic: include
-ms.date: 05/04/2021    
-ms.author: cephalin
----
-
 In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you need to be aware of the following Azure resources:
 
-- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc enabled Kubernetes?](../articles/azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc enabled Kubernetes](../articles/azure-arc/kubernetes/conceptual-extensions.md).
-- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc enabled Kubernetes](../articles/azure-arc/kubernetes/conceptual-custom-locations.md).
+- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+- A cluster extension, which is a sub-resource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
@@ -46,7 +38,7 @@ The following table describes the role of each pod that is created by default:
 | `<extensionName>-k8se-app-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. |
 | `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane requests. It routes the inbound traffic to the correct apps. |
 | `<extensionName>-k8se-activator` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. |
-| `<extensionName>-k8se-build-service` | Supports deployment operations and serves the [Advanced tools feature](https://docs.microsoft.com/azure/app-service/resources-kudu). |
+| `<extensionName>-k8se-build-service` | Supports deployment operations and serves the [Advanced tools feature](resources-kudu.md). |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). |
 | `<extensionName>-k8se-img-cacher` | Pulls placeholder and app images into a local cache on the node. |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. |
