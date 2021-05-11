@@ -3,7 +3,7 @@ title: Manage Microsoft Azure Maps Creator
 description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2021
+ms.date: 05/11/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Manage Azure Maps Creator
 
-Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using Gen 2 or Gen 1 (S1) pricing tiers.
+Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
@@ -52,7 +52,7 @@ This article takes you through the steps to create and delete a Creator resource
 To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Select the **Delete** button.
 
 >[!WARNING]
->When you delete the Creator resource of your Azure Maps account, you will also delete the datasets, tilesets, and feature statesets created using Creator services.
+>When you delete the Creator resource of your Azure Maps account, you'll also delete the conversions, datasets, tilesets, and feature statesets created using Creator services.
 
 ![Creator page with delete button](./media/how-to-manage-creator/creator-delete.png)
 
