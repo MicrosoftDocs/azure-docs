@@ -30,7 +30,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
 
 ## Author a Resource Manager template 
-For this example, you can use a publicly available [sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
+For this example, you can use a publicly available [sample template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-windows-autoscale):  
 
 - **Azuredeploy.json** is a preconfigured Resource Manager template for deployment of a virtual machine scale set.
 

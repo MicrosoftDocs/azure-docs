@@ -118,7 +118,7 @@
           displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service
           href: how-to-set-up-your-network.md
         - name: Install software
-          displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
+          displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
@@ -156,7 +156,7 @@
         href: how-to-define-global-user-access-control.md
         displayName: business unit, site, region, user
     - name: Control what traffic is monitored
-      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch
+      displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets, active, probing, scanning, switch
       href: how-to-control-what-traffic-is-monitored.md
     - name: Manage sensors from the on-premises management console
       displayName: disconnect, connect, activation file, sensor backup
@@ -237,7 +237,7 @@
       - name: Import device information
         displayName: import, enrich
         href: how-to-import-device-information.md
-      - name: Define Windows Endpoint Monitoring (WMI)
+      - name: Define Windows endpoint monitoring (WMI)
         displayName: scan, probe, active
         href:  how-to-configure-windows-endpoint-monitoring.md
     - name: Track sensor activity
