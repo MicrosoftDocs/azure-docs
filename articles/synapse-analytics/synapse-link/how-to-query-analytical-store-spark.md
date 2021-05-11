@@ -203,19 +203,6 @@ val query = dfStream.
 query.awaitTermination()
 ```
 
-## External library management
-
-In this example, you'll learn how to reference external libraries from JAR files when using Spark notebooks in Synpase Apache Spark workspaces. You can place the JAR files in a container in the primary data lake account that you connected to the workspace and then add the following `%configure` statement in your Spark notebook:
-
-```cmd
-%%configure -f
-{
-    "jars": [
-        "abfss://<storage container name>@<data lake account name>.dfs.core.windows.net/<path to jar>"
-    ]
-}
-```
-If you are looking to submit remote Spark job definitions to a serverless Apache Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## Next steps
 
