@@ -250,20 +250,22 @@
         href: ipv6-add-to-existing-vnet-powershell.md
       - name: Add IPv6 to IPv4 application - Azure CLI
         href: ipv6-add-to-existing-vnet-cli.md
-      - name: Standard Public Load Balancer with IPv6 - PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-      - name: Standard Public Load Balancer with IPv6 - Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-      - name: Standard Public Load Balancer with IPv6 - ARM template
-        href: ipv6-configure-standard-load-balancer-template-json.md
-      - name: Standard Internal Load Balancer with IPv6 - Powershell
-        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Basic Public Load Balancer with IPv6 - PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-      - name: Basic Public Load Balancer with IPv6 - Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-      - name: Basic Public Load Balancer with IPv6 - ARM template
-        href: ipv6-configure-template-json.md
+      - name: Load balancer
+        items:
+        - name: Standard Public Load Balancer with IPv6 - PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+        - name: Standard Public Load Balancer with IPv6 - Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+        - name: Standard Public Load Balancer with IPv6 - ARM template
+          href: ipv6-configure-standard-load-balancer-template-json.md
+        - name: Standard Internal Load Balancer with IPv6 - Powershell
+          href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+        - name: Basic Public Load Balancer with IPv6 - PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+        - name: Basic Public Load Balancer with IPv6 - Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+        - name: Basic Public Load Balancer with IPv6 - ARM template
+          href: ipv6-configure-template-json.md
       - name: Virtual machines
         items:
         - name: Create VM with static public IP - Portal
@@ -286,34 +288,22 @@
           href: virtual-network-multiple-ip-addresses-cli.md
         - name: Virtual machine scale set with IPv6
           href: ipv6-virtual-machine-scale-set.md
+        - name: Configure routing preference - Portal
+          href: tutorial-routing-preference-virtual-machine-portal.md
+        - name: Configure routing preference - PowerShell
+          href: configure-routing-preference-virtual-machine-powershell.md
+        - name: Configure routing preference - Azure CLI
+          href: configure-routing-preference-virtual-machine-cli.md
+        - name: Configure mixed Routing Preference for a VM
+          href: routing-preference-mixed-network-adapter-portal.md
+        - name: Configure Routing Preference for an AKS cluster
+          href: routing-preference-azure-kubernetes-service-cli.md
         - name: Classic public IP
           items:
           - name: Create VM with static classic private IP - Portal
             href: virtual-networks-static-private-ip-classic-pportal.md
           - name: Create VM with static classic private IP - PowerShell
             href: virtual-networks-static-private-ip-classic-ps.md
-      - name: Routing preference
-        items:
-        - name: Create public IP address
-          items:
-          - name: Azure portal
-            href: routing-preference-portal.md
-          - name: Azure PowerShell
-            href: routing-preference-powershell.md
-          - name: Azure CLI
-            href: routing-preference-cli.md
-        - name: Configure VM with internet routing preference
-          items:
-          - name: Azure portal
-            href: tutorial-routing-preference-virtual-machine-portal.md
-          - name: Azure PowerShell
-            href: configure-routing-preference-virtual-machine-powershell.md
-          - name: Azure CLI
-            href: configure-routing-preference-virtual-machine-cli.md
-        - name: Configure mixed Routing Preference for a VM
-          href: routing-preference-mixed-network-adapter-portal.md
-        - name: Configure Routing Preference for an AKS cluster
-          href: routing-preference-azure-kubernetes-service-cli.md
   - name: Security
     items:
     - name: Filter network traffic
