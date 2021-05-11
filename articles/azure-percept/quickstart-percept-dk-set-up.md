@@ -151,7 +151,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Click **Continue to the Azure portal**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Go to Azure Percept Studio.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-Azure-portal-continue.png" alt-text="Go to Azure Percept Studio.":::
 
 ## View your dev kit video stream and deploy a sample model
 
