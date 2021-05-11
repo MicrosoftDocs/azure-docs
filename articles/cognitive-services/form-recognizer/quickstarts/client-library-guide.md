@@ -21,6 +21,7 @@ ms.author: lajanuar
 
 |Language|Quickstart|
 |-----------|------------------|
+|[**C**]()|   |
 
 
 ## Analyze receipts
@@ -59,7 +60,7 @@ ms.author: lajanuar
 |Language|Quickstart|
 |-----------|------------------|
 
-## Manage your custom models
+## Manage custom models
 
 |Language|Quickstart|
 |-----------|------------------|

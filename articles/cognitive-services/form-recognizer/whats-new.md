@@ -317,7 +317,7 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
