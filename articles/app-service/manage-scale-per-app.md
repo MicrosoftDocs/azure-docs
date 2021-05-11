@@ -7,7 +7,7 @@ ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # High-density hosting on Azure App Service using per-app scaling

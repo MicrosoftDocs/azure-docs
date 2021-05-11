@@ -20,7 +20,7 @@ ms.author: Zhchia
 
 # Tutorial: Configure Olfeo SAAS for automatic user provisioning
 
-This tutorial describes the steps you need to do in both Olfeo SAAS and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Olfeo SAAS](https://www.olfeo.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Olfeo SAAS and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Olfeo SAAS](https://www.olfeo.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -56,7 +56,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add Olfeo SAAS from the Azure AD application gallery
 
-Add Olfeo SAAS from the Azure AD application gallery to start managing provisioning to Olfeo SAAS. If you have previously setup Olfeo SAAS for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-gallery-app.md). 
+Add Olfeo SAAS from the Azure AD application gallery to start managing provisioning to Olfeo SAAS. If you have previously setup Olfeo SAAS for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 

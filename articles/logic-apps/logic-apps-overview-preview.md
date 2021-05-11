@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/24/2021
 ---
 
 # Overview: Azure Logic Apps Preview
@@ -77,9 +77,9 @@ With the single-tenant logic app type, you can create these workflow types withi
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/apis-list.md#managed-api-connectors), 
+  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
   > which are deployed in Azure, and not triggers. To start your workflow, select either the 
-  > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/apis-list.md#built-ins). 
+  > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/built-in.md). 
   > These triggers run natively in the Azure Logic Apps Preview runtime. For more information about limited, 
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
@@ -201,13 +201,13 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
   > [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
-  * For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/apis-list.md#managed-api-connectors). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
+  * For *stateless workflows*, the **Azure** tab doesn't appear when you select a trigger because you can select only [managed connector *actions*, not triggers](../connectors/managed.md). Although you can enable Azure-deployed managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
-  * For *stateful workflows*, other than the triggers and actions that are listed as unavailable below, both [managed connector triggers and actions](../connectors/apis-list.md#managed-api-connectors) are available for you to use.
+  * For *stateful workflows*, other than the triggers and actions that are listed as unavailable below, both [managed connector triggers and actions](../connectors/managed.md) are available for you to use.
 
   * These triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
-    * [On-premises data gateway *triggers*](../connectors/apis-list.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
+    * [On-premises data gateway *triggers*](../connectors/managed.md#on-premises-connectors) are unavailable, but gateway actions *are* available.
 
     * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Function Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
@@ -232,7 +232,7 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
       * **Inline Code Operations** actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
-    * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+    * Some [built-in B2B triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 

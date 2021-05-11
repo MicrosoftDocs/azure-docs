@@ -19,19 +19,18 @@ See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md).
 The source code is stored in the following GitHub repositories:
 
 * [Connected Factory solution accelerator](https://github.com/Azure/azure-iot-connected-factory)
-* [Device simulation solution accelerator](https://github.com/Azure/device-simulation-dotnet)
 
 ### Where can I find the remote monitoring and predictive maintenance solution accelerators?
 
 As of December 10th 2020, the remote monitoring and predictive maintenance accelerators have been removed from the [Azure IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) site and are no longer available for new deployments. The GitHub repositories for both the accelerators have been archived. The code is still available for anyone to access but the repositories aren't taking any new contributions.
 
+### Where can I find the device simulation solution accelerator?
+
+The GitHub repository for the accelerator has been archived. The code is still available for anyone to access but the repositories aren't taking any new contributions.
+
 ### What happens to my existing remote monitoring and predictive maintenance deployments?
 
 Existing deployments aren't impacted by the removal of the remote monitoring and predictive maintenance solution accelerators and will continue to work. Forked repositories also aren't impacted. The master repositories on GitHub have been archived.
-
-### How do I deploy device simulation solution accelerator?
-
-To deploy the device simulation solution accelerator, see the the [device simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) GitHub repository.
 
 ### Where can I find information about the removed solution accelerators?
 
@@ -39,6 +38,7 @@ See the following pages on the previous versions site:
 
 * [Remote monitoring](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 * [Predictive maintenance](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
+* [Device simulation](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 
 ### What SDKs can I use to develop device clients for the solution accelerators?
 

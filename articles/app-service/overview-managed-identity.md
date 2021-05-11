@@ -53,7 +53,7 @@ To set up a managed identity using the Azure CLI, you will need to use the `az w
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
 
     ```azurecli-interactive
     az login

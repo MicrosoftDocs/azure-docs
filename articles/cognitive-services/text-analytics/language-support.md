@@ -19,6 +19,7 @@ ms.author: aahi
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Dutch                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | English               |     `en`      |     ✓      |         2019-10-01         |                    |
 | French                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |         2019-10-01         |                    |
@@ -26,11 +27,11 @@ ms.author: aahi
 | Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |         2020-04-01         |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` also accepted |
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
-| Turkish               |     `tr`      |     ✓       |         2020-07-01        |                    |
+| Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
 ### Opinion mining (v3.1-preview only)
 
