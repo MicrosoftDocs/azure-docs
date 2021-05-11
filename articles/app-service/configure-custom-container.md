@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 
 ms.topic: article
 ms.date: 02/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -381,6 +381,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Authentication / Authorization
 - Managed Identities
 - CORS
+- VNET integration is not supported for Docker Compose scenarios
 
 ### Docker Compose options
 

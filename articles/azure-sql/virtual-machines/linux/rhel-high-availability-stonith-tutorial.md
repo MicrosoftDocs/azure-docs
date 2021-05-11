@@ -521,7 +521,7 @@ To add the role, run the following command:
 - Replace `<filename>` with the name of the file.
 - If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
 
-```bash
+```azurecli-interactive
 az role definition create --role-definition "<filename>.json"
 ```
 
