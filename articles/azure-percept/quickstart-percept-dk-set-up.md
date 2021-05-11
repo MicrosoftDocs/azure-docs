@@ -20,6 +20,9 @@ Complete the Azure Percept DK setup experience to configure your dev kit and dep
 
 If you experience any issues during this process, refer to the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for possible solutions.
 
+> [!TIP]
+> You can return to the setup experience at any time to reinitialize your dev kit for things like connecting to a new wi-fi network, creating a new SSH user, and reconnecting to IoT Hub.
+
 ## Prerequisites
 
 - An Azure Percept DK (dev kit).

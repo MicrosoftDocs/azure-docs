@@ -31,7 +31,7 @@ In this tutorial you will learn how to:
 
 ## Download image
 
-We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. 
+We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board, and the swUpdate file is the update you would import through Device Update for IoT Hub. 
 
 ## Flash SD card with image
 
@@ -152,11 +152,11 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Create an Import Manifest following these [instructions](import-update.md).
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 3. Select the Updates tab.
 4. Select "+ Import New Update".
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the update file that you wish to deploy to your IoT devices.
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample update file_ that you downloaded in step 1 above.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
