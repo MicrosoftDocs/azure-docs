@@ -60,7 +60,7 @@ To enable self-service password reset for the sign-up or sign-in user flow:
 1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 1. Under **Customize** in the left menu, select **Page layouts**.
-1. In the **Page Layout Version**, choose **2.1.3 - Current** or above.
+1. In the **Page Layout Version**, choose **2.1.3** or above.
 1. Select **Save**.
 
 ::: zone-end
