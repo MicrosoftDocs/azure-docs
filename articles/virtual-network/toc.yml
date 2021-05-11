@@ -218,13 +218,6 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
-    
-    
-      
-      - name: Virtual machine scale set with IPv6
-        href: ipv6-virtual-machine-scale-set.md
-      - name: Public IPv6 address prefix
-        href: ipv6-reserve-public-ip-address-prefix.md       
     - name: IP addressing
       items:
       - name: Create public IP addresses - Portal
@@ -237,6 +230,8 @@
         href: create-public-ip-template.md                
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
+      - name: Create public IPv6 prefix
+        href: ipv6-reserve-public-ip-address-prefix.md
       - name: Upgrade public IP addresses
         href: virtual-network-public-ip-address-upgrade.md
       - name: Upgrade public IP address - Portal
@@ -285,6 +280,8 @@
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Create a VM with multiple IPs - Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
+        - name: Virtual machine scale set with IPv6
+          href: ipv6-virtual-machine-scale-set.md
         - name: Classic public IP
           items:
           - name: Create VM with static classic private IP - Portal
@@ -313,7 +310,6 @@
           href: routing-preference-mixed-network-adapter-portal.md
         - name: Configure Routing Preference for an AKS cluster
           href: routing-preference-azure-kubernetes-service-cli.md
-
   - name: Security
     items:
     - name: Filter network traffic
