@@ -17,13 +17,13 @@ For business-to-business (B2B) solutions and seamless communication between orga
 * Electronic Data Interchange (EDI)
 * Enterprise Application Integration (EAI)
 
-If you're familiar with Microsoft BizTalk Server or Azure BizTalk Services, the EIP follows similar concepts, making the features easy to use. However, one major difference is that the EIP is architecturally based on "integration accounts" to simplify the storage and management of artifacts used in B2B communications. These accounts are cloud-based containers that store all your artifacts, such as partners, agreements, schemas, maps, and certificates. 
+If you're familiar with Microsoft BizTalk Server or Azure BizTalk Services, the EIP follows similar concepts, making the features easy to use. However, one major difference is that the EIP is architecturally based on "integration accounts" to simplify the storage and management of artifacts used in B2B communications. These accounts are cloud-based containers that store all your artifacts, such as partners, agreements, schemas, maps, and certificates.
 
 ## Why use the Enterprise Integration Pack?
 
 * With the EIP, you can store all your artifacts in one place - your integration account.
 
-* You can build B2B workflows and integrate with third-party software-as-service (SaaS) apps, on-premises apps, and custom apps 
+* You can build B2B workflows and integrate with third-party software-as-service (SaaS) apps, on-premises apps, and custom apps
 by using Azure Logic Apps and connectors.
 
 * You can create custom code for your logic apps with Azure functions.
@@ -42,11 +42,11 @@ After you create an integration account and add your artifacts, you can start bu
 
 Here are the high-level steps to get started building B2B logic apps:
 
-![Prerequisites for creating B2B logic apps](./media/logic-apps-enterprise-integration-overview/overview.png)  
+![Prerequisites for creating B2B logic apps](./media/logic-apps-enterprise-integration-overview/overview.png)
 
 ## Try now
 
-[Deploy a fully operational sample logic app that sends and receives AS2 messages](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)
+[Deploy a fully operational sample logic app that sends and receives AS2 messages](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-as2-send-receive)
 
 ## Next steps
 
