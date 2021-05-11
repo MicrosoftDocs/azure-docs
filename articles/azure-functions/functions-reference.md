@@ -113,17 +113,10 @@ Identity-based connections are supported by the following trigger and binding ex
 
 | Extension name | Extension version                                                                                     | Supported in the Consumption plan |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
-<<<<<<< HEAD
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
 | Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
 | Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | No                                    |
-=======
-| Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Yes                                  |
-| Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Yes                                    |
-| Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Yes                                    |
-| Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | Yes                                    |
->>>>>>> track2-azurewebjobs
 
 > [!NOTE]
 > Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
