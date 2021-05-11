@@ -249,7 +249,7 @@ Column name can be parameterized similar to other properties. Like in derived co
 
 ### The data flow advisory about TTL and costs
 
-This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-performance#time-to-live).
+This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live).
 
 
 ## Wrangling data flow (Data flow power query)
