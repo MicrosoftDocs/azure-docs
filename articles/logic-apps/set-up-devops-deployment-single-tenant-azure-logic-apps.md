@@ -203,7 +203,7 @@ az logicapp deployment source config-zip -g {your-resource-group} --name {your-l
 
 ### Release to containers
 
-If you containerize your logic app, deployment works mostly the same way as any other container that you deploy and manage. For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container from Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
+If you containerize your logic app, deployment works mostly the same as any other container you deploy and manage. For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container from Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
 
 For examples that show how to implement an end-to-end container build and deployment pipeline, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/).
 

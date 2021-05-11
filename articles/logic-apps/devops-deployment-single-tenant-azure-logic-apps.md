@@ -108,15 +108,15 @@ For more information and best practices about how to best organize workflows in 
 
 ### Container deployment
 
-Single-tenant Logic Apps supports deployment to containers, which means that you can containerize your logic app workflows and run them anywhere that containers can run. After you containerize your app, deployment is mostly the same as any other container that you deploy and manage.
+Single-tenant Logic Apps supports deployment to containers, which means that you can containerize your logic app workflows and run them anywhere that containers can run. After you containerize your app, deployment works mostly the same as any other container you deploy and manage.
  
-For examples that include Azure DevOps, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/). For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container rom Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
+For examples that include Azure DevOps, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/). For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container from Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
 
 <a name="app-settings-parameters"></a>
 
 ### App settings and parameters
 
-In multi-tenant Logic Apps, having to maintain environment variables for your logic apps across various dev, test, and production environments poses a challenge. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In multi-tenant Logic Apps, maintaining environment variables for logic apps across poses a challenge across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In the single-tenant Logic Apps service, you can call and reference your environment variables at runtime by using app settings and parameters, so you don't have to redeploy as often.
 
