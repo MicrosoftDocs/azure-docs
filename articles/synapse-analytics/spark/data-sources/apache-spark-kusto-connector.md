@@ -11,12 +11,12 @@ ms.reviewer: ManojRaheja
 ---
 
 # Introduction 
-The Azure Data Explorer (Kusto) connector for Apache Spark is designed to efficiently transfer data between Kusto clusters and Spark. This connector is available in Python, Java, and .NET. It is built-in to the Azure Synapse Apache Spark 2.4 runtime.
+The Azure Data Explorer (Kusto) connector for Apache Spark is designed to efficiently transfer data between Kusto clusters and Spark. This connector is available in Python, Java, and .NET. It is built in to the Azure Synapse Apache Spark 2.4 runtime.
 
 ## Authentication
 When using Azure Synapse Notebooks or Apache Spark job definitions, the authentication between systems is made seamless with the linked service. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the Kusto cluster.
 
-For Azure Synapse Pipelines, the authentication will leverage the service principal name. Currently, managed identities are not supported with the Azure Data Explorer connector.
+For Azure Synapse Pipelines, the authentication will use the service principal name. Currently, managed identities are not supported with the Azure Data Explorer connector.
 
 ## Prerequisites 
   - [Connect to Azure Data Explorer](../../quickstart-connect-azure-data-explorer.md): You will need to set up a Linked Service to connect to an existing Kusto cluster.
@@ -24,7 +24,7 @@ For Azure Synapse Pipelines, the authentication will leverage the service princi
 ## Limitations
   - The Azure Data Explorer (Kusto) connector is currently only supported on the Azure Synapse Apache Spark 2.4 runtime.
   - The Azure Data Explorer linked service can only be configured with the Service Principle Name.
-  - For interactive scenarios, like Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will leverage AAD pass-through to connect to the Kusto Cluster.
+  - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will use AAD pass-through to connect to the Kusto Cluster.
 
 
 ## Use the Azure Data Explorer (Kusto) connector
@@ -43,7 +43,7 @@ kustoDf  = spark.read \
 display(kustoDf)
 ```
 
-You can also batch read with forced distribution mode and other advanced options.Please refer to [Kusto source options reference](https://github.com/Azure/azure-kusto-spark/blob/master/connector/src/main/scala/com/microsoft/kusto/spark/datasource/KustoSourceOptions.scala) in order to get the string representation of the options.
+You can also batch read with forced distribution mode and other advanced options. For additional information, you can refer to [Kusto source options reference](https://github.com/Azure/azure-kusto-spark/blob/master/connector/src/main/scala/com/microsoft/kusto/spark/datasource/KustoSourceOptions.scala).
 
 ```python
 crp = sc._jvm.com.microsoft.azure.kusto.data.ClientRequestProperties()
@@ -72,7 +72,7 @@ df.write \
     .mode("Append") \
     .save()
 ```
-In addition, you can also batch write data by leveraged various ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/en-us/azure/data-explorer/ingestion-properties).
+In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](https://docs.microsoft.com/en-us/azure/data-explorer/ingestion-properties).
 
 
  ```python
