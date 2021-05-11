@@ -312,11 +312,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 In *train.py*, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
 
 ```python
-# in train.py
+# ADDITIONAL CODE: get AML run from the current context
 run = Run.get_context()
 
 ...
-
+# ADDITIONAL CODE: log loss metric to AML
 run.log('loss', loss)
 ```
 
