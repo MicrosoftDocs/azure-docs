@@ -93,7 +93,7 @@ At your project's root level, you can find the following files and folders, alon
 | workflow-designtime | Folder | Contains design-time related settings files, such as host.json and local.settings.json (TODO: MORE INFO REQUIRED HERE) |
 | .funcignore | File | **(TODO: MORE INFO REQUIRED HERE)** |
 | .gitignore | File | **(TODO: MORE INFO REQUIRED HERE)** |
-| connections.json | File | Contains the metadata and keys for specific connections. |
+| connections.json | File | Contains the metadata, endpoints, and keys for any managed connections and Azure functions that your workflows use. <p><p>**Important**: To use different connections and functions for each environment, make sure that you parameterize this **connections.json** file and update the endpoints. |
 | host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Logic Apps service, logic apps, workflows, triggers, and actions. |
 | local.settings.json | File | **(TODO: MORE INFO REQUIRED HERE)** |
 | SharedCode | Folder | **(TODO: MORE INFO REQUIRED HERE)** |
@@ -130,7 +130,7 @@ The most significant improvement is that the single-tenant service makes some co
 
 The connections that you create using built-in operations are called built-in connections, or *service provider connections*. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the redesigned Logic Apps runtime. In contrast, managed connections, or API connections, are created and run separately as Azure resources, which you deploy using ARM templates. As a result, built-in operations and their connections provide better performance due to their proximity to your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
-In Visual Studio Code, when you use the designer to develop or make changes to your workflows, the Logic Apps engine automatically generates any necessary connection metadata in your project's connections.json file. The following sections describe the three kinds of connections that you can create in your workflows. Each connection type has a different JSON structure, which is important to understand because endpoints change when you move between environments.
+In Visual Studio Code, when you use the designer to develop or make changes to your workflows, the Logic Apps engine automatically generates any necessary connection metadata in your project's **connections.json** file. The following sections describe the three kinds of connections that you can create in your workflows. Each connection type has a different JSON structure, which is important to understand because endpoints change when you move between environments.
 
 <a name="service-provider-connections"></a>
 
