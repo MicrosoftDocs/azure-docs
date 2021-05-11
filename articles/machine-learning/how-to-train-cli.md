@@ -148,7 +148,7 @@ You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 | `timeout_minutes` | [Optional] The maximum number of minutes to run the sweep job for. |
 | `experiment_name` | [Optional] The experiment to track the sweep job under. If omitted, it will default to the name of the working directory when the job is created. |
 
-Create job to and open in the studio:
+Create job and open in the studio:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
 
