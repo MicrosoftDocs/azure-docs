@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: data4ml

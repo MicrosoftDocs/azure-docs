@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: cgronlun
-author: cjgronlund
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
