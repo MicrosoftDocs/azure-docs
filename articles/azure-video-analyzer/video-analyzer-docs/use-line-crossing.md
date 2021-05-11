@@ -7,7 +7,7 @@ ms.date: 05/07/2021
 
 # Quickstart: Emit events with line crossing in a live video
 
-This quickstart shows you how to use Azure Video Analyzer on IoT Edge to create a line crossing and get events when objects cross that line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and pass them through a line crossing node.
+This quickstart shows you how to use Azure Video Analyzer to create a line crossing and get events when objects cross that line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and pass them through a line crossing node.
 
 The line crossing node comes in handy when you want to detect objects that cross the imaginary line and emit events. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
 
@@ -32,7 +32,7 @@ This diagram shows how the signals flow in this quickstart. An [edge module](htt
 
 The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
-The line crossing node will receive the results from the upstream object tracker node. When objects cross the line the line crossing node will emit an event. The events are send to the IoT Edge Hub message sink. 
+The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line the line crossing node will emit an event. The events are send to the IoT Edge Hub message sink. 
 
 In this quickstart, you will:
 
@@ -51,12 +51,12 @@ In this quickstart, you will:
 1. In Visual Studio Code, right-click the *src/edge/deployment.yolov3.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest.":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
 1. The *deployment.yolov3.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. Right-click *src/edge/config/deployment.yolov3.amd64.json* and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create a Deployment for a Single IoT Edge Device.":::
+    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Create Deployment for Single Device":::
 1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
@@ -65,7 +65,7 @@ In this quickstart, you will:
     * The **avaextension** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "IoT module running YoloV3 object detection model.":::
+        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
 
 
 ## Create and deploy the live pipeline
@@ -108,7 +108,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2. This will effectively be 15 frames/sec.
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).
 
@@ -217,24 +217,25 @@ In this message, notice these details:
 
 The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. The events are then received by the line crossing node which will evaluate the values against the line coordinates as specified in the topology. When objects cross these coordinates an events is triggered. The event looks like this:
 ```
+[IoTHubMonitor] [11:36:11 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
-    "timestamp": 145829017892056,
+    "timestamp": 145865319410261,
     "inferences": [
       {
         "type": "event",
         "subtype": "lineCrossing",
-        "inferenceId": "d08d5aaa79dd4d4ea00ed375e2a30989",
+        "inferenceId": "8f4f7b25d6654536908bcfe34374a15e",
         "relatedInferences": [
-          "858d446161fb48068a8e7fb2a3094808"
+          "c9ea5decdd6a487089ded249c748cf5b"
         ],
         "event": {
           "name": "LineCrossing1",
           "properties": {
-            "total": "1",
-            "clockwiseTotal": "0",
+            "counterclockwiseTotal": "35",
             "direction": "counterclockwise",
-            "counterclockwiseTotal": "1"
+            "total": "38",
+            "clockwiseTotal": "3"
           }
         }
       }
@@ -247,10 +248,11 @@ In this message, notice these details:
 * The `total` number of line crossings in any direction.
 * The number of `clockwiseTotal` crossings.
 * The number of `counterclockwiseTotal` crossings.
+* The `direction` contains the direction for this event.
 
 ## Customize for your own environment
 
-This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the `lineCoordinate` parameter contains the following value:
+This tutorial will work with the provided sample video for which we have calculated the correct line coordinates of the line. When you examine the topology file you will see that the `lineCoordinates` parameter contains the following value:
 `[[0.5,0.1], [0.5,0.9]]`
 
 What does this value mean? When you want to draw a line on a 2D image you need two points, A and B, and between those points you will have an imaginary line. Each point will have its own x and y coordinates to determine where it is with respect to the full image resolution. In this case point A is `[0.5,0.1]` and point B is `[0.5,0.9]`. A visual representation of the that line looks like this:
@@ -272,7 +274,7 @@ point A: x=1024, y=96
 Point B: x=1024, y=960
 These values do not look like values that would go into the line crossing node since we need numbers between 0 and 1. To calculate this you apply the following formula:
 
-`x coordinate / x image resolution` in our example that is `1024/1920 = 0.5`. Now do the same for y `96/1080=0.9`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 `[[0.5,0.1], [0.5,0.9]]` as shown earlier in this tutorial.
+`x coordinate / x image resolution` in our example that is `1024/1920 = 0.5`. Now do the same for y `96/1080=0.1`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 `[[0.5,0.1], [0.5,0.9]]` as shown earlier in this tutorial.
 
 ## Clean up resources
 
