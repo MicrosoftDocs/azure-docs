@@ -1120,13 +1120,23 @@ The preceding example returns an object in the following format:
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
-In Bicep, directly use the symbolic name of the resource to access resource id property if the resource is defined within the same template. For example:
+In Bicep, you can often use the id property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
 
 ```bicep
 myStorageAccount.id
 ```
 
 In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
+```
 
 ### Parameters
 
