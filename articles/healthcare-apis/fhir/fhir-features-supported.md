@@ -63,7 +63,7 @@ All the operations that are supported that extend the RESTful API.
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
 | $convert-data          | Yes       | Yes       | Yes       |         |
-
+| $validate          | Yes       | Yes       | Yes       |         |
 
 ## Persistence
 
@@ -89,9 +89,13 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 * **Data size** - Data/Documents must each be slightly less than 2 MB.
 
+* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR Server Instances. If you need more instances per subscription, open a support ticket and provide details about your needs.
+
+* **Concurrent connections and Instances** - By default, you have 15 concurrent connections on two instances in the cluster (for a total of 30 concurrent requests). If you need more concurrent requests, open a support ticket and provide details about your needs.
+
 ## Performance expectations
 
-The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you are performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
+The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you're performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
 
 | # of RUs | Resources/sec |    Max Storage (GB)*    |
 |----------|---------------|--------|                 

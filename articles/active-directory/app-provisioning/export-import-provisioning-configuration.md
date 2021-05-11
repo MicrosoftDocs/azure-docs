@@ -1,15 +1,16 @@
 ---
-title: Export provisioning configuration and roll back to a known good state for disaster recovery
-description: Learn how to export your provisioning configuration and roll back to a known good state for disaster recovery.
+title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory
+description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/11/2021
 ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
 # How-to: Export provisioning configuration and roll back to a known good state

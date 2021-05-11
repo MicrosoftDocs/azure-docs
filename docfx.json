@@ -610,7 +610,7 @@
         "articles/logic-apps/*.md": "estfan",
         "articles/machine-learning/*.md": "jmartens",
         "articles/machine-learning/studio/*.md": "jmartens",
-        "articles/marketplace/**/*.md": "dsindona",
+        "articles/marketplace/**/*.md": "mingshen",
         "articles/media-services/**/*.md": "juliako",
         "articles/media-services/*.md": "juliako",
         "articles/migrate/*.md": "raynew",
@@ -984,6 +984,7 @@
     "rules": {
       "sensitive-language-ma": {
         "exclude": [
+          "articles/app-service/deploy-local-git.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
@@ -1043,6 +1044,7 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md",
@@ -1064,6 +1066,7 @@
           "articles/mysql/howto-create-users.md",
           "articles/mysql/howto-data-in-replication.md",
           "articles/mysql/howto-troubleshoot-replication-latency.md",
+          "articles/postgresql/tutorial-design-database-hyperscale-multi-tenant.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/virtual-machines/linux/n-series-driver-setup.md",
@@ -1071,6 +1074,7 @@
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+          "articles/virtual-machines/workloads/sap/large-instance-high-availability-rhel.md",
           "articles/virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
@@ -1110,6 +1114,7 @@
           "articles/mysql/howto-troubleshoot-replication-latency.md",
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
+          "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
