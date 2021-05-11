@@ -34,8 +34,10 @@ fs_setup:
     filesystem: swap
 mounts:
   - ["ephemeral0.1", "/mnt"]
-  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
+
+The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
