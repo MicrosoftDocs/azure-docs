@@ -260,7 +260,7 @@ The current training script prints metrics to the terminal. Azure Machine Learni
     import torchvision.transforms as transforms
     from model import Net
     from azureml.core import Run
-    # ADDITIONAL CODE: get AML run from the current context
+    # ADDITIONAL CODE: get run from the current context
     run = Run.get_context()
     # download CIFAR 10 data
     trainset = torchvision.datasets.CIFAR10(
@@ -312,7 +312,7 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 In *train.py*, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
 
 ```python
-# ADDITIONAL CODE: get AML run from the current context
+# ADDITIONAL CODE: get run from the current context
 run = Run.get_context()
 
 ...
