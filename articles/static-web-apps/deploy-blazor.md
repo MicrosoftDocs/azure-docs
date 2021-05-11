@@ -56,17 +56,17 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 1. Make sure you're signed in to GitHub and navigate to the following location to create a new repository:
    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
-1. Name your repository **my-first-static-blazor-app**
+1. Name your repository **my-first-static-blazor-app**.
 
 ## Create a static web app
 
 Now that the repository is created, create a static web app from the Azure portal.
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Select **Create a Resource**
-1. Search for **Static Web Apps**
-1. Select **Static Web Apps**
-1. Select **Create**
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Select **Create a Resource**.
+1. Search for **Static Web Apps**.
+1. Select **Static Web Apps**.
+1. Select **Create**.
 1. On the _Basics_ tab, enter the following values.
 
     | Property | Value |
@@ -85,7 +85,7 @@ Now that the repository is created, create a static web app from the Azure porta
     | Property | Value |
     | --- | --- |
     | _Organization_ | Select your desired GitHub organization. |
-    | _Repository_ | Select **gatsby-static-web-app**. |
+    | _Repository_ | Select **my-first-static-blazor-app**. |
     | _Branch_ | Select **main**. |
 
 1. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and keep the default values.
@@ -120,11 +120,11 @@ The Static Web Apps overview window displays a series of links that help you int
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
 
-1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-static-blazor-app** from the top search bar
-1. Select on the app name
-1. Select on the **Delete** button
-1. Select **Yes** to confirm the delete action
+1. Open the [Azure portal](https://portal.azure.com).
+1. Search for **my-blazor-group** from the top search bar.
+1. Select on the group name.
+1. Select on the **Delete** button.
+1. Select **Yes** to confirm the delete action.
 
 ## Next steps
 
