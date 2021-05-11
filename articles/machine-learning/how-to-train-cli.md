@@ -73,11 +73,12 @@ This job can be created and run via `az ml job create` using the `--file/-f` par
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
 
 While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
-    - Save the run history in the Azure Machine Learning studio
-    - Reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
-    - Track run submission details, including source code git repository and commit
-    - Track model metrics, metadata, and artifacts
-    - Avoid installation and package management in your local environment
+
+- Save the run history in the Azure Machine Learning studio
+- Reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
+- Track run submission details, including source code git repository and commit
+- Track model metrics, metadata, and artifacts
+- Avoid installation and package management in your local environment
 
 > [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
