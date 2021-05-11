@@ -171,10 +171,10 @@ The **Logic App (Preview)** resource and single-tenant model include many curren
 
 * Create logic apps and their workflows from [400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * More managed connectors are now available as built-in versions and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the redesigned Azure Logic Apps Preview runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, and MQ.
+  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the redesigned Azure Logic Apps Preview runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, and MQ.
 
     > [!NOTE]
-    > For the built-in SQL Server version , only the **Execute Query** action can directly connect to Azure 
+    > For the built-in SQL Server version, only the **Execute Query** action can directly connect to Azure 
     > virtual networks without using the [on-premises data gateway](logic-apps-gateway-connection.md).
 
   * You can create your own built-in connectors for any service that you need by using the [preview's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similarly to built-in operations such as Azure Service Bus and SQL Server but unlike [custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors), which aren't currently supported during preview, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the redesigned runtime.
