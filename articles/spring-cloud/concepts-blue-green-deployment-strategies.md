@@ -79,7 +79,7 @@ After the deployment created for the new version receives production traffic, yo
 
 ![After a fallback period, deleting the previous deployment](media/spring-cloud-blue-green-patterns/named-deployment-3.png)
 
-### Tradeoffs of the Named Deployments Approach
+### Tradeoffs of the named deployments approach
 
 The named deployments approach has the following benefits:
 
