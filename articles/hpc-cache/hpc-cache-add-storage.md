@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
@@ -13,9 +13,9 @@ ms.author: v-erkel
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
-You can define up to 20 different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
+You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
-The namespace paths are configured separately after you add the storage targets.
+The cache presents all of the storage targets in one aggregated namespace. The namespace paths are configured separately after you add the storage targets.
 
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
@@ -30,6 +30,15 @@ The procedure to add a storage target is slightly different depending on the typ
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## Size your cache correctly to support your storage targets
+
+The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+
+* Up to 10 storage targets - If you choose the smallest or medium cache storage size for your selected throughput value, your cache can have up to 10 storage targets.
+* Up to 20 storage targets - Choose the highest available cache size for your selected throughput value if you want to use more than 10 storage targets. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
+
+Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
 
 ## Add a new Azure Blob storage target
 
