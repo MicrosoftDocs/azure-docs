@@ -37,7 +37,7 @@ $validate.ValidationMessages
 
 ```
 
-The previous command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following steps to **Prepare** and **Commit** the migration:
+The previous command displays any warnings and errors that block migration. If validation is successful, you can continue with the following steps to **Prepare** and **Commit** the migration:
 
 ```azurepowershell-interactive
 Move-AzureReservedIP -ReservedIPName 'myReservedIP' -Prepare
@@ -56,7 +56,7 @@ In this section, you'll use the Azure classic CLI to migrate a classic reserved 
 azure network reserved-ip validate migration myReservedIP
 
 ```
-The previous command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following steps to **Prepare** and **Commit** the migration:
+The previous command displays any warnings and errors that block migration. If validation is successful, you can continue with the following steps to **Prepare** and **Commit** the migration:
 
 ```azurecli-interactive
 azure network reserved-ip prepare-migration myReservedIP
