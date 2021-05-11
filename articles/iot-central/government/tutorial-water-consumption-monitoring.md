@@ -75,7 +75,7 @@ It's your application, and you can modify it anytime. Next, you explore the appl
 
 After you create the application, the sample **Wide World water consumption dashboard** opens.
   
- :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard.":::
+ :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard.":::
 
 
 You can create and customize views on the dashboard for operators.
@@ -91,7 +91,7 @@ The dashboard consists of different kinds of tiles:
 
 * **Water distribution area map**: The map uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays the device location. Hover over the map and try the controls over the map, like *zoom in*, *zoom out*, or *expand*.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png" alt-text="Water consumption monitoring dashboard map":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-dashboard-map.png" alt-text="Water consumption monitoring dashboard map":::
 
 * **Average water flow line chart** and **Environmental condition line chart**: You can visualize one or multiple device telemetries plotted as a line chart over a desired time range.
 * **Average valve pressure heatmap chart**: You can choose the heatmap visualization type of device telemetry data you want to see distributed over a time range with a color index.
@@ -104,7 +104,7 @@ You can customize views in the dashboard for operators.
 
 1. Select **Edit** to customize the **Wide World water consumption dashboard**. You can customize the dashboard by selecting the **Edit** menu. After the dashboard is in **edit** mode, you can add new tiles or you can configure it.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png" alt-text="Edit dashboard":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Edit dashboard":::
 
 To learn more, see [Create and customize dashboards](../core/howto-create-personal-dashboards.md).
 
@@ -118,11 +118,11 @@ To view the device template:
 
 1. Select **Device templates** on the left pane of your application in Azure IoT Central. In the **Device templates** list, you'll see two device templates, **Smart Valve** and **Flow meter**.
 
-   ![Device template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
+   ![Device template](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template.png)
 
 1. Select the **Flow meter** device template, and familiarize yourself with the device capabilities.
 
-     ![Device template Flow meter](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-flowmeter.png)
+     ![Device template Flow meter](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-flowmeter.png)
 
 ### Customize the device template
 
@@ -150,7 +150,7 @@ To learn more, see [Cloud properties](../core/quick-create-simulated-device.md#a
 
 The water consumption monitor device template comes with predefined views. The views define how operators see the device data, and set the values of cloud properties.
 
-  ![Device template views](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
+  ![Device template views](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-device-template-views.png)
 
 To learn more, see [Views](../core/quick-create-simulated-device.md#views).
 
@@ -175,11 +175,11 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 1. Select **Devices** > **All devices** on the left pane.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png" alt-text="All devices pane":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-devices.png" alt-text="All devices pane":::
 
 1. Select **Smart Valve 1**.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png" alt-text="Smart Valve 1":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitor-device1.png" alt-text="Smart Valve 1":::
 
 1. On the **Commands** tab, you can see the three device commands (**Close valve**, **Open valve**, and **Set valve position**) that are capabilities defined in the **Smart Valve** device template.
 
@@ -204,11 +204,11 @@ The water consumption monitoring application you created has three preconfigured
 
 1. Select **Rules** on the left pane.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png" alt-text="Rules pane":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-rules.png" alt-text="Rules pane":::
 
 1. Select **High water flow alert**, which is one of the preconfigured rules in the application.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png" alt-text="High pH alert":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-high-flow-alert.png" alt-text="High pH alert":::
 
     The `High water flow alert` rule is configured to check against the condition `Flow` is `greater than` the `Max flow threshold`. Flow threshold is a cloud property defined in the **Smart Valve** device template. The value of `Max flow threshold` is set per device instance.
 
@@ -251,7 +251,7 @@ As a administrator, you can change several settings to customize the user experi
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
-   ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
+   ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-customize-your-application.png)
 
 1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
 
