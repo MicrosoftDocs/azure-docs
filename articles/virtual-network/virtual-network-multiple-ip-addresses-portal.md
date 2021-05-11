@@ -98,5 +98,8 @@ A public IP address is one setting for a public IP address resource. If you have
 3. Review the new IP configuration.
 4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses. Do not add the public IP address to the operating system.
 
+> [!NOTE]
+> After you change the IP address configuration, you must restart the VM for the changes to take effect in the VM.
+
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

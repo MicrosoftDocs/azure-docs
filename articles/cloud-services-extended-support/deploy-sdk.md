@@ -14,9 +14,6 @@ ms.custom:
 
 This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy a Cloud Services (extended support) instance that has multiple roles (web role and worker role) and the remote desktop extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services that's based on Azure Resource Manager.
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Before you begin
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.

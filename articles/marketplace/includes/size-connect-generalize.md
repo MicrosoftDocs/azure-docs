@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ---
 
 ## Generalize the image
@@ -35,6 +35,9 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 ### Capture image
 
+> [!NOTE]
+> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
+
 Once your VM is ready, you can capture it in a Azure shared image gallery. Follow the below steps to capture:
 
 1. On [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
@@ -46,8 +49,6 @@ Once your VM is ready, you can capture it in a Azure shared image gallery. Follo
 7. Provide a **Version number** for the image.
 8. Select **Review + create** to review your choices.
 9. Once the validation is passed, select **Create**.
-
-The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have an Owner access to the SIG. 
 
 To grant access:
 

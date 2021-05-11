@@ -34,23 +34,9 @@ Learn more about how to [submit a training run to a compute target](how-to-set-u
 
 ## <a name="deploy"></a> Compute targets for inference
 
-The following compute resources can be used to host your model deployment.
+When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
-When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
-
-* As a *web service* that's used for real-time inference. Web service deployments use one of the following compute targets:
-
-    * [Local computer](how-to-attach-compute-targets.md#local)
-    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
-    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
-    * Azure Functions (preview). Deployment to Functions only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
-
-* As a _batch inference_ endpoint that's used to periodically process batches of data. Batch inferences use [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md).
-
-* To an _IoT device_ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it's deployed by using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](../iot-edge/tutorial-deploy-machine-learning.md).
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 

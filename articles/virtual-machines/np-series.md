@@ -18,7 +18,7 @@ The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 VM Generation Support: Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | FPGA | FPGA memory: GiB | Max data disks | Max NICs/Expected network bandwidth (MBps) | 
@@ -34,14 +34,25 @@ VM Generation Support: Generation 1<br>
 
 ##  Frequently asked questions
 
+**Q:** How to request quota for NP VMs?
+
+**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
+
 **Q:** What version of Vitis should I use? 
 
 **A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
-
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the attestation documentation to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+
+**Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
+
+**A:** Attestation returns two xclbins, **design.bit.xclbin** and **design.azure.xclbin**. Please use **design.azure.xclbin**.
+
+**Q:** Where should I get all the XRT/Platform files?
+
+**A:** Please visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 
@@ -130,6 +141,8 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 **Q:** How can I query the PLP information? 
 
 **A:** Need to run xbutil query and look at the lower portion. 
+
+
 
 ## Other sizes
 

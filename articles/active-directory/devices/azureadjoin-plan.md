@@ -238,7 +238,7 @@ Select **“Yes** if you require users to perform MFA while joining devices to A
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
 
-**Recommendation:** Use the user action [Register or join devices](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) in Conditional Access for enforcing MFA for joining devices.
+**Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 
 ## Configure your mobility settings
 

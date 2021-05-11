@@ -1,7 +1,7 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install the [Azure Az PowerShell Module](https://docs.microsoft.com/powershell/azure/)
+- Install the [Azure Az PowerShell Module](/powershell/azure/)
 
 ## Create Azure Communication Resource
 

@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 05/11/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 ---
 # Set up compute targets for model training and deployment
 
@@ -118,7 +118,7 @@ Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM 
    ```
 
 > [!TIP]
-> If you want to __remove__ (detach) a VM from your workspace, use the [RemoteCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) method.
+> If you want to __remove__ (detach) a VM from your workspace, use the [RemoteCompute.detach()](/python/api/azureml-core/azureml.core.compute.remotecompute#detach--) method.
 >
 > Azure Machine Learning does not delete the VM for you. You must manually delete the VM using the Azure portal, CLI, or the SDK for Azure VM.
 
@@ -168,7 +168,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 > [!TIP]
-> If you want to __remove__ (detach) an HDInsight cluster from the workspace, use the [HDInsightCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--) method.
+> If you want to __remove__ (detach) an HDInsight cluster from the workspace, use the [HDInsightCompute.detach()](/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--) method.
 >
 > Azure Machine Learning does not delete the HDInsight cluster for you. You must manually delete it using the Azure portal, CLI, or the SDK for Azure HDInsight.
 

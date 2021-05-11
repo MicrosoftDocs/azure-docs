@@ -39,7 +39,7 @@ For more information, see the [Visual Studio Servicing Policy](https://www.visua
 ## What features are installed?
 Each image contains the recommended feature set for that Visual Studio edition. Generally, the installation includes:
 
-* All available workloads, including each workload’s recommended optional components. More details on the workloads, components, and SDKs included Visual Studio could be found in the [Visual Studio documentation](https://docs.microsoft.com/visualstudio/install/workload-and-component-ids)
+* All available workloads, including each workload’s recommended optional components. More details on the workloads, components, and SDKs included Visual Studio could be found in the [Visual Studio documentation](/visualstudio/install/workload-and-component-ids)
 * .NET 4.6.2 and .NET 4.7 SDKs, Targeting Packs, and Developer Tools
 * Visual F#
 * GitHub Extension for Visual Studio

@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/25/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 05/11/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 ---
 
 # Configure and submit training runs
