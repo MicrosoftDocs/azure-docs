@@ -28,7 +28,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
-The following table briefly summarizes between the new **Logic App (Preview)** resource type and the original **Logic App (Consumption)** resource type. You'll also learn how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between the new **Logic App (Preview)** resource type and the original **Logic App (Consumption)** resource type. You'll also learn how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -105,7 +105,9 @@ To create a logic app based on the environment that you want, you have multiple 
 | Azure portal | **Logic App (Consumption)** resource type with an existing ISE resource | Same as [Quickstart: Create integration workflows in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md), but select an ISE, not a multi-tenant region. |
 ||||
 
-Although your development experiences differ based on whether you create **Consumption** or **Preview** logic app resources, you can find and access all your deployed logic apps under your Azure subscription. For example, in the Azure portal, the **Logic apps** page shows both **Consumption** and **Preview** logic app resource types. In Visual Studio Code, all your deployed logic apps appear under your Azure subscription. However, in the Azure extensions pane, deployed logic apps are organized separately into their categories based on whether they are and sections and appear separately under the **Consumption** and **Preview** extensions.
+Although your development experiences differ based on whether you create **Consumption** or **Preview** logic app resources, you can find and access all your deployed logic apps under your Azure subscription.
+
+For example, in the Azure portal, the **Logic apps** page shows both **Consumption** and **Preview** logic app resource types. In Visual Studio Code, deployed logic apps appear under your Azure subscription, but they are grouped by the extension that you used, namely **Azure: Logic Apps (Consumption)** and **Azure: Logic Apps (Preview)**.
 
 <a name="stateful-stateless"></a>
 

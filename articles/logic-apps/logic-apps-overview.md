@@ -49,11 +49,11 @@ For more information about the ways workflows can access and work with apps, dat
 
 * *Logic app*: The Azure resource to create when you want to develop a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in the multi-tenant, single-tenant (preview), or integration service environment (ISE). For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
-* *Workflow*: A series of steps that defines a task or process, starting with a single trigger and followed by one or multiple actions
+* *Workflow*: A series of steps that defines a task or process, starting with a single trigger and followed by one or multiple actions.
 
 * *Trigger*: The first step that starts every workflow and specifies the condition to meet before running any actions in the workflow. For example, a trigger event might be getting an email in your inbox or detecting a new file in a storage account.
 
-* *Action*: Each subsequent step that follows after the trigger and runs some operation in a workflow
+* *Action*: Each subsequent step that follows after the trigger and runs some operation in a workflow.
 
 * *Built-in trigger or action*: A natively running Logic Apps operation that provides a way to control your workflow's schedule or structure, run your own code, manage or manipulate data, or complete other tasks in your workflow. Most built-in operations aren't associated with any service or system. Many also don't require that you first create a connection from your workflow and authenticate your identity. However, built-in operations are also available for some frequently used services, systems, and protocols, such as Azure Functions, Azure API Management, Azure App Service, and more.
 
