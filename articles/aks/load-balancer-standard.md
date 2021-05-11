@@ -125,7 +125,7 @@ Requirements for using your own public IP or prefix:
 
 - Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
 - You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP. As per the [required public IP permissions list](kubernetes-service-principal.md#networking).
-- Make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#constraints) necessary to configure Outbound IPs or Outbound IP prefixes.
+- Make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#limitations) necessary to configure Outbound IPs or Outbound IP prefixes.
 
 #### Update the cluster with your own outbound public IP
 
