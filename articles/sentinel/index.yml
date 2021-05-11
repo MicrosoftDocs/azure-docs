@@ -136,10 +136,10 @@ landingContent:
           url: notebooks.md
       - linkListType: concept
         links:
-        - name: Automation rules
-          href: automate-incident-handling-with-automation-rules.md
-        - name: Playbooks
-          href: automate-responses-with-playbooks.md
+          - name: Automation rules
+            href: automate-incident-handling-with-automation-rules.md
+          - name: Playbooks
+            href: automate-responses-with-playbooks.md
 
 
 
