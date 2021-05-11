@@ -12,12 +12,7 @@ ms.date: 05/10/2021
 
 # Set up DevOps deployment for single-tenant Azure Logic Apps (preview) 
 
-This article shows how to deploy a single-tenant based logic app project from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps.
-
-> [!NOTE]
-> Azure Logic Apps currently doesn't support Azure deployment slots.
-
-For more information about DevOps for single-tenant, review [DevOps deployment for single-tenant Azure Logic Apps (preview)](devops-deployment-single-tenant-azure-logic-apps.md).
+This article shows how to deploy a single-tenant based logic app project from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment for single-tenant Azure Logic Apps (preview)](devops-deployment-single-tenant-azure-logic-apps.md).
 
 ## Prerequisites
 
@@ -29,19 +24,9 @@ For more information about DevOps for single-tenant, review [DevOps deployment f
 
 - If you want to deploy to Azure, you need an existing **Logic App (Preview)** resource created in Azure. To quickly create an empty logic app resource, review [Create single-tenant based logic app workflows - Portal](create-stateful-stateless-workflows-azure-portal.md).
 
-<a name="api-connection-resources"></a>
-
-### API connection resources and access policies
-
-In single-tenant Azure Logic Apps, every managed or API connection resource in your workflows requires an associated access policy. This policy needs your logic app's identity to provide the correct permissions for accessing the managed connector infrastructure. The included sample projects include an ARM template that includes all the necessary infrastructure resources, including these access policies.
-
-The following diagram shows the dependencies between your logic app project and infrastructure resources:
-
-![Conceptual diagram showing infrastructure dependencies for a logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
-
 <a name="deploy-infrastructure"></a>
 
-## Deploy your infrastructure
+## Deploy infrastructure resources
 
 If you don't already have a logic app project or infrastructure set up, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
 
@@ -64,6 +49,16 @@ Both samples include the following resources that a logic app uses to run.
 | API connections | Optional, if none exist | These Azure resources define any managed API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. <p><p>**Important**: In your logic app project, the **connections.json** file contains metadata, endpoints, and keys for any managed API connections and Azure functions that your workflows use. To use different connections and functions in each environment, make sure that you parameterize the **connections.json** file and update the endpoints. <p><p>For more information, review [API connection resources and access policies](#api-connection-resources). |
 | Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). The template also includes the required access policies, for example, to use managed API connections. <p><p>**Important**: Exporting the ARM template won't include all the related parameters for any API connection resources that your workflows use. For more information, review [Find API connection parameters](#find-api-connection-parameters). |
 ||||
+
+<a name="api-connection-resources"></a>
+
+## API connection resources and access policies
+
+In single-tenant Azure Logic Apps, every managed or API connection resource in your workflows requires an associated access policy. This policy needs your logic app's identity to provide the correct permissions for accessing the managed connector infrastructure. The included sample projects include an ARM template that includes all the necessary infrastructure resources, including these access policies.
+
+The following diagram shows the dependencies between your logic app project and infrastructure resources:
+
+![Conceptual diagram showing infrastructure dependencies for a logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
 
 <a name="find-api-connection-parameters"></a>
 
@@ -111,7 +106,7 @@ In the response, find the `connectionParameters` object, which contains all the 
 
 As an alternative, you can review the network trace for when you create a connection in the Logic Apps designer. Find the `PUT` call to the managed API for the connector as previously described, and review the request body for all the information you need.
 
-## Deploy your logic apps (zip deploy)
+## Deploy logic app resources (zip deploy)
 
 After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure inside or outside Azure.
 
@@ -150,6 +145,9 @@ To set up a build pipeline based on your logic app project type, choose the asso
 
 To set up a release pipeline that deploys to Azure, choose the associated option for GitHub, Azure DevOps, or Azure CLI.
 
+> [!NOTE]
+> Azure Logic Apps currently doesn't support Azure deployment slots.
+
 #### [GitHub](#tab/github)
 
 For GitHub deployments, you can deploy your logic app by using [GitHub Actions](https://docs.github.com/actions), for example, the GitHub Action in Azure Functions. This action requires that you pass through the following information:
@@ -178,7 +176,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
 * The logic app name to use for deployment
 * Your publish profile
 
-```yml
+```yaml
 - task: AzureFunctionApp@1
   displayName: 'Deploy logic app workflows'
   inputs:
@@ -195,9 +193,7 @@ For more information, review the [Deploy an Azure Function using Azure Pipelines
 
 If you use other deployment tools, you can deploy your logic app by using the single-tenant Logic Apps Azure CLI commands. For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
 
-```azurecli
-az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip 
-```
+`az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip`
 
 ---
 
