@@ -18,3 +18,6 @@ The following tables provide quotas and limits specific to [Azure Event Hubs](ht
 
 ### Basic vs. standard vs. premium vs. dedicated tiers
 [!INCLUDE [event-hubs-tier-limits](event-hubs-tier-limits.md)]
+
+[!INCLUDE [event-hubs-tier-features](event-hubs-tier-features.md)]
+
