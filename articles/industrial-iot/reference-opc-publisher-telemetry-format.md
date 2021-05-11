@@ -81,7 +81,7 @@ In addition, all versions of OPC Publisher support a non-standardized, simple JS
 > The telemetry configuration format has been deprecated. It's only available in version 2.5 or below.
 
 
-```
+g```
     // The configuration settings file consists of two objects:
     // 1) The 'Defaults' object, which defines defaults for the telemetry configuration
     // 2) An array 'EndpointSpecific' of endpoint specific configuration
