@@ -138,7 +138,7 @@ After you enter all the information, select **Submit**.
 
 #### Webhook server action
 
-Send alert information to a webhook server. Working with webhook servers lets youset up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered,the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered,the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
 
 **To define to a webhook action:**
 
