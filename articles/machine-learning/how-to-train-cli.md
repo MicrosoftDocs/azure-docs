@@ -22,7 +22,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 ## Prerequisites
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-- [Install and setup the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 - Clone the examples repository:
 
     ```azurecli-interactive
@@ -68,23 +68,22 @@ The basic command job is configured via the `job.yml`:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
-This job can be created and run via `az ml job create` using the `--file/-f` parameter. However the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
+This job can be created and run via `az ml job create` using the `--file/-f` parameter. However, the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+
+While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
+    - Save the run history in the Azure Machine Learning studio
+    - Reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
+    - Track run submission details, including source code git repository and commit
+    - Track model metrics, metadata, and artifacts
+    - Avoid installation and package management in your local environment
 
 > [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images, such as the [curated environments for machine learning](), to avoid the image build time.
-
-> [!TIP]
-> While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
->   - save the run history in the Azure Machine Learning studio
->   - reproduce the run on remote compute targets (scale up, scale out, sweep hyperparameters)
->   - track run submission details, including source code git repository and commit
->   - track model metrics, metadata, and artifacts
->   - avoid installation and package management in your local environment
+> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images to avoid the image build time.
 
 ## Create compute
 
@@ -98,7 +97,7 @@ Use `az ml compute create -h` for more details on compute create options.
 
 ## Basic Python training job
 
-With `cpu-cluster` created, you can run the basic LightGBM on Iris job which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
+With `cpu-cluster` created you can run the basic training job, which outputs a model and accompanying metadata. Let's review the job YAML file in detail:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
 
@@ -106,8 +105,8 @@ With `cpu-cluster` created, you can run the basic LightGBM on Iris job which out
 | --- | ----------- |
 | `$schema` | [Optional] The YAML schema. You can view the [schema](https://azuremlschemas.azureedge.net/latest/commandJob.schema.json) in the above example in a browser to see all available options for a command job YAML file. If you use the Azure Machine Learning VS Code extension to author the YAML file, including this `$schema` property at the top of your file enables you to invoke schema and resource completions. |
 | `code.local_path` | [Optional] The local path to the source directory, relative to the YAML file, to be uploaded and used with the job. Consider using `src` in the same directory as the job file(s) for consistency. |
-| `command` | The command to execute. The `>` convention allows for authoring readable multiline commands by folding newlines to spaces. Inputs can be written into the command or inferred from other sections, specifically `inputs` or `search_space`, using the curly braces notation. |
-| `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Use `data.path` to specify a cloud location. Use `data.local_path` to specify data from the the local filesystem which will be uploaded to the default datastore. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name, such as `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target time. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
+| `command` | The command to execute. The `>` convention allows for authoring readable multiline commands by folding newlines to spaces. Command line arguments can be explicitly written into the command or inferred from other sections, specifically `inputs` or `search_space`, using curly braces notation. |
+| `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Use `data.path` to specify a cloud location. Use `data.local_path` to specify data from the the local filesystem which will be uploaded to the default datastore. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name, such as `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target during runtime. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
 | `environment` | The environment to execute the command on the compute target with. You can define the environment inline by specifying the Docker image to use or the Dockerfile for building the image. You can also refer to an existing versioned environment in the workspace, or one of Azure ML's curated environments, using the `azureml:` prefix. For instance, `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for TensorFlow with GPU support. <br><br> Python must be installed in the environment used for training. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed. |
 | `compute.target` | The compute target. Specify `local` for local execution, or use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named "cpu-cluster". |
 | `experiment_name` | [Optional] Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. If omitted, it will default to the name of the working directory where the job was created. |
@@ -132,7 +131,7 @@ This will download the logs and any captured artifacts locally in a directory na
 
 Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI. For more information on Azure Machine Learning's hyperparameter tuning offering, see the [Hyperparameters tuning a model](how-to-tune-hyperparameters.md).
 
-With a parameterized command, you can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
+You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
