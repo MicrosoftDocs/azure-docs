@@ -40,7 +40,7 @@ To create a new Azure IoT Central water consumption monitoring application:
 
 1. Select **Build** on the left pane, and select the **Government** tab. The **Government** page displays several government application templates.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png" alt-text="Build government app templates":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png" alt-text="Build government app templates.":::
   
 
 1. Select the **Water consumption monitoring** application template.
@@ -55,7 +55,7 @@ This template includes a sample water consumption device template, a simulated d
 
 1. Select **Create** at the bottom of the page.
 
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png" alt-text="Azure IoT Central New application page":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png" alt-text="Azure IoT Central New application page.":::
 
     ![Azure IoT Central Billing info page](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
@@ -75,7 +75,7 @@ It's your application, and you can modify it anytime. Next, you explore the appl
 
 After you create the application, the sample **Wide World water consumption dashboard** opens.
   
- :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard":::
+ :::image type="content" source="media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png" alt-text="Water consumption monitoring dashboard.":::
 
 
 You can create and customize views on the dashboard for operators.
@@ -134,7 +134,7 @@ To customize the device template:
 1. Update the unit of measurement, or set the **Min value** and **Max value**.
 1. Select **Save** to save any changes.
 
-    ![Customize the device template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-customize.png)
+    ![Customize the device template.](./media/tutorial-waterconsumptionmonitoring/waterconsumption-monitoring-device-template-customize.png)
 
 ### Add a cloud property
 

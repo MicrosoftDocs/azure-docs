@@ -28,7 +28,7 @@ A solution builder is responsible for configuring dashboards and views in the Io
 
 The following sections describe the main types of device you can connect to an IoT Central application:
 
-### IoT Device
+### IoT device
 
 A IoT device is a standalone device connects directly to IoT Central. A IoT device typically sends telemetry from its onboard or connected sensors to your IoT Central application. Standalone devices can also report property values, receive writable property values, and respond to commands.
 
@@ -37,7 +37,7 @@ A IoT device is a standalone device connects directly to IoT Central. A IoT devi
 An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as leaf devices. Scenarios that use IoT Edge devices include:
 
 - Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
-- Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a leaf device might use bluetooth to connect to the IoT edge device, which then connects over the internet to IoT Central.
+- Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a leaf device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
 - Control leaf devices locally to avoid the latency associated with connecting to IoT Central over the internet.
 
 IoT Central only sees the IoT Edge device, not the leaf devices connected to the IoT Edge device.
