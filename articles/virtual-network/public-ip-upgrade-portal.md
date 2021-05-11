@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Upgrade a public IP address using the Azure portal
 
-Azure public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality including allocation method, feature support, and which resources they can be associated with. 
+Azure public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
 
 In this article, you'll learn how to upgrade a static basic SKU public IP address to standard SKU in the Azure portal.
 
@@ -23,7 +23,7 @@ In this article, you'll learn how to upgrade a static basic SKU public IP addres
 
 ## Upgrade public IP address
 
-In this section, you'll sign-in to the Azure portal and upgrade your static basic SKU public IP to the standard sku.
+In this section, you'll sign in to the Azure portal and upgrade your static basic SKU public IP to the standard sku.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ In this section, you'll sign-in to the Azure portal and upgrade your static basi
     > [!NOTE]
     > The basic public IP you are upgrading must have the static allocation type. You'll receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address.
 
-6. Acknowledge the warning by selecting the **I acknowledge** check box. Select **Upgrade**.
+6.  Select the **I acknowledge** check box. Select **Upgrade**.
 
     > [!WARNING]
     > Upgrading a basic public IP to standard sku can't be reversed.
