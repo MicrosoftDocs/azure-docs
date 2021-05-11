@@ -104,7 +104,7 @@ The following policies are not supported by and cannot be applied to the onHands
 * Convert JSON to XML
 * Transform XML using XSLT
 * Validate content
-* Validate parameteres
+* Validate parameters
 * Validate headers
 * Validate status code
 
