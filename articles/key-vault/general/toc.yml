@@ -136,14 +136,16 @@
       href: backup.md
   - name: Secure
     items:
+    - name: Configure key vault networking settings 
+      href: how-to-akvnetworksecurity.md
+    - name: Access Key Vault behind a firewall
+      href: access-behind-firewall.md
     - name: Azure Private Link
       items:
       - name: Integrate with Azure Private Link Service
         href: private-link-service.md
       - name: Diagnose Private Links Configuration Issues
         href: private-link-diagnostics.md
-    - name: Access Key Vault behind a firewall
-      href: access-behind-firewall.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
