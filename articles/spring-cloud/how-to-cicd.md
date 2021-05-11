@@ -99,7 +99,7 @@ steps:
     Package: ./target/your-result-jar.jar
 ```
 
-#### Blue-Green Deployments
+#### Blue-green deployments
 
 The deployment shown in the previous section immediately receives application traffic upon deployment. Sometimes, developers want to test their applications in the production environment but before the application receives any customer traffic.
 
