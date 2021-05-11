@@ -2,23 +2,35 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 05/11/2021
 ---
 
-# Create an App Service app on Azure Arc
+# Create an App Service app on Azure Arc (Preview)
 
-In this quickstart, you create an App Service app to an Azure Arc enabled Kubernetes cluster. This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
+In this quickstart, you create an [App Service app to an Azure Arc enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
 
 ## Prerequisites
 
-- [Create an App Service Kubernetes environment](manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster.
-- 
+- [Set up your Azure Arc enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
-`TODO: Do we need a CLI extension for this?`
+## Add Azure CLI extensions
+
+Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+
+[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+Because these CLI commands are not yet part of the core CLI set, add them with the following commands.
+
+```azurecli-interactive
+az extension add --upgrade --yes --name customlocation
+az extension remove --name appservice-kube
+az extension add --yes --source "https://aka.ms/az-appservice-kube/appservice_kube-0.1.13-py2.py3-none-any.whl"
+```
+`TODO: update app service install command`
 
 ## 1. Create a resource group
 
-Run the following command. `TODO: Does location matter?`
+Run the following command.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
@@ -61,10 +73,12 @@ customLocationId=$(az customlocation show \
 The following example creates a Node.js app. Replace `<app-name>` with a name that's unique within your cluster (valid characters are `a-z`, `0-9`, and `-`). To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp).
 
 ```azurecli-interactive
- az webapp create --resource-group myResourceGroup --name <app-name> --custom-location $customLocationId --runtime 'NODE|12-lts'
+ az webapp create \
+    --resource-group myResourceGroup \
+    --name <app-name> \
+    --custom-location $customLocationId \
+    --runtime 'NODE|12-lts'
 ```
-
-`TODO: Currently gets a nasty error, but app does deploy successfully`
 
 ## 4. Deploy some code
 
@@ -80,7 +94,7 @@ zip -r package.zip .
 az webapp deployment source config-zip --resource-group myResourceGroup --name myAppServicePlan --src package.zip
 ```
 
-## 5. Get diagnostic logs using Log Analytics
+<!-- ## 5. Get diagnostic logs using Log Analytics
 
 `TODO: Still need to validate this scenario`
 
@@ -108,7 +122,7 @@ AppServiceConsoleLogs_CL
 | project TimeGenerated, AppName_s, parsedProp.category, parsedProp.eventName, parsedProp.functionName, parsedProp.message, parsedProp.category, parsedProp.functionInvocationId, parsedProp.hostInstanceId, parsedProp.level, parsedProp.LevelId
 ```
 
-Further info about working with Kusto queries can be found [here](../azure-monitor/logs/get-started-queries.md).
+Further info about working with Kusto queries can be found [here](../azure-monitor/logs/get-started-queries.md). -->
 
 ## (Optional) Deploy a custom container
 
@@ -117,19 +131,23 @@ To create a custom container app, run [az webapp create](/cli/azure/webapp#az_we
 For example, try:
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-container-image-name mcr.microsoft.com/appsvc/node:12-lts
+az webapp create 
+    --resource-group myResourceGroup \
+    --name <app-name> \
+    --custom-location $customLocationId \
+    --deployment-container-image-name mcr.microsoft.com/appsvc/node:12-lts
 ```
 
-`TODO: Currently gets a nasty error, but app does deploy successfully`
+`TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"`
 
 To update the image after the app is create, see [Change the Docker image of a custom container](configure-custom-container.md?pivots=container-linux#change-the-docker-image-of-a-custom-container)
 
 ## More resources
 
--[Configure an ASP.NET Core app](configure-language-dotnetcore.md?pivots=platform-linux)
--[Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
--[Configure a PHP app](configure-language-php.md?pivots=platform-linux)
--[Configure a Linux Python app](configure-language-python.md)
--[Configure a Java app](configure-language-java.md?pivots=platform-linux)
--[Configure a Linux Ruby app](configure-language-ruby.md)
--[Configure a custom container](configure-custom-container.md?pivots=container-linux)
+- [Configure an ASP.NET Core app](configure-language-dotnetcore.md?pivots=platform-linux)
+- [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
+- [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
+- [Configure a Linux Python app](configure-language-python.md)
+- [Configure a Java app](configure-language-java.md?pivots=platform-linux)
+- [Configure a Linux Ruby app](configure-language-ruby.md)
+- [Configure a custom container](configure-custom-container.md?pivots=container-linux)
