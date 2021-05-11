@@ -41,7 +41,7 @@ Determine what percent of your requests to your database or container resulted i
 
 By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application. 
 
-:::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests":::
+:::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
 
 #### Recommended solution
@@ -62,7 +62,27 @@ To verify if there is a hot partition, navigate to **Insights** > **Throughput**
 
 Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](monitor-normalized-request-units.md).
 
-:::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-util-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition":::
+:::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
+
+To see which logical partition keys are consuming the most RU/s, 
+use [Azure Diagnostic Logs](cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key. 
+
+> [!IMPORTANT]
+> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
+
+```kusto
+AzureDiagnostics
+| where TimeGenerated >= ago(24hour)
+| where Category == "PartitionKeyRUConsumption"
+| where collectionName_s == "CollectionName" 
+| where isnotempty(partitionKey_s)
+// Sum total request units consumed by logical partition key for each second
+| summarize sum(todouble(requestCharge_s)) by partitionKey_s, operationType_s, bin(TimeGenerated, 1s)
+| order by sum_requestCharge_s desc
+```
+This sample output shows that in a particular minute, the logical partition key with value "Contoso" consumed around 12,000 RU/s, while the logical partition key with value "Fabrikam" consumed less than 600 RU/s. If this pattern was consistent during the time period where rate-limiting occurred, this would indicate a hot partition. 
+
+:::image type="content" source="media/troubleshoot-request-rate-too-large/hot-logical-partition-key-results.png" alt-text="Requests with 429 in Diagnostic Logs.":::
 
 > [!TIP]
 > In any workload, there will be natural variation in request volume across logical partitions. You should determine if the hot partition is caused by a fundamental skewness due to choice of partition key (which may require changing the key) or temporary spike due to natural variation in workload patterns.
@@ -98,7 +118,7 @@ AzureDiagnostics
 | order by fractionOf429s desc
 ```
 For example, this sample output shows that each minute, 30% of Create Document requests were being rate limited, with each request consuming an average of 17 RUs.
-:::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs.png" alt-text="Requests with 429 in Diagnostic Logs":::
+:::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs-results.png" alt-text="Requests with 429 in Diagnostic Logs.":::
 
 #### Recommended solution
 ##### 429s on create, replace, or upsert document requests
@@ -111,7 +131,7 @@ This will lower the Request Units required per create document operation, which 
 ##### 429s on execute stored procedures
 - [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs. 
 
-## Rate limiting due to high volume of metadata requests
+## Rate limiting on metadata requests
 
 Metadata rate limiting can occur when you are performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
 - Create, read, update, or delete a container or database
@@ -123,7 +143,7 @@ There is a system-reserved RU limit for these operations, so increasing the prov
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired. 
 
-:::image type="content" source="media/troubleshoot-request-rate-too-large/metadata-throttling-insights.png" alt-text="Metadata requests by status code chart in Insights":::
+:::image type="content" source="media/troubleshoot-request-rate-too-large/metadata-throttling-insights.png" alt-text="Metadata requests by status code chart in Insights.":::
 
 #### Recommended solution
 - If your application needs to perform metadata operations, consider implementing a backoff policy to send these requests at a lower rate. 
