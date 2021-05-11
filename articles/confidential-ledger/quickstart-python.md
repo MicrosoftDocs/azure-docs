@@ -25,13 +25,11 @@ Microsoft Azure Confidential Ledger is a new and highly secure service for manag
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 3.6+](/azure/developer/python/configure-local-development-environment)
-- [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux or [WSL](/windows/wsl/) terminal window.
+## Set up
 
-## Set up your local environment
-
-This quickstart uses the Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
+This quickstart uses the Azure Identity library, along with Azure CLI or Azure PowerShell, to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls. For more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
@@ -39,25 +37,25 @@ This quickstart uses the Azure Identity library with Azure CLI to authenticate u
 
 ### Install the packages
 
-1. In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
+In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
-1. Install the Azure Active Directory identity client library:
+Install the Azure Active Directory identity client library:
 
-    ```terminal
-    pip install azure-identity
-    ```
+```terminal
+pip install azure-identity
+```
 
-1. Install the Confidential Ledger control plane client library.
+Install the Confidential Ledger control plane client library.
 
-    ```terminal
-    pip install azure.mgmt.confidentialledger
-    ```
+```terminal
+pip install azure.mgmt.confidentialledger
+```
 
-1. Install the Confidential Ledger data plane client library.
+Install the Confidential Ledger data plane client library.
 
-    ```terminal
-    pip install azure.confidentialledger 
-    ```
+```terminal
+pip install azure.confidentialledger 
+```
 
 ### Create a resource group
 
