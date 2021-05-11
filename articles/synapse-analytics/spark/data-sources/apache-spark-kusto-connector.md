@@ -4,10 +4,11 @@ description: This article provides information on how to use the  connector for 
 services: synapse-analytics 
 ms.author: midesa 
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/19/2020 
 ms.reviewer: ManojRaheja
+author: midesa
 ---
 
 # Azure Data Explorer (Kusto) connector for Apache Spark
