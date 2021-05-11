@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault networking settings
 
-This article will provide you with guidance on how to configure the Azure Key Vault networking settings to work with other applications and Azure services. To learn about different network security configurations in detail, [read here](https://docs.microsoft.com/azure/key-vault/general/network-security).
+This article will provide you with guidance on how to configure the Azure Key Vault networking settings to work with other applications and Azure services. To learn about different network security configurations in detail, [read here](network-security.md).
 
 Here's step-by-step instructions to configure Key Vault firewall and virtual networks by using the Azure portal, Azure CLI and Azure Powershell
 
