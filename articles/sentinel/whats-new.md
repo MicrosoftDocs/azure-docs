@@ -27,10 +27,10 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## May 2021
 
-- [Azure Sentinel incident teams - collaborate in Microsoft Teams](#azure-sentinel-incident-teams---collaborate-in-microsoft-teams-public-preview) (Public preview)
+- [Azure Sentinel incident teams - collaborate in Microsoft Teams](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview) (Public preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
-### Azure Sentinel incident teams - collaborate in Microsoft Teams (public preview)
+### Azure Sentinel incident team - collaborate in Microsoft Teams (public preview)
 
 Azure Sentinel now supports a direct integration with Microsoft Teams, enabling you to collaborate seamlessly across the organization and with external stakeholders.
 
