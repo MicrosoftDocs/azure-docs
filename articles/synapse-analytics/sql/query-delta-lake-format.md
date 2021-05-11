@@ -40,7 +40,17 @@ from openrowset(
 ```
 
 Column names and data types are automatically read from Delta Lake files. The `OPENROWSET` function uses best guess types like VARCHAR(1000) for the string columns.
+
 The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
+
+
+If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
+
+```
+%%pyspark
+from delta.tables import *
+deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
+```
 
 To improve the performance of your queries, consider specifying explicit types in [the `WITH` cause](#explicitly-specify-schema).
 
@@ -148,7 +158,18 @@ ORDER BY
 The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
 reduce your data set, improve performance, and reduce the cost of the query.
 
-The URI in the `OPENROWSET` function must reference a root Delta Lake folder that contains a subfolder called `_delta_log`.
+The URI in the `OPENROWSET` function (concatenated using the `LOCATION` in  ) must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
+
+
+If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark script:
+
+```
+%%pyspark
+from delta.tables import *
+deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/yellow`", "year INT, month INT")
+```
+
+The second argument of `convertToDeltaLake` function represents the partitioning columns (year and month) that are a part of folder pattern and their types.
 
 ## Limitation
 
