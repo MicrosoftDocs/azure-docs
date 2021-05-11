@@ -188,5 +188,6 @@ When you access managed online endpoints with REST requests, the returned status
 
 Learn more about deployment:
 
-* [How to deploy managed endpoint](how-to-deploy-managed-endpoints.md)
-* [Declarative canary deployments with managed endpoints](how-to-deploy-managed-canary.md)
+* [Tutorial: Deploy and score a machine learning model with a managed online endpoint (preview)](tutorial-deploy-managed-online-endpoints.md)
+* [Tutorial: Safe rollout for online endpoints (preview)](tutorial-safe-rollout-online-endpoints.md)
+
