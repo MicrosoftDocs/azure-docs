@@ -81,7 +81,7 @@ Once the deployment created for the new version receives production traffic, it 
 
 ### Tradeoffs of the Named Deployments Approach
 
-The Named Deployments approach has some significant benefits. It...
+The named deployments approach has the following benefits:
 
 * It prevents the approval race condition.
 * It reduces resource consumption by deleting the staging deployment when it's not in use.
