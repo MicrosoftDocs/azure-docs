@@ -335,7 +335,7 @@ Below neural voices are in public preview.
 > Voices in public preview are only available in 3 service regions: East US, West Europe and Southeast Asia.
 
 > [!TIP]
-> `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#Adjust-speaking-languages) for supported languages list.
+> `en-US-JennyNeuralMultilingual` supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for supported languages list.
 
 For more information about regional availability, see [regions](regions.md#neural-and-standard-voices).
 
