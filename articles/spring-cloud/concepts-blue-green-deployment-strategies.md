@@ -92,4 +92,4 @@ However, there are drawbacks as well:
 
 Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error as only two deployments are permitted per Azure Spring Cloud application.
 
-Therefore, the deployment orchestration must either have the means to retry a failed deployment process at a later time or to ensure that the deployment flows for each version remain queued until the flow is completed for all previous versions.
+Therefore, the deployment orchestration must either have the means to retry a failed deployment process at a later time, or the means to ensure that the deployment flows for each version will remain queued until the flow is completed for all previous versions.
