@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Managed Identity | Microsoft Docs
+title: Azure IoT Hub managed identity | Microsoft Docs
 description: How to use managed identities to allow egress connectivity from your IoT Hub to other Azure resources.
 author: miag
 ms.service: iot-hub
@@ -9,7 +9,7 @@ ms.date: 05/11/2021
 ms.author: miag
 ---
 
-# IoT Hub support for Managed Identities 
+# IoT Hub support for managed identities 
 
 Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. IoT Hub supports both. 
 
@@ -34,7 +34,7 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 ### Enable managed identity at hub creation time using ARM template
 
-To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the ARM template below. This ARM template has two required resources, and they both need to be deployed before creating other resources like `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
+To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the Azure Resource Manager (ARM) template below. This ARM template has two required resources, and they both need to be deployed before creating other resources like `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
 
 ```json
 {
@@ -178,11 +178,12 @@ IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-ident
 
 ### Using REST API or SDK for import and export jobs
 
-You can now use the Azure IoT REST APIs for creating import and export jobs. You will need to provide the following properties in the request body 
-1. storageAuthenticationType - The value should be set to 'identityBased' 
-1. inputBlobContainerUri - Used only in import job 
-1. outputBlobContainerUri - Used for both import and export job 
-1. identity - The managed identity to use
+You can now use the Azure IoT REST APIs for creating import and export jobs. You will need to provide the following properties in the request body:
+
+- **storageAuthenticationType**: Set the value to **identityBased**. 
+- **inputBlobContainerUri**: Set this property only in the import job.
+- **outputBlobContainerUri**: Set this property for both the import and export jobs.
+- **identity**: Set the value to the managed identity to use.
 
 
 Azure IoT Hub SDKs also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
@@ -260,6 +261,7 @@ result = iothub_job_manager.create_import_export_job(JobProperties(
 - [Java SDK sample](https://aka.ms/iothubmsijavasample)
 - [Python SDK sample](https://aka.ms/iothubmsipythonsample)
 - Node.js SDK samples: [bulk device import](https://aka.ms/iothubmsinodesampleimport), [bulk device export](https://aka.ms/iothubmsinodesampleexport)
+
 ## Next steps
 
 Use the links below to learn more about IoT Hub features:
