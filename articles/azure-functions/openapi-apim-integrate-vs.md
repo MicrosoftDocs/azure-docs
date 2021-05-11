@@ -46,12 +46,9 @@ The Azure Functions project template in Visual Studio creates a project that you
     | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions. Other versions don't support OpenAPI file generation. |
     | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys). Use anonymous authorization when you plan to expose APIs by using API Management. When you need to restrict access to your APIs, API Management offers a full set of endpoint protections. |
-    
+    | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information about keys and authorization, see [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). |
     
     ![Azure Functions project settings](./media/openapi-apim-integrate-vs/functions-project-settings.png)
-
-    Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
 
 1. Select **Create** to create the function project and HTTP trigger function, with support for OpenAPI. 
 
@@ -76,7 +73,7 @@ This function code returns a message of `Yes` or `No` to indicate whether an eme
 
 ## Run and verify the API locally
 
-When you run the function, the OpenAPI endpoints make it easy to try out the function locally using a generated Swagger UI page.  
+When you run the function, the OpenAPI endpoints make it easy to try out the function locally using a generated Swagger UI page. You don't need to provide function access keys when running locally.
 
 1. Press F5 to start the project. When Functions runtime starts locally, a set of OpenAPI and Swagger endpoints are shown in the output, along with the function endpoint.  
 
@@ -140,13 +137,31 @@ Before you can publish your project, you must have a function app in your Azure 
 
     After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
 
-## Verify the API in Azure
+## Get the function access key
 
-After publishing your project, you should verify that the API works when hosted in Azure.
+1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open in Azure portal**. The function app you created is opened in the Azure portal in your default browser. 
+
+1. Under **Functions**, select **Functions** > **TurbineRepair** then select **Function keys**. 
+
+    :::image type="content" source="media/openapi-apim-integrate-vs/get-function-keys.png" alt-text="Get an access key for the TurbineRepair function":::
+
+1. Under **Function keys** select **default** and copy the **value**. You can now set this key in API Management so that it can access the function endpoint.
+
+## Configure API Management
 
 1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open API in Azure portal**. The API Management instance you created is opened in the Azure portal in your default browser. This API Management instance is already linked to your function app. 
 
-1. Under **APIs**, select **Azure Functions OpenAPI Extension** > **Test** > **POST Run**, enter the following code in the **Request body** > **Raw**, and select **Send**:
+1. Under **APIs**, select **Azure Functions OpenAPI Extension** > **Test** > **POST Run**, then under **Inbound policy** select **Add policy**.
+
+    :::image type="content" source="media/openapi-apim-integrate-vs/apim-add-policy.png" alt-text="Add an inbound policy to the API":::
+
+1. In **Add inbound policy**, choose **Set query parameters**, type `code` for **Name**, select **+Value**, paste in the copied function key, and select **Save**. API Management includes the function key when it passes call through to the function endpoint. 
+
+Now that the function key is set, you can call the API to verify that it works when hosted in Azure.
+
+## Verify the API in Azure
+
+1. In the API, select the **Test** tab and then **POST Run**, enter the following code in the **Request body** > **Raw**, and select **Send**:
 
     ```json
     {
