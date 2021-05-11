@@ -140,7 +140,7 @@ You can specify the replication properties as follows.
 --- | --- | ---
  Target subscription and resource group |  Mandatory | Specify the subscription and resource group that the VM should be migrated to by providing the resource group ID using the (`TargetResourceGroupId`) parameter.
  Target virtual network and subnet | Mandatory | Specify the ID of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the (`TargetNetworkId`) and (`TargetSubnetName`) parameters respectively.
- Machine Id | Mandatory | Specify the Id of the discovered machine that needs to be replicated and migrated. Use (`InputObject`) to specify the discovered VM object for replication.  
+ Machine ID | Mandatory | Specify the ID of the discovered machine that needs to be replicated and migrated. Use (`InputObject`) to specify the discovered VM object for replication.  
  Target VM name | Mandatory | Specify the name of the Azure VM to be created by using the (`TargetVMName`) parameter. 
  Target VM size | Mandatory | Specify the Azure VM size to be used for the replicating VM by using (`TargetVMSize`) parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for (`TargetVMSize`) as "Standard_D2_v2". 
  License | Mandatory | To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for (`LicenseType`) parameter as **WindowsServer**. Otherwise, specify the value as **NoLicenseType**. 
