@@ -83,7 +83,7 @@ When you run the function, the OpenAPI endpoints make it easy to try out the fun
 
     :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-post.png" alt-text="Swagger UI for testing the TurbineRepair API":::
 
-1. When you enter integer values like 6 for `hours` and 2500 for `capacity`, you get a JSON response that looks like the following:
+1. When you enter integer values like 6 for `hours` and 2500 for `capacity`, you get a JSON response that looks like the following example:
    
     :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-response.png" alt-text="Response JSON data from the TurbineRepair function.":::
 
@@ -145,7 +145,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
     :::image type="content" source="media/openapi-apim-integrate-vs/get-function-keys.png" alt-text="Get an access key for the TurbineRepair function":::
 
-1. Under **Function keys** select **default** and copy the **value**. You can now set this key in API Management so that it can access the function endpoint.
+1. Under **Function keys**, select **default** and copy the **value**. You can now set this key in API Management so that it can access the function endpoint.
 
 ## Configure API Management
 
