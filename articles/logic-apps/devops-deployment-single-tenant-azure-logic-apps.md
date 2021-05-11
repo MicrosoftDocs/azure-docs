@@ -243,8 +243,7 @@ For logic apps that run in your local development environment using Visual Studi
 
 ## Next steps
 
-* [Create preview logic apps - Azure portal](create-stateful-stateless-workflows-azure-portal.md)
-* [Create preview logic apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
+* [Set up DevOps deployment for single-tenant Azure Logic Apps (Preview)](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
 
 We'd like to hear about your experiences with the preview logic app resource type and preview single-tenant model!
 
