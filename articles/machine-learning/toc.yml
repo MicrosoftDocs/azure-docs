@@ -530,12 +530,12 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: (Preview) No code deployment
+      - name: No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
-      - name: Batch scoring with batch endpoints (preview)
+      - name: Batch scoring with batch endpoints
         href: how-to-use-batch-endpoint.md
-      - name: Troubleshooting batch endpoints (preview)
+      - name: Troubleshooting batch endpoints
         href: how-to-troubleshoot-batch-endpoints.md
       - name: Package models
         displayName: docker file download
