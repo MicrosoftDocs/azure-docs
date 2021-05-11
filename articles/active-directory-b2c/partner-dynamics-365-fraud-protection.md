@@ -69,6 +69,7 @@ The following architecture diagram shows the implementation.
 In a production environment, you must use a [custom domain for Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy) and for the [Microsoft DFP fingerprinting service](https://docs.microsoft.com/dynamics365/fraud-protection/device-fingerprinting#set-up-dns). The domain for both services should be in the same root DNS zone to prevent browser privacy settings from blocking cross-domain cookies, isn't necessary in a non-production environment.
 
 Following is an example:
+
 | Environment | Service | Domain |
 |:------------|:---------------|:---------------|
 | Development | Azure AD B2C | contoso-dev.b2clogin.com |
