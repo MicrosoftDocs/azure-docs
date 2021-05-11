@@ -17,7 +17,7 @@ Service Bus emits the following event types:
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Raised when there are active messages in a Queue or Subscription and no receivers listening. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Raised when there are active messages in a Dead Letter Queue and no active listeners. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners | Raised when there are active messages in a Dead Letter Queue and no active listeners. |
 | Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Raised periodically if there are active messages in a Queue or Subscription, even if there are active listeners on that specific Queue or Subscription. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Raised periodically if there are messages in the dead-letter entity of a Queue or Subscription, even if there are active listeners on the dead-letter entity of that specific Queue or Subscription. | 
 
@@ -25,7 +25,7 @@ Service Bus emits the following event types:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-### Active messages available with no listeners
+### Active Messages Available With No Listeners
 This event is generated if you have active messages in a queue or a subscription and there are no receivers listening.
 
 ```json
@@ -48,7 +48,7 @@ This event is generated if you have active messages in a queue or a subscription
 }]
 ```
 
-#### Deadletter Messages Available With No Listener
+#### Deadletter Messages Available With No Listeners
 
 The schema for a dead letter queue event is similar. You get at least one event per dead-letter queue that has messages and no active receivers.
 
@@ -56,7 +56,7 @@ The schema for a dead letter queue event is similar. You get at least one event 
 [{
   "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
   "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -120,7 +120,7 @@ This event is generated periodically if you have deadletter messages on the spec
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-### Active messages available with no listeners
+### Active Messages Available With No Listeners
 This event is generated if you have active messages in a queue or a subscription and there are no receivers listening.
 
 ```json
@@ -142,7 +142,7 @@ This event is generated if you have active messages in a queue or a subscription
 }]
 ```
 
-#### Deadletter Messages Available With No Listener
+#### Deadletter Messages Available With No Listeners
 
 The schema for a dead letter queue event is similar. You get at least one event per dead-letter queue that has messages and no active receivers.
 
@@ -150,7 +150,7 @@ The schema for a dead letter queue event is similar. You get at least one event 
 [{
   "source": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
   "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "type": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "type": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners",
   "time": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {

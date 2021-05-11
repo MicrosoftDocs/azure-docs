@@ -254,7 +254,7 @@ Learn how to upload a file from local storage.
 
 # [Azure Java SDK v12](#tab/java)
 
-The following code uploads a local file to Azure File storage by calling the [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) method. The following example method returns a `Boolean` value indicating if it successfully uploaded the specified file.
+The following code uploads a local file to Azure Files by calling the [ShareFileClient.uploadFromFile](/java/api/com.azure.storage.file.share.sharefileclient.uploadfromfile) method. The following example method returns a `Boolean` value indicating if it successfully uploaded the specified file.
 
 :::code language="java" source="~/azure-storage-snippets/files/howto/java/java-v12/files-howto-v12/src/main/java/com/files/howto/App.java" id="Snippet_uploadFile":::
 
