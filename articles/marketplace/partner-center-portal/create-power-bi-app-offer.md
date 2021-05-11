@@ -6,7 +6,7 @@ ms.author: navits
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 07/22/2020
 ---
 
 # Create a Power BI app offer
@@ -51,7 +51,7 @@ This page shows a visual representation of the steps required to publish this of
 It includes links to perform operations on this offer based on the selection you make. For example:
 
 - If the offer is a draft - Delete draft offer
-- If the offer is live - [deprecate (formerly stop sell) the offer](update-existing-offer.md#deprecate-an-offer-or-plan)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
 - If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
 - If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
