@@ -43,7 +43,7 @@ You can now test `V5` on `deployment1`'s private test endpoint.
 
 ![V5 tested on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-5.png)
 
-Finally, once `v5` has been shown to meet all expectations, `deployment1` is once again set as production deployment, so that `v5` receives all production traffic.
+Finally, after `v5` meets all your expectations, you set `deployment1` as the production deployment once again, so that `v5` receives all production traffic.
 
 ![V5 receives traffic on deployment1](media/spring-cloud-blue-green-patterns/alternating-deployments-6.png)
 
