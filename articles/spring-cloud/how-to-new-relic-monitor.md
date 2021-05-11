@@ -104,11 +104,11 @@ You can leverage some environment variables provided by `New Relic` to configure
 
 ## New Relic Java Agent update/upgrade
 
-The **New Relic** java agent will update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
+The **New Relic** Java agent will update/upgrade the JDK regularly. The agent update/upgrade may impact following scenarios.
 
-* Existing applications with the **New Relic** java agent before update/upgrade will be unchanged.
-* New applications created after update/upgrade will take the new version of the **New Relic** java agent.
-* Existing applications need to restart or redeploy to engage the new version of the **New Relic** java agent.
+* Existing applications that use the **New Relic** Java agent before update/upgrade will be unchanged.
+* New applications created after update/upgrade will use the new version of the **New Relic** Java agent.
+* Existing applications that did not use the **New Relic** Java agent before update/upgrade require restart or redeploy to engage the new version of the **New Relic** java agent.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
