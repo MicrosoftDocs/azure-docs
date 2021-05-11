@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/26/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Install Bicep (Preview)
