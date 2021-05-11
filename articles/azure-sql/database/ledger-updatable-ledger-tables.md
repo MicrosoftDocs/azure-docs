@@ -16,7 +16,10 @@ ms.author: janders
 Updatable ledger tables are system-versioned tables that users can perform updates and deletes on while also providing tamper-evidence capabilities. When updates or deletes occur, all earlier versions of a row are preserved in a secondary table, known as the history table. The history table mirrors the schema of the updatable ledger table. When a row is updated, the latest version of the row remains in the ledger table, while its earlier version is inserted into the history table by the system, transparently to the application. 
 
 **NEEDS IMAGE HERE**
+## Updateable ledger tables vs. temporal tables
+Both updatable ledger tables and [temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) are system-versioned tables, for which the Database Engine captures historical row versions in secondary history tables. Either technology provides unique benefits. Updatable ledger tables make both the current and historical data tamper-evident. Temporal tables support querying the data stored at any point in time rather than only the data that is correct at the current moment in time.
 
+You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
 
 1. Enabling ledger at the database-level, which automatically makes all new tables created in the database updatable ledger tables.
@@ -40,7 +43,9 @@ When created, updatable ledger tables will add 4 system-generated, hidden column
 
 ## History table
 
-The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table matches that of the updatable ledger table it's associated with. The naming convention for the history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
+The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table matches that of the updatable ledger table it's associated with. 
+
+When creating an updatable leger table, you can either specify the name of the schema to contain your history table and the name of the history table, or you have the system generate the name of the history table and add it to the same schema as the ledger table. History tables with system-generated names are called anonymous history tables. The naming convention for an anonymous history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
 
 ## Ledger view
 

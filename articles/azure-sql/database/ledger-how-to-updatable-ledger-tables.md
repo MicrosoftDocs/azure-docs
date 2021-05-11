@@ -58,7 +58,7 @@ We'll create an account balance table with the following schema.
     > [!NOTE]
     > Specifying the `LEDGER = ON` argument is optional if you enabled ledger when you created your Azure SQL Database.       
 
-1. When your [updatable ledger table](ledger-updatable-ledger-tables.md) is created, the corresponding history table and ledger view are also created. Execute the following T-SQL to see these new tables.
+1. When your [updatable ledger table](ledger-updatable-ledger-tables.md) is created, the corresponding history table and ledger view are also created. Execute the following T-SQL to see the new table and the new view.
 
    ```sql
    SELECT 
@@ -169,4 +169,3 @@ We'll create an account balance table with the following schema.
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
 - [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md) 
-
