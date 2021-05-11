@@ -126,7 +126,6 @@ The screen for testing protected content with different combinations of DRM/AES 
 
 ![Screenshot that shows testing protected content with different combinations of D R M or A E S versus Streaming Protocols versus Container Format](media/aad-ams-content-protection/testing-protected-content.png)
 
-
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 
 ## Choose an Azure AD tenant
