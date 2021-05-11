@@ -151,7 +151,7 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
 
 1. Save your updated **systemconfig.ini** file in the **sapcon** directory on your machine.
 
-1. Create a temporary **env.list** file with any required credentials. Once your Docker container is running correctly, make sure to delete this file.
+1. If you have chosen to use an **env.list** file for your credentials, create a temporary **env.list** file with the required credentials. Once your Docker container is running correctly, make sure to delete this file.
 
     > [!NOTE]
     > The following script has each Docker container connecting to a specific ABAP system. Modify your script as needed for your environment.

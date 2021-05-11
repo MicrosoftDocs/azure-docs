@@ -222,14 +222,17 @@ To run the SAP data connector deployment script, you'll need the following detai
 
     [ ![Azure Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
 
-1. We recommend 
+1. We recommend reviewing the logs collected to make sure that the data connector is transmitting data. Run:
 
-3.	It is advised to review the logs (Batami – we should add reference to the section) and ensure that the connector is transmitting data :
-Execute: docker logs -f sapcon-[SID]
+    ```azurecli
+    docker logs -f sapcon-[SID]
+    ```
 
-SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
+    SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
 
-[ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+    [ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+
+    For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
 ## Deploy SAP security content from Azure Sentinel
 
