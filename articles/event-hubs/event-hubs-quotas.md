@@ -6,11 +6,14 @@ ms.date: 03/31/2021
 ---
 
 # Azure Event Hubs quotas and limits
+The following tables provide quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-This section lists basic quotas and limits in Azure Event Hubs.
-
+## Common limits for all tiers
 [!INCLUDE [event-hubs-common-limits](../../includes/event-hubs-common-limits.md)]
-[!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
+
+## Basic vs. standard vs. premium vs. dedicated tiers
+[!INCLUDE [event-hubs-tier-limits](../../includes/event-hubs-tier-limits.md)]
+
 
 ## Next steps
 
