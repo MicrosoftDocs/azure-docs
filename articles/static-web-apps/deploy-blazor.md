@@ -67,40 +67,36 @@ Now that the repository is created, create a static web app from the Azure porta
 1. Search for **Static Web Apps**
 1. Select **Static Web Apps**
 1. Select **Create**
+1. On the _Basics_ tab, enter the following values.
 
-In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-blazor-group**  |
+    | _Name_ | **my-first-static-blazor-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Basics tab":::
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-1. Select your _Azure subscription_
-1. Select or create a new _Resource Group_
-1. Name the app **my-first-static-blazor-app**
-   - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
-1. Select a _Region_ closest to you
-1. Select the **Free** _SKU_
-1. Select the **Sign-in with GitHub** button and authenticate with GitHub
+1. Enter the following GitHub values.
 
-After you sign in with GitHub, enter the repository information.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select **gatsby-static-web-app**. |
+    | _Branch_ | Select **main**. |
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Repository details":::
+1. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and keep the default values.
 
-1. Select your preferred _Organization_
-1. Select **my-first-static-blazor-app** from the _Repository_ drop-down
-1. Select **main** from the _Branch_ drop-down
+### Review and create
 
-   If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+1. Select the **Review + Create** button to verify the details are all correct.
 
-1. In the _Build Details_ section, add Blazor-specific configuration details.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
 
-   - Select **Blazor** from the _Build Presets_ dropdown, and keep all the default values.
-
-1. Select **Review + create**.
-
-   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Review create button":::
-
-1. Select **Create**.
-
-   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Create button":::
+1. Once the deployment completes click, **Go to resource**.
 
 1. Select **Go to resource**.
 
