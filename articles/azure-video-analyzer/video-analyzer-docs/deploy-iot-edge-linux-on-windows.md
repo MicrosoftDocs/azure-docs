@@ -29,12 +29,10 @@ The following depicts the overall flow of the document and in 5 simple steps you
     1. Any additional servers, PCs, or clusters that you manage will also show up here.
     1. You can use Windows Admin Center to install and manage Azure EFLOW on either your local device or remote managed devices. In this guide, the local host connection served as the target device for the deployment of Azure IoT Edge for Linux on Windows. Hence you see the localhost also listed as an IoT Edge device.
 
-    ![Deployments steps - windows admin center](./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png)
-    
+    ![Deployments steps - windows admin center](./media/deploy-iot-edge-linux-on-windows/windows-admin-center.png) 
 1. Click on the IoT Edge device to connect to it and you should see an Overview and Command Shell tab. The command shell tab is where you can issue commands to your edge device.
 
     ![Deployments steps - Azure IoT Edge Manager](./media/deploy-iot-edge-linux-on-windows/azure-iot-edge-manager.png)
-    
 1. Go to the command shell and type in the following command:
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
@@ -49,7 +47,6 @@ The following depicts the overall flow of the document and in 5 simple steps you
     * `/var/media`
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
-
 1. Now that you have the edge device set up, registered to the hub and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the AVA module. 
 
     * Storage account
@@ -57,7 +54,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
-    In the template, when asked if you need an edge device, chose the "Use and existing edge device" option since you created both the device and the IoT Hub earlier. You will also be prompted for your IoT Hub name and IoT Edge device id in the subsequent steps.  
+    In the template, when asked if you need an edge device, choose the "Use and existing edge device" option since you created both the device and the IoT Hub earlier. You will also be prompted for your IoT Hub name and IoT Edge device ID in the subsequent steps.  
     
     ![Use Existing Device](./media/deploy-iot-edge-linux-on-windows/use-existing-device.png) 
 
@@ -68,7 +65,6 @@ The following depicts the overall flow of the document and in 5 simple steps you
     You should see the following four modules deployed and running on your edge device. Please note that the resource creation script deploys the AVA module along with IoT Edge modules (edgeAgent and edgeHub) and an RTSP simulator module to provide the simulated RTSP video feed.
     
     ![Deployed Modules](./media/vscode-common-screenshots/avaedge-module.png)
-
 1. With the modules deployed and set up, you are ready to run your first AVA media graph on EFLOW. You can run a simple motion detection graph as below and visualize the results by executing the following steps:
 
     ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
@@ -81,6 +77,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
         > [!IMPORTANT]
         > Undeleted resources can still be active and incur Azure costs. Please ensure that you delete the resources you do not intend to use.
+        
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
