@@ -120,7 +120,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
     - **View Dataset Properties**. Lets you view metadata associated with a specific dataset.
     > [!NOTE]
     > If you have multiple version of your dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
-    - Preview dataset. This option is only available for tabular datasets.
+    - **Preview dataset**. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
 Alternatively, use the `> Azure ML: View Dataset Properties` and `> Azure ML: Unregister Dataset` commands respectively in the command palette.
