@@ -62,7 +62,7 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F2s**  | 2       | 4            | 8                   | 2000                           | 8000                                | 8               | 4         |
 | **Standard_F4s**  | 4       | 8            | 16                  | 2000                           | 16000                               | 16              | 4         |
 | **Standard_F8s**  | 8       | 16           | 32                  | 2000                           | 32000                               | 32              | 8         |
-| **Standard_F16s** | 16      | 32           | 64                  | 2000                           | 64000                               | 64              | ???       |
+| **Standard_F16s** | 16      | 32           | 64                  | 2000                           | 64000                               | 64              | 8      |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
 
