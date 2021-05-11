@@ -5,8 +5,8 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: rsethur, petrodeg, gvashithva
-ms.author:  seramasu, petrodeg, gopalv
+author: petrodeg
+ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
