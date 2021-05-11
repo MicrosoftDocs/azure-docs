@@ -268,7 +268,7 @@
         href: public-ip-upgrade-powershell.md
       - name: Upgrade a public IP address - Azure CLI
         href: public-ip-upgrade-cli.md
-      - name: Migrate a classic reserved IP to ARM
+      - name: Migrate a classic reserved IP
         href: public-ip-upgrade-classic.md
       - name: Add or remove IP address from NICs
         href: virtual-network-network-interface-addresses.md
