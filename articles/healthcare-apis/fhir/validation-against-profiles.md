@@ -47,7 +47,7 @@ There are two types of profiles: base profile and custom profile. A base profile
 
 A custom profile is a set of additional constraints on top of a base profile, restricting or adding resource parameters that are not part of the base specification. Custom profile is useful because you can customize your own resource definitions by specifying the constraints and extensions on the existing base resource. For example, you might want to build a profile that shows `AllergyIntolerance` resource instances based on `Patient` genders, in which case you would create a custom profile on top of an existing `Patient` profile with `AllergyIntolerance` profile.
 
-> !NOTE
+> [!NOTE]
 > Custom profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the custom profile cannot make it optional.
 
 Custom profiles also specified by various Implementation Guides. Some common Implementation Guides are:
