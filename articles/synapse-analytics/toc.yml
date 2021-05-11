@@ -713,7 +713,9 @@ items:
       - name: Query Azure Cosmos DB analytical store with serverless SQL pool
         href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Dataverse
-      items: 
+      items:
+      - name: Export data to Azure Synapse 
+        href: /dynamics365/customer-insights/audience-insights/export-azure-synapse-analytics
 - name: Pipeline and data flow
   items:
   # - name: Overview
