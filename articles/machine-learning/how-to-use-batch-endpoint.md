@@ -108,13 +108,13 @@ Deployment Attributes:
 | --- | ----------- |
 | name | The name of the deployment. |
 | model | The model to be used for batch scoring. Use `name`, `version`, and `local_path` to upload a model from your local machine. Use the `azureml:` prefix to reference an existing model resource in your workspace. For instance, `azureml: autolog:1` would point to version 1 of a model named `autolog`. |
+| compute.target | The compute target. Use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named `cpu-cluster`. |
+| compute.instance_count | The number of compute nodes to be used for batch scoring. |
 | mini_batch_size | [Optional] The number of files the `scoring_script` can process in one `run()` call. Default is `1`. |
 | output_file_name | [Optional] The name of the batch scoring output file. Default is `parallel_run_step.txt`. |
 | retry_settings.max_retries | [Optional] The number of max tries for a failed `scoring_script` `run()`. Default is`3`. |
 | retry_settings.timeout | [Optional] The timeout in seconds for a `scoring_script` `run()`. Default is `60`. |
 | error_threshold | [Optional] The number of file failures that should be ignored. If the error count for the entire input goes above this value, the job will be canceled. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. Default is `-1`, which specifies that any number of failures is allowed without canceling the run. |
-| compute.target | The compute target. Use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named `cpu-cluster`. |
-| compute.instance_count | The number of compute nodes to be used for batch scoring. |
 
 ## Check batch endpoint details
 
@@ -248,7 +248,7 @@ More deployment attributes for the non-MLflow model:
 | Key | Description |
 | --- | ----------- |
 | code_configuration.code.local_path | The directory that contains all the source code to score the model. |
-| code_configuration.scoring_script | The python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation. For example, use it to load the model into a global object. This function will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a file path. {>> tk a little more info on contents <<} The `run()` method should return a pandas `DataFrame` or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in your run result to map the input to a specific run output result. Run output will be written in output file and is not guaranteed to be in order, so you should use some key in the output to map it to the correct input. |
+| code_configuration.scoring_script | The python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation. For example, use it to load the model into a global object. This function will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` method should return a pandas `DataFrame` or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in your run result to map the input to a specific run output result. Run output will be written in output file and is not guaranteed to be in order, so you should use some key in the output to map it to the correct input. |
 | environment | The environment to score the model on the compute target. You can define the environment inline by specifying the name, version and path. Use `conda_file` to include dependencies that will be installed on top of `docker.image`. Use the `azureml:` prefix to reference an existing environment. For instance, `azureml: mnist-env:1` would point to version 1 of an environment named `mnist-env`. |
 
 To review the details of your deployment, run:
