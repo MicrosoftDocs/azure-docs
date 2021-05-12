@@ -10,7 +10,7 @@ ms.topic: overview
 ---
 
 # Install Event Grid on Azure Arc enabled Kubernetes cluster
-This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) cluster.
+This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) cluster.
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
 
@@ -31,13 +31,13 @@ The operation that installs an Event Grid service instance on a Kubernetes clust
 ## Prerequisites
 Before proceeding with the installation of Event Grid, make sure the following prerequistes are met. 
 
-1. A cluster running on one of the [supported Kubernetes distributions](#Supported-Kubernetes-distributions).
+1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
 1. [An Azure subscription](https://azure.microsoft.com/en-us/free/).
-1. [PKI Certificates](#PKI-Certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
+1. [PKI Certificates](#pki-certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster).
 
 ## Getting support
-If you run into an issue, see the [Troubleshooting](#Troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](getting-support.md#how_to_create_a_support_request).
+If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](getting-support.md#how_to_create_a_support_request).
 
 ## PKI Certificate requirements
 The Event Grid broker (server) serves two kinds of clients. 
@@ -100,15 +100,15 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
     > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations).
 1. After the deployment succeeds, you will be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension.
 
-# Troubleshooting
+## Troubleshooting
 
-## Azure Arc connect cluster issues
+### Azure Arc connect cluster issues
 
 1. Condition: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed does not show the Kubernetes cluster where I intent to install Event Grid.
 
-    Suggestion: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster). If you have a problem during this step, file a [support request](#Getting-Support) with the Azure Arc enabled Kubernetes team.
+    Suggestion: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#Getting-Support) with the Azure Arc enabled Kubernetes team.
 
-## Event Grid extension issues
+### Event Grid extension issues
 
 1. Condition: When trying to install an "Event Grid extension", you get the following message:
     "**Invalid operation** &nbsp;
@@ -119,7 +119,6 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 
 ## Resources
 
-1. [Deploy and manage Kubernetes cluster extensions](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-extensions).
-
+1. [Deploy and manage Kubernetes cluster extensions](../../azure-arc/kubernetes/conceptual-extensions.md).
 
 
