@@ -16,6 +16,8 @@
     href: event-schemas.md
   - name: Batch event delivery
     href: batch-delivery.md
+  - name: Delivery and retry
+    href: delivery-retry.md
 - name: Reference
   items:
   - name: REST API
