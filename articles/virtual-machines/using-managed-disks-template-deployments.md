@@ -257,7 +257,7 @@ To find full information on the REST API specifications, please review the [crea
 
 * For full templates that use managed disks visit the following Azure Quickstart Repo links.
     * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+    * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux)
 * Visit the [Azure Managed Disks Overview](managed-disks-overview.md) document to learn more about managed disks.
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks) document.
