@@ -34,7 +34,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [IP Entity page (Public preview)](#ip-entity-page-public-preview)
 - [Activity customization (Public preview)](#activity-customization-public-preview)
 - [Hunting dashboard (Public preview)](#hunting-dashboard-public-preview)
-- [Incident teams - collaborate in Microsoft Teams](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview) (Public preview)
+- [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
 ### Sentinel solutions (Public preview)
