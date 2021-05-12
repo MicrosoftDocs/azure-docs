@@ -39,7 +39,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 - Follow the steps in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) to create a fixed-size VHD for a Generation 1 virtual machine from your source VHD or VHDX.
 
-- If you'd prefer to use Powershell, you can use [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps&preserve-view=true) in the Windows PowerShell module for Hyper-V. To find out the current VM type, you can use [Get-VHD](/powershell/module/hyper-v/get-vhd?view=windowsserver2019-ps&preserve-view=true). You can't use Get-VHD to convert a VM image from a Generation 2 VM to Generation 1; use the portal procedures in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) instead.
+- If you'd prefer to use Powershell, you can use [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps&preserve-view=true) in the Windows PowerShell module for Hyper-V. To find out the current VM type, you can use [Get-VHD](/powershell/module/hyper-v/get-vhd?view=windowsserver2019-ps&preserve-view=true). You can't use Get-VHD to convert a VM image from a Generation 2 VM to Generation 1; instead, use the portal procedures in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
 
 ## The condition specified using HTTP conditional header(s) is not met
