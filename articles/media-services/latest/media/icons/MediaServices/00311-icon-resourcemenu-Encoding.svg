@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <linearGradient id="a2c73c49-d12d-4624-ace1-43112789cf7b" x1="8.632" y1="7.757" x2="33.576" y2="29.144" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5ea0ef"/>
+      <stop offset="0.102" stop-color="#4495e8"/>
+      <stop offset="0.272" stop-color="#1f85dd"/>
+      <stop offset="0.41" stop-color="#087cd6"/>
+      <stop offset="0.497" stop-color="#0078d4"/>
+    </linearGradient>
+    <linearGradient id="ad0f1245-991e-4495-99e3-0e59d218cb6c" x1="7.421" y1="9.169" x2="32.365" y2="30.556" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5ea0ef"/>
+      <stop offset="0.102" stop-color="#4495e8"/>
+      <stop offset="0.272" stop-color="#1f85dd"/>
+      <stop offset="0.41" stop-color="#087cd6"/>
+      <stop offset="0.497" stop-color="#0078d4"/>
+    </linearGradient>
+    <linearGradient id="bbc762d3-abd3-401f-96d3-5bc9ffcfebde" x1="7.789" y1="8.741" x2="32.733" y2="30.127" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5ea0ef"/>
+      <stop offset="0.102" stop-color="#4495e8"/>
+      <stop offset="0.272" stop-color="#1f85dd"/>
+      <stop offset="0.41" stop-color="#087cd6"/>
+      <stop offset="0.497" stop-color="#0078d4"/>
+    </linearGradient>
+  </defs>
+  <g id="a0340009-183f-4be1-a295-1b3b83909025">
+    <g>
+      <polygon points="13.533 5.633 16.005 4.209 8.698 0 1.354 4.239 1.354 12.719 8.669 16.943 8.659 14.116 11.123 12.696 11.113 9.858 13.543 8.459 13.533 5.633" fill="#9cebff"/>
+      <g>
+        <polygon points="11.113 9.858 13.543 8.459 13.533 5.633 8.659 8.612 8.665 14.112 11.123 12.696 11.113 9.858" fill="url(#a2c73c49-d12d-4624-ace1-43112789cf7b)"/>
+        <polygon points="15.214 12.324 15.214 9.477 12.738 10.903 12.748 13.732 10.277 15.155 10.287 18 12.753 16.576 12.753 13.745 15.214 12.324" fill="url(#ad0f1245-991e-4495-99e3-0e59d218cb6c)"/>
+        <polygon points="14.17 14.568 14.18 17.413 16.646 15.99 16.646 13.142 14.17 14.568" fill="url(#bbc762d3-abd3-401f-96d3-5bc9ffcfebde)"/>
+      </g>
+      <polygon points="8.658 8.609 8.658 16.942 1.357 12.731 1.357 4.339 8.658 8.609" fill="#5ea0ef"/>
+    </g>
+  </g>
+</svg>

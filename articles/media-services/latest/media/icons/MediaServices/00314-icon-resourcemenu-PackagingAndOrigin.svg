@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <linearGradient id="e832b303-e83f-4efa-bba5-ec8590805768" x1="9.118" y1="4.87" x2="8.446" y2="32.823" gradientUnits="userSpaceOnUse">
+      <stop offset="0.076" stop-color="#5ea0ef"/>
+      <stop offset="0.095" stop-color="#5a9eee"/>
+      <stop offset="0.28" stop-color="#338ee3"/>
+      <stop offset="0.451" stop-color="#1782db"/>
+      <stop offset="0.6" stop-color="#067bd6"/>
+      <stop offset="0.712" stop-color="#0078d4"/>
+    </linearGradient>
+    <linearGradient id="a4e6ad10-a7cd-4bb9-87cc-76a2c0619b1e" x1="9.219" y1="-0.068" x2="8.64" y2="14.428" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5ea0ef"/>
+      <stop offset="0.181" stop-color="#5a9eee"/>
+      <stop offset="0.377" stop-color="#4d99ea"/>
+      <stop offset="0.578" stop-color="#378fe4"/>
+      <stop offset="0.783" stop-color="#1983db"/>
+      <stop offset="0.925" stop-color="#0078d4"/>
+    </linearGradient>
+  </defs>
+  <g id="b8d1c6c3-d1d9-4a27-ab7e-ad251c037273">
+    <g>
+      <g>
+        <polygon points="16.264 5.428 8.999 1.235 1.735 5.428 1.735 13.817 8.998 18.01 16.273 13.817 16.264 5.428" fill="url(#e832b303-e83f-4efa-bba5-ec8590805768)"/>
+        <polygon points="9.009 1.23 1.735 5.429 9.009 9.629 16.264 5.427 9.009 1.23" fill="url(#a4e6ad10-a7cd-4bb9-87cc-76a2c0619b1e)"/>
+        <polygon points="8.999 9.623 8.999 18.004 1.732 13.814 1.732 5.427 8.999 9.623" fill="#5ea0ef"/>
+        <path d="M1.734,5.423,9,9.622l-1.724,3.6L.007,9.109S1.731,5.457,1.734,5.423Z" fill="#83b9f9"/>
+        <path d="M16.266,5.427,9,9.626l1.724,3.6,7.268-4.109S16.269,5.46,16.266,5.427Z" fill="#83b9f9"/>
+      </g>
+      <g>
+        <path d="M6.214,4.115a.247.247,0,0,0-.178.42L8.957,7.492a.333.333,0,0,0,.472,0l2.92-2.957a.247.247,0,0,0-.178-.42l-2.095.021V.172A.182.182,0,0,0,9.894-.01L8.5-.008A.182.182,0,0,0,8.32.174V4.136Z" fill="#c3f1ff"/>
+        <polygon points="7.932 0.04 7.931 0.041 7.932 0.04 7.932 0.04" fill="#42e8ca"/>
+      </g>
+    </g>
+  </g>
+</svg>
