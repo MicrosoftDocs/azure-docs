@@ -56,10 +56,9 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Azure CLI](/cli/azure) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> |  |
 | [Azcopy](../../storage/common/storage-use-azcopy-v10.md) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | [Azcopy on the DSVM](./dsvm-tools-ingestion.md#azcopy) |
 | [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
-| [Adlcopy (Azure Data Lake Storage)](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | [Adlcopy on the DSVM](./dsvm-tools-ingestion.md#adlcopy) |
 | [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
 | Unix/Linux command-line tools | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
-| Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> |  |  |  |
+| Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> |  |
 
 ## Program in Python, R, Julia, and Node.js
 
@@ -109,7 +108,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Visual Studio 2019 Community Edition](https://www.visualstudio.com/community/) | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Visual Studio on the DSVM](dsvm-tools-development.md#visual-studio-community-edition) |
 | [Visual Studio Code](https://code.visualstudio.com/) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [Visual Studio Code on the DSVM](./dsvm-tools-development.md#visual-studio-code) |
 | [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [RStudio Desktop on the DSVM](./dsvm-tools-development.md#rstudio-desktop) |
-| [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) <br/> (disabled by default) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | [RStudio Server on the DSVM](./dsvm-tools-development.md#rstudio-server) |
+| [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) <br/> (disabled by default) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
 | [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | [PyCharm on the DSVM](./dsvm-tools-development.md#pycharm) |
 | [IntelliJ IDEA](https://www.jetbrains.com/idea/) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> |  |
 | [Vim](https://www.vim.org) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> |  |
