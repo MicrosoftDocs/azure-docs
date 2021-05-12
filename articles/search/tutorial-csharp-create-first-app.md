@@ -107,7 +107,7 @@ For this sample, you are using publicly available hotel data. This data is an ar
 
     ```csharp
     {
-        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URI>",
         "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
