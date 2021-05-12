@@ -24,7 +24,8 @@ In the first two scenarios, the Managed Identity is used to grant the Media Serv
 
 :::image type="content" source="media/diagrams/managed-identities-scenario-comparison.svg" alt-text="Managed Identities Scenario Comparison":::
 
-These scenarios can be combined. You could create Managed Identities for both the Media Services account (for example, to access customer managed keys) and the Azure Functions resource to access to Media Services account.
+> [!NOTE]
+> These scenarios can be combined. You could create Managed Identities for both the Media Services account (for example, to access customer managed keys) and the Azure Functions resource to access to Media Services account.
 
 ## Further reading
 
