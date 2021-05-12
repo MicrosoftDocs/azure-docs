@@ -44,6 +44,7 @@ Because these CLI commands are not yet part of the core CLI set, add them with t
 az extension add --upgrade --yes --name connectedk8s
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
+az provider register --namespace Microsoft.ExtendedLocation --wait
 az extension remove --name appservice-kube
 az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
@@ -142,21 +143,22 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --cluster-type connectedClusters \
         --cluster-name $clusterName \
         --extension-type 'Microsoft.Web.Appservice' \
-        --version "0.7.0" \
-        --auto-upgrade-minor-version false \
+        --release-train stable \
+        --auto-upgrade-minor-version true \
         --scope cluster \
         --release-namespace 'appservice-ns' \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=appservice-ns" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
         --configuration-settings "loadBalancerIp=${staticIp}" \
+        --configuration-settings "keda.enabled=true" \
         --configuration-settings "buildService.storageClassName=default" \
         --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
-        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \
         --configuration-settings "customConfigMap=appservice-ns/kube-environment-config" \
+        --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${aksClusterGroupName}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
-        --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
-        --configuration-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
+        --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
     
     > [!NOTE]
