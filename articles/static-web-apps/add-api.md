@@ -5,7 +5,7 @@ services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 05/11/2021
+ms.date: 05/12/2021
 ms.author: wachegha
 ms.custom: devx-track-js
 ---
@@ -63,21 +63,25 @@ You create an Azure Functions projects for your static web app's API. By default
     ├── (folders and files from your static web app)
     ```
 
-    1. Next, you'll change the `message` function to return a message to the frontend. Update the function in _api/message/index.js_ with the following code.
+1. Next, you'll change the `message` function to return a message to the frontend. Update the function in _api/message/index.js_ with the following code.
 
-        ```javascript
-        module.exports = async function (context, req) {
-            context.res = {
-                body: {
-                text: "Hello from the API"
-                }
-            };
+    ```javascript
+    module.exports = async function (context, req) {
+        context.res = {
+            body: {
+            text: "Hello from the API"
+            }
         };
-        ```
+    };
+    ```
 
 ## Update the frontend app to call the API
 
-Because the function you created is called `message`, it will be accessible at `/api/message`. Update your frontend app to call this API. If you used the quickstarts to create the app, use the following instructions to apply the updates.
+Because the function you created is called `message`, it will be accessible at `/api/message`. Update your frontend app to call this API.
+
+If you used the quickstarts to create the app, use the following instructions to apply the updates.
+
+# [No Framework](#tab/vanilla-javascript)
 
 Update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
 
@@ -109,6 +113,95 @@ Update the content of the _index.html_ file with the following code to fetch the
 </html>
 ```
 
+# [Angular](#tab/angular)
+
+1. Update the content of _src/app/app.module.ts_ with the following code to enable `HttpClient` in your app:
+
+    ```typescript
+    import { BrowserModule } from "@angular/platform-browser";
+    import { NgModule } from "@angular/core";
+    import { HttpClientModule } from '@angular/common/http';
+    
+    import { AppComponent } from "./app.component";
+    
+    @NgModule({
+      declarations: [AppComponent],
+      imports: [BrowserModule, HttpClientModule],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule {}
+    ```
+
+1. Update the content of _src/app/app.component.ts_ with the following code to fetch the text from the API function and display it on the screen:
+
+    ```typescript
+    import { HttpClient } from '@angular/common/http';
+    import { Component } from '@angular/core';
+    
+    @Component({
+      selector: 'app-root',
+      template: `<div>{{message}}</div>`,
+    })
+    export class AppComponent {
+      message = '';
+    
+      constructor(private http: HttpClient) {
+        this.http.get('/api/message')
+          .subscribe((resp: any) => this.message = resp.text);
+      }
+    }
+    ```
+
+# [React](#tab/react)
+
+Update the content of _src/App.js_ with the following code to fetch the text from the API function and display it on the screen:
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    (async function () {
+      const { text } = await( await fetch(`/api/message`)).json();
+      setData(text);
+    })();
+  });
+
+  return <div>{data}</div>;
+}
+
+export default App;
+```
+
+# [Vue](#tab/vue)
+
+Update the content of _src/App.vue_ with the following code to fetch the text from the API function and display it on the screen:
+
+```javascript
+<template>
+  <div>{{ message }}</div>
+</template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      message: ""
+    };
+  },
+  async mounted() {
+    const { text } = await (await fetch("/api/message")).json();
+    this.message = text;
+  }
+};
+</script>
+```
+
+---
+
 ## Run the frontend and API locally
 
 To run your frontend app and API together locally, Azure Static Web Apps provides a CLI that emulates the cloud environment. The CLI leverages the Azure Functions Core Tools to run the API.
@@ -129,12 +222,67 @@ Ensure you have the command line tools installed.
 
 ### Start the Static Web Apps emulator
 
-Test the frontend app and API together by starting an emulator using the Static Web Apps CLI. The emulator serves your frontend's build output from a folder. If your app uses a framework, such as React, build the app to generate the output before running the emulator.
+Test the frontend app and API together by starting an emulator using the Static Web Apps CLI. The emulator serves your frontend's build output from a folder.
 
-1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command. Pass the API folder in the `--api` argument.
+1. If your app uses a framework, such as React, build the app to generate the output before running the emulator.
+
+    # [No Framework](#tab/vanilla-javascript)
+
+    There is no need to build the app.
+
+    # [Angular](#tab/angular)
+
+    Build the app into the _dist/angular-basic_ folder.
+
     ```bash
-    swa start --api api
+    npm run build --prod
     ```
+
+    # [React](#tab/react)
+
+    Build the app into the _build_ folder.
+
+    ```bash
+    npm run build
+    ```
+
+    # [Vue](#tab/vue)
+
+    Build the app into the _dist_ folder.
+
+    ```bash
+    npm run build
+    ```
+
+    ---
+
+1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command. Pass the build output folder and the API folder in the `--api` argument.
+
+    # [No Framework](#tab/vanilla-javascript)
+
+    ```bash
+    swa start . --api api
+    ```
+
+    # [Angular](#tab/angular)
+
+    ```bash
+    swa start dist/angular-basic --api api
+    ```
+
+    # [React](#tab/react)
+
+    ```bash
+    swa start build --api api
+    ```
+
+    # [Vue](#tab/vue)
+
+    ```bash
+    swa start dist --api api
+    ```
+
+    ---
 
 1. When the emulator is started, access your app at `http://localhost:4280/`. The page calls the API and displays its output, `Hello from the API`.
 
