@@ -51,6 +51,8 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 	- `WEBSOCKET_`
 	- `AzureWeb`
 
+To build Functions apps other languages or non-HTTP triggers, configure your static web app to [link to a separate Functions app](functions-bring-your-own.md) that you deploy and manage yourself.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
