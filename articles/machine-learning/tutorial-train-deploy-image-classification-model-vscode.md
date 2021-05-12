@@ -127,10 +127,10 @@ This template submits a training job called `tensorflow-mnist-example` to the re
 
 To submit the training job:
 
-1. In the Visual Studio Code file explorer, right-click the *job.yml* file and select **Azure ML: Create Resource**.
+In the Visual Studio Code file explorer, right-click the *job.yml* file and select **Azure ML: Create Resource**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
+> [!div class="mx-imgBorder"]
+> ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
 
 At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
 

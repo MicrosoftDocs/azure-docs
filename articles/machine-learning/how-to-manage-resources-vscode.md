@@ -42,6 +42,18 @@ Alternatively, you can create a resource by using the command palette:
 1. Open the command palette **View > Command Palette**
 1. Enter `> Azure ML: Create Resource` into the text box.
 
+## Version resources
+
+Some resources like datasets and models allow you to make changes a resource and store the different versions.
+
+To version a resource:
+
+1. Use the existing resource template that created the resource or follow the create resources process to create a new template.
+1. Increment the version number in the template.
+1. Right-click the template file and select **Azure ML: Create Resource**.
+
+As long as the name of the resource is the same as the previous version, Azure Machine Learning picks up the changes and creates a new version.
+
 ## Workspaces
 
 For more information, see [workspaces](concept-workspace.md).
