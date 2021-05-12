@@ -500,6 +500,8 @@
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
+      - name: Troubleshooting managed online endpoints
+        href: how-to-troubleshoot-managed-online-endpoints.md
       - name: Monitoring managed online endpoints
         href: how-to-monitor-online-endpoints.md
       - name: Viewing managed online endpoint costs
@@ -629,6 +631,8 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
+    - name: Managed Online Endpoints VM SKU list
+      href: reference-managed-online-endpoints-vm-sku-list.md
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources

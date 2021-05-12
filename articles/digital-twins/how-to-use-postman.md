@@ -271,7 +271,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
-1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST `https://digitaltwins-host-name/query?api-version=2020-10-31`*.
+1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites](#prerequisites) section.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
