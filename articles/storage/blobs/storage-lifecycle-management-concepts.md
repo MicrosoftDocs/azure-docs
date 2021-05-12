@@ -71,7 +71,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. In the Azure portal, search for and select your storage account.
 
-1. Under **Blob service**, select **Lifecycle Management** to view or change your rules.
+1. Under **Data management**, select **Lifecycle Management** to view or change your rules.
 
 1. Select the **List View** tab.
 

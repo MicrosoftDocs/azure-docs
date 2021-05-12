@@ -21,7 +21,9 @@ The language determines the relevance of the results QnA Maker provides in respo
 
 # [Custom question answering (preview release)](#tab/v2)
 
-In Custom question answering, you get the choice to add knowledgebases in different languages to the same service. Once set, this can't be changed for the service. 
+In Custom question answering, you have the option to add knowledge bases in different languages within the same service. Once you choose to enable the language setting per knowledge base you cannot disable this setting. You will need to choose a language for every knowledgebase that you create within the service.
+
+This setting gives the flexibility to users to have multiple knowledge bases with a different language setting per knowledge base within the same service.
 
 ---
 
@@ -61,7 +63,7 @@ This functionality is not supported in our current Generally Available (GA) stab
 * If you enable multiple languages for the knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
 
 > [!div class="mx-imgBorder"]
-> ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna.png)
+> ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna-chkd.png)
 
 ---
 

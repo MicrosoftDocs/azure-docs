@@ -7,26 +7,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/05/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Prebuilt question answering
 
-Prebuilt question answering provides user the capability to ingest text and query over it without having to create knowledgebases, maintain question and answer pairs or incurring cost for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about QnA Maker.
+Prebuilt question answering provides user the capability to answer question over a passage of text  without having to create knowledgebases, maintain question and answer pairs or incurring cost for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about QnA Maker or additional storage.
 
-Prebuilt question answering provides question answering independent of storage. A user does not need to create storage specific to QnA Maker in a pre-defined format in Azure. 
-
-Given a user query and a block of text/passage the API will return an answer and precise answer present at runtime. 
+Given a user query and a block of text/passage the API will return an answer and precise answer (if available). 
 
 <a name="qna-entity"></a>
 
 
 ## Example usage of Prebuilt question answering
 
-Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Conventionally you would have had to create as many sources as the number of blocks of text. However, now with Prebuilt question answering you can query the blocks of text without having to define content sources in a knowledge base. Below is an example of a sample request body.
+Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Conventionally you would have had to create as many sources as the number of blocks of text. However, now with Prebuilt question answering you can query the blocks of text without having to define content sources in a knowledge base. 
 
-### Querying over a single block of text
+Some other scenarios where the Prebuilt API can be used are:
+
+* You are developing an ebook reader app for end users which allows them to highlight text, enter a question and find answers over highlighted text 
+* A browser extension that allows users to ask a question over the content being currently displayed on the browser page
+* A health bot that takes queries from users and provides answers based on the medical content that the bot identifies as most relevant to the user query 
+
+Below is an example of a sample request:
+
+## Sample Request
+```
+POST https://{Endpoint}/qnamaker/v5.0-preview.2/generateanswer
+```
+
+### Sample Query over a single block of text
+
+Request Body
+
 ```json
 {
     "question": "How long it takes to charge surface pro 4?",
@@ -39,6 +53,8 @@ Imagine that you have one or more blocks of text from which you would like to ge
     "Language": "en"
 }
 ```
+## Sample Response
+
 In the above request body, we query over a single block of text. A sample response received for the above query is shown below,
 
 ```json
@@ -78,7 +94,7 @@ We see that multiple answers are received as part of the API response. Each answ
 
 ## Prebuilt API Limits 
 
-Visit the [Prebuilt API Limits](https://docs.microsoft.com/azure/cognitive-services/qnamaker/limits?branch=pr-en-us-157145#prebuilt-question-answering-limits) documentation 
+Visit the [Prebuilt API Limits](https://docs.microsoft.com/azure/cognitive-services/qnamaker/limits?#prebuilt-question-answering-limits) documentation 
 
 ## Prebuilt API reference
 Visit the [Prebuilt API reference](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.

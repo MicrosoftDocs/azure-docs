@@ -63,6 +63,9 @@ Below is an example of an unstructured PDF document:
 
  Currently this functionality is available only via document upload and only for PDF and DOC file formats.
 
+> [!IMPORTANT]
+> Support for unstructured file/content is available only in Custom question answering (preview)
+
 ### Structured QnA Document
 
 The format for structured Question-Answers in DOC files, is in the form of alternating Questions and Answers per line, one question per line followed by its answer in the following line, as shown below:
