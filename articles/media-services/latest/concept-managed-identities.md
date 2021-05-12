@@ -36,7 +36,7 @@ To learn more about what managed identities can do for you and your Azure applic
 ## Tutorials and How Tos
 
 These tutorials include both of the scenarios mentioned above.
-- [CLI: Encrypt data into a Media Services account using a key in Key Vault](security-encrypt-data0managed-identity-how-to-cli.md)
+- [CLI: Encrypt data into a Media Services account using a key in Key Vault](security-encrypt-data-managed-identity-how-to-cli.md)
 <!-- - [CLI: Allow Media Services to access a storage account that is configured to block requests from unknown IP addresses]()
 - [CLI: Use Azure Functions to access my Media Services account]()-->
 - [PORTAL: Use the Azure portal to use customer-managed keys or BYOK with Media Services](security-customer-managed-keys-portal-tutorial.md)
