@@ -1,6 +1,6 @@
 ---
 title: "Configure Read Aloud"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This article will show you how to configure the various options for Read Aloud.
 author: metanMSFT
 manager: guillasi
