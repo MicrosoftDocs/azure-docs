@@ -503,8 +503,8 @@
         href: how-to-troubleshoot-deployment-local.md
       - name: Troubleshooting managed online endpoints
         href: how-to-troubleshoot-managed-online-endpoints.md
-      - name: Create managed online endpoints
-        href: how-to-monitor-online-endpoints.md
+      - name: Use managed online endpoints in studio
+        href: how-to-use-managed-online-endpoint-studio.md
       - name: Monitoring managed online endpoints
         href: how-to-monitor-online-endpoints.md
       - name: Viewing managed online endpoint costs
