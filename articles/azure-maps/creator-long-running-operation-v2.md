@@ -31,7 +31,7 @@ If the call doesn't pass validation, the API will instead return an HTTP `400` r
 
 ### Monitoring the operation status
 
-The location endpoint provided in the accepted response headers can be polled to check the status of the long-running operation. The response body from operation status request will always contain the `status` and the `createdDateTime` properties. The `status` property shows the current state of the long-running operation. Possible states include `"NotStarted"`, `"Running"`, `"Succeeded"`, and `"Failed"`. The `createdDateTime` property shows the time the initial request was made to start the long-running operation. When the state is either `"NotStarted"` or `"Running"`, a `Retry-After` header will also be provided with the response. The `Retry-After` header, measured in seconds, can be used to determine when the next polling call to the operation status API should be made.
+The location endpoint provided in the accepted response headers can be polled to check the status of the long-running operation. The response body from operation status request will always contain the `status` and the `created` properties. The `status` property shows the current state of the long-running operation. Possible states include `"NotStarted"`, `"Running"`, `"Succeeded"`, and `"Failed"`. The `created` property shows the time the initial request was made to start the long-running operation. When the state is either `"NotStarted"` or `"Running"`, a `Retry-After` header will also be provided with the response. The `Retry-After` header, measured in seconds, can be used to determine when the next polling call to the operation status API should be made.
 
 ### Example of running a status response
 
@@ -40,7 +40,7 @@ Status: 200 OK
 Retry-After: 30
 {
     "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
-    "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
+    "created": "3/11/2020 8:45:13 PM +00:00",
     "status": "Running"
 }
 ```
@@ -68,7 +68,7 @@ Status: 200 OK
 
 {
     "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
-    "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
+    "created": "3/11/2020 8:45:13 PM +00:00",
     "status": "Failed",
     "error": {
         "code": "InvalidFeature",
