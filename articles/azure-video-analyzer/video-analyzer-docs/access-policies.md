@@ -13,7 +13,7 @@ Access policies define the permissions and duration of access to a given Video A
 - access to Video Metadata. 
 - access to Video streaming. 
 
-### Access Policy Definition
+## Access Policy definition
 
 ```json
 "name": "accesspolicyname1", 
@@ -58,7 +58,8 @@ Access policies define the permissions and duration of access to a given Video A
                 } 
 ```
 
-[!NOTE] Only one key type is required. 
+> [!NOTE] 
+> Only one key type is required. 
 
 ##### Roles
 
@@ -82,19 +83,19 @@ Two types of keys are supported these are the RSA and the ECC types.
 
 [RSA](https://wikipedia.org/wiki/RSA_(cryptosystem))
 
-​	@type- \#Microsoft.VideoAnalyzer.RsaTokenKey
-​	alg - Algorithm.  Can be 256, 384 or 512 
-​	kid - Key ID
-​	n - Modulus
-​	e - Public Exponent 
+* @type- \#Microsoft.VideoAnalyzer.RsaTokenKey
+* alg - Algorithm.  Can be 256, 384 or 512 
+* kid - Key ID
+* n - Modulus
+* e - Public Exponent 
 
 [ECC](https://wikipedia.org/wiki/Elliptic-curve_cryptography)        
 
-​	@type- \#Microsoft.VideoAnalyzer.EccTokenKey
-​	alg - Algorithm.  Can be 256, 384 or 512
-​	kid - Key ID
-​	x - Coordinate value.
-​	y - Coordinate value.
+* @type- \#Microsoft.VideoAnalyzer.EccTokenKey
+* alg - Algorithm.  Can be 256, 384 or 512
+* kid - Key ID
+* x - Coordinate value.
+* y - Coordinate value.
 
 ##### Token validation Process
 
@@ -122,7 +123,8 @@ Customers must create their own JWT tokens and will be validated using the follo
 | ${System.Runtime.BaseResourceUrlPattern} | https://fqdn/videos/{videoName}Suffix | https://fqdn/videos/{videoName}      | Deny   |
 | ${System.Runtime.BaseResourceUrlPattern} | https://fqdn/videos/{otherVideoName}  | https://fqdn/videos/{videoName}      | Deny   |
 
-[!NOTE]   Video Analyzer supports a maximum of 20 policies.  ${System.Runtime.BaseResourceUrlPattern} allows for greater flexibility to access specific resources by using one access policy and multiple tokens.  These tokens then allow access to different Video Analyzer resources based on the audience. 
+> [!NOTE]  
+> Video Analyzer supports a maximum of 20 policies.  ${System.Runtime.BaseResourceUrlPattern} allows for greater flexibility to access specific resources by using one access policy and multiple tokens.  These tokens then allow access to different Video Analyzer resources based on the audience. 
 
 ### Creating an Access Policy
 
@@ -146,7 +148,7 @@ There are two ways to create an access policy.
    - N / X value 
    - E / Y Value 
 
-   :::image type="content" source="./media/access-policies/accesspolicies-portal.png" alt-text="Access Policy in Azure portal":::
+   :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Access Policy in Azure portal":::
 5. click `save`.
 
 ##### Create Access Policy via API
