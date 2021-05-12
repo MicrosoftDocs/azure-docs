@@ -110,20 +110,20 @@ During the training process, a TensorFlow model is trained by processing the tra
 
 Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the template is defined in the *job.yml* file which looks like the following:
 
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-    code: 
-      local_path: src
-    command: >
-      python train.py
-    environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
-    compute:
-      target: azureml:gpu-cluster
-    experiment_name: tensorflow-mnist-example
-    description: Train a basic neural network with TensorFlow on the MNIST dataset.
-    ```
-    
-    This template submits a training job called `tensorflow-mnist-example` to the recently created `gpu-cluster` computer target that runs the code in the *train.py* Python script.
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: 
+    local_path: src
+command: >
+    python train.py
+environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
+compute:
+    target: azureml:gpu-cluster
+experiment_name: tensorflow-mnist-example
+description: Train a basic neural network with TensorFlow on the MNIST dataset.
+```
+
+This template submits a training job called `tensorflow-mnist-example` to the recently created `gpu-cluster` computer target that runs the code in the *train.py* Python script.
 
 To submit the training job:
 
@@ -132,13 +132,12 @@ To submit the training job:
     > [!div class="mx-imgBorder"]
     > ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment-2.png)
 
-
 At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
 
 When the dialog requesting to open an external website appears, select **Open**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress-2.png)
+> [!div class="mx-imgBorder"]
+> ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress-2.png)
 
 When the model is done training, the status label next to the run node updates to "Completed".
 
