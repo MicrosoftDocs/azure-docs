@@ -275,7 +275,7 @@ Now that the root domain is configured, it may take several hours for the DNS pr
    | ------------------- | -------------------------------------------------------------- |
    | Type                | ALIAS (use CNAME if ALIAS is not available)                    |
    | Host                | @                                                              |
-   | Value               | Paste the site URL from your clipboard and **remove https://** |
+   | Value               | Paste the domain name from your clipboard                      |
    | TTL (if applicable) | Leave as default value                                         |
 
 > [!IMPORTANT]
