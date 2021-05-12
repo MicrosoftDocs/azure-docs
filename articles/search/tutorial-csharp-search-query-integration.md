@@ -74,7 +74,7 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 ## Client: Suggestions from the catalog
 
-Th Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
+The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
 :::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 
