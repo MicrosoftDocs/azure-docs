@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/11/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: "devx-track-js"
 ---

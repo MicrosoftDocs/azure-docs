@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 05/10/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
 ---
 
