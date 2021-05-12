@@ -32,7 +32,7 @@ landingContent:
           - text: What is an indexer
             url: search-indexer-overview.md
           - text: What are Azure Applied AI Services?
-            url: ../../applied-ai-services/what-are-applied-ai-services.md
+            url: ../applied-ai-services/what-are-applied-ai-services.md
       - linkListType: video
         links:
           - text: Use AI in search solutions
