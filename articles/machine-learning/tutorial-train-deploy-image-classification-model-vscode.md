@@ -50,7 +50,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
 
     > [!div class="mx-imgBorder"]
-    > ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace-2.png)
+    > ![Create workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace-2.png)
 
 1. A resource template appears. Configure the resource template with the following options. 
 
@@ -81,7 +81,7 @@ A compute target is the computing resource or environment where you run training
 1. Right-click the **Compute clusters** node inside your workspace's **Compute** node and select **Create Compute**
 
     > [!div class="mx-imgBorder"]
-    > ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute-2.png)
+    > ![Create training compute cluster](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute-2.png)
 
 1. A resource template appears. Configure the resource template with the following options.
 
@@ -128,6 +128,10 @@ Like workspaces and compute targets, training jobs are defined using resource te
 To submit the training job:
 
 1. In the Visual Studio Code file explorer, right-click the *job.yml* file and select **Azure ML: Create Resource**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment-2.png)
+
 
 At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
 
