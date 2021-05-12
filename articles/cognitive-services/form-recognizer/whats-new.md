@@ -1,6 +1,6 @@
 ---
 title: What's new in Form Recognizer?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Understand the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme

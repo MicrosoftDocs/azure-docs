@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use an Azure Function to process stored documents"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This guide shows you how to use an Azure function to trigger the processing of documents that are uploaded to an Azure blob storage container. 
 author: laujan
 manager: nitinme
