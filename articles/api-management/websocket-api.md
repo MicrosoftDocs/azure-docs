@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Import a WebSocket API (preview)
 
-With API Management’s new solution, you can now manage, protect, observe, and expose both WebSocket and REST APIs with API Management and provide a central hub for discovering and consuming all APIs. API publishers can quickly add a WebSocket API in API Management via:
+With API Management’s WebSocket API solution, you can now manage, protect, observe, and expose both WebSocket and REST APIs with API Management and provide a central hub for discovering and consuming all APIs. API publishers can quickly add a WebSocket API in API Management via:
 * A simple gesture in the Azure portal, and 
 * The Management API and Azure Resource Manager. 
 
@@ -34,18 +34,20 @@ In this article, you will:
 
 ## WebSocket passthrough
 
-API Management supports WebSocket passthrough. During the WebSocket passthrough the client application establishes a WebSocket connection with the API Management Gateway, which then establishes a connection with the corresponding backend services. API Management then proxies WebSocket client-server messages.
+API Management supports WebSocket passthrough. 
 
 :::image type="content" source="./media/websocket-api/websocket-api-passthru.png" alt-text="Visual illustration of WebSocket passthrough flow":::
 
+During the WebSocket passthrough the client application establishes a WebSocket connection with the API Management Gateway, which then establishes a connection with the corresponding backend services. API Management then proxies WebSocket client-server messages.
+
 1. The client application sends a WebSocket handshake request to APIM gateway, invoking onHandshake operation.
-1. APIM gateway sends WebSocket handshake request to the corresponding backend service(s).
-1. The backend service(s) upgrades a connection to WebSocket.
+1. APIM gateway sends WebSocket handshake request to the corresponding backend service.
+1. The backend service upgrades a connection to WebSocket.
 1. APIM gateway upgrades the corresponding connection to WebSocket.
-1. Once the connection pair is established, APIM will broker messages back and forth between the client application and backend service(s).
+1. Once the connection pair is established, APIM will broker messages back and forth between the client application and backend service.
 1. The client application sends message to APIM gateway.
 1. APIM gateway forwards the message to the backend service.
-1. The backend service(s) sends a message to APIM gateway.
+1. The backend service sends a message to APIM gateway.
 1. APIM gateway forwards the message to the client application.
 1. When either side disconnects, APIM terminates the corresponding connection.
 
@@ -54,11 +56,11 @@ API Management supports WebSocket passthrough. During the WebSocket passthrough 
 
 ### Limitations
 
-WebSocket APIs are available through Azure portal, Management API, and Azure Resource Manager. They are currently supported in public preview. Below are the current restrictions of WebSocket support in API Management:
+WebSocket APIs are available and supported in public preview through Azure portal, Management API, and Azure Resource Manager. Below are the current restrictions of WebSocket support in API Management:
 
 * WebSocket APIs are not supported in the Consumption tier.
 * WebSocket APIs are not supported in the [self-hosted gateway](./how-to-deploy-self-hosted-gateway-azure-arc.md).
-* Azure CLI, PowerShell, and SDK do not support managing WebSocket APIs.
+* Azure CLI, PowerShell, and SDK do not support management operations of WebSocket APIs.
 
 ## onHandshake operation
 
@@ -79,7 +81,7 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
     | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
     | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
     | Products | Associate your WebSocket API with a product to publish it. |
-    | Gateways | Associate your WebSocket API with existing gateway(s). |
+    | Gateways | Associate your WebSocket API with existing gateways. |
  
 1. Click **Create**.
 
