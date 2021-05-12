@@ -21,7 +21,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 - Develop locally using remote compute instances
 - Train machine learning models
 - Debug machine learning experiments locally
-- Schema-based language support, autocompletion and diagnostics for resource authoring
+- Schema-based language support, autocompletion and diagnostics for specification file authoring
 - Snippets for common tasks
 
 ## Prerequisites
@@ -45,6 +45,9 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 > Alternatively, you can install the Azure Machine Learning extension via the Visual Studio Marketplace by [downloading the installer directly](https://aka.ms/vscodetoolsforai).
 
 The rest of the steps in this tutorial have been tested with the latest version of the extension.
+
+> [!NOTE]
+> The extension uses the 2.0 CLI by default. To switch to the non 2.0 CLI experience, set the `azureML.experimental.V2Config` setting in Visual Studio Code to `false`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 ## Sign in to your Azure Account
 
