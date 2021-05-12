@@ -55,7 +55,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
      * If you use macOS or Linux, the Inline Code Operations actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
-     * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
+     * Inline Code Operations actions have [updated limits](logic-apps-limits-and-config.md#inline-code-action-limits).
 
      You can start from either option here:
 
