@@ -1,7 +1,7 @@
 ---
-title: What are managed endpoints
+title: What are endpoints
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning's managed endpoints simplify provisioning and hosting your ML model.
+description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,46 +13,100 @@ ms.date: 05/25/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are managed endpoints in Azure Machine Learning?
+# Azure Machine Learning endpoints
 
-With managed endpoints, along with the model, users specify the VM sku and scale settings and the system takes care of provisioning the compute and hosting the model:
+Azure Machine Learning endpoints help streamline model deployments by providing a unified interface to invoke and manage model deployments.
 
-- Users will be able to monitor their model availability, performance and SLA using out of the box integration with Azure Monitor
-- Users would be able to debug using the logs &amp; analyze performance with our integration with Azure Log Analytics and Appinsights
-- To ensure users would be able to do a safe rollout, we natively support blue/green rollout.
-- Users do not deal with creation and administration of infrastructure:
-  - the system handles update/patch of the underlying host OS images
-  - the system handles node recovery incase of system failure.
-- Users would be able to build their CI/CD MLOps pipelines using our new CLI interface &amp; REST/ARM interfaces.
+In this article, you learn about:
+> [!div class="checklist"]
+> * Endpoints
+> * Deployments
+>
+> And the different types of endpoints:
+> * Managed online endpoints
+> * AKS online endpoints
+> * Batch inference endpoints
 
-We are introducing the concept of endpoint and deployments. Using this, users will be able to create multiple versions of models under a single endpoint and perform safe rollout to newer versions.
+## What are endpoints and deployments
 
-:::image type="content" source="media/concept-managed-endpoints/managed-endpoints-concept.png" alt-text="{alt-text}":::
+After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** and **Deployments** to do so.
 
-## Endpoint
+:::image type="content" source="media/concept-managed-endpoints/endpoint-concept1.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-An HTTPS endpoint that clients can invoke to get the inference output of models. It provides:
+An **Endpoint** is an HTTPS endpoint that clients can send data to and receive the inferencing output of trained models. It provides: 
+- Authentication using 'key & token' based auth 
+- SSL termination 
+- Traffic allocation between deployments 
+- A stable scoring URI (endpoint-name.region.inference.ml.azure.com for online endpoints, and an ARM URI for batch)
 
-- Stable URI: my-endpoint.region.inference.ml.azure.com
-- Authentication: Key &amp; Token based auth
-- SSL Termination
-- Traffic split between deployments
 
-## Deployment
+A **Deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
+- Model details (code, model, environment) 
+- Compute resource and scale settings 
+- Advanced settings (like request and probe settings)
 
-Is a set of compute resources hosting the model and performing inference. Users can configure:
 
-- Model details (code, model, environment)
-- Resource and scale settings
-- Advanced settings like request and probe settings
+A single endpoint can contain multiple deployments. Endpoints and deployments are independent ARM resources that will appear in the Azure portal.
 
-The above picture shows an endpoint with a traffic split of 90% and 10% between blue and green deployments, respectively (these names are for illustratory purpose – you can have any name). The blue deployment is running model version 1 in three CPU nodes (F2s vm sku) and green deployment is running on model version 2 in three GPU nodes (NC6v2 vm sku).
+Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: **online endpoints** and **batch endpoints**.
 
-With multiple deployment support and traffic split capability, users can perform safe rollout of new models by gradually migrating traffic [in this case] from blue to green and monitoring metrics at every stage to ensure the rollout has been successful.
+## Online endpoints
 
-Though this blog talks primarily about managed online endpoints, you can learn more about batch endpoints here [link]
+**Online endpoints** are endpoints that are used for online (real-time) inferencing. They contain **deployments** that are ready to receive data from clients and can send responses back in real-time.
 
-:::image type="content" source="media/concept-managed-endpoints/screenshot_consolidated.png" alt-text="{alt-text}" :::
+For an online endpoint, you need to specify the following:
+- Model files (or specify a registered model in your workspace) 
+- Scoring script - code needed to perform scoring/inferencing
+- Environment - a Docker image with Conda dependencies, or a dockerfile 
+- Compute instance SKU & scale settings 
+
+Learn how to deploy online endpoints from the CLI, ARM/REST, and the studio web portal.
+
+### Benefits of online endpoints
+
+Azure Machine Learning online endpoints provide the following benefits:
+- Safe rollout with native support for blue/green deployment 
+- Debugging in a local docker environment using local endpoints
+- Integration with Application Insights to monitor and diagnose issues  
+- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
+
+### Traffic allocation
+
+Recall, that a single online endpoint can have multiple deployments. Although client applications can specify a deployment using request parameters to the same endpoint, the endpoint can also perform load balancing to allocate any percentage of traffic to each deployment.
+
+Traffic allocation can be used to perform blue/green deployment by balancing requests between different instances of a deployment.
+
+## Managed online endpoints vs AKS online endpoints
+
+There are two types of online endpoints: **managed online endpoints** and **AKS online endpoints**. The following table highlights some of their key differences.
+
+| | Recommended users | Infrastructure management | Compute type | Logs and monitoring | Managed identity| Virtual Network (VNET) |
+|-|-|-|-|-|-|-|
+| **Managed online endpoints** | Users who want a managed model deployment and MLOps experience | Managed compute provisioning, scaling, updates, and security hardening |  AmlCompute | Azure Logs & Azure Monitoring integration| Supported | Not supported |
+| **AKS online endpoints** | Users who prefer Azure Kubernetes Service (AKS) and can manage infrastructure requirements | Manual configuration |  AKS  | Manual setup | Not supported | Manually configure at cluster level|
+
+### Managed online endpoints
+
+Managed online endpoints can help streamline your deployment process:
+
+- Managed infrastructure
+    - Automatically provisioning the compute and hosting the model (you just need to specify the VM type and scale settings) 
+    - Automatically perform updates and patches to the underlying host OS image
+    - Automatic node recovery incase of system failure.
+
+- Monitoring and logs
+    - Monitor model availability, performance and SLA using native integration with Azure Monitor. [link] 
+    - Debug deployments using the logs and native integration with Azure Log Analytics.
+    - View costs at endpoint/deployment level [link] 
+
+- Managed identity
+    -  Use managed identities to access secured resources from scoring script [link] 
+
+## Batch endpoint
+
+**Batch endpoints** are endpoints that are used to perform inferencing on large volumes of data over a period of time. Compared to **online endpoints**, **batch endpoints** run asynchronously and store their output to a data store.
+ 
+
 
 ## Next steps
 
