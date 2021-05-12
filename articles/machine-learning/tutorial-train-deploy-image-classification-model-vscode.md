@@ -104,7 +104,7 @@ A compute target is the computing resource or environment where you run training
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
-## <a><a id="train-the-model"/> Train image classification model
+## <a></a id="train-the-model"> Train image classification model
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
@@ -142,6 +142,16 @@ When the dialog requesting to open an external website appears, select **Open**.
 When the model is done training, the status label next to the run node updates to "Completed".
 
 ## Next steps
+
+In this tutorial, you learn the following tasks:
+
+> [!div class="checklist"]
+> * Understand the code
+> * Create a workspace
+> * Create a GPU cluster for training
+> * Train a model
+
+For next steps, see:
 
 * [Create and manage Azure Machine Learning resources using Visual Studio Code](how-to-set-up-vs-code-remote.md).
 * [Connect Visual Studio Code to a compute instance](how-to-set-up-vs-code-remote.md) for a full development experience.
