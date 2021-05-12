@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
+          - text: What are Azure Applied AI Services?
+            url: ../../applied-ai-services/what-are-applied-ai-services
       - linkListType: video
         links:
           - text: Getting started - short engineering videos
