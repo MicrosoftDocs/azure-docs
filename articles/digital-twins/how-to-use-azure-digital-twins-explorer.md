@@ -459,7 +459,7 @@ This action enables a **Download** link in the TWIN GRAPH box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
-## Share environment
+## Share your environment
 
 You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
 
@@ -470,15 +470,23 @@ To share your environment, you can send a link to the recipient that will open a
 >[!NOTE]
 > The value for the host name placeholder is **not** preceded by *https://* here.
 
+Here is an example of a URL with the placeholder values filled in:
+
+`https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
+
 For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Concepts: Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Share environment with query
+### Share with a query
 
-You may want to share a link to an environment where a specific query has been executed, to highlight a certain part of the graph for a teammate. To do this, start with the URL for the environment and add the query text to the URL as a querystring parameter:
+You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do this, start with the URL for the environment and add the query text to the URL as a querystring parameter:
 
 `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>&query=<query-text>`
 
-You can copy the query text from the **QUERY EXPLORER** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
+The query text should be URL encoded. 
+
+>[!TIP]
+>You can copy the query text from the **QUERY EXPLORER** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
+> You can also use an independent URL encoder to convert the query text.
 
 Here's an example of the parameter for a query to **SELECT * FROM digitaltwins**:
 
