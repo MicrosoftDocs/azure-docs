@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/static-web-apps/routes.md",
+      "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
@@ -65978,6 +65983,11 @@
       "source_path_from_root": "/articles/peering-service/create-connection.md",
       "redirect_url": "/azure/peering-service/azure-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
+      "redirect_url": "/azure/lighthouse/concepts/architecture",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/service-fabric-mesh/index.yml",

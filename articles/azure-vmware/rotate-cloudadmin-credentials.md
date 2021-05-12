@@ -12,7 +12,7 @@ ms.date: 05/11/2021
 
 This article walks you through the steps to rotate the cloudadmin credentials for your Azure VMware Solution private cloud.  Although your vCenter Server CloudAdmin and NSX-T Manager admin credentials don't expire, you can generate new passwords for these accounts. After rotating the credentials, you'll verify the HCX Connector has the latest vCenter Server credentials.
 
-You can also view the video for [resetting the vCenter CloudAdmin & NSX-T Admin password](https://youtu.be/cK1qY3knj88).
+You can also watch a video on how to [reset the vCenter CloudAdmin & NSX-T admin password](https://youtu.be/cK1qY3knj88). 
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ In this step, you'll verify that the HCX Connector has the updated credentials.
 
 2. On the VMware HCX Dashboard, select **Site Pairing**.
     
-   :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
+   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
  
 3. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
  
@@ -59,6 +59,6 @@ In this step, you'll verify that the HCX Connector has the updated credentials.
 
 Now that you've covered resetting vCenter Server and NSX-T Manager credentials for Azure VMware Solution, you may want to learn about:
 
-- [Configuring NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md).
-- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
-- [Deploying disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md).
+- [Configure NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md)
+- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Deploy disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md)
