@@ -284,7 +284,7 @@
     - name: Set up your environment
       items: 
         - name: Install and set up the CLI 2.0
-        href: how-to-configure-cli.md
+          href: how-to-configure-cli.md
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
