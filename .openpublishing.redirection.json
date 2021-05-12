@@ -51308,7 +51308,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azure-portal.md",
@@ -53453,6 +53453,11 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-conditional-access-security-defaults.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
+      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true
     },
     {
@@ -56254,11 +56259,6 @@
       "source_path_from_root": "/articles/active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/active-directory-named-locations.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-reporting-activity-audit-reference.md",
@@ -66012,11 +66012,6 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
-      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": false
     },
     {
