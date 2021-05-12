@@ -790,7 +790,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 ```
 
 > [!NOTE]
-> You might see the **"initializing"** messages. These messages show up while the SpatailAnalysis module is starting up and can take upto 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
+> You might see the **"initializing"** messages. These messages show up while the spatialAnalysis module is starting up and can take up to 60 seconds to get to a running state. Please be patient and you should see the inference event flow through.
 
 ## Next steps
 
