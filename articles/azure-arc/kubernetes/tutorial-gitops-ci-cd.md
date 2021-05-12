@@ -196,7 +196,7 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 You're now ready to deploy to the `dev` and `stage` environments.
 
 ## Give More Permissions to Build Service
-The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are need for the pipeline to run successfully.
+The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to run successfully.
 
 1. Go to `Project settings` from the Azure DevOps project main page.
 1. Select `Repositories`.
@@ -205,8 +205,8 @@ The CD pipeline uses the security token of the running build to authenticate to 
 1. For the `<Project Name> Build Service (<Organization Name>)`, allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
 
 For more information, see:
-- [Grant VC Permissions to the Build Service](https://docs.microsoft.com/en-us/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml#version-control )
-- [Manage Build Service Account Permissions](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml#manage-build-service-account-permissions)
+- [Grant VC Permissions to the Build Service](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
+- [Manage Build Service Account Permissions](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
 
 
 ## Deploy the dev environment for the first time
