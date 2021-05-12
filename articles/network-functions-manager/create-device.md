@@ -6,11 +6,15 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/30/2021
 ms.author: cherylmc
 
 ---
 # Tutorial: Create a device (Preview)
+
+>[!NOTE]
+> This article is not complete. It is still a work in progress.
+>
 
 In this tutorial, you create a **Device** resource for Azure Network Functions Manager (NFM). A device resource is required in order to deploy network functions to Azure Stack Edge as managed applications.
 
@@ -27,11 +31,14 @@ In this tutorial, you:
 Verify the following prerequisites:
 
 * Verify that you have completed all the prerequisites listed in the [Overview](overview.md#pre) article.
-* Verify that your subscription has been onboarded by the Azure Network Function Manager PM team. Contact **MEC-PM@microsoft.com** to help onboard your subscription.
-* Review the [supported regions](faq.md) before creating a device.
+* Verify that your subscription has been onboarded. Microsoft. You can [Fill out this form](linktoform) to help onboard your subscription.
+* Verify that ASE resource and device resource are in same regions.  
+* Review the [supported regions](faq.md) before creating a device.
 * Verify that you have registered the **Network Function Manager** resource provider for your subscription. You can register this resource provider by going to your subscription. The status will show **Registered** once complete.
 
    :::image type="content" source="./media/create-device/providers.png" alt-text="Screenshot of resource providers." lightbox="./media/create-device/providers.png" :::
+* Verify the required permissions. [add link here](faq.md)
+* Verify remote connection - Powershell.
 
 ## <a name="create"></a>Create a device resource
 
@@ -40,12 +47,7 @@ If you have an existing Azure Network Function Manager **device** resource, you 
 To create a **device** resource, use the following steps.
 
 1. Sign in to the Azure [Preview portal](https://aka.ms/AzureNetworkFunctionManager) using your Microsoft Azure credentials.
-1. Select **+Add** and in the search bar, search for "Azure Network Function Manager". Select **Azure Network Function Manager – Device (preview)** from the results.
 
-   :::image type="content" source="./media/create-device/preview.png" alt-text="Screenshot of Marketplace." lightbox="./media/create-device/preview.png":::
-1. On the **Azure Network Functions Manager - Device (preview)** page, select **Create**.
-
-   :::image type="content" source="./media/create-device/create.png" alt-text="Screenshot of create button." lightbox="./media/create-device/create.png":::
 1. On the **Basics** tab, configure **Project details** and **Instance details** with the device settings.
    :::image type="content" source="./media/create-device/device-settings.png" alt-text="Screenshot of device settings." lightbox="./media/create-device/device-settings.png":::
 
@@ -53,7 +55,7 @@ To create a **device** resource, use the following steps.
 
    * **Subscription:** Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
    * **Resource group:** Select an existing resource group or click **Create new** to create a new one. For more information about resource groups, see Azure Resource Manager overview.
-   * **Region:** Select the location for your device. This must be East US for Private Preview
+   * **Region:** Select the location for your device. This must be a [supported region](faq.md).
    * **Name:** Enter the name for your device.
    * **Azure Stack Edge:** Select the online Azure Stack Edge device that you want to register as a device for Azure Network Functions Manager.
 1. Select **Review + create** to validate the device settings.
@@ -61,7 +63,7 @@ To create a **device** resource, use the following steps.
 
 ## <a name="key"></a>Get the registration key
 
-1. Once your device is provisioned, navigate to the resource group in which the device is deployed.
+1. Once your device is provisioned (Provisioning state = succeeded), navigate to the resource group in which the device is deployed.
 1. Click the **device** resource. To obtain the registration key, click **Get registration key**.
 
    :::image type="content" source="./media/create-device/copy-key.png" alt-text="Screenshot of registration key." lightbox="./media/create-device/copy-key.png":::
@@ -81,6 +83,8 @@ Follow these steps to remotely connect from a Windows client:
    ```powershell
    Invoke-MecRegister <device-registration-key>
    ```
+
+1. Verify that the device resource has **Device Status = registered**. <Add screenshot>
 
 ## Next steps
 

@@ -3,10 +3,11 @@
 author: cherylmc
 ms.service: vnf-manager
 ms.topic: include
-ms.date: 03/16/2021
+ms.date: 03/30/2021
 ms.author: cherylmc
 ---
 
-The following region(s) are available:
+The following regions are available:
 
 * East US
+* West Europe

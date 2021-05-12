@@ -1,3 +1,5 @@
+- name: Network Functions Manager documentation
+  href: index.yml
 - name: Overview
   expanded: true
   items:
@@ -16,7 +18,7 @@
   - name: Routing
     href: routing.md
   - name: Solutions partners and providers
-    href: network-functions.md
+    href: partners-providers.md
   - name: FAQ
     href: faq.md
 - name: Resource

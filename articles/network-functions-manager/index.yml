@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Network Functions Manager documentation Preview # < 60 chars
+summary: Learn how to configure Network Functions Manager. This page is in progress and is not in its final form.  # < 160 chars
+
+metadata:
+  title: Network Functions Manager documentation Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to configure Network Functions Manager.  # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: vnf-manager #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: cherylmc #Required; your GitHub user alias, with correct capitalization.
+  ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
+  ms.date: 03/19/2021 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Network Functions Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Network Functions Manager?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Network Functions Manager FAQ
+            url: faq.md
+          - text: Solutions partners and providers
+            url: partners-providers.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a device resource
+            url: create-device.md
+          - text: Create a network function
+            url: create-function.md
+  # Card
+  - title: Manage
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About routing configuration
+            url: routing.md

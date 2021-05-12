@@ -5,11 +5,15 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/18/2021
 ms.author: cherylmc
 
 ---
-# About routing configuration
+# About routing configuration (Preview)
+
+>[!NOTE]
+> This article is not complete. It is still a work in progress.
+>
 
 To ensure Azure Network Function Manager service properly deploys network functions on the appliance, you’ll need to set up and manage networking on **Azure Stack Edge Pro with GPU**.
 
@@ -20,7 +24,7 @@ This section shows the recommended way to set up and manage routing. Check with 
 * Port 1 (1 GbE) of the physical appliance should be dedicated for local management/access of the appliance. This port will require open internet access.
 * **Enable compute** must be set to **yes** on port 2 (1 GbE), port 3 (10 GbE/25 GbE) or port 4 (10 GbE/25 GbE) of the physical appliance. When you enable compute, a management virtual switch is created on your appliance on that network interface. This port will require open internet access and be able to reach external name servers in order to register with Azure.
 * Port 5 of the physical appliance must be connected for Local Area Network or Access network. This is for connectivity to other internal network functions and external peers like eNodeBs.
-* Port 6 of the physical device must be connected for WAN or Data network.This is for external corp/internet connectivity.
+* Port 6 of the physical device must be connected for WAN or Data network. This is for external corp/internet connectivity.
 
 ## Example
 
