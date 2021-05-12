@@ -1,6 +1,6 @@
 ---
 title: "Store user preferences"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: This article will show you how to store the user's preferences.
 author: metanMSFT
 manager: guillasi
