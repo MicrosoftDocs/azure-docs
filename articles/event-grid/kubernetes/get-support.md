@@ -31,7 +31,6 @@ If you run into an issue, [create an Azure support request](https://ms.portal.az
 1.  On the Details page, fill out the form with the information requested. 
 1. Select **Review + create**.
 1. Review the information provided and select **Create** at the bottom of the page.
-1. 
 
 ## Next steps
 To learn more about Event Grid on Kubernetes, see [Event Grid on Kubernetes with Azure Arc (Preview) - overview](overview.md).

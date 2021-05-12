@@ -63,7 +63,7 @@ With Event Grid on Kubernetes, you can forward events to Azure for further proce
 :::image type="content" source="./media/overview/event-grid-forward-events.png" alt-text="Forward events to Azure":::
 
 #### Destinations
-Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see[event handlers](event-handlers.md). 
+Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see [event handlers](event-handlers.md). 
 
 ## Features
 Event Grid on Kubernetes supports [Event Grid Topics](/rest/api/eventgrid/version2020-10-15-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.

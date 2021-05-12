@@ -104,17 +104,16 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 
 ### Azure Arc connect cluster issues
 
-1. Condition: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed does not show the Kubernetes cluster where I intent to install Event Grid.
+**Problem**: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed does not show the Kubernetes cluster where I intent to install Event Grid.
 
-    Suggestion: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc enabled Kubernetes team.
+**Resolution**: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc enabled Kubernetes team.
 
 ### Event Grid extension issues
 
-1. Condition: When trying to install an "Event Grid extension", you get the following message:
-    "**Invalid operation** &nbsp;
-    An instance of Event Grid has already been installed on this connected Kubernetes cluster. The Event Grid extension is scoped at the cluster level, which means that only one instance can be installed on a cluster."
+**Problem**: When trying to install an "Event Grid extension", you get the following message:
+    "**Invalid operation** - An instance of Event Grid has already been installed on this connected Kubernetes cluster. The Event Grid extension is scoped at the cluster level, which means that only one instance can be installed on a cluster."
     
-    Explanation: You already have Event Grid installed. The preview version of Event Grid only supports one Event Grid extension instance deployed to a cluster.
+**Explanation**: You already have Event Grid installed. The preview version of Event Grid only supports one Event Grid extension instance deployed to a cluster.
 
 
 ## Resources

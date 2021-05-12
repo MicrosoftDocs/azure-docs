@@ -76,8 +76,8 @@ When using a topic, events must always be published in an array. For low through
 
 ## Event Grid on Kubernetes components
 
-1. The **Event Grid operator** implements the [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/). It watches for state changes of Event Grid resources as a result of control plane requests made to Kubernetes' API Server. When there is a request that affects the state of any of Event Grid resources, the Event Grid operator syncs that state with the Event Grid Broker.
-1. The **Event Grid broker** serves as both control plane and data plane operations.
+- The **Event Grid operator** implements the [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/). It watches for state changes of Event Grid resources as a result of control plane requests made to Kubernetes' API Server. When there is a request that affects the state of any of Event Grid resources, the Event Grid operator syncs that state with the Event Grid Broker.
+- The **Event Grid broker** serves as both control plane and data plane operations.
 
    As a control plane service, it is responsible for bringing the state of Event Grid to the desired state communicated by the Event Grid Operator. For example, when a request is made to create a new topic, it fulfills that request and the service metadata is updated.
 
