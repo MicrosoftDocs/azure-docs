@@ -132,4 +132,58 @@ Here we compose the policy rule and then assign it to either a management group 
 
 3. After you create your policy definition, you can create a policy assignment by running the following commands:
 
+    # [Azure CLI](#tab/azure-cli)
+
+    ```azurecli
+   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
+   ```
+
+   The **scope** parameter on `az policy assignment create` works with management group,
+   subscription, resource group, or a single resource. The parameter uses a full resource path. The
+   pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`,
+   and `{mgName}` with your resource name, resource group name, subscription ID, and management
+   group name, respectively. `{rType}` would be replaced with the **resource type** of the resource,
+   such as `Microsoft.Compute/virtualMachines` for a VM.
+
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subID}`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+
+    You can get the Azure Policy Definition ID by using PowerShell with the following command:
     
+    ```azurecli
+    az policy definition show --name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers'
+    ```
+    
+    The policy definition ID for the policy definition that you created should resemble the following
+    example:
+    
+    ```output
+    "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Enforce Jobs on Automation Hybrid Runbook Workers"
+    ```
+
+    # [PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell
+    $rgName = Get-AzResourceGroup -Name 'ContosoRG'
+    $Policy = Get-AzPolicyDefinition -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers'
+    New-AzPolicyAssignment -Name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' -PolicyDefinition $Policy -Scope $rg.ResourceId
+    ```
+
+    Replace _ContosoRG_ with the name of your intended resource group.
+
+    The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription,
+    resource group, or a single resource. The parameter uses a full resource path, which the
+    **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each
+    container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your
+    resource name, resource group name, subscription ID, and management group name, respectively.
+    `{rType}` would be replaced with the **resource type** of the resource, such as
+    `Microsoft.Compute/virtualMachines` for a VM.
+
+    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
+    - Subscription - `/subscriptions/{subId}`
+    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+
+    ---
