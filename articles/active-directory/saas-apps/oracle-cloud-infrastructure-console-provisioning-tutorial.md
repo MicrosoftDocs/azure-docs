@@ -9,9 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 05/16/2021
 ms.author: Zhchia
 ---
+
+> [!NOTE]
+> Integrating with Oracle Cloud Infrastructure Console or Oracle IDCS with a custom / BYOA application is not supported. Using the gallery application as described in this tutorial is supported. The gallery application has been customized to work with the Oracle SCIM server. 
+
 
 # Tutorial: Configure Oracle Cloud Infrastructure Console for automatic user provisioning
 
