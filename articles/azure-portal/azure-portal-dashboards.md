@@ -90,7 +90,7 @@ If you want to reuse a tile on a different dashboard, you can copy it from one d
 
 :::image type="content" source="media/azure-portal-dashboards/copy-dashboard.png" alt-text="Screenshot showing how to copy a tile in the Azure portal.":::
 
-You can then select whether to copy the tile to an existing private or shared dashboard. You can also create a new dashboard which will include this pin by selecting **Create new**.
+You can then select whether to copy the tile to an existing private or shared dashboard. You can also create a new dashboard which will include a copy of the tile by selecting **Create new**.
 
 ### Resize or rearrange tiles
 
