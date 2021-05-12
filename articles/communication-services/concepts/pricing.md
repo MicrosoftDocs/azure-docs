@@ -2,11 +2,11 @@
 title: Pricing scenarios for Calling (Voice/Video) and Chat
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
-author: mikben
-manager: jken
+author: nmurav
+manager: nmurav
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
