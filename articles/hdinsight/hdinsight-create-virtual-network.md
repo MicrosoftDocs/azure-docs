@@ -4,7 +4,7 @@ description: Learn how to create an Azure Virtual Network to connect HDInsight t
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 04/16/2020
+ms.date: 05/12/2021
 ---
 
 # Create virtual networks for Azure HDInsight clusters
@@ -364,7 +364,7 @@ After completing these steps, you can connect to resources in the virtual networ
 
 ## Test your settings before deploying an HDInsight cluster
 
-Before deploying your cluster, you can check that your many of your network configuration settings are correct by running the [networkValidator script](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator/networkValidator.sh) on a virtual machine in the same VNet and subnet as the planned cluster.
+Before deploying your cluster, you can check that your many of your network configuration settings are correct by running the [networkValidator tool](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/blob/main/HDInsightNetworkValidator) on a virtual machine in the same VNet and subnet as the planned cluster.
 
 **To deploy a Virtual Machine to run the networkValidator.sh script**
 
