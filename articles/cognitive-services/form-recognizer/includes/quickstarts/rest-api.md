@@ -15,8 +15,6 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-# Use the Form Recognizer REST API
-
 Get started with Form Recognizer, a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You'll use the following APIs to extract structured data from forms and documents:
@@ -31,6 +29,9 @@ You'll use the following APIs to extract structured data from forms and document
 | **[Train a custom model](#train-a-custom-model)**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
 | **[Analyze forms with a custom model](#analyze-forms-with-a-custom-model)**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
 |**[Manage custom models](#manage-custom-models)**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your account.|
+
+> [!NOTE]
+> This guide uses cURL to execute REST API calls.
 
 |[Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)|[Azure REST API reference](/rest/api/azure/)|
 
@@ -108,7 +109,7 @@ See the following invoice image and its corresponding JSON output.
 * The `"selectionMarks"` node (in v2.1) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-:::image type="content" source="../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
+:::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
 
 ### [v2.1](#tab/2-1)
 
@@ -1335,7 +1336,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
-   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
 ### [v2.1](#tab/2-1)
 
@@ -1363,7 +1364,7 @@ Before you run the command, make these changes:
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
-   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
 ### [v2.1](#tab/2-1)
 
