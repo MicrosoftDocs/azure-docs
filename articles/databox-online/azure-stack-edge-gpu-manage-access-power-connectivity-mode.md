@@ -104,7 +104,7 @@ Follow these steps in the local UI to enable remote PowerShell over HTTP:
 1. In the local UI of your device, go to **Settings** from the top right corner of the page.
 1. Select **Enable** to allow you to open a remote PowerShell session for your device over HTTP. This setting should be enabled only in trusted networks.
 
-    ![Screenshot shows Enable remote PowerShell over HTTP setting.](media/azure-stack-edge-manage-access-power-connectivity-mode/enable-remote-powershell-http-1.png)
+    ![Screenshot shows Enable remote PowerShell over HTTP setting.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/enable-remote-powershell-http-1.png)
 
 1. Select **Apply**.
 
