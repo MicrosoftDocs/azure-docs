@@ -101,8 +101,8 @@ You do not need to explicitly specify any configuration parameters. All necessar
 
 The sample and tutorials linked below show how to use the Speech SDK:
  * [Voice assistant samples on GitHub.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
- * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)
- * [Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)
+ * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](./tutorial-voice-enable-your-bot-speech-sdk)
+ * [Tutorial: Create a Custom Commands application with simple voice commands.](./how-to-develop-custom-commands-application)
 
 ## Speech SDK integration and scenarios
 
@@ -110,7 +110,7 @@ The Speech SDK facilitates easy use of personalized on-device keyword recognitio
 
 | Scenario | Description | Samples |
 | -------- | ----------- | ------- |
-| End-to-end keyword recognition with Speech-to-text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-text services. This is the most common scenario. | <ul><li>[Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)</li><li>[Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk)</li><li>[Tutorial: Create a Custom Commands application with simple voice commands.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application)</li></ul> |
+| End-to-end keyword recognition with Speech-to-text | Best suited for products that will use a customized on-device keyword model from Custom Keyword with Azure Speech’s Keyword Verification and Speech-to-text services. This is the most common scenario. | <ul><li>[Voice assistant sample code.](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)</li><li>[Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK.](./tutorial-voice-enable-your-bot-speech-sdk)</li><li>[Tutorial: Create a Custom Commands application with simple voice commands.](./how-to-develop-custom-commands-application)</li></ul> |
 | Offline keyword recognition | Best suited for products without network connectivity that will use a customized on-device keyword model from Custom Keyword. | <ul><li>[C# on Windows UWP sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)</li><li>[Java on Android sample.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)</li></ul>
 
 ## Next steps
