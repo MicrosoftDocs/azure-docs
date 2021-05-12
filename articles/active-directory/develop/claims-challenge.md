@@ -1,7 +1,7 @@
 ---
-title: "Claims challenges and claims requests"
+title: "Claims challenges, Claims request and Client Capabilities in the Microsoft identity platform "
 titleSuffix: Microsoft identity platform
-description: Explanation of claims challenges and requests on the Microsoft identity platform.
+description: Explanation of Claim Challenge, Claims request and Client Capabilities in the Microsoft identity platform.
 services: active-directory
 author: knicholasa
 manager: martinco
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: nichola
 ms.reviewer: kkrishna, kylemar
-# Customer intent: As an application developer, I want to learn how to claims challenges returned from APIs protected by the Microsoft identity platform. 
+# Customer intent: As an application developer, I want to learn how to handle claims challenges returned from APIs protected by the Microsoft identity platform. 
 ---
 
-# Claims challenges and claims requests
+# Claims challenges, Claims request and Client Capabilities in the Microsoft identity platform
 
 A **claims challenge** is a response sent from an API indicating that an access token sent by a client application has insufficient claims. This can be because the token does not satisfy the conditional access policies set for that API, or the access token has been revoked.
 
@@ -24,13 +24,12 @@ A **claims request** is made by the client application to redirect the user back
 
 Applications that use enhanced security features such as [Continuous Access Evaluation (CAE)](../conditional-access/concept-continuous-access-evaluation.md) and [Conditional Access authentication context](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775) must be prepared to handle claims challenges.
 
-Your application will only receive claims challenges if it declares that it can handle them using **client capabilities**.
+Your application will only receive claims challenges from some popular service like [Microsoft Graph](http://aka.ms/graph) if it declares its **[client capabilities](#client-capabilities)** it its calls to the Microsoft Graph.
 
-To receive information about whether client applications can handle claims challenges, an API implementer must request **xms_cc** as an optional claim in its application manifest.
 
 ## Claims challenge header format
 
-The claims challenge is a directive in the www-authenticate header returned by an API when an access token is not authorized, and a new access token is required. The claims challenge comprises multiple parts: the HTTP status code of the response and the www-authenticate header, which itself has multiple parts and must contain a claims directive.
+The claims challenge is a directive as a **www-authenticate** header returned by an API when an [Access Token](https://aka.ms/access-tokens) presented to it is not authorized, and a new access token with the right capabilities is required instead. The claims challenge comprises multiple parts: the HTTP status code of the response and the **www-authenticate** header, which itself has multiple parts and must contain a claims directive.
 
 ``` https
 HTTP 401; Unauthorized
@@ -50,7 +49,7 @@ www-authenticate =Bearer realm="", authorization_uri="https://login.microsoftonl
 | `error` | Required | Must be "insufficient_claims" when a claims challenge should be generated. | 
 | `claims` | Required when error is "insufficient_claims". | A quoted string containing a base 64 encoded [claims request](https://openid.net/specs/openid-connect-core-1_0.html#ClaimsParameter). The claims request should request claims for the "access_token" at the top level of the JSON object. The value (claims requested) will be context-dependent and specified later in this document. For size reasons, relying party applications SHOULD minify the JSON before base 64 encoding. The raw JSON of the example above is {"access_token":{"acrs":{"essential":true,"value":"cp1"}}}. |
 
-The 401 response may contain more than one www-authenticate header. All above fields must be contained within the same www-authenticate header. The www-authenticate header with the claims challenge MAY contain other fields. Fields in the header are unordered. According to RFC 7235, each parameter name must occur only once per authentication scheme challenge.
+The **401** response may contain more than one www-authenticate header. All above fields must be contained within the same www-authenticate header. The www-authenticate header with the claims challenge MAY contain other fields. Fields in the header are unordered. According to RFC 7235, each parameter name must occur only once per authentication scheme challenge.
 
 ## Claims request
 
@@ -81,7 +80,9 @@ Upon completion of this flow, the application will receive an Access Token that 
 
 ## Client Capabilities
 
-Your application will only receive claims challenges if it declares that it can handle them using **client capabilities**.
+Client capabilities help resources providers (RP) like a Web API  to detect if the calling client application understands the claims challenge and can then customize its response accordingly. This capability could be useful where not all of the APIs clients are capable of handling claim challenges and some older ones still expect a different response.
+
+Some popular applications like the [Microsoft Graph](https://aka.ms/graph) will send  claims challenges only if the calling client app declares that it is capable of handling them using **client capabilities**.
 
 To avoid extra traffic or impacts to user experience, Azure AD does not assume that your app can handle claims challenged unless you explicitly opt in. An application will not receive claims challenges (and will not be able to use the related features such as CAE tokens) unless it declares it is ready to handle them with the "cp1" capability.
 
