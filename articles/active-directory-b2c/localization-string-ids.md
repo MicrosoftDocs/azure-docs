@@ -281,7 +281,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
 | **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
 | **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
-| **requiredField_countryCode** | Please select your country code |
+| **requiredField_countryCode** | Please select your country code | `All` |
 | **requiredField_number** | Please enter your phone number | `All` |
 | **country_code_input_placeholder_text** |Country or region | `All` |
 | **number_label** | Phone Number | `All` |
