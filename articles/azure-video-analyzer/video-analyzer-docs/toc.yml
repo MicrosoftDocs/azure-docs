@@ -102,7 +102,7 @@
   - name: Record
     items:
     - name: Record and stream inference data with video
-      href: record-stream-inference-data-with-video.md #404
+      href: record-stream-inference-data-with-video.md  #404
     - name: Manage recording policy
       href: manage-recording-policy.md
     - name: Configure a signal gate
