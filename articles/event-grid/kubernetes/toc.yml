@@ -18,7 +18,7 @@
     href: batch-delivery.md
   - name: Delivery and retry
     href: delivery-retry.md
-  - name: Filtering events
+  - name: Filter events
     href: filter-events.md    
 - name: Reference
   items:
