@@ -67,7 +67,7 @@ In the designer, the same setting controls the maximum number of days that a wor
 
 * For the multi-tenant service, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-* For the single-tenant service (preview), you can decrease or increase the 90-day default limit. For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md).
+* For the single-tenant service (preview), you can decrease or increase the 90-day default limit. For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 * For an integration service environment, you can decrease or increase the 90-day default limit.
 
@@ -349,8 +349,8 @@ The following table lists the values for a single workflow definition:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Maximum number of code characters | 1,024 characters | 100,000 characters | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Maximum duration for running code | 5 sec | 15 sec | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum number of code characters | 1,024 characters | 100,000 characters | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-single-tenant-workflows-visual-studio-code.md). |
+| Maximum duration for running code | 5 sec | 15 sec | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-single-tenant-workflows-visual-studio-code.md). |
 ||||||
 
 <a name="custom-connector-limits"></a>
@@ -371,7 +371,7 @@ The following table lists the values for custom connectors:
 For more information, review the following documentation:
 
 * [Custom managed connectors overview](/connectors/custom-connectors)
-* [Enable built-in connector authoring - Visual Studio Code with Azure Logic Apps (Preview)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
+* [Enable built-in connector authoring - Visual Studio Code with Azure Logic Apps (Preview)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring)
 
 <a name="managed-identity"></a>
 

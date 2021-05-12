@@ -82,7 +82,7 @@ To create a logic app based on the environment that you want, you have multiple 
 | Option | Resources and tools | More information |
 |--------|---------------------|------------------|
 | Azure portal | **Logic App (Preview)** resource type | [Create integration workflows for single-tenant Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md) |
-| Visual Studio Code | [**Azure Logic Apps (Preview)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create integration workflows for single-tenant Logic Apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md) |
+| Visual Studio Code | [**Azure Logic Apps (Preview)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create integration workflows for single-tenant Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) |
 | Azure CLI | Logic Apps Azure CLI extension | Not yet available |
 ||||
 
@@ -123,7 +123,7 @@ With the preview logic app type, you can create these workflow types within the 
 
   Create stateless workflows when you don't need to save, review, or reference data from previous events in external storage for later review. These workflows save the inputs and outputs for each action and their states *only in memory*, rather than transferring this data to external storage. As a result, stateless workflows have shorter runs that are typically no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
 
-  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
@@ -181,7 +181,7 @@ The **Logic App (Preview)** resource and single-tenant model include many curren
 
   * You can create your own built-in connectors for any service that you need by using the [preview's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similarly to built-in operations such as Azure Service Bus and SQL Server but unlike [custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors), which aren't currently supported during preview, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the redesigned runtime.
 
-    The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+    The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
 
@@ -197,7 +197,7 @@ The **Logic App (Preview)** resource and single-tenant model include many curren
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 
-  Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+  Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
 * Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
 
@@ -226,7 +226,7 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
 
   > [!NOTE]
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 
-  > [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
+  > [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#webhook-setup).
 
   * These triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
@@ -263,7 +263,7 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
 
 * **Hosting plan availability**: Whether you create the single-tenant **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. The preview resource type doesn't support Consumption hosting plans. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
@@ -278,13 +278,13 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
 
 If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your logic app workflows. To find the fully qualified domain names (FQDNs) for these connections, review the corresponding sections in these topics:
 
-* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Firewall permissions for single tenant logic apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#firewall-setup)
 * [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
 
 ## Next steps
 
 * [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md)
-* [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
+* [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 * [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 
 We'd also like to hear about your experiences with the preview logic app resource type and preview single-tenant model!

@@ -61,7 +61,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
      * Create the logic app from the **Logic App (Preview)** resource type [by using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md)
+     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-single-tenant-workflows-visual-studio-code.md)
 
 ## Add inline code
 

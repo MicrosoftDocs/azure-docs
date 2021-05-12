@@ -67,10 +67,10 @@
     items:
     - name: Single-tenant overview (Preview)
       href: single-tenant-overview-compare.md
-    - name: Create preview logic apps - Portal
+    - name: Create single-tenant logic app workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
-    - name: Create preview logic apps - Visual Studio Code
-      href: create-stateful-stateless-workflows-visual-studio-code.md
+    - name: Create single-tenant logic app workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
   - name: Develop
     items:
     - name: Create from prebuilt templates

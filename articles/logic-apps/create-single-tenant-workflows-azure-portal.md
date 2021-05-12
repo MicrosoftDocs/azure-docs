@@ -22,7 +22,7 @@ The example workflow starts with the built-in Request trigger and follows with a
 > messages from your email account, for example, Outlook.com.
 > 
 > To create this example workflow using Visual Studio Code instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). Both options provide the capability 
+> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Both options provide the capability 
 > to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
 > Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
@@ -435,7 +435,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ## Enable run history for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
 
@@ -639,7 +639,7 @@ To fix this problem, follow these steps to delete the outdated version so that t
 > [!NOTE]
 > This specific solution applies only to **Logic App (Preview)** resources that you create using 
 > the Azure portal, not the logic apps that you create and deploy using Visual Studio Code and the 
-> Azure Logic Apps (Preview) extension. See [Supported triggers and actions are missing from the designer in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#missing-triggers-actions).
+> Azure Logic Apps (Preview) extension. See [Supported triggers and actions are missing from the designer in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#missing-triggers-actions).
 
 1. In the Azure portal, stop your logic app.
 
