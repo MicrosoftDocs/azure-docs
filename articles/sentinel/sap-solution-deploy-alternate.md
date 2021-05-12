@@ -184,19 +184,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
     docker logs –f sapcon-[SID]
     ```
 
-1. In Azure Sentinel, browse to **Azure Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
-
-    [ ![Azure Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
-
-    > [!NOTE]
-    > It may take up to 15 minutes for data ingestion to start.
-    >
-
-    SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
-
-    [ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
-
-    For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
+1. Continue with installing the Azure Sentinel - Continuous Threat Monitoring for SAP solution to display your SAP data connector in Azure Sentinel, deploy the SAP workbook and analytics rules, and manually add and customize your SAP watchlists. For more information, see [Deploy SAP security content from Azure Sentinel](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel).
 
 ## Manually configure the SAP data connector
 
