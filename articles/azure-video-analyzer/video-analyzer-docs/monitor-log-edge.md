@@ -252,7 +252,7 @@ These metrics will be reported from the Video Analyzer module through a [Prometh
 
 ### Azure Monitor collection via Telegraf 
 
-Follow these steps to enable the collection of metrics from the Video Analyzer module. The metrics will be collected by [Telegraf](https://github.com/influxdata/telegraf), then uploaded to [Azure Monitor](../../azure-monitor.md) as a [custom metric](../../azure-monitor/essentials/metrics-custom-overview.md). In Telegraf, the logs are scraped by the [Prometheus](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus) plugin, and uploaded by the [azure_monitor](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/azure_monitor) plugin.
+Follow these steps to enable the collection of metrics from the Video Analyzer module. The metrics will be collected by [Telegraf](https://github.com/influxdata/telegraf), then uploaded to [Azure Monitor](../../azure-monitor/overview.md) as a [custom metric](../../azure-monitor/essentials/metrics-custom-overview.md). In Telegraf, the logs are scraped by the [Prometheus](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus) plugin, and uploaded by the [azure_monitor](https://github.com/influxdata/telegraf/tree/master/plugins/outputs/azure_monitor) plugin.
 
 The agent can be used to collect metrics from any module which exposes a Prometheus endpoint.
 

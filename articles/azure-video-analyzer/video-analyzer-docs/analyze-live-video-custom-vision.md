@@ -29,7 +29,7 @@ The tutorial shows you how to:
 - Run the sample code.
 - Examine and interpret the results.
 
-If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing.md), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Suggested pre-reading
 
