@@ -283,6 +283,9 @@
           href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
+        - name: Install and set up the CLI 2.0
+          displayName: azurecli, mlops
+          href: how-to-configure-cli.md
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
