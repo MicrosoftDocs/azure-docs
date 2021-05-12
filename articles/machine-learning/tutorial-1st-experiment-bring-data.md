@@ -246,6 +246,9 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+
 ### Understand the code changes
 
 The control script is similar to the one from [part 3 of this series](tutorial-1st-experiment-sdk-train.md), with the following new lines:
