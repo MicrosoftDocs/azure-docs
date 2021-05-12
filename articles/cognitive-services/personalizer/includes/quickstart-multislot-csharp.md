@@ -9,8 +9,7 @@ ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
 ---
-[comment]: <> (Need to add the multi slot documentation links)
-[Reference documentation](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
+[Reference documentation](/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://aka.ms/personalizer/ms-dotnet)
 
 ## Prerequisites
 
@@ -52,8 +51,6 @@ Build succeeded.
 ...
 ```
 
-[comment]: <> (TODO: when the SDK is ready, need to add installation instructions for client library)
-
 From the project directory, open the `Program.cs` file in your preferred editor or IDE. Add the following using directives:
 
 ```csharp
@@ -68,9 +65,6 @@ using System.Threading.Tasks;
 ```
 
 ## Object model
-
-
-[comment]: <> (TODO: change links to ccb docs)
 
 To ask for the single best item of the content for each slot, create a [MultiSlotRankRequest], then send a post request to the [multislot/rank] endpoint (/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank). The response is then parsed into a [MultiSlotRankResponse].
 
@@ -152,8 +146,7 @@ private static IList<Action> GetActions()
 Slots make up the page that the user will interact with. Personalizer will decide which action to display in each one of the defined slots. Actions can be excluded from specific slots, shown as `ExcludeActions`. `BaselineAction` is the default action for the slot which would have been displayed without the use of Personalizer.
 
 
-[comment]: <> (Need to add the slot documentation links)
-This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [slots and features](../concepts-features.md) can be a non-trivial matter.
+This quickstart has simple slot features. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
 private static IList<Slot> GetSlots()
@@ -568,5 +561,4 @@ dotnet run
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-[comment]: <> (Need to add a link to the multi slot sample source code)
-The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer) is available.
+The [source code for this quickstart](https://aka.ms/personalizer/ms-dotnet) is available.
