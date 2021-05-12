@@ -31,7 +31,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
   - C++/Windows & Linux & macOS
   - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (Jre and Android)
-  - JavaScript (Brower and NodeJS)
+  - JavaScript (Browser and NodeJS)
   - Python
   - Swift
   - Objective-C  
