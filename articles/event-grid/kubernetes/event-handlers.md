@@ -46,7 +46,7 @@ Event Grid on Kubernetes offers a good level of feature parity with Azure Event 
 ## Event filtering in event subscriptions
 The other important aspect of configuring an event subscription is selecting the events that are meant to be delivered to a destination. For more information, see [Event Filtering](filter-events.md).
 
-## Sample destination configuration in event subscriptions
+## Sample destination configurations
 
 Following are some basic sample configurations depending on the intended destination.
 
