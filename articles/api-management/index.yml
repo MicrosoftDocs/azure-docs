@@ -86,6 +86,22 @@ landingContent:
             url: import-logi-app-as-api.md
 
   # Card
+  - title: Hybrid and multi-cloud management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Self-hosted gateway overview
+            url: self-hosted-gateway-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Host gateway on Azure Arc
+            url: how-to-deploy-self-hosted-gateway-azure-arc.md
+          - text: Host gateway on Kubernetes
+            url: how-to-deploy-self-hosted-gateway-kubernetes.md
+          - text: Host gateway on Docker
+            url: how-to-deploy-self-hosted-gateway-docker.md
+
+  # Card
   - title: Samples
     linkLists:
       - linkListType: sample
@@ -104,18 +120,3 @@ landingContent:
         links:
           - text: Basic enterprise integration
             url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
-  # Card
-  - title: Hybrid and multi-cloud management
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Self-hosted gateway overview
-            url: self-hosted-gateway-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Host gateway on Azure Arc
-            url: how-to-deploy-self-hosted-gateway-azure-arc.md
-          - text: Host gateway on Kubernetes
-            url: how-to-deploy-self-hosted-gateway-kubernetes.md
-          - text: Host gateway on Docker
-            url: how-to-deploy-self-hosted-gateway-docker.md
