@@ -17,7 +17,7 @@ This solution is useful particularly in the following scenarios:
 1. If you have critical data to be backed up in only one disk, or a subset of the disks and don’t want to back up the rest of the disks attached to a VM to minimize the backup storage costs.
 2. If you have other backup solutions for part of your VM or data. For example, if you back up your databases or data using a different workload backup solution and you want to use Azure VM level backup for the rest of the data or disks to build an efficient and  robust system using the best capabilities available.
 
-Using PowerShell or Azure CLI, you can configure git of the Azure VM.  Using a script, you can include or exclude data disks using their LUN numbers.  Currently, the ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** option. So you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
+Using PowerShell or Azure CLI, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their LUN numbers. Currently, the ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** option. So you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
 
 >[!NOTE]
 > The OS disk is by default added to the VM backup and can't be excluded.
