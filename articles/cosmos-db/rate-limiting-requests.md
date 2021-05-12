@@ -143,7 +143,7 @@ For more information about this pattern, see [Queue-Based Load Leveling pattern]
 
 You might consider loading data on demand into a cache instead of querying Azure Cosmos DB every time. Using a cache can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
 
-For more information, see: [Cache-Aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside).
+For more information, see: [Cache-Aside pattern](/azure/architecture/patterns/cache-aside).
 
 ### Materialized View pattern
 
