@@ -238,8 +238,11 @@ assignment are automatically included.
 
 Customers designing a highly available solution should consider the redundancy planning requirements for
 [virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
-machine resources in Azure. If a physical region becomes unavailable in Azure, it's not possible
-to view historical reports for a guest assignment until the region is restored.
+machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
+[paired](../../../best-practices-availability-paired-regions.md), as long as at least one region in the pair
+is available, then guest assignment reports are available. If the Azure region isn't paired and
+it becomes unavailable, then it isn't possible to access reports for a guest assignment until
+the region is restored.
 
 When considering an architecture for highly available applications,
 especially where virtual machines are provisioned in

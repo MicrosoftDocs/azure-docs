@@ -111,7 +111,7 @@ Access policies define the permissions and duration of access to a given Video A
 
 Next we need to generate a list of video resources.  This is done through a REST call to the account endpoint we used above, authenticating with the token we generated.
 
-There are many ways to send a GET request to a REST API, but for this we're going to use a JavaScript function.  The below code uses a [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp) coupled with values we're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request.  It then takes the resulting list of videos and stores them in the `videoList` textarea we have set up on the page.
+There are many ways to send a GET request to a REST API, but for this we're going to use a JavaScript function.  The below code uses a [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp) coupled with values we're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request.  It then takes the resulting list of videos and stores them in the `videoList` text area we have set up on the page.
 
 ```javascript
 function getVideos()
@@ -132,6 +132,10 @@ Now that we have a client API endpoint URL, a token and a video name, we can add
 1. Include the player module itself by adding the package directly to your page.  You can either include the NPM package direction in your application, or have it embed dynamically at run time as we have here:
    ```html
    <script async type="module" src="https://unpkg.com/video-analyzer-widgets"></script>
+   ```
+1. Add an AVA-Player element to the document:
+   ```html
+   <ava-player width="720px" id="avaPlayer"></ava-player>
    ```
 1. Get a link to the Video Analyzer player widget that is in the page:
    ```javascript
@@ -241,7 +245,7 @@ We did a simple configuration for the player above, but it supports a wider rang
 | Name   | Type             | Description                         |
 | ------ | ---------------- | ----------------------------------- |
 | token  | string | Your JWT token for the widget |
-| videoName | string | The name of the video resource |
+| videoName | string | The name of the video resource  |
 | clientApiEndpointUrl | string | The endpoint URL for the client API |
 
 ### Alternate ways to load the code into your application
@@ -258,11 +262,21 @@ Or you can import it within your application code using:
 import { Player } from '@video-analyzer/widgets';
 ```
 
-In the above example you added the module to the page using the `ava-player` HTML tag.  You can also create new player objects and add them to your page.
+If you use this method to import, you will need to programatically create the player object after the import is complete.  In the above example you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either JavaScript:
 
 ```javascript
 const avaPlayer = new ava.widgets.player();
+```
 
+Or in Typescript:
+
+```typescript
+const avaPlayer = new Player();
+```
+
+Then you must add it to the HTML:
+
+```javascript
 document.firstElementChild.appendChild(avaPlayer);
 ```
 

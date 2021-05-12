@@ -17,9 +17,9 @@
 
 ## Change performance tier without downtime (preview)
 
-Normally, you would have to deallocate your VM or detach your disk to change your performance tier. But if you enable this preview feature you don't have to deallocate your VM or detach your disk to change the tier. You can sign up for the preview [here](https://aka.ms/liveperftiersignup).
+Normally, you would have to deallocate your VM or detach your disk to change your performance tier. But if you enable this preview feature you don't have to deallocate your VM or detach your disk to change the tier.
 
 The preview has the following limitations:
-- Available in EastUS2EUAP region only.
+- Available in West Central US region only.
 - Not currently available for shared disks
 - Must use Azure Resource Manager templates with the `2020-12-01` API to change performance tiers without downtime.

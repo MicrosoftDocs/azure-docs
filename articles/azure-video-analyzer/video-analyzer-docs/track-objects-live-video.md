@@ -35,7 +35,6 @@ The HTTP extension node plays the role of a proxy. It converts every 15th video 
 > [!NOTE]
 > You should review the discussion of the about the trade-off between accuracy and processing power with the [object tracker](pipeline.md#object-tracker-processor) node.
 
-
 In this quickstart, you will:
 
 1. Setup your development environment.
