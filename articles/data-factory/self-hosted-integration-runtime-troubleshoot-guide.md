@@ -319,11 +319,11 @@ To solve this issue, you need to add the self-hosted integration runtime service
 
     1. Select **File**.
     1. Choose **Add/Remove Snap-in** in th drop-down menu.
-    1. Select **Certificates** in the "Available Snap-ins" pane.
+    1. Select **Certificates** in the "Available snap-ins" pane.
     1. Select **Add**.
-    1. In the pop-up "Certificates Snap-in" pane, choose **Computer account**.
+    1. In the pop-up "Certificates snap-in" pane, choose **Computer account**.
     1. Select **Next**.
-    1. In the "Select Computer" pane, choose **Local computer: the computer the console is running on**.
+    1. In the "Select Computer" pane, choose **Local computer: the computer this console is running on**.
     1. Select **Finish**.
     1. Select **OK** in the "Add or Remove Snap-ins" pane.
 
