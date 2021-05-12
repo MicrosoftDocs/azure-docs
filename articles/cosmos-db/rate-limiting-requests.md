@@ -137,7 +137,7 @@ This pattern is useful to any application that uses services that are subject to
 
 This pattern is often well suited to ingest operations.
 
-For more information about this pattern, see [Queue-Based Load Leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling.md).
+For more information about this pattern, see [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling).
 
 ### Cache-Aside pattern
 
