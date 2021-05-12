@@ -133,6 +133,10 @@ Now that we have a client API endpoint URL, a token and a video name, we can add
    ```html
    <script async type="module" src="https://unpkg.com/video-analyzer-widgets"></script>
    ```
+1. Add an AVA-Player element to the document:
+   ```html
+   <ava-player width="720px" id="avaPlayer"></ava-player>
+   ```
 1. Get a link to the Video Analyzer player widget that is in the page:
    ```javascript
    const avaPlayer = document.getElementById("avaPlayer");
@@ -258,11 +262,21 @@ Or you can import it within your application code using:
 import { Player } from '@video-analyzer/widgets';
 ```
 
-In the above example you added the module to the page using the `ava-player` HTML tag.  You can also create new player objects and add them to your page.
+If you use this method to import, you will need to programatically create the player object after the import is complete.  In the above example you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either Javascript:
 
 ```javascript
 const avaPlayer = new ava.widgets.player();
+```
 
+Or in Typescript:
+
+```typescript
+const avaPlayer = new Player();
+```
+
+Then you must add it to the HTML:
+
+```javascript
 document.firstElementChild.appendChild(avaPlayer);
 ```
 
