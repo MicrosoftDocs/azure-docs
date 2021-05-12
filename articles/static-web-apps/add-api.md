@@ -53,10 +53,10 @@ You create an Azure Functions projects for your static web app's API. By default
 
 1. When prompted, enter the following values:
 
-    | Prompt | Value | Description |
-    | --- | --- | --- |
-    | Select a language | JavaScript | |
-    | Provide a function name | message | |
+    | Prompt | Value |
+    | --- | --- |
+    | Select a language | JavaScript |
+    | Provide a function name | message |
 
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
