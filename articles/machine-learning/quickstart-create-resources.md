@@ -64,7 +64,7 @@ Create a compute cluster that will autoscale between zero and four nodes:
 1. Keep all the defaults on the first page, select **Next**.
 1. Name the cluster **cpu-cluster**.  If this name already exists, add your initials to the name to make it unique.
 1. Leave the **Minimum number of nodes** at 0.
-1. Change the **Maximum number of nodes** to 4.
+1. Change the **Maximum number of nodes** to 4 if possible.  Depending on your settings, you may have a smaller limit.
 1. Change the **Idle seconds before scale down** to 2400.
 1. Leave the rest of the defaults, and select **Create**.
 
