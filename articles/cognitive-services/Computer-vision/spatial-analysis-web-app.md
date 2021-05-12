@@ -145,15 +145,15 @@ Locate the *Runtime Status* in the IoT Edge Module Settings for the spatial-anal
 
 ![Example deployment verification](./media/spatial-analysis/deployment-verification.png)
 
-At this point, the spatial-analysis container is running the operation. It emits AI insights for the operations and it routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the deployment manifest file and execute the deployment again.
+At this point, the spatial analysis container is running the operation. It emits AI insights for the operations and routes these insights as telemetry to your Azure IoT Hub instance. To configure additional cameras, you can update the deployment manifest file and execute the deployment again.
 
 # Spatial Analysis Web Application
 
-Spatial Analysis Web Application enables developers to quickly configure a sample web app and host it in their Azure environment and use the app to validate E2E events. <br>
+The Spatial Analysis Web Application enables developers to quickly configure a sample web app, host it in their Azure environment, and use the app to validate E2E events. <br>
 
 # Build Docker Image
 
-Follow the [guide](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) to build and push image to an ACR in your subscription
+Follow the [guide](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) to build and push the image to an ACR in your subscription.
 
 # Setup Steps
 
