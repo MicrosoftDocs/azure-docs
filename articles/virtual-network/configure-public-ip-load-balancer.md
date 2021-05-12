@@ -54,6 +54,9 @@ To change the IP, we'll create a new IP address and associate it with the load b
 
     :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Verify new public IP address in frontend configuration" border="true":::
 
+    > [!NOTE]
+    > These procedures are valid for a cross-region load balancer. For more information on cross-region load balancer, see **[Cross-region load balancer](../load-balancer/cross-region-overview.md)**.
+
 ## Delete public IP address
 
 In this section, you'll delete the IP address you replaced in the previous section. Public IPs must be removed from resources before they can be deleted.
