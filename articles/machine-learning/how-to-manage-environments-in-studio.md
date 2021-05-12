@@ -41,11 +41,27 @@ Click on an environment to see detailed information about its contents.
 
 ## Create an environment
 
-To create an environment
+To create an environment:
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Environments**.
-1. Select 
-1. Select
+1. Select the **Custom environments** tab. 
+1. Select the **Create** button. 
 
+Create an environment by specifying a pip requirements file, Conda yaml file, Dockerfile, or Docker image. You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
+If a new environment is given the same name as an existing environment in the workspace, a new version of the existing one will be created.
+
+## View and edit environment details
+
+Once an environment has been created, view its details by clicking on the name. Use the dropdown menu to select different versions of the environment. Here you can view metadata and the contents of the environment through its Docker and Conda layers. 
+
+Click on the pencil icons to edit tags and descriptions as well as the configuration files or image. Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
+
+## View image build logs
+
+Click on the **Build log** tab within the details page to view the image build logs of an environment version. 
+
+## Rebuild an environment
+
+In the details page, click on the **rebuild** button to rebuild the environment. Any unpinned package versions in your configuration files may be updated to the most recent version with this action. 
 
