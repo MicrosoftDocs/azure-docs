@@ -69,6 +69,9 @@
     - name: Rewards
       href: concept-rewards.md
       displayName: reward, wait time, default reward
+    - name: Multi-slot personalization
+      href: concept-multi-slot-personalization.md
+      displayName: multi-slot, multi slot, multi slot personalizer, multi-slot personalizer
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
