@@ -18,7 +18,7 @@ ms.custom: references_regions
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## May 2021
-* [Custom question answering](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering) (previously QnA maker) can now be accessed using a Text Analytics resource. 
+* [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 
 
 ## March 2021
 
