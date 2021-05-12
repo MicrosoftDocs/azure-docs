@@ -1,5 +1,5 @@
 ---
-title: Customize activities on entity timelines | Microsoft Docs
+title: Customize activities on Azure Sentinel entity timelines | Microsoft Docs
 description: Add customized activities to those Azure Sentinel tracks and displays on the timeline of entity pages
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 05/05/2021
 ms.author: yelevin
 
 ---
-# Customize activities on entity page timelines 
+# Customize activities on entity page timelines
 
 > [!IMPORTANT]
 >

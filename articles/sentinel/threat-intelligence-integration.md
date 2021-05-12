@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/23/2021
+ms.date: 05/12/2021
 ms.author: yelevin
 
 ---
@@ -37,46 +37,32 @@ To connect to TAXII threat intelligence feeds, use the [Threat intelligence - TA
 
 - [See what you need to connect to Anomali Limo feed](https://www.anomali.com/resources/limo).
 
-    :::image type="content" source="media/threat-intelligence-integration/anomali.png" alt-text="Anomali logo":::
-
 ### Cybersixgill Darkfeed
 
 - [Learn about Cybersixgill integration with Azure Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
 - To connect Azure Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
 
-    :::image type="content" source="media/threat-intelligence-integration/cybersixgill.png" alt-text="Cybersixgill logo":::
-
 ### Financial services intelligence sharing community (FS-ISAC)
 
 - [Join the FS-ISAC](https://www.fsisac.com/intelligenceexchange) to get the credentials to access this feed.
-
-    :::image type="content" source="media/threat-intelligence-integration/fs-isac.png" alt-text="F S ISAC logo":::
 
 ### Health intelligence sharing community (H-ISAC)
 
 - [Join the H-ISAC](https://h-isac.org/soltra/) to get the credentials to access this feed.
 
-    :::image type="content" source="media/threat-intelligence-integration/health-isac.png" alt-text="Health ISAC logo":::
-
 ### IBM X-Force
 
 - [Learn more about IBM X-Force integration](https://www.ibm.com/security/xforce)
-
-    :::image type="content" source="media/threat-intelligence-integration/ibm-x-force.png" alt-text="IBM X-force logo":::
 
 ### IntSights
 
 - [Learn more about the IntSights integration with Azure Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Azure Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Azure Sentinel.
 
-    :::image type="content" source="media/threat-intelligence-integration/intsights.png" alt-text="Intsights logo":::
-
 ### ThreatConnect
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
 - [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii.html)
-
-    :::image type="content" source="media/threat-intelligence-integration/threat-connect.png" alt-text="Threat connect logo":::
 
 ## Integrated threat intelligence platform products
 
@@ -86,62 +72,42 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 - To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](connect-agari-phishing-defense.md) in Azure Sentinel.
 
-    :::image type="content" source="media/threat-intelligence-integration/agari.png" alt-text="Agari logo":::
-
 ### Anomali ThreatStream
 
 - To download [ThreatStream Integrator and Extensions](https://www.anomali.com/products/threatstream), and the instructions for connecting ThreatStream intelligence to the Microsoft Graph Security API, see the [ThreatStream downloads](https://ui.threatstream.com/downloads) page.
-
-    :::image type="content" source="media/threat-intelligence-integration/threat-stream.png" alt-text="Threat stream logo":::
 
 ### AlienVault Open Threat Exchange (OTX) from AT&T Cybersecurity
 
 - [AlienVault OTX](https://otx.alienvault.com/) makes use of Azure Logic Apps (playbooks) to connect to Azure Sentinel. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) necessary to take full advantage of the complete offering.
 
-    :::image type="content" source="media/threat-intelligence-integration/alienvault-otx.png" alt-text="Alien vault logo":::
-
 ### EclecticIQ Platform
 
 - Learn more about the [EclecticIQ Platform](https://www.eclecticiq.com/platform/).
 
-    :::image type="content" source="media/threat-intelligence-integration/eclectic-iq.png" alt-text="Eclectic I Q logo":::
-
 ### GroupIB Threat Intelligence and Attribution
 
 - To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/intelligence-attribution.html) to Azure Sentinel, GroupIB makes use of Azure Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) necessary to take full advantage of the complete offering.
-
-    :::image type="content" source="media/threat-intelligence-integration/group-ib.png" alt-text="Group I B logo":::
 
 ### MISP Open Source Threat Intelligence Platform
 
 - For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 - [Learn more about the MISP Project](https://www.misp-project.org/).
 
-    :::image type="content" source="media/threat-intelligence-integration/misp-threat-sharing.png" alt-text="MISP logo":::
-    
 ### Palo Alto Networks MineMeld
 
 - To configure [Palo Alto MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld) with the connection information to Azure Sentinel, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540) and skip to the **MineMeld Configuration** heading.
 
-    :::image type="content" source="media/threat-intelligence-integration/minemeld.png" alt-text="Palo Alto mine meld logo":::
-
 ### Recorded Future Security Intelligence Platform
 
-- [Recorded Future](https://www.recordedfuture.com/integrations/azure/) makes use of Azure Logic Apps (playbooks) to connect to Azure Sentinel. See the [specialized instructions](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf) necessary to take full advantage of the complete offering.
-
-    :::image type="content" source="media/threat-intelligence-integration/recorded-future.png" alt-text="Recorded future logo":::
+- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Azure Sentinel. See the [specialized instructions](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 
 - See the [Microsoft Graph Security Threat Indicators Integration Configuration Guide](https://training.threatconnect.com/learn/article/microsoft-graph-security-threat-indicators-integration-configuration-guide-kb-article) for instructions to connect [ThreatConnect](https://threatconnect.com/solution/) to Azure Sentinel.
 
-    :::image type="content" source="media/threat-intelligence-integration/threat-connect.png" alt-text="Threat connect logo":::
-
 ### ThreatQuotient Threat Intelligence Platform
 
 - See [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
-
-    :::image type="content" source="media/threat-intelligence-integration/threat-quotient.png" alt-text="Threat quotient logo":::
 
 ## Incident enrichment sources
 
@@ -152,21 +118,15 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 - Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-Sentinel-Incident-HYAS-Insight-".
 - See the HYAS Insight Logic App [connector documentation](/connectors/hyasinsight/).
 
-    :::image type="content" source="media/threat-intelligence-integration/hyas.png" alt-text="HYAS logo":::
-
 ### Recorded Future Security Intelligence Platform
 
-- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/azure/) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "RecordedFuture_".
+- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "RecordedFuture_".
 - See the Recorded Future Logic App [connector documentation](/connectors/recordedfuture/).
-
-    :::image type="content" source="media/threat-intelligence-integration/recorded-future.png" alt-text="Recorded future logo":::
 
 ### ReversingLabs TitaniumCloud
 
 - Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
 - See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
-
-    :::image type="content" source="media/threat-intelligence-integration/reversing-labs.png" alt-text="Reversing labs logo":::
 
 ### RiskIQ Passive Total
 
@@ -174,14 +134,10 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 - See [more information](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412) on working with RiskIQ playbooks.
 - See the RiskIQ PassiveTotal Logic App [connector documentation](/connectors/riskiqpassivetotal/).
 
-    :::image type="content" source="media/threat-intelligence-integration/risk-iq.png" alt-text="Risk I Q logo":::
-
 ### Virus Total
 
 - Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Get-VirusTotal" and "Get-VTURL".
 - See the Virus Total Logic App [connector documentation](/connectors/virustotal/).
-
-    :::image type="content" source="media/threat-intelligence-integration/virus-total.png" alt-text="Virus total logo":::
 
 ## Next steps
 
