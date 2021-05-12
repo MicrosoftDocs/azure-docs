@@ -52,7 +52,7 @@ The first thing you have to do to build an application in Azure Machine Learning
     > [!div class="mx-imgBorder"]
     > ![Create workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
 
-1. A resource template appears. Configure the resource template with the following options. 
+1. A specification file appears. Configure the specification file with the following options. 
 
     ```yml
     $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
@@ -67,7 +67,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 
     The template creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the template provide friendly naming, descriptions, and tags for the workspace.
 
-1. Right-click the template file and select **Azure ML: Create Resource**.
+1. Right-click the template file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the CLI 2.0.
 
 At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
 
@@ -83,7 +83,7 @@ A compute target is the computing resource or environment where you run training
     > [!div class="mx-imgBorder"]
     > ![Create training compute cluster](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
-1. A resource template appears. Configure the resource template with the following options.
+1. A specification file appears. Configure the specification file with the following options.
 
     ```yml
     $schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json

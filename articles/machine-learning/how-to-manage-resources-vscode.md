@@ -31,14 +31,14 @@ The quickest way to create resources is using the extension's toolbar.
 1. Open the Azure Machine Learning view.
 1. Select **+** in the activity bar.
 1. Choose your resource from the dropdown list.
-1. Configure the resource template. The information required depends on the type of resource you want to create.
+1. Configure the specification file. The information required depends on the type of resource you want to create.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, you can create a resource by using the command palette:
 
 1. Open the command palette **View > Command Palette**
 1. Enter `> Azure ML: Create <RESOURCE-TYPE>` into the text box. Replace `RESOURCE-TYPE` with the type of resource you want to create.
-1. Configure the resource template.
+1. Configure the specification file.
 1. Open the command palette **View > Command Palette**
 1. Enter `> Azure ML: Create Resource` into the text box.
 
@@ -48,7 +48,7 @@ Some resources like datasets and models allow you to make changes a resource and
 
 To version a resource:
 
-1. Use the existing resource template that created the resource or follow the create resources process to create a new template.
+1. Use the existing specification file that created the resource or follow the create resources process to create a new template.
 1. Increment the version number in the template.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
@@ -61,7 +61,7 @@ For more information, see [workspaces](concept-workspace.md).
 ### Create a workspace
 
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Workspace` command in the command palette.
@@ -93,7 +93,7 @@ For more information, see [datastores](concept-data.md#datastores).
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Datastores** node and select **Create Datastore**.
 1. Choose the datastore type.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Datastore` command in the command palette.
@@ -123,7 +123,7 @@ For more information, see [datasets](concept-data.md#datasets)
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Datasets** node and select **Create Dataset**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Dataset` command in the command palette.
@@ -135,7 +135,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to:
     - **View Dataset Properties**. Lets you view metadata associated with a specific dataset. If you have multiple version of a dataset, you can choose to only view the dataset properties of a specific version by expanding the dataset node and performing the same steps described in this section on the version of interest.
-    - **Preview dataset**. Note that this option is only available for tabular datasets.
+    - **Preview dataset**. View your dataset directly in the VS Code Data Viewer. Note that this option is only available for tabular datasets.
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
 Alternatively, use the `> Azure ML: View Dataset Properties` and `> Azure ML: Unregister Dataset` commands respectively in the command palette.
@@ -149,7 +149,7 @@ For more information, see [environments](concept-environments.md).
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Environments** node and select **Create Environment**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Environment` command in the command palette.
@@ -179,7 +179,7 @@ Using the resource nodes in the Azure Machine Learning view:
 1. Expand your workspace node.
 1. Right-click the **Experiments** node in your workspace and select **Create Job**.
 1. Choose your job type.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Job` command in the command palette.
@@ -228,7 +228,7 @@ For more information, see [compute instances](concept-compute-instance.md).
 1. Expand your workspace node.
 1. Expand the **Compute** node.
 1. Right-click the **Compute instances** node in your workspace and select **Create Compute**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
@@ -241,7 +241,7 @@ To use a compute instance as a development environment or remote Jupyter server,
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Compute instances** node inside your **Computes** node.
+1. Expand the **Compute instances** node inside your **Compute** node.
 1. Right-click the compute instance you want to stop or restart and select **Stop Compute instance** or **Restart Compute instance** respectively.
 
 Alternatively, use the `> Azure ML: Stop Compute instance` and `Restart Compute instance` commands respectively in the command palette.
@@ -250,7 +250,7 @@ Alternatively, use the `> Azure ML: Stop Compute instance` and `Restart Compute 
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Compute instances** node inside your **Computes** node.
+1. Expand the **Compute instances** node inside your **Compute** node.
 1. Right-click the compute instance you want to inspect and select **View Compute instance Properties**.
 
 Alternatively, use the `Azure ML: View Compute instance Properties` command in the command palette.
@@ -259,7 +259,7 @@ Alternatively, use the `Azure ML: View Compute instance Properties` command in t
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Compute instances** node inside your **Computes** node.
+1. Expand the **Compute instances** node inside your **Compute** node.
 1. Right-click the compute instance you want to delete and select **Delete Compute instance**.
 
 Alternatively, use the `Azure ML: Delete Compute instance` command in the command palette.
@@ -274,7 +274,7 @@ For more information, see [training compute targets](concept-compute-target.md#t
 1. Expand your workspace node.
 1. Expand the **Compute** node.
 1. Right-click the **Compute clusters** node in your workspace and select **Create Compute**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Compute` command in the command palette.
@@ -283,7 +283,7 @@ Alternatively, use the `> Azure ML: Create Compute` command in the command palet
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Compute clusters** node inside your **Computes** node.
+1. Expand the **Compute clusters** node inside your **Compute** node.
 1. Right-click the compute you want to view and select **View Compute Properties**.
 
 Alternatively, use the `> Azure ML: View Compute Properties` command in the command palette.
@@ -292,7 +292,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` command in the comm
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Compute clusters** node inside your **Computes** node.
+1. Expand the **Compute clusters** node inside your **Compute** node.
 1. Right-click the compute you want to delete and select **Remove Compute**.
 
 Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
@@ -305,7 +305,7 @@ For more information, see [compute targets for inference](concept-compute-target
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Attached computes** node inside your **Computes** node.
+1. Expand the **Attached computes** node inside your **Compute** node.
 1. Right-click the compute you want to:
     - **View Compute Properties**. Displays read-only configuration data about your attached compute.
     - **Detach compute**. Detaches the compute from your workspace.
@@ -316,7 +316,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Attached computes** node inside your **Computes** node.
+1. Expand the **Attached computes** node inside your **Compute** node.
 1. Right-click the compute you want to delete and select **Remove Compute**.
 
 Alternatively, use the `> Azure ML: Remove Compute` command in the command palette.
@@ -329,7 +329,7 @@ For more information, see [unmanaged compute](concept-compute-target.md#unmanage
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Attached computes** node inside your **Computes** node.
+1. Expand the **Attached computes** node inside your **Compute** node.
 1. Right-click the compute you want to:
     - **View Compute Properties**. Displays read-only configuration data about your attached compute.
     - **Detach compute**. Detaches the compute from your workspace.
@@ -345,7 +345,7 @@ For more information, see [models](concept-azure-machine-learning-architecture.m
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Right-click the **Models** node in your workspace and select **Create Model**.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Model` command in the command palette.
@@ -385,7 +385,7 @@ For more information, see [endpoints](concept-azure-machine-learning-architectur
 1. Expand your workspace node.
 1. Right-click the **Models** node in your workspace and select **Create Endpoint**.
 1. Choose your endpoint type.
-1. A resource template appears. Configure the resource template.
+1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
 
 Alternatively, use the `> Azure ML: Create Endpoint` command in the command palette.
