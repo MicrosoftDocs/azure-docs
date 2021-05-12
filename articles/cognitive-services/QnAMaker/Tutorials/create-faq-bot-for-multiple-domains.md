@@ -72,7 +72,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Take metadata input](../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png)
 
-    * Implicitly Identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context by the client. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
+    * Implicitly identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context by the client. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
       ![Pass context]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png)
 
