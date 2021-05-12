@@ -69,10 +69,19 @@ An event handler is a software system that exposes an endpoint to which events a
 Event Grid on Kubernetes provides SAS key-based authentication for publishing events to topics.
 
 ## Event delivery
-Event Grid on Kubernetes provides a reliable delivery and retry mechanism. If Event Grid cannot confirm that an event has been received by the event handler endpoint, it redelivers the event. For more information, see Event Grid message delivery and retry.
+Event Grid on Kubernetes provides a reliable delivery and retry mechanism. If Event Grid cannot confirm that an event has been received by the event handler endpoint, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-retry.md).
 
 ## Batch event publishing
 When using a topic, events must always be published in an array. For low throughput scenarios, the array will have only one event. For high volume use cases, we recommend that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 1 MB.
+
+## Event Grid on Kubernetes components
+
+1. The **Event Grid operator** implements the [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/). It watches for state changes of Event Grid resources as a result of control plane requests made to Kubernetes' API Server. When there is a request that affects the state of any of Event Grid resources, the Event Grid operator syncs that state with the Event Grid Broker.
+1. The **Event Grid broker** serves as both control plane and data plane operations.
+
+   As a control plane service, it is responsible for bringing the state of Event Grid to the desired state communicated by the Event Grid Operator. For example, when a request is made to create a new topic, it fulfills that request and the service metadata is updated.
+
+   As a data plane service, it serves all event publishing requests and delivers events to their destinations configured on event subscriptions.
 
 ## Next steps
 To get started, see [Create topics and subscriptions](create-topic-subscription.md).
