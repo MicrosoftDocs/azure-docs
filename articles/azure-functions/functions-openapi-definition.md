@@ -29,7 +29,7 @@ To create an API Management instance linked to your function app:
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
     | **[Resource group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
-    | **Location** | West US | Choose the West US location. |
+    | **Location** | Location of the service | Consider choosing the same location as your function app. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |
     | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |

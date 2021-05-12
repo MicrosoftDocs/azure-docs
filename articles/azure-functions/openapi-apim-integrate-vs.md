@@ -27,8 +27,6 @@ The serverless function you create provides an API that lets you determine wheth
 
 + [Visual Studio 2019](https://azure.microsoft.com/downloads/), version 16.10, or a later version. Make sure you select the **Azure development** workload during installation. 
 
-    ![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
 + An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create a Functions project
@@ -75,11 +73,11 @@ This function code returns a message of `Yes` or `No` to indicate whether an eme
 
 ## Run and verify the API locally
 
-When you run the function, the OpenAPI endpoints make it easy to try out the function locally using a generated Swagger UI page. You don't need to provide function access keys when running locally.
+When you run the function, the OpenAPI endpoints make it easy to try out the function locally using a generated page. You don't need to provide function access keys when running locally.
 
 1. Press F5 to start the project. When Functions runtime starts locally, a set of OpenAPI and Swagger endpoints are shown in the output, along with the function endpoint.  
 
-1. In your browser, open the RenderSwaggerUI endpoint, which should look like `http://localhost:7071/api/swagger/ui`. A Swagger page is rendered, based on your OpenAPI definitions.
+1. In your browser, open the RenderSwaggerUI endpoint, which should look like `http://localhost:7071/api/swagger/ui`. A page is rendered, based on your OpenAPI definitions.
 
 1. Select **POST** > **Try it out**, enter values for `hours` and `capacity` either as query parameters or in the JSON request body, and select **Execute**. 
 
@@ -167,8 +165,8 @@ Now that the function key is set, you can call the API to verify that it works w
 
     ```json
     {
-    "hours": "6",
-    "capacity": "2500"
+        "hours": "6",
+        "capacity": "2500"
     }
     ```
 
