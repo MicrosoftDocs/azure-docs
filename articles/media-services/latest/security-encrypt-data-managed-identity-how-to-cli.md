@@ -25,15 +25,17 @@ Before you get started, decide on the names of the resources you will create.  T
 - your-key-name
 - your-region
 
-You'll see these names referenced in the commands below.
+You'll see these names referenced in the commands below. Use the same names for each step.
 
 ## Create a resource group
 
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
-## Create a Storage account and a Media Services account
+## Create a Storage account
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
+
+## Create a Media Services account
 
 [!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-cli.md)]
 
@@ -45,23 +47,28 @@ Key Vault is used to encrypt media data.
 
 ## Grant the Media Services System Assigned Managed Identity access to the Key Vault
 
-Grant the Media Services Managed Identity access to the Key Vault.
+Grant the Media Services Managed Identity access to the Key Vault. There are two commands:
+
+### Get (show) the Managed Identity of the Media Services account
 
 The first command below shows the Managed Identity of the Media Services account which is the `principalId`.
 
+```azurecli-interactive
+az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>
+```
+
+### Set the Key Vault policy
+
 The second command grants the Principal ID access to the Key Vault. Set `object-id` to the value of `principalId`.
 
-```azurecli
-
-az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>
-
+```azurecli-interactive
 az keyvault set-policy \
   --name <your-keyvault-name> \
   --object-id <the-prinicpal-id-of-the-Media-Services-account> \
   --key-permissions decrypt encrypt get list unwrapKey wrapKey
 ```
 
-## Tell Media Services to use the key from Key Vault
+### Tell Media Services to use the key from Key Vault
 
 Tell Media Services to use the key we have created. The value of the `key-identifier` property comes from the output when the key was created. If you are really fast, this command may fail due to the time taken to propagate access control changes – if this happens retry after a few minutes.
 
@@ -72,6 +79,10 @@ az ams account encryption set \
   --key-type CustomerKey \
   --key-identifier https://<your-keyvault-name>.vault.azure.net/keys/mediakey/abc
 ```
+
+## Test
+
+**MISSING: STEPS FOR TESTING GO HERE.**
 
 ## Clean up resources
 
