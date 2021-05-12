@@ -37,11 +37,13 @@ one.
 
 In this section we will create a JWT token that we will use later in the document.  We will use a sample application that will generate the JWT token and provide you with all the fields required to create the access policy.
 
-[!NOTE] If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate then you can skip this section.
+> [!NOTE] 
+> If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate then you can skip this section.
 
 1. Download the JWTTokenIssuer application located [here]().
 
-   [!NOTE] For more information about configuring your audience values see this [article](./access-policy.md)
+   > [!NOTE] 
+   > For more information about configuring your audience values see this [article](./access-policy.md)
 
 2. Launch Visual Studio Code and open folder that contains the *.sln file.
 
@@ -55,7 +57,8 @@ In this section we will create a JWT token that we will use later in the documen
 
 5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 
-   [!NOTE] The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure.  You will need to click on the link "JSON View" 
+   > [!NOTE] 
+   > The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure.  You will need to click on the link "JSON View" 
 
    ![IMAGE](./media/player-widget/endpoint.png)
 
@@ -85,7 +88,8 @@ Access policies define the permissions and duration of access to a given Video A
 
 1. Click on new and enter the following:
 
-   [!NOTE] These values come from the JWTTokenIssuer application created in the previous step.
+   > [!NOTE] 
+   > These values come from the JWTTokenIssuer application created in the previous step.
 
    - Access policy name - any name
 
