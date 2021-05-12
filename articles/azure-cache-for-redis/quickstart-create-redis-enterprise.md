@@ -50,7 +50,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!NOTE] 
-   > You can't change modules after you create the cache instance. This is a create-only setting.
+   > You can't change modules after you create the cache instance. The setting is create-only.
    >
  
 1. Select **Next: Tags** and skip.
