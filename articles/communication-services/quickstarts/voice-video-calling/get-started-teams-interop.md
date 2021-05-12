@@ -24,6 +24,10 @@ Get started with Azure Communication Services by connecting your calling solutio
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
 ::: zone-end
 
+::: zone pivot="platform-windows"
+[!INCLUDE [Calling with Windows](./includes/teams-interop-windows.md)]
+::: zone-end
+
 ::: zone pivot="platform-android"
 [!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
 ::: zone-end
