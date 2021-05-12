@@ -1,5 +1,5 @@
 ---
-title: Create a managed online endpoint
+title: Use managed online endpoints in the studio 
 titleSuffix: Azure Machine Learning
 description: 'Learn how to create a managed online endpoint using the Azure Machine Learning studio.'
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: peterlu
 ms.date: 05/25/2021
 ---
 
-# Create, update, and delete managed online endpoints in the studio
+# Create and use managed online endpoints in the studio
 
 Learn how to use the studio to create and manage your managed online endpoints in Azure Machine Learning.
 
