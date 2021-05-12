@@ -138,7 +138,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use the labeling tool
-            url: labeling-tool.md
+            url: label-tool.md
 
   - title: API and client libraries
     linkLists:
