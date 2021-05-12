@@ -76,7 +76,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Pass context]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png)
 
-    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking?tabs=version-3-preview) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis) for entity extraction.
+    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics) and [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis) for entity extraction.
 
       ![Extract metadata from query]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
 
