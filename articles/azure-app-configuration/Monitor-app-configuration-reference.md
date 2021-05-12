@@ -29,10 +29,10 @@ For more information, see a list of [all platform metrics supported i
 ## Metric Dimensions
 App Configuration has the following dimensions associated with its metrics.
 
-| Dimension Name | Description |
+| Metric Name | Dimension Description |
 |-------|-----|
-| Http Incoming Request Count | The count of total Http requests. The supported values are the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication.   |
-| Http Incoming Request Duration | The latency of each request. The supported values are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
+| Http Incoming Request Count | The count of total Http requests. The supported dimensions are the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication.   |
+| Http Incoming Request Duration | The server side duration of each request. The supported values are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
 | Throttled Http Request Count | This metric does not have any dimensions |
 
  For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
