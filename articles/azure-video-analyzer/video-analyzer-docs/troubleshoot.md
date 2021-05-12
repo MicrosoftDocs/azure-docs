@@ -237,7 +237,7 @@ To configure the Video Analyzer module to generate debug logs, do the following:
 
 ### Best practices around logging
 
-[Monitoring and logging](monitoring-log-edge.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with Video Analyzer. 
+[Monitoring and logging](monitor-log-edge.md) should help in understanding the taxonomy and how to generate logs that will help in debugging issues with Video Analyzer. 
 
 As gRPC server implementation differ across languages, there is no standard way of adding logging inside in the server.  
 

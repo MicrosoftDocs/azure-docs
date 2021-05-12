@@ -24,7 +24,7 @@ If you are building an application or service using Video Analyzer APIs, then yo
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [the player widget](./playback-widget.md) that is JavaScript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [the player widget](./player-widget.md) that is JavaScript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 

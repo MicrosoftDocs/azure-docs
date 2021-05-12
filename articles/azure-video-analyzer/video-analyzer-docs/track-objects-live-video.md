@@ -30,7 +30,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub sink node. This [IoT Hub sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub sink node. This [IoT Hub sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub.md).
 
 In this quickstart, you will:
 
@@ -167,7 +167,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
     
 ## Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct).
+When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 

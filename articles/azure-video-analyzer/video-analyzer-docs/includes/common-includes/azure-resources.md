@@ -9,7 +9,7 @@ ms.author: juliako
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
 1. **Video Analyzer account** - This [cloud service](../../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 1. **Storage account** - For storing recorded video and video analytics.
-1. **Managed Identity** - This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview) used to manage access to the above storage account.
+1. **Managed Identity** - This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 

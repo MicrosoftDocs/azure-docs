@@ -49,7 +49,7 @@ Cognitive Services extension processor is a custom-built extension processor tha
 
 Use Cognitive Services extension processor node when:
 
-* You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
+* You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md).
 * Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 

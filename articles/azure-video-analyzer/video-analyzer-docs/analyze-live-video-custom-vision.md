@@ -29,18 +29,18 @@ The tutorial shows you how to:
 - Run the sample code.
 - Examine and interpret the results.
 
-If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing.md), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Suggested pre-reading
 
 Read through the following articles before you begin:
 
 - [Video Analyzer on IoT Edge overview](overview.md)
-- [Azure Custom Vision overview](../../cognitive-services/custom-vision-service/overview)
+- [Azure Custom Vision overview](../../cognitive-services/custom-vision-service/overview.md)
 - [Video Analyzer on IoT Edge terminology](terminology.md)
 - [Pipeline concept](pipeline.md)
 - [Video Analyzer without video recording](analyze-live-video-without-recording.md)
-- [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux)
+- [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
 - [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## Prerequisites
@@ -68,20 +68,20 @@ In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy truck
 
 This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../iot-fundamentals/iot-glossary#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## Build and deploy a Custom Vision toy detection model
 
 As the name Custom Vision suggests, you can use it to build your own custom object detector or classifier in the cloud. It provides a simple, easy-to-use, and intuitive interface to build Custom Vision models that can be deployed in the cloud or on the edge via containers.
 
-To build a toy truck detector, follow the steps in [Quickstart: Build an object detector with the Custom Vision website](../../cognitive-services/custom-vision-service/get-started-build-detector).
+To build a toy truck detector, follow the steps in [Quickstart: Build an object detector with the Custom Vision website](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 
 > [!IMPORTANT]
 > This Custom Vision module only supports **Intel x86 and amd64** architectures only. Check the architecture of your edge device before continuing.
 
 Additional notes:
 
-- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../cognitive-services/custom-vision-service/get-started-build-detector#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) in the [quickstart](../../cognitive-services/custom-vision-service/get-started-build-detector).
+- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
 
 After you're finished, you can export the model to a Docker container by using the **Export** button on the **Performance** tab. Ensure you choose Linux as the container platform type. This is the platform on which the container will run. The machine you download the container on could be either Windows or Linux. The instructions that follow were based on the container file downloaded onto a Windows machine.
@@ -247,7 +247,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
 
 ## Interpret the results
 
-When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct).
+When you run the pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
@@ -337,7 +337,7 @@ If you intend to try the other tutorials or quickstarts, hold on to the resource
 Review additional challenges for advanced users:
 
 - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge).
+- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md).
 
-Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux).
+Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).
 
