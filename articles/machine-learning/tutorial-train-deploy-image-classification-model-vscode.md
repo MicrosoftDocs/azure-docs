@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.custom: contperf-fy20q4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
@@ -31,7 +31,7 @@ In this tutorial, you learn the following tasks:
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
-- CLI 2.0 (preview). For installation instructions, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md)
+- 2.0 CLI (preview). For installation instructions, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md)
 
 ## Understand the code
 
@@ -67,7 +67,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 
     The template creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the template provide friendly naming, descriptions, and tags for the workspace.
 
-1. Right-click the template file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the CLI 2.0.
+1. Right-click the template file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the 2.0 CLI.
 
 At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
 
