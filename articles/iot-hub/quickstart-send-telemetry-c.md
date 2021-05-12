@@ -21,8 +21,6 @@ IoT Hub is an Azure service that enables you to ingest high volumes of telemetry
 
 The quickstart uses a C sample application from the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) to send telemetry to an IoT hub. The Azure IoT device SDKs are written in [ANSI C (C99)](https://wikipedia.org/wiki/C99) for portability and broad platform compatibility. Before running the sample code, you will create an IoT hub and register the simulated device with that hub.
 
-This article is written for Windows, but you can complete this quickstart on [Linux](quickstart-send-telemetry-c-linux.md) as well.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
