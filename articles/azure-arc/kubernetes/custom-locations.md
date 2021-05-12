@@ -96,7 +96,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
 
-    * Azure App Service on Azure Arc(../../app-service/overview-arc-integration.md)
+    * [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
 
         ```azurecli
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
@@ -129,7 +129,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 ## Next steps
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
-- Continue with Azure App Service on Azure Arc(../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
+- Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
 - Create an Event Grid topic and an event subscription for Event Grid on Kubernetes. 
 - Learn more about currently available [Azure Arc enabled Kubernetes extensions](extensions.md#currently-available-extensions).
 
