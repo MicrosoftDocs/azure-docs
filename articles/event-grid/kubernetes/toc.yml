@@ -2,6 +2,10 @@
   href: index.yml
 - name: Switch to Azure Event Grid documentation
   href: ../overview.md
+- name: Overview
+  items:
+  - name: What is Event Grid on Kubernetes with Azure Arc (Preview)?
+    href: overview.md  
 - name: Quickstarts
   items:
   - name: Create a topic and a subscription
