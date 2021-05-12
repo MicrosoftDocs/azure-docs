@@ -11,10 +11,6 @@ ms.author: cherylmc
 ---
 # Tutorial: Create a network function as a managed application (Preview)
 
->[!NOTE]
-> This article is not complete. It is still a work in progress.
->
-
 In this tutorial, you create a network function as a managed application for Azure Network Functions Manager.
 
 > [!div class="checklist"]

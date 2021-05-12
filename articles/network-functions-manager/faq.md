@@ -8,13 +8,10 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 05/12/2021
 ms.author: cherylmc
+ms.custom: references_regions
 
 ---
 # Azure Network Functions Manager FAQ (Preview)
-
->[!NOTE]
-> This article is not complete. It is still a work in progress.
->
 
 ## FAQs
 
@@ -28,7 +25,7 @@ If you need general-purpose VMs for your apps to run along with network function
 
 ### Can I run Azure Network Function Manager on my own proprietary edge hardware?
 
-No. Today we offer our service only on Azure Stack Edge Pro with GPU, with more hardware SKUs to be added in the future.
+No. NFM is offered for Azure Stack Edge Pro with GPU.
 
 ## Next steps
 
