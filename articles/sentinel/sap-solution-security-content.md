@@ -13,7 +13,7 @@ ms.subservice: azure-sentinel
 
 # Azure Sentinel SAP solution: security content reference (public preview)
 
-This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel).
+This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
 
 Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
@@ -24,7 +24,7 @@ Available security content includes a built-in workbook and built-in analytics r
 
 ## SAP - System Applications and Products workbook
 
-Use the [SAP - System Applications and Products](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel) workbook to visualize and monitor the data ingested via the SAP data connector.
+Use the [SAP - System Applications and Products](sap-deploy-solution.md#deploy-sap-security-content) workbook to visualize and monitor the data ingested via the SAP data connector.
 
 For example:
 
@@ -34,7 +34,7 @@ For more information, see [Tutorial: Visualize and monitor your data](tutorial-m
 
 ## Built-in analytics rules
 
-The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel) that are included in the Azure Sentinel SAP solution, deployed from the Azure Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Azure Sentinel SAP solution, deployed from the Azure Sentinel Solutions marketplace.
 
 ### High-level, built-in SAP solution analytics rules
 
@@ -84,7 +84,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 
 ## Available watchlists
 
-The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel) available for the Azure Sentinel SAP solution, and the fields in each watchlist.
+The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Azure Sentinel SAP solution, and the fields in each watchlist.
 
 These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution, and are accessible in the Azure Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
 
