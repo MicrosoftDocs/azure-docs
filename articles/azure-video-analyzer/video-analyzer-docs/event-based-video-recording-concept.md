@@ -2,7 +2,7 @@
 title: Azure Video Analyzer event-based video recording - Azure
 description: Azure Video Analyzer event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, detection on motion) or could be from an independent source (for example, opening of a door). A few use cases related to event-based video recording are described in this article.
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 05/12/2021
 
 ---
 # Event-based video recording  
