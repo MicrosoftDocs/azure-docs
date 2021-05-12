@@ -12,7 +12,7 @@ ms.date: 05/28/2021
 
 This article walks you through the steps to rotate the cloudadmin credentials (vCenter and NSX-T credentials) for your Azure VMware Solution private cloud.  Although the passwords for these accounts don't expire, you can generate new ones. After generating new passwords, you'll verify that the VMware HCX Connector has the latest credentials applied.
 
-You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. For more information about setting up separate accounts [is "separate accounts" referring to "custom roles"? if so, then we can point the user to the proper section within the concepts-identity.md file -- "Create custom roles for Azure VMware Solution"] for connected services, see [Access and Identity Concepts](./concepts-identity.md).
+You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
 You can also watch a video on how to [reset the vCenter CloudAdmin & NSX-T admin password](https://youtu.be/cK1qY3knj88).  [Husam Halil should update this video with the proper steps.]
 
