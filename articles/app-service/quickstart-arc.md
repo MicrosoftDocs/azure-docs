@@ -142,7 +142,7 @@ az webapp create
 
 To update the image after the app is create, see [Change the Docker image of a custom container](configure-custom-container.md?pivots=container-linux#change-the-docker-image-of-a-custom-container)
 
-## More resources
+## Next steps
 
 - [Configure an ASP.NET Core app](configure-language-dotnetcore.md?pivots=platform-linux)
 - [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
