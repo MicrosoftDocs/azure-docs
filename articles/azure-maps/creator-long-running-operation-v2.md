@@ -1,6 +1,6 @@
 ---
-title: Azure Maps Long-Running Operation API
-description: Learn about long-running asynchronous background processing in Azure Maps
+title: Azure Maps Long-Running Operation API V2
+description: Learn about long-running asynchronous V2 background processing in Azure Maps
 author: anastasia-ms 
 ms.author: v-stharr 
 ms.date: 05/11/2020
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc 
 --- 
 
-# Creator Long-Running Operation API
+# Creator Long-Running Operation API V2
 
 Some APIs in Azure Maps use an [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
 
