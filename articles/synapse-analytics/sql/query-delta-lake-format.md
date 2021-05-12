@@ -35,7 +35,7 @@ The easiest way to see to the content of your `DELTA` file is to provide the fil
 ```sql
 select top 10 *
 from openrowset(
-    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/'
+    bulk 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/covid/',
     format = 'delta') as rows
 ```
 
@@ -183,6 +183,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 ## Next steps
 
 Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).
+If you want to continue building DeltaLake solution learn hot to create [views](create-use-views.md#delta-lake-partitioned-views) or [external tables](create-use-external-tables.md) on the Delta Lake folder.
 
 ## See also
 
