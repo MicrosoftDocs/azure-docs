@@ -100,7 +100,7 @@ Here we compose the policy rule and then assign it to either a management group 
     }
     ```
 
-2. Run the following command to create a policy definition using the AuditAutomationHRWJobExecution.json file.
+2. Run the following Azure PowerShell or Azure CLI command to create a policy definition using the AuditAutomationHRWJobExecution.json file.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -127,3 +127,9 @@ Here we compose the policy rule and then assign it to either a management group 
 
     * **SubscriptionId** - Save to a different subscription. Requires a *GUID* value.
     * **ManagementGroupName** - Save to a management group. Requires a *string* value.
+
+    ---
+
+3. After you create your policy definition, you can create a policy assignment by running the following commands:
+
+    
