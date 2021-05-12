@@ -75,12 +75,12 @@ For details on creating an environment from this environment.yml file, see [Crea
 ).
 
 #### Update Python packages
-Once you have identified the environment specification file or set of libraries you want to install on the Spark pool, you can update the Spark pool libraries by navigating to the Azure Synapse Studio or Azure portal. Here, you can provide the environment specification and select the workspace libraries to install. 
+Once you have identified the environment specification file or set of libraries you want to install on the Spark pool, you can update the Spark pool libraries by navigating to the Synapse Studio or Azure portal. Here, you can provide the environment specification and select the workspace libraries to install. 
 
 Once the changes are saved, a Spark job will run the installation and cache the resulting environment for later reuse. Once the job is complete, new Spark jobs or notebook sessions will use the updated pool libraries. 
 
-##### Manage packages from Azure Synapse Studio or Azure portal
-Spark pool libraries can be managed either from the Azure Synapse Studio or Azure portal. 
+##### Manage packages from Synapse Studio or Azure portal
+Spark pool libraries can be managed either from the Synapse Studio or Azure portal. 
 
 To update or add  libraries to a Spark pool:
 1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.
