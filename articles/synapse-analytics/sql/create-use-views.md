@@ -19,7 +19,7 @@ In this section, you'll learn how to create and use views to wrap serverless SQL
 
 Your first step is to create a database where the view will be created and initialize the objects needed to authenticate on Azure storage by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
 
-## Create a view
+## Views over external data
 
 You can create views the same way you create regular SQL Server views. The following query creates view that reads *population.csv* file.
 
@@ -52,7 +52,7 @@ WITH (
 
 The view uses an `EXTERNAL DATA SOURCE` with a root URL of your storage, as a `DATA_SOURCE` and adds a relative file path to the files.
 
-## Create a partitioned view
+## Partitioned views
 
 If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
 
