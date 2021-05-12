@@ -82,7 +82,7 @@ To use an Azure AD application as the proxy:
 
 1. Create a new application and add a client secret as described in [this quickstart](../active-directory/develop/quickstart-register-app.md).
 1. Go back to your Azure Key Vault instance, browse to the **Access policies** section, and add a new policy:
-   1. In **Key permissions**, select **Get**, **Unwrap Key**, **Wrap Key** and **Sign**.
+   1. In **Key permissions**, select **Get**, **List**, **Unwrap Key**, **Wrap Key**, **Verify** and **Sign**.
    1. In **Select principal**, search for the AAD application you've created before.
 
 ### Protecting your CMK from accidental deletion
