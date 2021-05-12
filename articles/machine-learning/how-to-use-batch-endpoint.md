@@ -76,7 +76,7 @@ Batch scoring runs only on cloud computing resources, not locally. The cloud com
 Run the following code to create a general purpose [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```azurecli
-az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
 ```
 
 ## Create a batch endpoint
@@ -125,7 +125,7 @@ az ml endpoint show --name mybatchedp --type batch
 
 ## Start a batch scoring job using CLI
 
-A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the inferencing compute cluster. Any single node is assigned a partition of the total data. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
+A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in paralle. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
 ### Start a bath scoring job with different inputs options
 
