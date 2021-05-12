@@ -163,7 +163,7 @@ When administrators or Lab Creators create a lab, they can choose from a variety
 In the following table, notice that several of the VM sizes map to more than one VM series.  Depending on capacity availability, Lab Services may use any of the VM series that are listed for a VM size.  For example, the *Small* VM size maps to using either the [Standard_A2_v2](../virtual-machines/av2-series.md) or the [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) VM series.  When you choose *Small* as the VM size for your lab, Lab Services will first attempt to use the *Standard_A2_v2* series.  However, when there isn't sufficient capacity available, Lab Services will instead use the *Standard_A2* series.  The pricing is determined by the VM size and is the same regardless of which VM series Lab Services uses for that specific size. For more information on pricing for each VM size, read the [Lab Services pricing guide](https://azure.microsoft.com/pricing/details/lab-services/).
 
 
-| Size | Specs | Series | Suggested use |
+| Size | Minimum Specs | Series | Suggested use |
 | ---- | ----- | ------ | ------------- |
 | Small| <ul><li>2&nbsp;cores</li><li>3.5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md), [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
 | Medium | <ul><li>4&nbsp;cores</li><li>7&nbsp;GB&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md), [Standard_A3](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for relational databases, in-memory caching, and analytics. |
