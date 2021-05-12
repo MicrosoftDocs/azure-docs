@@ -56,11 +56,13 @@ Your first step is to create a database where the tables will be created. Then c
     );
     GO
     CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
+    GO
+    CREATE EXTERNAL FILE FORMAT DeltaLakeFormat WITH (  FORMAT_TYPE = DELTA );
     ```
 
 The queries in this article will be executed on your sample database and use these objects. 
 
-## Create an external table on protected data
+## Create an external table on a file
 
 You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
 
@@ -90,9 +92,9 @@ WITH (
 
 Native CSV tables are currently available only in the serverless SQL pools.
 
-## Create an external table on public data
+## Create an external table on a set of files
 
-You can create external tables that read data from the files placed on publicly available Azure storage:
+You can create external tables that read data from a set of files placed on Azure storage:
 
 ```sql
 CREATE EXTERNAL TABLE Taxi (
@@ -112,8 +114,10 @@ CREATE EXTERNAL TABLE Taxi (
 );
 ```
 
+You can specify the pattern that the files must satisfy in order to be referenced by the external table. The pattern is required only for Parquet and CSV tables. If you are using Delta Lake format, you need to specify just a root folder, and the external table will automatically find the pattern.
+
 > [!NOTE]
-> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md).
+> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
 
 ## Use an external table
 
