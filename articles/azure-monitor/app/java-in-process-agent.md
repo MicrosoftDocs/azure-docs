@@ -30,6 +30,12 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
+> [!WARNING]
+> **If you are upgrading from 3.0.x**
+>
+> The operation name and request telemetry name are now prefixed by the http method (`GET`, `POST`, etc.),
+> see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0) for more details.
+
 Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.1.0.jar)
 
 **2. Point the JVM to the agent**

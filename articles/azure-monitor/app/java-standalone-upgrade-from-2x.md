@@ -41,7 +41,9 @@ In the 2.x SDK, in some cases, the operation names contained the full path, e.g.
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Operation names with full path":::
 
 Operation names in 3.0 have changed to generally provide a better aggregated view
-in the Application Insights Portal U/X.
+in the Application Insights Portal U/X, e.g.
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-parameterized.png" alt-text="Operation names parameterized":::
 
 However, for some applications, you may still prefer the aggregated view in the U/X
 that was provided by the previous operation names, in which case you can use the
