@@ -4,7 +4,7 @@ title: Azure Metrics Advisor documentation
 summary: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
 
 metadata:
-  title: Azure Metrics Advisor Documentation - Tutorials, API Reference - Azure Applied AI Services  | Microsoft Docs
+  title: Azure Metrics Advisor documentation - Tutorials, API reference - Azure Applied AI Services  | Microsoft Docs
   titleSuffix: Azure Applied AI Services
   services: cognitive-services
   description: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
