@@ -32,6 +32,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) | ✘ | ✔ |
 | [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
+| [Advanced filtering](../filter-events.md) | ✔*** | ✔ |
 | [Webhook AuthN/AuthZ with AAD](../secure-webhook-delivery.md) | ✘ | ✔ |
 | [Event delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) | ✘ | ✔ |
 | Same set of client SDKs | ✔ | ✔ |
@@ -41,6 +42,8 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 \* Cloud Events 1.0 schema provides an extensibility mechanism and is an open standard. Those qualities or features aren't provided by the Event Grid or custom schemas. Cloud Events 1.0 schema is an evolution from the Event Grid schema.
 
 \** Metrics for topics and event subscriptions is provided using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Metrics or other Monitoring features on the Azure portal aren't currently available in the preview version.
+
+\*** Event Grid on Kubernetes supports advanced filtering of events based on values in event data as Event Grid on Azure does, but there are a few features and operators that Event Grid on Kubernetes doesn't support. For more information, see [Advanced filtering](event-filters.md#filter-by-values-in-event-data).
 
 ## Next steps
 To learn more about Event Grid on Kubernetes, see [Event Grid on Kubernetes with Azure Arc (Preview) - overview](overview.md).

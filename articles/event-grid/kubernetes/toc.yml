@@ -10,11 +10,15 @@
   items:
   - name: Create a topic and a subscription
     href: create-topic-subscription.md
+- name: Samples
+  items:
+  - name: Code Samples
+    href: https://devblogs.microsoft.com/azure-sdk/event-grid-ga/
 - name: Concepts
   items:
   - name: Event Grid on Kubernetes concepts
     href: concepts.md
-  - name: Feature parity with Azure Event Grid
+  - name: Features
     href: features.md
   - name: Event handlers
     href: event-handlers.md    
@@ -24,7 +28,7 @@
     href: batch-delivery.md
   - name: Delivery and retry
     href: delivery-retry.md
-  - name: Filter events
+  - name: Event filtering
     href: filter-events.md    
 - name: How-to guides
   items:
@@ -35,4 +39,6 @@
 - name: Reference
   items:
   - name: REST API
-    href: /rest/api/eventgrid
+    href: /rest/api/eventgrid/version2020-10-15-preview/topics
+  - name: SDKs
+    href: ../sdk-overview.md

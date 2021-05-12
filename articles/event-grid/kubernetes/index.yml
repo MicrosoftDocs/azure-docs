@@ -31,7 +31,7 @@ landingContent:
         links:
           - text: Event Grid on Kubernetes concepts
             url: concepts.md            
-          - text: Feature parity with Azure Event Grid
+          - text: Features
             url: features.md            
           - text: Event schemas
             url: event-schemas.md        

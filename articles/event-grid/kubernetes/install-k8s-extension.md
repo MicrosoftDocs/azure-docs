@@ -61,7 +61,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
     > [!IMPORTANT] 
     > For early proof-of-concept stages, self-signed certificates might be an option but in general, proper PKI certificates signed by a Certificate Authority (CA) should be procured and used.
 
-## Install Event Grid on Kubernetes Extension using Azure portal
+## Install Event Grid on Kubernetes extension
 
 1. On the Azure portal, search (field on top) for **Azure Arc**
 1. Select **Kuberntes cluster** on the left-hand-side menu in the **Infrastructure** section

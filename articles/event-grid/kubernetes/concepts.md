@@ -10,7 +10,7 @@ ms.topic: conceptual
 ---
 
 # Event Grid on Kubernetes - Concepts
-This article describes the main concepts in Azure Event Grid for Kubernetes with Azure Arc (Preview).
+This article describes the main concepts in Event Grid on Kubernetes with Azure Arc (Preview).
 
 ## Events
 An event is a data record that announces a fact about the operation of a software system. Typically, an event announces a state change because of a signal raised by the system or a signal observed by the system. Events contain two types of information: 
@@ -63,7 +63,7 @@ Event subscribers are software systems such as microservices that expose endpoin
 An event subscription tells Event Grid which events on a topic you are interested in receiving (event filtering) and where to send them (event routing). When creating an event subscription, you provide an endpoint for handling the event. You can select the events that you want to be delivered to your endpoint by configuring filter clauses on the event subscription. 
 
 ## Event handlers
-An event handler is a software system that exposes an endpoint to which events are sent. The handler receives the event and takes actions to process the event. Event Grid supports several handler types. As the handler, you can use a supported Azure service hosted on Kubernetes or Azure, or your own solution that exposes a web hook (endpoint) wherever that's hosted. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. If the destination event handler is an HTTP web hook, the event is retried until the handler returns a status code of 200 – OK. 
+An event handler is a software system that exposes an endpoint to which events are sent. The handler receives the event and takes actions to process the event. Event Grid supports several handler types. As the handler, you can use a supported Azure service hosted on Kubernetes or Azure, or your own solution that exposes a web hook (endpoint) wherever that's hosted. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. If the destination event handler is an HTTP web hook, the event is retried until the handler returns a status code of 200 – OK. For more information, see [Event handlers](event-handlers.md).
 
 ## SAS authentication
 Event Grid on Kubernetes provides SAS key-based authentication for publishing events to topics.
@@ -72,7 +72,7 @@ Event Grid on Kubernetes provides SAS key-based authentication for publishing ev
 Event Grid on Kubernetes provides a reliable delivery and retry mechanism. If Event Grid cannot confirm that an event has been received by the event handler endpoint, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-retry.md).
 
 ## Batch event publishing
-When using a topic, events must always be published in an array. For low throughput scenarios, the array will have only one event. For high volume use cases, we recommend that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 1 MB.
+When using a topic, events must always be published in an array. For low throughput scenarios, the array will have only one event. For high volume use cases, we recommend that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 1 MB. For more information, see [Batch event delivery](batch-event-delivery.md).
 
 ## Event Grid on Kubernetes components
 

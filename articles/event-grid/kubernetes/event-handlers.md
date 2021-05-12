@@ -1,44 +1,59 @@
 ---
 title: Azure Event Grid on Kubernetes - event handlers and destinations
 description: This article describes different types of event handlers and destinations supported by Event Grid on Kubernetes
-author: jfggdl
+author: spelluru, jfggdl
 manager: JasonWHowell
+ms.author: spelluru, jafernan
 ms.subservice: kubernetes
-ms.author: jafernan
 ms.date: 05/04/2021
 ms.topic: conceptual
 ---
 
-# Event handlers and destinations in Event Grid on Kubernetes
-An event handler is the place where the event for further action or to process the event. Event subscriptions support the following kind of destinations.
+# Event handlers destinations in Event Grid on Kubernetes
+An event handler is any system that exposes an endpoint and is the destination for events sent by Event Grid. An event handler receiving an event acts upon it and uses the event payload to execute some logic, which might lead to the occurrence of new events.
 
-- Webhooks. The following destinations are supported through webhooks:
-    - Azure Event Grid
-    - Azure Functions
-    - Functions on Kubernetes
-    - App Service on Kubernetes
-    - Logic Apps on Kubernetes
-- Azure Event Grid
-- Azure Event Hubs
-- Azure Service Bus topics and queues
-- Azure Storage queues
+The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate) version.
 
-## Parity with event subscriptions on Azure 
-Event Grid on Kubernetes offers a good level of feature parity with respect to Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you may use Azure Event Grid's [REST API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) to manage event subscriptions as reference documentation when managing event subscriptions on Event Grid on Kubernetes.
+In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-prem or anywhere that Event Grid can reach. 
 
-1. Use the api version `2020-10-15-preview`.
+Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
+
+* Azure App Service on Kubernetes with Azure Arc. 
+* Azure Functions on Kubernetes with Azure Arc. 
+* Azure Logic Apps on Kubernetes with Azure Arc.
+
+In addition to Webhooks, Event Grid on Kubernetes can send event to following destinations **hosted on Azure**:
+
+- Azure Event Grid **using Webhooks only**.
+- Azure Functions **using Webhooks only**.
+- Azure Event Hubs using its Azure Resource Manager resource ID.
+- Azure Service Bus topics or queues using its Azure Resource Manager resource ID.
+- Azure Storage queue using its Azure Resource Manager resource ID.
+
+
+## Feature parity
+Event Grid on Kubernetes offers a good level of feature parity with Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you can use Azure Event Grid's [rest api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) as a reference when managing event subscriptions on Event Grid on Kubernetes.
+
+1. Use [rest api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions).
 2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
-3. There is no dead letter support.
+3. There's no [dead letter location](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-dead-letter-location) support. That means that you cannot use ``properties.deadLetterDestination`` in your event subscription payload.
 4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
-5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)". 
-6. Labels ([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body)) aren't applicable to Event Grid on Kubernetes, so they are not available.
-7. [Delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) isn't supported. Therefore, all properties for [Event Subscription Identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity) aren't supported.
-8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) is not supported yet.
+5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.  
+6. Labels ([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they are not available.
+7. [Delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) isn't supported. So, all properties for [Event Subscription Identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventsubscriptionidentity) aren't supported.
+8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) isn't supported yet.
+
+## Event filtering in event subscriptions
+The other important aspect of configuring an event subscription is selecting the events that are meant to be delivered to a destination. For more information, see [Event Filtering](filter-events.md).
+
+## Sample destination configuration in event subscriptions
+
+Following are some basic sample configurations depending on the intended destination.
 
 ## WebHook
 To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provide:
 
-* endpointUrl: The WebHook endpoint URL
+* **endpointUrl**: The WebHook endpoint URL
 
     ```json
         {
@@ -57,9 +72,9 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `eventGrid` and provide:
 
-* endpointUrl: Event Grid Topic URL in the cloud
-* sasKey: Event Grid Topic's SAS key
-* topicName: Name to stamp all outgoing events to Event Grid. Topic name is useful when posting to an Event Grid Domain topic.
+* **endpointUrl**: Azure event grid topic URL in the cloud
+* **sasKey**: Azure event grid topic's SAS key
+* **topicName**: Name to stamp all outgoing events to Event Grid. Topic name is useful when posting to an Event Grid domain topic.
 
    ```json
         {
@@ -80,10 +95,10 @@ To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `eve
 
 To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
 
-* connectionString: Connection string for the specific Event Hub you're targeting generated via a Shared Access Policy.
+* **connectionString**: Connection string for the specific event hub that's generated using a Shared Access Policy.
 
     >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Event Hub you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+    > The connection string must be entity specific. Using a namespace connection string won't work. You can generate an entity specific connection string by navigating to the specific event hub in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
 
     ```json
         {
@@ -98,14 +113,14 @@ To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
         }
     ```
 
-## Service Bus Queues
+## Service Bus queues
 
-To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` and provide:
+To publish to a Service Bus queue, set the `endpointType` to `serviceBusQueue` and provide:
 
-* connectionString: Connection string for the specific Service Bus Queue you're targeting generated via a Shared Access Policy.
+* **connectionString**: Connection string for the specific Service Bus queue that's generated using a Shared Access Policy.
 
     >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Queue you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+    > The connection string must be entity specific. Using a namespace connection string won't work. Generate an entity specific connection string by navigating to the specific Service Bus queue in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
 
     ```json
         {
@@ -120,14 +135,14 @@ To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` a
         }
     ```
 
-## Service Bus Topics
+## Service Bus topics
 
 To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` and provide:
 
-* connectionString: Connection string for the specific Service Bus Topic you're targeting generated via a Shared Access Policy.
+* **connectionString**: Connection string for the specific Service Bus topic that's generated using a Shared Access Policy.
 
     >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Topic you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+    > The connection string must be entity specific. Using a namespace connection string won't work. Generate an entity specific connection string by navigating to the specific Service Bus topic in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
 
     ```json
         {
@@ -146,11 +161,11 @@ To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` a
 
 To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and provide:
 
-* queueName: Name of the Storage Queue you're publishing to.
-* connectionString: Connection string for the Storage Account the Storage Queue is in.
+* **queueName**: Name of the Azure Storage queue you're publishing to.
+* **connectionString**: Connection string for the storage account the queue is in.
 
     >[!NOTE]
-    > Unline Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must but the connection string for the Storage Account.
+    > Unlike Event Hubs, Service Bus queues, and Service Bus topics, the connection string used for Storage queues isn't entity specific. Instead, it must but the connection string for the storage account.
 
     ```json
         {
@@ -167,4 +182,5 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
     ```
 
 ## Next steps
-To learn about schemas supported by Event Grid on Azure Arc for Kubernetes, see [Event Grid on Kubernetes - Event schemas](event-schemas.md).
+* Add [filter configuration](event-grid-on-k8s-event-filtering.md) to your event subscription to select the events to be delivered. 
+* To learn about schemas supported by Event Grid on Azure Arc for Kubernetes, see [Event Grid on Kubernetes - Event schemas](event-schemas.md).
