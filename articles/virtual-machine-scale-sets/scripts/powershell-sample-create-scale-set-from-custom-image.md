@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
-ms.custom: akjosh
+ms.custom: akjosh, devx-track-azurepowershell
 
 ---
 

@@ -1,19 +1,14 @@
 ---
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
-ms.author: alsin
+ms.author: mathapli
+ms.reviewer: cynthn
 
 ---
 
@@ -24,7 +19,7 @@ This article describes available Red Hat Enterprise Linux (RHEL) images in Azure
 For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata). For pricing details, see [Azure pricing calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. The [Azure Hybrid Use Benefit](../../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and pay-as-you-go licensing isn't supported. To switch licensing mode, you must redeploy the VM from the corresponding image.
+> RHEL images currently available in Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. Dynamic switching between BYOS and pay-as-you-go licensing can be done through [Azure Hybrid Use Benefit](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > For any problem related to RHEL images in Azure Marketplace, file a support ticket with Microsoft.
@@ -62,10 +57,13 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor?view=netframework-4.8) object, not as a string.
+> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor) object, not as a string.
 
 ## RHEL 6 image types
+
+>[!NOTE]
+> As of December 30 2020, RHEL 6.10 entered End Of Life (EOL). For continued support please enable ELS as part of the Extended Life-cycle Support phase, see [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
 
 For RHEL 6.x images, the image types are shown in the following table.
 
@@ -106,15 +104,25 @@ Details for RHEL 8 image types are below.
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
-|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../linux/generation-2.md).
+|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021012201) | These images are RHEL for SAP Applications images. They're entitled to access SAP Applications repositories and base RHEL repositories.
+|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021010602) | These images are RHEL for SAP with High Availability and Update Services images. They're entitled to access the SAP Solutions and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and High Availability premium on top of the base compute fee.
 
-## RHEL longer support add-ons
+## RHEL Extended Support add-ons
+
+### Extended Life-cycle Support
+
+The Extended Life-cycle Support (ELS) add-on is an optional subscription that enables critical and important security fixes for releases that have reached End Of Life (EOL). More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS is currently only available for RHEL 6.10. For pay-as-you-go images, ELS can be enabled by following the steps in the [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
+
+If you’re running on an older version, an upgrade to RHEL 6.10 is required before you can enable ELS.
 
 ### Extended Update Support
 
 As of April 2019, RHEL images are available that are attached to the EUS repositories by default. More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/articles/rhel-eus).
 
-Switching to EUS repositories is possible and is supported. For instructions on how to switch your VM to EUS and more information about EUS support end-of-life dates, see [RHEL EUS and version-locking RHEL VMs](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+Switching to EUS repositories is possible and is supported. For instructions on how to switch your VM to EUS and more information about EUS support end-of-life dates, see [RHEL EUS and version-locking RHEL VMs](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > EUS isn't supported on RHEL Extras. This means that if you install a package that's usually available from the RHEL Extras channel, you won't be able to do so while on EUS. For more information on the Red Hat Extras product life cycle, see [Red Hat Enterprise Linux Extras life cycle](https://access.redhat.com/support/policy/updates/extras/).
@@ -181,6 +189,6 @@ Current policy is to keep all previously published images. We reserve the right 
 ## Next steps
 
 * To view the full list of RHEL images in Azure, see [Red Hat Enterprise Linux (RHEL) images available in Azure](./redhat-imagelist.md).
-* To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](https://aka.ms/rhui-update).
+* To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](./redhat-rhui.md).
 * To learn more about the RHEL BYOS offer, see [Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure](./byos.md).
 * For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).

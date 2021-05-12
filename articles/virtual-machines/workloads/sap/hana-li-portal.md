@@ -8,19 +8,20 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Azure HANA Large Instances control through Azure portal
+
+>[!NOTE]
+>For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md) topic.
+
 This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 
 ## Register HANA Large Instance Resource Provider
@@ -52,7 +53,7 @@ As your first HANA Large Instances are getting deployed, a new [Azure resource g
 
 In order to find the new Azure resource group, you list the resource group in your subscription by navigating through the left navigation pane of the Azure portal
 
-![Navigation pane in Azure portal](./media/hana-li-portal/portal-resource-group.png)
+![Screenshot that highlights the Resource groups option.](./media/hana-li-portal/portal-resource-group.png)
 
 In the list of resource groups, you are getting listed, you might need to filter on the subscription you used to have HANA Large Instances deployed
 
@@ -87,7 +88,7 @@ Additional data on the right lower side is the revision of the HANA Large Instan
 - Revision 4
 
 Revision 4 is the latest architecture released of HANA Large Instances with major improvements in network latency between Azure VMs and HANA Large instance units deployed in Revision 4 stamps or rows.
-Another very important information is found in the lower right corner of the overview with the name of the Azure Proximity Placement Group that is automatically created for each deployed HANA Large Instance unit. This Proximity Placement Group needs to be referenced when deploying the Azure VMs that host the SAP application layer. By using the [Azure proximity placement group](../../linux/co-location.md) associated with the HANA Large Instance unit, you make sure that the Azure VMs are deployed in close proximity to the HANA Large Instance unit. The way how proximity placement groups can be used to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units is described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+Another very important information is found in the lower right corner of the overview with the name of the Azure Proximity Placement Group that is automatically created for each deployed HANA Large Instance unit. This Proximity Placement Group needs to be referenced when deploying the Azure VMs that host the SAP application layer. By using the [Azure proximity placement group](../../co-location.md) associated with the HANA Large Instance unit, you make sure that the Azure VMs are deployed in close proximity to the HANA Large Instance unit. The way how proximity placement groups can be used to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units is described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 
 An additional field in the right column of the header informs about the power state of the HANA Large instance unit.
 

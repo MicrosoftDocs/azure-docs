@@ -2,6 +2,7 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
@@ -43,20 +44,12 @@ The following instructions apply to all Windows, Linux, and Mac development envi
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights in Program.cs:
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseApplicationInsights() // Add this line of code to Enable Application Insights
-            .UseStartup<Startup>();
-    ```
-
-1. Enable Profiler in Startup.cs:
+1. Enable Application Insights and Profiler in Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
@@ -102,7 +95,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see [this article](../../app-service/containers/choose-deployment-type.md).
+For more deployment options, see [App Service documentation](../../app-service/index.yml).
 
 ## Deploy your project
 
@@ -118,7 +111,7 @@ For more deployment options, see [this article](../../app-service/containers/cho
 2. Deploy the project by pushing the changes to Azure:
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     You should see output similar to the following example:
@@ -129,7 +122,7 @@ For more deployment options, see [this article](../../app-service/containers/cho
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.
@@ -169,4 +162,3 @@ Enable Service Profiler for a containerized ASP.NET Core application](https://gi
 
 Report any issues or suggestions to the Application Insights GitHub repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
-

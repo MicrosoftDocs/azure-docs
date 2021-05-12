@@ -10,10 +10,11 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # Upgrade to Azure Search .NET SDK version 1.1
 
-If you're using version 1.0.2-preview or older of the [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 1.1.
+If you're using version 1.0.2-preview or older of the [Azure Search .NET SDK](/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 1.1.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 
@@ -396,4 +397,3 @@ Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 For this reason, we still recommend that you use nullable types in your model classes as a best practice.
 
 For more details on this bug and the fix, please see [this issue on GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-

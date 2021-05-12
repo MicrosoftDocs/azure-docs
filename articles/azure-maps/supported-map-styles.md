@@ -1,9 +1,9 @@
 ---
 title: Supported built-in Azure Maps map styles
-description: In this article, you'll learn about different built-in map styles supported by Microsoft Azure Maps.
+description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/24/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,6 +14,9 @@ manager: philmea
 
 Azure Maps supports several different built-in map styles as described below.
 
+>[!important]
+>The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+
 ## road
 
 A **road** map is a standard map that displays roads. It also displays natural and artificial features, and the labels for those features.
@@ -22,8 +25,8 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 **Applicable APIs:**
 
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map image](/rest/api/maps/render/getmapimage)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -47,7 +50,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 **Applicable APIs:**
 
-* [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Satellite tile](/rest/api/maps/render/getmapimagerytilepreview)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -72,8 +75,8 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map image](/rest/api/maps/render/getmapimage)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -109,7 +112,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -129,5 +132,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 Learn about how to set a map style in Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Choose a map style](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Choose a map style](./choose-map-style.md)

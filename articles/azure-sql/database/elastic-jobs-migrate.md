@@ -1,18 +1,18 @@
 ---
-title: Migrate to new Elastic Database Jobs
+title: Migrate to new Elastic Database Jobs (preview)
 description: Migrate to the new Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ---
-# Migrate to the new Elastic Database jobs
+# Migrate to the new Elastic Database jobs (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 An upgraded version of [Elastic Database Jobs](elastic-jobs-overview.md) is available.

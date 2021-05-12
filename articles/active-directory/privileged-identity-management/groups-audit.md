@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure privileged access group members and owners within your Azure Active Directory (Azure AD) organization.
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
 Follow these steps to view the audit history for privileged access groups.
 
@@ -31,7 +31,9 @@ Follow these steps to view the audit history for privileged access groups.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Privileged access (Preview)**.
+1. Select **Privileged access groups (Preview)**.
+
+1. Select the privileged access group you want to view audit history for.
 
 1. Under **Activity**, select **Resource audit**.
 
@@ -41,15 +43,15 @@ Follow these steps to view the audit history for privileged access groups.
 
 ## View my audit
 
-My audit enables you to view your personal role activity.
+**My audit** enables you to view your personal role activity for a privileged access group.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Privileged access (Preview)**.
+1. Select **Privileged access groups (Preview)**.
 
-1. Select the member or group you want to view audit history for.
+1. Select the privileged access group you want to view audit history for.
 
-1. Select **My audit**.
+1. Under **Activity**, select **My audit**.
 
 1. Filter the history using a predefined date or custom range.
 

@@ -5,10 +5,10 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual 
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: terminate-notification
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Terminate notification for Azure virtual machine scale set instances
@@ -86,7 +86,7 @@ Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to e
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 The above example enables terminate notifications on an existing scale set and sets a 15-minute timeout for the terminate event.

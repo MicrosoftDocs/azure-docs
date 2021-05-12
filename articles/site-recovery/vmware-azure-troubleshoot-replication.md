@@ -142,7 +142,7 @@ Some of the most common issues are listed below
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### Cause 4: App-Consistency not enabled on Linux servers
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.md#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
 
 ### More causes due to VSS related issues:
 
@@ -187,6 +187,24 @@ Verify that the startup type of the VSS Provider service is set to **Automatic**
         - VSS service
         - Azure Site Recovery VSS Provider
         - VDS service
+
+## Error ID 95001 - Insufficient permissions found
+
+This error occurs when trying to enable replication and the application folders don't have enough permissions.
+
+**How to fix**: To resolve this issue, make sure the IUSR user has owner role for all the below mentioned folders -
+
+- *C\ProgramData\Microsoft Azure Site Recovery\private*
+- The installation directory. For example, if installation directory is F drive, then provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems*
+- The *\pushinstallsvc* folder in installation directory. For example, if installation directory is F drive, provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
+- The *\etc* folder in installation directory. For example, if installation directory is F drive, provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\etc*
+- *C:\Temp*
+- *C:\thirdparty\php5nts*
+- All the items under the below path -
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## Next steps
 

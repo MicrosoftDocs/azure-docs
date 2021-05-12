@@ -8,8 +8,9 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-sql
+ms.subservice: management
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
@@ -32,7 +33,7 @@ Complete a [full backup](backup-restore.md) up of your database.
 
 Attach the Ultra SSD to your virtual machine once you have enabled ultradisk compatibility on the VM. 
 
-Ultra disk is supported on a subset of VM sizes and regions. Before proceeding, validate that your VM is in a region, zone, and size that supports ultra disk. You can [determine and validate VM size and region](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) using the Azure CLI or PowerShell. 
+Ultra disk is supported on a subset of VM sizes and regions. Before proceeding, validate that your VM is in a region, zone, and size that supports ultra disk. You can [determine and validate VM size and region](../../../virtual-machines/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) using the Azure CLI or PowerShell. 
 
 ### Enable compatibility
 
@@ -44,9 +45,9 @@ To enable compatibility, follow these steps:
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Select additional settings for Disks under Settings in the Azure portal":::
 
-1. Select **Yes** to **Enable Ultra Disk compatibility**. 
+1. Select **Yes** to **Enable Ultra disk compatibility**. 
 
-   :::image type="content" source="../../../../includes/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Select additional settings for Disks under Settings in the Azure portal":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Screenshot that shows the Yes option.":::
 
 1. Select **Save**. 
 
@@ -54,7 +55,7 @@ To enable compatibility, follow these steps:
 
 ### Attach disk
 
-Use the Azure portal to attach an ultra disk to your virtual machine. For details, see [Attach an ultra disk](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Use the Azure portal to attach an ultra disk to your virtual machine. For details, see [Attach an ultra disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Once the disk is attached, start your VM once more using the Azure portal. 
 
@@ -157,7 +158,7 @@ At this point, the database comes online with the log in the new location.
 
 ## Next steps
 
-Review the [performance best practices](performance-guidelines-best-practices.md) for additional settings to improve performance. 
+Review the [performance best practices](./performance-guidelines-best-practices-checklist.md) for additional settings to improve performance. 
 
 For an overview of SQL Server on Azure Virtual Machines, see the following articles:
 

@@ -8,10 +8,8 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -69,7 +67,7 @@ In this phase, you need to go through the steps deploying the VM(s) to install H
 	-  [SAP support note #2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Select the Azure storage type for SAP HANA. In this step, you need to decide on storage layout for SAP HANA installation. You are going to use either attached Azure disks or native Azure NFS shares. The Azure storage types that or supported and combinations of different Azure storage types that can be used, are documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). Take the configurations documented as starting point. For non-production systems, you might be able to configure lower throughput or IOPS. For production purposes, you might need to configure a bit more throughput and IOPS.
-2. Make sure that you configured [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
+2. Make sure that you configured [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
 2. Check whether [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VM(s) deployed.
 
 > [!NOTE]
@@ -84,15 +82,15 @@ One of the Azure specifics is the installation of an Azure VM extension that del
 -  [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## SAP HANA installation
-With the Azure virtual machines deployed and the operating systems registered and configured, you can install SAP HANA according to the SAP install. As a good start to get to this documentation, start with this SAP website [HANA resources](https://www.sap.com/products/hana/implementation/resources.html)
+With the Azure virtual machines deployed and the operating systems registered and configured, you can install SAP HANA according to the SAP install. As a good start to get to this documentation, start with this SAP website [HANA resources](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd)
 
 For SAP HANA scale-out configurations using direct attached disks of Azure Premium Storage or Ultra disk, read the specifics in the document [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
 
 ## Additional resources for SAP HANA backup
 For information on how to back up SAP HANA databases on Azure VMs, see:
-* [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md)
-* [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md)
+* [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md)
+* [SAP HANA Azure Backup on file level](../../../backup/sap-hana-db-about.md)
 
 ## Next steps
 Read the documentation:

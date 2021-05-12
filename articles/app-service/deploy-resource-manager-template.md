@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy apps with templates
 description: Find guidance on creating Azure Resource Manager templates to provision and deploy App Service apps.
 author: tfitzmac
@@ -6,7 +6,7 @@ author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Guidance on deploying web apps by using Azure Resource Manager templates
@@ -86,7 +86,7 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 1. Go to the site's [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Browse to the folder at D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the [forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the [forum](/answers/topics/azure-webapps.html).
 
 ## Choose a unique web app name
 

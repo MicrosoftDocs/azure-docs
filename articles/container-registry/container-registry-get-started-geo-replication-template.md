@@ -3,11 +3,13 @@ title: Quickstart - Create geo-replicated registry - Azure Resource Manager temp
 description: Learn how to create a geo-replicated Azure container registry by using an Azure Resource Manager template.
 services: azure-resource-manager
 author: dlepow
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/26/2020
+ms.date: 10/06/2020
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template
@@ -18,7 +20,7 @@ This quickstart shows how to create an Azure Container Registry instance by usin
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
-:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerregistry/container-registry-geo-replication/azuredeploy.json":::
 
 The following resources are defined in the template:
 
@@ -41,21 +43,24 @@ More Azure Container Registry template samples can be found in the [quickstart t
 
  1. Select the following image to sign in to Azure and open a template.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.containerregistry%2Fcontainer-registry-geo-replication%2Fazuredeploy.json)
 
- 2. Select or enter the following values.
+ 1. Select or enter the following values.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    * **Location**: select a location for the resource group. Example: **Central US**.
+    * **Region**: select a location for the resource group. Example: **Central US**.
     * **Acr Name**: accept the generated name for the registry, or enter a name. It must be globally unique.
+    * **Acr Admin User Enabled**: accept the default value.
     * **Location**: accept the generated location for the registry's home replica, or enter a location such as **Central US**. 
+    * **Acr Sku**: accept the default value.
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
-    * **I agree to the terms and conditions stated above**: Select.
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Template properties":::
 
- 3. If you accept the terms and conditions, select **Purchase**. After the registry has been created successfully, you get a notification:
+1. Select **Review + Create**, then review the terms and conditions. If you agree, select **Create**.
+
+1. After the registry has been created successfully, you get a notification:
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Portal notification":::
 
@@ -78,6 +83,8 @@ Use the Azure portal or a tool such as the Azure CLI to review the properties of
 ## Clean up resources
 
 When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
+
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Delete resource group":::
 
 ## Next steps
 

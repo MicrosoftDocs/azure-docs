@@ -6,7 +6,8 @@ author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates
@@ -32,7 +33,7 @@ These Service Bus Azure Resource Manager templates are available for download an
 
 ## Deploy with PowerShell
 
-The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) template. The approximate workflow is as follows:
+The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) template. The approximate workflow is as follows:
 
 1. Install PowerShell.
 2. Create the template and (optionally) a parameter file.
@@ -50,7 +51,7 @@ Install Azure PowerShell by following the instructions in [Getting started with 
 
 ### Create a template
 
-Clone the repository or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
+Clone the repository or copy the [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) template from GitHub:
 
 ```json
 {
@@ -125,7 +126,7 @@ Clone the repository or copy the [201-servicebus-create-queue](https://github.co
 
 ### Create a parameters file (optional)
 
-To use an optional parameters file, copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
+To use an optional parameters file, copy the [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
 
 ```json
 {

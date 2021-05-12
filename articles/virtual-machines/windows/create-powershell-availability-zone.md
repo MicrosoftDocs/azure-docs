@@ -1,8 +1,8 @@
 ---
-title: Create a zoned Windows VM using Azure PowerShell 
-description: Create a Windows virtual machine in an availability zone with Azure PowerShell
+title: Create a zoned VM using Azure PowerShell 
+description: Create a virtual machine in an availability zone with Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 03/27/2018
@@ -10,7 +10,7 @@ ms.author: cynthn
 ms.custom: 
 ---
 
-# Create a Windows virtual machine in an availability zone with PowerShell
+# Create a virtual machine in an availability zone using Azure PowerShell
 
 This article details using Azure PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
@@ -27,7 +27,7 @@ Connect-AzAccount
 ```
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](../sizes.md).
 
 You can view the available VM SKUs with the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command. The following example lists available VM SKUs in the *eastus2* region:
 
@@ -165,4 +165,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

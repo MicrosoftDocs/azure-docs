@@ -1,19 +1,16 @@
 ---
 title: Create tumbling window triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/25/2020
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides steps to create, start, and monitor a tumbling window trigger. For general information about triggers and the supported types, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
@@ -32,7 +29,7 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 A tumbling window has the following trigger type properties:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -42,29 +39,29 @@ A tumbling window has the following trigger type properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
                 "intervalInSeconds": <<int>>,
             },
-			"dependsOn": [
-				{
-					"type": "TumblingWindowTriggerDependencyReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan – optional>>,
-					"referenceTrigger": {
-						"referenceName": "MyTumblingWindowDependency1",
-						"type": "TriggerReference"
-					}
-				},
-				{
-					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan>>
-				}
-			]
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {
@@ -112,7 +109,7 @@ The following table provides a high-level overview of the major JSON elements th
 
 You can use the **WindowStart** and **WindowEnd** system variables of the tumbling window trigger in your **pipeline** definition (that is, for part of a query). Pass the system variables as parameters to your pipeline in the **trigger** definition. The following example shows you how to pass these variables as parameters:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -142,7 +139,7 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 
 ### Execution order of windows in a backfill scenario
 
-If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TriggerSliceSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
+If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
 ### Existing TriggerResource elements
 
@@ -157,7 +154,20 @@ In case of pipeline failures, tumbling window trigger can retry the execution of
 
 ### Tumbling window trigger dependency
 
-If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md). 
+If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
+
+### Cancel tumbling window run
+
+You can cancel runs for a tumbling window trigger, if the specific window is in _Waiting_, _Waiting on Dependency_, or _Running_ state
+
+* If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Canceled_ afterwards
+* If the window is in **Waiting** or **Waiting on Dependency** state, you can cancel the window from Monitoring:
+
+![Cancel a tumbling window trigger from Monitoring page](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+You can also rerun a canceled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
+
+![Rerun a tumbling window trigger for previously canceled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## Sample for Azure PowerShell
 
@@ -206,7 +216,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-    
+
 3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
@@ -230,10 +240,11 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-    
+
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## Next steps
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
-* [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)
+* [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
+* Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

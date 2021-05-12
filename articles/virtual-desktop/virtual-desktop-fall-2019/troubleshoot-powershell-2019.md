@@ -1,21 +1,19 @@
 ---
 title: Windows Virtual Desktop (classic) PowerShell - Azure
 description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop (classic) tenant environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
+
 # Windows Virtual Desktop (classic) PowerShell
 
->[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
+> [!IMPORTANT]
+> This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
 
 ## Provide feedback
 
@@ -27,7 +25,7 @@ This section lists PowerShell commands that are typically used while setting up 
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
 
-```Powershell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
@@ -37,7 +35,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
 
-```PowerShell
+```powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
@@ -51,7 +49,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 ### Error: Get-RdsDiagnosticActivities -- User isn't authorized to query the management service
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
@@ -61,7 +59,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 ### Error: Get-RdsDiagnosticActivities -- the user isn't authorized to query the management service
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 
@@ -79,8 +77,8 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
->[!Note]
->New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+> [!NOTE]
+> New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
 
 ## Next steps
 

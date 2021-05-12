@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure confidential computing virtual machine with 
 description: Get started with your deployments by learning how to quickly create a confidential computing virtual machine with Marketplace.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
@@ -124,7 +124,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 Follow the step-by-step instructions to install the [OE SDK](https://github.com/openenclave/openenclave) on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. 
 
-If your virtual machine runs on Ubuntu 16.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
+If your virtual machine runs on Ubuntu 18.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md). 
 
 #### 1. Configure the Intel and Microsoft APT Repositories
 
@@ -140,11 +140,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### 2. Install the Intel SGX DCAP Driver
+Some versions of Ubuntu may already have the Intel SGX driver installed. Check using the following command: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+If the output is blank, install the driver: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -155,7 +162,7 @@ sudo ./sgx_linux_x64_driver.bin
 #### 3. Install the Intel and Open Enclave packages and dependencies
 
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 
@@ -175,9 +182,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
 
-If you deployed a Windows VM, learn how to build applications with the [OE SDK Samples for Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) on GitHub. 
-
-Discover how you can build confidential computing applications on Linux, by continuing to the Open Enclave SDK Linux samples on GitHub. 
+Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
 > [!div class="nextstepaction"]
-> [Building Open Enclave SDK Samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

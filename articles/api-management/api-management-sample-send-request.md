@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -58,7 +59,7 @@ Slack has the notion of inbound web hooks. When configuring an inbound web hook,
 ![Slack Web Hook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Is fire and forget good enough?
-There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure is not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
+There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure will not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
 
 ## Send-Request
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
@@ -173,7 +174,7 @@ The first step to building the dashboard resource is to configure a new operatio
 ### Making the requests
 Once the  operation has been created, you can configure a policy specifically for that operation. 
 
-![Dashboard operation](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Screenshot that shows the Policy scope screen.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 The first step  is to extract any query parameters from the incoming request, so that you can forward them to the backend. In this example, the dashboard is showing information based on a period of time and therefore has a `fromDate` and `toDate` parameter. You can use the `set-variable` policy to extract the information from the request URL.
 

@@ -1,23 +1,20 @@
 ---
 title: Windows Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a host pool to validate service updates
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied first to validation host pools, letting you monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop environment. We highly recommend you create a validation host pool where service updates are applied first. This allows you to monitor service updates before the service applies them to your standard or non-validation environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your standard environment.
 
-To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect as frequently to the validation host pool as they do to the production host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
+To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation host pool as they do to the standard host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
 You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Windows Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
@@ -57,12 +54,26 @@ The results from the cmdlet should look similar to this output:
     HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## Enable your validation environment with the Azure portal
+
+You can also use the Azure portal to enable your validation environment.
+
+To use the Azure portal to configure your validation host pool:
+
+1. Sign in to the Azure portal at <https://portal.azure.com>.
+2. Search for and select **Windows Virtual Desktop**.
+3. In the Windows Virtual Desktop page, select **Host pools**.
+4. Select the name of the host pool you want to edit.
+5. Select **Properties**.
+6. In the validation environment field, select **Yes** to enable the validation environment.
+7. Select **Save**. This will apply the new settings.
 
 ## Update schedule
 
@@ -72,7 +83,7 @@ If there are any service updates, make sure you have at least a small group of u
 
 ## Next steps
 
-Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment. 
+Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment.
 
 > [!div class="nextstepaction"]
 > [Set up service alerts](./set-up-service-alerts.md)

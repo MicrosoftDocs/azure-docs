@@ -1,25 +1,25 @@
 ---
-title: Create and use views in SQL on-demand (preview)
-description: In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use views in serverless SQL pool
+description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
-# Create and use views in SQL on-demand (preview) using Azure Synapse Analytics
+# Create and use views using serverless SQL pool in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 
 ## Prerequisites
 
 Your first step is to create a database where the view will be created and initialize the objects needed to authenticate on Azure storage by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
 
-## Create a view
+## Views over external data
 
 You can create views the same way you create regular SQL Server views. The following query creates view that reads *population.csv* file.
 
@@ -50,9 +50,13 @@ WITH (
 ) AS [r];
 ```
 
-The view in this example uses `OPENROWSET` function that uses absolute path to the underlying files. If you have `EXTERNAL DATA SOURCE` with a root URL of your storage, you can use `OPENROWSET` with `DATA_SOURCE` and relative file path:
+The view uses an `EXTERNAL DATA SOURCE` with a root URL of your storage, as a `DATA_SOURCE` and adds a relative file path to the files.
 
-```
+## Partitioned views
+
+If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
+
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM
@@ -63,11 +67,13 @@ FROM
     ) AS nyc
 ```
 
+The partitioned views will perform folder partition elimination if you query this view with the filters on the partitioning columns. This might improve performance of your queries.
+
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries.
 
-The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country/region names with their population in 2019 in descending order.
+The following query demonstrates using the *population_csv* view we created in [Create a view](#views-over-external-data). It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.

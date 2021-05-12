@@ -1,10 +1,10 @@
 ---
-title: Back up SQL Server databases in Azure VMs
-description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup.
+title: Back up multiple SQL Server VMs from the vault
+description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 04/07/2021
 ---
-# Back up SQL Server databases in Azure VMs
+# Back up multiple SQL Server VMs from the Recovery Services vault
 
 SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
@@ -18,10 +18,6 @@ In this article, you'll learn how to:
 > * Discover databases and set up backups.
 > * Set up auto-protection for databases.
 
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
-
 ## Prerequisites
 
 Before you back up a SQL Server database, check the following criteria:
@@ -29,8 +25,9 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
-1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
+1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
+1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup as described [here](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Make sure that you are on the latest cumulative updates to avoid the time zone related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
@@ -57,7 +54,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -65,7 +62,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
 
-1. Click **Add**  to save the newly created outbound security rule.
+1. Select **Add**  to save the newly created outbound security rule.
 
 You can similarly create NSG outbound security rules for Azure Storage and Azure AD.
 
@@ -81,11 +78,11 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             | Ports
+| -------------- | ------------------------------------------------------------ | ---
+| Azure  Backup  | `*.backup.windowsazure.com`                             | 443
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | As applicable
 
 #### Use an HTTP proxy server to route traffic
 
@@ -104,7 +101,7 @@ Avoid using the following elements in database names:
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters like "+" or "&" in their name is not supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters like "+" or "&" in their name isn't supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -155,7 +152,7 @@ How to discover databases running on a VM:
 
    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-1. Click on **Add Resources** to see all the registered availability groups and standalone SQL Server instances.
+1. Select **Add Resources** to see all the registered availability groups and standalone SQL Server instances.
 
     ![Select add resources](./media/backup-azure-sql-database/add-resources.png)
 
@@ -183,7 +180,7 @@ How to discover databases running on a VM:
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-1. Click on **Enable Backup** to submit the **Configure Protection** operation and track the configuration progress in the **Notifications** area of the portal.
+1. Select **Enable Backup** to submit the **Configure Protection** operation and track the configuration progress in the **Notifications** area of the portal.
 
    ![Track configuration progress](./media/backup-azure-sql-database/track-configuration-progress.png)
 
@@ -208,7 +205,7 @@ To create a backup policy:
 
     ![Enter policy name](./media/backup-azure-sql-database/policy-name.png)
 
-1. Click on the **Edit** link corresponding, to **Full backup**, to modify the default settings.
+1. Select the **Edit** link corresponding, to **Full backup**, to modify the default settings.
 
    * Select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
    * For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
@@ -225,7 +222,7 @@ To create a backup policy:
        ![Retention range interval settings](./media/backup-azure-sql-database/retention-range-interval.png)
 
 1. Select **OK** to accept the setting for full backups.
-1. Click on the **Edit** link corresponding to **Differential backup**, to modify the default settings.
+1. Select the **Edit** link corresponding to **Differential backup**, to modify the default settings.
 
     * In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * You can trigger only one differential backup per day. A differential backup can't be triggered on the same day as a full backup.
@@ -234,11 +231,11 @@ To create a backup policy:
 
       ![Differential Backup policy](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-1. Click on the **Edit** link corresponding to **Log backup**, to modify the default settings
+1. Select the **Edit** link corresponding to **Log backup**, to modify the default settings
 
     * In **Log Backup**, select **Enable**, and then set the frequency and retention controls.
     * Log backups can occur as often as every 15 minutes and can be retained for up to 35 days.
-    * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), the log backup schedule for that database will be paused and so no log backups will be triggered.
+    * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database will be paused and so no log backups will be triggered.
     * If the recovery model of the database changes from **Full** to **Simple**, log backups will be paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backups schedules will be enabled within 24 hours of the change in recovery model.
 
       ![Log Backup policy](./media/backup-azure-sql-database/log-backup-policy.png)
@@ -248,7 +245,7 @@ To create a backup policy:
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 ## Enable auto-protection  
 

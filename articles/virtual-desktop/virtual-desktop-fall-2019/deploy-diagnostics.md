@@ -1,25 +1,17 @@
 ---
 title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Deploy the Windows Virtual Desktop (classic) diagnostics tool
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
-
->[!IMPORTANT]
->As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
->
->Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics-2019.md) for continued monitoring.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
@@ -41,8 +33,8 @@ You need to create an Azure Active Directory App Registration and a Log Analytic
 
 You also need to install these two PowerShell modules before you get started:
 
-- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Azure AD module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 Make sure you have your Subscription ID ready for when you sign in.
 
@@ -119,7 +111,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -194,7 +186,7 @@ To set the Redirect URI:
    > [!div class="mx-imgBorder"]
    > ![The redirect URI page](../media/redirect-uri-page.png)
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <http://contoso.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
 10.   Select **Accept**.
 
@@ -202,7 +194,7 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:

@@ -1,18 +1,12 @@
 ---
 title: How to schedule Azure-SSIS Integration Runtime 
 description: This article describes how to schedule the starting and stopping of Azure-SSIS Integration Runtime by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
@@ -25,7 +19,7 @@ Alternatively, you can create Web activities in ADF pipelines to start/stop your
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
-If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## Create and schedule ADF pipelines that start and or stop Azure-SSIS IR
 This section shows you how to use Web activities in ADF pipelines to start/stop your Azure-SSIS IR on schedule or start & stop it on demand. We will guide you to create three pipelines: 
@@ -92,7 +86,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
   
     2. For **Method**, select **POST**. 
     3. For **Body**, enter `{"message":"Start my IR"}`. 
-    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identity for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
+    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identity for Data Factory](./data-factory-service-identity.md) article for more info.
     5. For **Resource**, enter `https://management.azure.com/`.
     
        ![ADF Web Activity Schedule SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -144,7 +138,7 @@ Now that your pipelines work as you expected, you can create triggers to run the
 
 1. On the pipeline toolbar, select **Trigger** and select **New/Edit**. 
 
-   ![Trigger -> New/Edit](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Screenshot that highlights the Trigger -> New/Edit menu option.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. In **Add Triggers** pane, select **+ New**.
 
@@ -215,7 +209,7 @@ If you do not have an Azure Automation account already, create one by following 
 2. Sign in to [Azure portal](https://portal.azure.com/).    
 3. Select **New** on the left menu, select **Monitoring + Management**, and select **Automation**. 
 
-   ![New -> Monitoring + Management -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Screenshot that highlights the Monitoring + Management > Automation option.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. In **Add Automation Account** pane, do the following actions.
 
@@ -257,7 +251,7 @@ The following section provides steps for creating a PowerShell runbook. The scri
 
 1. Switch to **Runbooks** tab and select **+ Add a runbook** from the toolbar. 
 
-   ![Add a runbook button](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Screenshot that highlights the +Add a runbook button.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Select **Create a new runbook** and do the following actions: 
 
@@ -340,7 +334,7 @@ The following section provides steps for creating a PowerShell runbook. The scri
    
 6. In the job window, select **Output** tile. In the output window, wait for the message **##### Completed #####** after you see **##### Starting #####**. Starting Azure-SSIS IR takes approximately 20 minutes. Close **Job** window and get back to **Runbook** window.
 
-   ![Azure SSIS IR - started](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Screenshot that highlights the Output tile.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Repeat the previous two steps using **STOP** as the value for **OPERATION**. Start your runbook again by selecting **Start** button on the toolbar. Enter your resource group, ADF, and Azure-SSIS IR names. For **OPERATION**, enter **STOP**. In the output window, wait for the message **##### Completed #####** after you see **##### Stopping #####**. Stopping Azure-SSIS IR does not take as long as starting it. Close **Job** window and get back to **Runbook** window.
 
@@ -368,7 +362,7 @@ In the previous section, you have created your Azure Automation runbook that can
 	
 3. Switch to **Parameters and run settings** tab. Specify your resource group, ADF, and Azure-SSIS IR names. For **OPERATION**, enter **START** and select **OK**. Select **OK** again to see the schedule on **Schedules** page of your runbook. 
 
-   ![Schedule for staring the Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Screenshot that highlights the Operation field.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Repeat the previous two steps to create a schedule named **Stop IR daily**. Enter a time that is at least 30 minutes after the time you specified for **Start IR daily** schedule. For **OPERATION**, enter **STOP** and select **OK**. Select **OK** again to see the schedule on **Schedules** page of your runbook. 
 

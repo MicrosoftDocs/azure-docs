@@ -28,7 +28,9 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 |RBIO_RG_STORAGE        | Occurs when a Hyperscale database primary compute node log generation rate is being throttled due to delayed log consumption at the page server(s).         |
 |RBIO_RG_DESTAGE        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the long-term log storage.         |
 |RBIO_RG_REPLICA        | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the readable secondary replica(s).         |
+|RBIO_RG_GEOREPLICA    | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the Geo-secondary replica.         |
 |RBIO_RG_LOCALDESTAGE   | Occurs when a Hyperscale database compute node log generation rate is being throttled due to delayed log consumption by the log service.         |
+
 
 ## Page server reads
 
@@ -70,7 +72,7 @@ Local RBPEX cache exists on the compute replica, on local SSD storage. Thus, IO 
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-A ratio of reads done on RBPEX to aggregated reads done on all other data files provides RBPEX cache hit ratio.
+A ratio of reads done on RBPEX to aggregated reads done on all other data files provides RBPEX cache hit ratio. The counter `RBPEX cache hit ratio` is also exposed in the performance counters DMV  `sys.dm_os_performance_counters`.                                                                        
 
 ### Data reads
 
@@ -92,7 +94,7 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 ## Data IO in resource utilization statistics
 
-In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in the `avg_data_io_percent` column. The same value is reported in the Azure portal as _Data IO Percentage_.
+In a non-Hyperscale database, combined read and write IOPS against data files, relative to the [resource governance](./resource-limits-logical-server.md#resource-governance) data IOPS limit, are reported in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) views, in the `avg_data_io_percent` column. The same value is reported in the Azure portal as _Data IO Percentage_.
 
 In a Hyperscale database, this column reports on data IOPS utilization relative to the limit for local storage on compute replica only, specifically IO against RBPEX and `tempdb`. A 100% value in this column indicates that resource governance is limiting local storage IOPS. If this is correlated with a performance problem, tune the workload to generate less IO, or increase database service objective to increase the resource governance _Max Data IOPS_ [limit](resource-limits-vcore-single-databases.md). For resource governance of RBPEX reads and writes, the system counts individual 8-KB IOs, rather than larger IOs that may be issued by the SQL Server database engine.
 
@@ -101,6 +103,7 @@ Data IO against remote page servers is not reported in resource utilization view
 ## Additional resources
 
 - For vCore resource limits for a Hyperscale single database see [Hyperscale service tier vCore Limits](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
+- For monitoring Azure SQL Databases, enable [Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](monitoring-with-dmvs.md)

@@ -3,7 +3,7 @@ title: Azure VM sizes - Compute optimized | Microsoft Docs
 description: Lists the different compute optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
@@ -32,4 +32,4 @@ At a lower per-hour list price, the Fsv2-series is the best value in price-perfo
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
-For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](./vm-naming-conventions.md).

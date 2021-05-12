@@ -34,10 +34,10 @@ Configure Fortinet to forward Syslog messages in CEF format to your Azure worksp
 
     ```console
     config log syslogd setting
+    set status enable
     set format cef
     set port 514
     set server <ip_address_of_Receiver>
-    set status enable
     end
     ```
 

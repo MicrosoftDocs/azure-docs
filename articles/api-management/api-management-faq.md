@@ -13,7 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
@@ -48,7 +49,7 @@ You have several options to secure the connection between the API Management gat
 
 * Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-* Use IP whitelisting on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
+* Use IP filtering on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
 * Connect your API Management instance to an Azure Virtual Network.
 
 ### How do I copy my API Management service instance to a new instance?
@@ -66,18 +67,7 @@ Yes, you can manage API Management programmatically by using:
 * The [Service deployment](/powershell/module/wds) and [Service management](/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
-Here's how you can add a user to the Administrators group:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to the resource group that has the API Management instance you want to update.
-3. In API Management, assign the **Api Management Service Contributor** role to the user.
-
-Now the newly added contributor can use Azure PowerShell [cmdlets](/powershell/azure/). Here's how to sign in as an administrator:
-
-1. Use the `Connect-AzAccount` cmdlet to sign in.
-2. Set the context to the subscription that has the service by using `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Get a single sign-on URL by using `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Use the URL to access the admin portal.
+Administrators groups is an immutable system group. Azure subscription administrators are members of this group. You cannot add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information.
 
 ### Why is the policy that I want to add unavailable in the policy editor?
 If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](./api-management-policies.md).
@@ -98,7 +88,7 @@ To learn how to configure an OAuth 2.0 authorization server with Active Director
 API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
-Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) quickstart templates.
+Yes. See the [Azure API Management Service](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/) quickstart templates.
 
 ### Can I use a self-signed TLS/SSL certificate for a back end?
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.

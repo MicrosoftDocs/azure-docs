@@ -1,14 +1,14 @@
 ---
-title: Enroll TPM device to Azure Device Provisioning Service using C#
+title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using C#
 description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using C# service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
  
 # Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using C# service SDK
@@ -21,7 +21,7 @@ This article shows how to programmatically create an individual enrollment for a
 
 1. Verify you have [Visual Studio 2019](https://www.visualstudio.com/vs/) installed on your computer.
 
-1. Verify you have the [.NET Core SDK](https://www.microsoft.com/net/download/windows) installed on your computer.
+1. Verify you have the [.NET Core SDK](https://dotnet.microsoft.com/download) installed on your computer.
 
 1. Complete the steps in [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you continue.
 
@@ -42,7 +42,7 @@ For the sample in this quickstart, you need the connection string for your provi
 
 ## Create the individual enrollment sample
 
-This section shows how to create a .NET Core console app that adds an individual enrollment for a TPM device to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the individual enrollment. To learn more about developing with IoT Core, see [Windows IoT Core developer documentation](https://docs.microsoft.com/windows/iot-core/).
+This section shows how to create a .NET Core console app that adds an individual enrollment for a TPM device to your provisioning service. With some modification, you can also follow these steps to create a [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) console app to add the individual enrollment. To learn more about developing with IoT Core, see [Windows IoT Core developer documentation](/windows/iot-core/).
 
 1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** project template for C# and select **Next**.
 
@@ -123,12 +123,15 @@ This section shows how to create a .NET Core console app that adds an individual
    }
    ```
 
-1. Finally, replace the body of the `Main` method with the following lines:
+1. Finally, replace the `Main` method with the following lines:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Build the solution.

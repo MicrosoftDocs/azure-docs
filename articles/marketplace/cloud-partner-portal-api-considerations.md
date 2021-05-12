@@ -1,5 +1,5 @@
 ---
-title: API Considerations - Azure Marketplace
+title: API considerations - Azure Marketplace
 description: Versioning, error-handling, and authorization issues when using the marketplace APIs.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,10 +9,9 @@ ms.author: mingshen
 ms.date: 07/14/2020
 ---
 
-# API Considerations
+# API considerations
 
-API versioning
---------------
+## API versioning
 
 > [!NOTE]
 > The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
@@ -36,8 +35,7 @@ body.
     }
 ```            
 
-Errors
-------
+## Errors
 
 The API responds to errors with the corresponding HTTP status codes and
 optionally, additional information in the response serialized as JSON.
@@ -46,8 +44,7 @@ the request before fixing the underlying cause. For example, in the
 sample response above, fix the API version parameter before resending
 the request.
 
-Authorization header
---------------------
+## Authorization header
 
 For all the APIs in this reference, you must pass the authorization
 header along with the bearer token obtained from Azure Active

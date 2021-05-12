@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway health monitoring overview
@@ -93,7 +94,7 @@ You must allow incoming Internet traffic on TCP ports 65503-65534 for the Applic
 
 Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the **AzureLoadBalancer** tag must be allowed.
 
-For more information, see [Application Gateway configuration overview](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+For more information, see [Application Gateway configuration overview](configuration-infrastructure.md#network-security-groups).
 
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.

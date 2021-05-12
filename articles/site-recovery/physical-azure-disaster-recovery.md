@@ -1,12 +1,10 @@
 ---
 title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
-ms.author: raynew 
+
 
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
@@ -46,7 +44,7 @@ Before you begin, note that:
 Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Learn about [Site Recovery pricing](/azure/site-recovery/site-recovery-faq#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
@@ -54,7 +52,7 @@ Get a Microsoft [Azure account](https://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 
 

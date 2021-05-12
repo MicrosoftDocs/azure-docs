@@ -3,7 +3,6 @@ title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
 ---
 # Container group and instance logging with Azure Monitor logs
 
@@ -22,7 +21,7 @@ The following sections describe how to create a logging-enabled container group 
 
 To enable logging in your container instances, you need the following:
 
-* [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](../cloud-shell/overview.md))
 
 ## Get Log Analytics credentials
@@ -148,8 +147,8 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
-* [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+* [Understanding log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
+* [Unified alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### Monitor container CPU and memory
@@ -164,7 +163,7 @@ For information about monitoring container instance CPU and memory resources, se
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://aka.ms/LogAnalyticsLanguage
+[query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

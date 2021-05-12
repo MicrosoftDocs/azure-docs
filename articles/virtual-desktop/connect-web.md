@@ -1,14 +1,11 @@
 ---
 title: Connect to Windows Virtual Desktop with the web client - Azure
 description: How to connect to Windows Virtual Desktop using the web client.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Connect to Windows Virtual Desktop with the web client
 
@@ -38,6 +35,8 @@ In a browser, navigate to the Azure Resource Manager-integrated version of the W
 
 >[!NOTE]
 >If you're using Windows Virtual Desktop (classic) without Azure Resource Manager integration, connect to your resources at <https://rdweb.wvd.microsoft.com/webclient> instead.
+>
+> If you're using the US Gov portal, use <https://rdweb.wvd.azure.us/arm/webclient/index.html>.
 
 >[!NOTE]
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.

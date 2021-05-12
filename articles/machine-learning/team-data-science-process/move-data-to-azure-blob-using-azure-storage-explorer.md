@@ -1,6 +1,6 @@
 ---
 title: Move Blob storage data with Azure Storage Explorer - Team Data Science Process
-description: Learn how to use Azure Storage Explorer to upload and download data from Azure blob storage.
+description: Learn how to use Azure Storage Explorer to upload and download data from Azure Blob Storage.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -13,15 +13,15 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to and from Azure Blob Storage using Azure Storage Explorer
-Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
+Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure Blob Storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
-> If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](virtual-machines.md), then Azure Storage Explorer is already installed on the VM.
+> If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](../data-science-virtual-machine/overview.md), then Azure Storage Explorer is already installed on the VM.
 > 
 > [!NOTE]
-> For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) and [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
+> For a complete introduction to Azure Blob Storage, refer to [Azure Blob Basics](../../storage/blobs/storage-quickstart-blobs-dotnet.md) and [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
 > 
 > 
 
@@ -29,7 +29,7 @@ Azure Storage Explorer is a free tool from Microsoft that allows you to work wit
 This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure Storage account name and account key. 
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](../../storage/common/storage-create-storage-account.md). Make a note the access key for your storage account as you need this key to connect to the account with the Azure Storage Explorer tool.
+* For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](../../storage/common/storage-account-create.md). Make a note the access key for your storage account as you need this key to connect to the account with the Azure Storage Explorer tool.
 * The Azure Storage Explorer tool can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Accept the defaults during install.
 
 <a id="explorer"></a>
@@ -48,4 +48,3 @@ The following steps document how to upload/download data using Azure Storage Exp
 ![Storage accounts](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. To download data, selecting the blob in the corresponding container to download and click **Download**. ![Download files](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
-

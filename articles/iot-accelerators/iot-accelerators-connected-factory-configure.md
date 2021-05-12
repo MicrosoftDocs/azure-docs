@@ -12,6 +12,9 @@ ms.author: dobett
 
 # Configure the Connected Factory solution accelerator
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The Connected Factory solution accelerator shows a simulated dashboard for a fictional company Contoso. This company has factories in numerous global locations globally.
 
 This article uses Contoso as an example to describe how to configure the topology of a Connected Factory solution.

@@ -17,7 +17,7 @@
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
   - name: Deploy a container instance - Docker CLI
-    href: container-instances-quickstart-docker-cli.md
+    href: quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image
@@ -34,6 +34,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Deploy a container group - Docker Compose
+      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
@@ -41,7 +43,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+    href: /samples/browse/?products=azure&terms=container%2binstance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts
@@ -57,7 +59,7 @@
   - name: Security
     items:
      - name: Security baseline
-       href: security-baseline.md
+       href: /security/benchmark/azure/baselines/container-instances-security-baseline?toc=/azure/container-instances/TOC.json
      - name: Security considerations
        href: container-instances-image-security.md
   - name: Virtual networking
@@ -70,7 +72,7 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
-    - name: Deploy with GitHub Actions (preview)
+    - name: Deploy with GitHub Actions
       href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
@@ -154,6 +156,9 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

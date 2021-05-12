@@ -6,7 +6,8 @@ author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to administer Azure Cache for Redis
@@ -17,11 +18,11 @@ This topic describes how to perform administration tasks such as [rebooting](#re
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
 
-![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+![Screenshot that highlights the Reboot menu option.](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Select the nodes to reboot and click **Reboot**.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)
+![Screenshot that shows which nodes you can reboot.](./media/cache-administration/redis-cache-reboot.png)
 
 If you have a premium cache with clustering enabled, you can select which shards of the cache to reboot.
 
@@ -53,6 +54,8 @@ Yes, if you reboot the cache all client connections are cleared. Rebooting can b
 > 
 > 
 
+
+
 ### Will I lose data from my cache if I do a reboot?
 If you reboot both the **Master** and **Replica** nodes, all data in the cache (or in that shard if you are using a premium cache with clustering enabled) may be lost, but this is not guaranteed either. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup will be restored when the cache comes back online, but any cache writes that have occurred after the backup was made are lost.
 
@@ -65,8 +68,9 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
 
 > [!NOTE] 
-> The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
+> The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
 >
+
 
 ![Schedule updates](./media/cache-administration/redis-schedule-updates.png)
 
@@ -94,5 +98,7 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ## Next steps
-* Explore more [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) features.
+Learn more about Azure Cache for Redis features.
+
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 

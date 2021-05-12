@@ -3,22 +3,23 @@ title: Perform advanced encoding by customizing MES presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
-# Perform advanced encoding by customizing MES presets 
+# Perform advanced encoding by customizing MES presets
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Overview
 
@@ -27,7 +28,7 @@ This topic shows how to customize Media Encoder Standard presets. The [Encoding 
 If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
 > [!NOTE] 
-> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [the Migration Guide](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## Support for relative sizes
 
@@ -47,7 +48,7 @@ When generating thumbnails, you do not need to always specify output width and h
 <Height>100%</Height>
 ```
 
-## <a id="thumbnails"></a>Generate thumbnails
+## Generate thumbnails
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [this](media-services-mes-presets-overview.md) section and add code that generates thumbnails.  
 
@@ -60,7 +61,7 @@ For information about schema, see [this](media-services-mes-schema.md) topic.
 
 Make sure to review the [Considerations](#considerations) section.
 
-### <a id="json"></a>JSON preset
+### JSON preset
 
 ```json
 {
@@ -162,7 +163,7 @@ Make sure to review the [Considerations](#considerations) section.
 }
 ```
 
-### <a id="xml"></a>XML preset
+### XML preset
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

@@ -29,7 +29,7 @@ There are different ways that you can switch from one cache to another. Dependin
    | ------------ | ---------- | ------------- |
    | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which may not work with many applications. |
    | Export and import data via RDB file | Compatible with any Redis cache generally. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. | 
-   | Dual-write data to two caches | No data loss or downtown. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
+   | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
    | Migrate data programmatically | Full control over how data are moved. | Requires custom code. | 
 
 ### Create a new Azure Cache for Redis
@@ -46,7 +46,7 @@ General steps to implement this option are:
 
 ### Export data to an RDB file and import it into Azure Cache for Redis
 
-Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) supports importing data into a cache instance via RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
+Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis premium tier](cache-overview.md#service-tiers) supports importing data into a cache instance via RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
 
 > [!IMPORTANT]
 > RDB file format can change between Redis versions and may not maintain backward-compatibility. The Redis version of the cache you're exporting from should be equal or less than the version provided by Azure Cache for Redis.
@@ -59,12 +59,12 @@ General steps to implement this option are:
 2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
     > [!NOTE]
-    > If you’re migrating data within Azure Cache for Redis, see [these instructions on how to export an RDB file](cache-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) instead.
+    > If you’re migrating data within Azure Cache for Redis, see [these instructions on how to export an RDB file](cache-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache) instead.
     >
 
 3. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
 
-4. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache).
 
 5. Update your application to use the new cache instance.
 
@@ -109,5 +109,5 @@ General steps to implement this option are:
 ## Next steps
 Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
 * [Import data](cache-how-to-import-export-data.md#import)

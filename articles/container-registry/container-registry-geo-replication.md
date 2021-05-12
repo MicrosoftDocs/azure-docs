@@ -12,10 +12,11 @@ Companies that want a local presence, or a hot backup, choose to run services fr
 
 A geo-replicated registry provides the following benefits:
 
-* Single registry/image/tag names can be used across multiple regions
-* Network-close registry access from regional deployments
-* No additional egress fees, as images are pulled from a local, replicated registry in the same region as your container host
+* Single registry, image, and tag names can be used across multiple regions
+* Improve performance and reliability of regional deployments with network-close registry access
+* Reduce data transfer costs by pulling image layers from a local, replicated registry in the same or nearby region as your container host
 * Single management of a registry across multiple regions
+* Registry resilience if a regional outage occurs
 
 > [!NOTE]
 > If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
@@ -50,12 +51,16 @@ Typical challenges of multiple registries include:
 Using the geo-replication feature of Azure Container Registry, these benefits are realized:
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
-* Manage a single configuration of image deployments as all regions used the same image URL: `contoso.azurecr.io/public/products/web:1.2`
-* Push to a single registry, while ACR manages the geo-replication. You can configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
+* Manage a single configuration of image deployments as all regions use the same image URL: `contoso.azurecr.io/public/products/web:1.2`
+* Push to a single registry, while ACR manages the geo-replication. ACR only replicates unique layers, reducing data transfer across regions. 
+* Configure regional [webhooks](container-registry-webhook.md) to notify you of events in specific replicas.
+* Provide a highly available registry that is resilient to regional outages.
+
+Azure Container Registry also supports [availability zones](zone-redundancy.md) to create a resilient and high availability Azure container registry within an Azure region. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the reliability and performance of a registry.
 
 ## Configure geo-replication
 
-Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
 
 Geo-replication is a feature of [Premium registries](container-registry-skus.md). If your registry isn't yet Premium, you can change from Basic and Standard to Premium in the [Azure portal](https://portal.azure.com):
 
@@ -94,7 +99,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Delete a replica
 
-After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
+After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) command in the Azure CLI.
 
 To delete a replica in the Azure portal:
 
@@ -132,7 +137,7 @@ To disable routing to an existing replication, first run [az acr replication lis
 az acr replication list --registry --output table
 
 # Disable routing to replication
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled false
 ```
@@ -140,7 +145,7 @@ az acr replication update update --name westus \
 To restore routing to a replication:
 
 ```azurecli
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled true
 ```
@@ -152,5 +157,5 @@ Check out the three-part tutorial series, [Geo-replication in Azure Container Re
 > [!div class="nextstepaction"]
 > [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update

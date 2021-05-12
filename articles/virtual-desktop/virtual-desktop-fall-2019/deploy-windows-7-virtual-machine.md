@@ -1,14 +1,11 @@
 ---
 title: Deploy Windows 7 virtual machine Windows Virtual Desktop (classic) - Azure
 description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop Windows Virtual Desktop (classic).
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Deploy a Windows 7 virtual machine on Windows Virtual Desktop (classic)
 

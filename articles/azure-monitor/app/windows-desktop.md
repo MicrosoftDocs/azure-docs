@@ -3,12 +3,12 @@ title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-
+ms.custom: fasttrack-edit
 ---
 
 # Monitoring usage and performance in Classic Windows Desktop apps
 
-Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](./ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../learn/mobile-center-quickstart.md).
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](./ip-addresses.md) to the Application Insights service. For monitoring Universal Windows Platform (UWP) applications, we recommend [Visual Studio App Center](../app/mobile-center-quickstart.md).
 
 ## To send telemetry to Application Insights from a Classic Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). 
@@ -16,7 +16,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the base API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*your key*`";`
    
     or in ApplicationInsights.config (if you installed one of the standard telemetry packages):
    
@@ -49,10 +49,8 @@ using Microsoft.ApplicationInsights;
             ...
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            e.Cancel = true;
-
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -60,9 +58,10 @@ using Microsoft.ApplicationInsights;
                 // Allow time for flushing:
                 System.Threading.Thread.Sleep(1000);
             }
-            base.OnClosing(e);
+            base.OnFormClosing(e);
         }
-
+        
+        ...
 ```
 
 ## Override storage of computer name
@@ -173,6 +172,6 @@ namespace WindowsFormsApp2
 ## Next steps
 * [Create a dashboard](./overview-dashboard.md)
 * [Diagnostic Search](./diagnostic-search.md)
-* [Explore metrics](../platform/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Explore metrics](../essentials/metrics-charts.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 

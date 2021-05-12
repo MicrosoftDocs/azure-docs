@@ -1,14 +1,11 @@
 ---
 title: Windows Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop (classic) tenant environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tenant and host pool creation in Windows Virtual Desktop (classic)
 
@@ -38,15 +35,15 @@ Example of raw error:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
 **Cause:** Consent not granted to Windows Virtual Desktop in the Azure Active directory instance.
 
-**Fix:** [Follow this guide](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) to grant consent.
+**Fix:** [Follow this guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to grant consent.
 
 ### Error: The user isn't authorized to query the management service
 
@@ -119,12 +116,12 @@ To view the error in the activity log:
 1. Exit the current Azure Marketplace deployment offering.
 2. In the top search bar, search for and select **Activity Log**.
 3. Find an activity named **Validate Deployment** that has a status of **Failed** and select the activity.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -137,9 +134,9 @@ If your operation template goes over the quota limit, you can do one of the foll
 
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
-1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-operations.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-resource-manager/resource-group-audit.md).
-3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) to address the issue.
+1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-resource-manager/management/view-activity-logs.md).
+3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
 ### Error: Your deployment failed….\<hostname>/joindomain
@@ -255,7 +252,7 @@ Example of raw error:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
@@ -372,7 +369,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### Error: User requires Azure Multi-Factor Authentication (MFA)
+### Error: User requires Azure AD Multi-Factor Authentication (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of your deployment failed due to lack of Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
@@ -383,7 +380,7 @@ Example of raw error:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Cause:** The specified Windows Virtual Desktop tenant admin requires Azure Multi-Factor Authentication (MFA) to sign in.
+**Cause:** The specified Windows Virtual Desktop tenant admin requires Azure AD Multi-Factor Authentication (MFA) to sign in.
 
 **Fix:** Create a service principal and assign it a role for your Windows Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md). After verifying that you can sign in to Windows Virtual Desktop with the service principal, rerun the Azure Marketplace offering or the GitHub Azure Resource Manager template, depending on which method you're using. Follow the instructions below to enter the correct parameters for your method.
 
@@ -403,7 +400,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 
 ### Error: vmSubnet not available when configuring virtual networks
 
-**Cause:** In the WVD Marketplace template, the UI only displays subnets that have at least as many IP addresses available as the total number of VMs specified in the template. The actual number of available IP addresses in the subnet only needs to be equal to the number of new VMs being deployed but this cannot be calculated by the current UI.
+**Cause:** In the Windows Virtual Desktop Marketplace template, the UI only displays subnets that have at least as many IP addresses available as the total number of VMs specified in the template. The actual number of available IP addresses in the subnet only needs to be equal to the number of new VMs being deployed but this cannot be calculated by the current UI.
 
 **Fix:** You can specify a subnet with at least as many IP addresses available as the number of VMs being added by not using the Marketplace UI, this can be done by specifying the subnet name in the "**existingSubnetName**" parameter when you [redeploy an existing deployment](expand-existing-host-pool-2019.md#redeploy-from-azure) or [deploy using the underlying ARM template from GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 

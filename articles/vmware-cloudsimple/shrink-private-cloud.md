@@ -1,8 +1,8 @@
 --- 
 title: Shrink Azure VMware Solution by CloudSimple Private Cloud
-description: Describes how to shrink a CloudSimple Private Cloud.
-author: sharaths-cs 
-ms.author: b-shsury 
+description: Learn how to dynamically shrink a Private Cloud in CloudSimple by removing a node from an existing vSphere cluster or removing an entire cluster.
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 07/01/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

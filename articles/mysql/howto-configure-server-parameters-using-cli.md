@@ -1,16 +1,19 @@
 ---
 title: Configure server parameters - Azure CLI - Azure Database for MySQL
 description: This article describes how to configure the service parameters in Azure Database for MySQL using the Azure CLI command line utility.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 6/11/2020 
+ms.date: 10/1/2020 
 ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL using the Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MySQL server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified. 
+
+>[!Note]
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md)
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -18,7 +21,7 @@ To step through this how-to guide, you need:
 - [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server configuration parameters for Azure Database for MySQL server
-To list all modifiable parameters in a server and their values, run the [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) command.
+To list all modifiable parameters in a server and their values, run the [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) command.
 
 You can list the server configuration parameters for the server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup**.
 ```azurecli-interactive
@@ -27,14 +30,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 For the definition of each of the listed parameters, see the MySQL reference section on [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## Show server configuration parameter details
-To show details about a particular configuration parameter for a server, run the [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) command.
+To show details about a particular configuration parameter for a server, run the [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) command.
 
 This example shows details of the **slow\_query\_log** server configuration parameter for server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## Modify a server configuration parameter value
-You can also modify the value of a certain server configuration parameter, which updates the underlying configuration value for the MySQL server engine. To update the configuration, use the [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) command. 
+You can also modify the value of a certain server configuration parameter, which updates the underlying configuration value for the MySQL server engine. To update the configuration, use the [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) command. 
 
 To update the **slow\_query\_log** server configuration parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
@@ -78,7 +81,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### Setting the global level time zone
 
-The global level time zone can be set using the [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) command.
+The global level time zone can be set using the [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) command.
 
 The following command updates the **time\_zone** server configuration parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup** to **US/Pacific**.
 

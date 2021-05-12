@@ -1,9 +1,6 @@
 ---
 title: Apache Hive libraries during cluster creation - Azure HDInsight
 description: Learn how to add Apache Hive libraries (jar files) to an HDInsight cluster during cluster creation.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive

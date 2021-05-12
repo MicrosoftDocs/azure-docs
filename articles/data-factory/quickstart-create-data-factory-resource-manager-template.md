@@ -1,16 +1,14 @@
 ---
 title: Create an Azure Data Factory using an Azure Resource Manager template (ARM template)
 description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template (ARM template).
-services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-ms.reviewer: maghan, jingwang
+author: ssabat
+ms.author: susabat
+ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/16/2020
+ms.date: 05/10/2021
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
@@ -30,7 +28,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -53,7 +51,7 @@ Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't al
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 There are Azure resources defined in the template:
 
@@ -69,7 +67,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Data Factory account, a storage account, and a blob container.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -127,9 +125,9 @@ Keep the container page open, because you can use it to verify the output at the
 
 ### Start Trigger
 
-1. Navigate to the **Data factories** page, and select the data factory you created. 
+1. Navigate to the **Data factories** page, and select the data factory you created.
 
-2. Select the **Author & Monitor** tile. 
+2. Select the **Author & Monitor** tile.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Author & Monitor":::
 
@@ -155,13 +153,13 @@ Keep the container page open, because you can use it to verify the output at the
 
 ### Verify the output file
 
-The pipeline automatically creates an output folder in the blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+The pipeline automatically creates an output folder in the blob container. Then, it copies the emp.txt file from the input folder to the output folder.
 
-1. In the Azure portal, on the **Containers** page, select **Refresh** to see the output folder. 
+1. In the Azure portal, on the **Containers** page, select **Refresh** to see the output folder.
 
 2. Select **output** in the folder list.
 
-3. Confirm that the **emp.txt** is copied to the output folder. 
+3. Confirm that the **emp.txt** is copied to the output folder.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Output":::
 
@@ -169,13 +167,13 @@ The pipeline automatically creates an output folder in the blob container. Then,
 
 You can clean up the resources that you created in the Quickstart in two ways. You can [delete the Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
-Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
+Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-If you want to delete just the data factory, and not the entire resource group, run the following command: 
+If you want to delete just the data factory, and not the entire resource group, run the following command:
 
 ```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

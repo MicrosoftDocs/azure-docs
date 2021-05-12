@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Data Lake Storage Gen1 - PowerShell | Microsoft Docs
 description: Use Azure PowerShell to create an Azure Data Lake Storage Gen1 account and perform basic operations.
 
@@ -6,7 +6,8 @@ author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.author: twooley
+ms.author: twooley 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Get started with Azure Data Lake Storage Gen1 using Azure PowerShell
@@ -31,7 +32,7 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Storage Gen1 acco
 
 ## Authentication
 
-This article uses a simpler authentication approach with Data Lake Storage Gen1 where you're prompted to enter your Azure account credentials. The access level to Data Lake Storage Gen1 account and file system is then governed by the access level of the logged in user. However, there are other approaches to authenticate with Data Lake Storage Gen1, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).
+This article uses a simpler authentication approach with Data Lake Storage Gen1 where you're prompted to enter your Azure account credentials. The access level to Data Lake Storage Gen1 account and file system is then governed by the access level of the logged in user. However, there are other approaches to authenticate with Data Lake Storage Gen1, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## Create a Data Lake Storage Gen1 account
 

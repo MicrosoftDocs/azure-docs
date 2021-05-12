@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript 
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
 ---
 # Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -108,6 +108,34 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         encrypt: true
       }
     };
+    
+    /* 
+        //Use Azure VM Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-vm',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+        //Use Azure App Service Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-app-service',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+
+    */
 
     const connection = new Connection(config);
 
@@ -143,10 +171,13 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
           console.log("%s\t%s", column.metadata.colName, column.value);
         });
       });
-      
+
       connection.execSql(request);
     }
     ```
+
+> [!NOTE]
+> For more information about using managed identity for authentication, complete the tutorial to [access data via managed identity](../../app-service/app-service-web-tutorial-connect-msi.md).
 
 > [!NOTE]
 > The code example uses the **AdventureWorksLT** sample database in Azure SQL Database.

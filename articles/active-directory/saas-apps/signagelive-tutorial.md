@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Signagelive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Signagelive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: d923f0e7-ad31-4d59-a6fd-f0e895e1a32d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Signagelive
 
@@ -28,7 +21,7 @@ Integrating Signagelive with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed in to Signagelive (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md). If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -107,7 +100,7 @@ To configure Azure AD single sign-on with Signagelive, take the following steps:
     `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual sign-on URL. To get the value, contact the [Signagelive Client support team](mailto:support@signagelive.com) . You can also refer to the patterns that are shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual sign-on URL. To get the value, contact the [Signagelive Client support team](mailto:support@signagelive.com). You can also refer to the patterns that are shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Raw)** from the given options per your requirement. Then save it on your computer.
 
@@ -185,13 +178,12 @@ In this section, you create a user called Britta Simon in Signagelive. Work with
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

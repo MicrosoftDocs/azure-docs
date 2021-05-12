@@ -1,6 +1,6 @@
 ---
 title: Create high-availability SAP multi-SID configuration in Azure
-description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
+description: Learn how to create high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines.
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -8,10 +8,8 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

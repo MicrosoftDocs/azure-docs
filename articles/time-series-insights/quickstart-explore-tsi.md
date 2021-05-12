@@ -9,7 +9,7 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/07/2020
+ms.date: 03/01/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
@@ -33,12 +33,27 @@ The Azure Time Series Insights Gen2 Explorer demonstrates historical data and ro
 
 ## Work with historical data
 
-1. In **Contoso Plant 1**, look at wind turbine **W7**.  
+1. Select **Contoso WindFarm Hierarchy**.
+
+   [![Contoso WindFarm Hierarchy](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. In **Contoso Plant 1**, look at wind turbine **W7**.
+
+   [![W7 in Contoso Plant 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
+
+      [![Range view](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Range view setting](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Adjust the range view using the zoom in **(+)** and out **(-)** and moving the slide bar.
+
+      [![Adjust range view](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
-      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Generator speed](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights Gen2, the fire alert sensor that was activated during the fire is displayed.
 
@@ -95,7 +110,7 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
 
       [![Extend the time span to 60 days](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let's drop a marker to display the actual values. 
+1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let's drop a marker to display the actual values.
 
     1. Select **Generator System**, and then select three sensors: **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3**.
     1. Drop a marker on the last data point in the visible area.
@@ -110,21 +125,14 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
 
       [![Change the display to include everything](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
-## Clean up resources
-
-Now that you've completed the quickstart, clean up the resources that you created:
-
-1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, and locate your Azure Time Series Insights Gen2 resource group.
-1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
-
 ## Next steps
 
 You're ready to create your own Azure Time Series Insights Gen2 environment. To start:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights Gen2 environment](time-series-insights-update-plan.md)
+> [Plan your Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md)
 
 Learn to use the demo and its features:
 
 > [!div class="nextstepaction"]
-> [The Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md)
+> [The Azure Time Series Insights Gen2 Explorer](./concepts-ux-panels.md)

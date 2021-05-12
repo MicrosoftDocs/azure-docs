@@ -2,7 +2,7 @@
 title: Join a CentOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
+ms.author: justinha
 
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain

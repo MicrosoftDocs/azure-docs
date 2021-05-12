@@ -1,5 +1,5 @@
 ---
-title: Concurrency Control - Azure Marketplace
+title: Concurrency control - Azure Marketplace
 description: Concurrency control strategies for the Cloud Partner Portal publishing APIs.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 07/14/2020
 ---
 
-# Concurrency Control
+# Concurrency control
 
 > [!NOTE]
 > The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
@@ -25,12 +25,9 @@ offer two strategies for concurrency control.
     regardless of whether another application has modified it since the
     last read time.
 
-Optimistic concurrency workflow
--------------------------------
+## Optimistic concurrency workflow
 
-We recommend using the optimistic concurrency strategy, with the
-following workflow, to guarantee that no unexpected edits are made to your
-resources.
+We recommend using the optimistic concurrency strategy, with the following workflow, to guarantee that no unexpected edits are made to your resources.
 
 1.  Retrieve an entity using the APIs. The response includes an ETag
     value that identifies the currently stored version of the entity (at

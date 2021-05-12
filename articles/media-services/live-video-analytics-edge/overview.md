@@ -21,7 +21,10 @@ With Live Video Analytics on IoT Edge, you can continue to use your [CCTV camera
 
 ## Supported environments
 
-Linux AMD64 and X64 environments are supported.
+Linux x86-64 and ARM64 environments are supported.
+> [!NOTE]
+> Support for ARM64 devices is available in builds `1.0.4` and newer.
+> Support for running Azure IoT Edge runtime on ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Get started
 

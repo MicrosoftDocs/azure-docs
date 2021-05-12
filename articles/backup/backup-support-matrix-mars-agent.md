@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 08/30/2019
+ms.date: 04/09/2021
 ms.topic: conceptual
 ---
 
@@ -40,7 +40,7 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 --- | ---
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
-Folder | The cache folder should not be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
+Folder | The cache folder shouldn't be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
@@ -49,11 +49,12 @@ Location changes | You can change the cache location by stopping the backup engi
 
 The MARS agent needs access to these URLs:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+- `www.msftconnecttest.com`
 
 And to these IP addresses:
 
@@ -62,28 +63,52 @@ And to these IP addresses:
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
+When backing up files and folders from Azure VMs using the MARS Agent, the Azure virtual network also needs to be configured to allow access. If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
+
+1. In **All Services**, go to **Network security groups** and select the network security group.
+2. Select **Outbound security rules** under **Settings**.
+3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
+4. Select **Add** to save the newly created outbound security rule.
+
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
+
 ### Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
 
 With public peering: Ensure access to the following domains/addresses:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
-With Microsoft peering, please select the following services/regions and relevant community values:
+With Microsoft peering, select the following services/regions and relevant community values:
 
+- Azure Backup (according to the location of your Recovery Services vault)
 - Azure Active Directory (12076:5060)
-- Microsoft Azure Region (according to the location of your Recovery Services vault)
 - Azure Storage (according to the location of your Recovery Services vault)
 
-For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
+For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
+
+### Private Endpoint support
+
+You can now use Private Endpoints to back up your data securely from servers to your Recovery Services vault. Since Azure Active Directory doesn't currently support private endpoints, IPs and FQDNs required for Azure Active Directory will need to be allowed outbound access separately.
+
+When you use the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault. You can then continue to install the MARS agent and configure backup. However, you must ensure all communication for backup happens through the peered network only.
+
+If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
+
+Read more about [private endpoints for Azure Backup](private-endpoints.md).
 
 ### Throttling support
 
@@ -119,11 +144,11 @@ For more information, see [Supported MABS and DPM operating systems](backup-supp
 
 ### Operating Systems at end of support
 
-The following operating systems are at the end of support and it is strongly recommended to upgrade the operating system to continue to stay protected.
+The following operating systems are at the end of support and it's strongly recommended to upgrade the operating system to continue to stay protected.
 
 If existing commitments prevent upgrading the operating system, consider migrating the Windows servers to Azure VMs and leverage Azure VM backups to continue staying protected. Visit the [migration page here](https://azure.microsoft.com/migration/windows-server/) for more information about migrating your Windows server.
 
-For on-premises or hosted environments, where you cannot upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/windows-server/extended-security-updates) to learn more.
+For on-premises or hosted environments, where you can't upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/windows-server/extended-security-updates) to learn more.
 
 | **Operating   system**                                       | **Files/folders** | **System   state** | **Software/Module   requirements**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
@@ -145,9 +170,20 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
 
+### Minimum retention limits
+
+The following are the minimum retention durations that can be set for the different recovery points:
+
+|Recovery point |Duration  |
+|---------|---------|
+|Daily recovery point    |   7 days      |
+|Weekly recovery point     |    4 weeks     |
+|Monthly recovery point    |   3 months      |
+|Yearly recovery point  |      1 year   |
+
 ### Other limitations
 
-- MARS does not support protection of multiple machines with the same name to a single vault.
+- MARS doesn't support protection of multiple machines with the same name to a single vault.
 
 ## Supported file types for backup
 
@@ -193,6 +229,29 @@ Offline backup can't be used for system state files.
 By using the [Instant Restore](backup-instant-restore-capability.md) feature of Azure Backup, you can restore data before it's copied to the vault. The machine you're backing up must be running .NET Framework 4.5.2 or higher.
 
 Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a computer that's running Windows 7 can be restored on Windows 8 or later. But a backup taken from a computer that's running Windows 8 can't be restored on a computer that's running Windows 7.
+
+## Previous MARS agent versions
+
+The following table lists the previous versions of the agent with their download links. We recommend you to upgrade the agent version to the latest, so you can leverage the latest features and optimal performance.
+
+**Versions** | **KB Articles**
+--- | ---
+[2.0.9145.0](https://download.microsoft.com/download/4/5/E/45EB38B4-2DA7-45FA-92E1-5CA1E23D18D1/MARSAgentInstaller.exe) | Not available
+[2.0.9151.0](https://download.microsoft.com/download/7/1/7/7177B70A-51E8-434D-BDF2-FA3A09E917D6/MARSAgentInstaller.exe) | Not available
+[2.0.9153.0](https://download.microsoft.com/download/3/D/D/3DD8A2FF-AC48-4A62-8566-B2C05F0BCCD0/MARSAgentInstaller.exe) | Not available
+[2.0.9162.0](https://download.microsoft.com/download/0/1/0/010E598E-6289-47DB-872A-FFAF5030E6BE/MARSAgentInstaller.exe) | Not available
+[2.0.9169.0](https://download.microsoft.com/download/f/7/1/f716c719-24bc-4337-af48-113baddc14d8/MARSAgentInstaller.exe) | [4515971](https://support.microsoft.com/help/4538314)
+[2.0.9170.0](https://download.microsoft.com/download/1/8/7/187ca9a9-a6e5-45f0-928f-9a843d84aed5/MARSAgentInstaller.exe) | Not available
+[2.0.9173.0](https://download.microsoft.com/download/7/9/2/79263a35-de87-4ba6-9732-65563a4274b6/MARSAgentInstaller.exe) | [4538314](https://support.microsoft.com/help/4538314)
+[2.0.9177.0](https://download.microsoft.com/download/3/0/4/304d3cdf-b123-42ee-ad03-98fb895bc38f/MARSAgentInstaller.exe) | Not available
+[2.0.9181.0](https://download.microsoft.com/download/6/6/9/6698bc49-e30b-4a3e-a1f4-5c859beafdcc/MARSAgentInstaller.exe) | Not available
+[2.0.9190.0](https://download.microsoft.com/download/a/c/e/aceffec0-794e-4259-8107-92a3f6c10f55/MARSAgentInstaller.exe) | [4575948](https://support.microsoft.com/help/4575948)
+[2.0.9195.0](https://download.microsoft.com/download/6/1/3/613b70a7-f400-4806-9d98-ae26aeb70be9/MARSAgentInstaller.exe) | [4582474](https://support.microsoft.com/help/4582474)
+[2.0.9197.0](https://download.microsoft.com/download/2/7/5/27531ace-3100-43bc-b4af-7367680ea66b/MARSAgentInstaller.exe) | [4589598](https://support.microsoft.com/help/4589598)
+[2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
+
+>[!NOTE]
+>MARS agent versions with minor reliability and performance improvements don't have a KB article.
 
 ## Next steps
 

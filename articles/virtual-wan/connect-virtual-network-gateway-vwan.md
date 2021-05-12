@@ -1,11 +1,11 @@
 ---
 title: 'Connect a virtual network gateway to an Azure Virtual WAN'
-description: This article helps you connect an Azure virtual network gateway to an Azure Virtual WAN VPN gateway
+description: Learn how to connect an Azure VPN gateway (virtual network gateway) to an Azure Virtual WAN VPN gateway.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---
@@ -41,9 +41,9 @@ On the Virtual network gateway **Configuration** page, enable active-active mode
 
 ### <a name="BGP"></a>BGP setting
 
-On the Virtual network gateway **Configuration** page, you can configure the **BGP ASN**. Change the BGP ASN. The BGP ASN cannot be 65515. 66515 will be used by Azure Virtual WAN.
+On the Virtual network gateway **Configuration** page, you can configure the **BGP ASN**. Change the BGP ASN. The BGP ASN cannot be 65515. 65515 will be used by Azure Virtual WAN.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
+![Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
 ### <a name="pip"></a>Public IP addresses
 
@@ -79,7 +79,7 @@ In this section, you download the VPN configuration file for each of the sites t
 
 1. At the top of the Virtual WAN **VPN sites** page, select the **Site**, then select **Download Site-to-site VPN configuration**. Azure creates a configuration file with the settings.
 
-   ![download configuration file](./media/connect-virtual-network-gateway-vwan/download.png "download")
+   ![Screenshot that shows the "VPN sites" page with the "Download Site-to-Site VPN configuration" action selected.](./media/connect-virtual-network-gateway-vwan/download.png "download")
 2. Download and open the configuration file.
 3. Repeat these steps for the second site. Once you have both configuration files open, you can proceed to the next section.
 
@@ -87,21 +87,21 @@ In this section, you download the VPN configuration file for each of the sites t
 
 In this section, you create two Azure VPN Gateway local network gateways. The configuration files from the previous step contain the gateway configuration settings. Use these settings to create and configure the Azure VPN Gateway local network gateways.
 
-1. Create the local network gateway using these settings. For information about how to create a VPN Gateway local network gateway, see the VPN Gateway article [Create a local network gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Create the local network gateway using these settings. For information about how to create a VPN Gateway local network gateway, see the VPN Gateway article [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **IP address** - Use the Instance0 IP Address shown for *gatewayconfiguration* from the configuration file.
    * **BGP** - If the connection is over BGP, select **Configure BGP settings** and enter the ASN '65515'. Enter the BGP peer IP address. Use 'Instance0 BgpPeeringAddresses' for *gatewayconfiguration* from the configuration file.
    * **Subscription, Resource Group, and Location** are same as for the Virtual WAN hub.
 2. Review and create the local network gateway. Your local network gateway should look similar to this example.
 
-   ![download configuration file](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Screenshot that shows the "Configuration" page with an IP address highlighted and "Configure BGP settings" selected.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Repeat these steps to create another local network gateway, but this time, use the 'Instance1' values instead of 'Instance0' values from the configuration file.
 
    ![download configuration file](./media/connect-virtual-network-gateway-vwan/lng2.png "instance1")
 
 ## <a name="createlocalgateways"></a>5. Create connections
 
-In this section, you create a connection between the VPN Gateway local network gateways and virtual network gateway. For steps on how to create a VPN Gateway connection, see [Configure a connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+In this section, you create a connection between the VPN Gateway local network gateways and virtual network gateway. For steps on how to create a VPN Gateway connection, see [Configure a connection](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. In the portal, navigate to your virtual network gateway and click **Connections**. At the top of the Connections page, click **+Add** to open the **Add connection** page.
 2. On the **Add connection** page, configure the following values for your connection:

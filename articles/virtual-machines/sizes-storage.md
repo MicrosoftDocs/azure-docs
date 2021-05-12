@@ -1,7 +1,7 @@
 ---
 title: Azure VM sizes - Storage | Microsoft Docs
 description: Lists the different storage optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
-ms.subservice: sizes
+ms.subservice: vm-sizes-storage
 documentationcenter: ''
 author: sasha-melamed
 ms.service: virtual-machines
@@ -33,4 +33,4 @@ Learn more about how [Azure compute units (ACU)](acu.md) can help you compare co
 
 Learn how to optimize performance on the Lsv2-series virtual machines for [Windows](windows/storage-performance.md) or [Linux](linux/storage-performance.md).
 
-For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](./vm-naming-conventions.md).

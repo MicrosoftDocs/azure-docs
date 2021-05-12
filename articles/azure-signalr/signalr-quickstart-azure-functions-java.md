@@ -1,13 +1,15 @@
 ---
 title: Use Java to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Java.
 author: sffamily
+ms.author: zhshang
+ms.date: 03/04/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.topic: quickstart
-ms.date: 03/04/2019
-ms.author: zhshang
-ms.custom: devx-track-java
+ms.custom:
+  - devx-track-java
+  - mode-api
 ---
 
 # Quickstart: Use Java to create a chat room with Azure Functions and SignalR Service
@@ -24,7 +26,7 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
    > The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
 
    > [!NOTE]
-   > To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
+   > To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
@@ -32,13 +34,21 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 > [!NOTE]
 > This quickstart can be run on macOS, Windows, or Linux.
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 
 ## Configure and run the Azure Function app
 
@@ -74,14 +84,20 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ```bash
     mvn azure-functions:run
     ```
+    
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsjava).
 
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application using Maven. Next, learn about how to create Java Azure Functions from scratch.
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/functions-create-first-java-maven.md)
+> [Create your first function with Java and Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)

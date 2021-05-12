@@ -1,7 +1,8 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +10,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -65,7 +65,7 @@ To get started:
 
 The IBM DB2 pureScale environment provides a database cluster for Azure. It's not identical to the original environment, but it delivers similar availability and scale as IBM DB2 for z/OS running in a Parallel Sysplex setup.
 
-To get started, see [IBM DB2 pureScale on Azure](../../linux/ibm-db2-purescale-azure.md).
+To get started, see [IBM DB2 pureScale on Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## Considerations
 
@@ -85,7 +85,7 @@ With Azure IaaS such as a VM, specific system functions provide failover support
 
 ### Scalability
 
-Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../linux/sizes.md) and [Windows](../../windows/sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
+Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../sizes.md) and [Windows](../../sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
 [scale](/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
 
 ### Storage
@@ -116,7 +116,7 @@ See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](../../troubleshooting/index.yml)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

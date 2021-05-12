@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service with a ZIP file (
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 
@@ -29,18 +29,18 @@ The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_
 
 ## Prerequisites
 
-To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+To complete the steps in this article, [create an App Service app](./index.yml), or use an app that you created for another tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) instead.
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](faq-app-service-linux.md#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 
-Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
+Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) command.  
 
 The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.
 

@@ -1,14 +1,11 @@
 ---
 title: Windows 7 virtual machines Windows Virtual Desktop (classic) - Azure
 description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop (classic) environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop (classic)
 
@@ -42,7 +39,7 @@ To fix this error, add the user to the Remote Desktop User group:
 2. Select the virtual machine you saw the error message on.
 3. Select **Run a command**.
 4. Run the following command with `<username>` replaced by the name of the user you want to add:
-   
+
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add
    ```

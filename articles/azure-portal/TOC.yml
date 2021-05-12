@@ -11,36 +11,35 @@
 - name: Quickstarts
   items:
   - name: Create a VM in the portal
-    href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
   - name: Create a dashboard
     items:
+    - name: Azure CLI
+      href: quickstart-portal-dashboard-azure-cli.md
     - name: Azure PowerShell
       href: quickstart-portal-dashboard-powershell.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-template.md
-- name: Concepts
-  items:
-  - name: Share dashboards with role-based access control
-    href: azure-portal-dashboard-share-access.md
-  - name: Programmatically create Azure dashboards
-    href: azure-portal-dashboards-create-programmatically.md
 - name: How-to guides
   items:
-  - name: Set your Azure portal preferences
+  - name: Manage Azure portal settings and preferences
     href: set-preferences.md
-  - name: Set inactive timeout settings for all users
-    href: admin-timeout.md
-  - name: Turn on high contrast or change theme
-    href: azure-portal-change-theme-high-contrast.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
-  - name: Use a custom markdown tile
-    href: azure-portal-markdown-tile.md
-  - name: Export or delete user settings
-    href: azure-portal-export-delete-settings.md
+  - name: View and filter resource information
+    href: manage-filter-resource-views.md
+  - name: Create Azure dashboards
+    items:
+    - name: Create an Azure dashboard
+      href: azure-portal-dashboards.md
+    - name: Share an Azure dashboard
+      href: azure-portal-dashboard-share-access.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
+    - name: Programmatically create an Azure dashboard
+      href: azure-portal-dashboards-create-programmatically.md
+      displayName: Azure CLI, az portal dashboard, az portal
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests
@@ -69,8 +68,6 @@
     items:
     - name: Recover a deleted dashboard
       href: recover-shared-deleted-dashboard.md
-    - name: Troubleshoot region or SKU subscription issues
-      href: supportability/sku-series-unavailable.md
     - name: Capture a browser trace for troubleshooting
       href: capture-browser-trace.md
 
@@ -83,10 +80,13 @@
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
-    href: /cli/azure/ext/portal/portal
+    href: /cli/azure/portal
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-portal
@@ -96,5 +96,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Azure Videos
+  - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest

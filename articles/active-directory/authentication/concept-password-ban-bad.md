@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 A lot of security guidance recommends that you don't use the same password in multiple places, to make it complex, and to avoid simple passwords like *Password123*. You can provide your users with [guidance on how to choose passwords](https://www.microsoft.com/research/publication/password-guidance), but weak or insecure passwords are often still used. Azure AD Password Protection detects and blocks known weak passwords and their variants, and can also block additional weak terms that are specific to your organization.
 
-With Azure AD Password Protection, default global banned password lists are automatically applied to all cloud-users. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
+With Azure AD Password Protection, default global banned password lists are automatically applied to all users in an Azure AD tenant. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
 
-You should use additional features like [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+You should use additional features like [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how Azure AD Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -34,7 +34,7 @@ The Azure AD Identity Protection team constantly analyzes Azure AD security tele
 
 When a password is changed or reset for any user in an Azure AD tenant, the current version of the global banned password list is used to validate the strength of the password. This validation check results in stronger passwords for all Azure AD customers.
 
-The global banned password list is automatically applied to all cloud users in an Azure AD tenant. There's nothing to enable or configure, and can't be disabled.
+The global banned password list is automatically applied to all users in an Azure AD tenant. There's nothing to enable or configure, and can't be disabled. This global banned password list is applied to users when they change or reset their own password through Azure AD.
 
 > [!NOTE]
 > Cyber-criminals also use similar strategies in their attacks to identify common weak passwords and variations. To improve security, Microsoft doesn't publish the contents of the global banned password list.
@@ -96,7 +96,7 @@ Although the global banned list is small in comparison to some third-party bulk 
 
 ## On-premises hybrid scenarios
 
-Many organizations have a hybrid identity model that includes on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Azure AD Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as cloud-only users.
+Many organizations have a hybrid identity model that includes on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Azure AD Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as in Azure AD.
 
 For more information, see [Enforce Azure AD Password Protection for AD DS](concept-password-ban-bad-on-premises.md).
 
@@ -171,7 +171,7 @@ Consider the following example:
 The next step is to identify all instances of banned passwords in the user's normalized new password. Points are assigned based on the following criteria:
 
 1. Each banned password that's found in a user's password is given one point.
-1. Each remaining unique character is given one point.
+1. Each remaining character that is not part of a banned password is given one point.
 1. A password must be at least five (5) points to be accepted.
 
 For the next two example scenarios, Contoso is using Azure AD Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.
@@ -199,7 +199,7 @@ Let's look a slightly different example to show how additional complexity in a p
 > [!IMPORTANT]
 > The banned password algorithm, along with the global banned password list, can and do change at any time in Azure based on ongoing security analysis and research.
 >
-> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is re-installed.
+> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is upgraded.
 
 ## What do users see
 

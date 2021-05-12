@@ -1,24 +1,24 @@
 ---
 title: Task Presets for Media Encoder Standard (MES) | Microsoft Docs
 description: The topic gives and overview of the service-defined sample presets for Media Encoder Standard (MES).
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
-
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # Sample Presets for Media Encoder Standard (MES)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **Media Encoder Standard** defines a set of pre-defined system encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 

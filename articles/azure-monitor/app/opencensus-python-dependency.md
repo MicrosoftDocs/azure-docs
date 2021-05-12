@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
@@ -169,6 +169,6 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Application Map](./app-map.md)
 * [Availability](./monitor-web-app-availability.md)
 * [Search](./diagnostic-search.md)
-* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
 

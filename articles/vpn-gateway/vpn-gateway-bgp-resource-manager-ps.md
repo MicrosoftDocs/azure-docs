@@ -1,19 +1,20 @@
 ---
-title: 'Azure VPN Gateway: Configure BGP: PowerShell'
-description: This article walks you through configuring BGP with Azure VPN Gateways using Azure Resource Manager and PowerShell.
+title: 'Configure BGP for VPN Gateway using PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure BGP for VPN gateways using PowerShell.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/12/2017
-ms.author: yushwang
+ms.date: 09/02/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to configure BGP on Azure VPN Gateways using PowerShell
-This article walks you through the steps to enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection using the Resource Manager deployment model and PowerShell.
 
-
+This article walks you through the steps to enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection using PowerShell.
 
 ## About BGP
 BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the Azure VPN Gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
@@ -70,7 +71,7 @@ $Connection15 = "VNet1toSite5"
 ```
 
 #### 2. Connect to your subscription and create a new resource group
-To use the Resource Manager cmdlets, Make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+To use the Resource Manager cmdlets, Make sure you switch to PowerShell mode. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
@@ -209,7 +210,7 @@ The connection is established after a few minutes, and the BGP peering session s
 
 This section adds a VNet-to-VNet connection with BGP, as shown in the following diagram:
 
-![BGP for VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagram that shows a V Net to V Net connection.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 The following instructions continue from the previous steps. You must complete [Part I](#enablebgp) to create and configure TestVNet1 and the VPN Gateway with BGP. 
 

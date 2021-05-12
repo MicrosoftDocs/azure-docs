@@ -61,7 +61,7 @@ This message shows that your installation appears to be working correctly.
 
 ### Install the Azure CLI
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For example:
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt) to install the Azure CLI on your Ubuntu virtual machine. For example:
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -70,5 +70,5 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 Exit the SSH connection.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-create]: /cli/azure/vm#az_vm_create
 [az-group-create]: /cli/azure/group

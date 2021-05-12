@@ -3,11 +3,12 @@ title: "How to upgrade Azure Dev Spaces tools"
 services: azure-dev-spaces
 ms.date: "07/03/2018"
 ms.topic: "conceptual" 
-ms.custom: devx-track-azurecli
 description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studio Code extension, and Visual Studio extension"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 # How to upgrade Azure Dev Spaces tools
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 If there is a new release and you are already using Azure Dev Spaces, you might need to upgrade your Azure Dev Spaces client tools.
 
@@ -15,7 +16,7 @@ If there is a new release and you are already using Azure Dev Spaces, you might 
 
 When you update the latest Azure CLI, you also get the latest version of the Dev Spaces CLI extension.
 
-You don't need to uninstall the previous version, just find the appropriate download at [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+You don't need to uninstall the previous version, just find the appropriate download at [Azure CLI](/cli/azure/install-azure-cli).
 
 
 ## Update the Dev Spaces CLI extension and command-line tools
