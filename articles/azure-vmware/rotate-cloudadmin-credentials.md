@@ -53,9 +53,10 @@ In this step, you'll rotate the cloudadmin credentials for your Azure VMware Sol
 
 ## Verify HCX Connector has the latest credentials
 
-HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
-
 In this step, you'll verify that the HCX Connector has the updated credentials.
+
+>[!NOTE]
+>HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can add and  configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
 
 1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
 
