@@ -29,4 +29,4 @@ The activities below are not necessarily sequential. The activity you use is dep
 
 ## Next steps
 
-- Visit the links for each API above as needed.
+- Visit the links above for each API as needed.
