@@ -20,7 +20,7 @@ Follow these steps to run the sample code:
    > :::image type="content" source="../../../media/vscode-common-screenshots/verbose-message.png" alt-text="Show Verbose Message":::
 
 1. In Visual Studio Code, go to _src/cloud-to-device-console-app/operations.json_.
-1. On the **livePipelineSet** node, make sure you see the following value:
+1. On the **pipelineTopologySet** node, make sure you see the following value:
 
    ```
    "pipelineTopologyUrl" : "https://raw.githubusercontent.com/lvateam/azure-video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
