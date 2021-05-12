@@ -47,7 +47,13 @@ To create an environment:
 1. Select the **Custom environments** tab. 
 1. Select the **Create** button. 
 
-Create an environment by specifying a pip requirements file, Conda yaml file, Dockerfile, or Docker image. You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
+Create an environment by specifying one of the following:
+> * Pip requirements file
+> * Conda yaml file
+> * Docker image
+> * Dockerfile
+
+You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
 If a new environment is given the same name as an existing environment in the workspace, a new version of the existing one will be created.
 
