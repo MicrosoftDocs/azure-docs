@@ -69,6 +69,19 @@ FROM
 
 The partitioned views will perform folder partition elimination if you query this view with the filters on the partitioning columns. This might improve performance of your queries.
 
+### Delta Lake partitioned views
+
+If you are creating the partitioned views on top of Delta Lake storage, you can specify just a root Delta Lake folder and don't need to explicitly expose the partitioning columns using the `FILEPATH` function:
+
+```sql
+CREATE VIEW TaxiView
+AS SELECT *
+FROM
+    OPENROWSET( BULK 'parquet/taxi', DATA_SOURCE = 'sqlondemanddemo', FORMAT='DELTA' ) AS nyc
+```
+
+The `OPENROWSET` function will examine the structure of the underlying Delta Lake folder and automatically identify and expose the partitioning columns. The partition elimination will be done automatically if you put the partitioning column in the `WHERE` clause of a query.
+
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries.
