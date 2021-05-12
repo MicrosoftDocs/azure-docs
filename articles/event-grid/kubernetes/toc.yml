@@ -14,7 +14,7 @@
   items:
   - name: Event Grid on Kubernetes concepts
     href: concepts.md
-  - name: Feature partity with Azure Event Grid
+  - name: Feature parity with Azure Event Grid
     href: features.md
   - name: Event handlers
     href: event-handlers.md    
