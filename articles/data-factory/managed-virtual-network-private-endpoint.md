@@ -1,8 +1,8 @@
 ---
 title: Managed virtual network & managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
@@ -50,7 +50,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
  
 > [!WARNING]
-> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 

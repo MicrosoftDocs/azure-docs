@@ -110,7 +110,7 @@ items:
     - name: Security
       items:
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/synapse-analytics-security-baseline
+        href: /security/benchmark/azure/baselines/synapse-analytics-security-baseline?toc=/azure/synapse-analytics/toc.json
       - name: Security Controls by Azure Policy
         href: ./security-controls-policy.md
       - name: Encryption
@@ -270,6 +270,8 @@ items:
     items:
     - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
+    - name: Create Logical Data Warehouse with serverless SQL pool
+      href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md  
   - name: Concepts
@@ -453,6 +455,8 @@ items:
         href: ./backuprestore/sqlpool-create-restore-point.md
       - name: Restore a dedicated SQL pool
         href: ./backuprestore/restore-sql-pool.md
+      - name: Pause and resume using Synapse Pipelines
+        href: ./sql/how-to-pause-resume-pipelines.md
     - name: Manage and monitor
       items:
       - name: SQL requests - Synapse Studio
@@ -658,11 +662,17 @@ items:
         href: monitoring/how-to-monitor-spark-pools.md
       - name: Analyze JSON with Apache Spark
         href: how-to-analyze-complex-schema.md
-    - name: Ingest and prepare data
+    - name: Data sources
       items:
-        - name: SQL Data Warehouse
+        - name: Azure Cosmos DB
+          href: ./synapse-link/how-to-query-analytical-store-spark.md
+        - name: Azure Data Explorer (Kusto)
+          href: ./spark/data-sources/apache-spark-kusto-connector.md
+        - name: Azure SQL Data Warehouse
           href: ./spark/synapse-spark-sql-pool-import-export.md
-        - name: Analyze JSON
+        - name: Azure SQL and SQL Server 
+          href: ./spark/data-sources/apache-spark-sql-connector.md
+        - name: JSON
           href: how-to-analyze-complex-schema.md
 - name: Synapse Link
   items:

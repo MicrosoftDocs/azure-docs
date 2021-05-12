@@ -1,12 +1,9 @@
 ---
- title: include file
- description: include file
- services: cosmos-db
  author: SnehaGunda
  ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 08/19/2020
+ ms.date: 04/21/2021
  ms.custom: include file
 ---
 

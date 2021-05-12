@@ -91,7 +91,7 @@ Use the following command to establish peering from the Route Server to the NVA:
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA1_name" 
 
 ``` 
 
@@ -101,7 +101,7 @@ To set up peering with different NVA or another instance of the same NVA for red
 
 ```azurecli-interactive 
 
-az network routeserver peering create --routeserver-name "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
+az network routeserver peering create --routeserver "myRouteServer" -g "RouteServerRG" --peer-ip "nva_ip" --peer-asn "nva_asn" -n "NVA2_name" 
 ``` 
 
 ## Complete the configuration on the NVA 
@@ -166,7 +166,7 @@ If you no longer need the Azure Route Server, use these commands to remove the B
 1. Remove the BGP peering between Azure Route Server and an NVA with this command:
 
 ```azurecli-interactive
-az network routeserver peering delete --routeserver-name "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
+az network routeserver peering delete --routeserver "myRouteServer" -g "RouteServerRG" -n "NVA2_name" 
 ``` 
 
 2. Remove Azure Route Server with this command: 
