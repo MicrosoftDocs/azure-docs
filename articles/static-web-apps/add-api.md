@@ -23,9 +23,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
   - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
-- [Node.js](https://nodejs.org/download/)
-- [Azure Functions Core Tools](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) to run the API app locally
-- [Azure Static Web Apps CLI](https://www.npmjs.com/package/@azure/static-web-apps-cli) to run the frontend and API app together locally
+- [Node.js](https://nodejs.org/download/) to run the frontend app and API
 
 ## Create the static web app
 
