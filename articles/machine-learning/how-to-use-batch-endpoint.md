@@ -60,7 +60,7 @@ az upgrade
 Add and configure the Azure ML extension:
 
 ```azurecli
-az extension -add  ml
+az extension add  ml
 ```
 
 For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
@@ -71,9 +71,9 @@ Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples
 
 ## Create a compute target
 
-Batch scoring runs only on cloud resources, not locally. The cloud resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
+Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
-Run the following code to create a CPU-enabled [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
+Run the following code to create a general purpose [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```azurecli
 az ml compute create -n cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
@@ -94,7 +94,7 @@ Below is the YAML file defining the MLFlow batch endpoint:
 | Key | Description |
 | --- | ----------- |
 | $schema | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options for a batch endpoint YAML file. |
-| name | The name of the batch endpoint, which must be unique across the workspace. |
+| name | The name of the batch endpoint, which must be unique across the workspace. The `name` value will be used as part of the scoring URI. The value must start with an English-language character, continue as a mix of numbers, characters, and the `-` symbol, and it must end with a number or character. It must be at least 3 characters long. The validating regular expression is: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
 | type | Type of the endpoint. Use `batch` for batch endpoint. |
 | auth_mode | Use `aad_token` for Azure token-based authentication. |
 | traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The batch endpoint with a value of `100` traffic is the active deployment. When invoked, all data is sent to the active deployment. |
@@ -120,7 +120,7 @@ Deployment Attributes:
 After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
 
 ```azurecli
-az ml endpoint show -n mybatchedp -t batch
+az ml endpoint show --name mybatchedp --type batch
 ```
 
 ## Start a batch scoring job using CLI

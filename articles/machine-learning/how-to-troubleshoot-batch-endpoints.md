@@ -93,7 +93,7 @@ After you invoke a batch endpoint using CLI or REST, the batch scoring job will 
 
 Option 1: Stream logs to local console
 
-You can run the following command to stream the logs to your console. Only logs in the `azureml-logs` folder will be streamed.
+You can run the following command to stream system-generated logs to your console.. Only logs in the `azureml-logs` folder will be streamed.
 
 ```bash
 az ml job stream -name <job_name>
