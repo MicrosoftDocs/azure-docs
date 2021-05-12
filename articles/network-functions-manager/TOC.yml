@@ -17,8 +17,6 @@
   items:
   - name: Routing
     href: routing.md
-  - name: Solutions partners and providers
-    href: partners-providers.md
   - name: FAQ
     href: faq.md
 - name: Resource

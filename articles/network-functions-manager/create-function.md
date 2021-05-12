@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create a network function as a managed application'
 titleSuffix: Azure Network Functions Manager
-description: In this tutorial, you learn how to create a network function as a managed application.
+description: In this tutorial, learn how to create a network function as a managed application.
 author: cherylmc
 ms.service: vnf-manager
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/12/2021
 ms.author: cherylmc
 
 ---

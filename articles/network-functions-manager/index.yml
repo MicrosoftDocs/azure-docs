@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Network Functions Manager documentation Preview # < 60 chars
-summary: Learn how to configure Network Functions Manager. This page is in progress and is not in its final form.  # < 160 chars
+summary: Learn how to configure Network Functions Manager. # < 160 chars
 
 metadata:
   title: Network Functions Manager documentation Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: Network Functions Manager FAQ
             url: faq.md
-          - text: Solutions partners and providers
-            url: partners-providers.md
   # Card
   - title: Get started
     linkLists:

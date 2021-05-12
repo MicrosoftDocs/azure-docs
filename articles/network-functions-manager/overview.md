@@ -6,21 +6,15 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 05/12/2021
 ms.author: cherylmc
 
 ---
 # What is Azure Network Functions Manager? (Preview)
 
->[!NOTE]
-> This article is not complete. It is still a work in progress.
->
-
 Azure Network Function Manager (NFM) is a fully managed cloud-native orchestration service that lets you deploy and provision network functions on **Azure Stack Edge Pro with GPU** for a consistent hybrid experience using the Azure portal.
   
 When used with Azure Stack Edge, NFM provides deployment, provisioning, and secure cloud-based management of your on-premises network functions or apps directly from the Azure portal. A managed service means that an Azure MSP (managed service provider) handles updates, lifecycle management, and support for your network functions and applications running on the edge device. The platform supports virtual machines and containerized workloads, along with one or two GPUs for acceleration.
-
-**Private Preview graphics - to be updated**
 
 :::image type="content" source="./media/overview/reference.png" alt-text="Reference Diagram." lightbox="./media/overview/reference.png":::
 
@@ -28,8 +22,8 @@ When used with Azure Stack Edge, NFM provides deployment, provisioning, and secu
 
 There are two main scenarios for Network Functions Manager:
 
-* Private Mobile Network via Celona Edge, Affirmed, or Metaswitch
-* SD-WAN via Velocloud
+* Private Mobile Network via Celona Edge, Affirmed, or Metaswitch.
+* SD-WAN via Velocloud.
 
 ## <a name="features"></a>Key Features
 
@@ -55,12 +49,10 @@ Before using the Azure Network Function Manager service, ensure the following re
 
 [!INCLUDE [Network Functions Manager regions](../../includes/network-functions-manager-regions-include.md)]
 
-## <a name="solutions"></a>Solutions partners and providers
-
-See the managed applications solutions [partners and providers](partners-providers.md) page.
-
 ## <a name="faq"></a>FAQ
 
-For the FAQ, see the [Network Functions Manager FAQ](faq.md)
+For the FAQ, see the [Network Functions Manager FAQ](faq.md).
 
 ## Next steps
+
+[Create a device](create-device).

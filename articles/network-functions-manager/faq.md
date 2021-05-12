@@ -1,12 +1,12 @@
 ---
 title: Network Functions Manager FAQ
 titleSuffix: Azure Network Functions Manager
-description: FAQ for Network Functions Manager
+description: Learn FAQs about Network Functions Manager.
 author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 05/12/2021
 ms.author: cherylmc
 
 ---
@@ -16,11 +16,7 @@ ms.author: cherylmc
 > This article is not complete. It is still a work in progress.
 >
 
-## FAQ information
-
-### Which network functions are available for use with this service?
-
-See the [Managed application solutions partners and providers](partners-providers.md) article for the full list of available network functions and SKUs.
+## FAQs
 
 ### When should I use Cloud-managed Virtual Machines feature to manage VMs on my Azure Stack Edge?
 

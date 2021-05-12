@@ -5,15 +5,11 @@ author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 05/12/2021
 ms.author: cherylmc
 
 ---
-# About routing configuration (Preview)
-
->[!NOTE]
-> This article is not complete. It is still a work in progress.
->
+# About routing configuration for NFM (Preview)
 
 To ensure Azure Network Function Manager service properly deploys network functions on the appliance, you’ll need to set up and manage networking on **Azure Stack Edge Pro with GPU**.
 
@@ -37,3 +33,5 @@ This example shows a setup with three distinct routing domains or subnets:
    :::image type="content" source="./media/settings/design.png" alt-text="Screenshot of design diagram." lightbox= "./media/settings/design.png":::
 
 ## Next steps
+
+For more information about Network Functions Manager, see the [FAQ](faq.md).

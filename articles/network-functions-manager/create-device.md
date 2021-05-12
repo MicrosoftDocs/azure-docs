@@ -1,20 +1,16 @@
 ---
 title: 'Tutorial: Create a device resource for Network Functions Manager'
 titleSuffix: Azure Network Functions Manager
-description: In this tutorial, you learn about how to create a device resource for NFM.
+description: In this tutorial, learn about how to create a device resource for Network Functions Manager.
 author: cherylmc
 
 ms.service: vnf-manager
 ms.topic: tutorial
-ms.date: 03/30/2021
+ms.date: 05/12/2021
 ms.author: cherylmc
 
 ---
 # Tutorial: Create a device (Preview)
-
->[!NOTE]
-> This article is not complete. It is still a work in progress.
->
 
 In this tutorial, you create a **Device** resource for Azure Network Functions Manager (NFM). A device resource is required in order to deploy network functions to Azure Stack Edge as managed applications.
 
@@ -37,8 +33,8 @@ Verify the following prerequisites:
 * Verify that you have registered the **Network Function Manager** resource provider for your subscription. You can register this resource provider by going to your subscription. The status will show **Registered** once complete.
 
    :::image type="content" source="./media/create-device/providers.png" alt-text="Screenshot of resource providers." lightbox="./media/create-device/providers.png" :::
-* Verify the required permissions. [add link here](faq.md)
-* Verify remote connection - Powershell.
+* Verify the required permissions.
+* Verify the remote connection.
 
 ## <a name="create"></a>Create a device resource
 
@@ -84,7 +80,7 @@ Follow these steps to remotely connect from a Windows client:
    Invoke-MecRegister <device-registration-key>
    ```
 
-1. Verify that the device resource has **Device Status = registered**. <Add screenshot>
+1. Verify that the device resource has **Device Status = registered**.
 
 ## Next steps
 
