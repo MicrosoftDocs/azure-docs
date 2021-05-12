@@ -33,11 +33,11 @@ For more information about Resource Units, see [Request Units in Azure Cosmos DB
 For more information about estimating the number of RUs consumed by your workload, see [Request Unit considerations](request-units.md#request-unit-considerations)
 For more information about partitioning Azure Cosmos DB, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md)
 
-## Workflow
+## Methodology
 
 An approach to implementing rate limiting might look like this:
 
-1. Profile your application so you have data about what writes and read requests are used.
+1. Profile your application so that you have data about the writes and read requests that are used.
 1. Define all indexes.
 1. Populate the collection with a reasonable amount of data (could be sample data). If you expect your application to normally have millions of records, populate it with millions of records.
 1. Write your representative documents and record the RU cost.
