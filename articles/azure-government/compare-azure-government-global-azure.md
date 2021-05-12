@@ -543,7 +543,7 @@ Azure Security Center is deployed in Azure Government regions but not in Azure G
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel)
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
 
 ## Storage
 
