@@ -149,4 +149,4 @@ You can make an outbound call by providing a user ID in the text field and click
 
 ## Sample Code
 
-You can download the sample app from [GitHub]()
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)
