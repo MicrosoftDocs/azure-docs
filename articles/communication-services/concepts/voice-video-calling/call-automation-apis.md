@@ -617,7 +617,7 @@ Event notifications are sent as JSON payloads to the calling application via the
 }
 ```
 
-### Roster Update Event
+### Participants Updated Event
 ```
 {
     "id": null,
