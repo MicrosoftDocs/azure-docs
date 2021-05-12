@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/static-web-apps/routes.md",
+      "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
@@ -13518,6 +13523,11 @@
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-debug-java-web-app-in-intellij.md",
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
+      "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
     },
     {
@@ -51298,7 +51308,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azure-portal.md",
@@ -53443,6 +53453,11 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-conditional-access-security-defaults.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
+      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true
     },
     {
@@ -56244,11 +56259,6 @@
       "source_path_from_root": "/articles/active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/active-directory-named-locations.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-reporting-activity-audit-reference.md",
@@ -64856,6 +64866,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/alerts/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/samples/cli-samples.md",
       "redirect_url": "/azure/azure-monitor//cli-samples",
       "redirect_document_id": false
@@ -65970,6 +65985,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
+      "redirect_url": "/azure/lighthouse/concepts/architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
       "redirect_document_id": false
@@ -65995,11 +66015,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
-      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
       "redirect_document_id": false
@@ -66012,6 +66027,21 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-node.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
       "redirect_document_id": false
     }
   ]

@@ -39,7 +39,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching `/*`.
 
-:::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 
