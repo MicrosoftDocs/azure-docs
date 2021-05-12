@@ -34,7 +34,7 @@ The Azure Cosmos DB free tier is compatible with the [Azure free account](optimi
 > [!NOTE]
 > Azure Cosmos DB free tier is different from the Azure free account. The Azure free account offers Azure credits and resources for free for a limited time. When using Azure Cosmos DB as a part of this free account, you get 25-GB storage and 400 RU/s of provisioned throughput for 12 months.
 
-## Best practices to keep your account feee
+## Best practices to keep your account free
 
 When using Azure Cosmos DB free tier, to keep your account completely free of charge, your account should not have any additional RU/s or storage consumption other than the one offered by the free tier.
 
@@ -46,15 +46,15 @@ For example, the following are some options that don’t result in any monthly c
 
 ## Create an account with free tier
 
-You can create a free tier account from the Azure portal, PowerShell, CLI, or Azure Resource Manager templates. You can choose free tier while creating the account, you can’t set it after the account is created.
+You can create a free tier account from the Azure portal, PowerShell, CLI, or Azure Resource Manager (ARM) templates. You can choose free tier while creating the account, you can’t set it after the account is created.
 
 ### Azure portal
 
 When creating the account using the Azure portal, set the **Apply Free Tier Discount** option to **Apply**. See [create a new account with free tier](create-cosmosdb-resources-portal.md) article for step-by-step guidance.
 
-### Resource manager template
+### ARM template
 
-To create a free tier account using Resource Manager template, set the property`"enableFreeTier": true`. For the complete template, see deploy a [Resource Manager template with free tier](manage-with-templates.md#free-tier) example.
+To create a free tier account by using an ARM template, set the property`"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
 
 ### CLI
 
