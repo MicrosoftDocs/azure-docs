@@ -132,7 +132,7 @@ Sign in to your Azure account and select your subscription.
 
 ## Review deployed resources
 
-1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az-resource-list) and look for the new provisioning service and IoT hub in the output:
+1. To verify the deployment, run the following [command to list resources](/cli/azure/resource#az_resource_list) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -167,4 +167,3 @@ In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Servi
 
 > [!div class="nextstepaction"]
 > [Quickstart to provision a device](./quick-create-simulated-device-symm-key.md)
-

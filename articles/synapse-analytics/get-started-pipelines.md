@@ -18,8 +18,6 @@ In this tutorial, you'll learn how to integrate pipelines and activities using S
 
 ## Create a pipeline and add a notebook activity
 
-
-
 1. In Synapse Studio, go to the **Integrate** hub.
 1. Select **+** > **Pipeline** to create a new pipeline. Click on the new pipeline object to open the Pipeline designer.
 1. Under **Activities**, expand the **Synapse** folder, and drag a **Notebook** object into the designer.
@@ -43,8 +41,8 @@ Once the pipeline is published, you may want to run it immediately without waiti
 
 1. Go to the **Monitor** hub.
 1. Select **Pipeline runs** to monitor pipeline execution progress.
-
-
+1. In this view you can switch between tabular **List** display a graphical **Gantt** chart. 
+1. Click on a pipeline name to see the status of activities in that pipeline.
 
 ## Next steps
 

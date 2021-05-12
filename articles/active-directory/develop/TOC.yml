@@ -26,10 +26,8 @@
       href: quickstart-v2-angular.md
     - name: Angular - Auth code flow
       href: quickstart-v2-javascript-auth-code-angular.md
-    - name: JavaScript - Auth code flow
+    - name: JavaScript
       href: quickstart-v2-javascript-auth-code.md
-    - name: JavaScript - Implicit flow
-      href: quickstart-v2-javascript.md
     - name: React - Auth code flow
       href: quickstart-v2-javascript-auth-code-react.md 
   - name: Web app
@@ -84,12 +82,14 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Angular - Auth code flow
+      href: tutorial-v2-angular-auth-code.md
     - name: Blazor WebAssembly
       href: tutorial-blazor-webassembly.md
-    - name: JavaScript - Auth code flow
+    - name: JavaScript
       href: tutorial-v2-javascript-auth-code.md
-    - name: JavaScript - Implicit flow
-      href: tutorial-v2-javascript-spa.md
+    - name: React
+      href: tutorial-v2-react.md
   - name: Web app
     items:
     - name: ASP.NET
@@ -377,6 +377,8 @@
         href: msal-b2c-overview.md
       - name: Migrate to MSAL.js
         href: msal-compare-msal-js-and-adal-js.md
+      - name: Migrate to MSAL Node
+        href: msal-node-migration.md
       - name: Single sign-on with MSAL.js
         href: msal-js-sso.md
       - name: Considerations - IE
@@ -502,7 +504,7 @@
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
+      href: ./howto-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -516,6 +518,16 @@
       href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
+  - name: Build for resilience
+    items:
+    - name: Development Overview
+      href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Client applications
+      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json  
+    - name: Daemon applications
+      href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: OpenID Connect metadata refresh
+      href: howto-build-services-resilient-to-metadata-refresh.md
   - name: Bring an app to market
     items:
     - name: Follow the branding guidelines
@@ -550,9 +562,9 @@
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
   - name: Remove an app registration
-    href: quickstart-remove-app.md
+    href: ./howto-remove-app.md
   - name: Restore or remove a deleted app registration
-    href: quickstart-restore-app.md
+    href: ./howto-restore-app.md
 - name: Reference
   items:
   - name: Glossary
@@ -593,6 +605,8 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: Token exchange scenarios
@@ -633,6 +647,8 @@
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
     href: /graph/api/resources/azure-ad-overview
+  - name: Claims mapping policy type
+    href: reference-claims-mapping-policy-type.md
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md
@@ -641,6 +657,8 @@
   - name: Mobile single sign-on (SSO)
     href: mobile-sso-support-overview.md
     displayName: android, ios
+  - name: Claims challenges and requests
+    href: claims-challenge.md
   - name: Permissions and consent
     displayName: Scopes
     items:

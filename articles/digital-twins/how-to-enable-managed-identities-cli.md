@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
-This article walks you through the process using the [**Azure CLI**](/cli/azure/what-is-azure-cli).
+This article walks you through the process using the [Azure CLI](/cli/azure/what-is-azure-cli).
 
 Here are the steps that are covered in this article: 
 
@@ -46,7 +46,7 @@ This is done by adding an `--assign-identity` parameter to the `az dt create` co
 To create an instance with a system managed identity, add the  `--assign-identity` parameter like this:
 
 ```azurecli-interactive
-az dt create -n {new_instance_name} -g {resource_group} --assign-identity
+az dt create --dt-name {new_instance_name} --resource-group {resource_group} --assign-identity
 ```
 
 ### Add a system-managed identity to an existing instance
@@ -58,13 +58,13 @@ This is also done with the `az dt create` command and `--assign-identity` parame
 The command to **enable** managed identity is the same as the command to create an instance with a system managed identity. All that changes is the value of the instance name parameter:
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity
 ```
 
 To **disable** managed identity on an instance where it's currently enabled, use the following similar command to set `--assign-identity` to `false`.
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity false
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity false
 ```
 
 ## Assign Azure roles to the identity 
@@ -84,7 +84,7 @@ Here are the minimum roles that an identity needs to access an endpoint, dependi
 | Azure Service Bus | Azure Service Bus Data Sender |
 | Azure storage container | Storage Blob Data Contributor |
 
-For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [*Concepts: Event routes*](concepts-route-events.md).
+For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [Concepts: Event routes](concepts-route-events.md).
 
 ### Assign the role
 
@@ -95,12 +95,12 @@ You can add the `--scopes` parameter onto the `az dt create` command in order to
 Here is an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
 ```azurecli-interactive
-az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
+az dt create --dt-name {instance_name} --resource-group {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-For more examples of role assignments with this command, see the [**az dt create** reference documentation](/cli/azure/dt#az_dt_create).
+For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
 
-Alternatively, you can also use the [**az role assignment**](/cli/azure/role/assignment) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
+Alternatively, you can also use the [az role assignment](/cli/azure/role/assignment) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
 
 ## Create an endpoint with identity-based authentication
 
@@ -114,7 +114,7 @@ This is done by adding a `--auth-type` parameter to the `az dt endpoint create` 
 To create an endpoint that uses identity-based authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this for an Event Hubs endpoint.
 
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased -n {instance_name}
+az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased --dt-name {instance_name}
 ```
 
 ## Considerations for disabling system-managed identities
@@ -126,4 +126,4 @@ To continue using an endpoint that was set up with a managed identity that's now
 ## Next steps
 
 Learn more about managed identities in Azure AD: 
-* [*Managed identities for Azure resources*](../active-directory/managed-identities-azure-resources/overview.md)
+* [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)

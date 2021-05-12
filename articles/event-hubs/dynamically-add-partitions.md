@@ -28,7 +28,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### CLI
-Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az_eventhubs_eventhub_update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -100,4 +100,3 @@ When a consumer group member performs a metadata refresh and picks up the newly 
 
 ## Next steps
 For more information about partitions, see [Partitions](event-hubs-scalability.md#partitions).
-

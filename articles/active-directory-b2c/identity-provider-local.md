@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -42,7 +42,7 @@ With the user option, users can sign in/up with a username and password:
 
 ![Username sign-up or sign-in experience](./media/identity-provider-local/local-account-username-experience.png)
 
-## Phone sign-in (Preview)
+## Phone sign-in
 
 Passwordless authentication is a type of authentication where a user doesn't need to sign-in with their password. With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary login identifier. The user will have the following experience during sign-up and sign-in:
 
@@ -76,9 +76,9 @@ The following screenshots demonstrate the phone recovery flow:
 ![Phone recovery user flow](./media/identity-provider-local/local-account-change-phone-flow.png)
 
 
-## Phone or email sign-in (Preview)
+## Phone or email sign-in
 
-You can choose to combine the [phone sign-in](#phone-sign-in-preview), and the [email sign-in](#email-sign-in). In the sign-up or sign-in page, user can type a phone number, or email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow. 
+You can choose to combine the [phone sign-in](#phone-sign-in), and the [email sign-in](#email-sign-in). In the sign-up or sign-in page, user can type a phone number, or email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow. 
 
 ![Phone or email sign-up or sign-in experience](./media/identity-provider-local/local-account-phone-and-email-experience.png)
 

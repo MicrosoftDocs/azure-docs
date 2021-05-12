@@ -2,7 +2,8 @@
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
@@ -28,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
    | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
    | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
    | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
-   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources are currently in public preview and allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
+   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
 
 > [!NOTE]
 > While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](../logs/cross-workspace-query.md#identifying-an-application) as it simplifies the required syntax.
@@ -151,7 +152,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ## Next steps
 * [Diagnostic Search](./diagnostic-search.md)
@@ -164,4 +165,3 @@ For the full Azure CLI documentation for this command, and to learn how to retri
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
-

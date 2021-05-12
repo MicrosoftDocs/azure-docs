@@ -37,10 +37,10 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
   * Windows 10 Version 1809 or later; build 17763 or later
   * Professional, Enterprise, or Server editions
-  * Minimum Free Memory: 2 GB
+  * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
   * If you're creating a new deployment using Windows 10, make sure you enable Hyper-V. For more information, see how to [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role. For more information, see how to [Install the Hyper-V role on Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+  * If you're creating a new deployment using Windows Server, make sure you install Hyper-V role and have a network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
   * If you're creating a new deployment using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
 * Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
@@ -172,7 +172,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```
 
    > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) to see parameter meaning​s and default values.
+   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) to see parameter meaning​s and default values.
 
 1. Enter 'Y' to accept the license terms.
 

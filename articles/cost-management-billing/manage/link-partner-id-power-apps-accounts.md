@@ -110,43 +110,8 @@ Delete the linked partner ID
 az managementpartner delete --partner-id 12345
 ```
 
-## Frequently asked questions (FAQ)
-
-The following sections cover frequently asked questions about linking a partner ID to Power Apps accounts.
-
-### Who should link the partner ID?
-
-Any user from the partner organization who works on a customer's Power Apps resources can link the partner ID to the account. Ideally, the association in PAL should be done at the beginning of the project. However, it can be performed whenever you have access in the customer's directory.
-
-### Can a partner ID be changed after it's linked?
-
-Yes. A linked partner ID can be changed, added, or removed. One example for this situation might be when an employee from your company leaves your organization. Another example might be when a project or contract with the customer ends.
-
-### What if a user has an account in more than one customer tenant?
-
-The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
-
-### Can other partners or customers edit or remove the link to the partner ID?
-
-The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
-
-### Which MPN ID should I use if my company has multiple?
-
-Be sure to use the **Associated MPN ID** shown in your partner profile. It's usually the local account ID association with your organization.
-
-### How do I explain PAL to my customer?
-
-PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
-
-### What data does PAL collect?
-
-The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.
-
-### Does PAL association affect the security of a customer's Power Apps environment?
-
-PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
-
 ### Next steps
 
+- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about linking a partner ID to Power Apps accounts.
 - Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscussion) to receive updates or send feedback.
 - Read the [Low Code Application Development advanced specialization FAQ](https://assetsprod.microsoft.com/mpn/faq-low-code-app-development-advanced-specialization.pdf) for PAL-based Power Apps association for Low code application development advanced specialization.
