@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/15/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,9 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## May 2021
+* [Custom question answering](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering) (previously QnA maker) can now be accessed using a Text Analytics resource. 
 
 ## March 2021
 
