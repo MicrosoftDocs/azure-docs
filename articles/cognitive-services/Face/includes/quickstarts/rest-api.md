@@ -222,9 +222,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Face API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Specify a face detection model version](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [What is the Face service?](../../overview.md)

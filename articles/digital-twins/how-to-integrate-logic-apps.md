@@ -28,7 +28,7 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 
 ## Prerequisites
 
-If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with this account. 
 
 You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:

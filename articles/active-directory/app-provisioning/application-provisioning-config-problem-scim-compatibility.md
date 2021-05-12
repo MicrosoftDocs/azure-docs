@@ -3,12 +3,12 @@ title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
