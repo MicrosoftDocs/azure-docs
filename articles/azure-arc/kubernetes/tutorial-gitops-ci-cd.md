@@ -196,7 +196,7 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 You're now ready to deploy to the `dev` and `stage` environments.
 
 ## Give More Permissions to Build Service
-The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to run successfully.
+The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to create a new branch, push changes, and create pull requests.
 
 1. Go to `Project settings` from the Azure DevOps project main page.
 1. Select `Repositories`.
@@ -226,7 +226,7 @@ The CI pipeline:
 * Verifies the Docker image has changed and the new image is pushed.
 
 ### CD pipeline
-During the initial CD pipeline run, you'll be asked to give the pipeline access to the GitOps repository.
+During the initial CD pipeline run, you'll be asked to give the pipeline access to the GitOps repository. Select View when prompted that the pipeline needs permission to access a resource. Then, select Permit to grant permission to use the GitOps repository for the current and future runs of the pipeline.
 
 The successful CI pipeline run triggers the CD pipeline to complete the deployment process. You'll deploy to each environment incrementally.
 
