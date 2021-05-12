@@ -42,7 +42,7 @@ You'll need to upload your training data to an Azure blob storage container. If 
 > [!div class="nextstepaction"]
 >[&#120785;. Train your custom model](quickstarts/client-library-guide.md#train-a-custom-model)
 
-You can [train your model](../quickstarts/client-library-guide.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
+You can [train your model](quickstarts/client-library-guide.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
 
 >[!div class="nextstepaction"]
 >[&#120786;. Analyze documents with your custom model](quickstarts/client-library-guide.md#analyze-forms-with-a-custom-model)
