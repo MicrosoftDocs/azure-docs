@@ -105,9 +105,11 @@ az keyvault secret set \
 
 For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
-## Perform an expert / custom SAP data connector installation
+## Perform an expert / custom installation
 
-This procedure describes how to deploy the SAP data connector on premises or perform an expert / custom installation, after you have a key vault ready with your SAP credentials.
+This procedure describes how to deploy the SAP data connector using an expert or custom installation, such as when installing on-premises. 
+
+We recommend that you perform this procedure after you have a key vault ready with your SAP credentials.
 
 **To deploy the SAP data connector**:
 
@@ -130,12 +132,9 @@ This procedure describes how to deploy the SAP data connector on premises or per
     Wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.inicp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
-1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide.
+1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide. For more information, see [Manually configure the SAP data connector](#manually-configure-the-sap-data-connector).
 
-    To test your configuration, add the user and password to the **systemconfig.ini** configuration file. We recommend that you use the **env.list** file, or Docker secrets as shown in [Manually configure the SAP data connector](#manually-configure-the-sap-data-connector).
-
-    > [!NOTE]
-    > Enter your time zone in GMT format, such as: `GMT+0`,`GMT+1`,`GMT-1`
+    To test your configuration, you may want to add the user and password directly to the **systemconfig.ini** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-sap-data-connector), or you can add your credentials directly to the **systemconfig.ini** file.
 
 1. Define the logs that you want to ingest into Azure Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Azure Sentinel](#define-the-sap-logs-that-are-sent-to-azure-sentinel).
 
@@ -183,7 +182,6 @@ This procedure describes how to deploy the SAP data connector on premises or per
 
     ```bash
     docker logs –f sapcon-[SID]
-
     ```
 
 1. In Azure Sentinel, browse to **Azure Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:

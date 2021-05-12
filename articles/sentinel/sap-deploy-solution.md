@@ -220,19 +220,13 @@ To run the SAP data connector deployment script, you'll need the following detai
     docker logs -f sapcon-[SID]
     ```
 
-1. In Azure Sentinel, browse to **Azure Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
-
-    [ ![Azure Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
-
-    SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
-
-    [ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
-
-    For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
-
 ## Deploy SAP security content from Azure Sentinel
 
-Deploy the Azure Sentinel SAP solution security content from the Azure Sentinel **Solutions** area.
+Deploy the [SAP security content](sap-solution-security-content.md) from the Azure Sentinel **Solutions** and **Watchlists** areas.
+
+The **Azure Sentinel - Continuous Threat Monitoring for SAP** solution enables the SAP data connector to show in the Azure Sentinel data connectors area, and deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
+
+Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
 **To deploy SAP solution security content**:
 
@@ -248,8 +242,9 @@ Deploy the Azure Sentinel SAP solution security content from the Azure Sentinel 
 
 1. Select **Next** to cycle through the **Data Connectors** **Analytics** and **Workbooks** tabs, where you can learn about the components that will be deployed with this solution.
 
-    - You can skip the **Data Connectors** tab, since you've already [connected to your SAP data connector](#deploy-your-sap-data-connector) earlier in this tutorial.
-    - The default name for the workbook is **SAP - System Applications and Products - Preview**. Change it in the workbooks tab as needed.
+    The default name for the workbook is **SAP - System Applications and Products - Preview**. Change it in the workbooks tab as needed.
+
+    For more information, see [Azure Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md).
 
 1. In the **Review + create tab**, wait for the **Validation Passed** message, then select **Create** to deploy the solution.
 
@@ -263,13 +258,25 @@ Deploy the Azure Sentinel SAP solution security content from the Azure Sentinel 
     - **Threat Management** > **Workbooks**, to find the [SAP - System Applications and Products - Preview](sap-solution-security-content.md#sap---system-applications-and-products-workbook) workbook.
     - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
-1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks.
+1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution.
 
     1. Download SAP watchlists from the Azure Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
 
-    1. Add the watchlists to your Azure Sentinel workspace, using the downloaded CSV files as the sources, and then customize them as needed for your environment. For more information, see [Use Azure Sentinel watchlists](watchlists.md).
+    1. In the Azure Sentinel **Watchlists** area, add the watchlists to your Azure Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment. 
 
         [ ![SAP-related watchlists added to Azure Sentinel.](media/sap/sap-watchlists.png) ](media/sap/sap-watchlists.png#lightbox)
+
+        For more information, see [Use Azure Sentinel watchlists](watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
+
+1. In Azure Sentinel, navigate to the **Azure Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
+
+    [ ![Azure Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
+
+    SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
+
+    [ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+
+    For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
 ## SAP solution deployment troubleshooting
 
@@ -288,11 +295,11 @@ After having deployed both the SAP data connector and security content, you may 
 
 > [!TIP]
 > We highly recommend that you review the system logs after installing the data connector. Run:
-> 
+>
 > ```bash
 > docker logs -f sapcon-[SID]
 > ```
-> 
+>
 For more information, see:
 
 - [View all Docker execution logs](#view-all-docker-execution-logs)
