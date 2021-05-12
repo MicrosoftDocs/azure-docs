@@ -9,8 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 03/22/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -95,9 +95,9 @@ To configure a local development environment or remote VM:
 
 1. Activate your newly created Python virtual environment.
 1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install).
-1. To to configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
+1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
 
-Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-sdk-setup-local.md) to get started.
+Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
 
 ### <a id="jupyter"></a>Jupyter Notebooks
 
@@ -142,7 +142,7 @@ The Azure Machine Learning [compute instance](concept-compute-instance.md) is a 
 
 There is nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/21/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: [devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020]
 zone_pivot_groups: programming-languages-computer-vision

@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Connect an existing Kubernetes cluster to Azure Arc'
 description: "In this quickstart, learn how to connect an Azure Arc enabled Kubernetes cluster." 
-author: mgoedtel
-ms.author: magoedte
+author: mlearned
+ms.author: mlearned
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 03/03/2021
-ms.custom: template-quickstart, references_regions
+ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
@@ -22,6 +22,11 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
     * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
     * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
+    * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `az connectedk8s connect`:
+        
+        ```console
+        oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+        ```
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
@@ -31,7 +36,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
 
-- [Install or upgrade Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 * Install the `connectedk8s` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli
@@ -40,7 +45,6 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 >[!TIP]
 > If the `connectedk8s` extension is already installed, update it to the latest version using the following command - `az extension update --name connectedk8s`
-
 
 >[!NOTE]
 >The list of regions supported by Azure Arc enabled Kubernetes can be found [here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -63,7 +67,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 | `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Required to pull system-assigned Managed Service Identity (MSI) certificates.                                                                  |
 
-## Register the two providers for Azure Arc enabled Kubernetes
+## Register providers for Azure Arc enabled Kubernetes
 
 1. Enter the following commands:
     ```azurecli
@@ -136,6 +140,9 @@ eastus      AzureArcTest
 
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
+
+> [!NOTE]
+> If you are logged into Azure CLI using a service principal, [additional permissions](troubleshooting.md#enable-custom-locations-using-service-principal) are required on the service principal for enabling the custom location feature when connecting the cluster to Azure Arc.
 
 ## Verify cluster connection
 

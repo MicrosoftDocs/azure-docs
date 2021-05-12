@@ -344,7 +344,7 @@ Log into your Power BI account. Go to **My Workspace**. On the line with your da
 
 ### Clean up resources using Azure CLI
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

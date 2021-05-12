@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,7 +50,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
 > [!NOTE] 
-> Teams does not support user risk events yet.
+> Teams and SharePoint Online does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
@@ -127,8 +127,12 @@ In the following example, a Conditional Access administrator has configured a lo
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
 1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
 1. Choose **Enable preview**.
+1. Select **Save**.
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
+
+> [!WARNING]
+> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 

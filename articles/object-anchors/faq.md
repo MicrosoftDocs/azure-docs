@@ -30,11 +30,11 @@ For more information, see [Azure Object Anchors overview](overview.md).
 * Clear backgrounds with no or minimal clutter
 * Scanned object should have 1:1 match with the model you trained with
 
-**Q: What are the maximum object dimensions that can be processed for model ingestion?**
+**Q: What are the maximum object dimensions that can be processed for model conversion?**
 
 **A:** Each dimension of a CAD model should be less than 10 meters.
 
-**Q: What is the maximum CAD model size that can be processed for ingestion?**
+**Q: What is the maximum CAD model size that can be processed for conversion?**
 
 **A:** The model file size should be less than 150 MB.
 
@@ -42,18 +42,22 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types.
 
-**Q: What is the gravity direction and unit required by the model ingestion service? How can we figure them out?**
+**Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
 
 **A:** Gravity direction is the down vector pointing to the earth. For CAD models, gravity direction is typically the opposite of an up direction. 
 For example, in many cases +Z represents up, in which case -Z or `Vector3(0.0, 0.0, -1.0)` would represent the gravity direction. When determining gravity, you should not only consider the model, but also the orientation in which the model will be seen during runtime. If you are trying to detect a chair in the real world on a flat surface, gravity might be `Vector3(0.0, 0.0, -1.0)`. However, if the chair is on a 45-degree slope, gravity might be `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`.
 
 The gravity direction can be reasoned with a 3D rendering tool, like [MeshLab](http://www.meshlab.net/).
 
-The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectAnchors.Ingestion.Unit** enumeration.
+The unit represents the unit of measurement of the model. Supported units can be found using the **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit** enumeration.
 
-**Q: How long does it take to ingest a CAD model?**
+**Q: How long does it take to convert a CAD model?**
 
 **A:** For a `ply` model, typically 3-15 minutes. If submitting models in other formats, expect to wait 15-60 minutes depending on file size.
+
+**Q: How do I recover from a model conversion failure?**
+
+**A:** For details on the different error codes that can result from a failed model conversion job and how to handle each, refer to the [conversion error codes page](.\model-conversion-error-codes.md).
 
 **Q: What devices does Object Anchors support?**
 
@@ -143,7 +147,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 **Q: Can I use Object Anchors without internet connectivity?**
 
 **A:** 
-* For model ingestion and training, connectivity is required as this occurs in the cloud.
+* For model conversion and training, connectivity is required as this occurs in the cloud.
 * Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
 
 ## Privacy FAQ

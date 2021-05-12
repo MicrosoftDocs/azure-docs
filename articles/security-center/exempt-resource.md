@@ -3,7 +3,7 @@ title: Exempt an Azure Security Center recommendation from a resource, subscript
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 author: memildin
 ms.author: memildin
-ms.date: 03/11/2021
+ms.date: 04/21/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -30,8 +30,8 @@ In such cases, you can create an exemption for a recommendation to:
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Pricing:                        | This is a premium Azure Policy capability that's offered for Azure Defender customers with no additional cost. For other users, charges might apply in the future.                                                                                                                                                                 |
-| Required roles and permissions: | **Subscription owner** or **Policy contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitations:                    | Exemptions can be created only for recommendations included in Security Center's default initiative, Azure Security Benchmark, or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
+| Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Limitations:                    | Exemptions can be created only for recommendations included in Security Center's default initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -113,6 +113,14 @@ To keep track of how your users are exercising this capability, we've created an
 - To learn more about the playbook, see the tech community blog post [How to keep track of Resource Exemptions in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - You'll find the ARM template in the [Azure Security Center GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - To deploy all the necessary components, [use this automated process](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
+
+## Use the inventory to find resources that have exemptions applied
+
+The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendation.
+
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Security Center's asset inventory page and the filter to find resources with exemptions":::
 
 
 ## Find recommendations with exemptions using Azure Resource Graph

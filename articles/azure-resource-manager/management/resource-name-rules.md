@@ -13,6 +13,9 @@ This article lists resources by resource provider namespace. For a list of how r
 
 Resource names are case-insensitive unless noted in the valid characters column.
 
+> [!NOTE]
+> When retrieving resource names using various APIs, returned values may display different case values than what is listed in the valid characters table.
+
 In the following tables, the term alphanumeric refers to:
 
 * **a** through **z** (lowercase letters)
@@ -164,7 +167,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
-> | disks | resource group | 1-80 | Alphanumerics and underscores. |
+> | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications/versions | application | 32-bit integer | Numbers and periods. |

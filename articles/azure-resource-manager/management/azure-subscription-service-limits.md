@@ -65,8 +65,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## App Service limits
 
-The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## Automation limits
@@ -76,6 +74,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ## Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Cache for Redis limits
 
@@ -361,7 +363,7 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 ## Azure Synapse Analytics limits
 
-For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+[!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
 
 ## Azure Files and Azure File Sync
 To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).

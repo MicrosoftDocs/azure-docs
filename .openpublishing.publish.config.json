@@ -244,6 +244,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-search-dotnet-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master",
@@ -355,6 +361,12 @@
       "path_to_root": "media-services-v3-rest-postman",
       "url": "https://github.com/Azure-Samples/media-services-v3-rest-postman",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-node-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -740,6 +752,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json"
   ]
 }

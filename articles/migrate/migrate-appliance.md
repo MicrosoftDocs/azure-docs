@@ -124,7 +124,44 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
-*.applicationinsights.us | Upload appliance logs used for internal monitoring.
+*.applicationinsights.us | Upload appliance logs used for internal monitoring.  
+
+### Public cloud URLs for private link connectivity
+
+The appliance needs access to the following URLs (directly or via proxy) over and above private link access. 
+
+**URL** | **Details**  
+--- | --- | 
+*.portal.azure.com  | Navigate to the Azure portal.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate.
+*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
+aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
+download.microsoft.com/download | Allow downloads from Microsoft download center.
+*.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
+*.vault.azure.net | **Used for VMware agentless migration**<br/><br/>  Ensure servers to replicate have access to this.
+*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+
+### Government cloud URLs for private link connectivity   
+
+The appliance needs access to the following URLs (directly or via proxy) over and above private link access. 
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.us  | Navigate to the Azure portal.
+graph.windows.net | Sign in to your Azure subscription.
+login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
+*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
+aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services.
+download.microsoft.com/download | Allow downloads from Microsoft download center.
+*.servicebus.usgovcloudapi.net  | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service. 
+*.vault.usgovcloudapi.net | **Used for VMware agentless migration**<br/><br/> Manage secrets in the Azure Key Vault.
+*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+*.applicationinsights.us (optional) | Upload appliance logs used for internal monitoring.  
 
 ## Collected data - VMware
 

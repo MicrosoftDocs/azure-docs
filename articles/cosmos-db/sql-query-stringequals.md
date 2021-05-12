@@ -57,7 +57,7 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+Learn about [how this string system function uses the index](sql-query-string-functions.md).
 
 ## Next steps
 

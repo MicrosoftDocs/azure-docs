@@ -30,7 +30,7 @@ To add a cloud property to store the customer name associated with the device:
 
 1. In the **Temperature Controller** device template, select **Cloud properties**.
 
-1. Select **Add cloud property**. Enter *Customer name* as the **Display name** and choose **String** as the **Schema**. Then select **Save**.
+1. Select **Add cloud property**. Enter *Customer name* as the **Display name**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
 
 To customize how the **Get Max-Min report** commands display in your IoT Central application:
 
@@ -76,7 +76,7 @@ An operator can now use the **Properties** view to update the property values, a
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Update the device properties":::
 
-* Call the commands from the **Commands** page:
+* Call the commands from the **Commands** page. If you run the status report command, select a date and time for the **Since** parameter before you run it:
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Call the command":::
 

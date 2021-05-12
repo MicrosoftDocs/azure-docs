@@ -4,7 +4,7 @@ description: Migrate to Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Migrate to Azure Kubernetes Service (AKS)
@@ -47,7 +47,7 @@ In this article we will summarize migration details for:
 
 Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following tasks:
 
-* [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
+* [Containerize ASP.NET applications and migrate to AKS](/azure/aks/tutorial-app-containerization-aspnet-kubernetes)
 * [Containerize Java web applications and migrate to AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets

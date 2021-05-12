@@ -52,8 +52,10 @@ landingContent:
         links:
           - text: Language support
             url: language-support.md
-          - text: OCR REST API
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
+          - text: OCR (Read) v3.2
+            url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+          - text: OCR (Read) v3.1
+            url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
   - title: Help and feedback
     linkLists:
       - linkListType: reference
