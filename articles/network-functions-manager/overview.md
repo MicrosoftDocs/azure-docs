@@ -55,4 +55,4 @@ For the FAQ, see the [Network Functions Manager FAQ](faq.md).
 
 ## Next steps
 
-[Create a device](create-device).
+[Create a device](create-device.md).

@@ -27,7 +27,7 @@ In this tutorial, you:
 Verify the following prerequisites:
 
 * Verify that you have completed all the prerequisites listed in the [Overview](overview.md#pre) article.
-* Verify that your subscription has been onboarded. Microsoft. You can [Fill out this form](linktoform) to help onboard your subscription.
+* Verify that your subscription has been onboarded. 
 * Verify that ASE resource and device resource are in same regions.  
 * Review the [supported regions](faq.md) before creating a device.
 * Verify that you have registered the **Network Function Manager** resource provider for your subscription. You can register this resource provider by going to your subscription. The status will show **Registered** once complete.
