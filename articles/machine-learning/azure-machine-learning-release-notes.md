@@ -25,6 +25,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + Improved AutoML Scoring script to make it consistent with designer
+    + Patch bug where forecasting with the Prophet model would throw an "missing column" error if trained on an earlier version of SDK.
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
