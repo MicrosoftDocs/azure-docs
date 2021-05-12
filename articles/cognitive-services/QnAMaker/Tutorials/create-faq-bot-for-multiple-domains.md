@@ -48,7 +48,7 @@ For the bot on surface products, you can take the following steps to create a bo
     https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     ```
 
-    In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response amongst the QnA pairs with the same metadata. 
+    In the JSON body for the API call, we have passed *surface_pen* as value for the metadata *product*. So, the system will only look for the response among the QnA pairs with the same metadata. 
 
     ```json
     {
