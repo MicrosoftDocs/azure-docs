@@ -25,10 +25,10 @@ In this tutorial you will learn how to:
 
 This app will showcase below scenarios:
 
-* Count of people entering and exiting sapce/store
-* Count of people entering, exiting checkout area/zone and time spent(dwelltime) in the checkout line
-* Count of people wearing face mask 
-* Count of people violating social distancing
+* Count of people entering and exiting a space/store
+* Count of people entering and exiting a checkout area/zone and the time spent in the checkout line (dwell time)
+* Count of people wearing a face mask 
+* Count of people violating social distancing guidelines
 
 ## Prerequisites
 
@@ -88,9 +88,9 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 
 If you are using the sample [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json) which already has all of the required configurations (operations, recorded video file urls and zones etc.), then you can skip to the **Execute the deployment** section.
 
-Now that the initial configuration of the *spatial-analysis* container is complete, the next step is to configure the operations parameters and add them to the deployment. 
+Now that the initial configuration of the spatial analysis container is complete, the next step is to configure the operations parameters and add them to the deployment. 
 
-The first step is to update the sample [DeploymentManifest.json](./DeploymentManifest.json) and configure the desired operation. For example configuration for cognitiveservices.vision.spatialanalysis-personcount is shown below:
+The first step is to update the sample [DeploymentManifest.json](./DeploymentManifest.json) and configure the desired operation. For example, configuration for cognitiveservices.vision.spatialanalysis-personcount is shown below:
 
 ```json
 "personcount": {
