@@ -17,11 +17,7 @@ Append-only ledger tables allow only `INSERT` operations on your tables, ensurin
 
 :::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="architecture of ledger tables":::
 
-Creating an append-only ledger table can be done three ways through specifying the `LEDGER = ON` argument in your T-SQL statement specifying the `APPEND_ONLY = ON` option:
-
-- [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql)
-- [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-table-transact-sql)
-- [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)
+Creating an append-only ledger table can be done through specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement and specifying the `APPEND_ONLY = ON` option.
 
 > [!IMPORTANT]
 > When creating an append-only ledger table, system-generated columns will be created in your ledger table for tracking data lineage for forensics purposes. 
@@ -42,6 +38,9 @@ When created, append-only ledger tables will add two system-generated hidden col
 For every append-only ledger table, the system automatically generates a view, called the ledger view. The ledger view reports all row inserts that have occurred on the table. The ledger view is primarily helpful for [updatable ledger tables](ledger-updatable-ledger-tables.md), rather than append-only ledger tables, as append-only ledger tables don't have any `UPDATE` or `DELETE` capabilities. The ledger view for append-only ledger tables is available for consistency between both updatable and append-only ledger tables.
 
 ### Ledger view schema
+
+> [!NOTE]
+> The ledger view column names can be customized when creating the table using the `<ledger_view_option>` parameter with the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. For more information, see [ledger view options](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) and the corresponding examples in [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 | Column name | Data type | Description |
 | --- | --- | --- |

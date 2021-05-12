@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database updatable ledger tables"
-description: This article provides information on updatable ledger tables schema and views in Azure SQL Database
+description: This article provides information on updatable ledger tables, ledger schema, and ledger views in Azure SQL Database
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -15,9 +15,11 @@ ms.author: janders
 
 Updatable ledger tables are system-versioned tables that users can perform updates and deletes on while also providing tamper-evidence capabilities. When updates or deletes occur, all earlier versions of a row are preserved in a secondary table, known as the history table. The history table mirrors the schema of the updatable ledger table. When a row is updated, the latest version of the row remains in the ledger table, while its earlier version is inserted into the history table by the system, transparently to the application. 
 
-**NEEDS IMAGE HERE**
-## Updateable ledger tables vs. temporal tables
-Both updatable ledger tables and [temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) are system-versioned tables, for which the Database Engine captures historical row versions in secondary history tables. Either technology provides unique benefits. Updatable ledger tables make both the current and historical data tamper-evident. Temporal tables support querying the data stored at any point in time rather than only the data that is correct at the current moment in time.
+:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
+
+## Updatable ledger tables vs. temporal tables
+
+Both updatable ledger tables and [temporal tables](/sql/relational-databases/tables/temporal-tables) are system-versioned tables, for which the Database Engine captures historical row versions in secondary history tables. Either technology provides unique benefits. Updatable ledger tables make both the current and historical data tamper-evident. Temporal tables support querying the data stored at any point in time rather than only the data that is correct at the current moment in time.
 
 You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
@@ -34,6 +36,9 @@ For details on options available when specifying the `LEDGER` argument in your T
 
 When created, updatable ledger tables will add 4 system-generated, hidden columns to your table. These columns contain metadata noting which transactions made changes to your updatable ledger tables and the order of operations by which rows were updated by the transaction. This data is useful for forensics purposes in understanding how data was changed over time.
 
+> [!NOTE]
+> The `GENERATE ALWAYS` columns of the ledger table and ledger history table name can be customized when creating the table using the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. For more information, see our examples of [Creating a updatable ledger table](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#x-creating-a-updatable-ledger-table).
+
 | Column name | Data type | Description |
 | --- | --- | --- |
 | ledger_start_transaction_id | bigint | The ID of the transaction that created a row version. |
@@ -45,7 +50,7 @@ When created, updatable ledger tables will add 4 system-generated, hidden column
 
 The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table mirrors that of the updatable ledger table it's associated with. 
 
-When creating an updatable leger table, you can either specify the name of the schema to contain your history table and the name of the history table, or you have the system generate the name of the history table and add it to the same schema as the ledger table. History tables with system-generated names are called anonymous history tables. The naming convention for an anonymous history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
+When creating an updatable ledger table, you can either specify the name of the schema to contain your history table and the name of the history table, or you have the system generate the name of the history table and add it to the same schema as the ledger table. History tables with system-generated names are called anonymous history tables. The naming convention for an anonymous history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
 
 ## Ledger view
 
@@ -53,11 +58,14 @@ For every updatable ledger table, the system automatically generates a view, cal
 
 For example, if you wanted to track transaction history for a simple banking scenario, the ledger view is incredibly helpful to provide a chronicle of the transactions over time, rather than having to independently view the updatable ledger table and history tables, or constructing your own view to do so.
 
-**NEEDS IMAGE HERE**
+For an example on using the ledger view, see [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
 
 The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the system-generated columns are different than those of the updatable ledger and history tables.
 
 ### Ledger view schema
+
+> [!NOTE]
+> The ledger view column names can be customized when creating the table using the `<ledger_view_option>` parameter with the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. For more information, see [ledger view options](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) and the corresponding examples in [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 | Column name | Data type | Description |
 | --- | --- | --- |

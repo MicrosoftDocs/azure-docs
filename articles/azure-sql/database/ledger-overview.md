@@ -37,7 +37,7 @@ Where a blockchain network is necessary for a multi-party business process, havi
 
 Each transaction that is received by the database is cryptographically hashed (SHA-256). The hash function uses the value of the transaction (including hashes of the rows contained in the transaction), along with the hash of the previous transaction as input to the hash function. The function cryptographically links all transactions together, similar to a blockchain. Cryptographic hashes ([database digests](#database-digests)), which represent the state of the database, are periodically generated and stored outside of Azure SQL Database in a tamper-proof storage location. An example of a storage location would be [Azure Storage immutable blobs](../../storage/blobs/storage-blob-immutable-storage.md) or [Azure Confidential Ledger](https://aka.ms/ACL-docs). Database digests are then later used to verify the integrity of the database by comparing the value of the hash in the digest against the calculated hashes in database. 
 
-Ledger introduces ledger functionality to tables in Azure SQL Database in two forms.  
+Ledger functionality is introduced to tables in Azure SQL Database in two forms:
 
 - [**Updatable ledger tables**](ledger-updatable-ledger-tables.md), which allow you to update and delete rows in your tables.
 - [**Append-only ledger tables**](ledger-append-only-ledger-tables.md), which only allow inserts to your tables.
@@ -61,13 +61,11 @@ For more information on how to create and use updatable ledger tables, see [Crea
 
 [Append-only ledger tables](ledger-append-only-ledger-tables.md) are ideal for application patterns that are insert-only, such as Security Information and Event Management (SEIM) applications. Append-only ledger tables block updates and deletes at the Application Programming Interface (API) level, providing further tampering protection from privileged users such as systems administrators and DBAs. Since only inserts are allowed into the system, append-only ledger tables don't have a corresponding history table as there's no history to capture. Like updatable ledger tables, a ledger view is created providing insights into the transaction that inserted rows into the append-only table, and the user that performed the insert.
 
-For more information on how to create and use append-only ledger tables, see [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md).
+For more information on how to create and use append-only ledger tables, see [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md).
 
 ### Database ledger
 
 The database ledger consists of system tables that store the cryptographic hashes of transactions processed in the system. Since transactions are the unit of [atomicity](/windows/win32/cossdk/acid-properties) for the database engine, this is the unit of work being captured in the database ledger. Specifically, when a transaction commits, the SHA-256 hash of any rows modified by the transaction in the ledger table, together with some metadata for the transaction, such as the identity of the user that executed it and its commit timestamp, is appended as a *transaction entry* in the database ledger. Every 30 seconds, the transactions processed by the database are SHA-256 hashed together using a Merkle tree data structure, producing a root hash. This forms a block, which is then SHA-256 hashed using the root hash of the block along with the root hash of the previous block as input to the hash function, forming a blockchain.
-
-:::image type="content" source="media/ledger/database-ledger.png" alt-text="sql ledger tables"::: 
 
 For more information on the database ledger, see [Database ledger](ledger-database-ledger.md).
 

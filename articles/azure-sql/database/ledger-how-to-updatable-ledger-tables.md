@@ -32,7 +32,7 @@ We'll create an account balance table with the following schema.
 | Balance     | decimal (10,2) | Account balance                     |
 
 > [!IMPORTANT]
-> **NEED MORE INFO** Creating updatable ledger tables requires the **ENABLE LEDGER** permission. For details on permissions related to ledger tables, see here. 
+> Creating updatable ledger tables requires the **ENABLE LEDGER** permission. For details on permissions related to ledger tables, see [Permissions](/sql/relational-databases/security/permissions-database-engine#asdbpermissions). 
 
 1. Using either [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), create a new schema and table called `[Account].[Balance]`.
 
@@ -56,7 +56,9 @@ We'll create an account balance table with the following schema.
    ```
 
     > [!NOTE]
-    > Specifying the `LEDGER = ON` argument is optional if you enabled ledger when you created your Azure SQL Database.       
+    > Specifying the `LEDGER = ON` argument is optional if you enabled ledger when you created your Azure SQL Database. In the above example, the system will generate the names of the `GENERATE ALWAYS` columns in the table, the name of the [ledger view](ledger-updatable-ledger-tables.md#ledger-view), and the names of the [ledger view columns](ledger-updatable-ledger-tables.md#ledger-view-schema).
+    >
+    > The ledger view column names can be customized when creating the table using the `<ledger_view_option>` parameter with the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. The `GENERATE ALWAYS` columns, as well as the [history table](ledger-updatable-ledger-tables.md#history-table) name can be customized. For more information, see [ledger view options](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) and the corresponding examples in [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true##x-creating-a-updatable-ledger-table).
 
 1. When your [updatable ledger table](ledger-updatable-ledger-tables.md) is created, the corresponding history table and ledger view are also created. Execute the following T-SQL to see the new table and the new view.
 
@@ -154,6 +156,9 @@ We'll create an account balance table with the following schema.
    ORDER BY ledger_transaction_id
    GO
    ```
+
+   > [!TIP]
+   > We recommend that you query the history of changes through the [ledger view](ledger-updatable-ledger-tables.md#ledger-view), and not the [history table](ledger-updatable-ledger-tables.md#history-table).
 
 1. `Nick`'s account balance has been successfully updated in the updatable ledger table to `100`.
 1. The history table now shows the previous balance of `50` for `Nick`.
