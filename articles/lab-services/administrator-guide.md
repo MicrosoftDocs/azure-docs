@@ -132,7 +132,7 @@ The region specifies the datacenter where information about a resource group is 
 
 A lab account's location indicates the region that a resource exists in.  
 
-### Lab
+### Lab    
 
 The location that a lab exists in varies, depending on the following factors:
 
@@ -158,18 +158,21 @@ A general rule is to set a resource's region to one that's closest to its users.
 
 ## VM sizing
 
-When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the compute size availability depends on the region that your lab account is located in.
+When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab account is located in.
 
-| Size | Specs | Series | Suggested use |
+In the following table, notice that several of the VM sizes map to more than one VM series.  Depending on capacity availability, Lab Services may use any of the VM series that are listed for a VM size.  For example, the *Small* VM size maps to using either the [Standard_A2_v2](../virtual-machines/av2-series.md) or the [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) VM series.  When you choose *Small* as the VM size for your lab, Lab Services will first attempt to use the *Standard_A2_v2* series.  However, when there isn't sufficient capacity available, Lab Services will instead use the *Standard_A2* series.  The pricing is determined by the VM size and is the same regardless of which VM series Lab Services uses for that specific size. For more information on pricing for each VM size, read the [Lab Services pricing guide](https://azure.microsoft.com/pricing/details/lab-services/).
+
+
+| Size | Minimum Specs | Series | Suggested use |
 | ---- | ----- | ------ | ------------- |
-| Small| <ul><li>2&nbsp;cores</li><li>3.5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Medium | <ul><li>4&nbsp;cores</li><li>7&nbsp;GB&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for relational databases, in-memory caching, and analytics. |
-| Medium (nested virtualization) | <ul><li>4&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Best suited for relational databases, in-memory caching, and analytics.
-| Large | <ul><li>8&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
-| Large (nested virtualization) | <ul><li>8&nbsp;cores</li><li>32&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Small| <ul><li>2&nbsp;cores</li><li>3.5 gigabytes (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md), [Standard_A2](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Medium | <ul><li>4&nbsp;cores</li><li>7&nbsp;GB&nbsp;RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md), [Standard_A3](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for relational databases, in-memory caching, and analytics. |
+| Medium (nested virtualization) | <ul><li>4&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.
+| Large | <ul><li>8&nbsp;cores</li><li>16&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md), [Standard_A7](../virtual-machines/sizes-previous-gen.md#a-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Large (nested virtualization) | <ul><li>8&nbsp;cores</li><li>32&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 | Small GPU (visualization) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Small GPU (Compute) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Best suited for computer-intensive applications such as AI and deep learning. |
-| Medium GPU (visualization) | <ul><li>12&nbsp;cores</li><li>112&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small GPU (Compute) | <ul><li>6&nbsp;cores</li><li>56&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md), [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) |Best suited for computer-intensive applications such as AI and deep learning. |
+| Medium GPU (visualization) | <ul><li>12&nbsp;cores</li><li>112&nbsp;GB&nbsp;RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md), [Standard_NV12s_v3](../virtual-machines/nvv3-series.md), [Standard_NV12s_v2](../virtual-machines/sizes-previous-gen.md#nvv2-series)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ## Manage identity
 
