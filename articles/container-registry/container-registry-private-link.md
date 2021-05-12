@@ -59,12 +59,7 @@ Set up a private endpoint when you create a registry, or add a private endpoint 
   
 :::image type="content" source="media/container-registry-private-link/private-link-create-portal.png" alt-text="Create registry with private endpoint":::
 
-After the private endpoint is created, DNS settings in the private zone appear on the **Private endpoints** page in the portal:
 
-1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Private endpoints** tab, select the private endpoint you created.
-1. On the **Overview** page, review the link settings and custom DNS settings.
-  :::image type="content" source="media/container-registry-private-link/private-endpoint-overview.png" alt-text="Endpoint DNS settings in portal":::
 
 Your private link is now configured and ready for use.
 
@@ -113,6 +108,16 @@ Your private link is now configured and ready for use.
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 1. When you see the **Validation passed** message, select **Create**.
 
+### Confirm endpoint configuration
+
+After the private endpoint is created, DNS settings in the private zone appear with the **Private endpoints** settings in the portal:
+
+1. In the portal, navigate to your container registry and select **Settings > Networking**.
+1. On the **Private endpoints** tab, select the private endpoint you created. 
+1. Select **DNS configuration**.
+1. Review the link settings and custom DNS settings.
+
+:::image type="content" source="media/container-registry-private-link/private-endpoint-overview.png" alt-text="Endpoint DNS settings in portal":::
 ## Set up private endpoint - CLI
 
 The Azure CLI examples in this article use the following environment variables. You'll need the names of an existing container registry, virtual network, and subnet to set up a private endpoint. Substitute values appropriate for your environment. All examples are formatted for the Bash shell:
