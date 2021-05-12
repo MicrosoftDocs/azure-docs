@@ -27,7 +27,7 @@ This template creates a private endpoint for an Azure web app.
 
 ### Review the template
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/private-endpoint-webapp/azuredeploy.json" :::
 
 ### Deploy the template
 
