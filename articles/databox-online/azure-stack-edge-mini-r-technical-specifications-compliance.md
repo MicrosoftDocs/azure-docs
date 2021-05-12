@@ -61,7 +61,7 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 |Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI     |
 |Wi-Fi                 |802.11ac                                                            |
 
-## Routers, switches
+## Routers and switches
 
 The following routers and switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
 
