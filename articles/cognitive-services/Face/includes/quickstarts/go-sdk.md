@@ -115,7 +115,7 @@ Create a **main** function and add the following code to it to instantiate a cli
 
 ## Detect and analyze faces
 
-Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
+Face detection is required as a first step in Face Analysis and Identity Verification. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
 
 
 Add the following code in your **main** method. This code defines a remote sample image and specifies which face features to extract from the image. It also specifies which AI model to use to extract data from the detected face(s). See [Specify a recognition model](../../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options. Finally, the **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** method does the face detection operation on the image and saves the results in program memory.
@@ -187,7 +187,7 @@ The next code block does ordinary face detection on the test image to retrieve a
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_detect)]
 
-### Identify source faces
+### Identify faces from source image
 
 The **[Identify](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.Identify)** method takes the array of detected faces and compares them to the given **PersonGroup** (defined and trained in the earlier section). If it can match a detected face to a **Person** in the group, it saves the result.
 

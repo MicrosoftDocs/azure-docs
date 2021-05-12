@@ -22,11 +22,11 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as  security, natural user interface, image content analysis and management, mobile apps, and robotics.
+The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification and face analysis.
 
-The Face service enables several different scenarios which are outlined in the following sections.
+**Identity verification** checks that a new (remote) user is who they claim to be by matching their face against the photo on their identity document. It is commonly used in the gig economy, banking and online education industries.
 
-:::image type="content" source="media/overview/scenarios.png" alt-text="Face scenarios: detection and analysis, and identity verification":::
+**Face analysis** locates human faces in an image and returns different kinds of face-related data, such as whether the person is wearing a mask, glasses, facial hair, etc.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -36,7 +36,7 @@ This documentation contains the following types of articles:
 
 ## Face detection and analysis
 
-Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to compare different faces. 
+Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to identify or verify faces.
 
 Optionally, face detection can also extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service (for example, it could reject photos where the user is wearing sunglasses).
 

@@ -33,7 +33,7 @@ Read on to learn how to specify a selected model in different Face operations wh
 You should be familiar with the concepts of AI face detection and identification. If you aren't, see these guides first:
 
 * [Face detection concepts](../concepts/face-detection.md)
-* [Identity verification concepts](../concepts/face-recognition.md)
+* [Face recognition concepts](../concepts/face-recognition.md)
 * [How to detect faces in an image](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
