@@ -254,8 +254,8 @@ The following example shows the use of some of the user interface elements in th
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
+| ID | Default value | Page Layout Version |
+| -- | ------------- | ------ |
 | **button_verify** | Call Me | `All` |
 | **country_code_label** | Country Code | `All` |
 | **cancel_message** | The user has canceled multi-factor authentication | `All` |
