@@ -31,6 +31,13 @@ Before adding an API, create and deploy a frontend application to Azure Static W
 
 In VS Code, open the root of the repository containing your app. It should contain the source for your frontend app and the Static Web Apps GitHub workflow in `.github/workflows`.
 
+```files
+├── .github
+│   ├── workflows
+│   │   ├── azure-static-web-apps-<default-hostname>.yml
+├── (folders and files from your static web app)
+```
+
 ## Create the API
 
 You create an Azure Functions projects for your static web app's API. By default, the Static Web Apps VS Code extension creates the project in a folder named `api` at the root of your repository.
