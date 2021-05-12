@@ -41,15 +41,15 @@ There are two ways to integrate global parameters in your continuous integration
 * Include global parameters in the ARM template
 * Deploy global parameters via a PowerShell script
 
-For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). But, in case of automatic publishing, using PowerShell script method is recommended.  Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
+For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
 
 ![Include in ARM template](media/author-global-parameters/include-arm-template.png)
 
 > [!NOTE]
-> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. 
+> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. In case of automatic publishing or Purview connection, do not use Include global parameters method; use PowerShell script method. 
 
 > [!WARNING]
->You can not use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. In case of automatic publishing, do not use Include global parameters method, use PowerShell script method. 
+>You can not use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
 
 Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below. 
 
