@@ -5,10 +5,10 @@ description: Learn how to troubleshoot some common deployment and scoring errors
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: rsethur
-ms.author:  seramasu
+author: petrodeg
+ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 05/10/2021
+ms.date: 05/13/2021
 ms.topic: troubleshooting
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
 ---
