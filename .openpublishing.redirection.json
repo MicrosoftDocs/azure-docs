@@ -61002,7 +61002,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library/rest-api#analyze-receipts",
       "redirect_document_id": false
     },
     {
@@ -66034,10 +66034,5 @@
       "redirect_url": "/azure/cognitive-services/form-recognizer/label-tool",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/client-library.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library-guide",
-      "redirect_document_id": false
-    }
   ]
 }
