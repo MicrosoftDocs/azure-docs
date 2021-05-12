@@ -10,16 +10,16 @@ ms.date: 05/25/2021
 
 # Deploy an Azure API Management gateway on Azure Arc (preview)
 
-With the integration between Azure API Management and Azure Arc on Kubernetes, you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
+With the integration between Azure API Management and [Azure Arc on Kubernetes](./azure-arc/kubernetes/overview.md), you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
 
 Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expands API Management support for hybrid and multi-cloud environments. Enable the deployment using a cluster extension to make managing and applying policies to your Arc-enabled cluster a consistent experience.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 
 > [!NOTE]
-> You can also deploy a self-hosted gateway to a [Kubernetes cluster](./how-to-deploy-self-hosted-gateway-kubernetes.md) or an [Azure Kubernetes Service cluster](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
+> You can deploy the self-hosted gateway to Kubernetes either as an [extension on Azure Arc](#deploy-the-api-management-gateway-extension-using-azure-cli) to an [Azure Arc enabled Kubernetes cluster](./azure-arc/kubernetes/extensions.md), or [directly to Kubernetes](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
 
-## Prerequisites
+## Prequisites
 
 * [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md). 
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
