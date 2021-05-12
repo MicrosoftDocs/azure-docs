@@ -53,7 +53,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
     az account set --subscription <your-subscription-id>
     ```
 
-1. Enable logs by using the az monitor [diagnostic-settings create command](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create&preserve-view=true).
 
     ```Azure CLI
     az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -73,7 +73,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
     Set-AzContext -SubscriptionId <subscription-id>
     ```
     
-1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](https://docs.microsoft.com/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
+1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
 
     ```PowerShell
     Set-AzDiagnosticSetting -ResourceId <app-configuration-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true
@@ -103,7 +103,7 @@ In the portal, navigate to the **Metrics** section and select the **Metric Names
 For a list of the platform metrics collected for App Configuration, see [Monitoring App Configuration data reference metrics](/monitor-app-configuration-reference#metrics). For reference, you can also see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Analyzing logs
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for App Configuration resource logs is found in the [App Configuration Data Reference](/monitor-app-configuration-reference#schemas).
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for App Configuration resource logs is found in the [App Configuration Data Reference](/monitor-app-configuration-reference#schemas).
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 For a list of the types of resource logs collected for App Configuration, see [Monitoring App Configuration data reference](/monitor-app-configuration-reference#logs). For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring App Configuration data reference](/monitor-app-configuration-reference#azuremonitorlogstables)  

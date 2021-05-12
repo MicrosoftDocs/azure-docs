@@ -23,7 +23,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-mo
 | Throttled Http Request Count |Count| Throttled requests are Http Requests that return a 429 Status Code (too many requests)| 
  
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 
 ## Metric Dimensions
@@ -32,7 +32,7 @@ App Configuration has the following dimensions associated with its metr
 | Metric Name | Dimension Description |
 |-------|-----|
 | Http Incoming Request Count | The count of total Http requests. The supported dimensions are the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication.   |
-| Http Incoming Request Duration | The server side duration of each request. The supported values are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
+| Http Incoming Request Duration | The server side duration of each request. The supported dimensions are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
 | Throttled Http Request Count | This metric does not have any dimensions |
 
  For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
