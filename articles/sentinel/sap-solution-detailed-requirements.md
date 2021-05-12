@@ -28,9 +28,9 @@ Use this article as a reference if you're an admin, or if you're [deploying the 
 
 The following SAP Log change requests are required for the SAP solution, depending on your SAP Basis version:
 
-- **SAP Basis versions 7.50 and higher**,  install S4HK900125
-- **SAP Basis version 7.40**,  install S4HK900126
-- **To create a SAP role with the required authorizations**, for any supported SAP Basis version, install S4HK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP backend authorizations](#required-abap-authorizations).
+- **SAP Basis versions 7.50 and higher**,  install NPLK900131
+- **SAP Basis version 7.40**,  install NPLK900132
+- **To create a SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]
 > The required SAP log change requests expose custom RFC FMs that are required for the connector, and do not change any standard or custom objects.
@@ -40,9 +40,9 @@ The following SAP Log change requests are required for the SAP solution, dependi
 
 If you have an SAP Basis version of 7.50 or lower, install the following SAP notes:
 
-- **SAP Note 2641084**. Provides standardized read access for the Security Audit log data.
-- **SAP Note 2173545**. Named `CHANGEDOCUMENT_READ_ALL`.
-- **SAP Note 2502336**. Named `RSSCD100 - read only from archive, not from database`.
+- **SAP Note 2502336**. For systems running SAP versions earlier than SAP BASIS 750 SPS1. Named `RSSCD100 - read only from archive, not from database`.
+- **SAP Note 2173545**. For systems running SAP versions earlier than SAP BASIS 750. Named `CHANGEDOCUMENT_READ_ALL`.
+- **SAP Note 2641084**. For systems running SAP versions earlier than SAP BASIS 750 SPS13. Provides standardized read access for the Security Audit log data.
 
 Access the SAP notes from the [SAP support Launchpad site](https://support.sap.com/en/index.html).
 
@@ -53,8 +53,8 @@ The following table lists the ABAP authorizations required for the backend SAP u
 Required authorizations are listed by log type. You only need the authorizations listed for the types of logs you plan to ingest into Azure Sentinel.
 
 > [!TIP]
-> To create the role with all required authorizations, deploy the SAP change request [S4HK900114](#required-sap-log-change-requests) on your SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role, and assigns the role to the ABAP connecting to Azure Sentinel.
-> 
+> To create the role with all required authorizations, deploy the SAP change request [NPLK900114](#required-sap-log-change-requests) on your SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role, and assigns the role to the ABAP user connecting to Azure Sentinel.
+>
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |

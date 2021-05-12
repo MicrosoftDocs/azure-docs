@@ -13,7 +13,7 @@ ms.subservice: azure-sentinel
 
 # Deploy the Azure Sentinel SAP data connector on-premises
 
-This article describes how to deploy the Azure Sentinel SAP data connector using an on-premises machine and an Azure Key Vault to store your credentials.
+This article describes how to deploy the Azure Sentinel SAP data connector in an expert or customer process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
 > [!NOTE]
 > The default, and most recommended process for deploying the Azure Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
@@ -105,9 +105,9 @@ az keyvault secret set \
 
 For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
-## Deploy the SAP data connector
+## Perform an expert / custom SAP data connector installation
 
-After you have a key vault with your SAP credentials, deploy your SAP data connector on your on-premises machine.
+This procedure describes how to deploy the SAP data connector on premises or perform an expert / custom installation, after you have a key vault ready with your SAP credentials.
 
 **To deploy the SAP data connector**:
 
@@ -116,7 +116,7 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
     > [!NOTE]
     > You'll need your SAP user sign-in information in order to access the SDK, and you must download the SDK that matches your operating system.
     >
-    > Make sure to select the **LINUX ON X86_64 65BIT** option.
+    > Make sure to select the **LINUX ON X86_64** option.
 
 1. On your on-premises machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
@@ -125,10 +125,9 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
     For example:
 
     ```bash
-    Wget <systemconfig.ini location>
     mkdir /home/$(pwd)/sapcon/<sap-sid>/
-    cp <azuresentinel4sap>/template/systemconfig.ini /home/$(pwd)/sapcon/<sap-sid>/
-    cp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
+    Cd /home/$(pwd)/sapcon/<sap-sid>/
+    Wget  https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/systemconfig.inicp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
 1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide.
@@ -174,7 +173,7 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
 
 1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
 
-    ```azurecli
+    ```bash
     docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon /sapcon:latest
     docker run --env-file=<env.list_location> -d -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
     rm -f <env.list_location>
@@ -182,7 +181,7 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
 
 1. Verify that the Docker container is running correctly. Run:
 
-    ```azurecli
+    ```bash
     docker logs –f sapcon-[SID]
 
     ```
@@ -195,13 +194,15 @@ After you have a key vault with your SAP credentials, deploy your SAP data conne
     > It may take up to 15 minutes for data ingestion to start.
     >
 
-SAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
+    SAP ABAP logs are displayed in the Azure Sentinel **Logs** page under **Custom logs**:
 
-[ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+    [ ![SAP ABAP logs under Custom logs in Azure Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+
+    For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
 ## Manually configure the SAP data connector
 
-The Azure Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#deploy-the-sap-data-connector).
+The Azure Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-sap-data-connector-installation).
 
 The following code shows a sample **systemconfig.ini** file:
 
@@ -292,9 +293,9 @@ JAVAFilesLogs = False
 
 ### SAL logs connector settings
 
-Add the following code to the Azure Sentinel SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Azure Sentinel. 
+Add the following code to the Azure Sentinel SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Azure Sentinel.
 
-For more information, see [Deploy the SAP data connector](#deploy-the-sap-data-connector).
+For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-sap-data-connector-installation).
 
 
 ```Python
@@ -316,7 +317,7 @@ This section enables you to configure the following parameters:
 |**apiretry**     |   Determines whether API calls are retried as a failover mechanism.      |
 |**auditlogforcexal**     |  Determines whether the system forces the use of audit logs for non-SAL systems, such as SAP BASIS version 7.4.       |
 |**auditlogforcelegacyfiles**     |  Determines whether the system forces the use of audit logs with legacy system capabilities, such as from SAP BASIS version 7.4 with lower patch levels.|
-|**timechunk**     |   Determines that the system waits a specific number of minutes as an interval between data extractions. Use this parameter if you have a large amount of data expected. <br><br>For example, during the initial data load during your first 24 hours, you might want to have the data extraction running only every 30 minutes to give each data extraction enough time. In such cases, set this value to **30**. <!--unclear-->  |
+|**timechunk**     |   Determines that the system waits a specific number of minutes as an interval between data extractions. Use this parameter if you have a large amount of data expected. <br><br>For example, during the initial data load during your first 24 hours, you might want to have the data extraction running only every 30 minutes to give each data extraction enough time. In such cases, set this value to **30**.  |
 |     |         |
 
 
