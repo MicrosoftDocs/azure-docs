@@ -106,7 +106,7 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
-You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pkiclient/import-certificate) as an administrator:
+You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pki/import-certificate) as an administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root

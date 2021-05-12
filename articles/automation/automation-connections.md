@@ -5,7 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Manage connections in Azure Automation

@@ -49,7 +49,7 @@ landingContent:
           - text: Security considerations
             url: windows/security-considerations-best-practices.md
           - text: Performance guidelines
-            url: windows/performance-guidelines-best-practices.md
+            url: ./windows/performance-guidelines-best-practices-checklist.md
           - text: Pricing guidance 
             url: windows/pricing-guidance.md 
 
