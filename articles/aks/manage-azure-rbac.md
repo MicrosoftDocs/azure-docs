@@ -24,7 +24,7 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 
 ### Prerequisites
 
-- Ensure you have the Azure CLI version <x.x.x> or later
+- Ensure you have the Azure CLI version 2.24.0 or later
 - Ensure you have installed [kubectl v1.18.3+][az-aks-install-cli].
 
 ### Limitations
@@ -69,7 +69,15 @@ A successful creation of a cluster with Azure AD integration and Azure RBAC for 
 
 ## Integrate Azure RBAC into an existing cluster
 
-TO-DO: Fill in with instructions for existing cluster integration
+> [!NOTE]
+> To use Azure RBAC for Kubernetes Authorization, Azure Active Directory integration must be enabled on your cluster. For more, see [][managed-aad]
+
+
+To add Azure RBAC for Kubernetes Authorization into an existing AKS cluster, use the [az aks update][az-aks-update] command with the flag `enable-azure-rbac`.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+```
 
 ## Create role assignments for users to access cluster
 
@@ -137,7 +145,6 @@ Replace `<YOUR SUBSCRIPTION ID>` by the ID from your subscription, which you can
 az account show --query id -o tsv
 ```
 
-
 Now we can create the role definition by running the below command from the folder where you saved `deploy-view.json`:
 
 ```azurecli-interactive
@@ -158,9 +165,10 @@ az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-
 > ```azurecli-interactive
 > az aks install-cli
 > ```
-> You might need to run it with `sudo` privileges. 
+>
+> You might need to run it with `sudo` privileges.
 
-Now that you have assigned your desired role and permissions. You can start calling the Kubernetes API, for example,  from `kubectl`.
+Now that you have assigned your desired role and permissions. You can start calling the Kubernetes API, for example, from `kubectl`.
 
 For this purpose, let's first get the cluster's kubeconfig using the below command:
 
@@ -214,6 +222,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```azurecli-interactive
 az role assignment list --scope $AKS_ID --query [].id -o tsv
 ```
+
 Copy the ID or IDs from all the assignments you did and then.
 
 ```azurecli-interactive
@@ -247,3 +256,5 @@ az group delete -n MyResourceGroup
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[managed-aad]: ./managed-aad.md
