@@ -195,7 +195,7 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 
 You're now ready to deploy to the `dev` and `stage` environments.
 
-## Give More Permissions to Build Service
+## Give More Permissions to the Build Service
 The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to create a new branch, push changes, and create pull requests.
 
 1. Go to `Project settings` from the Azure DevOps project main page.
