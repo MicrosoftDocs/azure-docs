@@ -3,16 +3,17 @@ title: Synchronize attributes to Azure Active Directory for mapping
 description: When configuring user provisioning with Azure Active Directory and SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
-# Syncing extension attributes for app provisioning
+# Syncing extension attributes for Azure Active Directory Application Provisioning
 
 Azure Active Directory (Azure AD) must contain all the data (attributes) required to create a user profile when provisioning user accounts from Azure AD to a [SaaS app](../saas-apps/tutorial-list.md). When customizing attribute mappings for user provisioning, you might find the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute.
 
