@@ -52,6 +52,26 @@ WITH (
 
 The view uses an `EXTERNAL DATA SOURCE` with a root URL of your storage, as a `DATA_SOURCE` and adds a relative file path to the files.
 
+### Delta Lake views
+
+If you are creating the views on top of Delta Lake folder, you need to specify the location to the root folder after the `BULK` option instead of specifying the file path.
+
+> [!div class="mx-imgBorder"]
+>![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
+
+The `OPENROWSET` function that reads data from the Delta Lake folder will examine the folder structure and automatically identify the file locations.
+
+```sql
+create or alter view CovidDeltaLake
+as
+select *
+from openrowset( bulk 'covid', data_source = 'DeltaLake', format = 'delta' )
+    with ( date_rep date,
+           cases int,
+           geo_id varchar(6)
+           ) as rows
+```
+
 ## Partitioned views
 
 If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
