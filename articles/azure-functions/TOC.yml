@@ -343,6 +343,8 @@
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
+        - name: Bring dependencies to function apps
+          href: bring-dependency-to-functions.md
     - name: Deploy
       items:
         - name: Continuous deployment
@@ -640,6 +642,16 @@
           href: functions-bindings-twilio.md
         - name: Warmup
           href: functions-bindings-warmup.md
+    - name: Errors and diagnostics
+      items:
+        - name: .NET worker rules
+          items:
+          - name: AZFW0001
+            href: errors-diagnostics/net-worker-rules/azfw0001.md
+        - name: SDK rules
+          items:
+          - name: AZF0001
+            href: errors-diagnostics/sdk-rules/azf0001.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

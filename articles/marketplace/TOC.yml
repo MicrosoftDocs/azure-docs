@@ -71,10 +71,14 @@
     items:
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell partner engagement
-      href: ./co-sell-overview.md
-    - name: Co-sell option in Partner Center
-      href: ./co-sell-configure.md
+    - name: Co-sell with Microsoft overview
+      href: co-sell-overview.md
+    - name: Configure co-sell
+      href: co-sell-configure.md
+    - name: Co-sell requirements
+      href: co-sell-requirements.md
+    - name: Verify co-sell status
+      href: co-sell-status.md  
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -499,3 +503,5 @@
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
+  - name: Reference architecture diagram
+    href: reference-architecture-diagram.md  

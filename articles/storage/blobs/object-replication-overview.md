@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -76,7 +76,9 @@ After you configure object replication, Azure Storage checks the change feed for
 
 When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
-A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
+A source account can replicate to no more than two destination accounts, with one policy for each destination account. Similarly, a destination account may have no more than two source accounts. Each replication policy may have up to 10 replication rules, meaning that a maximum of 10 source containers and 10 destination containers may participate in each replication policy.
+
+The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
 
 ### Replication rules
 
