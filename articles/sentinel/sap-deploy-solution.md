@@ -388,7 +388,4 @@ Learn more about the Azure Sentinel SAP solutions:
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
 
-Learn more about Azure Sentinel solutions:
-
-- [Azure Sentinel solutions](sentinel-solutions.md)
-- [Build and publish solutions (for partners)](sentinel-solutions-building.md)
+For more information, see [Azure Sentinel solutions](sentinel-solutions.md).
