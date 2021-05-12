@@ -12,9 +12,9 @@ ms.date: 01/12/2021
 ms.author: aahi
 ---
 
-# How to: Deploy a People Counting web application
+# How to: Deploy a Spatial Analysis web application
 
-Use this article to learn how to integrate Spatial Analysis into a web app that understands the movement of people, and monitors the number of people occupying a physical space. 
+Use this article to learn how to deploy a web app which will collect spatial analysis data(insights) from IotHub and visualize it. This can have useful applications across a wide range of scenarios and industries. For example, if a company wants to optimize the use of its real estate space, they are able to quickly create a solution with different scenarios. 
 
 In this tutorial you will learn how to:
 
@@ -22,6 +22,13 @@ In this tutorial you will learn how to:
 * Configure the operation and camera
 * Configure the IoT Hub connection in the Web Application
 * Deploy and test the Web Application
+
+This app will showcase below scenarios:
+
+* Count of people entering and exiting sapce/store
+* Count of people entering, exiting checkout area/zone and time spent(dwelltime) in the checkout line
+* Count of people wearing face mask 
+* Count of people violating social distancing
 
 ## Prerequisites
 
