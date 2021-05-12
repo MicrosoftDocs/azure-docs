@@ -510,7 +510,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 # [Python](#tab/python)
 
-MSAL Python doesn't provide an interactive acquire token method directly. Instead, it requires the application to send an authorization request in its implementation of the user interaction flow to obtain an authorization code. This code can then be passed to the `acquire_token_by_authorization_code` method to get the token.
+MSAL Python 1.7+ provides an interactive acquire token method.
 
 ```python
 result = None
@@ -521,8 +521,7 @@ if accounts:
     result = app.acquire_token_silent(config["scope"], account=accounts[0])
 
 if not result:
-    result = app.acquire_token_by_authorization_code(
-         request.args['code'],
+    result = app.acquire_token_interactive(  # It automatically provides PKCE protection
          scopes=config["scope"])
 ```
 
