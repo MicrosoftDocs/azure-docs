@@ -44,8 +44,7 @@ This error message contains metrics that can help point you to the cause and pos
 | wr |There's an active writer (meaning the 6 unsent requests aren't being ignored) bytes/activewriters |
 | in |There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders |
 
-In the above exception, also notice that in the IOCP section and the WORKER section you have a Busy value that is greater than the Min value. This difference means your ThreadPool settings need adjusting.
-You can [configure your `ThreadPool` Settings](cache-management-faq.md#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
+In the preceding exception example, the `IOCP` and `WORKER` sections each include a `Busy` value that is greater than the `Min` value. The difference means that you should adjust your `ThreadPool` settings. You can [configure your ThreadPool settings](cache-management-faq.md#important-details-about-threadpool-growth) to ensure that your thread pool scales up quickly under burst scenarios.
 
 You can use the following steps to investigate possible root causes.
 
