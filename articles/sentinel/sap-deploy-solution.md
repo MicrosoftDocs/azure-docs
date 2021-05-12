@@ -140,7 +140,7 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 
 For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
-## Create an Azure Key Vault for your SAP data connector credentials
+## Create key vault for your SAP credentials
 
 This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vault/) to store credentials for your SAP data connector.
 
@@ -220,7 +220,7 @@ To run the SAP data connector deployment script, you'll need the following detai
     docker logs -f sapcon-[SID]
     ```
 
-## Deploy SAP security content from Azure Sentinel
+## Deploy SAP security content
 
 Deploy the [SAP security content](sap-solution-security-content.md) from the Azure Sentinel **Solutions** and **Watchlists** areas.
 

@@ -184,7 +184,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
     docker logs –f sapcon-[SID]
     ```
 
-1. Continue with installing the Azure Sentinel - Continuous Threat Monitoring for SAP solution to display your SAP data connector in Azure Sentinel, deploy the SAP workbook and analytics rules, and manually add and customize your SAP watchlists. For more information, see [Deploy SAP security content from Azure Sentinel](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel).
+1. Continue with installing the **Azure Sentinel - Continuous Threat Monitoring for SAP** solution to display your SAP data connector in Azure Sentinel, deploy the SAP workbook and analytics rules, and manually add and customize your SAP watchlists. For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
 
 ## Manually configure the SAP data connector
 
@@ -309,9 +309,9 @@ This section enables you to configure the following parameters:
 
 ## Next steps
 
-After you have your SAP data connector deployed, you can add the SAP-related security content.
+After you have your SAP data connector installed, you can add the SAP-related security content.
 
-For more information, see [Deploy the SAP solution security content from Azure Sentinel](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel).
+For more information, see [Deploy the SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
 
 For more information, see:
 

@@ -282,7 +282,7 @@
     items:
     - name: Discover and deploy solutions
       href: sentinel-solutions-deploy.md
-    - name: Deploy the SAP data connector on-premises
+    - name: Advanced - Deploy the SAP data connector on-premises
       href: sap-solution-deploy-alternate.md
   - name: Work with SOC-ML anomaly rules
     href: work-with-anomaly-rules.md
