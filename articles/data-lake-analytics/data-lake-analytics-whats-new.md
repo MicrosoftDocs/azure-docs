@@ -1,7 +1,7 @@
 ---
 title: Data Lake Analytics recent changes
 description: This article provides an ongoing list of recent changes that are made to Data Lake Analytics. 
-author: xujiang1
+author: xujxu
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.author: xujiang1
