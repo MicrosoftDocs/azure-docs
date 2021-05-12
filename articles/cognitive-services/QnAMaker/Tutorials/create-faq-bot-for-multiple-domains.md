@@ -80,7 +80,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Extract metadata from query]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
 
-#### How large can our knowledgebases be? 
+#### How large can our knowledge bases be? 
 
 You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledgebase.
 
