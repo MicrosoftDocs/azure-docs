@@ -119,7 +119,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the Value box, enter a value for the right side of the expression.
 
-    ![Build expression section with values for blob index tags.](./media/conditions-role-assignments-portal/condition-expressions.png)
+    ![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
 
 ## Step 6: Review and add condition
 
