@@ -30,7 +30,14 @@ You need the following things to use the Required URL Check tool:
 
 - Your VM must have a .NET 4.6.2 framework
 - RDAgent version 1.0.2944.400 or higher
+- Identify the current WVD Agent version (build) running within the Host pool.
 - The WVDAgentUrlTool.exe file must be in the same folder as the WVDAgentUrlTool.config file
+
+  Here's where you would find the current WVD Agent Version:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of WVD agent Version within a Host pool](https://user-images.githubusercontent.com/48697709/117975727-e3fbef00-b326-11eb-9472-49cac5b34c96.jpg)
+
 
 ### How to use the Required URL Check tool
 
