@@ -1,7 +1,7 @@
 ---
-title: Managed Online Endpoint in Azure Machine Learning Studio (Preview)
+title: Create a managed online endpoint
 titleSuffix: Azure Machine Learning
-description: 'Learn how to use Azure Machine Learning Studio to perform CRUD operations, Test and Consume, and Monitor Managed Online Endpoint and Deployments.'
+description: 'Learn how to create a managed online endpoint using the Azure Machine Learning studio.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,128 +9,155 @@ ms.topic: how-to
 ms.custom: how-to, managed online endpoints
 ms.author: ssambare
 author: shivanissambare
-ms.reviewer: lu.peter
-ms.date: 05/07/2021
+ms.reviewer: peterlu
+ms.date: 05/25/2021
 ---
 
-# Managed Online Endpoints and Deployments in Azure Machine Learning Studio (Preview)
+# Create, update, and delete managed online endpoints in the studio
 
-In Azure Machine Learning studio, you can:
+Learn how to use the studio to create and manage your managed online endpoints in Azure Machine Learning.
 
-* Create a managed online endpoint and a deployment.
-* Read managed online endpoint and deployment details.
-* Add a managed online deployment to an existing managed online endpoint.
-* Read deployment logs for managed online deployments.
-* Update traffic and instance count.
-* Delete managed online endpoints and deployments.
-* Test and Consume tab.
-* Monitor metrics.
+Use managed online endpoints to streamline production-scale deployments using Azure Kubernetes clusters. For more information on managed online endpoints, see What are managed online endpoints.
+
+In this article, you learn how to:
+
+> [!div class="checklist"]
+> * Create a managed online endpoint
+> * View managed online endpoints
+> * Update managed online endpoints
+> * Delete managed online endpoints and deployments
 
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- A machine learning model registered in your workspace. If you don't have a registered model, see []()
-- A registered environment. If you don't have a registered environment, see []()
+- A [model registered to your workspace](how-to-deploy-and-where.md#registermodel).
+- A scoring file for your deployed model. For a step-by-step example of registering a model and creatgin a scoring file, see [Tutorial: Image classification](tutorial-train-models-with-aml.md).
+- A custom environment registered to your workspace **-or-** a Docker container registry image with a Python environment. For more information on environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
-## Create a managed online endpoint and a deployment
+## Create a managed online endpoint
 
-#### Azure Machine Learning Studio - Endpoints 
+Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You cannot create an empty managed online endpoint.
 
-1. In the Azure Machine Learning studio, click on **Endpoints** page in the left navigation bar.
-2. Select **+ Create (preview)** button.
-3. Follow the wizard screen to create an endpoint and a deployment.
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select **+ Create (preview)**.
 
-[comment]: <> (Add Screenshot 1)
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/endpoint-create-managed-online-endpoint.png" alt-text="Create a managed online endpoint from the Endpoints tab":::
 
-#### Azure Machine Learning Studio - Models
+You can also create a managed online endpoint from the **Models** page in the studio. This is an easy way to add a model to an existing managed online deployment.
 
-1. You can also create an endpoints and a deployment from **Models** page in the left navigation bar.
-2. Select a *registered model* from the Models list.
-3. In **Deploy** button drop down, click on **Deploy to endpoint (preview)**
-4. Follow the wizard screen to create an endpoint and a deployment.
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Models** page.
+1. Select a model by checking the circle next to the model name.
+1. Select **Deploy** > **Deploy to endpoint (preview)**.
 
-[comment]: <> (Add Screenshot 2)
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/models-create-managed-online-endpoint.png" alt-text="Create a managed online endpoint from the Models tab":::
+
+Follow the setup wizard to configure your managed online endpoint.
+
+## View managed online endpoints
+
+You can view your managed online endpoints in the **Endpoints** page. Use the endpoint details page to find critical information including the endpoint URL, status, testing tools, activity monitors, deployment logs, and sample consumption code:
+
+1. In the left navigation bar, select **Endpoints**.
+1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
+1. Select an endpoint name to view the endpoint detail page.
+
+### Test
+
+Use the **Test** tab in the endpoints details page to test your managed online deployment. Enter sample input and view the results.
+
+1. Select the **Test** tab in the endpoint's detail page.
+1. Use the dropdown to select the deployment you want to test.
+1. Enter sample input.
+1. Select **Test**.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/test-deployment.png" alt-text="Test a deployment by providing sample data, directly in your browser":::
+
+### Monitoring
+
+Use the **Monitoring** tab to see high-level activity monitor graphs for your managed online endpoint.
+
+To use the monitoring tab, you must select "**Enable Application Insight diagnostic and data collection**" when you create your endpoint.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="Monitor endpoint-level metrics in the studio":::
+
+For more information on how viewing additional monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+
+## Update managed online endpoints
+
+Learn how to update your managed online endpoints to add more deployments and adjust traffic allocation.
+
+### Add a managed online deployment
+
+Use the following instructions to add a deployment to an existing managed online endpoint:
+
+1. Select **+ Add Deployment** button in the [endpoint details page](#view-managed-online-endpoints).
+2. Follow the instructions to complete the deployment.
+
+Alternatively, you can use the **Models** page to add a deployment:
+
+1. In the left navigation bar, select the **Models** page.
+1. Select a model by checking the circle next to the model name.
+1. Select **Deploy** > **Deploy to endpoint (preview)**.
+1. Choose to deploy to an existing managed online endpoint.
 
 > [!NOTE]
-> It takes several minutes to create a managed online deployment.
+> You can adjust the traffic balance between deployments in an endpoint when adding a new deployment.
+>
+> :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/adjust-deployment-traffic.png" alt-text="Use sliders to control traffic distribution across multiple deployments":::
 
-## Read managed online endpoint and deployment details
+### Update deployment traffic allocation
 
-1. On the **Endpoints** list page, select the endpoint with compute type *Managed* to see the details
-2. You can see endpoint and deployment details.
+Use **deployment traffic allocation** to control the percentage of incoming of requests going to each deployment in an endpoint.
 
-[comment]: <> (Add Screenshot 3)
+1. In the endpoint details page, Select  **Update traffic**.
+2. Adjust your traffic and select **Update**.
 
-## Add a managed online deployment to an existing managed online endpoint
+> [!TIP]
+> The **Total traffic percentage** must sum to either 0% (to disable traffic) or 100% (to enable traffic).
 
-1. Select **+ Add Deployment** button on the endpoint's details page.
-2. Complete the wizard screen to add a deployment to an existing endpoint.
-3. You can adjust the traffic for all the deployments, when adding a new deployment.
+### Update deployment instance count
 
-[comment]: <> (Add Screenshot 4)
+Use the following instructions to scale an individual deployment up or down by adjusting the number of instances:
 
-## Read deployment logs for managed online deployments
+1. In the endpoint details page. Find the card for the deployment you want to update.
+1. Select the **edit icon** in the deployment detail card.
+1. Update the instance count.
+1. Select **Update**.
 
-1. Select **Deployment Logs** in the endpoint's detail page.
-2. From the drop down select the deployment name.
-3. You will see deployment logs for the selected deployment.
-
-## Update traffic and instance count.
-
-#### Update the traffic for all the managed online deployments in an online endpoint
-
-1. Select the **Update traffic** button on the endpoint's detail page.
-2. Adjust your traffic and hit update button.
-
-[comment]: <> (Add Screenshot 5)
-
-#### Update instance count for an individual deployment
-
-1. Select edit icon on the deployment's detail card.
-2. Update the instance count and hit update button.
-
-[comment]: <> (Add Screenshot 6)
 
 ## Delete managed online endpoints and deployments
 
-#### Delete a managed online endpoint and associated deployments.
+Learn how to delete an entire managed online endpoint and it's associated deployments. Or, delete an individual deployment from a managed online endpoint.
 
-__Option 1__
+### Delete a managed online endpoint
 
-1. On the Real-time endpoints list page, select the online endpoints you wish to delete.
-2. Select the Delete button.
+Deleting a managed online endpoint also deletes any deployments associated with it.
 
-__Option 2__
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by checking the circle next to the model name.
+1. Select **Delete**.
 
-1. In the online endpoint's details page, select the Delete button on the top.
+Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints). 
 
-#### Delete an individual managed online deployment.
 
-1. Select the delete icon on the deployment's detail card.
+### Delete an individual deployment
+
+Use the following steps to delete an individual deployment from a managed online endpoint. This does affect the other deployments in the managed online endpoint:
 
 > [!NOTE]
-> You can delete an individual deployment taking non-zero traffic only.
-> Update the traffic to 0% and then delete the deployment.
+> You cannot delete a deployment that has allocated traffic. You must first [set traffic allocation](#update-deployment-traffic-allocation) for the deployment to 0% before deleting it.
 
-## Test and Consume tab
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select your managed online endpoint.
+1. In the endpoint details page, find the deployment you want to delete.
+1. Select the **delete icon**.
 
-#### Test tab 
+## Next steps
 
-You can easily test a deployment from Azure Machine Learning studio.
+In this article, you learned how to use Azure Machine Learning managed online endpoints. See these next steps:
 
-1. Click on **Test** tab in the endpoint's detail page and select the deployment you want to test from the dropdown.
-2. Give sample JSON input to test the endpoint.
-
-[comment]: <> (Add Screenshot 7)
-
-#### Consume tab
-
-[comment]: <> (Add Screenshot 8)
-
-## Monitor Metrics
-
-In Azure Machine Learning Studio, you can monitor average request per minute and average request latency.
-
-In the endpoint's detail page, select **Monitoring** and analyze the metrics.
-
-[comment]: <> (Add Screenshot 9,10)
+- [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
