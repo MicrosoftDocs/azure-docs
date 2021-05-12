@@ -128,7 +128,7 @@ To install the Mobility service, follow these steps:
 
 1. Sign in to the replication appliance.
 2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the machine operating system and version. Review [supported operating systems](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+3. Find the installer for the machine operating system and version. Review [supported operating systems](/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines). 
 4. Copy the installer file to the machine you want to migrate.
 5. Make sure that you have the passphrase that was generated when you deployed the appliance.
     - Store the file in a temporary text file on the machine.
@@ -350,7 +350,7 @@ Your SQL Server failover cluster instance  is ready.
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the machine.
-1. Install the Azure VM [Windows](/virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
+1. Install the Azure VM [Windows](/azure/virtual-machines/extensions/agent-windows) agent on the migrated machines.
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
