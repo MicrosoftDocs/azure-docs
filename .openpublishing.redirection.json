@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/static-web-apps/routes.md",
+      "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
       "redirect_document_id": false
