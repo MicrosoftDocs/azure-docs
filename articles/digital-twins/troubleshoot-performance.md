@@ -19,30 +19,30 @@ ms.service: digital-twins
 
 If you are experiencing delays or other performance issues when working with Azure Digital Twins, use the tips in this article to help you troubleshoot.
 
-## Isolate delayed service
+## Isolate the source of the delay
 
-If your solution uses Azure Digital Twins in combination with other Azure services (like Azure Functions), determine whether the delay is coming from Azure Digital Twins or another service. To investigate this, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
+Determine whether the delay is coming from Azure Digital Twins or another service in your solution. To investigate this, you can use the **API Latency** metric in [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) through the Azure portal. For instructions on how to view Azure Monitor metrics for an Azure Digital Twins instance, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
 
 ## Check regions
 
 If your solution uses Azure Digital Twins in combination with other Azure services (like Azure Functions), check the region for the deployment of each service. If services are deployed in different regions, this may add delays across your solution. Unless you're intentionally creating a distributed solution, consider deploying all service instances within the same region to avoid accidentally introducing delays.
 
-## Use logs
+## Leverage logs
 
-Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. To enable logging in your instance, use the instructions in [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to help isolate performance issues.
+Azure Digital Twins can collect logs for your service instance to help monitor its performance, among other data. Logs can be sent to [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) or your custom storage mechanism. To enable logging in your instance, use the instructions in [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md). You can analyze the timestamps on the logs to measure latencies, evaluate if they are consistent, and understand their source.
 
-## Check API authorization
+## Check API frequency
 
-Another factor that might affect performance is time taken to authorize API calls. Consider the frequency of your API calls. If there is a gap of more than 15 minutes between calls, the system may be re-authorizing with each call, taking up additional time to do so. You can prevent this by adding a timer or something similar in your code to ensure that you call into Azure Digital Twins at least once every 15 minutes.
+Another factor that might affect performance is time taken to re-authorize API calls. Consider the frequency of your API calls. If there is a gap of more than 15 minutes between calls, the system may be re-authorizing with each call, taking up additional time to do so. You can prevent this by adding a timer or something similar in your code to ensure that you call into Azure Digital Twins at least once every 15 minutes.
 
 ## Contact support
 
-If you're still experiencing performance issues after troubleshooting with the steps above, you can reach out to the Azure Digital Twins support team for additional troubleshooting assistance. 
+If you're still experiencing performance issues after troubleshooting with the steps above, you can create a support request from Azure Help + Support for additional troubleshooting assistance. 
 
 Follow these steps:
 
 1. Gather [metrics](troubleshoot-metrics.md) and [logs](troubleshoot-diagnostics.md) for your instance
-2. Use <Email? Azure portal?> to share... <a description of your problem, your metrics/logs, and any other information that the team can use to help investigate your issue.>
+2. Navigate to [Azure Help + support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. Use the prompts to provide details of your issue, see recommended solutions, share your metrics/log files, and submit any other information that the support team can use to help investigate your issue. For more information on creating support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Next steps
 
