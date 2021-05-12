@@ -136,38 +136,49 @@ Use a setup script for an automated way to customize and configure the compute i
 
 Some examples of what you can do in a setup script:
 
-* Install packages and tools
+* Install packages, tools, and software
 * Mount data
 * Create custom conda environment and Jupyter kernels
-* Clone git repositories
+* Clone git repositories and set git config
+* Set network proxies
+* Set environment variables
+* Install JupyterLab extensions
 
 ### Create the setup script
 
-The setup script is a shell script which runs as *azureuser*.  Create or upload the script into your **Notebooks** files:
+The setup script is a shell script which runs as *rootuser*.  Create or upload the script into your **Notebooks** files:
 
 1. Sign into the [studio](https://ml.azure.com) and select your workspace.
-1. On the left, select **Notebooks**
-1. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
+2. On the left, select **Notebooks**
+3. Use the **Add files** tool to create or upload your setup shell script.  Make sure the script filename ends in ".sh".  When you create a new file, also change the **File type** to *bash(.sh)*.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Create or upload your setup script to Notebooks file in studio":::
 
-When the script runs, the current working directory is the directory where it was uploaded.  If you upload the script to **Users>admin**, the location of the the file is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* when provisioning the compute instance named **ciname**.
+When the script runs, the current working directory of the script is the directory where it was uploaded. For example, if you upload the script to **Users>admin**, the location of the script on the compute instance and current working directory when the script runs is */home/azureuser/cloudfiles/code/Users/admin*. This would enable you to use relative paths in the script.
 
-Script arguments can be referred to in the script as $1, $2, etc. For example, if you execute `scriptname ciname` then in the script you can `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` to navigate to the directory where the script is stored.
+Script arguments can be referred to in the script as $1, $2, etc. 
 
-You can also retrieve the path inside the script:
+If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel you will have to put it within *sudo -u azureuser* block like this
 
 ```shell
-#!/bin/bash 
-SCRIPT=$(readlink -f "$0") 
-SCRIPT_PATH=$(dirname "$SCRIPT") 
+sudo -u azureuser -i <<'EOF'
+
+EOF
 ```
+Please note *sudo -u azureuser* does change the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+
+You can also use the following environment variables in your script:
+
+1. CI_RESOURCE_GROUP
+2. CI_WORKSPACE
+3. CI_NAME
+4. CI_LOCAL_UBUNTU_USER. This points to azureuser
 
 ### Use the script in the studio
 
 Once you store the script, specify it during creation of your compute instance:
 
-1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
 1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
