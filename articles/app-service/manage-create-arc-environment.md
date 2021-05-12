@@ -45,9 +45,8 @@ az extension add --upgrade --yes --name connectedk8s
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
 az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/az-appservice-kube/appservice_kube-0.1.13-py2.py3-none-any.whl"
+az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
-`TODO: update app service install command`
 
 ## Create an test connected cluster
 

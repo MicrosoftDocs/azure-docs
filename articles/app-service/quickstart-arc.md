@@ -24,9 +24,8 @@ Because these CLI commands are not yet part of the core CLI set, add them with t
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
 az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/az-appservice-kube/appservice_kube-0.1.13-py2.py3-none-any.whl"
+az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
-`TODO: update app service install command`
 
 ## 1. Create a resource group
 
@@ -138,7 +137,7 @@ az webapp create
     --deployment-container-image-name mcr.microsoft.com/appsvc/node:12-lts
 ```
 
-`TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"`
+<!-- `TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"` -->
 
 To update the image after the app is create, see [Change the Docker image of a custom container](configure-custom-container.md?pivots=container-linux#change-the-docker-image-of-a-custom-container)
 
