@@ -1,5 +1,5 @@
 ---
-title: Set up a custom domain with SSL/TLS certificate in Azure Static Web Apps
+title: Set up a custom domain in Azure Static Web Apps
 description: Learn to map a custom domain with free SSL/TLS certificate to Azure Static Web Apps
 services: static-web-apps
 author: burkeholland
@@ -9,7 +9,7 @@ ms.date: 05/12/2021
 ms.author: buhollan
 ---
 
-# Set up a custom domain with SSL/TLS certificate in Azure Static Web Apps
+# Set up a custom domain with free certificate in Azure Static Web Apps
 
 By default, Azure Static Web Apps provides an auto-generated domain name. This article shows you how to map a custom domain name to an Azure Static Web Apps application.
 
