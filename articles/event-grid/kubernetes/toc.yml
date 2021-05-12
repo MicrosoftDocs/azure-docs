@@ -18,6 +18,8 @@
     href: batch-delivery.md
   - name: Delivery and retry
     href: delivery-retry.md
+  - name: Filtering events
+    href: filter-events.md    
 - name: Reference
   items:
   - name: REST API
