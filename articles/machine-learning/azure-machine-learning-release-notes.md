@@ -37,8 +37,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Updated documentation with a note that libfuse should be installed when mounting a file dataset.
     + Add experimental register_dask_dataframe() support to tabular dataset.
     + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
-  + **azureml-dataprep**
-    + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-dataset-runtime**
     + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-mlflow**
