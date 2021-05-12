@@ -70,8 +70,7 @@ A successful creation of a cluster with Azure AD integration and Azure RBAC for 
 ## Integrate Azure RBAC into an existing cluster
 
 > [!NOTE]
-> To use Azure RBAC for Kubernetes Authorization, Azure Active Directory integration must be enabled on your cluster. For more, see [][managed-aad]
-
+> To use Azure RBAC for Kubernetes Authorization, Azure Active Directory integration must be enabled on your cluster. For more, see [Azure Active Directory integration][managed-aad].
 
 To add Azure RBAC for Kubernetes Authorization into an existing AKS cluster, use the [az aks update][az-aks-update] command with the flag `enable-azure-rbac`.
 
