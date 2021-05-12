@@ -14,6 +14,19 @@ ms.author: inhenkel
 
 You would like Media Services to encrypt data using a key from your Key Vault. For this to work, the Media Services account must be granted access to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
 
+## Naming resources
+
+Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. For example, "myMediaTestRG" for your resource group and "myMediaTestStorageAccount".  The names of resources you will need are:
+
+- your-resource-group-name
+- your-storage-account-name
+- your-media-services-account-name
+- your-keyvault-name
+- your-key-name
+- your-region
+
+You'll see these names referenced in the commands below.
+
 ## Create a resource group
 
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
