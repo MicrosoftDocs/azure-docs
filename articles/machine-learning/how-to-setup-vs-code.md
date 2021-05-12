@@ -50,24 +50,20 @@ The rest of the steps in this tutorial have been tested with the latest version 
 
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-1. Open the command palette by selecting **View > Command Palette** from the menu bar. 
-1. Enter the command "Azure: Sign In" into the command palette to start the sign in process.
+1. Open the command palette by selecting **View > Command Palette** from the menu bar.
+1. Enter the command "> Azure: Sign In" into the command palette to start the sign in process.
 
 ## Choose your default workspace
 
-Choosing a default Azure Machine Learning workspace enables Azure Machine Learning enables the following on your resources:
+Choosing a default Azure Machine Learning workspace enables the following when authoring CLI 2.0 YAML configuration files:
 
 - Schema validation
 - Autocompletion
 - Diagnostics
 
-To choose your default workspace
+To choose your default workspace, select the **Set Azure ML Workspace** button on the Visual Studio Code status bar and follow the prompts to set your workspace.
 
-1. Open the command palette **View > Command Palette**
-1. Enter "Azure ML: Set Default Workspace" in the text box.
-1. Select your workspace from the dropdown.
-
-Alternatively, you can select the "Set Azure ML Workspace" button on the Visual Studio Code status bar and follow the prompts to set your workspace.
+Alternatively, use the `> Azure ML: Set Default Workspace` command in the command palette and follow the prompts to set your workspace.
 
 ## Next Steps
 
