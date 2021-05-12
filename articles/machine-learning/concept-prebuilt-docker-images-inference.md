@@ -18,7 +18,7 @@ ms.custom: deploy, docker, prebuilt
 Prebuilt Docker container images for inference are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
 
 * [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md). Using this method, you can install both Python packages and `apt` packages.
+* [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Using this method, you can install both Python packages and `apt` packages.
 
 > [!IMPORTANT]
 > Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -47,4 +47,4 @@ None | None | CPU | None | `mcr.microsoft.com/azureml/minimal-py3.7-inference-cp
 ## Next steps
 
 * [Add Python packages to prebuilt images](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md).
+* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md).
