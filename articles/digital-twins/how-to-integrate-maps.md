@@ -51,12 +51,12 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 1. Create an event grid topic, which will receive events from your Azure Digital Twins instance.
     ```azurecli-interactive
-    az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
+    az eventgrid topic create --resource-group <your-resource-group-name> --name <your-topic-name> --location <region>
     ```
 
 2. Create an endpoint to link your event grid topic to Azure Digital Twins.
     ```azurecli-interactive
-    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> --dt-name <your-Azure-Digital-Twins-instance-name>
     ```
 
 3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
@@ -67,7 +67,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [Troubleshooting: Known issues in Azure Digital Twins](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## Create a function to update maps

@@ -187,7 +187,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### Delete a certificate
 
-Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate]https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
+Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);
@@ -258,7 +258,7 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 Execute the following commands to run the app.
 
-```azurecli
+```cmd
 npm install
 npm index.js
 ```
