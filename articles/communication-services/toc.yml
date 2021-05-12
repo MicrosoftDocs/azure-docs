@@ -50,12 +50,12 @@
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
   - name: UI Framework
     items:
-    - name: Getting started with composite components
-      href: quickstarts/ui-framework/get-started-with-composites.md
-    - name: Getting started with base components
-      href: quickstarts/ui-framework/get-started-with-components.md
-    - name: Create your own UI Framework component
-      href: quickstarts/ui-framework/create-your-own-components.md
+    - name: Get started with composite components
+      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
+    - name: Get started with stateful clients
+      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-stateful-client--page
+    - name: Get started with UI components
+      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
 - name: Tutorials
   expanded: false
   items:
@@ -124,7 +124,7 @@
     href: concepts/privacy.md  
   - name: Pricing
     href: concepts/pricing.md  
-  - name: Push Notifications
+  - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
