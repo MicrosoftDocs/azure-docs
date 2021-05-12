@@ -269,15 +269,19 @@ npm run build
 
 Test the frontend app and API together by starting an emulator using the Static Web Apps CLI. The emulator serves your frontend's build output from a folder.
 
-1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command. Pass the build output folder and the API folder in the `--api` argument.
+1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command.
 
     # [No Framework](#tab/vanilla-javascript)
 
+    Pass the current folder (`.`) and the API folder (`api`) in the `--api` argument.
+     
     ```bash
     swa start . --api api
     ```
 
     # [Angular](#tab/angular)
+
+    Pass the build output folder (`dist/angular-basic`) and the API folder (`api`) in the `--api` argument.
 
     ```bash
     swa start dist/angular-basic --api api
@@ -285,11 +289,15 @@ Test the frontend app and API together by starting an emulator using the Static 
 
     # [React](#tab/react)
 
+    Pass the build output folder (`build`) and the API folder (`api`) in the `--api` argument.
+
     ```bash
     swa start build --api api
     ```
 
     # [Vue](#tab/vue)
+
+    Pass the build output folder (`dist`) and the API folder (`api`) in the `--api` argument.
 
     ```bash
     swa start dist --api api
