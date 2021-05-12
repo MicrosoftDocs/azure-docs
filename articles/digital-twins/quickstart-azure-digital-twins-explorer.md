@@ -42,7 +42,7 @@ You'll need an Azure subscription to complete this quickstart. If you don't have
 
 You'll also need **Node.js** on your machine. To get the latest version, see [Node.js](https://nodejs.org/).
 
-Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a *.ZIP* file. 
+Finally, you'll also need to download the sample to use during the quickstart. The sample application is **Azure Digital Twins Explorer**. This sample contains the app you use in the quickstart to load and explore an Azure Digital Twins scenario. It also contains the sample scenario files. To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file. 
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
 
@@ -156,7 +156,7 @@ Azure Digital Twins Explorer now uploads these model files to your Azure Digital
 
 Now that some models have been uploaded to your Azure Digital Twins instance, you can add [digital twins](concepts-twins-graph.md) that follow the model definitions.
 
-Digital twins represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the *Room* model. You connect them with relationships into a **twin graph** that represents the full environment.
+Digital twins represent the actual entities within your business environment. They can be things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type, such as multiple rooms that all use the Room model. You connect them with relationships into a **twin graph** that represents the full environment.
 
 In this section, you'll upload precreated twins that are connected into a precreated graph. The graph contains two floors and two rooms, connected in the following layout:
 
@@ -213,7 +213,7 @@ Now you can see the uploaded graph of the sample scenario.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="View of the Graph View panel with a twin graph inside. A circle labeled 'floor1' is connected by an arrow labeled 'contains' to a circle labeled 'room1.' A circle labeled 'floor0' is connected by an arrow labeled 'contains' to a circle labeled 'room0.'":::
 
-The circles (graph "nodes") represent digital twins. The lines represent relationships. The **Floor0** twin contains **Room0**, and the **Floor1** twin contains **Room1**.
+The circles (graph "nodes") represent digital twins. The lines represent relationships. The Floor0 twin contains Room0, and the Floor1 twin contains Room1.
 
 If you're using a mouse, you can drag pieces of the graph to move them around.
 
@@ -284,7 +284,7 @@ The properties in this list are editable. Select the temperature value of **70**
     :::column-end:::
 :::row-end:::
 
-Now, you'll see a **Patch Information** window where the patch code appears that was used behind the scenes with the Azure Digital Twins [APIs](how-to-use-apis-sdks.md) to make the update. Select **Close**.
+Now, you'll see a **Patch Information** window where the patch code appears that was used behind the scenes with the Azure Digital Twins [APIs](concepts-apis-sdks.md) to make the update. Select **Close**.
 
 ### Query to see the result
 
@@ -314,7 +314,7 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To wrap up the work for this quickstart, first end the running console app. This action shuts off the connection to the Azure Digital Twins Explorer app in the browser. You'll no longer be able to view live data in the browser. You can close the browser tab.
 
-Then, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+Then, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the Azure Digital Twins tutorials**, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 

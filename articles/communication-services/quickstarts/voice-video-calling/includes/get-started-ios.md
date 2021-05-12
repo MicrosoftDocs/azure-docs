@@ -10,11 +10,6 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> This document uses version 1.0.0 of the Calling SDK.
-
 ## Prerequisites
 
 To complete this tutorial, you’ll need the following prerequisites:
@@ -165,8 +160,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+            self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
                 if (error == nil) {
                     self.call = call
                 } else {

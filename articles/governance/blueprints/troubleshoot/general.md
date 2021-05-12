@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints
@@ -41,7 +41,7 @@ The template deployment failed because of policy violation.
 
 #### Cause
 
-A policy may conflict with the deployment for a number of reasons:
+A policy may conflict with the deployment for the following reasons:
 
 - The resource being created is restricted by policy (commonly SKU or location restrictions)
 - The deployment is setting fields that are configured by policy (common with tags)
@@ -99,7 +99,7 @@ channels for more support:
 
 - Get answers from Azure experts through
   [Azure Forums](https://azure.microsoft.com/support/forums/).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure
+- Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure
   account for improving customer experience by connecting the Azure community to the right
   resources: answers, support, and experts.
 - If you need more help, you can file an Azure support incident. Go to the

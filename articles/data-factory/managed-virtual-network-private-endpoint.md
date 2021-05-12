@@ -1,8 +1,8 @@
 ---
 title: Managed virtual network & managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
@@ -29,7 +29,13 @@ Benefits of using Managed Virtual Network:
 - Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
->Currently, the managed VNet is only supported in the same region as Azure Data Factory region.
+>Currently, the managed Virtual Network is only supported in the same region as Azure Data Factory region.
+
+> [!Note]
+>As Azure Data Factory managed Virtual Network is still in public preview, there is no SLA guarantee.
+
+> [!Note]
+>Existing public Azure integration runtime can't switch to Azure integration runtime in Azure Data Factory managed virtual network and vice versa.
  
 
 ![ADF Managed Virtual Network architecture](./media/managed-vnet/managed-vnet-architecture-diagram.png)
@@ -50,7 +56,7 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
  
 > [!WARNING]
-> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+> If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 

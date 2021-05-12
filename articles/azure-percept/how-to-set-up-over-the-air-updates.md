@@ -23,17 +23,21 @@ Keep your Azure Percept DK secure and up to date using over-the-air updates. In 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in with the Azure account you are using with Azure Percept.
 
-1. In the search bar at the top of the page, enter **Device Update for IoT Hub**.
+1. In the search bar at the top of the page, enter **Device Update for IoT Hubs**.
 
-1. Select **Device Update for IoT Hub** when it appears in the search bar.
+1. Select **Device Update for IoT Hubs** when it appears in the search bar.
 
-1. Click the **+Add** button in the upper-left portion of the page.
+1. Select the **+Add** button in the upper-left portion of the page.
 
 1. Select the **Azure Subscription** and **Resource Group** associated with your Azure Percept device and its IoT Hub.
 
 1. Specify a **Name** and **Location** for your Device Update Account.
 
+1. Check the box that says **Assign Device Update Administrator role.** 
+
 1. Review the details and select **Review + Create**.
+
+1. Select the **Create** button.
 
 1. Once deployment is complete, click **Go to resource**.
 

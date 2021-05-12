@@ -28,7 +28,7 @@ To deploy an external template, provide the URI of the template exactly as you w
    az deployment group create \
      --name ExampleDeployment \
      --resource-group ExampleGroup \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
      --parameters storageAccountType=Standard_GRS
    ```
 
@@ -39,7 +39,7 @@ To deploy an external template, provide the URI of the template exactly as you w
    New-AzResourceGroupDeployment `
      -DeploymentName ExampleDeployment `
      -ResourceGroupName ExampleGroup `
-     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
      -storageAccountType Standard_GRS
    ```
 

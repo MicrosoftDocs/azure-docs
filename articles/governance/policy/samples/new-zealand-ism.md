@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
 description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -21,7 +21,7 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **New Zealand ISM Restricted** Regulatory Compliance built-in
 initiative definition.
 
-This built-in initiative is deployed as part of the 
+This built-in initiative is deployed as part of the
 [New Zealand ISM Restricted blueprint sample](../../blueprints/samples/new-zealand-ism.md).
 
 > [!IMPORTANT]
@@ -329,7 +329,7 @@ This built-in initiative is deployed as part of the
 |[Audit virtual machines without disaster recovery configured](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Audit virtual machines which do not have disaster recovery configured. To learn more about disaster recovery, visit [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
 > clouds.
 
 ## Next steps

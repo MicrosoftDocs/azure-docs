@@ -78,7 +78,7 @@ The difference between properties and telemetry for Azure Digital Twins models i
 
 As a result, when designing a model in Azure Digital Twins, you will probably use **properties** in most cases to model your twins. This allows you to have the backing storage and the ability to read and query the data fields.
 
-Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](how-to-use-apis-sdks.md), you will typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
+Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](concepts-apis-sdks.md), you will typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
@@ -88,13 +88,13 @@ DTDL also allows for **relationships** to have properties of their own. When def
 
 ## Model inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
-The following example re-imagines the *Planet* model from the earlier DTDL example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
+The following example re-imagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
-In this example, *CelestialBody* contributes a name, a mass, and a temperature to *Planet*. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
+In this example, CelestialBody contributes a name, a mass, and a temperature to Planet. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
@@ -102,7 +102,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Model code
 
-Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
+Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Possible schemas
 
@@ -119,7 +119,7 @@ In addition to primitive types, *Property* and *Telemetry* fields can have these
 
 This section contains an example of a typical model, written as a DTDL interface. The model describes **planets**, each with a name, a mass, and a temperature.
  
-Consider that planets may also interact with **moons** that are their satellites, and may contain **craters**. In the example below, the `Planet` model expresses connections to these other entities by referencing two external models—`Moon` and `Crater`. These models are also defined in the example code below, but are kept very simple so as not to detract from the primary `Planet` example.
+Consider that planets may also interact with **moons** that are their satellites, and may contain **craters**. In the example below, the Planet model expresses connections to these other entities by referencing two external models—Moon and Crater. These models are also defined in the example code below, but are kept very simple so as not to detract from the primary Planet example.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
@@ -134,7 +134,7 @@ The fields of the model are:
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
 > [!NOTE]
-> Note that the component interface (*Crater* in this example) is defined in the same array as the interface that uses it (*Planet*). Components must be defined this way in API calls in order for the interface to be found.
+> Note that the component interface (Crater in this example) is defined in the same array as the interface that uses it (Planet). Components must be defined this way in API calls in order for the interface to be found.
 
 ## Best practices for designing models
 
@@ -154,9 +154,9 @@ This section describes the current set of samples in more detail.
 
 _**For uploading models to Azure Digital Twins**_
 
-Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](how-to-use-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
+Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
 
-However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this sample to upload many models at once: [Azure Digital Twins Model Uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
+However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use [this Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
 

@@ -72,7 +72,7 @@ Identity can only be your control plane if it can connect everything across clou
 
 |Feature  |Description|Recommendation |
 |---------|---------|---------|
-|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Setup [remote access](./application-proxy.md) for your on-prem apps. |
+|Application Proxy|Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs).|Setup [remote access](../app-proxy/application-proxy.md) for your on-prem apps. |
 |F5, Akamai, Zscaler|Using your existing networking and delivery controller, you can easily protect legacy applications that are still critical to your business processes but that you couldn't protect before with Azure AD. It's likely you already have everything you need to start protecting these applications.| Using Akamai, Citrix, F5, or Zscaler? Check out our [pre-built solutions](./secure-hybrid-access.md). | 
 
 ## Related articles
