@@ -176,17 +176,12 @@ With Azure RBAC, you create a *role definition* that outlines the permissions to
 For more information, see [What is Azure role-based access control (Azure RBAC)?][azure-rbac]
 
 There are two levels of access needed to fully operate an AKS cluster: 
-<<<<<<< HEAD
-1. [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (traditionally) or by [integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization)
-=======
 * [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). 
   * Control scaling or upgrading your cluster using the AKS APIs.
   * Pull your `kubeconfig`.
 * Access to the Kubernetes API. This access is controlled by either:
   * [Kubernetes RBAC](#kubernetes-rbac) (traditionally).
-  * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview).
->>>>>>> 5bb0582b9cf967f1b58db6c05fe33721edd9be5a
+  * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization).
 
 ### Azure RBAC to authorize access to the AKS resource
 
@@ -210,12 +205,9 @@ In this scenario, you use Azure RBAC mechanisms and APIs to assign users built-i
 
 With this feature, you not only give users permissions to the AKS resource across subscriptions, but you also configure the role and permissions for inside each of those clusters controlling Kubernetes API access. For example, you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope. The role recipient will be able to list and get all Kubernetes objects from all clusters without modifying them.
 
-<<<<<<< HEAD
-=======
 > [!IMPORTANT]
 > You need to enable Azure RBAC for Kubernetes authorization before using this feature. For more details and step by step guidance, follow our [Use Azure RBAC for Kubernetes Authorization](manage-azure-rbac.md) how-to guide.
 
->>>>>>> 5bb0582b9cf967f1b58db6c05fe33721edd9be5a
 #### Built-in roles
 
 AKS provides the following four built-in roles. They are similar to the [Kubernetes built-in roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) with a few differences, like supporting CRDs. See the full list of actions allowed by each [Azure built-in role](../role-based-access-control/built-in-roles.md).
