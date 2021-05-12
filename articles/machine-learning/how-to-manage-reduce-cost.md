@@ -86,6 +86,20 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 ## Train locally
 
+When prototyping and training models that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training runs](how-to-set-up-training-targets.md#select-a-compute-target).
+
+Visual Studio Code provides a full-featured environment for developing your environments. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
+
 ## Parallelize training
 
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization though, so depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
+
+## Archive and delete stale data
+
+Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space on your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](storage/blobs/storage-lifecycle-management-concepts.md).
+
 ## Colocate compute resources
+
+When picking a region for your compute, you might see network latency and increased data transfer costs if your resources are in different locations, especially when that distance is far from each other. Azure network cost is incurred from outbound bandwidth from Azure data center. The key to reduce network cost is to deploy all your resources in the same data center region whenever possible. If you can deploy Azure Machine Learning workspace and compute in the same region that has your data, you can enjoy lower cost and higher performance.
+
+You might want to have private connection between your on-premises network and your Azure network to have hybrid cloud environment. ExpressRoute enables you to do that but considering the high cost of ExpressRoute, it may be more cost effective to move away from a hybrid-cloud setup and move all resources to Azure cloud. 
