@@ -1,9 +1,10 @@
 ---
 title: Azure Event Grid on Kubernetes - Concepts
 description: This article explains core concepts of Azure Event Grid on Kubernetes with Azure Arc (Preview)
-author: spelluru
+author: jfggdl
 manager: JasonWHowell
-ms.author: spelluru
+ms.subservice: kubernetes
+ms.author: jafernan
 ms.date: 05/04/2021
 ms.topic: conceptual
 ---
@@ -31,9 +32,9 @@ Event Grid on Kubernetes supports [CloudEvents](https://github.com/cloudevents/s
        "subject" : "account/acct-123224/order/o-123456",
        "dataSchema" : "1.0",
        "data" : {
-          "orderId" : “123”,
-          “orderType” : “PO”,
-          “reference” : “https://www.myCompanyName.com/orders/123”
+          "orderId" : "123",
+          "orderType" : "PO",
+          "reference" : "https://www.myCompanyName.com/orders/123"
       }
 }]
 ```

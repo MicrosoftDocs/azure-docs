@@ -25,10 +25,18 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Event Grid on Kubernetes concepts
+            url: concepts.md            
+          - text: Event schemas
+            url: event-schemas.md        
           - text: Event handlers
             url: event-handlers.md            
           - text: Event schemas
             url: event-schemas.md
+          - text: Batch event delivery
+            url: batch-delivery.md            
+          - text: Filter events
+            url: filter-events.md                        
 #          - text: Output batching
 #            url: delivery-output-batching.md
 #          - text: Advanced filtering
