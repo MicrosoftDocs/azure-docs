@@ -15,6 +15,8 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 In Visual Studio, create a new project with the **Blank App (Universal Windows)** template to set up a single-page Universal Windows Platform (UWP) app.
 
+:::image type="content" source="../media/windows/create-a-new-project.png" alt-text="Screenshot showing the New Project window within Visual Studio.":::
+
 ### Install the package
 
 Right click your project and go to `Manage Nuget Packages` to install `Microsoft.IC3.Azure.Communication.Calling.UAP`. 
@@ -23,6 +25,8 @@ Right click your project and go to `Manage Nuget Packages` to install `Microsoft
 
 Go to `Package.appxmanifest` and click `Capabilities`.
 Check `Internet (Client & Server)` to gain inbound and outbound access to the Internet. Check `Microphone` to access the audio feed of the microphone. 
+
+:::image type="content" source="../media/windows/request-access.png" alt-text="Screenshot showing requesting access to Internet and Microphone in Visual Studio.":::
 
 ### Set up the app framework
 
@@ -140,6 +144,8 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
+
+:::image type="content" source="../media/windows/run-the-app.png" alt-text="Screenshot showing running the quickstart app":::
 
 ## Sample Code
 
