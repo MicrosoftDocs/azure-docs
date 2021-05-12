@@ -66028,6 +66028,21 @@
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-node.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
     }
   ]
 }
