@@ -44,7 +44,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Category  |Type  |Limit  |
 |---------|---------|---------|
 |Maximum string length per attribute      |User|250 Chars          |
-|Maximum number of [`Identities`](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-profile-attributes#identities-attribute) in a user create operation      | User|7          |
+|Maximum number of [`Identities`](user-profile-attributes#identities-attribute) in a user create operation      | User|7          |
 |Number of scopes per application        |Application|1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
 |Number of redirect URLs per application       |Application|100         |
