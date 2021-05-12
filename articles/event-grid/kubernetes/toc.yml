@@ -4,7 +4,7 @@
   href: ../overview.md
 - name: Overview
   items:
-  - name: What is Event Grid on Kubernetes with Azure Arc (Preview)?
+  - name: What is Event Grid on Kubernetes with Azure Arc
     href: overview.md  
 - name: Quickstarts
   items:
