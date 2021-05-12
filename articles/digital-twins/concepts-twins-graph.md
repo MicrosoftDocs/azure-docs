@@ -26,7 +26,7 @@ In an Azure Digital Twins solution, the entities in your environment are represe
 
 Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Concepts: Custom models](concepts-models.md).
 
-After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.).
+After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, etc.).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -34,7 +34,7 @@ After creating and uploading a model, your client app can create an instance of 
 
 Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
 
-For example, the model *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any *Floor* twin to any *Room* twin (including twins that are of *Room* subtypes). 
+For example, the model Floor might define a *contains* relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
@@ -46,7 +46,7 @@ This section shows what it looks like to create digital twins and relationships 
 
 ### Create digital twins
 
-Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type *Room*.
+Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room.
 
 You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
