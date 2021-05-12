@@ -18,8 +18,8 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 ## Overview 
 
 You can use Video Analyzer to perform EVR in two ways:
-1. Record the input from a given RTSP-capable camera to a given video resource in the cloud, where each new event would append to the recording available in that video resource.
-1. Record to separate MP4 files to the local storage of the IoT Edge device - each event would result in a new MP4 file.
+* Record the input from a given RTSP-capable camera to a given video resource in the cloud, where each new event would append to the recording available in that video resource.
+* Record to separate MP4 files to the local storage of the IoT Edge device - each event would result in a new MP4 file.
 
 A few use cases related to event-based video recording are described in this article.
 
