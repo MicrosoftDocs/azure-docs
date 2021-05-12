@@ -53,6 +53,10 @@ The rest of the steps in this tutorial have been tested with the latest version 
 
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
+To sign into you Azure account, select the **Azure: Sign In** button on the Visual Studio Code status bar to start the sign in process.
+
+Alternatively, use the command palette:
+
 1. Open the command palette by selecting **View > Command Palette** from the menu bar.
 1. Enter the command "> Azure: Sign In" into the command palette to start the sign in process.
 
