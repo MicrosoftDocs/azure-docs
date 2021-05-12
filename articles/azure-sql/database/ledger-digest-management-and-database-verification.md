@@ -77,7 +77,9 @@ Database verification is accomplished through two stored procedures, depending o
 
 ### Database verification using automatic digest storage
 
-When using automatic digest storage for generating and storing database digests, the location of the digest storage is in the system catalog view **sys.ledger_digest_locations** as JSON objects. Running database verification consists of executing the **sp_verify_database_ledger_from_digest_storage** system stored procedure, specifying the JSON objects from the **sys.ledger_digest_locations** system catalog where database digests are configured to be stored. Below is the syntax for the **sp_verify_database_ledger_from_digest_storage** system stored procedure:
+When using automatic digest storage for generating and storing database digests, the location of the digest storage is in the system catalog view **sys.ledger_digest_locations** as JSON objects. Running database verification consists of executing the **sp_verify_database_ledger_from_digest_storage** system stored procedure, specifying the JSON objects from the **sys.ledger_digest_locations** system catalog where database digests are configured to be stored. 
+
+Using automatic digest storage allows you to change storage locations throughout the lifecycle of the ledger tables.  For example, if you start by using Azure Immutable Blob storage to store your digest files, but later you want to use Azure Confidential Ledger instead, you are able to do so.  This change in location is stored in **sys.ledger_digest_locations**.  To simplify running verification when multiple digest storage locations have been used, the following script will fetch the locations of the digests and execute verification using those locations.
 
 ```sql
 sp_verify_database_ledger_from_digest_storage <JSON_document_containing_URLs>, <table_name>
@@ -104,7 +106,7 @@ When using manual digest storage for generating and storing database digests, th
 sp_verify_database_ledger <JSON_document_containing_digests>, <table_name> 
 ```
 
-Here's an example of running the **sp_verify_database_ledger** stored procedure by passing two digests for verification: 
+Below is an example of running the **sp_verify_database_ledger** stored procedure by passing two digests for verification: 
 
 ```sql
 EXECUTE sp_verify_database_ledger N'

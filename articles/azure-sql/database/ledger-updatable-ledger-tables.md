@@ -43,7 +43,7 @@ When created, updatable ledger tables will add 4 system-generated, hidden column
 
 ## History table
 
-The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table matches that of the updatable ledger table it's associated with. 
+The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table mirrors that of the updatable ledger table it's associated with. 
 
 When creating an updatable leger table, you can either specify the name of the schema to contain your history table and the name of the history table, or you have the system generate the name of the history table and add it to the same schema as the ledger table. History tables with system-generated names are called anonymous history tables. The naming convention for an anonymous history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
 
@@ -55,7 +55,7 @@ For example, if you wanted to track transaction history for a simple banking sce
 
 **NEEDS IMAGE HERE**
 
-The ledger view's schema matches the columns defined in the updatable ledger and history table, but the system-generated columns are different than those of the updatable ledger and history tables.
+The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the system-generated columns are different than those of the updatable ledger and history tables.
 
 ### Ledger view schema
 

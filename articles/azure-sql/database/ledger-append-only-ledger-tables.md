@@ -24,9 +24,9 @@ Creating an append-only ledger table can be done three ways through specifying t
 - [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)
 
 > [!IMPORTANT]
-> When creating  an append-only ledger table, system-generated columns will be created in your ledger table for tracking data lineage for forensics purposes. 
+> When creating an append-only ledger table, system-generated columns will be created in your ledger table for tracking data lineage for forensics purposes. 
 >
-> Enabling ledger, either at the database-level or for specific tables, cannot be disabled later. This is to ensure an attacker cannot temporarily remove ledger capabilities on a ledger table, make changes, and then re-enable ledger functionality.
+> Once a table has been created as ledger table, it cannot be reverted back to a table that does not have ledger functionality.  This is to ensure an attacker cannot temporarily remove ledger capabilities, make changes to the table, and then re-enable ledger functionality.
 
 ### Append-only ledger table schema
 

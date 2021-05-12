@@ -102,7 +102,7 @@ We'll create an account balance table with the following schema.
    FROM [Account].[Balance] 
    ```
 
-   In the results window, you'll first see the values inserted by your   T-SQL commands, along with the system metadata that is used for data lineage purposes.
+   In the results window, you'll first see the values inserted by your T-SQL commands, along with the system metadata that is used for data lineage purposes.
 
    - `ledger_start_transaction_id` notes the unique transaction ID associated with the transaction that inserted the data. Since `John`, `Joe`, and `Mary` were inserted using the same transaction, they share the same transaction ID.
    - `ledger_start_sequence_number` notes the order by which values were inserted by the transaction.
@@ -116,7 +116,7 @@ We'll create an account balance table with the following schema.
    WHERE [CustomerID] = 1
    ```
 
-1. Get the unique name of your history table. You'll need this for the next step.
+1. Copy the unique name of your history table. You'll need this for the next step.
 
    ```sql
    SELECT 
