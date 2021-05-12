@@ -6,7 +6,7 @@ manager: JasonWHowell
 ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/11/2021
-ms.topic: overview
+ms.topic: how-to
 ---
 
 # Install Event Grid on Azure Arc enabled Kubernetes cluster
@@ -29,7 +29,7 @@ The operation that installs an Event Grid service instance on a Kubernetes clust
 > The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information on extension scopes, see [Create extension instance](../../azure-arc/kubernetes/extensions.md#create-extensions-instance) and search for ``scope``.
 
 ## Prerequisites
-Before proceeding with the installation of Event Grid, make sure the following prerequistes are met. 
+Before proceeding with the installation of Event Grid, make sure the following prerequisites are met. 
 
 1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
 1. [An Azure subscription](https://azure.microsoft.com/en-us/free/).
@@ -37,7 +37,7 @@ Before proceeding with the installation of Event Grid, make sure the following p
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster).
 
 ## Getting support
-If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](getting-support.md#how_to_create_a_support_request).
+If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how_to_create_a_support_request).
 
 ## PKI Certificate requirements
 The Event Grid broker (server) serves two kinds of clients. 
@@ -74,7 +74,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
 1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. The default is **eventgrid-system**. If the namespace provided does not exist, it's created for you.
 1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
-1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you are using AKS, you could use **azurefile**, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you are using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
+1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you are using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you are using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
 1. **Storage size**. Default is 1 GiB. Consider the ingestion rate when determining the size of your storage. Ingestion rate in MiB/second measured as the size of your events times the publishing rate (events per second) across all topics on the Event Grid broker is a key factor when allocating storage. Events are transient in nature and once they are delivered, there is no storage consumption for those events. While ingestion rate is a main driver for storage use, it is not the only one. Metadata holding topic and event subscription configuration also consumes storage space, but that normally requires a lower amount of storage space than the events ingested and being delivered by Event Grid.
 1. **Memory limit**. Default is 1 GiB. 
 1. **Memory request**. Default is 200 MiB. This field is not editable.

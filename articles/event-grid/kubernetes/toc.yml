@@ -14,6 +14,8 @@
   items:
   - name: Event Grid on Kubernetes concepts
     href: concepts.md
+  - name: Feature partity with Azure Event Grid
+    href: features.md
   - name: Event handlers
     href: event-handlers.md    
   - name: Event schemas
@@ -28,6 +30,8 @@
   items:
   - name: Install extension on Kubernetes cluster
     href: install-k8s-extension.md
+  - name: Get support
+    href: get-support.md
 - name: Reference
   items:
   - name: REST API
