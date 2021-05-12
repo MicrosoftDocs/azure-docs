@@ -631,7 +631,7 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
-    - name: Managed Online Endpoints VM SKU list
+    - name: Managed online endpoints VM SKU list
       href: reference-managed-online-endpoints-vm-sku-list.md
     - name: Azure CLI
       href: /cli/azure/ml
