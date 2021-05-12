@@ -218,7 +218,7 @@ pip package version 3.1.0b4
 
   > [Learn more about Layout extraction](concept-layout.md)
 
-* **Client library update** - The latest versions of the [client libraries](quickstarts/client-library-guide.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
+* **Client library update** - The latest versions of the [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
 * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -248,7 +248,7 @@ pip package version 3.1.0b4
 
 **v2.0** includes the following update:
 
-* The [client libraries](quickstarts/client-library-guide.md) for NET, Python, Java, and JavaScript have entered General Availability.
+* The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability.
 
 **New samples** are available on GitHub.
 
@@ -385,7 +385,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library-guide.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

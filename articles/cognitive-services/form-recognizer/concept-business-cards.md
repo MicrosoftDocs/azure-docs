@@ -385,7 +385,7 @@ See the following example of a successful JSON response:
 }
 ```
 
-Follow the [quickstart](./QuickStarts/client-library-guide.md) quickstart to implement business card data extraction using Python and the REST API.
+Follow the [quickstart](./QuickStarts/client-library.md) quickstart to implement business card data extraction using Python and the REST API.
 
 ## Customer Scenarios
 
@@ -400,7 +400,7 @@ The Business Card API also powers the [AI Builder Business Card Processing featu
 
 ## Next steps
 
-- Follow the [quickstart](./quickstarts/client-library-guide.md) to get started recognizing business cards.
+- Follow the [quickstart](./quickstarts/client-library.md) to get started recognizing business cards.
 
 ## See also
 

@@ -263,6 +263,6 @@ The `readResults` node contains all of the recognized text. Text is organized by
 ## Next steps
 
 * Try your own IDs and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
-* Complete a [Form Recognizer quickstart](quickstarts/client-library-guide.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
 

@@ -16,23 +16,6 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-# Use the Form Recognizer Java client library
-
-Get started with Form Recognizer, a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-You'll use the following APIs to extract structured data from forms and documents:
-
-|Name |Description |
-|---|---|
-| **[Analyze layout](#analyze-layout)** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
-| **[Analyze receipts](#analyze-receipts)** | Analyze a receipt document to extract key information, and other receipt text.|
-| **[Analyze business cards](#analyze-business-cards)** | Analyze a business card to extract key information and text.|
-| **[Analyze invoices](#analyze-invoices)** | Analyze an invoice to extract key information, tables, and other invoice text.|
-| **[Analyze identity documents](#analyze-identity-documents)** | Analyze an identity documents to extract key information, and other identification card text.|
-| **[Train a custom model](#train-a-custom-model)**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **[Analyze forms with a custom model](#analyze-forms-with-a-custom-model)**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-|**[Manage custom models](#manage-custom-models)**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your account.|
-
 > [!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
@@ -118,7 +101,6 @@ dependencies {
 
 ### Create a Java file
 
-
 From your working directory, run the following command:
 
 ```console
@@ -131,7 +113,6 @@ Navigate to the new folder and create a file called *FormRecognizer.java*. Open 
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), which contains the code examples in this quickstart.
-
 
 In the application's **FormRecognizer** class, create variables for your resource's key and endpoint.
 
@@ -235,6 +216,7 @@ To analyze the content of a file at a given URL, use the **beginRecognizeContent
 The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
+
 ### Output
 
 ```console
@@ -411,11 +393,9 @@ You can also train custom models by manually labeling the training documents. Tr
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
-
 The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
-
 
 ### Output
 
@@ -455,7 +435,6 @@ The returned value is a collection of **RecognizedForm** objects: one for each p
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
-
 ### Output
 
 ```console
@@ -471,21 +450,17 @@ Field 'field-5' has label 'Charges' with a confidence score of 1.00.
 Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
-
-
 ## Manage custom models
 
 This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single method, as an example. Start by copying the method signature below:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
 
-
 ### Check the number of models in the FormRecognizer resource account
 
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
-
 
 #### Output
 
@@ -498,7 +473,6 @@ The account has 12 custom models, and we can have at most 250 custom models
 The following code block lists the current models in your account and prints their details to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
-
 
 #### Output
 

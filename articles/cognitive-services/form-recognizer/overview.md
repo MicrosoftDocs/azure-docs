@@ -23,7 +23,7 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 This documentation contains the following article types:
 
 * [**Concepts**](concept-layout.md) provide in-depth explanations of the service functionality and features.
-* [**Quickstarts**](quickstarts/client-library-guide.md) are getting-started instructions to guide you through making requests to the service.
+* [**Quickstarts**](quickstarts/client-library.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](build-training-data-set.md) contain instructions for using the service in more specific or customized ways.
 * [**Tutorials**](tutorial-bulk-processing.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
@@ -112,7 +112,7 @@ Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and trai
 ---
 
 
-Follow the [client library / REST API quickstart](./quickstarts/client-library-guide.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Follow the [client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 
 ### [v2.1](#tab/v2-1)
@@ -148,4 +148,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 Try our online tool and quickstart to learn more about the Form Recognizer service.
 
 * [**Form Recognizer tool**](https://aka.ms/fott-2.1-ga)
-* [**Client library and REST API quickstart**](quickstarts/client-library-guide.md)
+* [**Client library and REST API quickstart**](quickstarts/client-library.md)

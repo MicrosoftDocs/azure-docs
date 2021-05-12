@@ -103,6 +103,7 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{re
 You'll receive a `200 (success)` response with JSON content.
 
 See the following invoice image and its corresponding JSON output.
+
 * The `"readResults"` node contains every line of text with its respective bounding box placement on the page.
 * The `"selectionMarks"` node (in v2.1) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
@@ -1326,7 +1327,6 @@ Training without labeled data is the default operation and is simpler. Alternati
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../label-tool.md).
 
-
 ### Train a model without labels
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
@@ -1918,6 +1918,7 @@ You'll receive a `200` success response, with JSON data like the following.
 
 You can also delete a model from your account by referencing its ID. This command calls the **[Delete Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel)** API to delete the model used in the previous section.
 code
+
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.

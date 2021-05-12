@@ -105,7 +105,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 ## Next steps
 
 * Try your own layout extraction using the [Form Recognizer Sample UI tool](https://fott-preview.azurewebsites.net/)
-* Complete a [Form Recognizer quickstart](quickstarts/client-library-guide.md#analyze-layout) to get started extracting layouts in the development language of your choice.
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md#analyze-layout) to get started extracting layouts in the development language of your choice.
 
 ## See also
 

@@ -6,28 +6,14 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
-ms.topic: quickstart
+ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
-# Use the Form Recognizer C#/.NET client library
 
-Get started with Form Recognizer, a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-You'll use the following APIs to extract structured data from forms and documents:
-
-|Name |Description |
-|---|---|
-| **Analyze layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
-| **Analyze receipts** | Analyze a receipt document to extract key information, and other receipt text.|
-| **Analyze business cards** | Analyze a business card to extract key information and text.|
-| **Analyze invoices** | Analyze an invoice to extract key information, tables, and other invoice text.|
-| **Analyze identity documents** | Analyze an identity documents to extract key information, and other identification card text.|
-| **Train a custom model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **Analyze forms with a custom model**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-|**Manage custom models**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your accounty.|
 <!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
@@ -318,7 +304,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-####  [v2.1](#tab/2-1)
+#### [v2.1](#tab/2-1)
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../concept-business-cards.md).
 

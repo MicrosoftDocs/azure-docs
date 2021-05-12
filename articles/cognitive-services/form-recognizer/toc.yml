@@ -14,7 +14,7 @@
 - name: Quickstarts
   items:
   - name: Client library guide
-    href: quickstarts/client-library-guide.md
+    href: quickstarts/client-library.md
   - name: "Get started with C#/.NET SDK"
     href: quickstarts/csharp-sdk.md
   - name: "Get started with Java SDK"

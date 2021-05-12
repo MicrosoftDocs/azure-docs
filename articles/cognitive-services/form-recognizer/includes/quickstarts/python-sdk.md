@@ -13,22 +13,6 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# Quickstart: Use the Form Recognizer Python client library
-
-Get started with Form Recognizer, a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-You'll use the following APIs to extract structured data from forms and documents:
-
-|Name |Description |
-|---|---|
-| **[Analyze layout](#analyze-layout)** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
-| **[Analyze receipts](#analyze-receipts)** | Analyze a receipt document to extract key information, and other receipt text.|
-| **[Analyze business cards](#analyze-business-cards)** | Analyze a business card to extract key information and text.|
-| **[Analyze invoices](#analyze-invoices)** | Analyze an invoice to extract key information, tables, and other invoice text.|
-| **[Analyze identity documents](#analyze-identity-documents)** | Analyze an identity documents to extract key information, and other identification card text.|
-| **[Train a custom model](#train-a-custom-model)**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **[Analyze forms with a custom model](#analyze-forms-with-a-custom-model)**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-|**[Manage custom models](#manage-custom-models)**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your account.|
 
 > [!IMPORTANT]
 >
@@ -87,7 +71,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is used to create and Manage custom models that you can use to improve recognition. 
+With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognize form fields and content. The second, `form_training_client` is used to create and Manage custom models that you can use to improve recognition.
 
 ### FormRecognizerClient
 
@@ -151,7 +135,7 @@ You'll need to add references to the URLs for your training and testing data.
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-* Use the sample form and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
+* Use the sample form and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage.
 
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
@@ -225,7 +209,7 @@ Total: 1203.39 has confidence 0.774
 
 #### [v2.1](#tab/2-1)
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../concept-business-cards.md). 
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../concept-business-cards.md).
 
 To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method.
 
@@ -245,7 +229,7 @@ To analyze business cards from a URL, use the `begin_recognize_business_cards_fr
 
 #### [v2.1](#tab/2-1)
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../concept-invoices.md). 
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../concept-invoices.md).
 
 To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method.
 
@@ -452,7 +436,6 @@ The following code block uses the model ID saved from the previous section and u
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-
 ### Output
 
 This is the sample output for the custom model created in the previous example.
@@ -469,7 +452,6 @@ Training completed on: 2020-08-20 23:20:57+00:00
 You can also delete a model from your account by referencing its ID. This code deletes the model used in the previous section.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_delete)]
-
 
 ## Run the application
 
