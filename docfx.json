@@ -610,7 +610,7 @@
         "articles/logic-apps/*.md": "estfan",
         "articles/machine-learning/*.md": "jmartens",
         "articles/machine-learning/studio/*.md": "jmartens",
-        "articles/marketplace/**/*.md": "dsindona",
+        "articles/marketplace/**/*.md": "mingshen",
         "articles/media-services/**/*.md": "juliako",
         "articles/media-services/*.md": "juliako",
         "articles/migrate/*.md": "raynew",
