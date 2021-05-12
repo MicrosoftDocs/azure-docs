@@ -7,7 +7,7 @@ ms.date: 04/26/2021
 ---
 # Production readiness and best practices
 
-This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
+This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution.
 
 > [!NOTE]
 > You should consult your organizations’ IT departments on aspects related to security.
