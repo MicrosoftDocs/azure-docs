@@ -88,7 +88,7 @@ You add upto 50000 QnA pairs to a single knowledge base. If your data exceeds 50
 
 You can also create a separate knowledge base for each domain and maintain the knowledge bases separately. [All APIs](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) require for the user to pass on the knowledge base ID to make any update to the knowledge base or fetch an answer to the user's question.  
 
-When the user question is receieved by the service, you would need to pass on the KB id in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the Knowledgebase ID in the Publish page section as shown below.
+When the user question is received by the service, you would need to pass on the KB id in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
 
 >[!div class="mx-imgBorder"]
 >![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
