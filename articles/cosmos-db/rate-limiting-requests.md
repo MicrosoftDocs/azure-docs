@@ -28,7 +28,7 @@ Spreading the requests across a period of time can be accomplished by introducin
 
 It is important to keep in mind that RU throughput characteristics are affected by the number of physical partitions in a given container. In the example above, that 20 K RU provisioned throughput would be evenly shared across the number of partitions in the target container. For example, if Azure Cosmos DB provisioned two physical partitions, each would have 10 K RU.
 
-For more information about Resource Units, see [Request Units in Azure Cosmos DB
+For more information about Request Units, see [Request Units in Azure Cosmos DB
 ](request-units.md).
 For more information about estimating the number of RUs consumed by your workload, see [Request Unit considerations](request-units.md#request-unit-considerations)
 For more information about partitioning Azure Cosmos DB, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md)
@@ -150,3 +150,13 @@ For more information, see: [Cache-Aside pattern](https://docs.microsoft.com/azur
 You might pre-populate views into other collections after storing the data in Azure Cosmos DB when the data isn't ideally formatted for required query operations. This pattern can help support efficient querying and data extraction, and improve application performance.
 
 For more information, see [Materialized View pattern](https://docs.microsoft.com/azure/architecture/patterns/materialized-view.md).
+
+## Next Steps
+
+* Learn how to [troubleshoot TooManyRequests errors](troubleshoot-request-rate-too-large.md) in Azure Cosmos DB.
+* Learn how to [troubleshoot Timeout errors](troubleshoot-request-timeout.md) in Azure Cosmos DB.
+* Learn how to [troubleshoot ServiceUnavailable errors](troubleshoot-service-unavailable.md) in Azure Cosmos DB.
+* Learn more about [Request Units](request-units.md) in Azure Cosmos DB.
+* Learn more about [Partitioning and horizontal scaling](partitioning-overview.md) in Azure Cosmos DB.
+* Learn about [Indexing policies](index-policy.md) in Azure Cosmos DB.
+* Learn about [Autoscaling](provision-throughput-autoscale.md) in Azure Cosmos DB.
