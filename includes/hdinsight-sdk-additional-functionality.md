@@ -1,9 +1,9 @@
 ---
-author: tylerfox
+author: JasonWHowell
 ms.service: hdinsight
 ms.topic: include
 ms.date: 04/15/2019
-ms.author: tyfox
+ms.author: jasonh
 ---
 ## Additional SDK functionality
 

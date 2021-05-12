@@ -14,9 +14,9 @@ ms.reviewer: japere
 ---
 
 # Azure AD Application Proxy: Version release history
-This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released. 
+This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are [updated automatically when a new major version is released](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-). 
 
-We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft provides direct support for the latest connector version and one version before.
+We recommend making sure that auto-updates are enabled for your connectors to ensure you have the latest features and bug fixes. Microsoft Support might ask you to install the latest connector version to resolve a problem.
 
 Here is a list of related resources:
 
@@ -31,7 +31,7 @@ Here is a list of related resources:
 ### Release status
 
 July 22, 2020: Released for download
-This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
+This version is only available for install via the download page. 
 
 ### New features and improvements
 -	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
@@ -48,7 +48,7 @@ This version is only available for install via the download page. An auto-upgrad
 ### Release status
 
 July 17, 2020: Released for download. 
-This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
+This version is only available for install via the download page. 
 
 ### Fixed issues
 - Resolved memory leak issue present in previous version
@@ -59,7 +59,7 @@ This version is only available for install via the download page. An auto-upgrad
 ### Release status
 
 April 07, 2020: Released for download
-This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
+This version is only available for install via the download page. 
 
 ### New features and improvements
 -	Connectors only use TLS 1.2 for all connections. See [Connector pre-requisites](application-proxy-add-on-premises-application.md#prerequisites) for more details.
