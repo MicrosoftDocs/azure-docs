@@ -54,7 +54,7 @@ from delta.tables import *
 deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlondemandstorage.dfs.core.windows.net/covid`")
 ```
 
-To improve the performance of your queries, consider specifying explicit types in [the `WITH` cause](#explicitly-specify-schema).
+To improve the performance of your queries, consider specifying explicit types in [the `WITH` clause](#explicitly-specify-schema).
 
 > [!NOTE]
 > The serverless Synapse SQL pool uses schema inference to automatically determine columns and their types. The rules for schema inference are the same used for Parquet files.
@@ -175,7 +175,7 @@ deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlon
 
 The second argument of `DeltaTable.convertToDeltaLake` function represents the partitioning columns (year and month) that are a part of folder pattern (`year=*/month=*` in this example) and their types.
 
-## Limitation
+## Limitations
 
 - Schema inference doesn't work if you have complex data types. For complex data types, use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
 - The `OPENROWSET` function doesn't support updating a Delta Lake file or time travel. Use Apache Spark engine to perform these actions.
