@@ -11,7 +11,7 @@ Azure Functions integrates with Azure API Management in the portal to let you ex
 
 This article shows you how to integrate your function app with API Management. This integration works for function apps developed in any [supported language](supported-languages.md). You can also [import your function app from Azure API Management](../api-management/import-function-app-as-api.md).
 
-For C# class library functions, you can also [use Visual Studio](openapi-apim-integrate-vs.md) to create and publish serverless API that integrate with API Management.  
+For C# class library functions, you can also [use Visual Studio](openapi-apim-integrate-visual-studio.md) to create and publish serverless API that integrate with API Management.  
 
 ## Create the API Management instance
 

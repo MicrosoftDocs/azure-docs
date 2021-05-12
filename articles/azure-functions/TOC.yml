@@ -74,7 +74,7 @@
     - name: Develop Python functions with VS Code
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: Create serverless APIs using Visual Studio  
-      href: openapi-apim-integrate-vs.md
+      href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger
     - name: Networking
       items:  
@@ -457,7 +457,7 @@
               href: ./functions-openapi-definition.md
               displayName: OpenAPI, Swagger
             - name: Visual Studio with API Management (C#)
-              href: openapi-apim-integrate-vs.md
+              href: openapi-apim-integrate-visual-studio.md
               displayName: OpenAPI, Swagger
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
