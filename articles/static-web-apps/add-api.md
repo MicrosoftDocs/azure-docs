@@ -21,8 +21,11 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 
 - Azure account with an active subscription.
   - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
+
 - [Visual Studio Code](https://code.visualstudio.com/)
+
 - [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
+
 - [Node.js](https://nodejs.org/download/) to run the frontend app and API
 
 ## Create the static web app
@@ -31,7 +34,7 @@ Before adding an API, create and deploy a frontend application to Azure Static W
 
 In VS Code, open the root of the repository containing your app. It should contain the source for your frontend app and the Static Web Apps GitHub workflow in `.github/workflows`.
 
-```files
+```Files
 ├── .github
 │   ├── workflows
 │   │   ├── azure-static-web-apps-<default-hostname>.yml
@@ -57,7 +60,7 @@ You create an Azure Functions projects for your static web app's API. By default
 
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
-    ```files
+    ```Files
     ├── .github
     │   ├── workflows
     │   │   ├── azure-static-web-apps-<default-hostname>.yml
@@ -187,7 +190,7 @@ export default App;
 
 Update the content of _src/App.vue_ with the following code to fetch the text from the API function and display it on the screen:
 
-```javascript
+```vue
 <template>
   <div>{{ message }}</div>
 </template>
