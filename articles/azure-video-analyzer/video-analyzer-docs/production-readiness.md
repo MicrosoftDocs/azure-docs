@@ -7,10 +7,16 @@ ms.date: 04/26/2021
 ---
 # Production readiness and best practices
 
-This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
+This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
 
 > [!NOTE]
 > You should consult your organizations’ IT departments on aspects related to security.
+
+## Creating the Video Analyzer account
+When you [create](create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
+1. The subscription owner should create a resource group under which all resources needed by Video Analyzer are to be created.
+1. Then, the owner should grant you [Contributor](../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
+1. You can then create the relevant resources: Storage account, user-assigned managed identity, and Video Analyzer account under that resource group.
 
 ## Running the module as a local user
 
