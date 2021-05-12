@@ -119,7 +119,7 @@ This tab provides information on the agents sending logs to this workspace.
 
 ### Query audit tab
 
-Query auditing creates logs about the execution of queries on the workspace. If enabled, this data is greatly beneficial to understanding and improving queries performance, efficiency and load. To enable query auditing on your workspace or learn more about it, see [Audit queries in Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit).
+Query auditing creates logs about the execution of queries on the workspace. If enabled, this data is greatly beneficial to understanding and improving queries performance, efficiency and load. To enable query auditing on your workspace or learn more about it, see [Audit queries in Azure Monitor Logs](../logs/query-audit.md).
 
 #### Performance 
 This tab shows:
