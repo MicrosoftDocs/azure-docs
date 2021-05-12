@@ -56,7 +56,7 @@ Status: 200 OK
 Resource-Location: "https://atlas.microsoft.com/tileset/{tileset-id}"
  {
     "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
-    "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
+    "created": "2021-05-06T07:55:19.5256829+00:00",
     "status": "Succeeded"
 }
 ```
