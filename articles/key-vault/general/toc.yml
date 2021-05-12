@@ -53,9 +53,7 @@
   - name: Security
     items:
     - name: Security features
-      href: security-features.md
-    - name: Key Vault authentication fundamentals
-      href: authentication.md
+      href: security-features.md    
     - name: Key Vault authentication
       href: authentication.md
     - name: Security worlds and geographies
