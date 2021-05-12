@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 05/10/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -14,11 +14,15 @@ ms.date: 03/02/2021
 
 You can use private endpoints for your Purview accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Purview account. Network traffic between the clients on the VNet and the Purview account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
+    :::image type="content" source="media/catalog-private-link/purview-pe-architecture.png" alt-text="Azure Purview Private Endpoint Architecture":::
+
+Review [Azure Purview Private Link Frequently asked questions (FAQ)](./catalog-private-link-faqs.md).
+
 ## Create Purview account with a Private Endpoint
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and then to your Purview account.
 
-1. Fill basic information, and set connectivity method to Private endpoint in **Networking** tab. Set up your ingestion private endpoints by providing details of **Subscription, Vnet and Subnet** that you want to pair with your private endpoint.
+1. Fill basic information, and set connectivity method to Private endpoint in **Networking** tab. Set up your ingestion private endpoints by providing details of **Subscription, VNet and Subnet** that you want to pair with your private endpoint.
 
     > [!NOTE]
     > Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently do not support ingestion private endpoints working with your AWS sources.
@@ -57,6 +61,42 @@ You can use private endpoints for your Purview accounts to allow clients and use
     :::image type="content" source="media/catalog-private-link/pe-portal-details.png" alt-text="Details for portal private endpoint":::
 
 1. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and click **Create** to create the portal private endpoint.
+
+## Private DNS Zone requirements for Private Endpoints
+When you create a private endpoint, the DNS CNAME resource record for Purview is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
+ 
+When you resolve the Purview endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the Azure Purview. When resolved from the VNet hosting the private endpoint, the Purview endpoint URL resolves to the private endpoint's IP address.
+
+For the illustrated example above, the DNS resource records for Purview if Purview account name is 'PurviewA', when resolved from outside the VNet hosting the private endpoint, will be:
+
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| <div>PurviewA.purview.azure.com</div> | CNAME | <div>PurviewA.privatelink.purview.azure.com</div> |
+| <div>PurviewA.privatelink.purview.azure.com</div> | CNAME | < Purview public endpoint > |
+| < Purview public endpoint > | A | < Purview public IP address > |
+| Web.purview.azure.com</div> | CNAME | < Purview public endpoint > |
+ 
+The DNS resource records for PurviewA, when resolved in the VNet hosting the private endpoint, will be:
+ 
+| Name | Type | Value |
+| ---------- | -------- | --------------- |
+| <div>PurviewA.purview.azure.com</div> | CNAME | <div>PurviewA.privatelink.purview.azure.com</div> |
+| <div>PurviewA.privatelink.purview.azure.com</div> | A | < private endpoint IP address > |
+| <div>Web.purview.azure.com</div> | CNAME | < private endpoint IP address  > |
+ 
+_Example for Azure Purview DNS name resolution from outside the VNet or when Azure Private Endpoint is not configured:_
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-external.png" alt-text="Purview Name Resolution from outside CorpNet":::
+
+_Example for Azure Purview DNS name resolution from inside VNet:_
+
+   :::image type="content" source="media/catalog-private-link/purview-name-resolution-private-link.png" alt-text="Purview Name Resolution from inside CorpNet":::
+
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Purview endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for 'PurviewA.privatelink.purview.azure.com' with the private endpoint IP address.
+
+For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## Enabling access to Azure Active Directory
 
@@ -101,6 +141,11 @@ If you want to ensure network isolation for your metadata flowing from the sourc
     :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Running Azure scan using self-hosted IR":::
 
 > [!NOTE]
+> When you use Private Endpoint for ingestion, you can use Azure Integration Runtime for scanning only for the following data sources:
+> - Azure Blob Storage 
+> - Azure Data Lake Gen 2
+>  
+> For other data sources, a self-hosted integration runtime is required.
 > We currently do not support MSI credential method when you scan your Azure sources using a self-hosted IR. You must use one of the other supported credential method for that Azure source.
 
 ## Enable private endpoint on existing Purview accounts

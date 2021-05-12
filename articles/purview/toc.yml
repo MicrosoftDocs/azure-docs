@@ -186,6 +186,8 @@ items:
     items:
     - name: Manage Private endpoints
       href: catalog-private-link.md
+    - name: Azure Purview Private endpoints FAQs
+      href: catalog-private-link-faqs.md
   - name: Disaster recovery
     items:
     - name: Disaster recovery
