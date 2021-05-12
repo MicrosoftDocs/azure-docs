@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
+ms.date: 05/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -20,28 +20,22 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the peak token issuances per user journey type for user flows and custom policies.
+The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the **peak** token issuances for default user flow and custom policy configurations.
 
 |User Journey      | Limit    |
 |---------|---------|
-|Sign in  | 12,000/min |
-|Sign up  | 3,840/min |
-|Password reset  | 3,840/min|
-|Profile edit  | 3,840/min|
-
-When multiple user journeys are in use, they contribute to the overall limits below.
+|Combined sign in and sign up  | 2,400/min |
+|Sign up  | 1,200/min |
+|Sign in  | 2,400/min |
+|Password reset  | 1,200/min |
+|Profile edit  | 2,400/min |
+|ROPC  | 10,000/min |
+|||
 
 |Category     | Limit    |
 |---------|---------|
-|Number of requests per IP address per Azure AD B2C tenant     |1,200/min          |
-|Total number of requests per Azure AD B2C tenant   |12,000/min          |
-
-Using the above limits, the following demonstrates the throughput for the **Combined Sign up or Sign in policy**:
-- Perform Sign up's at a rate of 3,000/min
-- Perform Sign in's at a rate of 9,000/min
-- All authentications originate from a unique client IP address
-- This will reach the total token issuance rate of 12,000/min
-
+|Tokens issued per IP address per Azure AD B2C tenant     |240/min          |
+|||
 
 ## Azure AD B2C configuration limits
 
@@ -50,7 +44,7 @@ The following table lists the administrative configuration limits in the Azure A
 |Category  |Type  |Limit  |
 |---------|---------|---------|
 |Maximum string length per attribute      |User|250 Chars          |
-|Maximum number of `Identities` in a user create operation      | User|7          |
+|Maximum number of [`Identities`](https://docs.microsoft.com/en-us/azure/active-directory-b2c/user-profile-attributes#identities-attribute) in a user create operation      | User|7          |
 |Number of scopes per application        |Application|1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
 |Number of redirect URLs per application       |Application|100         |
