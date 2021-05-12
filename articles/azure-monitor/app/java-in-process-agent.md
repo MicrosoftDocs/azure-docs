@@ -33,8 +33,10 @@ The 3.0 agent supports Java 8 and above.
 > [!WARNING]
 > **If you are upgrading from 3.0.x**
 >
-> The operation name and request telemetry name are now prefixed by the http method (`GET`, `POST`, etc.),
-> see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0) for more details.
+> The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
+> This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
+> See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
 
 Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.1.0.jar)
 
