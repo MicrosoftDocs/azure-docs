@@ -33,7 +33,11 @@ On your local computer:
 
 ---
 
-You must also first [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster.
+
+
+## Create an App Service Kubernetes environment
+
+Before you begin, uou must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. When you create the environment, make sure to copy down the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
 
 ## Create the local function project
 
@@ -54,7 +58,7 @@ In Azure Functions, a function project is a container for one or more individual
 
     # [Python](#tab/python/bash)
 
-    Python requires a virtual environment:
+    Python requires a virtual environment, the commands for which differ between [bash](create-first-function-arc-cli?python%2Cbash) and a Windows [console](create-first-function-arc-cli?python%cmd).
     
     ```bash
     python -m venv .venv
@@ -70,7 +74,7 @@ In Azure Functions, a function project is a container for one or more individual
     
     # [Python](#tab/python/cmd)
 
-    Python requires a virtual environment:
+    Python requires a virtual environment, the commands for which differ between [bash](create-first-function-arc-cli?python%2Cbash) and a Windows [console](create-first-function-arc-cli?python%cmd).
     
     ```cmd
     py -m venv .venv
@@ -131,7 +135,7 @@ az storage account create --name <STORAGE_NAME> --location westeurope --resource
 >[!NOTE]  
 >A storage account is currently required by Azure Functions tooling. 
 
-n the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
+In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
 ### Create the function app
 
@@ -158,8 +162,6 @@ In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom locati
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
-
-[!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
 
 ## Next steps
 
