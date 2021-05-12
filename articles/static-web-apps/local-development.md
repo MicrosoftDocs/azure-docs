@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Set up local development for Azure Static Web Apps Preview
+# Set up local development for Azure Static Web Apps
 
 When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
 
@@ -30,6 +30,9 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - A proxy to your API endpoints - available through Azure Functions Core Tools
 - A mock authentication and authorization server
 - Local routes and configuration settings enforcement
+
+> [!NOTE]
+> The Azure Static Web Apps CLI is currently a preview feature.
 
 ## How it works
 
