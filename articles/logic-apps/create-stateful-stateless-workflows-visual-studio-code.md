@@ -19,7 +19,7 @@ With [Azure Logic Apps Preview](single-tenant-overview-compare.md), you can buil
 
 ![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
+In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-single-tenant-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
 Meanwhile, you can still create the original logic app type. Although the development experiences in Visual Studio Code differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
@@ -1061,7 +1061,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-single-tenant-workflows-azure-portal.md#disable-enable-workflows).
 
    > [!NOTE]
    > The stop logic app and delete logic app operations affect workflow instances in different ways. 
@@ -1186,7 +1186,7 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
 ## Enable run history for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
 1. In your Visual Studio Code project, expand the **workflow-designtime** folder, and open the **local.settings.json** file.
 
@@ -1433,7 +1433,7 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 > [!NOTE]
 > This solution applies only to logic apps that you create and deploy using Visual Studio Code with 
 > the Azure Logic Apps (Preview) extension, not the logic apps that you created using the Azure portal. 
-> See [Supported triggers and actions are missing from the designer in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#missing-triggers-actions).
+> See [Supported triggers and actions are missing from the designer in the Azure portal](create-single-tenant-workflows-azure-portal.md#missing-triggers-actions).
 
 1. Save any work that you don't want to lose, and close Visual Studio.
 

@@ -81,7 +81,7 @@ To create a logic app based on the environment that you want, you have multiple 
 
 | Option | Resources and tools | More information |
 |--------|---------------------|------------------|
-| Azure portal | **Logic App (Preview)** resource type | [Create integration workflows for single-tenant Logic Apps - Azure portal](create-stateful-stateless-workflows-azure-portal.md) |
+| Azure portal | **Logic App (Preview)** resource type | [Create integration workflows for single-tenant Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md) |
 | Visual Studio Code | [**Azure Logic Apps (Preview)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create integration workflows for single-tenant Logic Apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md) |
 | Azure CLI | Logic Apps Azure CLI extension | Not yet available |
 ||||
@@ -123,7 +123,7 @@ With the preview logic app type, you can create these workflow types within the 
 
   Create stateless workflows when you don't need to save, review, or reference data from previous events in external storage for later review. These workflows save the inputs and outputs for each action and their states *only in memory*, rather than transferring this data to external storage. As a result, stateless workflows have shorter runs that are typically no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. These workflows can only run synchronously.
 
-  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
+  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
   > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
@@ -279,11 +279,11 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
 If your environment has strict network requirements or firewalls that limit traffic, you have to allow access for any trigger or action connections in your logic app workflows. To find the fully qualified domain names (FQDNs) for these connections, review the corresponding sections in these topics:
 
 * [Firewall permissions for single tenant logic apps - Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
-* [Firewall permissions for single tenant logic apps - Azure portal](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
+* [Firewall permissions for single tenant logic apps - Azure portal](create-single-tenant-workflows-azure-portal.md#firewall-setup)
 
 ## Next steps
 
-* [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md)
+* [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md)
 * [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md)
 * [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)
 

@@ -26,7 +26,7 @@ The example workflow starts with the built-in Request trigger and follows with a
 > to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
 > Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
-![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-stateful-stateless-workflows-azure-portal/azure-portal-logic-apps-overview.png)
+![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-single-tenant-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
 As you progress, you'll complete these high-level tasks:
 
@@ -73,7 +73,7 @@ For more information, review the following documentation:
 
 1. In the Azure portal search box, enter `logic apps`, and select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic app preview" search term and the "Logic App (Preview)" resource selected.](./media/create-stateful-stateless-workflows-azure-portal/find-logic-app-resource-template.png)
+   ![Screenshot that shows the Azure portal search box with the "logic app preview" search term and the "Logic App (Preview)" resource selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. On the **Logic apps** page, select **Add** > **Preview**.
 
@@ -92,7 +92,7 @@ For more information, review the following documentation:
 
    Here's an example:
 
-   ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-stateful-stateless-workflows-azure-portal/create-logic-app-resource-portal.png)
+   ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 
 1. On the **Hosting** tab, provide the following information about the storage solution and hosting plan to use for your logic app.
 
@@ -114,7 +114,7 @@ For more information, review the following documentation:
 
    For example:
 
-   ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
+   ![Screenshot that shows the Azure portal and new logic app resource settings.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
    > [!TIP]
    > If you get a validation error after you select **Create**, open and review the error details. 
@@ -125,7 +125,7 @@ For more information, review the following documentation:
 
 1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow. If you selected **Docker Container** for deploying your logic app, continue with the [steps to provide information about that Docker container](#set-docker-container).
 
-   ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
+   ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
 
 <a name="set-docker-container"></a>
 
@@ -145,13 +145,13 @@ Before you start these steps, you need a Docker container image. For example, yo
 
 1. After Azure opens the resource, on your logic app's menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
 
-   ![Screenshot that shows the logic app resource menu with "Workflows" selected, and then hen on the toolbar, "Add" is selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-add-blank-workflow.png)
+   ![Screenshot that shows the logic app resource menu with "Workflows" selected, and then hen on the toolbar, "Add" is selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png)
 
 1. After the **New workflow** pane opens, provide a name for your workflow, and choose the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you're done, select **Create**.
 
    This example adds a blank stateful workflow named `Fabrikam-Stateful-Workflow`. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 
-   ![Screenshot that shows the newly added blank stateful workflow "Fabrikam-Stateful-Workflow".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-blank-workflow-created.png)
+   ![Screenshot that shows the newly added blank stateful workflow "Fabrikam-Stateful-Workflow".](./media/create-single-tenant-workflows-azure-portal/logic-app-blank-workflow-created.png)
 
 1. Next, open the blank workflow in the designer so that you can add a trigger and an action.
 
@@ -161,7 +161,7 @@ Before you start these steps, you need a Docker container image. For example, yo
 
       On the designer surface, the **Choose an operation** prompt already appears and is selected by default so that the **Add a trigger** pane also appears open.
 
-      ![Screenshot that shows the opened workflow designer with "Choose an operation" selected on the designer surface.](./media/create-stateful-stateless-workflows-azure-portal/opened-logic-app-designer-blank-workflow.png)
+      ![Screenshot that shows the opened workflow designer with "Choose an operation" selected on the designer surface.](./media/create-single-tenant-workflows-azure-portal/opened-logic-app-designer-blank-workflow.png)
 
 <a name="add-trigger-actions"></a>
 
@@ -181,11 +181,11 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
 
-   ![Screenshot that shows the designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-stateful-stateless-workflows-azure-portal/find-request-trigger.png)
+   ![Screenshot that shows the designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-stateful-stateless-workflows-azure-portal/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -214,11 +214,11 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
    This example uses the Office 365 Outlook action named **Send an email (V2)**.
 
-   ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-azure-portal/find-send-email-action.png)
+   ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
 1. In the action's details pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot that shows the designer and the "Send an email (V2)" details pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-azure-portal/send-email-action-sign-in.png)
+   ![Screenshot that shows the designer and the "Send an email (V2)" details pane with "Sign in" selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
 
 1. When you're prompted for access to your email account, sign in with your account credentials.
 
@@ -234,7 +234,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. In the action details pane, on the **Parameters** tab, provide the required information for the action, for example:
 
-   ![Screenshot that shows the designer and the "Send an email" details pane with the "Parameters" tab selected.](./media/create-stateful-stateless-workflows-azure-portal/send-email-action-details.png)
+   ![Screenshot that shows the designer and the "Send an email" details pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -264,15 +264,15 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
 
-   ![Screenshot that shows the Azure portal and logic app menu with the "Connections" and "office365" connection resource name selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+   ![Screenshot that shows the Azure portal and logic app menu with the "Connections" and "office365" connection resource name selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connections.png)
 
 1. Expand your browser wide enough so that when **JSON View** appears in the browser's upper right corner, select **JSON View**.
 
-   ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+   ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
 1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
 
-   ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+   ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
 1. For each connection, repeat the relevant steps.
 
@@ -288,7 +288,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
    `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
-   ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-stateful-stateless-workflows-azure-portal/find-request-trigger-url.png)
+   ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-url.png)
 
    For this example, the URL looks like this:
 
@@ -308,7 +308,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
    1. On the Postman toolbar, select **New**.
 
-      ![Screenshot that shows Postman with New button selected](./media/create-stateful-stateless-workflows-azure-portal/postman-create-request.png)
+      ![Screenshot that shows Postman with New button selected](./media/create-single-tenant-workflows-azure-portal/postman-create-request.png)
 
    1. On the **Create New** pane, under **Building Blocks**, select **Request**.
 
@@ -320,15 +320,15 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       Postman's request pane opens so that you can send a request to the endpoint URL for the Request trigger.
 
-      ![Screenshot that shows Postman with the opened request pane](./media/create-stateful-stateless-workflows-azure-portal/postman-request-pane.png)
+      ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
    1. On the request pane, in the address box that's next to the method list, which currently shows **GET** as the default request method, paste the URL that you previously copied, and select **Send**.
 
-      ![Screenshot that shows Postman and endpoint URL in the address box with Send button selected](./media/create-stateful-stateless-workflows-azure-portal/postman-test-endpoint-url.png)
+      ![Screenshot that shows Postman and endpoint URL in the address box with Send button selected](./media/create-single-tenant-workflows-azure-portal/postman-test-endpoint-url.png)
 
       When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
-      ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
+      ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
 <a name="view-run-history"></a>
 
@@ -340,7 +340,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. On the **Overview** pane, select **Run History**, which shows the run history for that workflow.
 
-   ![Screenshot that shows the workflow's "Overview" pane with "Run History" selected.](./media/create-stateful-stateless-workflows-azure-portal/find-run-history.png)
+   ![Screenshot that shows the workflow's "Overview" pane with "Run History" selected.](./media/create-single-tenant-workflows-azure-portal/find-run-history.png)
 
    > [!TIP]
    > If the most recent run status doesn't appear, on the **Overview** pane toolbar, select **Refresh**. 
@@ -361,7 +361,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
    The run details view opens and shows the status for each step in the run.
 
-   ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-stateful-stateless-workflows-azure-portal/review-run-details.png)
+   ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
 
    Here are the possible statuses that each step in the workflow can have:
 
@@ -378,19 +378,19 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
    |||
 
-   [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
-   [cancelled-icon]: ./media/create-stateful-stateless-workflows-azure-portal/cancelled.png
-   [failed-icon]: ./media/create-stateful-stateless-workflows-azure-portal/failed.png
-   [running-icon]: ./media/create-stateful-stateless-workflows-azure-portal/running.png
-   [skipped-icon]: ./media/create-stateful-stateless-workflows-azure-portal/skipped.png
-   [succeeded-icon]: ./media/create-stateful-stateless-workflows-azure-portal/succeeded.png
-   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-azure-portal/succeeded-with-retries.png
-   [timed-out-icon]: ./media/create-stateful-stateless-workflows-azure-portal/timed-out.png
-   [waiting-icon]: ./media/create-stateful-stateless-workflows-azure-portal/waiting.png
+   [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
+   [cancelled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
+   [failed-icon]: ./media/create-single-tenant-workflows-azure-portal/failed.png
+   [running-icon]: ./media/create-single-tenant-workflows-azure-portal/running.png
+   [skipped-icon]: ./media/create-single-tenant-workflows-azure-portal/skipped.png
+   [succeeded-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-single-tenant-workflows-azure-portal/timed-out.png
+   [waiting-icon]: ./media/create-single-tenant-workflows-azure-portal/waiting.png
 
 1. To review the inputs and outputs for a specific step, select that step.
 
-   ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
+   ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
@@ -451,7 +451,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
    For example:
 
-   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
+   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
 
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
@@ -469,7 +469,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 * Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
 
-  ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-stateful-stateless-workflows-azure-portal/delete-item-from-designer.png)
+  ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-azure-portal/delete-item-from-designer.png)
 
   > [!TIP]
   > If the ellipses menu isn't visible, expand your browser window wide enough so that 

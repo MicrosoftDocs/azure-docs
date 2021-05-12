@@ -349,8 +349,8 @@ The following table lists the values for a single workflow definition:
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
-| Maximum number of code characters | 1,024 characters | 100,000 characters | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Maximum duration for running code | 5 sec | 15 sec | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum number of code characters | 1,024 characters | 100,000 characters | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Maximum duration for running code | 5 sec | 15 sec | 1,024 characters | To use the higher limit, create a **Logic App (Preview)** resource, which runs in single-tenant (preview) Logic Apps, either [by using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [by using Visual Studio Code and the **Azure Logic Apps (Preview)** extension](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||||
 
 <a name="custom-connector-limits"></a>
