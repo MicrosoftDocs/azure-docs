@@ -18,6 +18,10 @@ Azure Blockchain Service receives improvements on an ongoing basis. To stay up t
 
 ---
 
+## May 2021
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 ## June 2020
 
 ### Version upgrades
@@ -68,9 +72,9 @@ In Quorum v2.6.0, calls to *eth.estimateGas* function without providing the addi
 
 ### Mining stops if fewer than four validator nodes
 
-Production networks should have at least four validator nodes. Quorum recommends at least four validator nodes are required to meet the IBFT crash fault tolerance (3F+1). You should have at least two Azure Blockchain Service *Standard* tier nodes to get four validator nodes. A standard node is provisioned with two validator nodes.  
+Production networks should have at least four validator nodes. Quorum recommends at least four validator nodes are required to meet the IBFT crash fault tolerance (3F+1). You should have at least two Azure Blockchain Service *Standard* tier nodes to get four validator nodes. A standard node is provisioned with two validator nodes.
 
-If the Blockchain network on Azure Blockchain Service doesn’t have four validator nodes, then mining might stop on the network. You can detect mining has stopped by setting an alert on processed blocks. In a healthy network, processed block will be 60 blocks per node per five minutes.
+If the Blockchain network on Azure Blockchain Service doesn't have four validator nodes, then mining might stop on the network. You can detect mining has stopped by setting an alert on processed blocks. In a healthy network, processed block will be 60 blocks per node per five minutes.
 
 As a mitigation, the Azure Blockchain Service team  has to restart the node. Customers need to open a support request to restart the node. The Azure Blockchain Service team is working toward detecting and fixing mining issues automatically.
 
@@ -92,7 +96,7 @@ To identify geth crashes, you can check logs for any error message in Blockchain
 
 To mitigate the issue, send signed transactions instead of sending unsigned transactions with a command to unlock the account. For transactions that are already signed externally, there is no need to unlock the account.
 
-If you want to send unsigned transactions, unlock the account for infinite time by sending 0 as the time parameter in the unlock command. You can lock the account back after all the transactions are submitted.  
+If you want to send unsigned transactions, unlock the account for infinite time by sending 0 as the time parameter in the unlock command. You can lock the account back after all the transactions are submitted.
 
 The following are the geth parameters that Azure Blockchain Service uses. You cannot adjust these parameters.
 

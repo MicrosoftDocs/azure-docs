@@ -9,14 +9,12 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# Authentication and authorization for Azure Static Web Apps Preview
+# Authentication and authorization for Azure Static Web Apps
 
 Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
 
 - Azure Active Directory
 - GitHub
-- Facebook
-- Google<sup>1</sup>
 - Twitter
 
 Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file.
@@ -51,9 +49,7 @@ Invitations are specific to individual authorization-providers, so consider the 
 | Authorization provider | Exposes a user's |
 | ---------------------- | ---------------- |
 | Azure Active Directory | email address    |
-| Facebook               | email address    |
 | GitHub                 | username         |
-| Google<sup>1</sup>     | email address    |
 | Twitter                | username         |
 
 1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
@@ -127,9 +123,7 @@ Use the following table to find the provider-specific login route.
 | Authorization provider | Login route             |
 | ---------------------- | ----------------------- |
 | Azure Active Directory | `/.auth/login/aad`      |
-| Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
-| Google<sup>1</sup>     | `/.auth/login/google`   |
 | Twitter                | `/.auth/login/twitter`  |
 
 For example, to login with GitHub you could include a login link like the following snippet:

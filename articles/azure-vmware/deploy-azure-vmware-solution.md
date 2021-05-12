@@ -2,7 +2,7 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, devx-track-azurecli
 ms.date: 04/23/2021
 ---
 
@@ -11,7 +11,7 @@ ms.date: 04/23/2021
 In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 >[!IMPORTANT]
->If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
+>It's information that you've gone through the [planning section](production-ready-deployment-steps.md) before continuing.
 
 ## Step 1. Register the **Microsoft.AVS** resource provider
 
@@ -67,5 +67,6 @@ You should have connectivity between the Azure Virtual Network where the Express
 ## Next steps
 
 In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
+
 > [!div class="nextstepaction"]
 > [Connect to your on-premises environment](tutorial-expressroute-global-reach-private-cloud.md)

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 Before creating custom policy definitions, it's a good idea to read the conceptual overview
 information at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
- 
+
 To learn about creating Guest Configuration policies for Linux, see the page
 [How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md)
 
@@ -26,12 +26,12 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policy definitions with Guest Configuration in the Azure Government and
-> Azure China environments is a Preview feature.
+> Azure China 21Vianet environments is a Preview feature.
 >
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Windows machines, assign the following policy
 > definitions: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -100,9 +100,9 @@ For an overview of DSC concepts and terminology, see
 When Guest Configuration audits a machine the sequence of events is different than in Windows
 PowerShell DSC.
 
-1. The agent first runs `Test-TargetResource` to determine if the configuration is in the correct
-   state.
-1. The boolean value returned by the function determines if the Azure Resource Manager status for
+1. The agent first runs `Test-TargetResource` to determine whether the configuration is in the
+   correct state.
+1. The Boolean value returned by the function determines if the Azure Resource Manager status for
    the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are
    available both about why a machine isn't compliant and to confirm that the current state is
@@ -152,7 +152,7 @@ return @{
 The Reasons property must be added to the schema MOF for the resource as an embedded class.
 
 ```mof
-[ClassVersion("1.0.0.0")] 
+[ClassVersion("1.0.0.0")]
 class Reason
 {
     [Read] String Phrase;
@@ -272,10 +272,10 @@ AuditBitLocker
 ```
 
 Run this script in a PowerShell terminal or save this file with name `config.ps1` in the project
-folder. Run it in PowerShell by executing `./config.ps1` in the terminal. A new mof file is created.
+folder. Run it in PowerShell by executing `./config.ps1` in the terminal. A new MOF file is created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
-`AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
+`AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .MOF file name follow the
 configuration makes it easy to organize many files when operating at scale.
 
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
@@ -330,7 +330,7 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlock
 
 The next step is to publish the file to Azure Blob Storage. There are no special requirements for
 the storage account, but it's a good idea to host the file in a region near your machines. If you
-don't have a storage account, use the following example. The commands below, including
+don't have a storage account, use the following example. The following commands, including
 `Publish-GuestConfigurationPackage`, require the `Az.Storage` module.
 
 ```azurepowershell-interactive
@@ -348,7 +348,7 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
   storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
-The example below publishes the package to a storage container name 'guestconfiguration'.
+The following example publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -360,7 +360,7 @@ package and creates a policy definition.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri**: Public http(s) uri of Guest Configuration content package.
+- **ContentUri**: Public HTTP(s) URI of Guest Configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
@@ -407,11 +407,11 @@ feature means you can create the policy files and publish them in a single set o
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
- -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit BitLocker service.' `
   -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
+| Publish-GuestConfigurationPolicy
 ```
 
 With the policy created in Azure, the last step is to assign the definition. See how to assign the
@@ -512,7 +512,7 @@ The DSC resource requires custom development if a community solution doesn't alr
 Community solutions can be discovered by searching the PowerShell Gallery for tag
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
-> [!Note]
+> [!NOTE]
 > Guest Configuration extensibility is a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.
@@ -537,7 +537,7 @@ unique from previous versions. You can include a version number in the name such
 specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
-the explanations below.
+the following explanations.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.

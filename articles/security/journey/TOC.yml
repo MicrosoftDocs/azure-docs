@@ -65,7 +65,7 @@
 - name: Plan for migration
   items:
   - name: Assess your security readiness
-    href: https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local
+    href: /assessments/?mode=pre-assessment&session=local
   - name: Implement security across your business
     href: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Design a secure architecture
@@ -98,7 +98,7 @@
     - name: Authentication
       href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
     - name: Authorization
-      href: /architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: /azure/architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Choose passwordless
       href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist

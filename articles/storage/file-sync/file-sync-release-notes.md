@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported - Flighting |
+| V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported |
 | V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported |
 | V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported |
 | V11.1 Release - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
@@ -53,7 +53,7 @@ The following release notes are for version 12.0.0.0 of the Azure File Sync agen
 	- You can now use the portal to disable access to the Storage Sync Service public endpoint and to approve, reject and remove private endpoint connections. To configure the network access policy and private endpoint connections, open the Storage Sync Service portal, go to the Settings section and click Network.
  
 - Cloud Tiering support for volume cluster sizes larger than 64KiB
-	- Cloud Tiering now supports volume cluster sizes up to 2MiB on Server 2019. To learn more, see [What is the minimum file size for a file to tier?](https://docs.microsoft.com/azure/storage/files/storage-sync-choose-cloud-tiering-policies#minimum-file-size-for-a-file-to-tier).
+	- Cloud Tiering now supports volume cluster sizes up to 2MiB on Server 2019. To learn more, see [What is the minimum file size for a file to tier?](./file-sync-choose-cloud-tiering-policies.md#minimum-file-size-for-a-file-to-tier).
  
 - Measure bandwidth and latency to Azure File Sync service and storage account
 	- The Test-StorageSyncNetworkConnectivity cmdlet can now be used to measure latency and bandwidth to the Azure File Sync service and storage account. Latency to the Azure File Sync service and storage account is measured by default when running the cmdlet.  Upload and download bandwidth to the storage account is measured when using the "-MeasureBandwidth" parameter.

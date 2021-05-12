@@ -19,11 +19,6 @@ ms.author: bagol
 ---
 # Integrate Azure Data Explorer for long-term log retention
 
-<!--Info not included:>
-
-Script - can't xref out to a private github repo from docs
--->
-
 By default, logs ingested into Azure Sentinel are stored in Azure Monitor Log Analytics. This article explains how to reduce retention costs in Azure Sentinel by sending them to Azure Data Explorer for long-term retention.
 
 Storing logs in Azure Data Explorer reduces costs while retains your ability to query your data, and is especially useful as your data grows. For example, while security data may lose value over time, you may be required to retain logs for regulatory requirements or to run periodic investigations on older data.
@@ -40,7 +35,7 @@ Azure Sentinel provides full SIEM and SOAR capabilities, quick deployment and co
 
 If you only need to access specific tables occasionally, such as for periodic investigations or audits, you may consider that retaining your data in Azure Sentinel is no longer cost-effective. At this point, we recommend storing data in Azure Data Explorer, which costs less, but still enables you to explore using the same KQL queries that you run in Azure Sentinel.
 
-You can access the data in Azure Data Explorer directly from Azure Sentinel using the [Log Analytics Azure Data Explorer proxy feature](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks.
+You can access the data in Azure Data Explorer directly from Azure Sentinel using the [Log Analytics Azure Data Explorer proxy feature](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). To do so, use cross cluster queries in your log search or workbooks.
 
 > [!IMPORTANT]
 > Core SIEM capabilities, including Analytic rules, UEBA, and the investigation graph, do not support data stored in Azure Data Explorer.
@@ -209,14 +204,14 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     - Create linked services for Azure Storage and Azure Data Explorer. For more information, see:
 
-        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
-        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+        - [Copy and transform data in Azure Blob storage by using Azure Data Factory](../data-factory/connector-azure-blob-storage.md)
+        - [Copy data to or from Azure Data Explorer by using Azure Data Factory](../data-factory/connector-azure-data-explorer.md).
 
-    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](/azure/data-factory/concepts-datasets-linked-services).
+    - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](../data-factory/concepts-datasets-linked-services.md).
 
     - Create a data pipeline with a copy operation, based on the **LastModifiedDate** properties.
 
-        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](/azure/data-factory/solution-template-copy-new-files-lastmodifieddate).
+        For more information, see [Copy new and changed files by **LastModifiedDate** with Azure Data Factory](../data-factory/solution-template-copy-new-files-lastmodifieddate.md).
 
 ---
 

@@ -96,14 +96,14 @@ Configure the application settings in the [App service in Azure](../app-service/
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
-|FraudProtectionSettings:InstanceId | Microsoft DFP Configuration |     |
-|FraudProtectionSettings:DeviceFingerprintingCustomerId | Your Microsoft device fingerprinting customer ID |     |
+| FraudProtectionSettings:InstanceId | Microsoft DFP Configuration |     |
+| FraudProtectionSettings:DeviceFingerprintingCustomerId | Your Microsoft device fingerprinting customer ID |     |
 | FraudProtectionSettings:ApiBaseUrl |  Your Base URL from Microsoft DFP Portal   | Remove '-int' to call the production API instead|
-|  TokenProviderConfig: Resource  | Your Base URL - `https://api.dfp.dynamics-int.com`     | Remove '-int' to call the production API instead|
-|   TokenProviderConfig:ClientId       |Your Fraud Protection merchant Azure AD client app ID      |       |
-| TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Your Fraud Protection merchant Azure AD tenant authority |
-| TokenProviderConfig:CertificateThumbprint* | The thumbprint of the certificate to use to authenticate against your merchant Azure AD client app |
-| TokenProviderConfig:ClientSecret* | The secret for your merchant Azure AD client app | Recommended to use a secrets manager |
+| FraudProtectionSettings:TokenProviderConfig:Resource | Your Base URL - `https://api.dfp.dynamics-int.com`     | Remove '-int' to call the production API instead|
+| FraudProtectionSettings:TokenProviderConfig:ClientId |Your Fraud Protection merchant Azure AD client app ID      |       |
+| FraudProtectionSettings:TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Your Fraud Protection merchant Azure AD tenant authority |
+| FraudProtectionSettings:TokenProviderConfig:CertificateThumbprint* | The thumbprint of the certificate to use to authenticate against your merchant Azure AD client app |
+| FraudProtectionSettings:TokenProviderConfig:ClientSecret* | The secret for your merchant Azure AD client app | Recommended to use a secrets manager |
 
 *Only set 1 of the 2 marked parameters depending on if you authenticate with a certificate or a secret such as a password.
 

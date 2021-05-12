@@ -231,11 +231,11 @@ Refer to the following list to configure managed identity for Azure Functions (i
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-| User assigned | Not available | Not available | Not available | Not available |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure IoT Hub (in regions where available):
 
-- [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- For more information, please see [Azure IoT Hub support for managed identities](../../iot-hub/iot-hub-managed-identity.md).
 
 ### Azure Import/Export
 
@@ -249,7 +249,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
+| User assigned | Preview | ![Available][check] | Not available | Not available |
 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md).

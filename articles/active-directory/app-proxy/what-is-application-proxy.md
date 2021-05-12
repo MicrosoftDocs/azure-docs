@@ -26,7 +26,7 @@ Many organizations believe they are in control and protected when resources exis
 
 Perhaps you're already using Azure AD to manage users in the cloud who need to access Microsoft 365 and other SaaS applications, as well as web apps hosted on-premises. If you already have Azure AD, you can leverage it as one control plane to allow seamless and secure access to your on-premises applications. Or, maybe you're still contemplating a move to the cloud. If so, you can begin your journey to the cloud by implementing Application Proxy and taking the first step towards building a strong identity foundation.
 
-While not comprehensive, the list below illustrates some of the things you can enable by implementing App Proxy in a hybrid coexistence scenario:
+While not comprehensive, the list below illustrates some of the things you can enable by implementing Application Proxy in a hybrid coexistence scenario:
 
 * Publish on-premises web apps externally in a simplified way without a DMZ
 * Support single sign-on (SSO) across devices, resources, and apps in the cloud and on-premises
@@ -171,7 +171,7 @@ Connector groups are useful when you need to support the following scenarios:
 * Application segmentation/isolation
 * Publishing web apps running in the cloud or on-premises
 
-For more information about choosing where to install your connectors and optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](../manage-apps/application-proxy-network-topology.md).
+For more information about choosing where to install your connectors and optimizing your network, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## Other use cases
 

@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
 ---
 
 # Deploy Azure Spring Cloud in a virtual network
@@ -83,16 +83,9 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. In the **Add role assignment** dialog box, enter or select the following information:
+1. Assign the [Owner](../role-based-access-control/built-in-roles.md#owner) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
 
-    |Setting  |Value                                             |
-    |---------|--------------------------------------------------|
-    |Role     |Select **Owner**.                                 |
-    |Select   |Enter **Azure Spring Cloud Resource Provider**.   |
-
-    Then select **Azure Spring Cloud Resource Provider**, and select **Save**.
-
-    ![Screenshot that shows selecting Azure Spring Cloud Resource Provider.](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 You can also do this step by running the following Azure CLI command:
 

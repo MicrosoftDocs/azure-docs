@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
