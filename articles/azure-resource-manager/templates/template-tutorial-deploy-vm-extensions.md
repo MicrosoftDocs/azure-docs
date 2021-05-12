@@ -53,7 +53,7 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 1. In the **File name** box, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. To open the file, select **Open**.

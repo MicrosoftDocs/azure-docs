@@ -46,7 +46,7 @@ To create a relationship, you need to specify:
 * A relationship ID (`relId` in the code sample below): The specific name for this relationship, something like _Relationship1_.
 
 The relationship ID must be unique within the given source twin. It doesn't need to be globally unique.
-For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship.
+For example, for the twin Foo, each specific relationship ID must be unique. However, another twin Bar can have an outgoing relationship that matches the same ID of a Foo relationship.
 
 The following code sample illustrates how to create a relationship in your Azure Digital Twins instance. It uses the SDK call (highlighted) inside a custom method that might appear in the context of a larger program.
 
@@ -69,9 +69,9 @@ Relationships can be classified as either:
 
 There is no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
 
-This means that you can express several different types of relationships between two twins at once. For example, *Twin A* can have both a *stored* relationship and *manufactured* relationship with *Twin B*.
+This means that you can express several different types of relationships between two twins at once. For example, Twin A can have both a *stored* relationship and *manufactured* relationship with Twin B.
 
-You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, *Twin A* could have two different *stored* relationships with *Twin B*, as long as the relationships have different relationship IDs.
+You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
 
 ## List relationships
 

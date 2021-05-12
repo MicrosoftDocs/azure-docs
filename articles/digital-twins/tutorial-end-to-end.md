@@ -73,7 +73,7 @@ A console window will open, carry out authentication, and wait for a command. In
 SetupBuildingScenario
 ```
 
-The output of this command is a series of confirmation messages as three [digital twins](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. These digital twins represent the entities that would exist in a real-world environment.
+The output of this command is a series of confirmation messages as three [digital twins](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named floor1, a room named room21, and a temperature sensor named thermostat67. These digital twins represent the entities that would exist in a real-world environment.
 
 They are connected via relationships into the following [twin graph](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
 
@@ -142,7 +142,7 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
     > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
     > 
     >```azurecli-interactive	
-    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>	
     >```
     >
     > The output will then display details of the identity, including the **principalId** value required for the next step. 
@@ -162,7 +162,7 @@ The second setting creates an **environment variable** for the function with the
 Run the command below, filling in the placeholders with the details of your resources.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 The output is the list of settings for the Azure Function, which should now contain an entry called **ADT_SERVICE_URL**.
@@ -192,7 +192,7 @@ Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot
 In Azure Cloud Shell, use this command to create a new IoT hub:
 
 ```azurecli-interactive
-az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
+az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource-group> --sku S1
 ```
 
 The output of this command is information about the IoT hub that was created.
@@ -227,12 +227,12 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 ### Register the simulated device with IoT Hub 
 
-This section creates a device representation in IoT Hub with the ID *thermostat67*. The simulated device will connect into this, and this is how telemetry events will go from the device into IoT Hub, where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
+This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this, and this is how telemetry events will go from the device into IoT Hub, where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
 
 In Azure Cloud Shell, create a device in IoT Hub with the following command:
 
 ```azurecli-interactive
-az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
+az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> --resource-group <your-resource-group>
 ```
 
 The output is information about the device that was created.
@@ -244,7 +244,7 @@ Next, configure the device simulator to send data to your IoT Hub instance.
 Begin by getting the *IoT hub connection string* with this command:
 
 ```azurecli-interactive
-az iot hub connection-string show -n <your-IoT-hub-name>
+az iot hub connection-string show --hub-name <your-IoT-hub-name>
 ```
 
 Then, get the *device connection string* with this command:
@@ -281,11 +281,11 @@ You don't need to do anything else in this console, but leave it running while y
 
 ### See the results in Azure Digital Twins
 
-The *ProcessHubToDTEvents* function you published earlier listens to the IoT Hub data, and calls an Azure Digital Twins API to update the *Temperature* property on the *thermostat67* twin.
+The *ProcessHubToDTEvents* function you published earlier listens to the IoT Hub data, and calls an Azure Digital Twins API to update the *Temperature* property on the thermostat67 twin.
 
 To see the data from the Azure Digital Twins side, go to your Visual Studio window where the _**AdtE2ESample**_ project is open and run the project.
 
-In the project console window that opens, run the following command to get the temperatures being reported by the digital twin *thermostat67*:
+In the project console window that opens, run the following command to get the temperatures being reported by the digital twin thermostat67:
 
 ```cmd
 ObserveProperties thermostat67 Temperature
@@ -304,7 +304,7 @@ Once you've verified this is working successfully, you can stop running both pro
 
 So far in this tutorial, you've seen how Azure Digital Twins can be updated from external device data. Next, you'll see how changes to one digital twin can propagate through the Azure Digital Twins graph—in other words, how to update twins from service-internal data.
 
-To do this, you'll use the *ProcessDTRoutedData* Azure function to update a *Room* twin when the connected *Thermostat* twin is updated. This happens in this part of the end-to-end scenario (**arrow C**):
+To do this, you'll use the *ProcessDTRoutedData* Azure function to update a Room twin when the connected Thermostat twin is updated. This happens in this part of the end-to-end scenario (**arrow C**):
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="An excerpt from the full building scenario graphic highlighting arrow C, the elements after Azure Digital Twins: the Event Grid and second Azure function":::
 
@@ -323,13 +323,13 @@ In this section, you create an event grid topic, and then create an endpoint wit
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
 ```azurecli-interactive
-az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
+az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>
 ```
 
 > [!TIP]
 > To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
 > ```azurecli-interactive
-> az account list-locations -o table
+> az account list-locations --output table
 > ```
 
 The output from this command is information about the event grid topic you've created.
@@ -369,7 +369,7 @@ The output from this command is some information about the route you've created.
 
 #### Connect the function to Event Grid
 
-Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the *room21* twin accordingly.
+Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
 
 To do this, you'll create an **Event Grid subscription** that sends data from the **event grid topic** that you created earlier to your *ProcessDTRoutedData* Azure function.
 
@@ -392,7 +392,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 Now you can run the device simulator to kick off the new event flow you've set up. Go to your Visual Studio window where the _**DeviceSimulator**_ project is open, and run the project.
 
-Like when you ran the device simulator earlier, a console window will open and display simulated temperature telemetry messages. These events are going through the flow you set up earlier to update the *thermostat67* twin, and then going through the flow you set up recently to update the *room21* twin to match.
+Like when you ran the device simulator earlier, a console window will open and display simulated temperature telemetry messages. These events are going through the flow you set up earlier to update the thermostat67 twin, and then going through the flow you set up recently to update the room21 twin to match.
 
 :::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Console output of the device simulator showing temperature telemetry being sent":::
 
@@ -400,13 +400,13 @@ You don't need to do anything else in this console, but leave it running while y
 
 To see the data from the Azure Digital Twins side, go to your Visual Studio window where the _**AdtE2ESample**_ project is open, and run the project.
 
-In the project console window that opens, run the following command to get the temperatures being reported by **both** the digital twin *thermostat67* and the digital twin *room21*.
+In the project console window that opens, run the following command to get the temperatures being reported by **both** the digital twin thermostat67 and the digital twin room21.
 
 ```cmd
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds. Notice that the temperature for *room21* is being updated to match the updates to *thermostat67*.
+You should see the live updated temperatures *from your Azure Digital Twins instance* being logged to the console every two seconds. Notice that the temperature for room21 is being updated to match the updates to thermostat67.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Console output showing log of temperature messages, from a thermostat and a room":::
 
@@ -417,8 +417,8 @@ Once you've verified this is working successfully, you can stop running both pro
 Here is a review of the scenario that you built out in this tutorial.
 
 1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
-2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the *Temperature* property on *thermostat67* (**arrow B** in the diagram).
-3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on *room21* (**arrow C** in the diagram).
+2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the *Temperature* property on thermostat67 (**arrow B** in the diagram).
+3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on room21 (**arrow C** in the diagram).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Graphic of the full building scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C)":::
 
