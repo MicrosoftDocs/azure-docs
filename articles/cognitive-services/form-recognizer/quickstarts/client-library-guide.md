@@ -36,7 +36,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-layout)|  <a href="csharp-sdk.md#analyze-layout"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-layout)|  <a href="csharp-sdk.md#analyze-layout"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-layout) |  <a href="java-sdk.md#analyze-layout"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-layout) |<a href="javascript-sdk.md#analyze-layout"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-layout) | <a href="python-sdk.md#analyze-layout"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -46,7 +46,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-receipts)|  <a href="csharp-sdk.md#analyze-receipts"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-receipts)|  <a href="csharp-sdk.md#analyze-receipts"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-receipts) |  <a href="java-sdk.md#analyze-receipts"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-receipts) |<a href="javascript-sdk.md#analyze-receipts"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-receipts) | <a href="python-sdk.md#analyze-receipts"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -56,7 +56,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-business-cards)|  <a href="csharp-sdk.md#analyze-business-cards"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-business-cards)|  <a href="csharp-sdk.md#analyze-business-cards"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-business-cards) |  <a href="java-sdk.md#analyze-business-cards"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-business-cards) |<a href="javascript-sdk.md#analyze-business-cards"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-business-cards) | <a href="python-sdk.md#analyze-business-cards"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -66,7 +66,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-invoices)|  <a href="csharp-sdk.md#analyze-invoices"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-invoices)|  <a href="csharp-sdk.md#analyze-invoices"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-invoices) |  <a href="java-sdk.md#analyze-invoices"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-invoices) |<a href="javascript-sdk.md#analyze-invoices"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-invoices) | <a href="python-sdk.md#analyze-invoices"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -76,7 +76,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-identity-documents)|  <a href="csharp-sdk.md#analyze-identity-documents"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-identity-documents)|  <a href="csharp-sdk.md#analyze-identity-documents"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-identity-documents) |  <a href="java-sdk.md#analyze-identity-documents"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-identity-documents) |<a href="javascript-sdk.md#analyze-identity-documents"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-identity-documents) | <a href="python-sdk.md#analyze-identity-documents"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -86,7 +86,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#train-a-custom-model)|  <a href="csharp-sdk.md#train-a-custom-model"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#train-a-custom-model)|  <a href="csharp-sdk.md#train-a-custom-model"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#train-a-custom-model) |  <a href="java-sdk.md#train-a-custom-model"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#train-a-custom-model) |<a href="javascript-sdk.md#train-a-custom-model"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#train-a-custom-model) | <a href="python-sdk.md#train-a-custom-model"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -96,7 +96,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#analyze-forms-with-a-custom-model)|  <a href="csharp-sdk.md#analyze-forms-with-a-custom-model"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#analyze-forms-with-a-custom-model)|  <a href="csharp-sdk.md#analyze-forms-with-a-custom-model"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#analyze-forms-with-a-custom-model) |  <a href="java-sdk.md#analyze-forms-with-a-custom-model"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#analyze-forms-with-a-custom-model) |<a href="javascript-sdk.md#analyze-forms-with-a-custom-model"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#analyze-forms-with-a-custom-model) | <a href="python-sdk.md#analyze-forms-with-a-custom-model"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
@@ -106,7 +106,7 @@ Use the following APIs to extract structured data from forms and documents:
 
 |Language|Quickstart|
 |-----------|------------------|
-|[**C**](csharp-sdk.md#manage-custom-models)|  <a href="csharp-sdk.md#manage-custom-models"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
+|[**C#**](csharp-sdk.md#manage-custom-models)|  <a href="csharp-sdk.md#manage-custom-models"><img src="../media/logos/logo_NET.svg" alt="c-sharp logo" width="32px" height="32px"></a>|
 |[**Java**](java-sdk.md#manage-custom-models) |  <a href="java-sdk.md#manage-custom-models"><img src="../media/logos/logo_java.svg" alt="java logo"  width="32px" height="32px"></a>  |
 |[**JavaScript**](javascript-sdk.md#manage-custom-models) |<a href="javascript-sdk.md#manage-custom-models"><img src=" ../media/logos/logo_js.svg" alt="javascript logo"  width="32px" height="32px"></a> |
 |[**Python**](python-sdk.md#manage-custom-models) | <a href="python-sdk.md#manage-custom-models"><img src="../media/logos/logo_python.svg"  alt="python logo"  width="32px" height="32px"></a>  |
