@@ -92,7 +92,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 1. Open the **SimulatedDeviceSync.py** file in a text editor of your choice.
 
-    Replace the value of the `CONNECTION_STRING` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDeviceSync.py**. If you are using the asynchronous version, **SimulatedDeviceAsync.py**, create an environment variable that contains your connection string, copy the variable to the application, and restart the editor. 
+1. Create an environment variable that contains your connection string and restart the editor to pick up the new variable. The environment variable should be named *ConnectionString* to match the sample code.
 
 1. In the local terminal window, run the following command to install the required libraries for the simulated device application:
 
