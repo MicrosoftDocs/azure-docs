@@ -280,7 +280,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`.  This gives it public access.
 
 1. Verify the `appName` elements in the POM files are correct:
-    ```
+    ```xml
     <build>
         <plugins>
             <plugin>
@@ -293,7 +293,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
                     <appName>customers-service</appName>
     
     ```
-    You may have to correct `appName` texts to the following:
+    Please make sure `appName` texts match the following, remove any prefix if needed and save the file:
     * api-gateway
     * customers-service
 
@@ -302,6 +302,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     ```azurecli
     mvn azure-spring-cloud:deploy
     ```
+    
 ## Verify the services
 
 A successful deployment command will return a the URL of the form: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io".  Use it to navigate to the running service.
@@ -316,12 +317,12 @@ You can also navigate the Azure portal to find the URL.
 
 ## Deploy extra apps
 
-To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices.   Rerun the configuration command and select the following microservices.
+To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other microservices. Rerun the configuration command and select the following microservices.
 * admin-server
 * vets-service
 * visits-service
 
-Then run the `deploy` command again.
+Correct app names in each `pom.xml` for above modules and then run the `deploy` command again.
 
 #### [IntelliJ](#tab/IntelliJ)
 
@@ -349,7 +350,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
 1. Set **Public Endpoint** to *Enable*.
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *api-gateway*, then click **OK**.
-1. Specify the memory and JVM options.
+1. Specify the memory to 2 GB and JVM options: `-Xms2048m -Xmx2048m`.
 
      ![Memory JVM options](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 

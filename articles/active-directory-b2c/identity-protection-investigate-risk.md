@@ -66,7 +66,7 @@ Azure AD B2C Premium P2 is required for some Identity Protection features. If ne
 
 With the information provided by the risky users report, administrators can find:
 
-- Which users are at risk, have had risk remediated, or have had risk dismissed?
+- The **Risk state**, showing which users are **At risk**, have had risk **Remediated**, or have had risk **Dismissed**
 - Details about detections
 - History of all risky sign-ins
 - Risk history
@@ -78,6 +78,8 @@ Administrators can then choose to take action on these events. Administrators ca
 - Dismiss user risk
 - Block user from signing in
 - Investigate further using Azure ATP
+
+An administrator can choose to dismiss a user's risk in the Azure portal or programmatically through the Microsoft Graph API [Dismiss User Risk](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true). Administrator privileges are required to dismiss a user's risk. Remediating a risk can be performed by the risky user or by an administrator on the user's behalf, for example through a password reset.
 
 ### Navigating the risky users report
 

@@ -31,9 +31,12 @@ The objective of this tutorial is to show you the steps you need to perform in S
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A Slack tenant with the [Plus plan](https://aadsyncfabric.slack.com/pricing) or better enabled.
 * A user account in Slack with Team Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -42,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Add Slack from the Azure AD application gallery
 
-Add Slack from the Azure AD application gallery to start managing provisioning to Slack. If you have previously setup Slack for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Slack from the Azure AD application gallery to start managing provisioning to Slack. If you have previously setup Slack for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 3. Define who will be in scope for provisioning 
 
@@ -120,6 +123,7 @@ This section guides you through connecting your Azure AD to Slack's user account
    |profileUrl|String|
    |timezone|String|
    |userType|String|
+   |preferredLanguage|String|
    |urn:scim:schemas:extension:enterprise:1.0.department|String|
    |urn:scim:schemas:extension:enterprise:1.0.manager|Reference|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
@@ -177,7 +181,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Slack only allows matching with the attributes **userName** and **email**.  
   
-* Common erorr codes are documented in the official Slack documentation - https://api.slack.com/scim#errors
+* Common error codes are documented in the official Slack documentation - https://api.slack.com/scim#errors
 
 ## Change log
 

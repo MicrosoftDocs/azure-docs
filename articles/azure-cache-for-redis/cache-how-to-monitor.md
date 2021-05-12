@@ -40,15 +40,18 @@ The **Usage** section in the **Overview** blade has **Redis Server Load**, **Mem
 
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
-## View metrics with Azure monitor
+## View metrics charts for all your caches with Azure Monitor for Azure Cache for Redis
 
-To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
+Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (preview) for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources in a customizable unified interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
+
+## View metrics with Azure Monitor metrics explorer
+
+For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
 ![In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics there is a list of metrics. Cache hits and Cache misses are selected.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
-<a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
 

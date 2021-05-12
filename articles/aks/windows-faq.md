@@ -80,6 +80,24 @@ Windows node pools do not support service principal rotation. To update the serv
 
 Instead, use managed identities, which are essentially wrappers around service principals. For more information, see [Use managed identities in Azure Kubernetes Service][managed-identity].
 
+## How do I change the administrator password for Windows Server nodes on my cluster?
+
+When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you did not specify administrator credentials, such as when creating a cluster using the Azure Portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` using the Azure CLI, the username defaults to *azureuser* and a randomized password.
+
+To change the administrator password, use the `az aks update` command:
+
+```azurecli
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --windows-admin-password $NEW_PW
+```
+
+> [!IMPORTANT]
+> Performing this operation upgrades all Windows Server node pools. Linux node pools are not affected.
+> 
+> When changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
 ## How many node pools can I create?
 
 The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
@@ -197,3 +215,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

@@ -160,8 +160,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+            self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
                 if (error == nil) {
                     self.call = call
                 } else {

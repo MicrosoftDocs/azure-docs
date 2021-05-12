@@ -342,7 +342,7 @@ You can also suppress these instrumentations by setting these environment variab
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
