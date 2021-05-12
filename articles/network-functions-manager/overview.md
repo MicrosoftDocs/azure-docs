@@ -8,7 +8,7 @@ ms.service: vnf-manager
 ms.topic: overview
 ms.date: 05/12/2021
 ms.author: cherylmc
-ms.custom: regions
+ms.custom: references_regions
 
 ---
 # What is Azure Network Functions Manager? (Preview)
