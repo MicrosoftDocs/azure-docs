@@ -46,7 +46,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
 Use these values in the following command to create the instance:
 
 ```azurecli-interactive
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
 ### Verify success and collect important values

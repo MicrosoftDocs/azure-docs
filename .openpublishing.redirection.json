@@ -65980,6 +65980,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
+      "redirect_url": "/azure/lighthouse/concepts/architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
       "redirect_document_id": false
