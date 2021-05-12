@@ -5,14 +5,14 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/16/2020
+ ms.date: 02/10/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
 ### Step 1: Navigate to the virtual network gateway
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway page, navigate to the virtual network gateway that you want to delete and click it.
+2. To open the virtual network gateway page, navigate to the virtual network gateway and click to select it. 
 
 ### Step 2: Delete connections
 

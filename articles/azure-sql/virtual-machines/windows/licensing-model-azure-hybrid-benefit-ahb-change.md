@@ -114,7 +114,6 @@ Changing the license model is:
    - Only supported for the Standard and Enterprise editions of SQL Server. License changes for Express, Web, and Developer are not supported. 
    - Only supported for virtual machines deployed through the Azure Resource Manager model. Virtual machines deployed through the classic model are not supported. 
    - Available only for the public or Azure Government clouds. 
-   - Only supported on virtual machines that have a single network interface (NIC). 
 
 > [!Note]
 > Only SQL Server core-based licensing with Software Assurance or subscription licenses are eligible for Azure Hybrid Benefit. If you are using Server + CAL licensing for SQL Server and you have Software Assurance, you can use bring-your-own-license to an Azure SQL Server virtual machine image to leverage license mobility for these servers, but you cannot leverage the other features of Azure Hybrid Benefit. 
@@ -131,10 +130,6 @@ This error occurs when you try to change the license model on a SQL Server VM th
 
 You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**The virtual machine '\<vmname\>' has more than one NIC associated**
-
-This error occurs on virtual machines that have more than one NIC. Remove one of the NICs before you change the licensing model. Although you can add the NIC back to the VM after you change the license model, operations in the Azure portal such as automatic backup and patching will no longer be supported. 
 
 
 ## Next steps

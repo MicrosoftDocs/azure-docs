@@ -26,7 +26,7 @@ Read more on [Azure AD](../../active-directory/fundamentals/index.yml) to effect
 
 2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Select the principal by name. Then select **Save**.
 
-   * See details on [Add or remove role assignments](../../role-based-access-control/role-assignments-portal.md).
+   * See details on [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs for users to a minimum, see [create a custom role definition and assign users](../../role-based-access-control/custom-roles.md) to the custom role definition. This will enable users to have the least privilege necessary for the application.

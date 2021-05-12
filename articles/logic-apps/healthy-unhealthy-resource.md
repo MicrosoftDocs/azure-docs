@@ -19,7 +19,7 @@ When you monitor your Logic Apps resources in [Microsoft Azure Security Center](
 
 * An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
-* A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](../azure-monitor/learn/quick-create-workspace.md).
+* A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 ## Enable diagnostic logging
 

@@ -1,14 +1,11 @@
 ---
 title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/29/2021
 ---
 
 # Azure Data Factory FAQ
@@ -46,7 +43,7 @@ Data Factory provides freedom to model any flow style that's required for data i
     - Looping containers:
         * The foreach activity will iterate over a specified collection of activities in a loop. 
 - Trigger-based flows:
-    - Pipelines can be triggered on demand or by wall-clock time.
+    - Pipelines can be triggered on demand, by wall-clock time, or in response to driven by event grid topics
 - Delta flows:
     - Parameters can be used to define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake.
 
@@ -224,34 +221,49 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 
 ### Is the self-hosted integration runtime available for data flows?
 
-Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. The virtual machines that you use for a self-hosted IR can also be placed inside of the same VNET as your protected data stores for access to those data stores from ADF. With data flows, you'll achieve these same end-results using the Azure IR with managed VNET instead.
 
 ### Does the data flow compute engine serve multiple tenants?
 
 Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
 
-## Wrangling data flows
+### Is there a way to write attributes in cosmos db in the same order as specified in the sink in ADF data flow?	
+
+For cosmos DB, the underlying format of each document is a JSON object which is an unordered set of name/value pairs, so the order cannot be reserved. Data flow spins up a cluster even on integration runtime with 15 min TTL configuration dataflow advisory about TTL and costs	This troubleshoot document [Data flow performance.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live)
+
+
+###  Why an user is unable to use data preview in the data flows?	
+
+You should check permissions for custom role. There are multiple actions involved in the dataflow data preview. You start by checking network traffic while debugging on your browser. Please follow all of the actions, for details, please refer to  [Resource provider.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
+
+### Does the data flow compute engine serve multiple tenants?	
+
+This troubleshooting document may help to resolve your issue:
+[Multiple tenants.](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
+
+
+###  In ADF, can I calculate value for a new column from existing column from mapping?	
+
+You can use derive transformation in mapping data flow to create a new column on the logic you want. When creating a derived column, you can either generate a new column or update an existing one. In the Column textbox, enter in the column you are creating. To override an existing column in your schema, you can use the column dropdown. To build the derived column's expression, click on the Enter expression textbox. You can either start typing your expression or open up the expression builder to construct your logic.
+
+### Why mapping data flow preview failing with Gateway timeout?	
+
+Please try to use larger cluster and leverage the row limits in debug settings to a smaller value to reduce the size of debug output.
+
+### How to parameterize column name in dataflow?
+
+Column name can be parameterized similar to other properties. Like in derived column customer can use **$ColumnNameParam = toString(byName($myColumnNameParamInData)).** These parameters can be passed from pipeline execution down to Data flows.
+
+
+
+## Wrangling data flow (Data flow power query)
 
 ### What are the supported regions for wrangling data flow?
 
-Wrangling data flow is currently supported in data factories created in following regions:
+Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
+Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
 
-* Australia East
-* Canada Central
-* Central India
-* East US
-* East US 2
-* Japan East
-* North Europe
-* Southeast Asia
-* South Central US
-* UK South
-* West Central US
-* West Europe
-* West US
-* West US 2
-
-### What are the limitations and constraints with wrangling data flow?
+### What are the limitations and constraints with wrangling data flow ?
 
 Dataset names can only contain alpha-numeric characters. The following data stores are supported:
 
@@ -303,7 +315,6 @@ Wrangling data flow supports the following data types in SQL. You will get a val
 * uniqueidentifier
 * xml
 
-Other data types will be supported in the future.
 
 ## Next steps
 

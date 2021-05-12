@@ -1,14 +1,9 @@
 ---
 title: Copy data from QuickBooks Online using Azure Data Factory (Preview) 
 description: Learn how to copy data from QuickBooks Online to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
@@ -35,7 +30,7 @@ This connector supports QuickBooks OAuth 2.0 authentication.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to QuickBooks connector.
 

@@ -1,4 +1,4 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Computer Vision documentation # < 60 chars
 summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
@@ -9,236 +9,138 @@ metadata:
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: computer-vision
-  ms.topic: landing-page # Required
+  ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/22/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/31/2021 #Required; mm/dd/yyyy format.
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+highlightedContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+    items:
+      - title: About Computer Vision
+        itemType: overview
+        url: overview.md
+      - title: What's new in Computer Vision?
+        itemType: whats-new
+        url: whats-new.md
+      - title: Language support
+        itemType: reference
+        url: language-support.md
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card 
-  - title: About Computer Vision
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Computer Vision?
-            url: overview.md
-      - linkListType: whats-new
-        links:
-          - text: What's new
-            url: whats-new.md
-      - linkListType: video
-        links:
-          - text: Infuse intelligence in your apps with Vision APIs
-            url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+conceptualContent:
+  items:
+    - title: Optical character recognition
+      links:
+        - itemType: overview
+          text: About OCR
+          url: overview-ocr.md
+        - itemType: quickstart
+          text: Get started with OCR
+          url: quickstarts-sdk/client-library.md
+        - itemType: how-to-guide
+          text: Call the Read API
+          url: Vision-API-How-to-Topics/call-read-api.md
+        - itemType: deploy
+          text: Use the Read OCR container
+          url: computer-vision-how-to-install-containers.md
+        - itemType: reference
+          text: OCR API reference
+          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+      footerLink:
+        text: More
+        url: index-ocr.yml
+    - title: Image Analysis
+      links:
+        - itemType: overview
+          text: About Image Analysis
+          url: overview-image-analysis.md
+        - itemType: quickstart
+          text: Get started with Image Analysis
+          url: quickstarts-sdk/image-analysis-client-library.md
+        - itemType: concept
+          text: Content tags
+          url: concept-tagging-images.md
+        - itemType: concept
+          text: Image descriptions
+          url: concept-describing-images.md
+        - itemType: concept
+          text: Face detection
+          url: concept-detecting-faces.md
+        - itemType: tutorial
+          text: Generate metadata for images
+          url: Tutorials/storage-lab-tutorial.md
+        - itemType: reference
+          text: Image Analysis API reference
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+      footerLink:
+        text: More
+        url: index-image-analysis.yml
+    - title: Spatial Analysis
+      links:
+        - itemType: overview
+          text: About Spatial Analysis
+          url: intro-to-spatial-analysis-public-preview.md
+        - itemType: quickstart
+          text: Get started with Spatial Analysis
+          url: spatial-analysis-container.md
+        - itemType: how-to-guide
+          text: Configure Spatial Analysis operations
+          url: spatial-analysis-operations.md
+        - itemType: concept
+          text: Zone and line placement
+          url: spatial-analysis-zone-line-placement.md
+        - itemType: concept
+          text: Camera placement
+          url: spatial-analysis-camera-placement.md
+        - itemType: concept
+          text: Logging and troubleshooting
+          url: spatial-analysis-logging.md
+      footerLink:
+        text: More
+        url: index-spatial-analysis.yml
 
-  - title: Optical Character Recognition (OCR)
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Optical Character Recognition (OCR)
-            url: concept-recognizing-text.md
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-          - text: Using the Java SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-          - text: Using the Node SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
-          - text: Using the Go SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-          - text: Using the REST API
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
+tools:
+  title: Software development kits (SDKs)
+  summary: Get started with the Computer Vision SDK in your favorite programming language.
+  items:
+  - title: C#
+    imageSrc: media/index/logo_Csharp.svg
+    url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
+  - title: Node.js
+    imageSrc: media/index/logo_nodejs.svg
+    url: /javascript/api/@azure/cognitiveservices-computervision/
+  - title: Python
+    imageSrc: media/index/logo_python.svg
+    url: /python/api/overview/azure/cognitiveservices/computervision
+  - title: Go
+    imageSrc: media/index/logo_go.svg
+    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: /java/api/com.microsoft.cognitiveservices.speech
 
-            
 
-  - title: Detect objects in images
-    linkLists:
-      - linkListType: concept
+additionalContent:
+  sections:
+    - items:
+      - title: REST APIs
         links:
-          - text: Object detection
-            url: concept-object-detection.md
-      - linkListType: quickstart
+        - text: Optical character recognition (OCR)
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+        - text: Image Analysis
+          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+      - title: Resources
         links:
-          - text: Using the .NET SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-          - text: Using the Java SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-          - text: Using the Node SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
-          - text: Using the Go SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-          - text: Using the REST API
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
+        - text: Pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+        - text: Regions
+          url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+        - text: Learn
+          url: /learn/paths/explore-computer-vision-microsoft-azure/
+      - title: Support
+        links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
 
-  # Card 
-  - title: Apply content tags to images
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Content tags
-            url: concept-tagging-images.md
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-          - text: Using the Java SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-          - text: Using the Node SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
-          - text: Using the Go SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-          - text: Using the REST API
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 
-  - title: Use the Read container
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Install and run the container
-            url: computer-vision-how-to-install-containers.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure containers
-            url: computer-vision-resource-container-config.md
-      - linkListType: deploy
-        links:
-          - text: Use container instances
-            url: ../containers/azure-container-instance-recipe.md
-          - text: Use with Kubernetes and Helm
-            url: deploy-computer-vision-on-premises.md
-  - title: Use the spatial analysis container
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Install and run the container
-            url: spatial-analysis-container.md
-          - text: Configure operations
-            url: spatial-analysis-operations.md
-      - linkListType: deploy
-        links:
-          - text: Deploy a people counting app
-            url: spatial-analysis-web-app.md
-      - linkListType: concept
-        links:
-          - text: Zone and line placement
-            url: spatial-analysis-zone-line-placement.md
-          - text: Camera placement
-            url: spatial-analysis-camera-placement.md
-          - text: Logging and troubleshooting
-            url: spatial-analysis-logging.md
-  - title: Detect faces in images
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Face detection
-            url: concept-detecting-faces.md
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-          - text: Using the Java SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-          - text: Using the Node SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
-          - text: Using the Go SDK
-            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-  
-#  - title: Get image descriptions
-#    linkLists:
-#      - linkListType: concept
-#        links:
-#          - text: Image descriptions
-#            url: concept-describing-images.md
-#      - linkListType: quickstart
-#        links:
-#          - text: Using the Python SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-#          - text: Using the Java SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-#      - linkListType: tutorial
-#        links:
-#          - text: Generate metadata for images
-#            url: tutorials/storage-lab-tutorial.md
-#
-#
-#  - title: Use domain-specific models
-#    linkLists:
-#      - linkListType: concept
-#        links:
-#          - text: Domain-specific models
-#            url: concept-detecting-domain-content.md
-#      - linkListType: quickstart
-#        links:
-#          - text: Using the Python SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-#          - text: Using the Java SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-#
-#  - title: Categorize images
-#    linkLists:
-#      - linkListType: concept
-#        links:
-#          - text: Image categorization
-#            url: concept-categorizing-images.md
-#      - linkListType: quickstart
-#        links:
-#          - text: Using the Python SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-#          - text: Using the Java SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-#  - title: Detect adult content
-#    linkLists:
-#      - linkListType: concept
-#        links:
-#          - text: Adult, racy, and gory content detection
-#            url: concept-detecting-adult-content.md
-#      - linkListType: quickstart
-#        links:
-#          - text: Using the Python SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
-#          - text: Using the Java SDK
-#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Computer Vision API v3.2 preview
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
-          - text: Computer Vision API v3.1
-            url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-          - text: Computer Vision API v2.1
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
-          - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
-          - text: Python SDK
-            url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
-          - text: Java SDK
-            url: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
-          - text: Node.js SDK
-            url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
-          - text: Go SDK
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
-          - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/#cognitive_services
-          - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
      
-  - title: Help and feedback
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Support and help options
-            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

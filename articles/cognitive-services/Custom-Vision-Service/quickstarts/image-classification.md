@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Image classification with Custom Vision client library or REST API"
 titleSuffix: Azure Cognitive Services
-description: "Quickstart: Create an image classification project, add tags, upload images, train your project, and make a prediction using the Custom Vision client library or the REST API with cURL"
+description: "Quickstart: Create an image classification project, add tags, upload images, train your project, and make a prediction using the Custom Vision client library or the REST API"
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/25/2020
+ms.date: 04/19/2021
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: custom vision, image recognition, image recognition app, image analysis, image recognition software
 zone_pivot_groups: programming-languages-set-cusvis

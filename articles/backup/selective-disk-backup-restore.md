@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 05/03/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
  
@@ -30,7 +30,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery Services vault and the VM exist:
+Sign in to the subscription ID, where the Recovery Services vault and the VM exist:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -42,6 +42,9 @@ az account set -s {subscriptionID}
 ### Configure backup with Azure CLI
 
 During the configure protection operation, you need to specify the disk list setting with an **inclusion** / **exclusion** parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
+>[!NOTE]
+>The configure protection operation overrides the previous settings, they will not be cumulative.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -119,6 +122,11 @@ This command helps get the details of the backed-up disks and excluded disks as 
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
+_BackupJobID_ is the Backup Job name. To fetch the job name, run the following command:
+
+```azurecli
+az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
+```
 ### List recovery points with Azure CLI
 
 ```azurecli
@@ -186,6 +194,9 @@ Ensure you're using Azure PowerShell version 3.7.0 or higher.
 
 During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
 
+>[!NOTE]
+>The configure protection operation overrides the previous settings, they will not be cumulative.
+
 ### Enable backup with PowerShell
 
 For example:
@@ -214,7 +225,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ### Get backup item object to be passed in modify protection with PowerShell
 
 ```azurepowershell
-$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $Vault.ID -FriendlyName "V2VM"
+$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $targetVault.ID -FriendlyName "V2VM"
 ```
 
 You need to pass the above obtained **$item** object to the **–Item** parameter in the following cmdlets.
@@ -244,7 +255,10 @@ Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -V
 ### Restore selective disks with PowerShell
 
 ```azurepowershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [Strings]
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $item -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [$disks]
 ```
 
 ### Restore only OS disk with PowerShell

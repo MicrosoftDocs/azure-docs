@@ -39,7 +39,7 @@ Apache Spark history server is the web user interface for completed and running 
 
 ### Open the Spark History Server web UI from Data node
 
-1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
+1. From your Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
    ![Launch Spark history server 1](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 
@@ -234,5 +234,5 @@ Input/output data using Resilient Distributed Datasets (RDDs) doesn't show in th
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [.NET for Apache Spark documentation](/dotnet/spark)
 

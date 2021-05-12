@@ -58,8 +58,6 @@
       href: users-close-account.md
     - name: Add guest users  
       href: ../external-identities/what-is-b2b.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Assign role to guest user    
-      href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
     - name: Dynamic groups and guests   
@@ -175,10 +173,10 @@
 - name: Reference
   items:
   - name: Graph API  
-    href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+    href: /graph/api/resources/azure-ad-overview
   - name: Azure AD CLI    
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph
-    href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    href: /powershell/azure/active-directory/install-adv2
   - name: Azure AD service limits
     href: directory-service-limits-restrictions.md

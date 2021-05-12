@@ -31,7 +31,7 @@ Azure Files provides the following capacity metrics in Azure Monitor.
 
 #### Azure Files
 
-This table shows [Azure Files metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+This table shows [Azure Files metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -83,4 +83,4 @@ The following table lists the properties for Azure Storage resource logs when th
 ## See also
 
 - See [Monitoring Azure Files](storage-files-monitoring-reference.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

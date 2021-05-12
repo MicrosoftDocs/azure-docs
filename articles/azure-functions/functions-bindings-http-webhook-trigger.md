@@ -592,7 +592,7 @@ Using this configuration, the function is now addressable with the following rou
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-This configuration allows the function code to support two parameters in the address, _category_ and _id_.
+This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # [C#](#tab/csharp)
 
@@ -747,7 +747,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
-You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) or [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
 ## Working with client identities
 

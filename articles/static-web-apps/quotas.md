@@ -1,6 +1,6 @@
 ---
-title: Quotas in Azure Static Web Apps Preview
-description: Learn about quotas associated with Azure Static Web Apps Preview
+title: Quotas in Azure Static Web Apps
+description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,12 +9,9 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Quotas in Azure Static Web Apps Preview
+# Quotas in Azure Static Web Apps
 
-The following quotas exist for Azure Static Web Apps Preview.
-
-> [!IMPORTANT]
-> Azure Static Web Apps is in public preview and is not intended for production use.
+The following quotas exist for Azure Static Web Apps.
 
 | Feature                     | Free plan        |
 |-----------------------------|------------------|
@@ -22,9 +19,9 @@ The following quotas exist for Azure Static Web Apps Preview.
 | Overage bandwidth           | Unavailable      |
 | Apps per Azure subscription | 10               |
 | App size                    | 250 MB           |
-| Pre-production environments | 1                |
+| Pre-production environments | 3                |
 | Custom domains              | 1                |
-| Authorization<br><br>With custom roles and routing rules | Max 25 end-users invited and assigned roles |
+| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles |
 | Azure Functions             | Available        |
 | SLA                         | None             |
 

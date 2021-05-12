@@ -5,7 +5,7 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
@@ -62,7 +62,18 @@ For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software prov
     ![Download provider and key](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
 
 4. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate.
-5. Run the provider setup file on each host, as described in the next procedure.
+5. Run the provider setup file on each host, as described below:
+    - Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate.
+    - Click the file icon in the taskbar to open the folder where the installer file and registration key are downloaded.
+    - Select **AzureSiteRecoveryProvider**. 
+    - In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
+    - Select **Install** to accept the default installation folder.
+    - Select **Register** to register this server in Azure Site Recovery vault.
+    - Click **Browse**.
+    - Locate the registration key and click **Open**.
+    - Click **Next**.
+    - Ensure **Connect directly to Azure Site Recovery without a proxy server** is selected, and then click **Next**.
+    - Click **Finish**.
 6. After installing the provider on hosts, in **Discover machines**, click **Finalize registration**.
 
     ![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png)
@@ -128,12 +139,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 ## Provision for the first time
 
 If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate: Server Migration automatically provisions these resources in same resource group as the project.
-
-- **Service bus**: Azure Migrate: Server Migration uses the Service Bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
-- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you [prepared Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) for Hyper-V VM assessment and migration. 
-
+- **Cache storage account**: The Azure Site Recovery provider software installed on Hyper-V hosts uploads replication data for the VMs configured for replication to a storage account (known as the cache storage account, or log storage account) in your subscription. The Azure Migrate service then copies the uploaded replication data from the storage account to the replica-managed disks corresponding to the VM. The cache storage account needs to be specified while configuring replication for a VM and The Azure Migrate portal automatically creates one for the Azure Migrate project when replication is configured for the first time in the project.
 
 ## Track and monitor
 

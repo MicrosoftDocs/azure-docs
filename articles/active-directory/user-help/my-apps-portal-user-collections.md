@@ -1,5 +1,5 @@
 ---
-title: Collections (preview) in the My Apps portal - Azure AD
+title: Organize apps into collections in the My Apps portal - Azure AD
 description: Learn how to create, edit, delete, hide, and show app collections in My Apps.
 services: active-directory
 author: curtand
@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
 
-# User collections (preview) in My Apps
+# Organize apps using collections from My Apps
 
 My Apps is your one-stop shop for launching and managing all of your work or school apps. Create collections to organize your apps and make it easier to find the apps you need.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 In this article, you’ll learn how to:
 
@@ -29,6 +27,12 @@ In this article, you’ll learn how to:
 - Hide collections
 - Show hidden collections
 - Delete collections
+
+>[!Note]
+>If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## Create a collection
 
@@ -45,7 +49,7 @@ In this article, you’ll learn how to:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Adding apps from the list to your collection":::
 
-1. On the following you can reorder or delete apps, or select **Add apps** to select more apps for the collection. When you’re happy with your choices, select **Create new**.  
+1. On the **Create new** pane you can reorder or delete apps, or select **Add apps** to select more apps for the collection. When you’re happy with your choices, select **Create new**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Select the Create new button to save the collection to My Apps":::
 
@@ -77,7 +81,7 @@ You can only edit collections you created. To edit a collection you already crea
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Use the Manage command to manage your apps":::
 
-1. From here you can set the order in which collections appear in My Apps. The collection at th top of the list will be the default collection you see every time you go to myapps.microsoft.com.  
+1. From here you can set the order in which collections appear in My Apps. The collection at the top of the list will be the default collection you see every time you go to myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="My Apps now contains your new collection":::
 
@@ -99,6 +103,7 @@ To hide a collection:
 To make a hidden collection visible:
 
 1. Go to [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) and sign in using your work or school account.
+
 1. Open the page menu :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Select the ellipsis icon for the page-level menu":::, and then select **Manage**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="The page menu contains the Manage command to manage your apps":::

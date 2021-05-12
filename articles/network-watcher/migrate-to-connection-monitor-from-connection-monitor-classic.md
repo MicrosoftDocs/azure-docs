@@ -27,14 +27,17 @@ The migration helps produce the following results:
 
 * Agents and firewall settings work as is. No changes are required. 
 * Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
-* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). 
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent -> ChecksFailedPercent and AverageRoundtripMs -> RoundTripTimeMs.
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
    * **Dashboards and integrations**: Require manually editing of the metrics set. 
 	
 ## Prerequisites
 
-If you're using a custom workspace, ensure that Network Watcher is enabled in your subscription and in the region of your Log Analytics workspace. 
+1. If you're using a custom workspace, ensure that Network Watcher is enabled in your subscription and in the region of your Log Analytics workspace. If not you will see an error stating "Before you attempt migrate, please enable Network watcher extension in selection subscription and location of LA workspace selected."
+1. In case virtual machines used as sources in  connection monitor (classic) no longer have the Network Watcher extension enabled, you will see an error message stating "Connection monitors having following tests cannot be imported as one or more azure virtual machines don't have network watcher extension installed. Install network watcher extension and click refresh to import them."
+
+
 
 ## Migrate the connection monitors
 
@@ -44,7 +47,7 @@ If you're using a custom workspace, ensure that Network Watcher is enabled in yo
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
 
-With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. 
+With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. Once migrated from CM (Classic) to CM, you will not be able to see the monitor under CM (Classic)
 
 You can now customize Connection Monitor properties, change the default workspace, download templates, and check the migration status. 
 

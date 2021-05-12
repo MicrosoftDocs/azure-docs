@@ -2,14 +2,14 @@
 title: Managing consent to applications and evaluating consent requests in Azure Active Directory
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: phsignor
 ---
 
@@ -21,7 +21,7 @@ After end-user consent is disabled or restricted, there are several important co
 
 ## Process changes and education
 
- 1. Consider enabling the [admin consent workflow (preview)](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
+ 1. Consider enabling the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to request administrator approval directly from the consent screen.
 
  2. Ensure all administrators understand the [permissions and consent framework](../develop/consent-framework.md), how the [consent prompt](../develop/application-consent-experience.md) works, and how to [evaluate a request for tenant-wide admin consent](#evaluating-a-request-for-tenant-wide-admin-consent).
  3. Review your organization's existing processes for users to request administrator approval for an application, and make updates if necessary. If processes are changed:

@@ -1,14 +1,11 @@
 ---
 title: Management hub
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-manager: anandsub
-ms.date: 02/01/2021
+author: minhe-msft
+ms.author: hemin
+ms.date: 04/27/2021
 ---
 
 # Management hub in Azure Data Factory

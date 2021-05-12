@@ -21,7 +21,7 @@ HDInsight provides access to the distributed container that is locally attached 
 For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->If you're using Azure Databricks instead of HDInsight, and you want to interact with your data by using a command line interface, you can use the Databricks CLI to interact with the Databricks file system. See [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>If you're using Azure Databricks instead of HDInsight, and you want to interact with your data by using a command line interface, you can use the Databricks CLI to interact with the Databricks file system. See [Databricks CLI](/azure/databricks/dev-tools/cli/).
 
 ## Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
@@ -114,6 +114,6 @@ You can view the complete list of commands on the [Apache Hadoop 2.4.1 File Syst
 
 ## Next steps
 
-* [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+* [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 
 * [Learn about access control lists on files and directories](./data-lake-storage-access-control.md)

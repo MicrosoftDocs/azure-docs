@@ -1,17 +1,11 @@
 ---
 title: Upload or copy a custom Linux VM with Azure CLI 
 description: Upload or copy a customized virtual machine by using the Resource Manager deployment model and the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
@@ -45,7 +39,7 @@ To complete the following steps, you'll need:
 > 
 
 
-- Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and you are signed in to an Azure account with [az login](/cli/azure/reference-index#az-login).
+- Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and you are signed in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values, such as `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
@@ -116,7 +110,7 @@ az disk create \
 
 ## Create the VM
 
-Create your VM with [az vm create](/cli/azure/vm#az-vm-create) and attach (--attach-os-disk) the managed disk as the OS disk. The following example creates a VM named *myNewVM* using the managed disk you created from your uploaded VHD:
+Create your VM with [az vm create](/cli/azure/vm#az_vm_create) and attach (--attach-os-disk) the managed disk as the OS disk. The following example creates a VM named *myNewVM* using the managed disk you created from your uploaded VHD:
 
 ```azurecli
 az vm create \

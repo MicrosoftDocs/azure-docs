@@ -7,8 +7,9 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 05/11/2021
 ms.author: alkohli
+ms.custom: references_regions
 ---
 # Azure Data Box: Frequently Asked Questions
 
@@ -20,7 +21,7 @@ Questions and answers are arranged in the following categories:
 - Order device
 - Configure and connect 
 - Track status
-- Copy data 
+- Migrate data 
 - Ship device
 - Verify and upload data 
 - Chain of custody support
@@ -63,6 +64,20 @@ For example, in the import scenario, if you had the source data in Canada that y
 2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
+
+#### Q. Does Data Box store any customer data outside of the service region?
+
+A. No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
+
+In addition to the customer data, there is Data Box data that includes security artifacts related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions (except Brazil South and Southeast Asia), Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.  
+
+Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
+
+If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box device.
+
+### Q. How can I recover my data if an entire region fails?
+
+A. In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 ### Q. Who should I contact if I come across any issues with Data Box?
 A. If you come across any issues with Data Box, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -196,7 +211,7 @@ A.  To speed up the copy process:
 - Use multiple streams of data copy. For instance, with `Robocopy`, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
 - Use multiple sessions.
 - Instead of copying over a network share (where network speeds can limit copy speed), store the data locally on the computer to which the Data Box is connected.
-- Benchmark the performance of the computer used to copy the data. Download and use the [`Bluestop` FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
+- Benchmark the performance of the computer used to copy the data. Download and use the [`Bluestop` `FIO` tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -239,16 +254,16 @@ A.  During the transit, the following features on the Data Box help protect the 
  - The device is locked and needs an unlock password to enter and access data.
 For more information, go to [Data Box security features](data-box-security.md).  
 
-### Q. I have finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
-A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
+### Q. I finished Prepare to Ship for my import order and shut down the device. Can I still add more data to the Data Box?
+A. Yes. You can turn on the device and add more data. You'll need to run **Prepare to Ship** again once you have completed the data copy.
 
-### Q. I received my device and it is not booting up? How do I ship the device back?
+### Q. I received my device and it's not booting up? How do I ship the device back?
 A. If your device isn't booting, go to your order in the Azure portal. Download a shipping label, and attach it to the device. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 
 ## Verify and upload
 
 ### Q. How soon can I access my data in Azure once I've shipped the Data Box back? 
-A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
+A.  Once the order status for **Data Copy** shows as **Complete**, you can access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following paths in your Azure Storage account:
@@ -261,6 +276,13 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 A.  If the container names have uppercase letters, those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more guidance for naming shares, containers, and files, go to:
 - [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+
+
+### Q. I was notified of copy errors during a data upload from my Data Box. What should I do?
+A.  When non-retryable data copy errors prevent any files in your import order from uploading to Azure, the errors are logged in the data copy log and you get a notification. You can't fix the errors. The upload has completed with errors. The notification is sent to make sure you know that the files didn't upload so you can fix any configuration errors before you try again. When you confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond, the order completes automatically after 14 days.
+
+For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).  
+
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).

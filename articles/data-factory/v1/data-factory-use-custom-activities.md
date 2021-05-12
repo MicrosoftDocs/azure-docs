@@ -1,18 +1,12 @@
 ---
 title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory version 1 pipeline
@@ -162,7 +156,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 
 8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method.
 
-    The following sample counts the number of occurrences of the search term (“Microsoft”) in each blob associated with a data slice.
+    The following sample counts the number of occurrences of the search term ("Microsoft") in each blob associated with a data slice.
 
     ```csharp
     /// <summary>
@@ -242,7 +236,7 @@ The method returns a dictionary that can be used to chain custom activities toge
                                      null);
 
             // Calculate method returns the number of occurrences of
-            // the search term (“Microsoft”) in each blob associated
+            // the search term ("Microsoft") in each blob associated
             // with the data slice. definition of the method is shown in the next step.
 
             output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
@@ -368,7 +362,7 @@ The method returns a dictionary that can be used to chain custom activities toge
             "folderPath": "adftutorial/inputfolder/",
     ```
 
-    The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term (“Microsoft”) is hard-coded in the code.
+    The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term ("Microsoft") is hard-coded in the code.
 
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 
@@ -429,7 +423,7 @@ Here are the steps you perform in this section:
    3. Click **Data Factory** on the **Data analytics** blade.
 
       ![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
+2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name "CustomActivityFactory" is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
 
     ![New Azure Data Factory blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Click **RESOURCE GROUP NAME**, and select an existing resource group or create a resource group.
@@ -563,7 +557,7 @@ In this step, you create datasets to represent input and output data.
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Remember that all the files in an input folder are part of a slice with the start times mentioned above. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the input folder, there are three lines in the output file for each hourly slice: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, etc.
+    Remember that all the files in an input folder are part of a slice with the start times mentioned above. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term ("Microsoft"). If there are three files in the input folder, there are three lines in the output file for each hourly slice: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, etc.
 3. To deploy the **OutputDataset**, click **Deploy** on the command bar.
 
 ### Create and run a pipeline that uses the custom activity

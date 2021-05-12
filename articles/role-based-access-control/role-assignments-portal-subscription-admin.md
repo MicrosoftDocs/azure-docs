@@ -84,6 +84,6 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 
 ## Next steps
 
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)

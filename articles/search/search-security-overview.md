@@ -110,12 +110,6 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 > [!Note]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
-## Threat protection
-
-Access to content on a search service is exclusively through queries. If your search service is the target of a query attack, the system will drop queries as the system approaches peak capacity. 
-
-Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs and service operations API have static request rate limits. You can review the static rate request limits in [throttling limits](search-limits-quotas-capacity.md#throttling-limits). For more insight into throttling behavior, see [Monitoring query requests](search-monitor-queries.md).
-
 <a name="encryption"></a>
 
 ## Data protection

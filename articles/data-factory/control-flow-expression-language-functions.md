@@ -1,15 +1,12 @@
 ---
 title: Expression and functions in Azure Data Factory 
 description: This article provides information about expressions and functions that you can use in creating data factory entities.
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+author: minhe-msft
+ms.author: hemin
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/28/2021
 ---
 
 # Expressions and functions in Azure Data Factory
@@ -57,13 +54,33 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
-  
+
 ## Examples
 
 ### Complex expression example
 The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2)
 
-@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
+`@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+### Dynamic content editor
+
+Dynamic content editor automatically escapes characters in your content when you finish editing. For example, the following content in content editor is a string interpolation with two expression functions. 
+
+```json
+{ 
+  "type": "@{if(equals(1, 2), 'Blob', 'Table' )}",
+  "name": "@{toUpper('myData')}"
+}
+```
+
+Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string showed below.
+
+```json
+{
+  "type": "Table",
+  "name": "MYDATA"
+}
+```
 
 ### A dataset with a parameter
 In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
@@ -139,6 +156,30 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
+
+### Replacing special characters
+
+Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can of edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
+
+1. URL encoding against the original string value
+1. Replace URL encoded string, for example, line feed (%0A), carriage return(%0D), horizontal tab(%09).
+1. URL decoding
+
+For example, variable *companyName* with a newline character in its value, expression `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` can remove the newline character. 
+
+```json
+Contoso-
+Corporation
+```
+
+### Escaping single quote character
+
+Expression functions use single quote for string value parameters. Use two single quotes to escape a ' character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+
+```
+Baba's book store
+```
+
 ### Tutorial
 This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 

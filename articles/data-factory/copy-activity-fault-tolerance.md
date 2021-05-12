@@ -1,20 +1,11 @@
 ---
 title: Fault tolerance of copy activity in Azure Data Factory 
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible data.'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: 
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-
 ---
 #  Fault tolerance of copy activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,13 +48,13 @@ When you copy binary files between storage stores, you can enable fault toleranc
         "fileMissing": true, 
         "fileForbidden": true, 
         "dataInconsistency": true,
-        "invalidFileName": true		
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
         "enableCopyActivityLog": true,
         "copyActivityLogSettings": {            
-			"logLevel": "Warning",
+            "logLevel": "Warning",
             "enableReliableLogging": false
         },
         "logLocationSettings": {
@@ -71,7 +62,7 @@ When you copy binary files between storage stores, you can enable fault toleranc
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     }
 } 
@@ -116,7 +107,7 @@ You can get the number of files being read, written, and skipped via the output 
             "filesSkipped": 2, 
             "throughput": 297,
             "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
-			"dataConsistencyVerification": 
+            "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
                 "InconsistentData": "Skipped" 
@@ -185,7 +176,7 @@ The following example provides a JSON definition to configure skipping the incom
     "logSettings": {
         "enableCopyActivityLog": true,
         "copyActivityLogSettings": {            
-			"logLevel": "Warning",
+            "logLevel": "Warning",
             "enableReliableLogging": false
         },
         "logLocationSettings": {
@@ -193,7 +184,7 @@ The following example provides a JSON definition to configure skipping the incom
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     } 
 }, 

@@ -25,6 +25,14 @@ landingContent:
         links:
           - text: What is Azure Front Door?
             url: front-door-overview.md
+
+  # Card
+  - title: Learn about Azure Front Door Standard/Premium (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Front Door Standard/Premium (Preview)?
+            url: standard-premium/overview.md
        
   # Card
   - title: Create a Front Door

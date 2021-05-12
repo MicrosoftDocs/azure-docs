@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Execute Python scripts - Azure'
 description: Learn how to use the Execute Python Script module to use Python code in Machine Learning Studio (classic) experiments and web services.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

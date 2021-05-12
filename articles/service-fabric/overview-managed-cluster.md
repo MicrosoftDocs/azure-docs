@@ -1,11 +1,11 @@
 ---
-title: Service Fabric managed clusters (preview)
+title: Service Fabric managed clusters
 description: Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 09/28/2020
+ms.date: 5/10/2021
 ---
 
-# Service Fabric managed clusters (preview)
+# Service Fabric managed clusters
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience.
 
@@ -42,7 +42,10 @@ Service Fabric managed clusters provide a number of advantages over traditional 
 **Best practices by default**
 - Simplified reliability and durability settings
 
-There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster.
+There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster, and the same Service Fabric SLA applies for managed clusters.
+
+> [!NOTE]
+> There is no migration path from existing Service Fabric clusters to managed clusters. You will need to create a new Service Fabric managed cluster to use this new resource type.
 
 ## Service Fabric managed cluster SKUs
 
@@ -57,25 +60,26 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
-## Service Fabric managed cluster feature roadmap
-As this is an early preview version of Service Fabric managed clusters their are some gaps to be aware of. These features will become available in future releases. 
+## Feature support
 
-* Publishing applications to clusters directly from Visual Studio
-* Managed Identities 
-* ARM Application Deployments 
-* Availability Zones 
-* Reverse Proxy 
-* Auto scaling 
-* Updating NSG rules 
-* Auto OS Upgrades
+The capabilities of managed clusters will continue to expand. Currently there is support for:
+
+* [Application deployment using ARM templates](how-to-managed-cluster-app-deployment-template.md)
+* [Application secrets](how-to-managed-cluster-application-secrets.md)
+* [Automatic OS image upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Availability zone spanning](how-to-managed-cluster-availability-zones.md)
+* [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md) and [managed disk type](how-to-managed-cluster-managed-disk.md) selection
+* Managed identity support for managed cluster [node types](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) and [application authentication](how-to-managed-cluster-application-managed-identity.md)
+* [NSG rules and other networking options](how-to-managed-cluster-networking.md)
+* [Stateless-only node types](how-to-managed-cluster-stateless-node-type.md)
+* [Virtual machine scale set extensions](how-to-managed-cluster-vmss-extension.md) for node types
 
 ## Next steps
 
-To get started with Service Fabric managed clusters, try out the quickstart:
+To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
-> [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)
-
+> [Create a Service Fabric managed cluster](quickstart-managed-cluster-template.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

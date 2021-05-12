@@ -19,8 +19,7 @@ Azure Virtual WAN brings multiple network and security services together in a un
 Each service in Virtual WAN is priced. Therefore, suggesting a single price is not applicable to Virtual WAN. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) provides a mechanism to derive the cost, which is based on the services provisioned in a Virtual WAN. This article discusses commonly asked questions about Virtual WAN pricing.
 
 >[!NOTE]
->For current pricing information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>For current pricing information, see [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/). Inter-hub  (hub to hub) charges do not show in the Virtual WAN pricing page as it is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="questions"></a>Common pricing questions
 

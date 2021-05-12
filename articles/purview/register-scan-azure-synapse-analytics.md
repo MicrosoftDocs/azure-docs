@@ -1,16 +1,19 @@
 ---
-title: 'How to scan Azure Synapse Analytics'
-description: This how to guide describes details of how to scan Azure Synapse Analytics. 
+title: 'How to scan Dedicated SQL pools'
+description: This how to guide describes details of how to scan Dedicated SQL pools. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 05/08/2021
 ---
-# Register and scan Azure Synapse Analytics
+# Register and scan Dedicated SQL pools (formerly SQL DW)
 
-This article discusses how to register and scan an instance of Azure Synapse Analytics (formerly SQL DW) in Purview.
+> [!NOTE]
+> If you are looking to register and scan a dedicated SQL database within a Synapse workspace, you must follow instructions [here](register-scan-synapse-workspace.md).
+
+This article discusses how to register and scan an instance of Dedicated SQL pool (formerly SQL DW) in Purview.
 
 ## Supported capabilities
 
@@ -18,7 +21,8 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
 
 ### Known limitations
 
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) in Azure Synapse Analytics
+> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) in Azure Synapse Analytics.
+> * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites
 
@@ -87,7 +91,7 @@ In addition, you must also create an Azure AD user in Azure Synapse Analytics by
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -108,23 +112,23 @@ When authentication method selected is **SQL Authentication**, you need to get y
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
 
-## Register an Azure Synapse Analytics instance (formerly SQL DW)
+## Register a SQL dedicated pool (formerly SQL DW)
 
 To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
 
-1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
-1. Select **Register**
-1. On **Register sources**, select **Azure Synapse Analytics (formerly SQL DW)**
-1. Select **Continue**
+1. Navigate to your Purview account.
+1. Select **Sources** on the left navigation.
+1. Select **Register**.
+1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**.
+1. Select **Continue**.
 
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate server from the **Server name** drop down box.
-   1. Or, you can select **Enter manually** and enter a **Server name**.
-1. **Finish** to register the data source.
+2. Choose your Azure subscription to filter down Azure Synapse workspaces.
+3. Select an Azure Synapse workspace.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="register sources options" border="true":::
 
