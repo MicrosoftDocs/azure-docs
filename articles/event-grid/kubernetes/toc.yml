@@ -24,6 +24,10 @@
     href: delivery-retry.md
   - name: Filter events
     href: filter-events.md    
+- name: How-to guides
+  items:
+  - name: Install extension on Kubernetes cluster
+    href: install-k8s-extension.md
 - name: Reference
   items:
   - name: REST API

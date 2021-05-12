@@ -23,6 +23,10 @@ landingContent:
   # Card
   - title: About Event Grid on Kubernetes
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What's Event Grid on Kubernetes?
+            url: overview.md            
       - linkListType: concept
         links:
           - text: Event Grid on Kubernetes concepts
