@@ -403,14 +403,13 @@ Before deploying your cluster, you can check that your many of your network conf
 **Run the /networkValidator.sh script**
 
 1. SSH to the new virtual machine.
-1. Copy the networkValidator.sh file and the params.txt from [github](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/tree/main/HDInsightNetworkValidator) to the virtual machine.
-1. Type the following command to make the script executable: ```chmod +x networkValidator.sh```
+1. Copy all the files from [github](https://github.com/Azure-Samples/hdinsight-diagnostic-scripts/tree/main/HDInsightNetworkValidator) to the virtual machine.
 1. Open the params.txt file in a text editor, and add values to all the variables. Use an empty string  ("") when you want to omit the related validation.
-1. Run the script using the following command, which will also write the output to a result.txt file: ```./networkValidator.sh > results.txt```
+1. Run the script using the following command, which will also write the output to a result.txt file: ```python2 ./networkValidator.py > results.txt```
 1. Once the script completes, the Summary section indicates whether the checks were successful and you can create the cluster, or it will indicate if any issues were encountered, in which case you should review the error output and related documentation to fix the error.
 
     Once you attempt to fix the error/s, you can run the script again to check your progress.
-1. After you have completed your checks and the summary says "You encountered no errors, you can proceed with HDInsight cluster creation." you can create your cluster. 
+1. After you have completed your checks and the summary says "SUCCESS: You can create your HDInsight cluster in this VNet/Subnet." you can create your cluster. 
 1. Delete the new virtual machine when you are done running the validation script. 
 
 ## Next steps
