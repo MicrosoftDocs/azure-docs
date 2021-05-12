@@ -1,5 +1,5 @@
 ---
-title: Connect different data sources
+title: Connect different data sources to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
