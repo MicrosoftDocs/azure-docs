@@ -128,7 +128,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
 1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it _appsettings.json_. This file will contain the settings needed to run the program.
-1. Get the `IotHubConnectionString` from the Azure Stack Edge by following these steps:
+1. Get the `IotHubConnectionString` from the edge device by following these steps:
 
    - go to your IoT Hub in Azure portal and click on `Shared access policies` in the left navigation pane.
    - Click on `iothubowner` get the shared access keys.
@@ -177,7 +177,7 @@ There are a few things you need to pay attention to in the deployment template f
    ```
 
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
-1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds.
+1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds when using an Azure Stack Edge device.
 
    1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4) to the Local share.
 
