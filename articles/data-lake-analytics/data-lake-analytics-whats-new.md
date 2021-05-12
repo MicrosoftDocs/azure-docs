@@ -10,7 +10,7 @@ ms.date: 07/31/2020
 
 # What's new in Data Lake Analytics?
 
-Azure Data Lake Analytics is updated on an aperiodic basis for certain components. To stay updated with the most recent update, this article provides you with information about:
+Azure Data Lake Analytics is updated on an a periodic basis for certain components. To stay updated with the most recent update, this article provides you with information about:
 
 - The notification of key component beta preview
 - The important component version information, for example: the list of the component available versions, the current default version and so on.
