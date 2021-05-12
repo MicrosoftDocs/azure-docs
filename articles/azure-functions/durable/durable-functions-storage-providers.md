@@ -51,7 +51,7 @@ You can learn more about the technical details of the Netherite storage provider
 > [!NOTE]
 > The _Netherite_ name originates from the world of [Minecraft](https://minecraft.fandom.com/wiki/Netherite).
 
-## Microsoft SQL Server (MSSQL) (preview)
+## <a name="mssql"></a>Microsoft SQL Server (MSSQL) (preview)
 
 The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
 
