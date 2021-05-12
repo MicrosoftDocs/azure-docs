@@ -40,7 +40,7 @@ landingContent:
           - text: Event schemas
             url: event-schemas.md
           - text: Batch event delivery
-            url: batch-delivery.md            
+            url: batch-event-delivery.md            
           - text: Filter events
             url: filter-events.md                        
 #          - text: Output batching

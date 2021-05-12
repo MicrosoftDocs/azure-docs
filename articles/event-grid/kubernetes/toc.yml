@@ -25,7 +25,7 @@
   - name: Event schemas
     href: event-schemas.md
   - name: Batch event delivery
-    href: batch-delivery.md
+    href: batch-event-delivery.md
   - name: Delivery and retry
     href: delivery-retry.md
   - name: Event filtering

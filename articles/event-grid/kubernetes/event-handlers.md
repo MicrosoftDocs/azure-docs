@@ -1,11 +1,11 @@
 ---
 title: Azure Event Grid on Kubernetes - event handlers and destinations
 description: This article describes different types of event handlers and destinations supported by Event Grid on Kubernetes
-author: spelluru, jfggdl
+author: jfggdl
 manager: JasonWHowell
-ms.author: spelluru, jafernan
+ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/04/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ---
 
@@ -36,7 +36,7 @@ Event Grid on Kubernetes offers a good level of feature parity with Azure Event 
 
 1. Use [rest api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions).
 2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
-3. There's no [dead letter location](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-dead-letter-location) support. That means that you cannot use ``properties.deadLetterDestination`` in your event subscription payload.
+3. There's no [dead letter location](../manage-event-delivery.md#set-dead-letter-location) support. That means that you cannot use ``properties.deadLetterDestination`` in your event subscription payload.
 4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
 5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.  
 6. Labels ([properties.labels](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they are not available.
@@ -182,5 +182,5 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
     ```
 
 ## Next steps
-* Add [filter configuration](event-grid-on-k8s-event-filtering.md) to your event subscription to select the events to be delivered. 
+* Add [filter configuration](filter-events.md) to your event subscription to select the events to be delivered. 
 * To learn about schemas supported by Event Grid on Azure Arc for Kubernetes, see [Event Grid on Kubernetes - Event schemas](event-schemas.md).
