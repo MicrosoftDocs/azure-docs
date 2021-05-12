@@ -11,10 +11,8 @@
       items:
         - name: Get started
           href: quickstart-send-telemetry-cli.md
-        - name: C - Windows
+        - name: C
           href: quickstart-send-telemetry-c.md
-        - name: C - Linux
-          href: quickstart-send-telemetry-c-linux.md
         - name: Node.js
           href: quickstart-send-telemetry-node.md
         - name: .NET
