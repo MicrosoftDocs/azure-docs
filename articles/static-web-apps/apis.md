@@ -21,6 +21,10 @@ Azure Static Web Apps provides serverless API endpoints via [Azure Functions](..
 
 API endpoints are available to the web app through the _api_ route. While this route is fixed, you have control over the folder and project where you locate the associated Azure Functions app. You can change this location by [editing the workflow YAML file](github-actions-workflow.md#build-and-deploy) located in your repository's _.github/workflows_ folder.
 
+## Troubleshooting and logs
+
+Logs are only available if you add [Application Insights](monitor.md) to your static web app.
+
 ## Constraints
 
 Azure Static Web Apps provides an API through Azure Functions. The capabilities of Azure Functions are focused to a specific set of features that enable you to create an API for a web app and allow the web app to connect to API securely. These features come with some constraints, including:
@@ -30,7 +34,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 - Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
 - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Input and output [bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are supported.
-- Logs are only available if you add [Application Insights](../azure-functions/functions-monitoring.md) to your Functions app.
+- Managed Identity and Key Vault References are not supported.
 - Some application settings are managed by the service. Therefore, you can't configure app settings that start with the following prefixes:
 	- `APPSETTING_`
 	- `AZUREBLOBSTORAGE_`
@@ -51,7 +55,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 	- `WEBSOCKET_`
 	- `AzureWeb`
 
-To build Functions apps other languages or non-HTTP triggers, configure your static web app to [link to a separate Functions app](functions-bring-your-own.md) that you deploy and manage yourself.
+To build Functions apps with more languages and triggers or to use features like Managed Identity, configure your static web app to [use a separate Functions app](functions-bring-your-own.md) that you deploy and manage yourself.
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 You can add serverless APIs to Azure Static Web Apps that are powered by Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
 > [!NOTE]
-> The managed function apps provided by Azure Static Web Apps are targeted at HTTP API scenarios. See [API support with Azure Functions](apis.md) for information on how they differ from standalone Azure Functions apps.
+> The capabilities of functions provided by Static Web Apps are focused to a specific set of features that enable you to create an API for a web app and allow the web app to connect to API securely. See [API support with Azure Functions](apis.md) for information on how they differ from standalone Azure Functions apps.
 
 ## Prerequisites
 
