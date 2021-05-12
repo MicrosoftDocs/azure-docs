@@ -28,7 +28,7 @@ The following table contains common problems and solutions you may see during ba
 | Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
 | The resource wasn't found. | Ensure you use `-t batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint as deleted. The same name cannot be re-used to create a new endpoint in the same workspace. |
+| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be re-used to create a new endpoint in the same workspace. |
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
 
 ##  Scoring script requirements
@@ -58,7 +58,16 @@ az ml job stream -name <job_name>
 
 Option 2: View logs in studio 
 
-In studio, choose the **Experiments** asset, and choose the experiment named the same as your endpoint. You can find the logs in the **Outputs + logs** tab of the associated run. 
+To get the link to the run in studio, run: 
+
+```azurecli
+az ml job show --name <job_name> --query interaction_endpoints.Studio.endpoint -o tsv
+```
+
+1. Open the job in studio using the value returned by the above command. 
+1. Choose **batchscoring**
+1. Open the **Outputs + logs** tab 
+1. Choose the log(s) you wish to review
 
 ### Understand log structure
 
@@ -81,7 +90,6 @@ For more information on errors in your script, there is:
 - `~/logs/user/error/`: This file contains full stack traces of exceptions thrown while loading and running the entry script.
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `sys/node` folder, grouped by worker nodes:
-{>> Q: The only logs I got under logs/ were azureml/ logs. <<}
 
 - `~/logs/sys/node/<ip_address>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
 

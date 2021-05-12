@@ -196,19 +196,19 @@ You can also check job details along with status using CLI.
 Get the job name from the invoke response.
 
 ```azurecli
-job_name=`az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv`
+job_name=$(az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv)
 ```
 
 Use `job show` to check details and status of a batch scoring job.
 
 ```azurecli
-az ml job show --name <job_name>
+az ml job show --name $job_name
 ```
 
 Stream the job logs using `job stream`.
 
 ```azurecli
-az ml job stream --name <job_name>
+az ml job stream --name $job_name
 ```
 
 ## Check batch scoring results
