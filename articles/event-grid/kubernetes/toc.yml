@@ -6,6 +6,8 @@
   items:
   - name: What is Event Grid on Kubernetes with Azure Arc?
     href: overview.md  
+  - name: Features
+    href: features.md
 - name: Quickstarts
   items:
   - name: Create a topic and a subscription
@@ -18,8 +20,6 @@
   items:
   - name: Event Grid on Kubernetes concepts
     href: concepts.md
-  - name: Features
-    href: features.md
   - name: Event handlers
     href: event-handlers.md    
   - name: Event schemas
@@ -34,11 +34,16 @@
   items:
   - name: Install extension on Kubernetes cluster
     href: install-k8s-extension.md
-  - name: Get support
-    href: get-support.md
+
 - name: Reference
   items:
   - name: REST API
     href: /rest/api/eventgrid/version2020-10-15-preview/topics
   - name: SDKs
     href: ../sdk-overview.md
+- name: Resources
+  items:
+  - name: Get support
+    href: get-support.md
+  - name: Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-event-grid.html

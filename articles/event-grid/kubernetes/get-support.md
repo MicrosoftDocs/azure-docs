@@ -14,7 +14,7 @@ ms.topic: how-to
 This article provides information on how to get support if you run into issues with Event Grid on Kubernetes with Azure Arc. 
 
 ## How to create a support request
-If you run into an issue, [create an Azure support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) by following these steps:
+If you run into an issue, [create an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) by following these steps:
 
 1. For issue type, select **Technical**.
 1. When prompted, select your Azure subscription from the values provided.
