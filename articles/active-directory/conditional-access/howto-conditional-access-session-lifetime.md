@@ -58,7 +58,7 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
+If you have Azure AD joined, or hybrid Azure AD joined devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign-in frequency policy as well. In the following two examples user sign-in frequency is set to 1 hour:
 
 Example 1:
 
