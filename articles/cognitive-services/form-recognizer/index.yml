@@ -43,7 +43,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Layout concepts
+          - text: Layout 
             url: concept-layout.md?
       - linkListType: quickstart
         links:
@@ -127,7 +127,7 @@ landingContent:
     linkLists:
         - linkListType: concept
           links:
-            - text: Identification
+            - text: Identity documents
               url: concept-invoices.md
         - linkListType: quickstart
           links:
