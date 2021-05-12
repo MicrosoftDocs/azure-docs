@@ -44,7 +44,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 ## Set up Azure resources
 
-1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements.
+1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements.
 
    #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -77,9 +77,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
    #### [Azure VM with GPU](#tab/virtual-machine)
 
-   In our example, we will utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
-
-   ***
+   You can utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
 
    | Requirement | Description                                                                                                                                                                                                                                                      |
    | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,11 +89,13 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 1. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-    > [!NOTE]
-    > The button above creates and uses the default Virtual Machine which does NOT have the NVIDIA GPU. Please use the "Use existing edge device" option when asked in the ARM template and use the IoT Hub and the device information from the step above.
-    > :::image type="content" source="./media/spatial-analysis/use-existing-device.png" alt-text="Use existing device":::
 
-    [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+   > [!NOTE]
+   > The button above creates and uses the default Virtual Machine which does NOT have the NVIDIA GPU. Please use the "Use existing edge device" option when asked in the Azure Resource Manager (ARM) template and use the IoT Hub and the device information from the step above.
+   > :::image type="content" source="./media/spatial-analysis/use-existing-device.png" alt-text="Use existing device":::
+
+   [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+
 ## Overview
 
 > [!div class="mx-imgBorder"]
@@ -181,7 +181,7 @@ There are a few things you need to pay attention to in the deployment template f
 
    1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4) to the Local share.
 
-      > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWDRJd]
+      > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 
    1. See that the rtspsim module has the following configuration:
       ```
@@ -273,95 +273,95 @@ In operations.json:
 
 - Set the pipelineTopology like this:
 
-```json
-{
-    "opName": "pipelineTopologySet",
-    "opParams": {
-        "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
-    }
-},
-```
+  ```json
+  {
+      "opName": "pipelineTopologySet",
+      "opParams": {
+          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+      }
+  },
+  ```
 
 - Create a livePipeline like this, set the parameters in pipelineTopology here:
 
-```json
-{
-    "opName": "livePipelineSet",
-    "opParams": {
-        "name": "Sample-Pipeline-1",
-        "properties": {
-            "topologyName": "InferencingWithCVExtension",
-            "description": "Sample pipeline description",
-            "parameters": [
-                {
-                    "name": "rtspUrl",
-                    "value": " rtsp://rtspsim:554/media/stairwell.mkv"
-                },
-                {
-                    "name": "rtspUserName",
-                    "value": "testuser"
-                },
-                {
-                    "name": "rtspPassword",
-                    "value": "testpassword"
-                }
-            ]
-        }
-    }
-},
-```
-
-> [!Note]
-> Check out the use of `CognitiveServicesVisionExtension` to connect with spatialanalysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, for example, tcp://spatialAnalysis:50051
-
-```json
-{
-        "@type": "#Microsoft.VideoAnalyzer.CognitiveServicesVisionProcessor",
-        "name": "computerVisionExtension",
-        "endpoint": {
-          "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
-          "url": "${grpcUrl}",
-          "credentials": {
-            "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
-            "username": "${spatialanalysisusername}",
-            "password": "${spatialanalysispassword}"
+  ```json
+  {
+      "opName": "livePipelineSet",
+      "opParams": {
+          "name": "Sample-Pipeline-1",
+          "properties": {
+              "topologyName": "InferencingWithCVExtension",
+              "description": "Sample pipeline description",
+              "parameters": [
+                  {
+                      "name": "rtspUrl",
+                      "value": " rtsp://rtspsim:554/media/stairwell.mkv"
+                  },
+                  {
+                      "name": "rtspUserName",
+                      "value": "testuser"
+                  },
+                  {
+                      "name": "rtspPassword",
+                      "value": "testpassword"
+                  }
+              ]
           }
-        },
-        "inputs": [
-          {
-            "nodeName": "rtspSource",
-            "outputSelectors": [
-              {
-                "property": "mediaType",
-                "operator": "is",
-                "value": "video"
-              }
-            ]
-          }
-        ],
-        "operation": {
-          "@type": "#Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation",
-          "zones": [
+      }
+  },
+  ```
+
+  > [!Note]
+  > Check out the use of `CognitiveServicesVisionExtension` to connect with spatialanalysis module. Set the ${grpcUrl} to **tcp://spatialAnalysis:<PORT_NUMBER>**, for example, tcp://spatialAnalysis:50051
+
+  ```json
+  {
+          "@type": "#Microsoft.VideoAnalyzer.CognitiveServicesVisionProcessor",
+          "name": "computerVisionExtension",
+          "endpoint": {
+            "@type": "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+            "url": "${grpcUrl}",
+            "credentials": {
+              "@type": "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+              "username": "${spatialanalysisusername}",
+              "password": "${spatialanalysispassword}"
+            }
+          },
+          "inputs": [
             {
-              "zone": {
-                "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
-                "polygon": "[[0.37,0.43],[0.48,0.42],[0.53,0.56],[0.34,0.57],[0.34,0.46]]",
-                "name": "stairlanding"
-              },
-              "events": [
+              "nodeName": "rtspSource",
+              "outputSelectors": [
                 {
-                  "trigger": "event",
-                  "outputFrequency": "1",
-                  "threshold": "16",
-                  "focus": "bottomCenter"
+                  "property": "mediaType",
+                  "operator": "is",
+                  "value": "video"
                 }
               ]
             }
-          ]
+          ],
+          "operation": {
+            "@type": "#Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation",
+            "zones": [
+              {
+                "zone": {
+                  "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
+                  "polygon": "[[0.37,0.43],[0.48,0.42],[0.53,0.56],[0.34,0.57],[0.34,0.46]]",
+                  "name": "stairlanding"
+                },
+                "events": [
+                  {
+                    "trigger": "event",
+                    "outputFrequency": "1",
+                    "threshold": "16",
+                    "focus": "bottomCenter"
+                  }
+                ]
+              }
+            ]
+          }
         }
-      }
-    ],
-```
+      ],
+  ```
 
 Run a debug session and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
 
@@ -795,11 +795,11 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies:
 
-1. [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
-1. [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
-1. [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
-1. [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
-1. [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)
+- [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
+- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+- [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
+- [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
+- [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)
 
 > [!Tip]
 > Use a **[sample video file](https://lvamedia.blob.core.windows.net/public/2018-03-07.16-50-00.16-55-00.school.G421.mkv)** that has more than one person in the frame.
