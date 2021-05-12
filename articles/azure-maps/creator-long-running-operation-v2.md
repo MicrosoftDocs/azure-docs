@@ -3,7 +3,7 @@ title: Azure Maps Long-Running Operation API V2
 description: Learn about long-running asynchronous V2 background processing in Azure Maps
 author: anastasia-ms 
 ms.author: v-stharr 
-ms.date: 05/11/2020
+ms.date: 05/12/2020
 ms.topic: conceptual 
 ms.service: azure-maps 
 services: azure-maps 
