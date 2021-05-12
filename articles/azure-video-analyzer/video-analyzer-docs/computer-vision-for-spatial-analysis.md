@@ -91,12 +91,11 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 1. Next, deploy the other Azure resources.
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
-   [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
+    > [!NOTE]
+    > The button above creates and uses the default Virtual Machine which does NOT have the NVIDIA GPU. Please use the "Use existing edge device" option when asked in the ARM template and use the IoT Hub and the device information from the step above.
+    > :::image type="content" source="./media/spatial-analysis/use-existing-device.png" alt-text="Use existing device":::
 
-> [!NOTE]
-> The button above creates and uses the default Virtual Machine which does NOT have the NVIDIA GPU. Please use the "Use existing edge device" option when asked in the ARM template and use the IoT Hub and the device information from the step above.
-> :::image type="content" source="./media/spatial-analysis/use-existing-device.png" alt-text="Use existing device":::
-
+    [!INCLUDE [resources](./includes/common-includes/azure-resources.md)]
 ## Overview
 
 > [!div class="mx-imgBorder"]
