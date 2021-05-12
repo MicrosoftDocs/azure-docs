@@ -48,15 +48,15 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Using the .NET SDK
-          url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-layout
+          url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the Python SDK
-          url: quickstarts/client-library.md?pivots=programming-language-python#analyze-layout
+          url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the Java SDK
-          url: quickstarts/client-library.md?pivots=programming-language-java#analyze-layout
+          url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the JavaScript SDK
-          url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-layout
+          url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
         - text: Using the REST API (cURL)
-          url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-layout
+          url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
       - linkListType: deploy
         links:
           - text: Try Form Recognizer
@@ -71,15 +71,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-receipts
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#analyze-receipts
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#analyze-receipts
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-receipts
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-receipts
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
 
   - title: Extract data from business cards
     linkLists:
@@ -90,15 +90,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-business-cards
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#analyze-business-cards
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#analyze-business-cards
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-business-cards
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyzebusiness-cards
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
 
   - title: Extract data from invoices
     linkLists:
@@ -109,15 +109,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-invoices
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#analyze-invoices
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#analyze-invoices
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-invoices
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-invoices
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
       - linkListType: deploy
         links:
           - text: Try Form Recognizer
@@ -132,15 +132,15 @@ landingContent:
         - linkListType: quickstart
           links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-identity-documents
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-id-document
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#analyze-identity-documents
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-id-document
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#analyze-identity-documents
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-id-document
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-identity-documents
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-id-document
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-identity-documents
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-id-document
 
   - title: Microsoft tech community
     linkLists:
@@ -166,15 +166,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#train-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#train-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#train-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#train-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#train-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
       - linkListType: tutorial
         links:
           - text: Extract form data in bulk
@@ -190,15 +190,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/client-library.md?pivots=programming-language-csharp#analyze-forms-with-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the Python SDK
-            url: quickstarts/client-library.md?pivots=programming-language-python#analyze-forms-with-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the Java SDK
-            url: quickstarts/client-library.md?pivots=programming-language-java#analyze-forms-with-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the JavaScript SDK
-            url: quickstarts/client-library.md?pivots=programming-language-javascript#analyze-forms-with-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Using the REST API (cURL)
-            url: quickstarts/client-library.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model
+            url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
 
   - title: Get stated with the labeling tool
     linkLists:
