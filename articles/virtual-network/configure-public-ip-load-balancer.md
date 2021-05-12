@@ -1,6 +1,7 @@
 ---
-title: Utilize a public IP address with a load balancer
-description: Learn about the ways a public IP address is used with a Azure Load Balancer and how to change the configuration.
+title: Use a public IP address with a load balancer
+titleSuffix: Azure Virtual Network
+description: Learn about the ways a public IP address is used with an Azure Load Balancer and how to change the configuration.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -10,18 +11,26 @@ ms.date: 05/20/2021
 ms.custom: template-how-to 
 ---
 
-# Utilize a public IP address with a load balancer
+# Use a public IP address with a load balancer
 
-Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how change or update a public IP address assigned to an Azure Load Balancer. You'll learn how to delete an IP address after it's removed from the load balancer.
+Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. 
+
+You'll learn how to change a public IP address assigned to an Azure Load Balancer. 
+
+You'll learn how to delete an IP address after it's removed from the load balancer.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A public Azure Load Balancer deployed in your subscription. For more information, see [Quickstart: Create a public load balancer - Azure portal](./load-balancer/quickstart-load-balancer-standard-public-portal.md)
+- A public SKU Azure Load Balancer deployed in your subscription. For more information, see [Quickstart: Create a public load balancer - Azure portal](./load-balancer/quickstart-load-balancer-standard-public-portal.md)
 
 ## Change or remove public IP address
 
-In this section, you'll sign in to the Azure Portal and change the IP address associated with an Azure Load Balancer. An Azure Load Balancer must have an IP address associated with a frontend. To change the IP, we'll create a new IP address and then associate it with the load balancer frontend.
+In this section, you'll sign in to the Azure portal and change the IP address of the load balancer. 
+
+An Azure Load Balancer must have an IP address associated with a frontend. 
+
+To change the IP, we'll create a new IP address and associate it with the load balancer frontend.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
