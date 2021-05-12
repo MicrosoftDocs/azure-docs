@@ -1,0 +1,28 @@
+- name: Overview
+  expanded: true
+  items:
+  - name: About Network Functions Manager
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create a device
+    href: create-device.md
+  - name: Create a network function
+    href: create-function.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Routing
+    href: routing.md
+  - name: Solutions partners and providers
+    href: network-functions.md
+  - name: FAQ
+    href: faq.md
+- name: Resource
+  expanded: true
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
