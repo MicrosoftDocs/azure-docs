@@ -13,19 +13,7 @@ In this quickstart, you create an [App Service app to an Azure Arc enabled Kuber
 
 - [Set up your Azure Arc enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
-## Add Azure CLI extensions
-
-Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-
-[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-
-Because these CLI commands are not yet part of the core CLI set, add them with the following commands.
-
-```azurecli-interactive
-az extension add --upgrade --yes --name customlocation
-az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
-```
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## 1. Create a resource group
 

@@ -33,11 +33,11 @@ On your local computer:
 
 ---
 
-
-
 ## Create an App Service Kubernetes environment
 
 Before you begin, uou must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. When you create the environment, make sure to copy down the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
+
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## Create the local function project
 
