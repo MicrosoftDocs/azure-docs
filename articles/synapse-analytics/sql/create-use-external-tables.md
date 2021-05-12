@@ -62,7 +62,7 @@ Your first step is to create a database where the tables will be created. Then c
 
 The queries in this article will be executed on your sample database and use these objects. 
 
-## Create an external table on a file
+## External table on a file
 
 You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
 
@@ -92,7 +92,7 @@ WITH (
 
 Native CSV tables are currently available only in the serverless SQL pools.
 
-## Create an external table on a set of files
+## External table on a set of files
 
 You can create external tables that read data from a set of files placed on Azure storage:
 
@@ -118,6 +118,27 @@ You can specify the pattern that the files must satisfy in order to be reference
 
 > [!NOTE]
 > The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
+
+## Delta Lake external table
+
+External tables can be created on top of a Delta Lake folder. The only difference between the external tables created on a [single file](#external-table-on-a-file) or a [file set](#external-table-on-a-set-of-files) and the external tables created on a Delta Lake format is that in Delta Lake external table you need to reference a folder containing the Delta Lake structure.
+
+> [!div class="mx-imgBorder"]
+>![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
+
+An example of a table definition created on a Delta Lake folder is:
+
+```sql
+CREATE EXTERNAL TABLE Covid (
+     date_rep date,
+     cases int,
+     geo_id varchar(6)
+) WITH (
+        LOCATION = 'covid', --> the root folder containing the delta
+        data_source = DeltaLake,
+        format = DeltaLakeFormat
+);
+```
 
 ## Use an external table
 
