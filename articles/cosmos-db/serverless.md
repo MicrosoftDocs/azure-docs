@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 05/25/2021
 ---
 
 # Azure Cosmos DB serverless

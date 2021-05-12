@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 05/25/2021
 ms.custom: devx-track-csharp
 
 ---
