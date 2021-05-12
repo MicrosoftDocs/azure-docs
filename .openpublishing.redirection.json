@@ -55556,11 +55556,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-named-locations.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/active-directory/active-directory-reporting-activity-audit-reference.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-audit-activities",
       "redirect_document_id": false
