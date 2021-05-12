@@ -17,7 +17,7 @@ The two things you need to accomplish in your entry script are:
 
 For your initial deployment, use a dummy entry script that prints the data it receives.
 
-```python
+<!-- ```python
 import json
 
 def init():
@@ -28,7 +28,10 @@ def run(data):
     print(f'received data {test}')
     return(f'test is {test}')
 
-```
+``` -->
+
+:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/source_dir/echo_score.py":::
+
 Save this file as `echo_score.py` inside of a directory called `source_dir`.
 
 So, for example, if a user calls your model with:
