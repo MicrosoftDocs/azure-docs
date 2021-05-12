@@ -73,7 +73,7 @@ Semantic search is a newer technology so it's important to set expectations abou
 
 What it can do is improve the quality of search results. Results are more immediately consumable when captions and potentially answers are present on the page. Also, the promotion of matches that are semantically closer to the intent of original query is a significant benefit. At all times, the engine is working with existing content. Language understanding can identify an intact string that looks like an answer, but the engine itself won't try to compose a new string as an answer to a query, or as a caption for a matching document.
 
-Semantic search does not include a logic or inference component. Given a query for "resort hotels in a desert" absent any geographical input, the engine won't come up with matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
+Semantic search does not include a logic or inference component. Given a query for "resort hotels in a desert" absent any geographical input, the engine won't come up with matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to find matches within the last 5 years.
 
 In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
 
