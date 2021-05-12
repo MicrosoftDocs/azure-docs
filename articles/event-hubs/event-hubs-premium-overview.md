@@ -10,17 +10,17 @@ ms.date: 5/11/2021
 
 
 Event Hubs premium caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. 
-On top of all the features of the Standard offering, Premium offers several additional features such as dynamic partition scale up, extended retention, customer-managed-keys and log compaction.
+On top of all the features of the Standard offering, Premium offers several extra features such as dynamic partition scale up, extended retention, customer-managed-keys, and log compaction.
  
 The Premium offering is billed by Processing Units (PUs) that offers more generous quotas compared to the standard offering. In comparison to Dedicated offering, since Event Hubs Premium is multi-tenant, it can dynamically scale more flexibly and quickly while providing better isolation from other tenants. Therefore, Event Hubs Premium is cost effective option for mid-range(<120MB/sec) throughput requirements that requires better isolation and flexibility in a multi-tenant PassS environment. 
 
-You can purchase 1, 2, 4, 8, 12, 16 or 20 Processing Units for each cluster. How much you can ingest and stream per PU depends on a variety of factors, such as the following ones:
+You can purchase 1, 2, 4, 8, 12, 16 or 20 Processing Units for each cluster. How much you can ingest and stream per PU depends on various factors, such as the following ones:
 
 * Number of producers and consumers
 * Payload shape
 * Egress rate
 
-Please refer the [comparison between Event Hubs SKUs](event-hubs-quotas.md) for more details.
+Refer the [comparison between Event Hubs SKUs](event-hubs-quotas.md) for more details.
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Event Hubs premium uses a new two-tier log storage engine that drastically impro
 
 Event Hubs premium offer an isolated compute and memory capacity to achieve more predictable latency and far reduced *noisy neighbor* impact risk in a multi-tenant deployment.
 
-Event Hubs premiums implements a *Cluster in Cluster* model in its multitenant clusters to provide predictability and performance while retaining all the benefits of a managed multitenant PaaS environment. 
+Event Hubs premium implements a *Cluster in Cluster* model in its multitenant clusters to provide predictability and performance while retaining all the benefits of a managed multitenant PaaS environment. 
 
 
 ### Cost Savings and Scalability
