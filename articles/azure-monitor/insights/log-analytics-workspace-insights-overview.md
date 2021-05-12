@@ -86,7 +86,7 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
     - Ingestion volume - how much data was ingested to the table from each resource, and how it spreads over time. Resources ingesting over 30% of the total volume sent to this table are marked with a warning sign, for you to take note of.
     - Ingestion latency - how much time ingestion took, analyzed for the 50th, 90th or 95th percentiles of requests sent to this table. The top chart in this area depicts the total ingestion time of the requests (for the selected percentile) from end to end - from the time the event occurred, and until it was ingested to the workspace.
     The chart below it shows separately the latency of the agent (the time it took the agent to send the log to the workspace) and that of the pipeline (the time it took the service to process the data and push it to the workspace).
-    [![Screenshot of the workspace usage tab](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png#lightbox)
+    [![Screenshot of the workspace usage ingestion latency sub-tab](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png#lightbox)
 
 #### Additional usage queries
 
@@ -119,7 +119,7 @@ This tab provides information on the agents sending logs to this workspace.
 
 ### Query audit tab
 
-Query auditing creates logs about the execution of queries on the workspace. If enabled, this data is greatly beneficial to understanding and improving queries performance, efficiency and load. To enable query auditing on your workspace or learn more about it, see [Audit queries in Azure Monitor Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/query-audit).
+Query auditing creates logs about the execution of queries on the workspace. If enabled, this data is greatly beneficial to understanding and improving queries performance, efficiency and load. To enable query auditing on your workspace or learn more about it, see [Audit queries in Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/logs/query-audit).
 
 #### Performance 
 This tab shows:
