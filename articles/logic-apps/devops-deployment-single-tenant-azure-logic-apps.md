@@ -87,15 +87,15 @@ At your project's root level, you can find the following files and folders, alon
 
 | Name | Folder or file | Description |
 |------|---------------------------|-------------|
-| .vscode | Folder | Contains Visual Studio Code-related settings files, such as extensions.json, launch.json, settings.json, and tasks.json files (TODO: MORE INFO REQUIRED HERE) |
+| .vscode | Folder | Contains Visual Studio Code-related settings files, such as extensions.json, launch.json, settings.json, and tasks.json files **(TODO: MORE INFO REQUIRED HERE)** |
 | Artifacts | Folder | Contains integration account artifacts that you define and use in workflows that support business-to-business (B2B) scenarios. For example, the sample structure includes maps and schemas for XML transform and validation operations. |
 | <WorkflowName> | Folder | For each workflow, the <WorkflowName> folder includes a workflow.json file, which contains that workflow's underlying JSON definition. |
-| workflow-designtime | Folder | Contains design-time related settings files, such as host.json and local.settings.json (TODO: MORE INFO REQUIRED HERE) |
+| workflow-designtime | Folder | Contains design-time related settings files, such as host.json and local.settings.json **(TODO: MORE INFO REQUIRED HERE)** |
 | .funcignore | File | **(TODO: MORE INFO REQUIRED HERE)** |
 | .gitignore | File | **(TODO: MORE INFO REQUIRED HERE)** |
 | connections.json | File | Contains the metadata, endpoints, and keys for any managed connections and Azure functions that your workflows use. <p><p>**Important**: To use different connections and functions for each environment, make sure that you parameterize this **connections.json** file and update the endpoints. |
 | host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Logic Apps service, logic apps, workflows, triggers, and actions. |
-| local.settings.json | File | **(TODO: MORE INFO REQUIRED HERE)** |
+| local.settings.json | File | Contains settings for your logic app that become app settings after deployment. **(TODO: CONFIRM ACCURACY)** |
 | SharedCode | Folder | **(TODO: MORE INFO REQUIRED HERE)** |
 | Dockerfile | Folder | Contains one or more Dockerfiles to use for deploying the logic app as a container. |
 ||||
