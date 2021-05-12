@@ -33,7 +33,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
 ## Download software tools and update files
 
-1. [NXP UUU tool](https://github.com/NXPmicro/mfgtools/releases). Download the **Latest Release** uuu.exe file (for Windows) or the uuu file (for Linux) under the **Assets** tab. UUU is a tool created by NXP used to update software on NXP dev boards.
+1. [NXP UUU tool](https://github.com/NXPmicro/mfgtools/releases). Download the **Latest Release** uuu.exe file (for Windows) or the uuu file (for Linux) under the **Assets** tab. UUU is a tool created by NXP used to update NXP dev boards.
 
 1. [Download the update files](https://go.microsoft.com/fwlink/?linkid=2155734). They are all contained in a zip file that you will extract in the next section.
 
