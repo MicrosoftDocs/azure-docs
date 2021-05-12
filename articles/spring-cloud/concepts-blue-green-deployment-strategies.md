@@ -5,7 +5,7 @@ author:  yevster
 ms.author: yebronsh
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 05/12/2021
 ms.custom: devx-track-java
 ---
 
@@ -17,7 +17,7 @@ Azure Spring Cloud (Standard tier and higher) permits two deployments for every 
 
 ## Alternating deployments
 
-The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that isn't receiving production traffic. With the Azure Spring Cloud task for Azure Pipelines, you can deploy this way just by setting the `UseStagingDeployment` flag to `true`.
+The simplest way to implement blue-green deployment with Azure Spring Cloud is to create two fixed deployments and always deploy to the deployment that isn't receiving production traffic. With the [Azure Spring Cloud task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud), you can deploy this way just by setting the `UseStagingDeployment` flag to `true`.
 
 Here's how the alternating deployments approach works in practice:
 
@@ -93,3 +93,7 @@ However, there are drawbacks as well, as described in the following section.
 Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error because only two deployments are permitted per Azure Spring Cloud application.
 
 Therefore, the deployment orchestration must either have the means to retry a failed deployment process at a later time, or the means to ensure that the deployment flows for each version will remain queued until the flow is completed for all previous versions.
+
+## Next steps
+
+* [Automate application deployments to Azure Spring Cloud](./how-to-cicd.md)

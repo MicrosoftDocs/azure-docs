@@ -3,7 +3,7 @@ title: Azure Defender for Resource Manager - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 12/07/2020
+ms.date: 05/12/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -22,7 +22,7 @@ Azure Defender for Resource Manager automatically monitors the resource manageme
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
