@@ -228,41 +228,43 @@ Ensure you have the command line tools installed.
     npm install -g azure-functions-core-tools@3
     ```
 
-### Start the Static Web Apps emulator
+### Build frontend app
+
+If your app uses a framework, build the app to generate the output before running the Static Web Apps emulator.
+
+# [No Framework](#tab/vanilla-javascript)
+
+There is no need to build the app.
+
+# [Angular](#tab/angular)
+
+Build the app into the _dist/angular-basic_ folder.
+
+```bash
+npm run build --prod
+```
+
+# [React](#tab/react)
+
+Build the app into the _build_ folder.
+
+```bash
+npm run build
+```
+
+# [Vue](#tab/vue)
+
+Build the app into the _dist_ folder.
+
+```bash
+npm run build
+```
+
+---
+
+### Start the emulator
 
 Test the frontend app and API together by starting an emulator using the Static Web Apps CLI. The emulator serves your frontend's build output from a folder.
-
-1. If your app uses a framework, such as React, build the app to generate the output before running the emulator.
-
-    # [No Framework](#tab/vanilla-javascript)
-
-    There is no need to build the app.
-
-    # [Angular](#tab/angular)
-
-    Build the app into the _dist/angular-basic_ folder.
-
-    ```bash
-    npm run build --prod
-    ```
-
-    # [React](#tab/react)
-
-    Build the app into the _build_ folder.
-
-    ```bash
-    npm run build
-    ```
-
-    # [Vue](#tab/vue)
-
-    Build the app into the _dist_ folder.
-
-    ```bash
-    npm run build
-    ```
-
-    ---
 
 1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command. Pass the build output folder and the API folder in the `--api` argument.
 
