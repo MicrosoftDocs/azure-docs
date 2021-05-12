@@ -98,8 +98,6 @@
           href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
-        - name: How to remove a DSC package
-          href: how-to/remove-desired-state-configuration-package.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -148,8 +146,6 @@
               href: start-runbooks.md
             - name: Start a runbook from a webhook
               href: automation-webhooks.md
-            - name: Track updated files with watcher task
-              href: automation-watchers-tutorial.md
             - name: Work with the Graphical runbook SDK
               href: graphical-runbook-sdk.md
         - name: Monitor runbooks
@@ -196,6 +192,8 @@
               href: automation-dsc-compile.md
             - name: Remediate noncompliant State Configuration servers
               href: automation-dsc-remediate.md
+            - name: Remove node and configuration
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Set up continuous deployment with Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Integrate with Azure Monitor Logs
@@ -324,7 +322,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Troubleshoot Linux update agent issues
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Cross-component scenarios
+    - name: Scenarios
       items:
         - name: Send an email from a runbook
           href: automation-send-email.md
@@ -332,6 +330,8 @@
           href: automation-alert-metric.md
         - name: Trigger runbook from Azure alert
           href: automation-create-alert-triggered-runbook.md
+        - name: Track updated files with watcher task
+          href: automation-scenario-using-watcher-task.md
         - name: Manage Office 365 services
           href: manage-office-365.md
         - name: Deploy AWS VM with Automation runbook

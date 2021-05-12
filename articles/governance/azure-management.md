@@ -21,7 +21,7 @@ required in continuous succession over the lifespan of a resource. This resource
 with the initial deployment, through continued operation, and finally when retired.
 
 :::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagram of the disciplines of Management in Azure." border="false":::
-   Diagram that shows the Migrate, Secure, Protect, Monitor, Configure, and Govern elements of the wheel of services that support Management and Governance in Azure. Secure has Security management and Threat protection as sub items. Protect has Backup and Disaster recovery as sub items. Monitor has App, Infra and network monitoring, and Log Analytics and Diagnostics as sub items. Configure has Configuration, Update management, Automation, and Scripting as sub items. And Govern has Policy management and Cost management as sub items.
+   Diagram that shows the Migrate, Secure, Protect, Monitor, Configure, and Govern elements of the wheel of services that support Management and Governance in Azure. Secure has Security management and Threat protection as sub items. Protect has Backup and Disaster recovery as sub items. Monitor has App, infrastructure and network monitoring, and Log Analytics and Diagnostics as sub items. Configure has Configuration, Update Management, Automation, and Scripting as sub items. And Govern has Policy management and Cost management as sub items.
 :::image-end:::
 
 No single Azure service completely fills the requirements of a particular management area. Instead,

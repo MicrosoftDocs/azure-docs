@@ -12,7 +12,7 @@ ms.date: 11/10/2020
 
 # How to use Postman to send requests to the Azure Digital Twins APIs
 
-[Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](how-to-use-apis-sdks.md).
+[Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](concepts-apis-sdks.md).
 
 This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
@@ -22,7 +22,7 @@ This article describes how to configure the [Postman REST client](https://www.ge
     1. [Create](#create-your-own-collection) your own collection from scratch.
 1. [Add requests](#add-an-individual-request) to your configured collection and send them to the Azure Digital Twins APIs.
 
-Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). This article contains information for both API sets.
+Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
 
 2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
-    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) and [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) APIs.
+    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
 
     # [Data plane](#tab/data-plane)
     
@@ -123,7 +123,7 @@ Here's how to download your chosen collection to your machine so that you can im
 1. Select the **Raw** button to open the raw text of the file.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
 1. Copy the text from the window, and paste it into a new file on your machine.
-1. Save the file with a *.json* extension (the file name can be whatever you want, as long as you can remember it to find the file later).
+1. Save the file with a .json extension (the file name can be whatever you want, as long as you can remember it to find the file later).
 
 ### Import the collection
 
@@ -163,7 +163,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 # [Data plane](#tab/data-plane)
 
-If you're making a [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some **variables** provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
+If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some **variables** provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
 
 1. Still in the edit dialog for your collection, move to the **Variables** tab.
 
@@ -177,7 +177,7 @@ When you're finished with the above steps, you're done configuring the collectio
 
 # [Control plane](#tab/control-plane)
 
-If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
+If you're making a [control plane](concepts-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
 
 --- 
 
@@ -271,7 +271,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
-1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST `https://digitaltwins-hostname/query?api-version=2020-10-31`*.
+1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites](#prerequisites) section.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
@@ -297,4 +297,4 @@ You can also compare the response to the expected response data given in the ref
 
 ## Next steps
 
-To learn more about the Digital Twins APIs, read [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), or view the [reference documentation for the REST APIs](/rest/api/azure-digitaltwins/).
+To learn more about the Digital Twins APIs, read [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), or view the [reference documentation for the REST APIs](/rest/api/azure-digitaltwins/).
