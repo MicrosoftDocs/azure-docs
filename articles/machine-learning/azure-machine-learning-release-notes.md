@@ -23,12 +23,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.28.0
 + **Bug fixes and improvements**
-  + **azureml-automl-core**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
   + **azureml-automl-runtime**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
+    + Improved AutoML Scoring script to make it consistent with designer
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
