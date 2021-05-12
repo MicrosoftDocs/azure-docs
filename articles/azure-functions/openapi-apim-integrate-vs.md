@@ -43,7 +43,7 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions. Other versions don't support OpenAPI file generation. |
+    | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions. OpenAPI file generation is only supported for version 3.x of the Functions runtime. |
     | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
     | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information about keys and authorization, see [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). |
