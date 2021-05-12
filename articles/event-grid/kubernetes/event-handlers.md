@@ -24,7 +24,7 @@ Through Webhooks, Event Grid supports the following destinations **hosted on a K
 
 In addition to Webhooks, Event Grid on Kubernetes can send event to following destinations **hosted on Azure**:
 
-- Azure Event Grid **using Webhooks only**.
+- Azure Event Grid
 - Azure Functions **using Webhooks only**.
 - Azure Event Hubs using its Azure Resource Manager resource ID.
 - Azure Service Bus topics or queues using its Azure Resource Manager resource ID.
