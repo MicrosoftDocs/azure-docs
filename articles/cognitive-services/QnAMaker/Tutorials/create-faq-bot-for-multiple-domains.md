@@ -82,7 +82,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
 #### How large can our knowledge bases be? 
 
-You add upto 50000 QnA pairs to a single knowledgebase. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledgebase.
+You add upto 50000 QnA pairs to a single knowledge base. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledge base.
 
 ### Create a separate knowledge base for each domain
 
