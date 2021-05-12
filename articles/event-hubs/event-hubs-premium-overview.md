@@ -10,7 +10,7 @@ ms.date: 5/11/2021
 
 
 Event Hubs premium caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. 
-On top of all the features of the Standard offering, Premium offers several extra features such as dynamic partition scale up, extended retention, customer-managed-keys, and log compaction.
+On top of all the features of the Standard offering, Premium offers several extra features such as dynamic partition scale up, extended retention and customer-managed-keys.
  
 The Premium offering is billed by Processing Units (PUs) that offers more generous quotas compared to the standard offering. In comparison to Dedicated offering, since Event Hubs Premium is multi-tenant, it can dynamically scale more flexibly and quickly while providing better isolation from other tenants. Therefore, Event Hubs Premium is cost effective option for mid-range(<120MB/sec) throughput requirements that requires better isolation and flexibility in a multi-tenant PassS environment. 
 
