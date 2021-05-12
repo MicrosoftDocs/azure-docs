@@ -22,7 +22,7 @@ You'll learn how to delete an IP address after it's removed from the load balanc
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A public SKU Azure Load Balancer deployed in your subscription. For more information, see [Quickstart: Create a public load balancer - Azure portal](./load-balancer/quickstart-load-balancer-standard-public-portal.md)
+- A public SKU Azure Load Balancer deployed in your subscription. For more information, see [Quickstart: Create a public load balancer - Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md)
 
 ## Change or remove public IP address
 
@@ -72,5 +72,5 @@ In this section, you'll delete the IP address you replaced in the previous secti
 
 In this article, you learned how to create and associate a new public IP address with a load balancer. 
 
-- For more information about Azure Load Balancer, see [What is Azure Load Balancer?](./load-balancer/overview.md)
+- For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
