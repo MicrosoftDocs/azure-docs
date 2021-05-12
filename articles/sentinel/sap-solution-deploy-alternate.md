@@ -200,7 +200,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 ## Manually configure the SAP data connector
 
-The Azure Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-sap-data-connector-installation).
+The Azure Sentinel SAP solution data connector is configured in the **systemconfig.ini** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation).
 
 The following code shows a sample **systemconfig.ini** file:
 
@@ -293,7 +293,7 @@ JAVAFilesLogs = False
 
 Add the following code to the Azure Sentinel SAP data connector **systemconfig.ini** file to define other settings for SAP logs ingested into Azure Sentinel.
 
-For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-sap-data-connector-installation).
+For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-installation).
 
 
 ```Python
