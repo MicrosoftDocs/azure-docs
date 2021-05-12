@@ -67,6 +67,23 @@ landingContent:
             url: api-management-howto-developer-portal-customize.md
           - text: 10. Manage APIs in Visual Studio Code
             url: visual-studio-code-tutorial.md
+  # Card
+  - title: Import APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: OpenAPI specification
+            url: import-api-from-oas.md
+          - text: SOAP API
+            url: import-soap-api.md
+          - text: WebSocket API
+            url: websocket-api.md
+          - text: Web App
+            url: import-app-service-as-api.md
+          - text: Function App
+            url: import-function-app-as-api.md
+          - text: Logic App
+            url: import-logi-app-as-api.md
 
   # Card
   - title: Samples
@@ -87,3 +104,18 @@ landingContent:
         links:
           - text: Basic enterprise integration
             url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+  # Card
+  - title: Hybrid and multi-cloud management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Self-hosted gateway overview
+            url: self-hosted-gateway-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Host gateway on Azure Arc
+            url: how-to-deploy-self-hosted-gateway-azure-arc.md
+          - text: Host gateway on Kubernetes
+            url: how-to-deploy-self-hosted-gateway-kubernetes.md
+          - text: Host gateway on Docker
+            url: how-to-deploy-self-hosted-gateway-docker.md
