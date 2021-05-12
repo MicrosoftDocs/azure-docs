@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/06/2021
+ms.date: 05/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -141,6 +141,9 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Compute cluster/instance | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
+
+> [!IMPORTANT]
+> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ port __18881__.
 
 **Associated resources used by Azure Machine Learning**
 
