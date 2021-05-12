@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/10/2021
 ---
 
 # Parse transformation in mapping data flow
@@ -29,6 +29,17 @@ Similar to derived columns and aggregates, this is where you will either modify 
 ### Expression
 
 Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
+
+#### Example expressions
+
+* Source string data: ```chrome|steel|plastic```
+  * Expression: ```(desc1 as string, desc2 as string, desc3 as string)```
+
+* Source JSON data: ```{"ts":1409318650332,"userId":"309","sessionId":1879,"page":"NextSong","auth":"Logged In","method":"PUT","status":200,"level":"free","itemInSession":2,"registration":1384448}```
+  * Expression: ```(level as string, registration as long)```
+
+* Source XML data: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
+  * Expression: ```(Customers as (Customer as integer, CompanyName as string))```
 
 ### Output column type
 

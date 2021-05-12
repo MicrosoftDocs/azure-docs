@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 05/11/2021
 ms.author: apimpm
 
 ---
@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
+        image: prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -78,7 +78,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: mcr.microsoft.com/oss/prometheus/prometheus
+        image: prom/prometheus
         ports:
         - name: tcp
           containerPort: 9090

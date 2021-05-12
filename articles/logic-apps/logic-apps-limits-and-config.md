@@ -12,19 +12,16 @@ ms.date: 05/05/2021
 
 > For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
 
-This article describes the limits and configuration information for Azure Logic Apps and related resources. Many limits are the same for both the multi-tenant and single-tenant (preview) Logic Apps service with noted differences where they exist.
+This article describes the limits and configuration information for Azure Logic Apps and related resources. To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
-The following table provides more information about the terms, *multi-tenant*, *single-tenant*, and *integration service environment*, that appear in this article:
+> [!NOTE]
+> Many limits are the same across these host environments, but differences are noted where they exist. 
+> If your scenarios require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) 
+> to discuss your requirements.
 
-| Environment | Resource sharing and usage | [Pricing model](logic-apps-pricing.md) | Notes |
-|-------------|----------------------------|----------------------------------------|-------|
-| Azure Logic Apps <br>(Multi-tenant) | Workflows in logic apps *across multiple tenants* share the same processing (compute), storage, network, and so on. | Consumption | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-| Azure Logic Apps <br>(Single-tenant (preview)) | Workflows *in the same logic app and single tenant* share the same processing (compute), storage, network, and so on. | Preview, which is either the [Premium hosting plan](../azure-functions/functions-scale.md), or the [App Service hosting plan](../azure-functions/functions-scale.md) with a specific [pricing tier](../app-service/overview-hosting-plans.md) <p><p>If you have *stateful* workflows, which use [external storage](../azure-functions/storage-considerations.md#storage-account-requirements), the Azure Logic Apps runtime makes storage transactions that follow [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). | You can change the default values for many limits, based on your scenario's needs. <p><p>**Important**: Some limits have hard upper maximums. In Visual Studio Code, the changes you make to the default limit values in your logic app project configuration files won't appear in the designer experience. <p><p>For more information, see [Create workflows for single-tenant Azure Logic Apps using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Integration service environment | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. | Fixed | Azure Logic Apps manages the default values for these limits, but you can change some of these values, if that option exists for a specific limit. |
-|||||
+The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the new **Logic App (Preview)** resource type. You'll also learn how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows. 
 
-> [!TIP]
-> For scenarios that require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) to discuss your requirements.
+[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="definition-limits"></a>
 
@@ -278,7 +275,10 @@ The following tables list the values for a single inbound or outbound call:
 
 ### Timeout duration
 
-By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+
+> [!NOTE]
+> For the preview logic app type in the single-tenant model, stateless workflows can only run *synchronously*.
 
 | Name | Multi-tenant | Single-tenant (preview) | Integration service environment | Notes |
 |------|--------------|-------------------------|---------------------------------|-------|
