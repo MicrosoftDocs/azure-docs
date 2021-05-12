@@ -52,7 +52,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
     1. A CA certificate.
     1. A public certificate.
     1. A key.
-1. In addition to the above certificates, you will need the same set of certificates for each of the event publishing clients that you intent to use in your solution. These certificates are not requested during the installation of Event Grid.
+1. In addition to the above certificates, you will need the same set of certificates for each of the event publishing clients that you intend to use in your solution. These certificates are not requested during the installation of Event Grid.
 
     > [!IMPORTANT]
     > While a domain associated to a publisher client, for example, might have more than one public certificate issued by different certificate authorities, Event Grid on Kubernetes only allows uploading a single CA certificate for clients when installing Event Grid. As a consequence, the certificates for clients publishing events to Event Grid and the certificate for the Event Grid operator should be issued (signed) by the same CA in order for the certificate chain validation to succeed and a TLS session to be successfully established.
