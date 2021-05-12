@@ -111,7 +111,7 @@ Access policies define the permissions and duration of access to a given Video A
 
 Next we need to generate a list of video resources.  This is done through a REST call to the account endpoint we used above, authenticating with the token we generated.
 
-There are many ways to send a GET request to a REST API, but for this we're going to use a JavaScript function.  The below code uses a [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp) coupled with values we're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request.  It then takes the resulting list of videos and stores them in the `videoList` textarea we have set up on the page.
+There are many ways to send a GET request to a REST API, but for this we're going to use a JavaScript function.  The below code uses a [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp) coupled with values we're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request.  It then takes the resulting list of videos and stores them in the `videoList` text area we have set up on the page.
 
 ```javascript
 function getVideos()
@@ -262,7 +262,7 @@ Or you can import it within your application code using:
 import { Player } from '@video-analyzer/widgets';
 ```
 
-If you use this method to import, you will need to programatically create the player object after the import is complete.  In the above example you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either Javascript:
+If you use this method to import, you will need to programatically create the player object after the import is complete.  In the above example you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either JavaScript:
 
 ```javascript
 const avaPlayer = new ava.widgets.player();
