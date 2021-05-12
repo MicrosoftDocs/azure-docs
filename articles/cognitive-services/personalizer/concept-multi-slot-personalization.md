@@ -156,24 +156,25 @@ If no reward score is received for a slot in an event, Personalizer will implici
 
 There are differences in how you use the Rank and Reward APIs with single and multi-slot personalization:
 
-|  	| Single-slot Personalization 	| Multi-slot Personalization 	|  	|  	|
-|-	|-	|-	|-	|-	|
-| Rank API call Request elements	| You send a Context object and a list of Actions 	| You send Context, a list of Actions, and an ordered list of Slots  	|  	|  	|
-|Rank request: specifying baseline| Personalizer will take the first Action in the action list as the baseline action (The item your application would have chosen if Personalizer didn't exist).|You must specify the baseline ActionID that would have been used in each Slot.||
-| Rank API call response 	| Your application highlights the action indicated in the rewardActionId field 	| The response includes a different rewardActionId for each Slot that was specified in the request. Your application will show those rewardActionId actions in each slot. 	|  	|  	|
-| Reward API call 	| You call the Reward API with a reward score, which you calculate from how the users interacted with rewardActionId for this particular eventId. For example, if the user clicked on it, you send a reward of 1. 	| You specify the Reward for each slot, given how well the action with rewardActionId elicited desired user behavior. This can be sent in one or multiple Reward API calls with the same eventId. 	|  	|  	|
+|  Description	| Single-slot Personalization 	| Multi-slot Personalization 	|  
+|---------------|-------------------------------|-------------------------------|
+| Rank API call request elements | You send a Context object and a list of Actions 	| You send Context, a list of Actions, and an ordered list of Slots  	| 
+| Rank request specifying baseline | Personalizer will take the first Action in the action list as the baseline action (The item your application would have chosen if Personalizer didn't exist).|You must specify the baseline ActionID that would have been used in each Slot.|
+| Rank API call response | Your application highlights the action indicated in the rewardActionId field 	| The response includes a different rewardActionId for each Slot that was specified in the request. Your application will show those rewardActionId actions in each slot. | 
+| Reward API call | You call the Reward API with a reward score, which you calculate from how the users interacted with rewardActionId for this particular eventId. For example, if the user clicked on it, you send a reward of 1. 	| You specify the Reward for each slot, given how well the action with rewardActionId elicited desired user behavior. This can be sent in one or multiple Reward API calls with the same eventId. 	| 
 
 
 ### Impact of enabling multi-slot for a Personalizer loop
 
 Additionally, when you enable multi-slot, consider the following:
 
-|  	| Single-slot Personalization 	| Multi-slot Personalization 	|  	|
-| Inactive Events and Activation 	| When calling the activate API, Personalizer will activate the event, expecting a Reward score or assigning the configured Default Reward if Reward Wait Time is exceeded. 	| Personalizer activates and expects rewards for all slots that were specified in the eventId 	|  	
-|Apprentice Mode| Personalizer Rank API always returns the baseline action, and trains internal models by imitating the baseline action.| Personalizer Rank API returns the baseline action for each slot specified in the baselineAction field. Personalizer will train internal models on imitating the first |
-| Learning speed    | Only learns from the one highlighted action | Can learn from interactions with any slot. This typically means more user behaviors that can yield rewards, which would result in faster learning for Personalizer. |  
-|Offline Evaluations|Compares performance of Personalizer against baseline and optimized learning settings, based on which Action would have been chosen them.| (Preview Limitation) Only evaluates performance of the first slot in the array. For more accurate evaluations, we recommend making sure the slot with most rewards is the first one in your array. |
-|Automatic Optimization (Preview)| Your Personalizer loop can periodically perform Offline Evaluations in the background and optimize Learning Settings without administrative intervention | (Preview Limitation) Automatic Optimization is disabled for Personalizer loops that have multi-slot APIs enabled.||
+|  Description	| Single-slot Personalization 	| Multi-slot Personalization 	| 
+|---------------|-------------------------------|-------------------------------|
+| Inactive events and activation 	| When calling the activate API, Personalizer will activate the event, expecting a Reward score or assigning the configured Default Reward if Reward Wait Time is exceeded. | Personalizer activates and expects rewards for all slots that were specified in the eventId |  	
+| Apprentice Mode | Personalizer Rank API always returns the baseline action, and trains internal models by imitating the baseline action.| Personalizer Rank API returns the baseline action for each slot specified in the baselineAction field. Personalizer will train internal models on imitating the first |
+| Learning speed | Only learns from the one highlighted action | Can learn from interactions with any slot. This typically means more user behaviors that can yield rewards, which would result in faster learning for Personalizer. |  
+| Offline Evaluations |Compares performance of Personalizer against baseline and optimized learning settings, based on which Action would have been chosen them.| (Preview Limitation) Only evaluates performance of the first slot in the array. For more accurate evaluations, we recommend making sure the slot with most rewards is the first one in your array. |
+| Automatic Optimization (Preview) | Your Personalizer loop can periodically perform Offline Evaluations in the background and optimize Learning Settings without administrative intervention | (Preview Limitation) Automatic Optimization is disabled for Personalizer loops that have multi-slot APIs enabled. |
 
 ## Next Steps
 * [How to use multi-slot personalization](how-to-multi-slot.md)
