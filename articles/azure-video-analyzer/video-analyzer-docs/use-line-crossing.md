@@ -1,15 +1,15 @@
 ---
-title: Create line crossing events from a live video with Azure Video Analyzer
-description: This quickstart shows you how to use Azure Video Analyzer on IoT Edge to emit events when objects cross a line in a live video feed from a (simulated) IP camera.
+title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
+description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
 ms.date: 05/07/2021
 ---
 
-# Quickstart: Emit events with line crossing in a live video
+# Quickstart: Detect when objects cross a virtual line in a live video
 
-This quickstart shows you how to use Azure Video Analyzer to create a line crossing and get events when objects cross that line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and pass them through a line crossing node.
+This quickstart shows you how to use Azure Video Analyzer detect when objects cross a virtual line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and send the results to a line crossing node.
 
-The line crossing node comes in handy when you want to detect objects that cross the imaginary line and emit events. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
+The line crossing node enables you to detect when objects cross the virtual line. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
 
 This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
 
@@ -26,13 +26,13 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Track objects and use line crossing in live video.":::
+> :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Detect when objects cross a virtual line in live video.":::
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
 The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
-The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line the line crossing node will emit an event. The events are send to the IoT Edge Hub message sink. 
+The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line the line crossing node will emit an event. The events are sent to the IoT Edge Hub message sink. 
 
 In this quickstart, you will:
 
@@ -86,7 +86,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 * **operations.json**: This file lists the different operations that you would run.
 * **Program.cs**: The sample program code, which:
     * Loads the app settings.
-    * Invokes direct methods exposed by Video Analyzer on IoT Edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
+    * Invokes direct methods exposed by Video Analyzer edge module. You can use the module to analyze live video streams by invoking its [direct methods](direct-methods.md).
     * Pauses for you to examine the output from the program in the **TERMINAL** window and the events generated by the module in the **OUTPUT** window.
     * Invokes direct methods to clean up resources.
 
@@ -94,9 +94,9 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
     
     * Change the link to the pipeline topology:
     * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/line-crossing/topology.json"
-    * Under livePipelineSet, edit the name of the topology to match the value in the preceding link:
+    * Under `livePipelineSet`, edit the name of the topology to match the value in the preceding link:
     * "topologyName" : "LineCrossingWithHttpExtension"
-    * Under pipelineTopologyDelete, edit the name:
+    * Under `pipelineTopologyDelete`, edit the name:
     * "name" : "LineCrossingWithHttpExtension"
     
 Open the URL for the pipeline topology in a browser, and examine the settings for the HTTP extension node.
@@ -118,7 +118,7 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
 ## Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The operations.json code starts off with calls to the direct methods pipelineTopologyList and livePipelineList. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+1. The operations.json code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
     
     ```
     -------------------------------Executing operation pipelineTopologyList-----------------------  
@@ -139,8 +139,8 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
     
     The **TERMINAL** window shows the next set of direct method calls:
     
-    * A call to pipelineTopologySet that uses the contents of pipelineTopologyUrl
-    * A call to livePipelineSet that uses the following body:
+    * A call to `pipelineTopologySet` that uses the contents of `pipelineTopologyUrl`
+    * A call to `livePipelineSet` that uses the following body:
         
     ```json
     {
@@ -166,27 +166,27 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
      }
     }
     ```
-    * A call to livePipelineActivate that starts the live pipeline and the flow of video.
-    * A second call to livePipelineList that shows that the live pipeline is in the running state.
+    * A call to `livePipelineActivate` that starts the live pipeline and the flow of video.
+    * A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
 1. The next series of calls cleans up resources:
 
-    * A call to livePipelineDeactivate deactivates the live pipeline.
-    * A call to livePipelineDelete deletes the live pipeline.
-    * A call to pipelineTopologyDelete deletes the pipeline topology.
-    * A final call to pipelineTopologyList shows that the list is empty.
+    * A call to `livePipelineDeactivate` deactivates the live pipeline.
+    * A call to `livePipelineDelete` deletes the live pipeline.
+    * A call to `pipelineTopologyDelete` deletes the pipeline topology.
+    * A final call to `pipelineTopologyList` shows that the list is empty.
     
 ## Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section and an `applicationPropertie`s section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
-When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished.
+When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is **MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -196,7 +196,7 @@ When a live pipeline is activated, the RTSP source node attempts to connect to t
   "applicationProperties": {
     "dataVersion": "1.0",
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/videoAnalyzers/{ava-account-name}",
-    "subject": "/livePipelines/Sample-Pipeline-1/sources/rtspSource",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/sources/rtspSource",
     "eventType": "Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished",
     "eventTime": "2021-05-06T17:33:09.554Z",
     "dataVersion": "1.0"
@@ -207,17 +207,16 @@ When a live pipeline is activated, the RTSP source node attempts to connect to t
 
 In this message, notice these details:
 
-* The message is a diagnostics event. MediaSessionEstablished indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
-* In applicationProperties, subject indicates that the message was generated from the RTSP source node in the live pipeline.
-* In applicationProperties, eventType indicates that this event is a diagnostics event.
-* The eventTime indicates the time when the event occurred.
+* The message is a diagnostics event. **MediaSessionEstablished** indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
+* In `applicationProperties`, "subject" indicates that the message was generated from the RTSP source node in the live pipeline.
+* In `applicationProperties`, "eventType" indicates that this event is a diagnostics event.
+* The "eventTime" indicates the time when the event occurred.
 * The body contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
-## Line Crossing events
+## Line crossing events
 
-The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. The events are then received by the line crossing node which will evaluate the values against the line coordinates as specified in the topology. When objects cross these coordinates an events is triggered. The event looks like this:
+The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. The object tracker generates inference results for all frames (0, 1, 2,...) which are then examined by the line crossing node against the line coordinates as specified in the topology. When objects cross these coordinates an events is triggered. The event looks like this:
 ```
-[IoTHubMonitor] [11:36:11 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {
   "body": {
     "timestamp": 145865319410261,
@@ -262,8 +261,8 @@ What does this value mean? When you want to draw a line on a 2D image you need t
 In this image you see the line between point A and point B. Any object that moves across the line will create an event with its properties like direction as discussed earlier in this tutorial. Also notice the x and y axis in the bottom left corner. This is just for illustration to explain how we normalize the coordinates to the values we expect for the line crossing node. 
 
 Here is an example calculation:
-Lets say that the video resolution is 1920 x 1080. 1920 being the x and 1080 being the y axis respectively.
-Create a frame image from a video you plan to use. 
+Lets say that the video resolution is 1920 x 1080. 1920 and 1080 being the number of pixels along the x and y axis respectively.
+Create an image from a frame of the video you plan to use. 
 Now open that image in an image editor program (i.e. MSPaint). Move you cursor to the location where you want to specify point A. In the bottom left corner you will see the x and y coordinates for that cursor position.
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/line-crossing-mspaint-coordinates.png" alt-text="A visual example for line crossing using MSPaint.":::
@@ -274,7 +273,7 @@ point A: x=1024, y=96
 Point B: x=1024, y=960
 These values do not look like values that would go into the line crossing node since we need numbers between 0 and 1. To calculate this you apply the following formula:
 
-`x coordinate / x image resolution` in our example that is `1024/1920 = 0.5`. Now do the same for y `96/1080=0.1`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 `[[0.5,0.1], [0.5,0.9]]` as shown earlier in this tutorial.
+`x coordinate / image resolution along x axis`, which, in our example is `1024/1920 = 0.5`. Now do the same for y:`96/1080=0.1`. These are the normalized coordinates for point A. Repeat this for point B. You will end up with an array of values between 0 and 1 `[[0.5,0.1], [0.5,0.9]]` as shown earlier in this tutorial.
 
 ## Clean up resources
 
@@ -282,4 +281,4 @@ These values do not look like values that would go into the line crossing node s
 
 ## Next steps
 
-* Try running different pipeline topologies like object tracker.
+* Try running different videos through the live pipeline.
