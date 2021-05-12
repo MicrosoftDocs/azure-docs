@@ -47,7 +47,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
     For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](logic-apps-overview-preview.md), and create a logic app from the **Logic App (Preview)** resource type.
+   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](single-tenant-overview-compare.md), and create a logic app from the **Logic App (Preview)** resource type.
 
      In Azure Logic Apps Preview, **Inline Code** is now named **Inline Code Operations** along with these other differences:
 
