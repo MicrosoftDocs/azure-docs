@@ -210,9 +210,6 @@ This section provides an overview of how to run the [sample project](https://git
 
 This article explains how to develop a WebJobs SDK 2.x project. If you're developing a [WebJobs SDK 3.x](../../app-service/webjobs-sdk-get-started.md) project, this section helps you understand the differences.
 
-> [!NOTE]
-> 
-
 The main change introduced is the use of .NET Core instead of .NET Framework. To create a WebJobs SDK 3.x project, the instructions are the same, with these exceptions:
 
 1. Create a .NET Core console app. In the Visual Studio **New Project** dialog box, select  **.NET Core** > **Console App (.NET Core)**. The project file specifies that `TargetFramework` is `netcoreapp2.x`.
