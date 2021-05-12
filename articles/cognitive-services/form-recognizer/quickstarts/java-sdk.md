@@ -24,14 +24,14 @@ You'll use the following APIs to extract structured data from forms and document
 
 |Name |Description |
 |---|---|
-| **Analyze layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
-| **Analyze receipts** | Analyze a receipt document to extract key information, and other receipt text.|
-| **Analyze business cards** | Analyze a business card to extract key information and text.|
-| **Analyze invoices** | Analyze an invoice to extract key information, tables, and other invoice text.|
-| **Analyze identity documents** | Analyze an identity documents to extract key information, and other identification card text.|
-| **Train a custom model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
-| **Analyze forms with a custom model**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-|**Manage custom models**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your account.|
+| **[Analyze layout](#analyze-layout)** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
+| **[Analyze receipts](#analyze-receipts)** | Analyze a receipt document to extract key information, and other receipt text.|
+| **[Analyze business cards](#analyze-business-cards)** | Analyze a business card to extract key information and text.|
+| **[Analyze invoices](#analyze-invoices)** | Analyze an invoice to extract key information, tables, and other invoice text.|
+| **[Analyze identity documents](#analyze-identity-documents)** | Analyze an identity documents to extract key information, and other identification card text.|
+| **[Train a custom model](#train-a-custom-model)**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
+| **[Analyze forms with a custom model](#analyze-forms-with-a-custom-model)**|Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
+|**[Manage custom models](#manage-custom-models)**| You can check the number of custom models in your Form Recognizer account, get a specific model using its ID, and delete a model from your account.|
 
 > [!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.

@@ -45,6 +45,10 @@ landingContent:
         links:
           - text: Layout concepts
             url: concept-layout.md?
+      - linkListType: quickstart
+        links:
+          - text: Analyze layout
+            url: quickstarts/client-library-guide.md#analyze-layout
 
   - title: Extract data from receipts
     linkLists:
@@ -52,13 +56,21 @@ landingContent:
         links:
           - text: Receipts
             url: concept-receipts.md?
+      - linkListType: quickstart
+        links:
+          - text: Analyze receipts
+            url: quickstarts/client-library-guide.md#analyze-receipts
 
   - title: Extract data from business cards
     linkLists:
       - linkListType: concept
         links:
           - text: Business cards
-            url: concept-business-cards.md?
+            url: concept-business-cards.md
+      - linkListType: quickstart
+        links:
+          - text: Analyze business cards
+            url: quickstarts/client-library-guide.md#analyze-business-cards
 
   - title: Extract data from invoices
     linkLists:
@@ -66,33 +78,21 @@ landingContent:
         links:
           - text: Invoices
             url: concept-invoices.md?
+      - linkListType: quickstart
+        links:
+          - text: Analyze business cards
+            url: quickstarts/client-library-guide.md#analyze-business-cards
 
   - title: Extract data from identity documents
     linkLists:
         - linkListType: concept
           links:
             - text: Identification
-              url: concept-invoices.md?
-
-  - title: Train a custom model and extract data
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts/client-library-guide.md?pivots=programming-language-csharp
-          - text: Using the Python SDK
-            url: quickstarts/client-library-guide.md?pivots=programming-language-python
-          - text: Using the Java SDK
-            url: quickstarts/client-library-guide.md?pivots=programming-language-java
-          - text: Using the JavaScript SDK
-            url: quickstarts/client-library-guide.md?pivots=programming-language-javascript
-          - text: Using the REST API (cURL)
-            url: quickstarts/client-library-guide.md?pivots=programming-language-rest-api
-      - linkListType: tutorial
-        links:
-          - text: Extract form data in bulk
-            url: tutorial-bulk-processing.md
-
+              url: concept-invoices.md
+        - linkListType: quickstart
+          links:
+            - text: Analyze identity documents
+              url: quickstarts/client-library-guide.md#analyze-identity-documents
 
   - title: Microsoft tech community
     linkLists:
@@ -113,22 +113,38 @@ landingContent:
           - text: Automating form processing to enhance productivity
             url:  https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
 
-  - title: Train a custom model using labels
+  - title: Train a custom model and extract data
     linkLists:
-      - linkListType: concept
-        links:
-            - text: Labeled data
-              url: overview.md#train-with-labels
       - linkListType: quickstart
         links:
-            - text: Train using the sample labeling tool
-              url: label-tool.md
+          - text: Train a custom model
+            url: quickstarts/client-library-guide.md#train-a-custom-model
+
+      - linkListType: tutorial
+        links:
+          - text: Extract form data in bulk
+            url: tutorial-bulk-processing.md
+
+
+  - title: Analyze forms with your custom model
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Train a custom model
+            url: quickstarts/client-library-guide.md#analyze-forms-with-a-custom-model
+
+  - title: Get stated with the labeling tool
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use the labeling tool
+            url: labeling-tool.md
 
   - title: API and client libraries
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.1.3
+          - text: Form Recognizer API v2.1
             url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
@@ -138,6 +154,7 @@ landingContent:
             url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK
             url: /javascript/api/overview/azure/ai-form-recognizer-readme
+
   - title: Help and feedback
     linkLists:
       - linkListType: reference
@@ -145,10 +162,4 @@ landingContent:
           - text: Support and help options
             url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
 
-  - title: Build a training data set
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Build a training data set
-            url: build-training-data-set.md
 
