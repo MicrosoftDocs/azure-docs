@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/11/2021
+ms.date: 05/12/2021
 ms.subservice: azure-sentinel
 
 ---

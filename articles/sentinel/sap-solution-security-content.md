@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/03/2021
+ms.date: 05/12/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -107,7 +107,7 @@ These watchlists are accessible in the Azure Sentinel GitHub repository at https
 |<a name="module"></a>**SAP - Sensitive Function Module**     |   Internal and maintenance networks for identification of unauthorized logins.      <br><br>- **FunctionModule**:  An ABAP function module, such as `RSAU_CLEAR_AUDIT_LOG`       <br>- **Description**: A meaningful module description.     |
 |<a name="profiles"></a>**SAP - Sensitive Profiles**     |  Sensitive profiles, where assignments should be governed.     <br><br>- **Profile**:   SAP authorization profile, such as `SAP_ALL` or `SAP_NEW`      <br>- **Description**:  A meaningful profile description.|
 |<a name="tables"></a>**SAP - Sensitive Tables**     |  Sensitive tables, where access should be governed.  <br><br>- **Table**: ABAP Dictionary Table, such as `USR02` or `PA008` <br>- **Description**: A meaningful table description. |
-|<a name="roles"></a>**SAP - Sensitive Roles**     |  Sensitive roles, where assignment should be governed. <!--dudi to send link to sentinel git-->   <br><br>- **Role**: SAP authorization role, such as `SAP_BC_BASIS_ADMIN`  <br>- **Description**: A meaningful role description. |
+|<a name="roles"></a>**SAP - Sensitive Roles**     |  Sensitive roles, where assignment should be governed.    <br><br>- **Role**: SAP authorization role, such as `SAP_BC_BASIS_ADMIN`  <br>- **Description**: A meaningful role description. |
 |<a name="transactions"></a>**SAP - Sensitive Transactions**     |     Sensitive transactions where execution should be governed.  <br><br>- **TransactionCode**: SAP transaction code, such as `RZ11` <br>- **Description**: A meaningful code description. |
 |<a name="systems"></a>**SAP - Systems**     |    Describes the landscape of SAP systems according to role and usage.<br><br>- **SystemID**: the SAP system ID (SYSID) <br>- **SystemRole**: the SAP system role, one of the following values: `Sandbox`, `Development`, `Quality Assurance`, `Training`, `Production` <br>- **SystemUsage**: The SAP system usage, one of the following values: `ERP`, `BW`, `Solman`, `Gateway`, `Enterprise Portal`        |
 | | |
