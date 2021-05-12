@@ -149,7 +149,7 @@ For more information, see: [Cache-Aside pattern](https://docs.microsoft.com/azur
 
 You might pre-populate views into other collections after storing the data in Azure Cosmos DB when the data isn't ideally formatted for required query operations. This pattern can help support efficient querying and data extraction, and improve application performance.
 
-For more information, see [Materialized View pattern](https://docs.microsoft.com/azure/architecture/patterns/materialized-view.md).
+For more information, see [Materialized View pattern](/azure/architecture/patterns/materialized-view).
 
 ## Next Steps
 
