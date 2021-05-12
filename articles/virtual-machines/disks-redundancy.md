@@ -44,12 +44,12 @@ Except for more write latency, disks using ZRS are identical to disks using LRS.
 During the preview, ZRS for managed disks has the following restrictions:
 
 - Only supported with premium solid-state drives (SSD) and standard SSDs.
-- Currently available only in the West US 2, West Europe, North Europe and France Central regions.
+- Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
 - ZRS disks can only be created with Azure Resource Manager templates using the `2020-12-01` API in the public preview. 
 
-## Prerequisites
+### Prerequisites
 
-You must enable the feature for your subscription. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
 
 1.	Execute the following command to register the feature for your subscription
 
@@ -57,7 +57,7 @@ You must enable the feature for your subscription. Please follow the steps below
      Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
