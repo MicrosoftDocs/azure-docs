@@ -6,6 +6,8 @@
     href: Overview/overview.md
   - name: What's new
     href: whats-new.md
+  - name: Custom question answering (preview)
+    href: custom-question-answering.md
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
