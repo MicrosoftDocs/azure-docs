@@ -44,23 +44,19 @@ In this section we will create a JWT token that we will use later in the documen
    [!NOTE] For more information about configuring your audience values see this [article](./access-policy.md)
 
 2. Launch Visual Studio Code and open folder that contains the *.sln file.
-
 3. In the explorer pane navigate to the program.cs file
-
 4. Modify line 77 - change the audience to your Video Analyzer endpoint plus /videos/* so that it looks like:
 
    ```
    https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
    ```
-
 5. Modify line 78 - change the issuer to the issuer value of your certificate.  Example:  https://contoso.com
 
-   [!NOTE] The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure.  You will need to click on the link "JSON View" 
+   [!NOTE] The Video Analyzer endpoint can be found in overview section of the Video Analyzer resource in Azure. You will need to click on the link "JSON View" 
 
-   ![IMAGE](./media/player-widget/endpoint.png)
-
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/player-widget/endpoint.png" alt-text="Player widget - endpoint":::
 6. Save the file.
-
 7. Press `F5` to run the JWTTokenIssuer application.
 
 This will build and execute the application.  After the build it will run by creating a certificate via openssl.  You can also run the JWTTokenIssuer.exe file located in the debug folder.  The advantage of running the application is that you can specify input options as follows:
@@ -81,8 +77,8 @@ Access policies define the permissions and duration of access to a given Video A
 1. Select the Video Analyzer resource.
 1. Under Video Analyzer select Access Policies
 
-   ![image](./media/player-widget/portal-access-policies.png)
-
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Player widget - portal access policies":::    
 1. Click on new and enter the following:
 
    [!NOTE] These values come from the JWTTokenIssuer application created in the previous step.
@@ -103,8 +99,8 @@ Access policies define the permissions and duration of access to a given Video A
 
    - E Value - for RSA the E value is the Public Exponent
 
-     ![IMAGE](./media/player-widget/access-policies-portal.png)
-
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Player widget - access policies portal":::     
 1. click `save`.
 
 ## List Video Analyzer video resources
@@ -267,6 +263,7 @@ document.firstElementChild.appendChild(avaPlayer);
 ```
 
 ## Demo
+
 You test the player widget in the [demo page](https://aka.ms/ava-widgets-demo)
 
 ## Next steps
