@@ -27,7 +27,7 @@ Memory pressure on the server side leads to all kinds of performance problems th
 - The cache is filled with data near its maximum capacity.
 - Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
 
-Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) using the portal.
+Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) using the portal.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
@@ -41,7 +41,7 @@ There are several possible changes you can make to help keep memory usage health
 
 A high server load or CPU usage means the server can't process requests in a timely fashion. The server may be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
+[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
 
 There are several changes you can make to mitigate high server load:
 
@@ -59,7 +59,7 @@ Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure 
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) in the portal.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) in the portal.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
