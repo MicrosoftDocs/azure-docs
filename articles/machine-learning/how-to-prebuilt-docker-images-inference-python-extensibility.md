@@ -142,7 +142,7 @@ Here are some things that may cause this problem:
 
 ### Model.package
 
-The [Model.package()](/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) method lets you create a model package in the form of a Docker image or Dockerfile build context.
+The [Model.package()](/python/api/azureml-core/azureml.core.model(class)) method lets you create a model package in the form of a Docker image or Dockerfile build context.
 
 You can't install conda or pip dependencies to the non-root curated images via `Model.package()`. Doing so triggers an intermediate image build that changes the non-root user to root user.
 
@@ -232,7 +232,7 @@ We recommend following this document for Best Practices when using Inference-opt
         └── sklearn_regression_model.pkl
     ```
 
-* For more information on how to load a registered or local model, see the **Writing init()** section of [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#writing-init).
+* For more information on how to load a registered or local model, see [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
 
 ## Next steps
 

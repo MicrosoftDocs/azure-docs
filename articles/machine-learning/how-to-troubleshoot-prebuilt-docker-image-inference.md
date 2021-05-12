@@ -90,4 +90,4 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 ## Next steps
 
 * [Add Python packages to prebuilt images](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-images-inference.md).
+* [Use a prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md).

@@ -495,7 +495,7 @@
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Prebuilt Docker images
-        displayName: inference image
+        items:
         - name: Python extensibility
           href: how-to-prebuilt-docker-images-inference-python-extensibility.md
         - name: Dockerfile extensibility
