@@ -13,7 +13,7 @@ ms.subservice: azure-sentinel
 
 # Deploy the Azure Sentinel SAP data connector on-premises
 
-This article describes how to deploy the Azure Sentinel SAP data connector in an expert or customer process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
+This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
 > [!NOTE]
 > The default, and most recommended process for deploying the Azure Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
