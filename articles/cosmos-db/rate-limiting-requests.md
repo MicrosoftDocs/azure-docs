@@ -1,6 +1,6 @@
 ---
 title: Rate Limiting Azure Cosmos DB requests in your custom application
-description: This article provides developers with a methodology to rate limit requests to Azure Cosmos DB to reduce errors and improve throughput.
+description: This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 author: plasne
 ms.service: cosmos-db
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.author: pelasne
 
 # Rate limiting Azure Cosmos DB requests in your custom application
 
-This article provides developers with a methodology to rate limit requests to Azure Cosmos DB to reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
+This article provides developers with a methodology to rate limit requests to Azure Cosmos DB. Implementing this pattern can reduce errors and improve overall performance for workloads that exceed the provisioned throughput of the target database or container.
 
 Requests that exceed your provisioned throughput in Azure Cosmos DB can result in transient faults like [TooManyRequests](troubleshoot-request-rate-too-large.md), [Timeout](troubleshoot-request-timeout.md), and [ServiceUnavailable](troubleshoot-service-unavailable.md). Typically you would retry these requests when capacity is available and be successful. However, this approach can result in a large number of requests following the error path in your code and typically results in reduced throughput.
 
@@ -20,18 +20,18 @@ Consider the following scenario:
 
 * You provision Azure Cosmos DB with 20 K RU/second.
 * Your application processes an ingestion job that contains 10 K records, each of which
-costs 10 RU. Thus, the total capacity required to complete this job is 100 K RU.
+costs 10 RU. The total capacity required to complete this job is 100 K RU.
 * If you send the entire job to Azure Cosmos DB, you should expect a large number of transient faults and a large buffer of requests that you must retry. This condition is because the total number of RUs needed for the job (100 K) is much greater than the provisioned maximum (20 K). ~2 K of the records will be accepted into the database, but ~8 K will be rejected. You will send ~8 K records to Azure Cosmos DB on retry, of which ~2 K will be accepted, and so on. You should expect this pattern would send ~30 K records instead of 10 K records.
 * Instead if you send those requests evenly across 5 seconds, you should expect no faults and overall faster throughput as each batch would be at or under the provisioned 20 K.
 
 Spreading the requests across a period of time can be accomplished by introducing a rate limiting mechanism in your code.
 
-It is important to keep in mind that RU throughput characteristics are affected by the number of physical partitions in a given container. In the example above, that 20 K RU provisioned throughput would be evenly shared across the number of partitions in the target container. For example, if Azure Cosmos DB provisioned two physical partitions, each would have 10 K RU.
+The RUs provisioned for a container will be evenly shared across the number of physical partitions. In the above example, if Azure Cosmos DB provisioned two physical partitions, each would have 10 K RU.
 
 For more information about Request Units, see [Request Units in Azure Cosmos DB
 ](request-units.md).
-For more information about estimating the number of RUs consumed by your workload, see [Request Unit considerations](request-units.md#request-unit-considerations)
-For more information about partitioning Azure Cosmos DB, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md)
+For more information about estimating the number of RUs consumed by your workload, see [Request Unit considerations](request-units.md#request-unit-considerations).
+For more information about partitioning Azure Cosmos DB, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md).
 
 ## Methodology
 
@@ -49,13 +49,13 @@ An approach to implementing rate limiting might look like this:
 
 ## Indexing
 
-Unlike other SQL and NoSQL databases you may be familiar with, Azure Cosmos DB's default indexing policy for newly created containers indexes **every** property. This default will affect the number of RUs that a write operation consumes, and that is naturally related to the number of properties in such records.
+Unlike other SQL and NoSQL databases you may be familiar with, Azure Cosmos DB's default indexing policy for newly created containers indexes **every** property. Each property indexed increases the RU cost of writes.
 
-The default indexing policy helps foster lower latency in read-heavy systems where query filter conditions are well distributed across all of the stored fields. For example, systems where Azure Cosmos DB is spending most of its time serving end-user crafted ad-hoc searches, like searching retail order history for a hyper-targeted market segment a researcher is interested in.
+The default indexing policy can lower latency in read-heavy systems where query filter conditions are well distributed across all of the stored fields. For example, systems where Azure Cosmos DB is spending most of its time serving end-user crafted ad-hoc searches might benefit.
 
-Removing properties from index could be an opportunity to improve overall system performance (cost and time) for systems that are more write-heavy, and where record retrieval patterns are more constrained and/or well known. For example, you might want to exclude properties that are never searched against from being indexed.
+You might want to exclude properties that are never searched against from being indexed. Removing properties from the index could improve overall system performance (cost and time) for systems that are write-heavy and record retrieval patterns are more constrained.
 
-Before measuring any costs, you should intentionally consider and configure indexes. Also, if you later change indexes, you will need to rerun all cost calculations. 
+Before measuring any costs, you should intentionally configure an appropriate index policy for your use-cases. Also, if you later change indexes, you will need to rerun all cost calculations. 
 
 Where possible, testing a system under development with a load reflecting typical queries at normal and peak demand conditions will help reveal what indexing policy to use.
 
@@ -66,11 +66,11 @@ For more information about indexes, see [Indexing policies in Azure Cosmos DB](i
 There are some key concepts when measuring cost:
 
 * Consider all factors that affect RU usage, as described in [request unit considerations](request-units.md#request-unit-considerations).
-* Keep in mind that all simultaneous read and write operations across all client connections for a given database or container will be held to the single provisioned throughput set for that target.
-* RU consumption is incurred, regardless of the Azure Cosmos DB APIs being used.
+* All reads and writes in your database or container will share the same provisioned throughput.
+* RU consumption is incurred regardless of the Azure Cosmos DB APIs being used.
 * The partition strategy for a collection can have a significant impact on the cost of a system. For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](partitioning-overview.md#choose-partitionkey).
 * Use representative documents and representative queries.
-  * These are documents and queries that you think are close to what the operational system will encounter.
+  * These are documents and queries that you think are close to what the operational system will come across.
   * The best way to get these representative documents and queries is to instrument the usage of your application. It is always better to make a data-driven decision.
 * Measure costs periodically.
   * Index changes, the size of indexes can affect the cost. 
@@ -90,7 +90,7 @@ The method to determine the cost of a request, is different for each API:
 The cost of write operations tends to be easy to predict. You will insert records and document the cost that Azure Cosmos reported.
 
 If you have documents of different size and/or documents that will use different indexes, it is important to measure all of them.
-You may find that all your representative documents are close enough in cost that you can assign a single value across all writes.
+You may find that your representative documents are close enough in cost that you can assign a single value across all writes.
 For example, if you found costs of 13.14 RU, 16.01 RU, and 12.63 RU, you might average those costs to 14 RU.
 
 ## Read requests
@@ -101,7 +101,7 @@ The cost of query operations can be much harder to predict for the following rea
   * It may be possible to match the queries exactly. If there is no direct match, you may have to find the representative query that it is closest to.
   * You may find that you can calculate a cost based on characteristics of the query. For example, you may find that each clause of the query has a certain cost,
   or that an indexed property costs "x" while one not indexed costs "y", etc.
-* The number of results can vary and unless you have statistics, you won't be able to predict the RU impact from the return payload.
+* The number of results can vary and unless you have statistics, you cannot predict the RU impact from the return payload.
 
 It is likely you will not have a single cost of query operations, but rather some function that evaluates the query and calculates a cost.
 If you are using the Core API, you could then evaluate the actual cost of the operation and determine how accurate your estimation was
