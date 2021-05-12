@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/12/2021
 ms.author: b-juche
 ---
 
@@ -22,6 +22,10 @@ ms.author: b-juche
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## May 2021
+
+* Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
+
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
 
 * [Support for capacity pool billing tags](manage-billing-tags.md)   
 
