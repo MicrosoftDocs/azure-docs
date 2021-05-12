@@ -66015,11 +66015,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
-      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
       "redirect_document_id": false
