@@ -15,7 +15,7 @@ ms.subservice: azure-sentinel
 
 This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel).
 
-Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your in your search, detection rules, threat hunting, and response playbooks.
+Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
 This article is intended for advanced SAP users.
 
@@ -31,7 +31,7 @@ This article is intended for advanced SAP users.
 
 ## SAP - System Applications and Products workbook
 
-Use the the [SAP - System Applications and Products](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel) workbook to visualize and monitor the data ingested via the SAP data connector.
+Use the [SAP - System Applications and Products](sap-deploy-solution.md#deploy-sap-security-content-from-azure-sentinel) workbook to visualize and monitor the data ingested via the SAP data connector.
 
 For example:
 

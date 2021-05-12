@@ -30,7 +30,7 @@ The following SAP Log change requests are required for the SAP solution, dependi
 
 - **SAP Basis versions 7.50 and higher**,  install NPLK900131
 - **SAP Basis version 7.40**,  install NPLK900132
-- **To create a SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
+- **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]
 > The required SAP log change requests expose custom RFC FMs that are required for the connector, and do not change any standard or custom objects.
