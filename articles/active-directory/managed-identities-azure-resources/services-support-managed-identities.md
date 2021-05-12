@@ -231,7 +231,7 @@ Refer to the following list to configure managed identity for Azure Functions (i
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure IoT Hub (in regions where available):
 
