@@ -14,9 +14,9 @@ In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a 
 
 ## Prerequisites
 
-1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
-1. Deploy the Event Grid Kubernetes extension. 
-1. Create a custom location.
+1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Install Event Grid extension on Kubernetes cluster](install-k8s-extension.md). This extension deploys Event Grid to a Kubernetes cluster. 
+1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it is the place where topics and event subscriptions are deployed.
 
 ## Create a topic
 
@@ -130,4 +130,6 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 :::image type="content" source="./media/create-topic-subscription/viewer-received-event.png" alt-text="View received event in Event Grid Viewer":::
 
 ## Next steps
-See [Event handlers and destinations](event-handlers.md) to learn about all the event handlers and destinations that Event Grid on Kubernetes supports. 
+See the following articles: 
+- [Event handlers and destinations](event-handlers.md) - provides information about all the event handlers and destinations that Event Grid on Kubernetes supports. 
+- [Event filtering](filter-events.md) - provides information about filtering events on event subscriptions. 

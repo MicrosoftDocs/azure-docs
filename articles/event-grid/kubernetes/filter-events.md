@@ -17,7 +17,7 @@ Event Grid on Kubernetes allows specifying filters on any property in the json p
 - Value - The reference value against which the filter is run (or) Values - The set of reference values against which the filter is run.
 
 ## Filter by event type
-By default, all [event types](event-schemas.md) for the event source are sent to the endpoint. You can decide to send only certain event types to your endpoint. The JSON syntax for filtering by event type is:
+By default, all [event types](event-schemas.md) (`type` attribute) for the event source are sent to the endpoint. You can decide to send only certain event types to your endpoint. The JSON syntax for filtering by event type is:
 
 ```json
 "filter": {
@@ -58,13 +58,15 @@ For simple filtering by subject, specify a starting or ending value for the subj
 }
 ``` 
 
-The sample event mentioned in the previous section has the subject `account/acct-123224/order/o-123456`, which begins with `/account/acct-123224/`, so the event is sent to the subscriber endpoint. 
+For example, the filter configured above will send all orders associated with the account `acct-123224` to the subscriber endpoint. 
 
-## Filter by values in the data 
+When publishing events to topics, create subjects for your events in a way that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like /A/B/C in the subject, subscribers can filter by the first segment /A to get a broad set of events. Those subscribers get events with subjects like /A/B/C or /A/D/E. Other subscribers can filter by /A/B to get a narrower set of events.
+
+## Filter by values in event data
 See [Advanced filtering section in the Event Grid on Azure article](../event-filtering.md) to learn about advanced filtering in detail. The following features and operators aren't supported by Event Grid on Kubernetes. 
 
 - Filtering on array data in keys of incoming events
-- Allow filtering on CloudEvents extensions context attributes
+- Allow filtering on [CloudEvents extensions context attributes](https://github.com/cloudevents/spec/blob/v1.0/documented-extensions.md).
 - Following operators
     - StringNotContains
     - StringNotBeginsWith
