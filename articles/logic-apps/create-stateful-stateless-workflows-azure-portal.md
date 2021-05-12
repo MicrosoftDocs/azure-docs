@@ -13,7 +13,7 @@ ms.date: 05/10/2021
 > [!IMPORTANT]
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant Logic Apps environment* by using the new **Logic App (Preview)** resource type. While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. If you're new to single-tenant Logic Apps and the **Logic App (Preview)** resource type, review [Single-tenant versus multi-tenant and integration service environment](logic-apps-overview-preview.md).
+This article shows how to create an example automated integration workflow that runs in the *single-tenant Logic Apps environment* by using the new **Logic App (Preview)** resource type. While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. If you're new to single-tenant Logic Apps and the **Logic App (Preview)** resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -30,7 +30,7 @@ The example workflow starts with the built-in Request trigger and follows with a
 
 As you progress, you'll complete these high-level tasks:
 
-* Create the logic app resource and add a blank [*stateful*](logic-apps-overview-preview.md#stateful-stateless) workflow.
+* Create the logic app resource and add a blank [*stateful*](single-tenant-overview-compare.md#stateful-stateless) workflow.
 * Add a trigger and action.
 * Trigger a workflow run.
 * View the workflow's run and trigger history.
@@ -40,7 +40,7 @@ As you progress, you'll complete these high-level tasks:
 For more information, review the following documentation:
 
 * [What is Azure Logic Apps?](logic-apps-overview.md)
-* [What is the single-tenant Logic Apps environment?](logic-apps-overview-preview.md)
+* [What is the single-tenant Logic Apps environment?](single-tenant-overview-compare.md)
 
 ## Prerequisites
 
@@ -50,10 +50,10 @@ For more information, review the following documentation:
 
   > [!NOTE]
   > The **Logic App (Preview)** resource type is powered by Azure Functions and has [storage requirements similar to function apps](../azure-functions/storage-considerations.md). 
-  > [Stateful workflows](logic-apps-overview-preview.md#stateful-stateless) perform storage transactions, such as 
+  > [Stateful workflows](single-tenant-overview-compare.md#stateful-stateless) perform storage transactions, such as 
   > using queues for scheduling and storing workflow states in tables and blobs. These transactions incur 
   > [storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
-  > how stateful workflows store data in external storage, review [Stateful and stateless workflows](logic-apps-overview-preview.md#stateful-stateless).
+  > how stateful workflows store data in external storage, review [Stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
 * To deploy to a Docker container, you need an existing Docker container image.
 
@@ -147,7 +147,7 @@ Before you start these steps, you need a Docker container image. For example, yo
 
    ![Screenshot that shows the logic app resource menu with "Workflows" selected, and then hen on the toolbar, "Add" is selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-add-blank-workflow.png)
 
-1. After the **New workflow** pane opens, provide a name for your workflow, and choose the state type, either [**Stateful** or **Stateless**](logic-apps-overview-preview.md#stateful-stateless). When you're done, select **Create**.
+1. After the **New workflow** pane opens, provide a name for your workflow, and choose the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you're done, select **Create**.
 
    This example adds a blank stateful workflow named `Fabrikam-Stateful-Workflow`. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 

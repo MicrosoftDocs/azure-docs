@@ -26746,6 +26746,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-overview-preview.md",
+      "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
       "redirect_url": "/azure/machine-learning/",
       "redirect_document_id": false
