@@ -106,7 +106,7 @@ In this quickstart, you will:
 1. Edit the *operations.json* file:
     * Change the link to the live pipeline topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/lvateam/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
 
