@@ -23,6 +23,8 @@ and [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/app
 
 **Windows Server 2019**
 
+Version: 21.05.12
+
 Selected version updates are:
 - CUDA 11.1
 - Python 3.8
