@@ -93,8 +93,8 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 1. Edit the operations.json file:
     
     * Change the link to the pipeline topology:
-    * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/line-crossing/topology.json"
-    * Under `livePipelineSet`, edit the name of the topology to match the value in the preceding link:
+    * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/line-crossing/topology.json"
+    * Under livePipelineSet, edit the name of the topology to match the value in the preceding link:
     * "topologyName" : "LineCrossingWithHttpExtension"
     * Under `pipelineTopologyDelete`, edit the name:
     * "name" : "LineCrossingWithHttpExtension"

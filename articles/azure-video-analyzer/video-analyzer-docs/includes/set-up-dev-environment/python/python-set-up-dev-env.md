@@ -10,7 +10,7 @@ ms.author: juliako
 1. Clone the [AVA python samples repository](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-python). <!--TODO: replace this  https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-python -->.
 1. Start Visual Studio Code, and open the folder where the repo has been downloaded.
 1. In Visual Studio Code, browse to the src/cloud-to-device-console-app folder and create a file named **appsettings.json**. This file contains the settings needed to run the program.
-1. Browse to the file share in the storage account created in the setup step above, and locate the **appsettings.json** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
+1. Browse to the file share in the storage account created in the setup step above, and locate the **app-settings.json** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
     ```json
     {  
         "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
@@ -20,7 +20,7 @@ ms.author: juliako
     ```
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub. Copy the above JSON into the **src/cloud-to-device-console-app/appsettings.json** file.
 1. Next, browse to the src/edge folder and create a file named **.env**. This file contains properties that Visual Studio Code uses to deploy modules to an edge device.
-1. Browse to the file share in the storage account created in the setup step above, and locate the **env** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
+1. Browse to the file share in the storage account created in the setup step above, and locate the **env.txt** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
    ```
         SUBSCRIPTION_ID="<Subscription ID>"  
         RESOURCE_GROUP="<Resource Group>" 
@@ -31,7 +31,7 @@ ms.author: juliako
         CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
         CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
     ```
-    Copy the above JSON into the **src/edge/.env** file.
+    Copy the JSON from your **env.txt** into the **src/edge/.env** file.
 
 ### Connect to the IoT Hub
 

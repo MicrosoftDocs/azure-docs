@@ -7,14 +7,20 @@ ms.date: 04/26/2021
 ---
 # Production readiness and best practices
 
-This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](https://docs.microsoft.com/azure/iot-edge/production-checklist) article on preparing your IoT Edge solution.
+This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution.
 
 > [!NOTE]
 > You should consult your organizations’ IT departments on aspects related to security.
 
+## Creating the Video Analyzer account
+When you [create](create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
+1. The subscription owner should create a resource group under which all resources needed by Video Analyzer are to be created.
+1. Then, the owner should grant you [Contributor](../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
+1. You can then create the relevant resources: Storage account, user-assigned managed identity, and Video Analyzer account under that resource group.
+
 ## Running the module as a local user
 
-When you deploy the Video Analyzer edge module to an edge device, by default it runs with elevated privileges. When you do this, if you check the logs on the module (`sudo iotedge logs {name-of-module}`), you will see the following:
+When you deploy the Video Analyzer edge module to an IoT Edge device, by default it runs with elevated privileges. You can check this using the logs from the module (`sudo iotedge logs {name-of-module}`) which would show:
 
 ```
 !! production readiness: user accounts – Warning
@@ -56,18 +62,18 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 
 The Video Analyzer edge module requires the ability to write files to the local file system when:
 
-- Using a module twin property [`ApplicationDataDirectory`](module-twin-configuration-schema.md), where you should specify a directory on the local file system for storing configuration data.
+- Using a module twin property [`applicationDataDirectory`](module-twin-configuration-schema.md), where you should specify a directory on the local file system for storing configuration data.
 - Using a pipeline to record video to the cloud, the module requires the use of a directory on the edge device as a cache (see [Continuous video recording](continuous-video-recording.md) article for more information).
-- [Recording to a local file](event-based-video-recording-concept.md), where you should specify a file path for the recorded video.
+- [Recording to a local file](event-based-video-recording-concept.md), where you specify a file path for the recorded video.
 
-If you intend to make use of any of the above, you should ensure that the above user account has access to the relevant directory. Consider applicationDataDirectory for example. You can create a directory on the edge device and link device storage to module storage.
+If you intend to make use of any of the above, you should ensure that the above user account has access to the relevant directory. Consider `applicationDataDirectory` for example. You can create a directory on the edge device and link device storage to module storage.
 
 ```
 sudo mkdir /var/lib/videoanalyzer
 sudo chown -R localedgeuser:localedgegroup /var/lib/videoanalyzer
 ```
 
-Next, in the create options for the edge module in the deployment manifest, you can add a binds setting mapping the directory (“/var/lib/videoanalyzer”) above to a directory in the module (such as “/var/lib/videoanalyzer”). And you would use the latter directory as the value for the applicationDataDirectory.
+Next, in the create options for the edge module in the deployment manifest, you can add a `binds` setting mapping the directory ("/var/lib/videoanalyzer") above to a directory in the module (such as "/var/lib/videoanalyzer"). And you would use the latter directory as the value for `applicationDataDirectory`.
 
 ```
 "avaedge": {
@@ -92,35 +98,34 @@ Next, in the create options for the edge module in the deployment manifest, you 
     …
     
     "avaedge": {
-    "properties.desired": {
-    "applicationDataDirectory": "/var/lib/videoanalyzer",
+       "properties.desired": {
+       "applicationDataDirectory": "/var/lib/videoanalyzer",
     …
     }
 }
 ```
 
-If you look at the sample pipelines for the quickstart and tutorials, such as [continuous video recording](use-continuous-video-recording.md), you will note that the media cache directory (localMediaCachePath) uses a subdirectory under applicationDataDirectory. This is the recommended approach, since the cache contains transient data.
+If you look at the sample pipelines for the quickstart, and tutorials such as [continuous video recording](use-continuous-video-recording.md), you will note that the media cache directory (`localMediaCachePath`) uses a subdirectory under `applicationDataDirectory`. This is the recommended approach, since the cache contains transient data.
 
 ### Naming video or files
 
-Pipelines allows for creation of videos in the cloud or as .mp4 files on the edge device. These can be generated by [continuous video recording](use-continuous-video-recording.md) or by [event-based video recording](record-event-based-live-video.md). While these can be named as you want, the recommended naming structure for continuous video recording-based video is "<anytext>-${System.TopologyName}-${System.PipelineName}".
+Pipelines allows for recording of videos to the cloud, or as MP4 files on the edge device. These can be generated by [continuous video recording](use-continuous-video-recording.md) or by [event-based video recording](record-event-based-live-video.md).
 
-Substitution pattern is defined by the $ sign followed by braces: **${variableName}**.
-
-As an example, you can set the video name on the Video Sink  as follows:
+The recommended naming structure for recording to the cloud is to name the video resource as "<anytext>-${System.TopologyName}-${System.PipelineName}". A given live pipeline can only connect to one RTSP-capable IP camera, and you should record the input from that camera to one video resource. As an example, you can set the `VideoName` on the Video Sink as follows:
 
 ```
-"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}
+"VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"
 ```
+Note that the substitution pattern is defined by the `$` sign followed by braces: **${variableName}**.
 
-Or on the File Sink  as follows:
+When recording to MP4 files on the edge device using event-based recording, you can use:
 
 ```
-"fileNamePattern": "sampleFilesFromEVR-${fileSinkOutputName}--${System.TopologyName}-${System.PipelineName} ${System.Runtime.DateTime}"
+"fileNamePattern": "sampleFilesFromEVR-${System.TopologyName}-${System.PipelineName}-${fileSinkOutputName}-${System.Runtime.DateTime}"
 ```
 
 > [!Note]
-> In the example above, the variable **fileSinkOutputName** is a sample variable name that you define in the pipeline instance. This is **not** a system variable.
+> In the example above, the variable **fileSinkOutputName** is a sample variable name that you define when creating the live pipeline. This is **not** a system variable. Note how the use of **DateTime** ensures a unique MP4 file name for each event.
 
 #### System variables
 
@@ -134,14 +139,14 @@ Some system defined variables that you can use are:
 | System.PipelineName    | User provided name of the executing graph instance.          | camera001            |
 
 > [!Tip]
-> System.Runtime.PreciseDateTime and System.Runtime.DateTime cannot be used when naming videos in the cloud
+> System.Runtime.PreciseDateTime and System.Runtime.DateTime cannot be used when naming videos in the cloud.
 
 ### Tips about maintaining your edge device
 
 > [!Note]
 > The tips below are not an exhaustive list but should help with commonly known issues we have encountered.
 
-The Linux VM that you are using as an edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
+The Linux VM that you are using as an IoT Edge device can become unresponsive if it is not managed on a periodic basis. It is essential to keep the caches clean, eliminate unnecessary packages and remove unused containers from the VM as well. To do this here is a set of recommended commands, you can use on your edge VM.
 
 - `sudo apt-get clean`
 
@@ -159,11 +164,11 @@ The auto remove option removes packages that were automatically installed becaus
 
 - `sudo docker system prune`
 
-Docker takes a conservative approach to cleaning up unused objects (often referred to as “garbage collection”), such as images, containers, volumes, and networks: these objects are generally not removed unless you explicitly ask Docker to do so. This can cause Docker to use extra disk space. For each type of object, Docker provides a prune command. In addition, you can use docker system prune to clean up multiple types of objects at once. For more information, see [Prune unused Docker objects](https://docs.docker.com/config/pruning/).
+Docker takes a conservative approach to cleaning up unused objects (often referred to as “garbage collection”), such as images, containers, volumes, and networks: these objects are generally not removed unless you explicitly ask Docker to do so. This can cause Docker to use extra disk space. For each type of object, Docker provides a prune command. In addition, you can use `docker system prune` to clean up multiple types of objects at once. For more information, see [Prune unused Docker objects](https://docs.docker.com/config/pruning/).
 
 - `sudo docker rmi REPOSITORY:TAG`
 
-As updates happen on the edge module, your docker can have older versions of the edge module still present. In such a case, it is advisable to use the docker rmi command to remove specific images identified by the image version tag.
+As updates happen on the edge module, your docker can have older versions of the edge module still present. In such a case, it is advisable to use the `docker rmi` command to remove specific images identified by the image version tag.
 
 ## Next steps
 

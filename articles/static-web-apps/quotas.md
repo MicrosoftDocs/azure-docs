@@ -1,6 +1,6 @@
 ---
-title: Quotas in Azure Static Web Apps Preview
-description: Learn about quotas associated with Azure Static Web Apps Preview
+title: Quotas in Azure Static Web Apps
+description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,12 +9,9 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Quotas in Azure Static Web Apps Preview
+# Quotas in Azure Static Web Apps
 
-The following quotas exist for Azure Static Web Apps Preview.
-
-> [!IMPORTANT]
-> Azure Static Web Apps is in public preview and is not intended for production use.
+The following quotas exist for Azure Static Web Apps.
 
 | Feature                     | Free plan        |
 |-----------------------------|------------------|

@@ -43,7 +43,7 @@
   - name: Use event-based video recording
     href: record-event-based-live-video.md
   - name: Use line crossing
-    href: use-line-crossing.md #404
+    href: use-line-crossing.md
   - name: Analyze live video
     items:
     - name: With OVMS via HTTP extension
@@ -63,8 +63,6 @@
     href: pipeline.md
   - name: Video recording
     href: video-recording.md
-  - name: Widgets
-    href: widgets.md #404
   - name: Scenarios 
     items:
     - name: Pipeline extension
@@ -79,8 +77,6 @@
   items:
   - name: Create a new account
     href: create-video-analyzer-account.md
-  - name: Set up your dev environment
-    href: set-up-dev-environment.md #404
   - name: Troubleshoot
     href: troubleshoot.md
   - name: Deploying Video Analyzer
@@ -107,8 +103,8 @@
       href: use-access-policies-playback.md #404
     - name: Manage recording policy
       href: manage-recording-policy.md
-    - name: Use widgets
-      href: use-widgets.md #404
+    - name: Using the Azure Video Analyzer player widget
+      href: player-widget.md
   - name: Azure integration
     items:
     - name: Managed identity
@@ -121,8 +117,6 @@
       href: monitor-log-edge.md 
 - name: Reference 
   items:
-  - name: Cookies
-    href: auth-session-cookies.md #404
   - name: Client APIs #404
     href: client-apis.md
   - name: Cloud APIs #404
