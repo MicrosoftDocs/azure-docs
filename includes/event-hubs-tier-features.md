@@ -17,10 +17,10 @@ The following table shows the list of features that are available (or not availa
 | ------- | -------- | ------- | --------- |
 | Tenancy | Multi-tenant | Multi-tenant with resource isolation | Exclusive single tenant |
 | Private link | Yes | Yes | Yes |
-| Customer-managed key <br/>(Bring your own key) | No | Yes | Yes |
+| Customer-managed key <br/>(Bring your own key) | N/A | Yes | Yes |
 | Capture | Priced separately | Included | Included |
-| Dynamic Partition scale out | NA | Yes | Yes |
-| Log Compaction | NA | Yes | Yes |
+| Dynamic Partition scale out | N/A | Yes | Yes |
+| Ingress events | Pay per million events | Included | Included
 
 
 
