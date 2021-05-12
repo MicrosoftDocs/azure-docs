@@ -86,13 +86,13 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 ## Train locally
 
-When prototyping and training models that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training runs](how-to-set-up-training-targets.md#select-a-compute-target).
+When prototyping and training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training runs](how-to-set-up-training-targets.md#select-a-compute-target).
 
-Visual Studio Code provides a full-featured environment for developing your environments. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
+Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
 
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization though, so depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
 
 ## Archive and delete stale data
 
