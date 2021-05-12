@@ -277,7 +277,9 @@
           items:
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-    - name: Manage certificates
+          - name: VM image upload
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md    
+      - name: Manage certificates
       items:
       - name: Requirements
         href: azure-stack-edge-gpu-certificate-requirements.md 
