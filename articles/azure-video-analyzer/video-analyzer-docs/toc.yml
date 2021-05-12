@@ -75,46 +75,52 @@
       href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
-  - name: Create a new account
-    href: create-video-analyzer-account.md
-  - name: Troubleshoot
-    href: troubleshoot.md
-  - name: Deploying Video Analyzer
-    items:  
-    - name: Deploy to an IoT Edge device
-      href: deploy-iot-edge-device.md
-    - name: Deploy to an IoT Edge for Linux on Windows
-      href: deploy-iot-edge-linux-on-windows.md
-  - name: Scenarios
+  - name: Setup
     items:
-    - name: Record and stream inference data with video
-      href: record-stream-inference-data-with-video.md #404
-    - name: Playback a recording
-      href: playback-recordings-how-to.md
-    - name: Configure a signal gate
-      href: configure-signal-gate.md
-    - name: Develop and deploy gRPC inference server
-      href: develop-deploy-grpc-inference-srv.md
-  - name: Back end
-    items:
-    - name: Invoke direct methods with the portal
-      href: use-azure-portal-to-invoke-direct-methods.md
-    - name: Use access policies for playback
-      href: use-access-policies-playback.md #404
-    - name: Manage recording policy
-      href: manage-recording-policy.md
-    - name: Using the Azure Video Analyzer player widget
-      href: player-widget.md
-  - name: Azure integration
-    items:
+    - name: Create a new account
+      href: create-video-analyzer-account.md
     - name: Managed identity
       href: managed-identity.md
     - name: Network Security
       href: network-security.md
     - name: Customer managed keys
       href: customer-managed-keys.md
+  - name: Deploy
+    items:  
+    - name: Deploy to an IoT Edge device
+      href: deploy-iot-edge-device.md
+    - name: Deploy to an IoT Edge for Linux on Windows
+      href: deploy-iot-edge-linux-on-windows.md
+  - name: Playback
+    items:      
+    - name: Playback a recording
+      href: playback-recordings-how-to.md
+    - name: Using the Azure Video Analyzer player widget
+      href: player-widget.md
+    - name: Use access policies for playback
+      href: access-policies.md #404
+  - name: Record
+    items:
+    - name: Record and stream inference data with video
+      href: record-stream-inference-data-with-video.md #404
+    - name: Manage recording policy
+      href: manage-recording-policy.md
+    - name: Configure a signal gate
+      href: configure-signal-gate.md
+  - name: Apply AI
+    items:      
+    - name: Develop and deploy gRPC inference server
+      href: develop-deploy-grpc-inference-srv.md
+  - name: Portal
+    items:      
+    - name: Invoke direct methods with the portal
+      href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Operate
+    items:
     - name: Monitor and logging
       href: monitor-log-edge.md 
+  - name: Troubleshoot
+    href: troubleshoot.md
 - name: Reference 
   items:
   - name: Client APIs #404
