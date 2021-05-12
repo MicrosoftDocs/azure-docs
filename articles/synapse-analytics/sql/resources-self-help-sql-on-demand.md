@@ -33,7 +33,7 @@ If your query fails with the error 'File cannot be opened because it does not ex
 Instead of granting Storage Blob Data Contributer, you can also grant more granular permissions on a subset of files. 
 
 * All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
-Learn more about this [here](../../storage/blobs/data-lake-storage-explorer-acl.md). 
+Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md). 
 
 > [!NOTE]
 > Execute permission on the container level needs to be set within the Azure Data Lake Gen2.
@@ -45,18 +45,18 @@ If you would like to query data2.csv in this example, the following permissions 
    - execute permission on folder1 
    - read permission on data2.csv
 
-![permission structure on data lake](./media/resources-self-help-sql-on-demand/folder_structure_dataLake.png)
+![Drawing showing permission structure on data lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
 
 * Log into Synapse with an admin user that has full permissions on the data you want to access.
 
 * In the data pane, right-click on the file and select MANAGE ACCESS.
 
-![Manage Access UI](./media/resources-self-help-sql-on-demand/manage_access.png)
+![Screenshot showing manage access UI.](./media/resources-self-help-sql-on-demand/manage-access.png)
 
 * Choose at least “read” permission, type in the users UPN or Object ID, for example user@contoso.com and click Add
 
 * Grant read permission for this user.
-![Grant read permissions UI](./media/resources-self-help-sql-on-demand/grant_permission.png)
+![Screenshot showing grant read permissions UI](./media/resources-self-help-sql-on-demand/grant-permission.png)
 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Synapse. 
@@ -373,13 +373,14 @@ Avoiding VARCHAR when possible, leads to better performance in queries.
 If you would like to query the file 'taxi-data.parquet' with this Query 1, Synapse SQL Serverless will return with such error.
 
 taxi-data.parquet:
-| PassengerCount        | SumTripDistance           | AvgTripDistance  |
-| ------------- |:-------------:| -----:|
-| 1 | 2635668.66000064  | 6.72731710678951 |
-| 2 | 172174.330000005  | 2.97915543404919 |
-| 3 | 296384.390000011  | 2.8991352022851  |
-| 4 | 12544348.58999806 | 6.30581582240281 |
-| 5 | 13091570.2799993  | 111.065989028627 |
+
+|PassengerCount |SumTripDistance|AvgTripDistance |
+|---------------|---------------|----------------|
+| 1 | 2635668.66000064 | 6.72731710678951 |
+| 2 | 172174.330000005 | 2.97915543404919 |
+| 3 | 296384.390000011 | 2.8991352022851  |
+| 4 | 12544348.58999806| 6.30581582240281 |
+| 5 | 13091570.2799993 | 111.065989028627 |
 
 Query 1:
 ```sql
