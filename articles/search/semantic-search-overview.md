@@ -20,14 +20,15 @@ Semantic search is a collection of query-related capabilities that add semantic 
 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
-1. [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup) on a search service that meets [regional and tier requirements](#availability-and-pricing).
-1. Upon acceptance into the preview program, create or modify query requests to return [semantic captions and highlights](semantic-how-to-query-request.md).
+1. [Check regional and service tier requirements](#availability-and-pricing).
+1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup).
+1. Upon acceptance, create or modify queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
 1. Add a few more query properties to also return [semantic answers](semantic-answers.md).
-1. Optionally, include a [spell check](speller-how-to-add.md) query property to maximize precision and recall.
+1. Optionally, include a [spell check](speller-how-to-add.md) property to maximize precision and recall.
 
 ## What is semantic search?
 
-Semantic search is an optional layer of query-related AI that extends the traditional query execution pipeline in two ways. It adds a semantic ranking model, and it returns additional properties in the response that improve the user experience.
+Semantic search is an optional layer of query-related AI. When enabled on your search service, it extends the traditional query execution pipeline in two ways. First, it adds an optional semantic ranking model; and second, it returns captions and answers in the response.
 
 *Semantic ranking* looks for context and relatedness among terms, elevating matches that make more sense given the query. Language understanding finds summarizations or *captions* and *answers* within your content and includes them in the response, which can then be rendered on a search results page for a more productive search experience.
 
@@ -39,7 +40,7 @@ The following video provides an overview of the capabilities.
 
 > [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
-## Components and workflow
+## Feature description and workflow
 
 Semantic search improves precision and recall with the addition of the following capabilities:
 
@@ -77,7 +78,7 @@ Semantic search is available through [sign-up registration](https://aka.ms/Seman
 
 There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 
 
-You can use spell check without semantic search, free of charge. Charges will accrue when query requests include `queryType=semantic`, for non-empty search strings (queries with `search=*` are not charged).
+You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged.
 
 Final pricing information will be documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
