@@ -234,7 +234,7 @@ Follow these steps to generate the manifest from the template file and then depl
 Upon successful deployment, there will be a message in OUTPUT window like this:
 
 ```
-[Edge] Start deployment to device [<Azure Stack Edge name>]
+[Edge] Start deployment to device [<edge device name>]
 [Edge] Deployment succeeded.
 ```
 
