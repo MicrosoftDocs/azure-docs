@@ -73,7 +73,7 @@ The partitioned views will perform folder partition elimination if you query thi
 
 You can use views in your queries the same way you use views in SQL Server queries.
 
-The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country/region names with their population in 2019 in descending order.
+The following query demonstrates using the *population_csv* view we created in [Create a view](#views-over-external-data). It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created.
