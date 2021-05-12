@@ -33161,6 +33161,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/articles/mysql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-virtual-machine-protection.md",
       "redirect_url": "/azure/security-center/asset-inventory",
       "redirect_document_id": false

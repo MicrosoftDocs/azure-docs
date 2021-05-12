@@ -148,8 +148,8 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Advanced threat protection
-        href: concepts-data-access-and-security-threat-protection.md
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-introduction.md
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
