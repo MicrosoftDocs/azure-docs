@@ -156,7 +156,7 @@ Spatial Analysis Web Application enables developers to quickly configure a sampl
 
 Follow the [guide](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) to build and push image to an ACR in your subscription
 
-#Setup Steps
+# Setup Steps
 
 To install the container, create a new Azure App Service and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
