@@ -58,6 +58,7 @@ Your first step is to create a database where the tables will be created. Then c
     CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
     GO
     CREATE EXTERNAL FILE FORMAT DeltaLakeFormat WITH (  FORMAT_TYPE = DELTA );
+    GO
     ```
 
 The queries in this article will be executed on your sample database and use these objects. 
@@ -134,7 +135,7 @@ CREATE EXTERNAL TABLE Covid (
      cases int,
      geo_id varchar(6)
 ) WITH (
-        LOCATION = 'covid', --> the root folder containing the delta
+        LOCATION = 'covid', --> the root folder containing the Delta Lake files
         data_source = DeltaLake,
         format = DeltaLakeFormat
 );
