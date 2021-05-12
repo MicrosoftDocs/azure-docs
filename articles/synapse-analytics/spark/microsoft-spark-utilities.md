@@ -36,7 +36,7 @@ You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ### Configure access to Azure Blob Storage  
 
-Synapse use [**Shared access signature (SAS)**](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+Synapse use [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 

@@ -16,9 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using either:
-* [OAuth 2.0 authorization code flow](./authorization-code-flow.md) (using [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [OAuth 2.0 implicit grant flow](./implicit-flow-single-page-application.md) (using [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using the [OAuth 2.0 authorization code flow](./authorization-code-flow.md) via [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
 
 In this tutorial, the first in a two-part series:
 
@@ -51,7 +49,7 @@ In the [second tutorial](./tutorial-register-spa.md) that you completed as part 
 
 To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 
-#### [App registrations (auth code flow)](#tab/app-reg-auth/)
+#### [App registrations](#tab/app-reg-auth/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -59,17 +57,6 @@ To update an application in your Azure AD B2C tenant, you can use our new unifie
 1. Select **App registrations**, select the **Owned applications** tab, and then select the *spaapp1* application.
 1. Under **Single-page Application**, select the **Add URI** link, then enter `http://localhost:6420`.
 1. Select **Save**.
-1. Select **Overview**.
-1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
-
-#### [App registrations (implicit flow)](#tab/app-reg-implicit/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations**, select the **Owned applications** tab, and then select the *spaapp1* application.
-1. Under **Single-page Application**, select the **Add URI** link, then enter `http://localhost:6420`.
-1. Under **Implicit Grant**, select the checkboxes for **Access Tokens** and **ID Tokens** if not already selected and then select **Save**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
 
@@ -89,26 +76,15 @@ To update an application in your Azure AD B2C tenant, you can use our new unifie
 
 In this tutorial, you configure a code sample that you download from GitHub to work with your B2C tenant. The sample demonstrates how a single-page application can use Azure AD B2C for user sign-up and sign-in, and to call a protected web API (you enable the web API in the next tutorial in the series).
 
-* MSAL.js 2.x authorization code flow sample:
+  [Download a zip file](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) or clone the sample from GitHub:
 
-    [Download a zip file](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) or clone the sample from GitHub:
-
-    ```
-    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
-    ```
-* MSAL.js 1.x implicit flow sample:
-
-    [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample from GitHub:
-
-    ```
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-    ```
+  ```
+  git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+  ```
 
 ## Update the sample
 
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
-
-#### [Auth code flow sample](#tab/config-auth/)
 
 1. Open the *authConfig.js* file inside the *App* folder.
 1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in an earlier step.
@@ -120,22 +96,8 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 1. Find the assignment for `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
 1. Find the assignment for `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
 
-#### [Implicit flow sample](#tab/config-implicit/)
-
-1. Open the *authConfig.js* file inside the *JavaScriptSPA* folder.
-1. In the `msalConfig` object, find the assignment for `clientId` and replace it with the **Application (client) ID** you recorded in an earlier step.
-1. Open the `policies.js` file.
-1. Find the entries under `names` and replace their assignment with the name of the user-flows you created in an earlier step, for example `B2C_1_signupsignin1`.
-1. Find the entries under `authorities` and replace them as appropriate with the names of the user-flows you created in an earlier step, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
-1. Open the `apiConfig.js` file.
-1. Find the assignment for `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
-1. Find the assignment for `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
-
-* * *
 
 Your resulting code should look similar to following:
-
-#### [Auth code flow sample](#tab/review-auth/)
 
 *authConfig.js*:
 
@@ -194,81 +156,14 @@ const apiConfig = {
 };
 ```
 
-#### [Implicit flow sample](#tab/review-implicit/)
-
-*authConfig.js*:
-
-```javascript
-const msalConfig = {
-  auth: {
-    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
-    authority: b2cPolicies.authorities.signUpSignIn.authority,
-    validateAuthority: false
-  },
-  cache: {
-    cacheLocation: "localStorage",
-    storeAuthStateInCookie: true
-  }
-};
-
-const loginRequest = {
-  scopes: ["openid", "profile"],
-};
-
-const tokenRequest = {
-  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
-};
-```
-
-*policies.js*:
-
-```javascript
-const b2cPolicies = {
-    names: {
-        signUpSignIn: "b2c_1_susi",
-        forgotPassword: "b2c_1_reset",
-        editProfile: "b2c_1_edit_profile"
-    },
-    authorities: {
-        signUpSignIn: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
-        },
-        forgotPassword: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
-        },
-        editProfile: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
-        }
-    },
-}
-```
-
-*apiConfig.js*:
-
-```javascript
-const apiConfig = {
-  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
-};
-```
-
-* * *
-
 
 ## Run the sample
 
-1. Open a console window and navigate to the directory containing the sample. 
+1. Open a console window and navigate to the directory containing the sample.
 
-    - For MSAL.js 2.x authorization code flow sample:
-
-        ```console
-        cd ms-identity-b2c-javascript-spa
-        ```
-    - For MSAL.js 1.x implicit flow sample: 
-
-        ```console
-        cd active-directory-b2c-javascript-msal-singlepageapp
-        ```
+    ```console
+    cd ms-identity-b2c-javascript-spa
+    ```
 
 1. Run the following commands:
 

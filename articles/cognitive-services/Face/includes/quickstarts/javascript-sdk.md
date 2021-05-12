@@ -160,7 +160,7 @@ Create the following helper function to wait for the **PersonGroup** to finish t
 ### Create a PersonGroup
 
 The following code:
-- Creates a [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup)
+- Creates a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)
 - Adds faces to the **PersonGroup** by calling `AddFacesToPersonGroup`, which you defined previously.
 - Trains the **PersonGroup**.
 - Identifies the faces in the **PersonGroup**.

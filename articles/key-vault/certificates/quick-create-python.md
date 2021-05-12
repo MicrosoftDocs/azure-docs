@@ -7,7 +7,7 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 
 ---
 

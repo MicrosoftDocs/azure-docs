@@ -4,7 +4,8 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 05/05/2021
+ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
 
@@ -12,9 +13,9 @@ ms.author: v-erkel
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
 
-You can define up to 20 different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
+You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
-The namespace paths are configured separately after you add the storage targets.
+The cache presents all of the storage targets in one aggregated namespace. The namespace paths are configured separately after you add the storage targets.
 
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
@@ -29,6 +30,15 @@ The procedure to add a storage target is slightly different depending on the typ
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## Size your cache correctly to support your storage targets
+
+The number of supported storage targets depends on the cache size, which is set when you create the cache. The size is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+
+* Up to 10 storage targets - If you choose the smallest or medium cache storage size for your selected throughput value, your cache can have up to 10 storage targets.
+* Up to 20 storage targets - Choose the highest available cache size for your selected throughput value if you want to use more than 10 storage targets. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
+
+Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
 
 ## Add a new Azure Blob storage target
 
@@ -78,6 +88,23 @@ The storage account owner must explicitly add the roles [Storage Account Contrib
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
+1. Open **Access control (IAM)** for your storage account.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
+    | Assign access to | HPC Cache Resource Provider |
+
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+   > [!NOTE]
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. Users who participated in HPC Cache previews (before GA) might need to use the older name for the service principal.
+
+<!-- 
 Steps to add the Azure roles:
 
 1. Open the **Access control (IAM)** page for the storage account. (The link in the **Add storage target** page automatically opens this page for the selected account.)
@@ -97,7 +124,7 @@ Steps to add the Azure roles:
 
 1. Repeat this process to assign the role "Storage Blob Data Contributor".  
 
-![screenshot of add role assignment GUI](media/hpc-cache-add-role.png)
+![screenshot of add role assignment GUI](media/hpc-cache-add-role.png) -->
 
 ### [Azure CLI](#tab/azure-cli)
 

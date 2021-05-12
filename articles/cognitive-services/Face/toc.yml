@@ -1,3 +1,4 @@
+items:
 - name: Face Documentation
   href: index.yml
 - name: Overview
@@ -40,7 +41,7 @@
   - name: Use the Face container
     items:
     - name: Containers overview
-      href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
+      href: ../cognitive-services-container-support.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
     - name: Install and run containers
       href: face-how-to-install-containers.md
     - name: Configure containers
@@ -77,13 +78,13 @@
   - name: Face REST API
     href: APIReference.md
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
     href: /javascript/api/@azure/cognitiveservices-face
   - name: Python
-    href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    href: /python/api/azure-cognitiveservices-vision-face/
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
 - name: Resources
@@ -95,7 +96,7 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Learn modules
-    href: https://docs.microsoft.com/learn/modules/detect-analyze-faces/
+    href: /learn/modules/detect-analyze-faces/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
   - name: Azure updates

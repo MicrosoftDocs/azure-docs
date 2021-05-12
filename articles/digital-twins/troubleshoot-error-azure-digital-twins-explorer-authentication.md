@@ -26,13 +26,13 @@ The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotn
 
 As the error text states, this error may occur if you have not provided local credentials for `DefaultAzureCredential` to pick up.
 
-For more information about using local credentials with Azure Digital Twins Explorer, see the [*Set up local Azure credentials*](quickstart-adt-explorer.md#set-up-local-azure-credentials) section of the Azure Digital Twins *Quickstart: Explore a sample scenario*.
+For more information about using local credentials with Azure Digital Twins Explorer, see the [Set up local Azure credentials](./quickstart-azure-digital-twins-explorer.md#set-up-local-azure-credentials) section of the Azure Digital Twins *Quickstart: Explore a sample scenario*.
 
 ### Cause #2
 
 This error may also occur if your Azure account does not have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the **Azure Digital Twins Data Reader** or **Azure Digital Twins Data Owner** role on the instance you are trying to read or manage, respectively. 
 
-For more information about security and roles in Azure Digital Twins, see [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+For more information about security and roles in Azure Digital Twins, see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md).
 
 ## Solutions
 
@@ -73,12 +73,12 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"
 ```
 
-For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more details about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md)
+* [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
-* [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
+* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)

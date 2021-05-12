@@ -230,7 +230,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     cd $APP_PATH
     
     # Activate the venv
-    source /antenv/bin/activate
+    source antenv/bin/activate
 
     # Install requirements
     pip install -r requirements.txt
@@ -390,7 +390,7 @@ Open an SSH session again in the browser by navigating to `https://<app-name>.sc
 
 ```
 cd $APP_PATH
-source /antenv/bin/activate
+source antenv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 ```
