@@ -5,7 +5,7 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
