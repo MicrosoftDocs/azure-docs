@@ -1,15 +1,15 @@
 ---
 title: Track objects in a live video with Azure Video Analyzer
-description: This quickstart shows you how to use Azure Video Analyzer on IoT Edge to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
+description: This quickstart shows you how to use Azure Video Analyzer edge module to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 05/01/2021
 ---
 
 # Quickstart: Track objects in a live video
 
-This quickstart shows you how to use Azure Video Analyzer on IoT Edge to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
+This quickstart shows you how to use Azure Video Analyzer edge module to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 
-The object tracker comes in handy when you need to detect objects in every frame, but the edge device does not have the necessary compute power to be able to apply the vision model on every frame. If the live video feed is at, say 30 frames per second, and you can only run your computer vision model on every 10th frame, the object tracker takes the results from one such frame, and then uses [optical flow](https://en.wikipedia.org/wiki/Optical_flow) techniques to generate results for the 2nd, 3rd,…, 9th frame, until the model is applied again on the next frame.
+The object tracker comes in handy when you need to detect objects in every frame, but the edge device does not have the necessary compute power to be able to apply the vision model on every frame. If the live video feed is at, say 30 frames per second, and you can only run your computer vision model on every 15th frame, the object tracker takes the results from one such frame, and then uses [optical flow](https://en.wikipedia.org/wiki/Optical_flow) techniques to generate results for the 2nd, 3rd,…, 14th frame, until the model is applied again on the next frame.
 
 This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
 
@@ -28,9 +28,13 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/object-tracker-topology.svg" alt-text="Track objects in live video":::
 
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
-The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub sink node. This [IoT Hub sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+The HTTP extension node plays the role of a proxy. It converts every 15th video frame to the specified image type. Then it relays the image over HTTP to ananother edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model which can detect many types of objects. The HTTP extension processor node receives the detection results and sends these results and all the video frames (not just the 15th frame) to the [object tracker](pipeline.md#object-tracker-processor) node. The object tracker node uses optical flow techniques to track the object in the 14 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+
+> [!NOTE]
+> You should review the discussion of the about the trade-off between accuracy and processing power with the [object tracker](pipeline.md#object-tracker-processor) node.
+
 
 In this quickstart, you will:
 
@@ -59,7 +63,7 @@ In this quickstart, you will:
 
     * The Video Analyzer edge module, named **avaedge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed. 
-    * The **avaextension** module, which is the YOLOv3 object detection model that applies computer vision to images and returns multiple classes of object types
+    * The **yolov3** module, which uses the YOLOV3 model to detect a variety of objects
 
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
@@ -82,7 +86,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 1. Edit the operations.json file:
     
     * Change the link to the pipeline topology:
-    * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/object-tracking/topology.json"
+    * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/object-tracking/topology.json"
     * Under livePipelineSet, edit the name of the graph topology to match the value in the preceding link:
     * "topologyName" : "ObjectTrackingWithHttpExtension"
     * Under pipelineTopologyDelete, edit the name:
@@ -105,7 +109,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
 ## Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The operations.json code starts off with calls to the direct methods pipelineTopologyList and livePipelineList. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+1. The operations.json code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
     
     ```
     -------------------------------Executing operation pipelineTopologyList-----------------------  
@@ -126,8 +130,8 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
     
     The **TERMINAL** window shows the next set of direct method calls:
     
-    * A call to pipelineTopologySet that uses the contents of pipelineTopologyUrl
-    * A call to livePipelineSet that uses the following body:
+    * A call to `pipelineTopologySet` that uses the contents of `pipelineTopologyUrl`
+    * A call to `livePipelineSet` that uses the following body:
         
     ```json
     {
@@ -135,11 +139,11 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
       "name": "Sample-Pipeline-1",
       "properties": {
         "topologyName": "ObjectTrackingWithHttpExtension",
-        "description": "Sample graph description",
+        "description": "Sample pipeline description",
         "parameters": [
           {
             "name": "rtspUrl",
-            "value": "rtsp://rtspsim:554/media/XXXXXXXX.mkv"
+            "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
           },
           {
             "name": "rtspUserName",
@@ -153,27 +157,27 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
       }
     }
     ```
-    * A call to livePipelineActivate that starts the live pipeline and the flow of video.
-    * A second call to livePipelineList that shows that the live pipeline is in the running state.
-1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
-1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
+    * A call to `livePipelineActivate` that activates the live pipeline and the flow of video.
+    * A second call to `livePipelineList` that shows that the live pipeline is in the running state.
+1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Do not press Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. The live pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
 1. The next series of calls cleans up resources:
 
-    * A call to livePipelineDeactivate deactivates the live pipeline.
-    * A call to livePipelineDelete deletes the live pipeline.
-    * A call to pipelineTopologyDelete deletes the pipeline topology.
-    * A final call to pipelineTopologyList shows that the list is empty.
+    * A call to `livePipelineDeactivate` deactivates the live pipeline.
+    * A call to `livePipelineDelete` deletes the live pipeline.
+    * A call to `pipelineTopologyDelete` deletes the pipeline topology.
+    * A final call to `pipelineTopologyList` shows that the list is empty.
     
 ## Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the live pipeline, the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
-When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished.
+When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is **MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:
@@ -192,7 +196,7 @@ When a live pipeline is activated, the RTSP source node attempts to connect to t
 
 In this message, notice these details:
 
-* The message is a diagnostics event. MediaSessionEstablished indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
+* The message is a diagnostics event. **MediaSessionEstablished** indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
 * In applicationProperties, subject indicates that the message was generated from the RTSP source node in the live pipeline.
 * In applicationProperties, eventType indicates that this event is a diagnostics event.
 * The eventTime indicates the time when the event occurred.
@@ -200,7 +204,7 @@ In this message, notice these details:
 
 ## Object tracking events
 
-The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the avaextension module, and receives the inference results. It then sends these results and all video frames to the object tracker node. Suppose an object was detected on frame 0 – then the object tracker will assign a unique sequenceId to that object. Then, in frames 1, 2,…,14, if it can track that object, it will output a result with the same sequenceId. In the following snippets from the results, note how the `sequenceId` is repeated, but the location of the bounding box has changed, as the object is moving.
+The HTTP extension processor node sends the 0th, 15th, 30th, … etc. frames to the yolov3 module, and receives the inference results. It then sends these results and all video frames to the object tracker node. Suppose an object was detected on frame 0 – then the object tracker will assign a unique `sequenceId` to that object. Then, in frames 1, 2,…,14, if it can track that object, it will output a result with the same `sequenceId`. In the following snippets from the results, note how the `sequenceId` is repeated, but the location of the bounding box has changed, as the object is moving.
 
 From frame M:
 
@@ -254,7 +258,7 @@ From frame N:
 
 ## Next steps
 
-* Try running different pipeline topologies using gRPC protocol.
+* Try [detecting when objects cross a virtual line in a live video](use-line-crossing.md).
 
 
 
