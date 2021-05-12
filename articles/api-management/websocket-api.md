@@ -113,4 +113,8 @@ The following policies are not supported by and cannot be applied to the onHands
 > [!NOTE]
 > If you applied the policies at higher scopes (i.e., global or product) and they were inherited by a WebSocket API through the policy, they will be skipped at run time.
 
+[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+
 ## Next steps
+> [!div class="nextstepaction"]
+> [Transform and protect a published API](transform-api.md)
