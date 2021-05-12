@@ -8,7 +8,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/29/2021
+ms.date: 03/31/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -29,6 +29,7 @@ You might consider using LRS in the following cases:
 - The Database Migration Service executable file doesn't have file access to database backups.
 - No access to the host OS is available, or there are no administrator privileges.
 - You can't open network ports from your environment to Azure.
+- Network throttling, or proxy blocking issues in your environment.
 - Backups are stored directly to Azure Blob Storage through the `TO URL` option.
 - You need to use differential backups.
 

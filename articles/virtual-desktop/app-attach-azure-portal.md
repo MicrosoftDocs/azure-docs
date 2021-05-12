@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Set up MSIX app attach with the Azure portal
 

@@ -98,6 +98,16 @@ Below data sources are supported to connect through private link from ADF Manage
 - Southeast Asia
 - Australia East
 - Australia Southeast
+- Norway East
+- Japan East
+- Japan West
+- Korea Central
+- Brazil South
+- France Central
+- Switzerland North
+- UK West
+- Canada East
+- Canada Central
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.

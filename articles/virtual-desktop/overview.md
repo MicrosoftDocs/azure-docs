@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # What is Windows Virtual Desktop?
 

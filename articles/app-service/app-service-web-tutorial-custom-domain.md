@@ -47,6 +47,8 @@ To map a custom DNS name to a web app, the web app's [App Service plan](https://
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
+  > [!NOTE]
+  > Removing or adding a custom domain to your web app will cause your site to be restarted.
 ### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com), and sign in with your Azure account.

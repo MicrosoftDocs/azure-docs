@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 The reporting architecture in Azure Active Directory (Azure AD) consists of the following components:
 
 - **Activity** 
-    - **Sign-ins** – Information about when users, applications, and managed resources sign in to Azure AD to and access resources.
+    - **Sign-ins** – Information about when users, applications, and managed resources sign in to Azure AD and access resources.
     - **Audit logs** - [Audit logs](concept-audit-logs.md) provide system activity information about users and group management, managed applications, and directory activities.
 - **Security** 
     - **Risky sign-ins** - A [risky sign-in](../identity-protection/overview-identity-protection.md) is an indicator for a sign-in attempt by someone who isn't the legitimate owner of a user account.

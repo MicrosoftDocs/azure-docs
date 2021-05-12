@@ -87,6 +87,8 @@ If you'd like to share feedback or encounter issues with this feature, share via
 
 Administrator provisioning and de-provisioning of security keys is not available.
 
+**Note:** FIDO2 Cached logon fails on hybrid Azure AD joined machine specific to win10 20H2 version (when LOS to DC unavailable). This is currently under investigation with Engineering.
+
 ### UPN changes
 
 We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.

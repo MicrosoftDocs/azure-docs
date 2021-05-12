@@ -94,6 +94,23 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
    - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (e.g. using computer display name prefix), you should be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
+> [!NOTE]
+> When using non-persistent VDI, if you want to prevent a device join state ensure the following registry key is set:  
+> `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
+>
+> Ensure you are running Windows 10, version 1803 or higher.  
+>
+> Roaming any data under the path `%localappdata%` is not supported. If you choose to move content under `%localappdata%`, make sure that the content of the following folders and registry keys **never** leaves the device under any condition. For example: Profile migration tools must skip the following folders and keys:
+>
+> * `%localappdata%\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy`
+> * `%localappdata%\Packages\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy`
+> * `%localappdata%\Packages\<any app package>\AC\TokenBroker`
+> * `%localappdata%\Microsoft\TokenBroker`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+>
+
+
 ### Persistent VDI
 
 When deploying persistent VDI, Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in deployment and authentication issues. 

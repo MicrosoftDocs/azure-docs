@@ -66,13 +66,13 @@ You can use the REST API to programmatically manage data masking policy and rule
 
 ### Data masking policies
 
-- [Create Or Update](/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates a database data masking policy.
-- [Get](/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 
+- [Create Or Update](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate): Creates or updates a database data masking policy.
+- [Get](/rest/api/sql/2014-04-01/datamaskingpolicies/get): Gets a database data masking policy. 
 
 ### Data masking rules
 
-- [Create Or Update](/rest/api/sql/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
-- [List By Database](/rest/api/sql/datamaskingrules/listbydatabase): Gets a list of database data masking rules.
+- [Create Or Update](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
+- [List By Database](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): Gets a list of database data masking rules.
 
 ## Permissions
 

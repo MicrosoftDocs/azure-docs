@@ -62,7 +62,7 @@ To configure this setting in Azure portal, follow these steps:
 ### Set default management group with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use the
 following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
 group and `{defaultGroupID}` with the ID of the management group to become the default management
 group:
@@ -115,7 +115,7 @@ To configure this setting in Azure portal, follow these steps:
 ### Set require authorization with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use the
 following REST API URI and body format. This value is a _boolean_, so provide either **true** or
 **false** for the value. A value of **true** enables this method of protecting your management group
 hierarchy:

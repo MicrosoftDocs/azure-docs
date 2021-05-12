@@ -85,7 +85,7 @@ Read the license terms prior to using the agent. Your installation and use const
 Now, the device needs to be added to the Azure IoT Hub.  From within Azure
 IoT Hub, a connection string will be generated for the device.
 
-1. From the Azure portal, launch the Device Update IoT Hub.
+1. From the Azure portal, launch the Azure IoT Hub.
 2. Create a new device.
 3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' >
    Select "New".
@@ -110,9 +110,9 @@ IoT Hub, a connection string will be generated for the device.
  
 Replace `<device connection string>` with your connection string
  ```markdown
-	echo "connection_string=<device connection string>" > adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-	echo "aduc_model=RefDevice" >> adu-conf.txt
+	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## Connect the device in Device Update IoT Hub
@@ -138,9 +138,9 @@ Use that version number in the Import Update step below.
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 

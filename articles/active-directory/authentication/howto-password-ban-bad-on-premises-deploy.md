@@ -85,7 +85,7 @@ The following core requirements apply:
 * The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012 and later versions. By default, this service is enabled via manual trigger start.
 
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for Azure AD Password Protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service.
-    * By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
+    * By default, the RPC server port is a dynamic RPC port from the range (49152 - 65535), but it can be configured to [use a static port](#static).
 * All machines where the Azure AD Password Protection Proxy service will be installed must have network access to the following endpoints:
 
     |**Endpoint**|**Purpose**|

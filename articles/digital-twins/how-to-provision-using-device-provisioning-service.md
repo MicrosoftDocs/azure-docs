@@ -303,7 +303,7 @@ Once you have gone through this flow, everything is set to retire devices end-to
 
 To trigger the process of retirement, you need to manually delete the device from IoT Hub.
 
-You can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the Azure portal. 
+You can do this with an [Azure CLI command](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) or in the Azure portal. 
 Follow the steps below to delete the device in the Azure portal:
 
 1. Navigate to your IoT hub, and choose **IoT devices** in the menu options on the left. 

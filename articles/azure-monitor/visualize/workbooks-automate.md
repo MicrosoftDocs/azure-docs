@@ -94,19 +94,19 @@ There are two types of workbook resources that can be managed programmatically:
 
 ### Galleries
 
-| Gallery                                        | Resource type                                      | Workbook type |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Workbooks in Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
-| VM Insights in Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
-| Workbooks in Log analytics workspace           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Workbooks in Application Insights              | `microsoft.insights/component`                     | `workbook`    |
-| Troubleshooting guides in Application Insights | `microsoft.insights/component`                     | `tsg`         |
-| Usage in Application Insights                  | `microsoft.insights/component`                     | `usage`       |
-| Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                | `insights`    |
-| VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Gallery                                        | Resource type                                       | Workbook type |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Workbooks in Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
+| VM Insights in Azure Monitor                   | `Azure Monitor`                                     | `vm-insights` |
+| Workbooks in Log analytics workspace           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Workbooks in Application Insights              | `microsoft.insights/components`                     | `workbook`    |
+| Troubleshooting guides in Application Insights | `microsoft.insights/components`                     | `tsg`         |
+| Usage in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
+| Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## Azure Resource Manager template for deploying a workbook instance
 

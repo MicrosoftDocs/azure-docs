@@ -25,6 +25,8 @@
   items:
   - name: Overview of validated partners
     href: .\validated-partners\data-management\partner-overview.md
+  - name: Migration tools comparison
+    href: ./validated-partners/data-management/migration-tools-comparison.md
   expanded: false
 - name: Primary and secondary storage partners
   items:

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/12/2021
+ms.date: 03/30/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -146,11 +146,10 @@ To work with conditions, compare values and expression results, or evaluate vari
 To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> Azure Logic Apps automatically converts values between some data types, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -182,7 +181,7 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually convert these types. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
+Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually perform these conversions. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
 
 For example, suppose a trigger returns a numerical value as output:
 
@@ -192,9 +191,11 @@ If you use this numerical output where string input is expected, such as a URL, 
 
 `@{triggerBody()?['123']}`
 
+<a name="base64-encoding-decoding"></a>
+
 ### Base64 encoding and decoding
 
-Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these operations by using the corresponding expressions:
+Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these conversions by using the corresponding functions:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -205,11 +206,11 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add these expressions to your logic app, for example, by using the expression editor, 
-> navigate away from the Logic App Designer and return to the designer, the designer shows only the 
-> parameter values. The expressions are preserved in code view only if you don't edit the parameter 
-> values. Otherwise, Logic Apps removes the expressions from code view, leaving only the parameter values. 
-> This behavior doesn't affect encoding or decoding, only whether the expressions are shown.
+> If you manually add any of these functions to your workflow through the Logic App Designer, for example, by using the expression editor, navigate away 
+> from the designer, and return to the designer, the function disappears from the designer, leaving behind only the parameter values. This behavior also 
+> happens if you select a trigger or action that uses this function without editing the function's parameter values. This result affects only the function's 
+> visibility and not the effect. In code view, the function is unaffected. However, if you edit the function's parameter values, the function and its effect 
+> are both removed from code view, leaving behind only the function's parameter values.
 
 <a name="math-functions"></a>
 
@@ -979,11 +980,10 @@ And returns this result: `["hello"]`
 Return the base64-encoded version for a string.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway, you might experience unexpected rendering behaviors in the designer. 
+> These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes the functions 
+> and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64('<value>')
@@ -1016,11 +1016,10 @@ And returns this result: `"aGVsbG8="`
 Return the binary version for a base64-encoded string.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64ToBinary('<value>')
@@ -1055,11 +1054,10 @@ And returns this result:
 Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64), which is deprecated.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 base64ToString('<value>')
@@ -1121,9 +1119,7 @@ And returns this result:
 
 ### body
 
-Return an action's `body` output at runtime.
-Shorthand for `actions('<actionName>').outputs.body`.
-See [actionBody()](#actionBody) and [actions()](#actions).
+Return an action's `body` output at runtime. Shorthand for `actions('<actionName>').outputs.body`. See [actionBody()](#actionBody) and [actions()](#actions).
 
 ```
 body('<actionName>')
@@ -1242,6 +1238,17 @@ And returns these results:
 
 Combine two or more strings, and return the combined string.
 
+> [!NOTE]
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions when you use the 
+> `concat()` function with data that needs encoding or decoding:
+> 
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+> 
+> However, if you use this function anyway in the designer, you might experience unexpected rendering behaviors in the designer. These behaviors affect only 
+> the function's visibility and not the effect unless you edit the function's parameter values, which removes the function and the effect from your code. 
+> For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
+
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1270,10 +1277,7 @@ And returns this result: `"HelloWorld"`
 
 ### contains
 
-Check whether a collection has a specific item.
-Return true when the item is found,
-or return false when not found.
-This function is case-sensitive.
+Check whether a collection has a specific item. Return true when the item is found, or return false when not found. This function is case-sensitive.
 
 ```
 contains('<collection>', '<value>')
@@ -1675,11 +1679,10 @@ This function is deprecated, so please use [base64ToString()](#base64ToString) i
 Return the binary version for a data uniform resource identifier (URI). Consider using [dataUriToBinary()](#dataUriToBinary), rather than `decodeDataUri()`. Although both functions work the same way, `dataUriToBinary()` is preferred.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 decodeDataUri('<value>')
@@ -1786,11 +1789,10 @@ div(11.0,5)
 Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Consider using [uriComponent()](#uriComponent), rather than `encodeUriComponent()`. Although both functions work the same way, `uriComponent()` is preferred.
 
 > [!NOTE]
-> Azure Logic Apps automatically performs base64 encoding and decoding, 
-> which means that you don't have to manually perform these conversions. 
-> However, if you do so, you might experience unexpected display behaviors, 
-> which don't affect the actual conversions, only how they are shown. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
+> the encoding and decoding functions. However, if you use these functions anyway in the designer, you might experience unexpected rendering behaviors 
+> in the designer. These behaviors affect only the functions' visibility and not their effect unless you edit the functions' parameter values, which removes 
+> the functions and their effects from your code. For more information, see [Base64 encoding and decoding](#base64-encoding-decoding).
 
 ```
 encodeUriComponent('<value>')

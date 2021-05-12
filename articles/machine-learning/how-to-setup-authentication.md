@@ -8,7 +8,7 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
 ---
@@ -16,7 +16,7 @@ ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy
 # Set up authentication for Azure Machine Learning resources and workflows
 
 
-Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there three authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are three authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
@@ -65,12 +65,6 @@ The easiest way to create an SP and grant access to your workspace is by using t
     If you have multiple Azure subscriptions, you can use the `az account set -s <subscription name or ID>` command to set the subscription. For more information, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-1. Install the Azure Machine Learning extension:
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
@@ -138,7 +132,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__, __Add Role Assignment__, and select __Virtual Machine__ from the __Assign Access To__ dropdown. Finally, select your VM's identity.
 
-1. Select the role to assign to this identity. For example, contributor or a custom role. For more information see, [Control access to resources](how-to-assign-roles.md).
+1. Select the role to assign to this identity. For example, contributor or a custom role. For more information, see, [Control access to resources](how-to-assign-roles.md).
 
 ### Managed identity with compute cluster
 

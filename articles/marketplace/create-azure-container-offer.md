@@ -11,7 +11,7 @@ ms.date: 06/17/2020
 
 # Create an Azure container offer in Azure Marketplace
 
-This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](./partner-center-portal/create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 

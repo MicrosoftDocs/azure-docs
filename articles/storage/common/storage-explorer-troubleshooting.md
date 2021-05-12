@@ -284,20 +284,20 @@ If you want to preserve the connections that aren't corrupted, you can use the f
 
 After going through all your connections, for all connections names that aren't added back, you must clear their corrupted data (if there is any) and add them back by using the standard steps in Storage Explorer:
 
-# [Windows](#tab/Windows)
+### [Windows](#tab/Windows)
 
 1. On the **Start** menu, search for **Credential Manager** and open it.
 2. Go to **Windows Credentials**.
 3. Under **Generic Credentials**, look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Delete these entries and re-add the connections.
 
-# [macOS](#tab/macOS)
+### [macOS](#tab/macOS)
 
 1. Open Spotlight (Command+Spacebar) and search for **Keychain access**.
 2. Look for entries that have the `<connection_type_key>/<corrupted_connection_name>` key (for example, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Delete these entries and re-add the connections.
 
-# [Linux](#tab/Linux)
+### [Linux](#tab/Linux)
 
 Local credential management varies depending on the Linux distribution. If your Linux distribution doesn't provide a built-in GUI tool for local credential management, you can install a third-party tool to manage your local credentials. For example, you can use [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), an open-source GUI tool for managing Linux local credentials.
 
@@ -351,7 +351,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
 > [!NOTE]
 > Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
 
-# [Ubuntu 20.04](#tab/2004)
+### [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
@@ -364,7 +364,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# [Ubuntu 18.04](#tab/1804)
+### [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
@@ -377,7 +377,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# [Ubuntu 16.04](#tab/1604)
+### [Ubuntu 16.04](#tab/1604)
 
 1. Download the Storage Explorer .tar.gz file.
 2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
@@ -426,6 +426,98 @@ If the **Open In Explorer** button on the Azure portal doesn't work, make sure y
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## Gathering logs
+
+When you report an issue to GitHub, you may be asked to gather certain logs to help diagnose your issue.
+
+### Storage Explorer logs
+
+Starting with version 1.16.0, Storage Explorer logs various things to its own application logs. You can easily get to these logs by clicking on Help > Open Logs Directory. By default, Storage Explorer logs at a low level of verbosity. To change the verbosity level, add an environment variable with the name of `STG_EX_LOG_LEVEL`, and any of the following values:
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (default level)
+- `verbose`
+- `debug`
+
+Logs are split into folders for each session of Storage Explorer that you run. For whatever log files you need to share, it is recommended to place them in a zip archive, with files from different sessions in different folders.
+
+### Authentication logs
+
+For issues related to sign-in or Storage Explorer's authentication library, you will most likely need to gather authentication logs. Authentication logs are stored at:
+- Windows: `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS and Linux `~/.ServiceHub/logs`
+
+Generally, you can follow these steps to gather the logs:
+
+1. Go to Settings > Sign-in > check Verbose Authentication Logging. If Storage Explorer is failing to launch due to an issue with its authentication library, this will be done for you.
+2. Close Storage Explorer.
+1. Optional/recommended: clear out existing logs from the `logs` folder. Doing this will reduce the amount of information you have to send us.
+4. Open Storage Explorer and reproduce your issue
+5. Close Storage Explorer
+6. Zip the contents of the `log` folder.
+
+### AzCopy logs
+
+If you are having trouble transferring data, you may need to get the AzCopy logs. AzCopy logs can be found easily via two different methods:
+- For failed transfers still in the Activity Log, click on "Go to AzCopy Log File"
+- For transfers that failed in the past, go to the AzCopy logs folder. This folder can be found at:
+  - Windows: `C:\Users\<your username>\.azcopy`
+  - macOS and Linux `~/.azcopy
+
+### Network logs
+
+For some issues you will need to provide logs of the network calls made by Storage Explorer. On Windows, you can do this by using Fiddler.
+
+> [!NOTE]
+> Fiddler traces may contain passwords you entered/sent in your browser during the gathering of the trace. Make sure to read the instructions on how to sanitize a Fiddler trace. Do not upload Fiddler traces to GitHub. You will be told where you can securely send your Fiddler trace.
+
+Part 1: Install and Configure Fiddler
+
+1. Install Fiddler
+2. Start Fiddler
+3. Go to Tools > Options
+4. Click on the HTTPS tab
+5. Make sure Capture  CONNECTs and Decrypt HTTPS traffic are checked
+6. Click on the Actions button
+7. Choose "Trust Root Certificate" and then "Yes" in the next dialog
+8. Click on the Actions button again
+9. Choose “Export Root Certificate to Desktop”
+10. Go to your desktop
+11. Find the FiddlerRoot.cer file
+12. Double-click to open
+13. Go to the "Details" tab
+14. Click "Copy to File…"
+15. In the export wizard choose the following options
+    - Base-64 encoded X.509
+    - For file name, Browse… to C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs, and then you can save it as any file name
+16. Close the certificate window
+17. Start Storage Explorer
+18. Go to Edit > Configure Proxy
+19. In the dialog, choose "Use app proxy settings", and set the URL to http://localhost and the port to 8888
+20. Click Ok
+21. Restart Storage Explorer
+22. You should start seeing network calls from a `storageexplorer:` process show up in Fiddler
+
+Part 2: Reproduce the issue
+1. Close all apps other than Fiddler
+2. Clear the Fiddler log (X icon in the top left, near the View menu)
+3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear, right-click on them and choose 'Filter Now' > 'Hide <process name>'
+4. Start Storage Explorer
+5. Reproduce the issue
+6. Click File > Save > All Sessions…, save somewhere you won't forget
+7. Close Fiddler and Storage Explorer
+
+Part 3: Sanitize the Fiddler trace
+1. Double-click on the fiddler trace (.saz file)
+2. Press `ctrl`+`f`
+3. In the dialog that appears, make sure the following options are set: Search = Requests and responses, Examine = Headers and bodies
+4. Search for any passwords you used while collecting the fiddler trace, any entries that are highlighted, right-click and choose Remove > Selected sessions
+5. If you definitely entered passwords into your browser while collecting the trace but you don't find any entries when using ctrl+f and you don't want to change your passwords/the passwords you used are used for other accounts, then feel free to just skip sending us the .saz file. Better to be safe than sorry. :)
+6. Save the trace again with a new name
+7. Optional: delete the original trace
 
 ## Next steps
 

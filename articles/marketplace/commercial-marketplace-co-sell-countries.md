@@ -268,7 +268,6 @@ If a contact covers more than one Country/Region, enter each of the two letter c
 | Yemen                               | YE        |
 | Zambia                              | ZM        |
 | Zimbabwe                            | ZW        |
-|   |   |   |
 
 ## Next steps
 

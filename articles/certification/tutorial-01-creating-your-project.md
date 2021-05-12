@@ -1,7 +1,7 @@
 ---
 title: Azure Certified Device program - Tutorial - Creating your project
 description: Guide to create a project on the Azure Certified Device portal 
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial

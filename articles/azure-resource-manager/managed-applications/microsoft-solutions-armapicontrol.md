@@ -9,7 +9,7 @@ ms.author: tomfitz
 
 ---
 
-# Microsoft.Common.ArmApiControl UI element
+# Microsoft.Solutions.ArmApiControl UI element
 
 ArmApiControl lets you get results from an Azure Resource Manager API operation. Use the results to populate dynamic content in other controls.
 

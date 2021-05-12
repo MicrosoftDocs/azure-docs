@@ -113,7 +113,7 @@
   - name: Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
   - name: Azure CLI
-    href: /cli/azure/cognitiveservices#az_cognitiveservices_list
+    href: /cli/azure/cognitiveservices
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
   - name: Azure Policy built-ins

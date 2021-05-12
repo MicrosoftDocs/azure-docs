@@ -1,7 +1,7 @@
 ---
 title: Deploy FedRAMP Moderate blueprint sample
 description: Deploy steps for the FedRAMP Moderate blueprint sample including blueprint artifact parameter details.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Deploy the FedRAMP Moderate blueprint sample

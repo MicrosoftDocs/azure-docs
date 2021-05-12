@@ -8,7 +8,7 @@ ms.topic: reference
 
 ms.author: jordane
 author: jpe316
-ms.date: 06/22/2020
+ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
 ---
 
@@ -56,22 +56,7 @@ For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/aut
 
 ## Install the extension
 
-To install the Machine Learning CLI extension, use the following command:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-> [!TIP]
-> Example files you can use with the commands below can be found [here](https://aka.ms/azml-deploy-cloud).
-
-When prompted, select `y` to install the extension.
-
-To verify that the extension has been installed, use the following command to display a list of ML-specific subcommands:
-
-```azurecli-interactive
-az ml -h
-```
+The extension is automatically installed when you first try to use a command that begins with `az ml`.
 
 ## Update the extension
 
@@ -80,7 +65,6 @@ To update the Machine Learning CLI extension, use the following command:
 ```azurecli-interactive
 az extension update -n azure-cli-ml
 ```
-
 
 ## Remove the extension
 

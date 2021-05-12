@@ -126,8 +126,6 @@
     href: disaster-recovery.md
   - name: Set up the KDC proxy
     href: key-distribution-center-proxy.md
-  - name: Set up the RD Gateway role
-    href: rd-gateway-role.md
   - name: Start VM on Connect
     items:
     - name: Set up Start VM on Connect
@@ -169,7 +167,7 @@
   - name: Windows Virtual Desktop FAQ
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
-    href: windows-10-multisession-faq.md
+    href: windows-10-multisession-faq.yml
   - name: MSIX app attach
     items:
       - name: What is MSIX app attach?
@@ -214,6 +212,8 @@
     href: security-guide.md
   - name: Linux support
     href: linux-overview.md
+  - name: Azure CLI
+    href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
   - name: Estimate Azure Monitor costs
     href: azure-monitor-costs.md
   - name: Supported RDP file settings
@@ -242,8 +242,6 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: UserVoice forum
-    href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
   - name: Microsoft 365 roadmap
     href: https://aka.ms/wvdroadmap
   - name: Azure Resource Manager templates

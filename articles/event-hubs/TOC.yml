@@ -206,7 +206,7 @@
         - name: Connect Akka Streams to an event hub
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: FAQ - Event Hubs for Kafka
-          href: apache-kafka-frequently-asked-questions.md
+          href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
         - name: Monitor Event Hubs with Azure Monitoring
@@ -297,6 +297,8 @@
           href: https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc
         - name: Management library
           href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc
+    - name: Azure CLI
+      href: /cli/azure/eventhubs
     - name: REST
       href: /rest/api/eventhub
     - name: Resource Manager template
@@ -313,7 +315,7 @@
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
     - name: FAQ
-      href: event-hubs-faq.md
+      href: event-hubs-faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
     - name: Pricing

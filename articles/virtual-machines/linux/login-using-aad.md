@@ -136,7 +136,7 @@ For more information on how to use Azure RBAC to manage access to your Azure sub
 
 ## Using Conditional Access
 
-You can enforce Conditional Access policies such as multi-factor authentication or user sign-in risk check before authorizing access to Linux VMs in Azure that are enabled with Azure AD sign in. To apply Conditional Access policy, you must select "Azure Linux VM Sign-In" app from the cloud apps or actions assignment option and then use Sign-in risk as a condition and/or require multi-factor authentication as a grant access control. 
+You can enforce Conditional Access policies such as multi-factor authentication or user sign-in risk check before authorizing access to Linux VMs in Azure that are enabled with Azure AD sign in. To apply Conditional Access policy, you must select "Microsoft Azure Linux Virtual Machine Sign-In" app from the cloud apps or actions assignment option and then use Sign-in risk as a condition and/or require multi-factor authentication as a grant access control. 
 
 > [!WARNING]
 > Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM sign-in.

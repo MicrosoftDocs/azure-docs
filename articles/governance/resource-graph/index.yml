@@ -43,6 +43,10 @@ landingContent:
             url: ./first-query-dotnet.md
           - text: First query (Go)
             url: ./first-query-go.md
+          - text: First query (Java)
+            url: ./first-query-java.md
+      - linkListType: quickstart
+        links:
           - text: First query (JavaScript)
             url: ./first-query-javascript.md
           - text: First query (Python)

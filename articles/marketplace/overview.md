@@ -77,5 +77,5 @@ To learn about these benefits in more detail, see [Your commercial marketplace b
 ## Next steps
 
 - Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
-- For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
+- For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).

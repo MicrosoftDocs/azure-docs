@@ -306,9 +306,11 @@ ADLS-NFS storage targets have some similarities with Blob storage targets and so
 
 * Like a Blob storage target, you need to give Azure HPC Cache permission to [access your storage account](#add-the-access-control-roles-to-your-account).
 * Like an NFS storage target, you need to set a cache [usage model](#choose-a-usage-model).
-* Because NFS-enabled blob containers have an NFS-compatible hierarchical structure, you do not need to use the cache to ingest data, and the containers are readable by other NFS systems. You can pre-load data in an ADLS-NFS container, then add it to an HPC cache as a storage target, and then access the data later from outside of an HPC cache. When you use a standard blob container as an HPC cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
+* Because NFS-enabled blob containers have an NFS-compatible hierarchical structure, you do not need to use the cache to ingest data, and the containers are readable by other NFS systems. You can pre-load data in an ADLS-NFS container, then add it to an HPC Cache as a storage target, and then access the data later from outside of an HPC Cache. When you use a standard blob container as an HPC Cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
 
 Before you can create an ADLS-NFS storage target, you must create an NFS-enabled storage account. Follow the tips in [Prerequisites for Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) and the instructions in [Mount Blob storage by using NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). After your storage account is set up you can create a new container when you create the storage target.
+
+Read [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md) to learn more about this configuration.
 
 To create an ADLS-NFS storage target, open the **Add storage target** page in the Azure portal. (Additional methods are in development.)
 
@@ -327,8 +329,6 @@ Enter this information.
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model) above.
 
 When finished, click **OK** to add the storage target.
-
-<!-- **** -->
 
 ## View storage targets
 

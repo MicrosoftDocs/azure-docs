@@ -35,7 +35,7 @@ Here are some key details about private endpoints:
 
 - When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
-- The private endpoint must be deployed in the same region as the virtual network. 
+- The private endpoint must be deployed in the same region and subscription as the virtual network. 
  
 - The private link resource can be deployed in a different region than the virtual network and private endpoint.
  

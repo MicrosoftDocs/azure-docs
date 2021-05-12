@@ -8,8 +8,8 @@ ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=3
 ms.devlang:
 ms.topic: conceptual
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 10/12/2020
 ---

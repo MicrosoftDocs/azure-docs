@@ -19,6 +19,8 @@
     items:
     - name: ASP.NET app
       href: cache-web-app-howto.md
+    - name: ASP.NET Core app
+      href: cache-web-app-aspnet-core-howto.md
     - name: .NET Core app
       href: cache-dotnet-core-quickstart.md
     - name: .NET app

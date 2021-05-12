@@ -26,7 +26,7 @@ Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 > [!NOTE]
-> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. See the [product roadmap](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal. If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## Prerequisites
 

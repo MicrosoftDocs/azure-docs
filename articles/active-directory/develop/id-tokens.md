@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -120,6 +120,12 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
   ...
 }
 ```
+
+## ID token lifetime
+
+By default, an ID token is valid for 1 hour - after 1 hour, the client must acquire a new ID token.
+
+You can adjust the lifetime of an ID token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Validating an id_token
 

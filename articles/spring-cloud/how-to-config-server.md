@@ -237,9 +237,9 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## Delete your app configuration
+## Delete your configuration
 
-After you've saved a configuration file, the **Delete app configuration** button appears in the **Configuration** tab. Selecting this button will erase your existing settings completely. You should select it if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
+You can select the **Reset** button that appears in the **Config Server** tab to erase your existing settings completely. Delete the config server settings if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
 
 
 

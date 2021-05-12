@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020 
+ms.date: 04/04/2021 
 ---
 
 # Explore the Synapse Knowledge center
@@ -42,6 +42,7 @@ The **Knowledge center** allows you to do three things:
 1. Click Run. It will run only code you have selected.
 
 ## Loading more NYC Taxi Data
+
 1. Go to the **Knowledge Center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.
 1. Select **Load the New York Taxicab dataset** Data ingestion sample, click **Continue**.
@@ -56,6 +57,6 @@ The **Knowledge center** allows you to do three things:
 
 ## Next steps
 
-* [Get started with Azure Synapse Analytics](get-started.md)
-* [Create a workspace](quickstart-create-workspace.md)
-* [Use serverless SQL pool](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Add an administrator](get-started-add-admin.md)
+

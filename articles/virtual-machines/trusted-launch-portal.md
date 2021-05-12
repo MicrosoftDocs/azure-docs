@@ -1,13 +1,13 @@
 ---
 title: "Preview: Deploy a trusted launch VM"
-description: Deploy a VM that uses trusted launch. 
+description: Deploy a VM that uses trusted launch.
 author: khyewei
 ms.author: khwei
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to 
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to 
 ---
 
@@ -36,10 +36,13 @@ Create a virtual machine with trusted launch enabled.
 5. Under **Project details**, make sure the correct subscription is selected.
 6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
-8. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
-9. Switch over to the **Advanced** tab by selecting it at the top of the page.
-10. Scroll down to the **VM generation** section, and then select **Gen 2**.
-11. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
+8. Under **Image**, select a Gen 2 [image that supports trusted launch](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **VM Generation** filter to only show Gen 2 images. Find the image in the list, then use the **Select** drop-down to select the Gen 2 version.
+ 
+1. Switch over to the **Advanced** tab by selecting it at the top of the page.
+1. Scroll down to the **VM generation** section. Make sure **Gen 2** is selected.
+1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
 
@@ -62,10 +65,10 @@ It will take a few minutes for your VM to be deployed.
 You can deploy trusted launch VMs using a quickstart template:
 
 **Linux**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
 **Windows**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## View and update
 

@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Determine user connection latency in Windows Virtual Desktop
 

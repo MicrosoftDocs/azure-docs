@@ -162,10 +162,10 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 |--|--|
 |/User|Perform CRUD operations on a user object.|
 |/Group|Perform CRUD operations on a group object.|
-|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
-|/ResourceTypes|Specifies metadata about each resource|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/ResourceTypes|Specifies metadata about each resource.|
 
 **Example list of endpoints**
 
@@ -1325,9 +1325,9 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
+> * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
 > * Document your SCIM endpoint publicly
-> * [Support schema discovery](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### Authorization to provisioning connectors in the application gallery
 The SCIM spec doesn't define a SCIM-specific scheme for authentication and authorization and relies on the use of existing industry standards.

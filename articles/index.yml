@@ -179,7 +179,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
-    - title: Azure Communication Services (Preview)
+    - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
       azureCategories:
@@ -1216,7 +1216,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: media-services/latest/use-azure-media-player.md
+      url: media-services/latest/player-use-azure-media-player-how-to.md
     # Card
     - title: Content Delivery Network
       summary: Ensure secure, reliable content delivery with broad global reach
@@ -1239,7 +1239,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: media-services/latest/encoding-concept.md
+      url: media-services/latest/encode-concept.md
     # Card
     - title: Live and On-Demand Streaming
       summary: Deliver content to virtually all devices with scale to meet business needs

@@ -99,6 +99,13 @@ The format for a private key store defined by [RFC 5208](https://tools.ietf.org/
 
 A complex format that can store and protect a key and the entire certificate chain. It is commonly used with a .pfx extension. PKCS#12 is synonymous with the PFX format.
 
+## For more information
+
+For more information, see the following topics:
+
+* [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [Conceptual understanding of X.509 CA certificates in the IoT industry](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
+
 ## Next steps
 
 If you want to generate test certificates that you can use to authenticate devices to your IoT Hub, see the following topics:

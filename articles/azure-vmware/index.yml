@@ -10,7 +10,8 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 03/22/2021 
+  ms.date: 03/30/2021 
+
 
 # card 1
 landingContent:
@@ -22,8 +23,6 @@ landingContent:
             url: introduction.md
           - text: Platform updates
             url: azure-vmware-solution-platform-updates.md
-          - text: FAQ
-            url: faq.yml
       - linkListType: concept
         links:
           - text: Private cloud and clusters
@@ -38,6 +37,32 @@ landingContent:
             url: concepts-monitor-repair-private-cloud.md
           - text: Private cloud upgrades
             url: concepts-upgrades.md
+
+# faq card
+  - title: FAQ
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: General
+            url: /azure/azure-vmware/faq#general
+          - text: Customer communication
+            url: /azure/azure-vmware/faq#customer-communication
+          - text: Configuration and setup 
+            url: /azure/azure-vmware/faq#configuration-and-setup
+          - text: VMware software 
+            url: /azure/azure-vmware/faq#vmware-software
+          - text: Compute, backup and disaster recovery
+            url: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+          - text: Networking and interconnectivity
+            url: /azure/azure-vmware/faq#networking-and-interconnectivity
+          - text: Storage
+            url: /azure/azure-vmware/faq#storage
+          - text: Hosts, clusters, and private clouds
+            url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+          - text: Identity management
+            url: /azure/azure-vmware/faq#identity-management
+          - text: Billing and support
+            url: /azure/azure-vmware/faq#billing-and-support
 
 # card 2
   - title: Get started
@@ -74,22 +99,6 @@ landingContent:
 # card 3
   - title: Extend Azure VMware Solution
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manage DHCP
-            url: manage-dhcp.md
-          - text: Configure NSX network components
-            url: configure-nsx-network-components-azure-portal.md
-          - text: Deploy disaster recovery for VMs
-            url: disaster-recovery-for-virtual-machines.md
-          - text: Deploy VM via content library
-            url: ./deploy-vm-content-library.md
-          - text: Set up GitHub Enterprise Server
-            url: github-enterprise-server.md
-          - text: Public IP usage
-            url: public-ip-usage.md
-          - text: Create an IPSec tunnel
-            url: create-ipsec-tunnel.md
       - linkListType: reference 
         links:
           - text: Request host quota Azure VMware Solution
@@ -99,8 +108,21 @@ landingContent:
           - text: Save costs with a reserved instance
             url: reserved-instance.md
           - text: Migration assessment
-            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-
+            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+      - linkListType: how-to-guide
+        links:
+          - text: Manage DHCP
+            url: manage-dhcp.md
+          - text: Configure NSX network components
+            url: configure-nsx-network-components-azure-portal.md
+          - text: Deploy disaster recovery for VMs
+            url: disaster-recovery-for-virtual-machines.md
+          - text: Set up GitHub Enterprise Server
+            url: github-enterprise-server.md
+          - text: Public IP usage
+            url: public-ip-usage.md
+          - text: Create an IPSec tunnel
+            url: create-ipsec-tunnel.md
 
 # card 4
   - title: Azure native integration
@@ -121,6 +143,8 @@ landingContent:
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Traffic Manager
             url: deploy-traffic-manager-balance-workloads.md
+          - text: Configure alerts and work with metrics 
+            url: configure-alerts-for-azure-vmware-solution.md
 
 # card 5
   - title: VMware solutions
@@ -131,6 +155,8 @@ landingContent:
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
+          - text: Deploy VMs from the content library
+            url: deploy-vm-content-library.md            
 
 # card 6
   - title: VMware ecosystem
@@ -165,6 +191,8 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
+          - text: Rotate vCenter & NSX-T passwords using Azure Logic App
+            url: https://youtu.be/cK1qY3knj88
                             
 
 # card 8

@@ -132,10 +132,10 @@ On the **New term template** screen, do the following steps:
 
    |Setting|Suggested value|
    |---------|-----------|
-   |Attribute name|is sensitive information|
-   |Field type|dropdown|Single choice|
-   |Mark as required|Check this box.|
-   |+ Add a choice| Add two choices. "Yes" and "No".|
+   |Attribute name |is sensitive information|
+   |Field type | Single choice|
+   |Mark as required | Check this box.|
+   |+ Add a choice | Add two choices. "Yes" and "No".|
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/add-new-attribute.png" alt-text="add a new attribute.":::
 

@@ -39,11 +39,9 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 ## Limitations
 
-* **Do not create multiple, simultaneous attachments to the same compute** from your workspace. For example, attaching one compute cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
-
-    If you want to re-attach a compute target, for example to change cluster configuration settings, you must first remove the existing attachment.
-
 * Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* We currently support only creation (and not updating) of clusters through ARM templates [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json]. For updating compute, we recommend using the SDK, CLI or UX for now.
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 

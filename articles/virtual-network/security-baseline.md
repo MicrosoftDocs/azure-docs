@@ -4,7 +4,7 @@ description: The Virtual Network security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,9 +14,10 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Virtual Network
 
-This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to Azure Virtual Network. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Network. **Controls** not applicable to Azure Virtual Network, or for which the responsibility is Microsoft's, have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to Azure Virtual Network. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Network. 
 
-To see how Azure Virtual Network completely maps to the Azure Security Benchmark, see the [full Azure Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+> [!NOTE]
+> **Controls** not applicable to Virtual Network, or for which the responsibility is Microsoft's, have been excluded. To see how Virtual Network completely maps to the Azure Security Benchmark, see the **[full Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx)**.
 
 ## Network Security
 
@@ -164,9 +165,9 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your virtual network. Create alerts within Azure Monitor which will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -183,9 +184,9 @@ Choose Azure PowerShell or Azure CLI to look up or perform actions on resources 
 In Azure Monitor, use Log Analytics Workspaces to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [View and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -197,9 +198,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [View and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **Responsibility**: Customer
 
@@ -210,9 +211,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period
 according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage of security log storage retention.
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Responsibility**: Customer
 
@@ -224,9 +225,9 @@ according to your organization's compliance regulations. Use Azure Storage accou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -244,7 +245,7 @@ Alternatively, you may enable and onboard data to Azure Sentinel or a third-part
 
 - [How to manage alerts in Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -336,7 +337,7 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-- [How to configure action groups for custom alerting and notification](/azure/azure-monitor/platform/action-groups)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Responsibility**: Customer
 
@@ -442,7 +443,7 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 - [Diagnostic logging for a network security group](virtual-network-nsg-manage-log.md)
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -760,7 +761,7 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Clearly mark subscriptions (for example, production or non-production) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 

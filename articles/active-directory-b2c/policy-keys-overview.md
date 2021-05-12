@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) stores secrets and certificates in the
  This article discusses what you need to know about the policy keys that are used by Azure AD B2C.
 
 > [!NOTE]
-> Currently, configuration of policy keys is limited to [custom policies](./custom-policy-get-started.md) only.
+> Currently, configuration of policy keys is limited to [custom policies](./user-flow-overview.md) only.
 
 You can configure secrets and certificates for establishing trust between services in the Azure portal under the **Policy keys** menu. Keys can be symmetric or asymmetric. *Symmetric* cryptography, or private key cryptography, is where a shared secret is used to both encrypt and decrypt the data. *Asymmetric* cryptography, or public key cryptography, is a cryptographic system that uses pairs of keys, consisting of public keys that are shared with the relying party application and private keys that are known only to Azure AD B2C.
 

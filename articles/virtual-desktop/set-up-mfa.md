@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Enable Azure multifactor authentication for Windows Virtual Desktop
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 ---
 
-# Delivery with custom headers
+# Custom delivery properties
 Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set up to 10 headers when creating an event subscription. Each header value shouldn't be greater than 4,096 (4K) bytes.
 
 You can set custom headers on the events that are delivered to the following destinations:

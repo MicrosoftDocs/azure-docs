@@ -55,4 +55,4 @@ You can learn more about Event Hubs in the following articles:
 
 - [Event Hubs overview](./event-hubs-about.md)
 - [Event Hubs features](event-hubs-features.md)
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)

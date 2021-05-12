@@ -11,6 +11,10 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+## Microsoft.AlertsManagement
+
+* smartDetectorAlertRules
+ 
 ## Microsoft.Automation
 
 * automationAccounts

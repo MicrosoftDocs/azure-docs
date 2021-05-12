@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/26/2021
+ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -21,6 +21,7 @@ The following Azure File Sync agent versions are supported:
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
 | V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported - Flighting |
+| V11.3 Release - [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | April 7, 2021 | Supported |
 | V11.2 Release - [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | February 2, 2021 | Supported |
 | V11.1 Release - [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | November 4, 2020 | Supported |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported - Agent version will expire on June 7, 2021 |
@@ -71,6 +72,7 @@ The following release notes are for version 12.0.0.0 of the Azure File Sync agen
 	- Improved change detection performance to detect files that have changed in the Azure file share.
 	- Performance improvements for reconciliation sync sessions. 
 	- Sync improvements to reduce ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED and ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errors.
+	- Fixed a bug that causes data corruption if cloud tiering is enabled and tiered files are copied using Robocopy with the /B parameter.
 	- Fixed a bug that can cause files to fail to tier on Server 2019 if Data Deduplication is enabled on the volume.
 	- Fixed a bug that can cause AFSDiag to fail to compress files if a file is larger than 2GiB.
 
@@ -126,8 +128,12 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
-    > [!Warning]  
-    > Robocopy /B switch is not supported with Azure File Sync. Using the Robocopy /B switch with an Azure File Sync server endpoint as the source may lead to file corruption.
+
+## Agent version 11.3.0.0
+The following release notes are for version 11.3.0.0 of the Azure File Sync agent released April 7, 2021. These notes are in addition to the release notes listed for version 11.1.0.0.
+
+### Improvements and issues that are fixed 
+Fixed a bug that causes data corruption if cloud tiering is enabled and tiered files are copied using Robocopy with the /B parameter.
 
 ## Agent version 11.2.0.0
 The following release notes are for version 11.2.0.0 of the Azure File Sync agent released February 2, 2021. These notes are in addition to the release notes listed for version 11.1.0.0.

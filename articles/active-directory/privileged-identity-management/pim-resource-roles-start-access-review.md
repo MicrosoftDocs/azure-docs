@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -21,6 +21,13 @@ ms.collection: M365-identity-device-management
 
 The need for access to privileged Azure resource roles by employees changes over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to create access reviews for privileged access to Azure resource roles. You can also configure recurring access reviews that occur automatically. This article describes how to create one or more access reviews.
 
+## Prerequisite license
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+
 ## Prerequisite role
 
  To create access reviews, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure role for the resource.
@@ -29,9 +36,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is assigned to one of the prerequisite roles.
 
-1. Open **Azure AD Privileged Identity Management**.
-
-1. In the left menu, select **Azure resources**.
+1. Select **Identity Governance**
+ 
+1. In the left menu, select **Azure resources** under **Azure AD Privileged Identity Management**.
 
 1. Select the resource you want to manage, such as a subscription.
 
@@ -53,9 +60,12 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section, select one or more roles that you want to review membership of.
+1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.   
 
     ![Users scope to review role membership of](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. Under **Review role membership**, select the privileged Azure roles to review. 
 
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -72,9 +82,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
     ![Reviewers list of selected users or members (self)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
-    - **Members (self)** - Use this option to have the users review their own role assignments. 
-    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. 
+    - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the Scope of the review, and the selected reviewers can review users and service principals. 
+    - **Members (self)** - Use this option to have the users review their own role assignments. This option is only available if the review is scoped to **Users**.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. This option is only available if the review is scoped to **Users**. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. 
 
 ### Upon completion settings
 

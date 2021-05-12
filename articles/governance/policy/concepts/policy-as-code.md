@@ -1,7 +1,7 @@
 ---
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
 ---
 # Design Azure Policy as Code workflows
@@ -211,4 +211,5 @@ GitHub, see
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).

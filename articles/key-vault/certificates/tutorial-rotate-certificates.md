@@ -47,7 +47,7 @@ Create a certificate or import a certificate into the key vault (see [Steps to c
 
 ## Update certificate lifecycle attributes
 
-In Azure Key Vault, you can update a certificate's lifecycle attributes both before and after the time of certificate creation.
+In Azure Key Vault, you can update a certificate's lifecycle attributes both at the time of certificate creation or after.
 
 A certificate created in Key Vault can be:
 
@@ -79,7 +79,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
         |  Automatically renew at a given time| Email all contacts at a given time |
         |-----------|------|
         |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. Select **Create**.
 
 ![Certificate lifecycle](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
