@@ -3,11 +3,11 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/12/2021
 ms.author: helohr
 manager: femila
 ---
-# Start virtual machine on connect (preview)
+# Start Virtual Machine on Connect (preview)
 
 > [!IMPORTANT]
 > The Start VM on Connect feature is currently in public preview.
@@ -31,8 +31,6 @@ The following Remote Desktop clients support the Start VM on Connect feature:
 - [The macOS client (version 10.6.4 or later)](connect-macos.md)
 
 You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
-
-The Azure Government cloud doesn't currently support Start VM on Connect.
 
 ## Create a custom role for Start VM on Connect
 
