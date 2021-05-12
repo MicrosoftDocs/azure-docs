@@ -23,23 +23,16 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.28.0
 + **Bug fixes and improvements**
-  + **azureml-automl-core**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
   + **azureml-automl-runtime**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
+    + Improved AutoML Scoring script to make it consistent with designer
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
-    +  Updated default CPU image to mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04 - Updated default GPU image to mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
+    + Default CPU curated image is now mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04. Default GPU image is now mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
-    + Updated documentation description with indication that libfuse should be installed while using mount.
-    + Enable audience in msi authentication
-    +  Add experimental register_dask_dataframe() support to tabular dataset.
+    + Updated documentation with a note that libfuse should be installed when mounting a file dataset.
+    + Add experimental register_dask_dataframe() support to tabular dataset.
     + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
-  + **azureml-dataprep**
-    + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-dataset-runtime**
     + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
   + **azureml-mlflow**
