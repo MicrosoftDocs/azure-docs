@@ -22,7 +22,7 @@ Learn how to troubleshoot problems you may see when using prebuilt docker images
 
 If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return **None**.
 
-So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path in this [table of curated images]().
+So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path in this [table of prebuilt images](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-Docker-images-for-inference).
 
 ### Mounting extensibility solution
 

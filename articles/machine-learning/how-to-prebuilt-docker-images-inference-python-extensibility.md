@@ -66,7 +66,9 @@ myenv.environment_variables = {
 }
 ```
 
-[comment] : <> (Adding requirements.txt diagram here)
+The following diagram is a visual representation of the dynamic installation process:
+
+:::image type="content" source="./media/how-to-prebuilt-docker-images-inference-python-extensibility/dynamic-install-python-extend.svg" alt-text="Diagram of dynamic installation process":::
 
 ## Pre-installed python packages
 
@@ -128,6 +130,10 @@ To extend your prebuilt docker container image through pre-installed python pack
     }
     ```
 
+The following diagram is a visual representation of the pre-installed packages process:
+
+:::image type="content" source="./media/how-to-prebuilt-docker-images-inference-python-extensibility/pre-install-python-extend.svg" alt-text="Diagram of the process using preinstalled packages":::
+
 ### Common problems
 
 The mounting solution will only work when your `myenv` site packages directory contains all of your dependencies. If your local environment is using dependencies installed in a different location, they won't be available in the image.
@@ -185,9 +191,9 @@ Instead of using `Model.package()` to add other dependencies, we encourage you t
         
     Here's a detailed comparison.
 
-    | Compared item                  | Requirements.txt (dynamic installation)                                                                                                                              | Package Mount                                                                                                                            |
-    |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|--|
-    | Solution                       | Create a `requirements.txt` that installs the specified packages when the container starts.                                                                               | Create a local python environment with all of the dependencies. Mount this directory into container at runtime.                    |
+    | Compared item | Requirements.txt (dynamic installation) | Package Mount |
+    | ----- | ----- | ------ |
+    | Solution  | Create a `requirements.txt` that installs the specified packages when the container starts. | Create a local python environment with all of the dependencies. Mount this directory into container at runtime. |
     | Package Installation           | No extra installation (assuming pip already installed)                                                                                                          | Virtual environment or conda environment installation.                                                                                   |
     | Virtual environment Setup              | No extra setup of virtual environment required, as users can pull the current local user environment with pip freeze as needed to create the `requirements.txt`. | Need to set up a clean virtual environment, may take extra steps depending on the current user local environment.                        |
     | Debugging                  | Easy to set up and debug server, since dependencies are clearly listed. | Unclean virtual environment could cause problems when debugging of server. For example, it may not be clear if errors come from the environment or user code. |
