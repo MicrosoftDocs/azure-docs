@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Data Factory connectors
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 04/13/2021
-ms.author: jingwang
+ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 

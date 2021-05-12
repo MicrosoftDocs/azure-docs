@@ -102,6 +102,8 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
+    - name: Managed identities support
+      href: iot-hub-managed-identity.md
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: Virtual networks support
@@ -162,7 +164,13 @@
         - name: Manage device identities
           href: iot-hub-devguide-identity-registry.md
         - name: Control access to IoT Hub
-          href: iot-hub-devguide-security.md
+          items:
+            - name: Overview
+              href: iot-hub-devguide-security.md
+            - name: Control access with Azure AD
+              href: iot-hub-dev-guide-azure-ad-rbac.md
+            - name: Control access with SAS
+              href: iot-hub-dev-guide-sas.md
         - name: Understand device twins
           href: iot-hub-devguide-device-twins.md
         - name: Understand module twins

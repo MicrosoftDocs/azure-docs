@@ -2,6 +2,7 @@
 title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to the Guest OS you are using.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: gunnarcms
 editor: ''

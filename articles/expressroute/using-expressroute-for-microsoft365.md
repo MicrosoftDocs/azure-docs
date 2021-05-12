@@ -90,6 +90,4 @@ While you use ExpressRoute, you can apply the route filter associated with Micro
 [ExRRF]: https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal
 [Teams]: https://docs.microsoft.com/microsoftteams/microsoft-teams-online-call-flows
 [Microsoft 365-Test]: https://connectivity.office.com/
-[Microsoft 365perf]: https://docs.microsoft.com/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide
-
-
+[Microsoft 365perf]: /microsoft-365/enterprise/performance-tuning-using-baselines-and-history

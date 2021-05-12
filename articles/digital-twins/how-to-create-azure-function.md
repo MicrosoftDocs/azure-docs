@@ -133,14 +133,14 @@ To make sure the bearer token is passed, set up [managed identities](../active-d
 1. Use the following command to see the details of the system-managed identity for the function. Take note of the `principalId` field in the output.
 
     ```azurecli-interactive	
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>	
     ```
 
     >[!NOTE]
     > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
     > 
     >```azurecli-interactive	
-    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>	
     >```
     >
     > The output displays details of the identity, including the `principalId` value required for the next step. 
@@ -159,7 +159,7 @@ Make the URL of your instance accessible to your function by setting an environm
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ```azurecli-interactive	
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # [Azure portal](#tab/portal)
