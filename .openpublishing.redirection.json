@@ -60997,12 +60997,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/rest-api.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/rest-api#train-a-custom-model",
+       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library-guide?pivots=programming-language-rest-api",
       "redirect_document_id": false
     },
     {
