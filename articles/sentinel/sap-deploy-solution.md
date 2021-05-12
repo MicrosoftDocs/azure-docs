@@ -204,9 +204,7 @@ To run the SAP data connector deployment script, you'll need the following detai
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
 
-1. Following the on-screen instructions to enter your SAP and Key Vault details and complete the deployment:
-
-    A confirmation message appears when the deployment is complete:
+1. Follow the on-screen instructions to enter your SAP and Key Vault details and complete the deployment. A confirmation message appears when the deployment is complete:
 
     ```azurecli
     The process has been successfully completed, thank you!
@@ -224,7 +222,7 @@ To run the SAP data connector deployment script, you'll need the following detai
 
 Deploy the [SAP security content](sap-solution-security-content.md) from the Azure Sentinel **Solutions** and **Watchlists** areas.
 
-The **Azure Sentinel - Continuous Threat Monitoring for SAP** solution enables the SAP data connector to show in the Azure Sentinel data connectors area, and deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
+The **Azure Sentinel - Continuous Threat Monitoring for SAP** solution enables the SAP data connector to show in the Azure Sentinel **Data connectors** area, and deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
 Add SAP-related watchlists to your Azure Sentinel workspace manually.
 

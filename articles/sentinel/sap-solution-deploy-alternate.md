@@ -186,7 +186,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 1. Continue with deploying the **Azure Sentinel - Continuous Threat Monitoring for SAP** solution.
 
-    Deploying the solution enables the SAP data connector to display in Azure Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists. 
+    Deploying the solution enables the SAP data connector to display in Azure Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
     For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
 
