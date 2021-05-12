@@ -315,12 +315,12 @@
     href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Reference
   items:
+  - name: Guide to Marketplace APIs
+    href: marketplace-apis-guide.md
   - name: CPP API reference
     items:
     - name: CPP API overview
       href: cloud-partner-portal-api-overview.md
-    - name: Guide to Marketplace APIs
-      href: marketplace-apis-guide.md
     - name: API prerequisites
       href: cloud-partner-portal-api-prerequisites.md
     - name: API considerations
