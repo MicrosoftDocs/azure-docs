@@ -127,37 +127,37 @@ To enable Azure AD users to log in to OrgChart Now, they must be provisioned int
 
 	a. Go to the **Manage Groups** option after clicking the **gear** in the top right corner of the UI.
 
-    ![OrgChart Now groups](./media/orgchartnow-tutorial/groups.png)	
+   	  ![OrgChart Now groups](./media/orgchartnow-tutorial/groups.png)	
 
 	b. Select the **Add** icon and name the group **General** then click **OK**. 
 
-	![OrgChart Now add](./media/orgchartnow-tutorial/general.png)
+	  ![OrgChart Now add](./media/orgchartnow-tutorial/general.png)
 
 	c. Select the folder(s) you wish the general or read-only users to be able to access:
-
-	![OrgChart Now folders](./media/orgchartnow-tutorial/folders.png)
+	
+	  ![OrgChart Now folders](./media/orgchartnow-tutorial/folders.png)
 
 	d. **Lock** the folders so that only Admin users can modify them. Then press **OK**.
 
-	![OrgChart Now lock](./media/orgchartnow-tutorial/lock.png)
+	  ![OrgChart Now lock](./media/orgchartnow-tutorial/lock.png)
 
 2. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
 
 	a. Log in to OrgChart Now as a Security Administrator.
 
-	b.  Click on **Settings** on the top right corner and then navigate to **Manage Users**.
+	b. Click on **Settings** on the top right corner and then navigate to **Manage Users**.
 
-	![OrgChart Now settings](./media/orgchartnow-tutorial/settings.png)
+	  ![OrgChart Now settings](./media/orgchartnow-tutorial/settings.png)
 
 	c. Click on **Add** and perform the following steps:
 
-	![OrgChart Now manage](./media/orgchartnow-tutorial/manage-users.png)
+	  ![OrgChart Now manage](./media/orgchartnow-tutorial/manage-users.png)
 
-	* In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
+	1. In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
 
-	* In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
+	1. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
-	* Click **Add**.
+	1. Click **Add**.
 
 ## Test SSO
 

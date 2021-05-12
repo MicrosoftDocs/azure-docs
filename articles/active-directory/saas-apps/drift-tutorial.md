@@ -79,9 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Relay State** text box, type the URL:
     `https://app.drift.com` 
 
-	c. If you wish to configure the application in **SP** initiated mode perform the following step:
+1. Perform the following step if you wish to configure the application in SP initiated mode, click Set additional URLs :
 
-	d. In the **Sign-on URL** text box, type the URL:
+	a. In the **Sign-on URL** text box, type the URL:
     `https://start.drift.com`
 
 6. Your Drift application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
