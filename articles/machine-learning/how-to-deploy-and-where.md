@@ -24,9 +24,9 @@ The workflow is similar no matter where you deploy your model:
 1. Prepare an entry script
 1. Prepare an inference configuration
 1. Deploy the model locally to ensure everything works
-1. Choose a compute target.
+1. Choose a compute target
 1. Re-deploy the model to the cloud
-1. Test the resulting web service.
+1. Test the resulting web service
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
