@@ -24,7 +24,7 @@ The following end-user related service limits apply to all authentication reques
 
 |User Journey      | Limit    |
 |---------|---------|
-|Combined sign in and sign up  | 2,400/min |
+|Combined sign up and sign in  | 2,400/min |
 |Sign up  | 1,200/min |
 |Sign in  | 2,400/min |
 |Password reset  | 1,200/min |
