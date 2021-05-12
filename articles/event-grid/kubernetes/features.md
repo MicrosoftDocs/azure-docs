@@ -18,22 +18,22 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 
 | Feature | Event Grid on Kubernetes | Azure Event Grid |
 |:--|:-:|:-:|
-| [Event Grid Topics](https://docs.microsoft.com/en-us/rest/api/eventgrid/version2020-10-15-preview/topics) | ✔ | ✔ |
+| [Event Grid Topics](/rest/api/eventgrid/version2020-10-15-preview/topics) | ✔ | ✔ |
 | [CNCF Cloud Events schema](https://github.com/cloudevents/spec/blob/master/spec.md) | ✔ | ✔ |
 | Event Grid and custom schemas | ✘* | ✔ |
 | Reliable delivery | ✔ | ✔ |
 | Metrics  | ✔** | ✔ |
 | Azure Monitor  | ✘ | ✔ |
-| [Dead-letter location](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-dead-letter-location) | ✘ | ✔ |
+| [Dead-letter location](../manage-event-delivery.md#set-dead-letter-location) | ✘ | ✔ |
 | [Forward events to another event grid topic](event-handlers#azure-event-grid) | ✔ | ✘ |
-| [System Topics](https://docs.microsoft.com/en-us/azure/event-grid/system-topics) | ✘ | ✔ |
-| [Domain Topics](https://docs.microsoft.com/en-us/azure/event-grid/event-domains) | ✘ | ✔ |
-| [Partner Events](https://docs.microsoft.com/en-us/azure/event-grid/partner-events-overview) | ✘ | ✔ |
-| [Destination endpoint validation](https://docs.microsoft.com/en-us/azure/event-grid/webhook-event-delivery#endpoint-validation-with-event-grid-events) | ✘ | ✔ |
-| [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=csharp%2Cconsole) | ✘ | ✔ |
+| [System Topics](../system-topics.md) | ✘ | ✔ |
+| [Domain Topics](../event-domains.md) | ✘ | ✔ |
+| [Partner Events](../partner-events-overview.md) | ✘ | ✔ |
+| [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) | ✘ | ✔ |
+| [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
-| [Webhook AuthN/AuthZ with AAD](https://docs.microsoft.com/en-us/azure/event-grid/secure-webhook-delivery) | ✘ | ✔ |
-| [Event delivery with resource identity](https://docs.microsoft.com/en-us/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) | ✘ | ✔ |
+| [Webhook AuthN/AuthZ with AAD](../secure-webhook-delivery.md) | ✘ | ✔ |
+| [Event delivery with resource identity](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate#deliverywithresourceidentity) | ✘ | ✔ |
 | Same set of client SDKs | ✔ | ✔ |
 | Same set of management SDKs | ✔ | ✔ |
 | Same Event Grid CLI | ✔ | ✔ |

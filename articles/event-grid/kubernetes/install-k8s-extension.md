@@ -37,7 +37,7 @@ Before proceeding with the installation of Event Grid, make sure the following p
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 ## Getting support
-If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how_to_create_a_support_request).
+If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how-to-create-a-support-request).
 
 ## PKI Certificate requirements
 The Event Grid broker (server) serves two kinds of clients. 
@@ -83,7 +83,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 
     > [!IMPORTANT]
     > Enabling this option will make that all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid broker won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
-1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#PKI-certificate-requirements).
+1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
 1. Select the **Monitoring** at the bottom of the page.
 1. **Enable metrics** by checking this option. Event Grid on Kubernetes exposes metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 1. Select **Tags** to define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
@@ -106,7 +106,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 
 1. Condition: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed does not show the Kubernetes cluster where I intent to install Event Grid.
 
-    Suggestion: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#Getting-Support) with the Azure Arc enabled Kubernetes team.
+    Suggestion: Your Kubernetes cluster is not registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc enabled Kubernetes team.
 
 ### Event Grid extension issues
 
