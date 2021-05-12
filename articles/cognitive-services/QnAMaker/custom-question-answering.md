@@ -7,20 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/11/2021
+ms.custom: references_regions
 ---
 
-# QnA Maker managed is now renamed to Custom question answering
+# QnA Maker managed is now renamed to custom question answering
 
 [QnA Maker managed (preview)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575) was launched in November 2020 as a free public preview offering. It introduced several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. 
 
-As part of our effort to consolidate the language offerings from Cognitive Services, QnA Maker managed is now a feature within Text Analytics, and it has been renamed to Custom question answering.  
+As part of our effort to consolidate the language offerings from Cognitive Services, QnA Maker managed is now a feature within Text Analytics, and it has been renamed to custom question answering.  
 
-## Creating a new Custom question answering service
+## Creating a new custom question answering service
 
 [Create a Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) to use question answering and other features such as entity recognition, sentiment analysis, etc.  
 
-Now when you create a new Text Analytics resource, you can select features that you want included. Select **Custom question answering (preview)** and continue to create your resource.  
+Now when you create a new Text Analytics resource, you can select features that you want included. Select **custom question answering (preview)** and continue to create your resource.  
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of create a Text Analytics resource UI menu with custom question answering feature selected]( ./media/select-feature.png) ]( ./media/select-feature.png#lightbox)
@@ -40,3 +41,10 @@ You can no longer create a QnA Maker managed resource from the QnA Maker create 
     - South Central US
 	- North Europe
 	- Australia East.
+
+## Next steps
+
+* [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
+* [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
+
+
