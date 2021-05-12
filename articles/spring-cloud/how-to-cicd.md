@@ -1,10 +1,10 @@
 ---
-title: CI/CD for Azure Spring Cloud
-description: CI/CD for Azure Spring Cloud
+title: Automate application deployments to Azure Spring Cloud
+description: Describes how to use the Azure Spring Cloud task for Azure Pipelines.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 05/12/2021
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
