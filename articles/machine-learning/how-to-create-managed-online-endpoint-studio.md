@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A [model registered to your workspace](how-to-deploy-and-where.md#registermodel).
-- A scoring file for your deployed model. For a step-by-step example of registering a model and creatgin a scoring file, see [Tutorial: Image classification](tutorial-train-models-with-aml.md).
+- A scoring file for your deployed model. For a step-by-step example of registering a model and creating a scoring file, see [Tutorial: Image classification](tutorial-train-models-with-aml.md).
 - A custom environment registered to your workspace **-or-** a Docker container registry image with a Python environment. For more information on environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
 ## Create a managed online endpoint
@@ -57,7 +57,7 @@ Follow the setup wizard to configure your managed online endpoint.
 
 ## View managed online endpoints
 
-You can view your managed online endpoints in the **Endpoints** page. Use the endpoint details page to find critical information including the endpoint URL, status, testing tools, activity monitors, deployment logs, and sample consumption code:
+You can view your managed online endpoints in the **Endpoints** page. Use the endpoint details page to find critical information including the endpoint URI, status, testing tools, activity monitors, deployment logs, and sample consumption code:
 
 1. In the left navigation bar, select **Endpoints**.
 1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
