@@ -244,7 +244,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     $conn.Close()
     ``` 
 
-    Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
+    Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user or a group in SQL Database.
 
     
 2. Check if the user *myapp* exists in the database by executing the following command:
