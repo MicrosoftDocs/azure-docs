@@ -38,8 +38,7 @@ In this tutorial, you'll learn how to:
 
 Download the example Excel file from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). This file must be stored in your OneDrive for Business account.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Examples from the Excel file.":::
+:::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Examples from the Excel file" lightbox="../media/tutorials/excel/example-data.png":::
 
 The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word "plumbing" in the description to categorize the issues. 
 
@@ -47,9 +46,7 @@ The issues are reported in raw text. We will use the Text Analytics API's Named 
 
 Go to the [Power Automate site](https://preview.flow.microsoft.com/), and login. Then click **Create** and **Scheduled flow**.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The flow creation screen.":::
-
+:::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="The workflow creation screen" lightbox="../media/tutorials/excel/flow-creation.png":::
 
 On the **Build a scheduled cloud flow** page, initialize your flow with the following fields:
 
@@ -63,8 +60,8 @@ On the **Build a scheduled cloud flow** page, initialize your flow with the foll
 
 Create variables representing the information that will be added to the Excel file. Click **New Step** and search for **Initialize variable**. Do this four times, to create four variables.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Initialize variables.":::
+:::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="The step for initializing variables" lightbox="../media/tutorials/excel/initialize-variables.png":::
+
 
 Add the following information to the variables you created. They represent the columns of the Excel file. If any variables are collapsed, you can click on them to expand them.
 
@@ -75,29 +72,25 @@ Add the following information to the variables you created. They represent the c
 | Initialize variable 3 | var_plumbing | String | plumbing |
 | Initialize variable 4 | var_other | String | other | 
 
-:::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables":::
+:::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="information contained in the flow variables" lightbox="../media/tutorials/excel/flow-variables.png":::
 
 ## Read the excel file
 
 Click **New Step** and type **Excel**, then select **List rows present in a table** from the list of actions.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="add excel rows.":::
+:::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Add excel rows into the flow" lightbox="../media/tutorials/excel/list-excel-rows.png":::
 
 Add the Excel file to the flow by filling in the fields in this action. This tutorial requires the file to have been uploaded to OneDrive for Business.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="fill excel rows":::
+:::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Fill the excel rows in the flow" lightbox="../media/tutorials/excel/list-excel-rows-options.png":::
 
 Click **New Step** and add an **Apply to each** action.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="add an apply command.":::
+:::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Add an apply to each action" lightbox="../media/tutorials/excel/add-apply-action.png":::
 
 Click on **Select an output from previous step**. In the Dynamic content box that appears, select **value**.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Select output from the excel file.":::
+:::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="select output from the excel file" lightbox="../media/tutorials/excel/select-output.png":::
 
 ## Send a request to the Text Analytics API
 
@@ -118,25 +111,24 @@ In your flow, enter the following information to create a new Text Analytics con
 | Account key     | The key for your Text Analytics resource.                                                                                   |
 | Site URL        | The endpoint for your Text Analytics resource.                                                       |
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Add Text Analytics credentials to your flow.":::
+:::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Add Text Analytics credentials to the flow" lightbox="../media/tutorials/excel/add-credentials.png":::
+
 
 ## Extract the excel content 
 
 After the connection is created, search for **Text Analytics** and select **Named Entity Recognition**. This will extract information from the description column of the issue.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Add Text Analytics Entities.":::
+:::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Extract the entities from the Excel sheet" lightbox="../media/tutorials/excel/extract-info.png":::
 
 Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language, and a unique name as  the document ID (you might need to click **Show advanced options**).
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Add Text Analytics settings.":::
+:::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Get the description column text from the Excel sheet" lightbox="../media/tutorials/excel/description-from-dynamic-content.png":::
+
 
 Within the **Apply to each**, click **Add an action** and create another **Apply to each** action. Click inside the text box and select **documents** in the Dynamic Content window that appears.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/apply-to-each-documents.png" alt-text="Add apply to each action step for the Text Analytics documents.":::
+:::image type="content" source="../media/tutorials/excel/apply-to-each-documents.png" alt-text="Create another apply to each action." lightbox="../media/tutorials/excel/apply-to-each-documents.png":::
+
 
 ## Extract the person name
 
