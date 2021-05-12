@@ -44,7 +44,7 @@ You can no longer create a QnA Maker managed resource from the QnA Maker create 
 
 ## Next steps
 
-* [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
-* [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
+* [Get started with QnA Maker client library](./quickstarts/quickstart-sdk.md)
+* [Get started with QnA Maker portal](./quickstarts/create-publish-knowledge-base.md)
 
 
