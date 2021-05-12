@@ -168,7 +168,7 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 
 ## Interpret results
 
-When you run the pipeline topology, the results from the gRPC extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the pipeline topology, the results from the gRPC extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
@@ -202,7 +202,7 @@ In this message, notice these details:
 
 ### Inference event
 
-The gRPC extension processor node receives inference results from the avaextension module. It then emits the results through the IoT Hub sink node as inference events. In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the
+The gRPC extension processor node receives inference results from the avaextension module. It then emits the results through the IoT Hub message sink node as inference events. In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the
 UTC time when the object was detected. In the following example, three cars were detected in the same video frame, with varying levels of confidence.
 
 ```json
