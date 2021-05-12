@@ -45,11 +45,11 @@ The gRPC extension processor can be used for sending properties along with excha
 
 ## Cognitive Services extension processor
 
-Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
+Cognitive Services extension processor is a custom-built extension processor that allows Video Analyzer to work well with the [Computer Vision Spatial Analysis]../../cognitive-services/computer-vision/) capabilities using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). 
 
 Use Cognitive Services extension processor node when:
 
-* You want better interoperability with existing [Spatial Analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
+* You want better interoperability with existing [Spatial Analysis operations](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview).
 * Want to use all the benefits of gRPC protocol, accuracy, and performance of Microsoft built and supported AI.
 * Analyze multiple camera feeds at low latency and high throughput.
 
