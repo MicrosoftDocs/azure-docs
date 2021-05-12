@@ -144,6 +144,18 @@ AzureLogger.log = (...args) => {
 };
 ```
 
+# [Windows](#tab/Windows)
+
+When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where an UWP keeps its local data, the following steps are just one of these ways:
+1. Open a Windows Command Prompt (Windows Key + R)
+2. Type `cmd.exe`
+3. Type `where /r %USERPROFILE%\AppData acs*.blog`
+4. Please check if the app ID of your application matches with the one returned by the previous command.
+5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
+
 # [iOS](#tab/ios)
 
 When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
