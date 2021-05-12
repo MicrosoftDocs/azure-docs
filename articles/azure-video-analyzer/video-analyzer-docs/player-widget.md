@@ -245,7 +245,7 @@ We did a simple configuration for the player above, but it supports a wider rang
 | Name   | Type             | Description                         |
 | ------ | ---------------- | ----------------------------------- |
 | token  | string | Your JWT token for the widget |
-| videoName | string | The name of the video resource |
+| videoName | string | The name of the video resource  |
 | clientApiEndpointUrl | string | The endpoint URL for the client API |
 
 ### Alternate ways to load the code into your application
