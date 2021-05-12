@@ -2,6 +2,10 @@
   href: index.yml
 - name: Switch to Azure Event Grid documentation
   href: ../overview.md
+- name: Overview
+  items:
+  - name: What is Event Grid on Kubernetes with Azure Arc (Preview)?
+    href: overview.md  
 - name: Quickstarts
   items:
   - name: Create a topic and a subscription
@@ -10,6 +14,8 @@
   items:
   - name: Event Grid on Kubernetes concepts
     href: concepts.md
+  - name: Feature parity with Azure Event Grid
+    href: features.md
   - name: Event handlers
     href: event-handlers.md    
   - name: Event schemas
@@ -20,6 +26,12 @@
     href: delivery-retry.md
   - name: Filter events
     href: filter-events.md    
+- name: How-to guides
+  items:
+  - name: Install extension on Kubernetes cluster
+    href: install-k8s-extension.md
+  - name: Get support
+    href: get-support.md
 - name: Reference
   items:
   - name: REST API
