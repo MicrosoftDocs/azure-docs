@@ -313,14 +313,16 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
         {
             // Show the result count.
             <p class="sampleText">
-                @Model.resultList.Count Results
+                @Model.resultList.TotalCount Results
             </p>
 
-            @for (var i = 0; i < Model.resultList.Count; i++)
+            var results = Model.resultList.GetResults().ToList();
+
+            @for (var i = 0; i < results.Count; i++)
             {
                 // Display the hotel name and description.
-                @Html.TextAreaFor(m => m.resultList[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea($"desc{i}", Model.resultList[i].Document.Description, new { @class = "box2" })
+                @Html.TextAreaFor(m => results[i].Document.HotelName, new { @class = "box1" })
+                @Html.TextArea($"desc{i}", results[i].Document.Description, new { @class = "box2" })
             }
         }
     }
@@ -504,24 +506,26 @@ The Azure Cognitive Search call is encapsulated in our **RunQueryAsync** method.
 2. Now, add the **RunQueryAsync** method itself.
 
     ```csharp
-    private async Task<ActionResult> RunQueryAsync(SearchData model)
-    {
-        InitSearch();
+        private async Task<ActionResult> RunQueryAsync(SearchData model)
+        {
+            InitSearch();
 
-        var options = new SearchOptions() { };
+            var options = new SearchOptions() 
+            { 
+                IncludeTotalCount = true
+            };
 
-        // Enter Hotel property names into this list so only these values will be returned.
-        // If Select is empty, all values will be returned, which can be inefficient.
-        options.Select.Add("HotelName");
-        options.Select.Add("Description");
+            // Enter Hotel property names into this list so only these values will be returned.
+            // If Select is empty, all values will be returned, which can be inefficient.
+            options.Select.Add("HotelName");
+            options.Select.Add("Description");
 
-        // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-        var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
-        model.resultList = searchResult.Value.GetResults().ToList();
+            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+            model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);          
 
-        // Display the results.
-        return View("Index", model);
-    }
+            // Display the results.
+            return View("Index", model);
+        }
     ```
 
     In this method, first ensure our Azure configuration is initiated, then set some search options. The **Select** option specifies which fields to return in results, and thus match the property names in the **hotel** class. If you omit **Select**, all unhidden fields are returned, which can be inefficient if you are only interested in a subset of all possible fields.
