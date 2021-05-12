@@ -38,10 +38,10 @@ This documentation contains the following types of articles:
 
 Face detection is required as a first step in all the other scenarios. The Detect API detects human faces in an image and returns the rectangle coordinates of their locations. It also returns a unique ID that represents the stored face data, which is used in later operations to identify or verify faces.
 
-Optionally, face detection can also extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service (for example, it could reject photos where the user is wearing sunglasses).
+Optionally, face detection can also extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service (for example, your application could advise users to take off their sunglasses if the user is wearing sunglasses).
 
 > [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further Face operations like Identity verification, Find Similar, or Face grouping, you should use this service instead.
+> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to use other Face operations like Identify, Verify, Find Similar, or Face grouping, you should use this service instead.
 
 ![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
 
@@ -50,13 +50,13 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Identity verification
 
-Identity verification is the most popular scenario in the Face service. It answers the question, "Can this face be matched to any enrolled face in a database?" It can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the probe face data. This is useful in security scenarios like granting building access to a certain group of people or verifying the user of a device.
+Identity verification is the most popular scenario implemented with the Face service. Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
 ![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-After you create and train a database of person data, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
+After you create and train a group, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
 ### Verification
 

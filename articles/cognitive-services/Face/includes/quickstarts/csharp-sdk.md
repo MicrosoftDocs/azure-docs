@@ -137,7 +137,7 @@ In your **Main** method, define strings to point to the different recognition mo
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
 ## Detect and analyze faces
-Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or grouping, skip to the later sections.
+Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or verification, skip to the later sections.
 
 ### Get detected face objects
 

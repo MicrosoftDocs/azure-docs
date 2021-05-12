@@ -1,7 +1,7 @@
 ---
-title: "Face identity verification concepts"
+title: "Face recognition concepts"
 titleSuffix: Azure Cognitive Services
-description: This article explains the concept of Face identity verification, its related operations, and the underlying data structures.
+description: This article explains the concept of Face recognition, its related operations, and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -13,13 +13,13 @@ ms.date: 04/23/2019
 ms.author: pafarley
 ---
 
-# Identity verification concepts
+# Face recognition concepts
 
-This article explains the concept of Face identity verification, its related operations, and the underlying data structures. Broadly, identity verification is one-to-many matching that takes a single source image as input and returns a set of matching candidates from a database. This is useful in security scenarios like granting building access to a certain group of people or verifying the user of a device.
+This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, Face recognition refers to the method of verifying or identifying an individual using their face. Verification is one-to-one matching that takes two faces and returns whether they are the same face, and identification is one-to-many matching that takes a single face as input and returns a set of matching candidates. Face recognition is important in implementing the identity verification scenario, which enterprises and apps use to verify that a (remote) user is who they claim to be.
 
 ## Related data structures
 
-The identification operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription. Name fields may be duplicated.
+The recognition operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription. Name fields may be duplicated.
 
 |Name|Description|
 |:--|:--|
@@ -27,19 +27,15 @@ The identification operations use mainly the following data structures. These ob
 |PersistedFace| When DetectedFace objects are added to a group, such as FaceList or Person, they become PersistedFace objects. They can be [retrieved](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) at any time and don't expire.|
 |[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) or [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| This data structure is an assorted list of PersistedFace objects. A FaceList has a unique ID, a name string, and optionally a user data string.|
 |[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| This data structure is a list of PersistedFace objects that belong to the same person. It has a unique ID, a name string, and optionally a user data string.|
-|[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| This data structure is an assorted list of Person objects. It has a unique ID, a name string, and optionally a user data string. A PersonGroup must be [trained](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) before it can be used in identity verification operations.|
+|[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| This data structure is an assorted list of Person objects. It has a unique ID, a name string, and optionally a user data string. A PersonGroup must be [trained](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) before it can be used in recognition operations.|
 
-## Identification operations
+## Recognition operations
 
 This section details how the underlying operations use the data structures previously described to identify and verify a face.
 
-### Face detection for identification
-
-You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) operation to upload face data from images to the cloud service. All face data (both from the source image and the set of candidates) originally comes from a call to the Detect API.
-
 ### PersonGroup creation and training
 
-You need to create a [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) to store the set of match candidates. PersonGroups hold [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) objects, which each represent an individual person and hold a set of face data belonging to that person.
+You need to create a [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) to store the set of people to match against. PersonGroups hold [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) objects, which each represent an individual person and hold a set of face data belonging to that person.
 
 The [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) operation prepares the data set to be used in face data comparisons.
 
@@ -55,7 +51,7 @@ The [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b619
 
 ## Input data
 
-Use the following tips to ensure that your input images give the most accurate identity verification results:
+Use the following tips to ensure that your input images give the most accurate recognition results:
 
 * The supported input image formats are JPEG, PNG, GIF (the first frame), BMP.
 * Image file size should be no larger than 6 MB.
@@ -69,6 +65,6 @@ Use the following tips to ensure that your input images give the most accurate i
 
 ## Next steps
 
-Now that you're familiar with identity verification concepts, Write a script that identifies faces against a trained PersonGroup.
+Now that you're familiar with face recognition concepts, Write a script that identifies faces against a trained PersonGroup.
 
 * [Face client library quickstart](../Quickstarts/client-libraries.md)
