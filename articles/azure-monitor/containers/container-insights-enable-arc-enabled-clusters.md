@@ -85,7 +85,7 @@ This option uses the following defaults:
 - Creates or uses existing default log analytics workspace corresponding to the region of the cluster
 - Auto-upgrade is enabled for the Azure Monitor cluster extension
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
@@ -93,7 +93,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 You can use an existing Azure Log Analytics workspace in any subscription on which you have *Contributor* or a more permissive role assignment.
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
 ```
 
@@ -101,7 +101,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 If you want to tweak the default resource requests and limits, you can use the advanced configurations settings:
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
@@ -111,7 +111,7 @@ Checkout the [resource requests and limits section of Helm chart](https://github
 
 If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
 
-```console
+```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
 ```
 
@@ -158,7 +158,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 3. Deploy the template to create Azure Monitor Container Insights extension 
 
-    ```console
+    ```azurecli
     az login
     az account set --subscription "Subscription Name"
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
