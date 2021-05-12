@@ -328,7 +328,7 @@ To publish changes to your static web app in Azure, commit and push your code to
 
 1. Open your repository in GitHub to monitor the status of your workflow run.
 
-1. When the workflow run is complete, visit your static web app to view your changes.
+1. When the workflow run completes, visit your static web app to view your changes.
 
 ## Next steps
 
