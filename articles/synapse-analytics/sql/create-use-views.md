@@ -65,8 +65,12 @@ The `OPENROWSET` function that reads data from the Delta Lake folder will examin
 create or alter view CovidDeltaLake
 as
 select *
-from openrowset( bulk 'covid', data_source = 'DeltaLake', format = 'delta' )
-    with ( date_rep date,
+from openrowset(
+           bulk 'covid',
+           data_source = 'DeltaLake',
+           format = 'delta'
+    ) with (
+           date_rep date,
            cases int,
            geo_id varchar(6)
            ) as rows
@@ -97,7 +101,10 @@ If you are creating the partitioned views on top of Delta Lake storage, you can 
 CREATE VIEW TaxiView
 AS SELECT *
 FROM
-    OPENROWSET( BULK 'parquet/taxi', DATA_SOURCE = 'sqlondemanddemo', FORMAT='DELTA' ) AS nyc
+    OPENROWSET(
+                BULK 'parquet/taxi',
+                DATA_SOURCE = 'sqlondemanddemo',
+                FORMAT='DELTA' ) AS nyc
 ```
 
 The `OPENROWSET` function will examine the structure of the underlying Delta Lake folder and automatically identify and expose the partitioning columns. The partition elimination will be done automatically if you put the partitioning column in the `WHERE` clause of a query.
