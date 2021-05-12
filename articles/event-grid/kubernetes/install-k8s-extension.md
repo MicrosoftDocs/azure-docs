@@ -34,7 +34,7 @@ Before proceeding with the installation of Event Grid, make sure the following p
 1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
 1. [An Azure subscription](https://azure.microsoft.com/en-us/free/).
 1. [PKI Certificates](#pki-certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
-1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster).
+1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 ## Getting support
 If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how_to_create_a_support_request).
