@@ -27,6 +27,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
   + **azureml-automl-runtime**
     + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
+    + Patch bug where forecasting with the Prophet model would throw an "missing column" error if trained on an earlier version of SDK.
   + **azureml-contrib-automl-dnn-forecasting**
     + Added support for version 2 of AutoML scoring script which handles improvements and is consistent with the Designer spec
   + **azureml-contrib-dataset**
