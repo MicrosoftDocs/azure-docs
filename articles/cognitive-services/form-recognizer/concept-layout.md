@@ -50,7 +50,7 @@ First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.c
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="./media/layout-reading-order-example.PNG" alt-text="Layout Reading order example" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="./media/layout-reading-order-example.png" alt-text="Layout Reading order example" lightbox="../Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
