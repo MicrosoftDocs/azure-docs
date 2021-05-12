@@ -104,7 +104,7 @@ A compute target is the computing resource or environment where you run training
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
-## Train image classification model
+## <a><a id="train-the-model"/> Train image classification model
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 

@@ -183,7 +183,7 @@ For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_mod
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-For information on using VS Code, see [deploy to AKS via the VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.

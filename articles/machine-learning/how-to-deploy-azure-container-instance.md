@@ -93,7 +93,7 @@ For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_mod
 
 ## Using VS Code
 
-See [deploy your models with VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+See [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
