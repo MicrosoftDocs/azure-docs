@@ -43,7 +43,7 @@ For the bot on surface products, you can take the following steps to create a bo
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
-    You can find how to use the GenerateAnswer API [here](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
+    Learn [how to use the GenerateAnswer API](../How-To/metadata-generateanswer-usage.md). The GenerateAnswer URL has the following format:
     ```
     https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     ```
