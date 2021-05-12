@@ -2,11 +2,11 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: lobrien
+author: timoklimmer
 ms.service: data-science-vm
 
-ms.author: laobri
-ms.date: 02/24/2020
+ms.author: tklimmer
+ms.date: 05/12/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,106 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2021-05-12
+
+New images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)
+and [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+**Windows Server 2019**
+
+Selected version updates are:
+- CUDA 11.1
+- Python 3.8
+- PyTorch 1.8.1
+- TensorFlow 2.4.1
+- Spark 3.1
+- Java 11
+- R 4.0.5
+- Julia 1.0.5
+- NodeJS 16.1.0
+- Visual Studio Code 1.56 incl. Azure ML extension
+- PyCharm Community Edition 2021.1.1
+- Jupyter Lab 2.2.6
+- RStudio 1.4.1106
+- Visual Studio Community Edition 2019 (version 16.9.4)
+- git 2.31
+- Azure CLI 2.22.1
+- Storage Explorer 1.19.1
+- azcopy 10.10
+- Power BI Desktop 2.92.1067.0 64-bit (April 2021)
+- Azure Data Studio 1.28.0
+- Microsoft Edge browser
+
+<br/>
+Added docker. To save resources, the docker service is not started by default. To start the docker service, either use
+the Services dialog in Windows (`services.msc`) or run the following command-line commands:
+
+```
+sc config docker start=demand
+sc start docker
+```
+
+> [!NOTE]
+> This Windows DSVM image supports only Windows docker images. This limitation cannot be worked around in this image but
+> will be solved in a later release of the DSVM. Until then, we recommend to use an Ubuntu image for running docker
+> images that base on a Linux operating system.
+
+<br/>
+Removed Firefox, Apache Drill and Microsoft Integration Runtime.
+
+<br/>
+Dark mode, changed icons on desktop, wallpaper background change.
+
+<br/>
+Enabled the image for use in a Gen2 virtual machine.
+
+
+**Ubuntu 18.04**
+
+Selected version updates are:
+- CUDA 11.3, cuDNN 8, NCCL2
+- Python 3.8
+- R 4.0.5
+- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, CosmosDB
+- Java 11 (OpenJDK)
+- Jupyter Lab 3.0.14
+- PyTorch 1.8.1 incl. torchaudio torchtext torchvision, torch-tb-profiler
+- TensorFlow 2.4.1 incl. TensorBoard
+- dask 2021.01.0
+- VS.Code 1.56
+- Azure Data Studio 1.22.1
+- Azure CLI 2.23.0
+- Azure Storage Explorer 1.19.1
+- azcopy 10.10
+- Microsoft Edge browser (beta)
+
+<br/>
+Added docker. To save resources, the docker service is not started by default. To start the docker service, run the
+following command-line commands:
+
+```
+sudo systemctl start docker
+```
+
+> [!NOTE]
+> If your machine has GPU(s), you can make use of the GPU(s) inside the containers by adding a `--gpus`
+> parameter to your docker command.
+>
+> For example, running
+>
+> `docker run --gpus all -it --rm -v local_dir:container_dir nvcr.io/nvidia/pytorch:18.04-py3`
+>
+> will run a Ubuntu 18.04 container with PyTorch pre-installed and all GPUs enabled. It will also make a local folder
+> *local_dir* available in the container under *container_dir*.
+>
+
+<br/>
+Removed Apache Drill.
+
+<br/>
+Removed some icons from desktop.
+
 
 ## 2020-02-24
 
