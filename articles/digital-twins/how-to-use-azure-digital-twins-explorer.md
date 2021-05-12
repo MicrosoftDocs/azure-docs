@@ -486,13 +486,14 @@ The query text should be URL encoded.
 
 >[!TIP]
 >You can copy the query text from the **QUERY EXPLORER** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
+>
 > You can also use an independent URL encoder to convert the query text.
 
 Here's an example of the parameter for a query to **SELECT * FROM digitaltwins**:
 
 `...&query=SELECT%20*%20FROM%20digitaltwins`
 
-After this, you can copy the finished URL to share.
+You can then share the completed URL.
 
 ## Advanced settings
 
