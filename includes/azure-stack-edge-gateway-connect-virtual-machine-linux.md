@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 05/12/2021
 ms.author: alkohli
 ---
 
@@ -60,7 +60,7 @@ Connect to the VM by using the private IP that you passed during the VM creation
     Administrator@mylinuxvm:
     ```
 
-1. If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
+   If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
 
    ```powershell
    $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>

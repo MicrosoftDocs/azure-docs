@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/12/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro device so that I can use it to transform data before I send it to Azure.
 ---
@@ -62,11 +62,13 @@ Follow these steps to create a VM on your Azure Stack Edge device.
 
 ### Add a VM image
 
-1. Upload a VHD to an Azure Storage account. Follow the steps in [Upload a VHD by using Azure Storage Explorer](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
+1. Upload a VHD to an Azure Storage account. Follow the steps in [Use Storage Explorer for upload](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
-1. In the Azure portal, go to the Azure Stack Edge resource for your Azure Stack Edge device. Go to **Edge compute** > **Virtual machines**.
+   For information about preparing the VHD, see [Prepare a generalized image from a Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
-    ![Screenshot that shows Edge compute and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+1. In the Azure portal, go to the Azure Stack Edge resource for your Azure Stack Edge device. Go to **Edge Services** > **Virtual machines**.
+
+    ![Screenshot that shows Edge Services and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
 1. Select **Virtual Machines** to go to the **Overview** page. Select **Enable** to enable virtual machine cloud management.
 
@@ -186,9 +188,11 @@ Follow these steps to create a VM after you've created a VM image.
 
     ![Screenshot that shows selecting the new VM.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
-    Select the VM to see the details. 
+    Select the VM to see the details.
 
     ![Screenshot that shows the VM details.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+
+    You'll use the IP address for the network interface to connect to the VM.
 
 ## Connect to a VM
 
