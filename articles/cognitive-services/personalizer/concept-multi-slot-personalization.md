@@ -1,3 +1,15 @@
+---
+title: Multi-slot personalization
+description: Learn where and when to use single-slot and multi-slot personalization with the Personalizer Rank and Reward APIs.
+services: cognitive-services
+ms.author: edjez
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: personalizer
+ms.topic: quickstart
+ms.date: 05/24/2021
+---
+
 # Multi-slot personalization (Preview)
 
 Multi-slot personalization (Preview) allows you to target content in web layouts, carousels, and lists where more than one action (such as a product or piece of content) is shown to your users. With Personalizer multi-slot APIs, you can have the AI models in Personalizer learn what user contexts and products drive certain behaviors, considering and learning from the placement in your user interface. For example, Personalizer may learn that certain products or content drive more clicks as a sidebar or a footer than as a main highlight on a page.
@@ -41,7 +53,7 @@ See [Differences between single-slot and multi-slot Personalization](#difference
 
 Once you have decided to convert a loop to multi-slot personalization, you must follow these steps once for this Personalizer loop:
 
-[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](upgrade-personalizer-multi-slot.md)]
+[!INCLUDE [Upgrade Personalizer instance to Multi-Slot](./includes/upgrade-personalizer-multi-slot.md)]
 
 ### Create JSON object for a Rank request
 Using multi-slot personalization requires an API that differs slightly from the single-slot personalization API.
