@@ -2291,6 +2291,8 @@
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: Insite LMS
+        href: insite-lms-provisioning-tutorial.md
       - name: Iris Intranet
         href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect

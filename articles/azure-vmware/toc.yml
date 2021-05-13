@@ -55,7 +55,7 @@
 - name: How-to guides
   items:
   - name: Request host quota for Azure VMware Solution
-    href: enable-azure-vmware-solution.md
+    href: request-host-quota-azure-vmware-solution.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions

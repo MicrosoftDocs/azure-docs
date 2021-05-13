@@ -66,11 +66,15 @@
   - name: Single-tenant Azure Logic Apps (Preview)
     items:
     - name: Single-tenant overview (Preview)
-      href: logic-apps-overview-preview.md
-    - name: Create preview logic apps - Portal
-      href: create-stateful-stateless-workflows-azure-portal.md
-    - name: Create preview logic apps - Visual Studio Code
-      href: create-stateful-stateless-workflows-visual-studio-code.md
+      href: single-tenant-overview-compare.md
+    - name: Create single-tenant workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create single-tenant workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Secure traffic between single-tenant workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Estimate storage costs for single-tenant workflows
+      href: estimate-storage-costs.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
