@@ -282,7 +282,7 @@
               href: managed-aad.md
             - name: Azure AD integration (legacy)
               href: azure-ad-integration-cli.md
-        - name: Use Azure RBAC for Kubernetes Authorization (preview)
+        - name: Use Azure RBAC for Kubernetes Authorization
           href: manage-azure-rbac.md
         - name: Use Kubernetes RBAC with Azure AD integration
           href: azure-ad-rbac.md
