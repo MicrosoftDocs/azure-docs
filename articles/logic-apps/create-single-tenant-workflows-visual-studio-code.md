@@ -15,11 +15,11 @@ ms.date: 04/23/2021
 > Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With [Azure Logic Apps Preview](logic-apps-overview-preview.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](logic-apps-overview-preview.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](logic-apps-overview-preview.md).
+With [Azure Logic Apps Preview](single-tenant-overview-compare.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](single-tenant-overview-compare.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](single-tenant-overview-compare.md).
 
-![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
+![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-stateful-stateless-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
+In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-single-tenant-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
 Meanwhile, you can still create the original logic app type. Although the development experiences in Visual Studio Code differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
 
@@ -74,7 +74,7 @@ To locally build and run your logic app project in Visual Studio Code when using
 
 1. Before you can run your project, make sure that you start the emulator.
 
-   ![Screenshot that shows the Azure Storage Emulator running.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
+   ![Screenshot that shows the Azure Storage Emulator running.](./media/create-single-tenant-workflows-visual-studio-code/start-storage-emulator.png)
 
 #### macOS and Linux
 
@@ -93,7 +93,7 @@ To locally build and run your logic app project in Visual Studio Code when using
 
    `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
 
-   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-single-tenant-workflows-visual-studio-code/find-storage-account-connection-string.png)
 
    For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
@@ -141,7 +141,7 @@ To locally build and run your logic app project in Visual Studio Code when using
 
        After the installation completes, the Preview extension appears in the **Extensions: Installed** list.
 
-       ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
+       ![Screenshot that shows Visual Studio Code's installed extensions list with the "Azure Logic Apps (Preview)" extension underlined.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
@@ -215,7 +215,7 @@ To find and confirm these settings, follow these steps:
 
    For example, you can find the **Azure Logic Apps V2: Project Runtime** setting here or use the search box to find other settings:
 
-   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-stateful-stateless-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
+   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
 
 <a name="connect-azure-account"></a>
 
@@ -223,11 +223,11 @@ To find and confirm these settings, follow these steps:
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-   ![Screenshot that shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
+   ![Screenshot that shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
 1. In the Azure pane, under **Azure: Logic Apps (Preview)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
-   ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
+   ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
    After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Preview)** section.
    
@@ -235,7 +235,7 @@ To find and confirm these settings, follow these steps:
 
    1. In the subscriptions list, move your pointer next to the first subscription until the **Select Subscriptions** button (filter icon) appears. Select the filter icon.
 
-      ![Screenshot that shows Azure pane and selected filter icon.](./media/create-stateful-stateless-workflows-visual-studio-code/filter-subscription-list.png)
+      ![Screenshot that shows Azure pane and selected filter icon.](./media/create-single-tenant-workflows-visual-studio-code/filter-subscription-list.png)
 
       Or, in the Visual Studio Code status bar, select your Azure account. 
 
@@ -253,21 +253,21 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create New Project** (icon that shows a folder and lightning bolt).
 
-   ![Screenshot that shows Azure pane toolbar with "Create New Project" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
+   ![Screenshot that shows Azure pane toolbar with "Create New Project" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
 1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
 1. Browse to the location where you created your project folder, select that folder and continue.
 
-   ![Screenshot that shows "Select Folder" dialog box with a newly created project folder and the "Select" button selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-folder.png)
+   ![Screenshot that shows "Select Folder" dialog box with a newly created project folder and the "Select" button selected.](./media/create-single-tenant-workflows-visual-studio-code/select-project-folder.png)
 
 1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. This example selects **Stateful Workflow**.
 
-   ![Screenshot that shows the workflow templates list with "Stateful Workflow" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
+   ![Screenshot that shows the workflow templates list with "Stateful Workflow" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
 1. Provide a name for your workflow and press Enter. This example uses `Fabrikam-Stateful-Workflow` as the name.
 
-   ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
+   ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
 
    Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow in the code editor.
 
@@ -280,13 +280,13 @@ Before you can create your logic app, create a local project so that you can man
 
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
 
-   ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
+   ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
 1. If you're using macOS or Linux, set up access to your storage account by following these steps, which are required for locally running your project:
 
    1. In your project's root folder, open the **local.settings.json** file.
 
-      ![Screenshot that shows Explorer pane and 'local.settings.json' file in your project.](./media/create-stateful-stateless-workflows-visual-studio-code/local-settings-json-files.png)
+      ![Screenshot that shows Explorer pane and 'local.settings.json' file in your project.](./media/create-single-tenant-workflows-visual-studio-code/local-settings-json-files.png)
 
    1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
 
@@ -332,7 +332,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
 
-   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+   ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
 
 1. When the prompt appears, confirm the project conversion.
 
@@ -363,11 +363,11 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. Expand the project folder for your workflow. Open the **workflow.json** file's shortcut menu, and select **Open in Designer**.
 
-   ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
+   ![Screenshot that shows Explorer pane and shortcut window for the workflow.json file with "Open in Designer" selected.](./media/create-single-tenant-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available and deployed in Azure, not just connectors for Azure services.
 
-   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
+   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
    > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
@@ -376,19 +376,19 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
 1. From the **Select subscription** list, select the Azure subscription to use for your logic app project.
 
-   ![Screenshot that shows Explorer pane with the "Select subscription" box and your subscription selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-subscription.png)
+   ![Screenshot that shows Explorer pane with the "Select subscription" box and your subscription selected.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-subscription.png)
 
 1. From the resource groups list, select **Create new resource group**.
 
-   ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
+   ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
 
 1. Provide a name for the resource group, and press Enter. This example uses `Fabrikam-Workflows-RG`.
 
-   ![Screenshot that shows Explorer pane and resource group name box.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
+   ![Screenshot that shows Explorer pane and resource group name box.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
 1. From the locations list, find and select the Azure region to use when creating your resource group and resources. This example uses **West Central US**.
 
-   ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
+   ![Screenshot that shows Explorer pane with locations list and "West Central US" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png)
 
    After you perform this step, Visual Studio Code opens the workflow designer.
 
@@ -400,7 +400,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
    After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
-   ![Screenshot that shows the workflow designer.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-designer.png)
+   ![Screenshot that shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-designer.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
 
@@ -424,11 +424,11 @@ The workflow in this example uses this trigger and these actions:
 
 1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
 
-   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
+   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the workflow designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-stateful-stateless-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the workflow designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -445,15 +445,15 @@ The workflow in this example uses this trigger and these actions:
 
    This example selects and uses the Office 365 Outlook action, **Send an email (V2)**.
 
-   ![Screenshot that shows the workflow designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
+   ![Screenshot that shows the workflow designer and **Add an action** pane with Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-visual-studio-code/add-send-email-action.png)
 
 1. In the action's details pane, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot that shows the workflow designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
+   ![Screenshot that shows the workflow designer and **Send an email (V2)** pane with "Sign in" selected.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-sign-in.png)
 
 1. When Visual Studio Code prompts you for consent to access your email account, select **Open**.
 
-   ![Screenshot that shows the Visual Studio Code prompt to permit access.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
+   ![Screenshot that shows the Visual Studio Code prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
 
    > [!TIP]
    > To prevent future prompts, select **Configure Trusted Domains** 
@@ -467,7 +467,7 @@ The workflow in this example uses this trigger and these actions:
 
 1. When the Azure Logic Apps (Preview) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
 
-   ![Screenshot that shows the Preview extension prompt to permit access.](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
+   ![Screenshot that shows the Preview extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
@@ -478,7 +478,7 @@ The workflow in this example uses this trigger and these actions:
 
 1. On the action's details pane, on the **Parameters** tab, provide the required information for the action, for example:
 
-   ![Screenshot that shows the workflow designer with details for Office 365 Outlook "Send an email" action.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
+   ![Screenshot that shows the workflow designer with details for Office 365 Outlook "Send an email" action.](./media/create-single-tenant-workflows-visual-studio-code/send-email-action-details.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -633,13 +633,13 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. From the **workflow.json** file's shortcut menu, select **Overview**.
 
-      ![Screenshot that shows the Explorer pane and shortcut window for the workflow.json file with "Overview" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/open-workflow-overview.png)
+      ![Screenshot that shows the Explorer pane and shortcut window for the workflow.json file with "Overview" selected.](./media/create-single-tenant-workflows-visual-studio-code/open-workflow-overview.png)
 
    1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
       `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
-      ![Screenshot that shows your workflow's overview page with callback URL](./media/create-stateful-stateless-workflows-visual-studio-code/find-callback-url.png)
+      ![Screenshot that shows your workflow's overview page with callback URL](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
 1. To test the callback URL by triggering the logic app workflow, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
 
@@ -647,7 +647,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. On the Postman toolbar, select **New**.
 
-      ![Screenshot that shows Postman with New button selected](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
+      ![Screenshot that shows Postman with New button selected](./media/create-single-tenant-workflows-visual-studio-code/postman-create-request.png)
 
    1. On the **Create New** pane, under **Building Blocks**, select **Request**.
 
@@ -659,17 +659,17 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       Postman's request pane opens so that you can send a request to the callback URL for the Request trigger.
 
-      ![Screenshot that shows Postman with the opened request pane](./media/create-stateful-stateless-workflows-visual-studio-code/postman-request-pane.png)
+      ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
    1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
-      ![Screenshot that shows Postman and callback URL in the address box with Send button selected](./media/create-stateful-stateless-workflows-visual-studio-code/postman-test-call-back-url.png)
+      ![Screenshot that shows Postman and callback URL in the address box with Send button selected](./media/create-single-tenant-workflows-visual-studio-code/postman-test-call-back-url.png)
 
       The example logic app workflow sends an email that appears similar to this example:
 
-      ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-result-email.png)
+      ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-result-email.png)
 
 1. In Visual Studio Code, return to your workflow's overview page.
 
@@ -679,7 +679,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
-   ![Screenshot that shows the workflow's overview page with run status and history](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
+   ![Screenshot that shows the workflow's overview page with run status and history](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
 
    | Run status | Description |
    |------------|-------------|
@@ -694,11 +694,11 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 1. To review the statuses for each step in a specific run and the step's inputs and outputs, select the ellipses (**...**) button for that run, and select **Show Run**.
 
-   ![Screenshot that shows your workflow's run history row with ellipses button and "Show Run" selected](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
+   ![Screenshot that shows your workflow's run history row with ellipses button and "Show Run" selected](./media/create-single-tenant-workflows-visual-studio-code/show-run-history.png)
 
    Visual Studio Code opens the monitoring view and shows the status for each step in the run.
 
-   ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+   ![Screenshot that shows each step in the workflow run and their status](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
    > If a run failed and a step in monitoring view shows the `400 Bad Request` error, this problem might result 
@@ -720,19 +720,19 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
-   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
-   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
-   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
-   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
-   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
-   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
-   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
-   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
-   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+   [aborted-icon]: ./media/create-single-tenant-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-single-tenant-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-single-tenant-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-single-tenant-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-single-tenant-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-single-tenant-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-single-tenant-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-single-tenant-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-single-tenant-workflows-visual-studio-code/waiting.png
 
 1. To review the inputs and outputs for each step, select the step that you want to inspect.
 
-   ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Send an email" action](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
+   ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Send an email" action](./media/create-single-tenant-workflows-visual-studio-code/run-history-details.png)
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
@@ -750,11 +750,11 @@ To return a response to the caller that sent a request to your logic app, you ca
 
 1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `response`, and select the **Response** action.
 
-   ![Screenshot that shows the workflow designer with the Response action selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
+   ![Screenshot that shows the workflow designer with the Response action selected.](./media/create-single-tenant-workflows-visual-studio-code/add-response-action.png)
 
    When the **Response** action appears on the designer, the action's details pane automatically opens.
 
-   ![Screenshot that shows the workflow designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
+   ![Screenshot that shows the workflow designer with the "Response" action's details pane open and the "Body" property set to the "Send an email" action's "Body" property value.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details.png)
 
 1. On the **Parameters** tab, provide the required information for the function that you want to call.
 
@@ -762,15 +762,15 @@ To return a response to the caller that sent a request to your logic app, you ca
 
    1. Click inside the **Body** property box so that the dynamic content list appears and shows the available output values from the preceding trigger and actions in the workflow.
 
-      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property so that the dynamic content list appears.](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
+      ![Screenshot that shows the "Response" action's details pane with the mouse pointer inside the "Body" property so that the dynamic content list appears.](./media/create-single-tenant-workflows-visual-studio-code/open-dynamic-content-list.png)
 
    1. In the dynamic content list, under **Send an email**, select **Body**.
 
-      ![Screenshot that shows the open dynamic content list. In the list, under the "Send an email" header, the "Body" output value is selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
+      ![Screenshot that shows the open dynamic content list. In the list, under the "Send an email" header, the "Body" output value is selected.](./media/create-single-tenant-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
       When you're done, the Response action's **Body** property is now set to the **Send an email** action's **Body** output value.
 
-      ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details-body-property.png)
+      ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-single-tenant-workflows-visual-studio-code/response-action-details-body-property.png)
 
 1. On the designer, select **Save**.
 
@@ -788,7 +788,7 @@ After you make updates to your logic app, you can run another test by rerunning 
 
    For example, here's the step-by-step status for a run after the sample workflow was updated with the Response action.
 
-   ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
+   ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-single-tenant-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
@@ -858,7 +858,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
 1. On the **Azure: Logic Apps (Preview)** pane toolbar, select **Deploy to Logic App**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -870,13 +870,13 @@ You can publish your logic app as a new resource, which automatically creates an
 
    This example continues with **Create new Logic App (Preview) in Azure Advanced**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list with "Create new Logic App (Preview) in Azure" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list with "Create new Logic App (Preview) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
 
 1. To create your new **Logic App (Preview)** resource, follow these steps:
 
    1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource. This example uses `Fabrikam-Workflows-App`.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
    1. Select a [hosting plan](../app-service/overview-hosting-plans.md) for your new logic app, either [**App Service Plan** (Dedicated)](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md).
 
@@ -896,15 +896,15 @@ You can publish your logic app as a new resource, which automatically creates an
 
       This example uses the **App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-single-tenant-workflows-visual-studio-code/select-hosting-plan.png)
 
    1. Create a new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
    1. Provide a name for your App Service plan, and then select a [pricing tier](../app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-stateful-stateless-workflows-visual-studio-code/select-pricing-tier.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-single-tenant-workflows-visual-studio-code/select-pricing-tier.png)
 
    1. For optimal performance, find and select the same resource group as your project for the deployment.
 
@@ -915,7 +915,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
    1. For stateful workflows, select **Create new storage account** or an existing storage account.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
 
    1. If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
 
@@ -1017,11 +1017,11 @@ You can publish your logic app as a new resource, which automatically creates an
 
 1. To review and monitor the deployment process, on the **View** menu, select **Output**. From the Output window toolbar list, select **Azure Logic Apps**.
 
-   ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
+   ![Screenshot that shows the Output window with the "Azure Logic Apps" selected in the toolbar list along with the deployment progress and statuses.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
    When Visual Studio Code finishes deploying your logic app to Azure, the following message appears:
 
-   ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-stateful-stateless-workflows-visual-studio-code/deployment-to-azure-completed.png)
+   ![Screenshot that shows a message that deployment to Azure successfully completed.](./media/create-single-tenant-workflows-visual-studio-code/deployment-to-azure-completed.png)
 
    Congratulations, your logic app is now live in Azure and enabled by default.
 
@@ -1061,14 +1061,14 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-single-tenant-workflows-azure-portal.md#disable-enable-workflows).
 
    > [!NOTE]
    > The stop logic app and delete logic app operations affect workflow instances in different ways. 
    > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
    > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
-   ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
+   ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
 1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
@@ -1084,11 +1084,11 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    The Azure portal opens in your browser, signs you in to the portal automatically if you're signed in to Visual Studio Code, and shows your logic app.
 
-   ![Screenshot that shows the Azure portal page for your logic app in Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
+   ![Screenshot that shows the Azure portal page for your logic app in Visual Studio Code.](./media/create-single-tenant-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
    You can also sign in separately to the Azure portal, use the portal search box to find your logic app, and then select your logic app from the results list.
 
-   ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
+   ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
 <a name="considerations-stop-logic-apps"></a>
 
@@ -1132,21 +1132,21 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic app preview" search text.](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
+   ![Screenshot that shows the Azure portal search box with the "logic app preview" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
 1. On the **Logic App (Preview)** pane, find and select the logic app that you deployed from Visual Studio Code.
 
-   ![Screenshot that shows the Azure portal and the Logic App (Preview) resources deployed in Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
+   ![Screenshot that shows the Azure portal and the Logic App (Preview) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
 
    The Azure portal opens the individual resource page for the selected logic app.
 
-   ![Screenshot that shows your logic app workflow's resource page in the Azure portal.](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
+   ![Screenshot that shows your logic app workflow's resource page in the Azure portal.](./media/create-single-tenant-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
 1. To view the workflows in this logic app, on the logic app's menu, select **Workflows**.
 
    The **Workflows** pane shows all the workflows in the current logic app. This example shows the workflow that you created in Visual Studio Code.
 
-   ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
+   ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-single-tenant-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
 1. To view a workflow, on the **Workflows** pane, select that workflow.
 
@@ -1154,11 +1154,11 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
    For example, to view the steps in the workflow, select **Designer**.
 
-   ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
+   ![Screenshot that shows the selected workflow's "Overview" pane, while the workflow menu shows the selected "Designer" command.](./media/create-single-tenant-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
    The workflow designer opens and shows the workflow that you built in Visual Studio Code. You can now make changes to this workflow in the Azure portal.
 
-   ![Screenshot that shows the workflow designer and workflow deployed from Visual Studio Code.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-workflow-designer.png)
+   ![Screenshot that shows the workflow designer and workflow deployed from Visual Studio Code.](./media/create-single-tenant-workflows-visual-studio-code/opened-workflow-designer.png)
 
 <a name="add-workflow-portal"></a>
 
@@ -1170,23 +1170,23 @@ Through the Azure portal, you can add blank workflows to a **Logic App (Preview)
 
 1. On the logic app menu, select **Workflows**. On the **Workflows** pane, select **Add**.
 
-   ![Screenshot that shows the selected logic app's "Workflows" pane and toolbar with "Add" command selected.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
+   ![Screenshot that shows the selected logic app's "Workflows" pane and toolbar with "Add" command selected.](./media/create-single-tenant-workflows-visual-studio-code/add-new-workflow.png)
 
 1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
 
    After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow so that you can manage and perform other tasks, such as opening the designer or code view.
 
-   ![Screenshot that shows the selected workflow with management and review options.](./media/create-stateful-stateless-workflows-visual-studio-code/view-new-workflow.png)
+   ![Screenshot that shows the selected workflow with management and review options.](./media/create-single-tenant-workflows-visual-studio-code/view-new-workflow.png)
 
    For example, opening the designer for a new workflow shows a blank canvas. You can now build this workflow in the Azure portal.
 
-   ![Screenshot that shows the workflow designer and a blank workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
+   ![Screenshot that shows the workflow designer and a blank workflow.](./media/create-single-tenant-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
 <a name="enable-run-history-stateless"></a>
 
 ## Enable run history for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create stateful and stateless workflows in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#enable-run-history-stateless).
+To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
 1. In your Visual Studio Code project, expand the **workflow-designtime** folder, and open the **local.settings.json** file.
 
@@ -1235,7 +1235,7 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
-   ![Screenshot that shows the Azure portal with a deployed Logic App (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+   ![Screenshot that shows the Azure portal with a deployed Logic App (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-single-tenant-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="enable-open-application-insights"></a>
 
@@ -1314,7 +1314,7 @@ To find and copy this connection string, follow these steps:
 
    `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
 
-   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-single-tenant-workflows-visual-studio-code/find-storage-account-connection-string.png)
 
    For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
@@ -1382,7 +1382,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 * Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
 
-  ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
+  ![Screenshot that shows a selected item on designer with the opened details pane plus the selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-visual-studio-code/delete-item-from-designer.png)
 
   > [!TIP]
   > If the ellipses menu isn't visible, expand Visual Studio Code window wide enough so that 
@@ -1402,7 +1402,7 @@ When you try to open the designer, you get this error, **"Workflow design time c
 
   1. From the list in the Output window's title bar, select **Azure Logic Apps (Preview)** so that you can review output from the extension, for example:
 
-     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-single-tenant-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
 
   1. Review the output and check whether this error message appears:
 
@@ -1433,7 +1433,7 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 > [!NOTE]
 > This solution applies only to logic apps that you create and deploy using Visual Studio Code with 
 > the Azure Logic Apps (Preview) extension, not the logic apps that you created using the Azure portal. 
-> See [Supported triggers and actions are missing from the designer in the Azure portal](create-stateful-stateless-workflows-azure-portal.md#missing-triggers-actions).
+> See [Supported triggers and actions are missing from the designer in the Azure portal](create-single-tenant-workflows-azure-portal.md#missing-triggers-actions).
 
 1. Save any work that you don't want to lose, and close Visual Studio.
 
@@ -1487,7 +1487,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
    After you increase or add these key values, the registry editor looks like this example:
 
-   ![Screenshot that shows the registry editor.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+   ![Screenshot that shows the registry editor.](media/create-single-tenant-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
 
 1. When you're ready, restart your computer so that the changes can take effect.
 
