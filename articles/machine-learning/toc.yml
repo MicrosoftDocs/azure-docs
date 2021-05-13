@@ -75,6 +75,8 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
+        - name: Deploy managed endpoints using system assigned identity
+          href: tutorial-deploy-managed-endpoints-using-system-assigned-identity.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
