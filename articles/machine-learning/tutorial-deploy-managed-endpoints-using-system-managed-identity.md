@@ -185,7 +185,6 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 > * Create a managed endpoint
 > * Give the system assigned managed identity permission to access storage
 > * Create a deployment associated with managed endpoint
-> * Deploy the model 
 
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
