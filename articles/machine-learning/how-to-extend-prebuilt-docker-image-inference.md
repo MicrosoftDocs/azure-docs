@@ -15,7 +15,7 @@ ms.custom: deploy, docker, prebuilt
 
 # Extend a prebuilt Docker image (Preview)
 
-In some cases, the prebuilt Docker images and [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions for Azure Machine Learning may not meet your inference service needs.
+In some cases, the [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) and [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions for Azure Machine Learning may not meet your inference service needs.
 
 In this case, you can use a Dockerfile to create a new image, using one of the prebuilt images as the starting point. By extending from an existing prebuilt Docker image, you can use the Azure Machine Learning network stack and libraries without creating an image from scratch.
 
@@ -90,6 +90,8 @@ You can also install addition pip packages from a Dockerfile. The following exam
 ```Dockerfile
 RUN pip install <library>
 ```
+
+<a id="buildmodel"></a>
 
 ## Build model and code into images
 

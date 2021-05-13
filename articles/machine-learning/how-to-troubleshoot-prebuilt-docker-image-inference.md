@@ -14,10 +14,7 @@ ms.custom: deploy, docker, prebuilt, troubleshoot
 ---
 # Troubleshooting prebuilt docker images for inference (Preview)
 
-Learn how to troubleshoot problems you may see when using prebuilt docker images for inference with Azure Machine Learning.
-
-> [!IMPORTANT]
-> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn how to troubleshoot problems you may see when using prebuilt docker images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) with Azure Machine Learning.
 
 ## Model deployment failed
 
@@ -42,32 +39,32 @@ Go to the directory containing `score.py` and run:
 docker run -it -v $(pwd):/var/azureml-app -e AZUREML_EXTRA_REQUIREMENTS_TXT="requirements.txt" <mcr-path>
 ```
 
-## Enable local debugging by using Azure Machine Learning inference HTTP server
+## Enable local debugging
 
-The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. For more information on debugging locally, see [Azure Machine Learning inference HTTP server]().
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred.
 
 ## For common model deployment issues
 
 For problems when deploying a model from Azure Machine Learning to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS), see [Troubleshoot model deployment](how-to-troubleshoot-deployment.md).
 
-## init() or run() failing to write a file in the container
+## init() or run() failing to write a file
 
 HTTP server in our Prebuilt Docker Images run as *non-root user*, it may not have access right to all directories. 
 Only write to directories you have access rights to. For example, the `/tmp` directory in the container.
 
 ## Extra python packages not installed
 
-* Check if there is a typo in the environment variable or file name.
+* Check if there's a typo in the environment variable or file name.
 * Check the container log to see if `pip install -r <your_requirements.txt>` is installed or not.
-* Check if [source directory](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor) is set correctly.
+* Check if source directory is set correctly in the [inference config](/python/api/azureml-core/azureml.core.model.inferenceconfig#constructor) constructor.
 * If installation not found and log says "file not found", check if the file name shown in the log is correct.
-* If installation started but failed timed out, try to install the same `requirements.txt` locally with same Python and pip version in clear environment (i.e. no cache directory ; `pip install --no-cache-dir -r requriements.txt`), see if the problem can be reproduced locally
+* If installation started but failed or timed out, try to install the same `requirements.txt` locally with same Python and pip version in clean environment (that is, no cache directory; `pip install --no-cache-dir -r requriements.txt`). See if the problem can be reproduced locally.
 
 ## Mounting solution failed
 
-* Check if there is a typo in the environment variable or directory name.
+* Check if there's a typo in the environment variable or directory name.
 * The environment variable must be set to the relative path of the `score.py` file.
-* Check if [source directory](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor) is set correctly.
+* Check if source directory is set correctly in the [inference config](/python/api/azureml-core/azureml.core.model.inferenceconfig#constructor) constructor.
 * The directory needs to be the "site-packages" directory of the environment.
 * If `score.py` still returns `ModuleNotFound` and the module is supposed to be in the directory mounted, try to print the `sys.path` in `init()` or `run()` to see if any path is missing.
 

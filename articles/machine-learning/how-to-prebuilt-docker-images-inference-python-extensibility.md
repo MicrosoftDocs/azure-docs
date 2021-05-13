@@ -17,11 +17,11 @@ ms.custom: deploy, docker, prebuilt
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
-* [Dynamic installation](#dynamic-installation): This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore python packages when the Docker container boots.
+* [Dynamic installation](#dynamic): This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore python packages when the Docker container boots.
 
     Consider this method __for rapid prototyping__. When the image starts, packages are restored using the `requirements.txt` file. This method increases startup of the image, and you must wait longer before the deployment can handle requests.
 
-* __Pre-installed python packages__: You provide a directory containing preinstalled Python packages. During deployment, this directory is mounted into the container for your entry script (`score.py`) to use.
+* [Pre-installed python packages](#preinstalled): You provide a directory containing preinstalled Python packages. During deployment, this directory is mounted into the container for your entry script (`score.py`) to use.
 
     Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. We For example, when deployed into a secured Azure Virtual Network.
 
@@ -33,6 +33,8 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
 * An Azure Machine Learning workspace. For a tutorial on creating a workspace, see [Get started with Azure Machine Learning](quickstart-create-resources.md).
 * Familiarity with using Azure Machine Learning [environments](how-to-use-environments.md).
 * Familiarity with [Where and how to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning.
+
+<a id="dynamic"></a>
 
 ## Dynamic installation
 
@@ -71,6 +73,8 @@ The following diagram is a visual representation of the dynamic installation pro
 
 :::image type="content" source="./media/how-to-prebuilt-docker-images-inference-python-extensibility/dynamic-install-python-extend.svg" alt-text="Diagram of dynamic installation process":::
 
+<a id="preinstalled"></a>
+
 ## Pre-installed python packages
 
 This approach mounts a directory that you provide into the image. The Python packages from this directory can then be used by the entry script (`score.py`).
@@ -80,7 +84,7 @@ To extend your prebuilt docker container image through pre-installed python pack
 > [!IMPORTANT]
 > You must use packages compatible with Python 3.7. All current images are pinned to Python 3.7.
 
-1. Create a virtual environment using [virtualenv](https://virtualenv.pypa.io/en/latest/index.html)
+1. Create a virtual environment using [virtualenv](https://virtualenv.pypa.io/).
 
 1. Install your Dependencies. If you have a list of dependencies in a `requirements.txt`, for example, you can use that to install with `pip install -r requirements.txt` or just `pip install` individual dependencies.
 
@@ -121,13 +125,12 @@ Here are some things that may cause this problem:
 
 * The [Model.package()](/python/api/azureml-core/azureml.core.model(class)) method lets you create a model package in the form of a Docker image or Dockerfile build context. Using Model.package() with prebuilt inference docker images triggers an intermediate image build that changes the non-root user to root user.
 
-* We encourage you to use our python package extensibility solutions. If other dependencies are required (such as `apt` packages), create your own [Dockerfile extending from the inference image](how-to-extend-prebuilt-docker-image-inference.md#Build-model-and-code-into-images).
+* We encourage you to use our python package extensibility solutions. If other dependencies are required (such as `apt` packages), create your own [Dockerfile extending from the inference image](how-to-extend-prebuilt-docker-image-inference.md#buildmodel).
 
 ## Frequently asked questions
 
 * In the requirements.txt extensibility approach is it mandatory for the file name to be `requirements.txt`?
 
-    You can name the pip requirements file whatever you like. Then specify the filename using this environment variable.
         
     ```python
     myenv.environment_variables = {
@@ -153,11 +156,11 @@ Here are some things that may cause this problem:
 * Why are my `requirements.txt` and mounted dependencies directory not found in the container?
 
     Locally, verify the environment variables are set properly. Next, verify the paths that are specified are spelled properly and exist.
-    Check if you have set your [source directory in inference config](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor) correctly.
+    Check if you have set your source directory correctly in the [inference config](/python/api/azureml-core/azureml.core.model.inferenceconfig#constructor) constructor.
 
 * Can I override Python package dependencies in prebuilt inference docker image?
 
-    Yes. If you want to use other version of Python package which is already installed in an inference image, our extensibility solution will respect your version. Make sure there are no conflicts between the two versions.
+    Yes. If you want to use other version of Python package that is already installed in an inference image, our extensibility solution will respect your version. Make sure there are no conflicts between the two versions.
 
 ## Best Practices
 

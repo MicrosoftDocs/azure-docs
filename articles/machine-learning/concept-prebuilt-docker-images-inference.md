@@ -15,13 +15,10 @@ ms.custom: deploy, docker, prebuilt
 
 # Prebuilt Docker images for inference (Preview)
 
-Prebuilt Docker container images for inference are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
+Prebuilt Docker container images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
 
 * [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
 * [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Using this method, you can install both **Python packages and apt packages**.
-
-> [!IMPORTANT]
-> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why should I use prebuilt images?
 
@@ -39,12 +36,16 @@ Refer to our sample notebook.
 
 Framework | Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
 --- | --- | --- | --- | --- | --- |
-TensorFlow </p> | 1.15 </p> 2.4 </p> 2.4 </p> | CPU </p> CPU </p> GPU </p> | pandas==0.25.1 </br> numpy=1.20.1 </br></p> numpy>=1.16.0 </br> pandas~=1.1.x </br></p> numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 </br> </p> | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest` </p> `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` </p> `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` </p> | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference </p> AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference </p> AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference </p> | 
-PyTorch </p> | 1.6 </p> 1.7 </p> | CPU </p> CPU </p> | numpy==1.20.1 </br> pandas==0.25.1 </br> </p> numpy>=1.16.0 </br> pandas~=1.1.x </br></p> | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` </p> `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` </p> | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference </p> AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference </p> | 
-Scikit-Learn </p> | 0.24.1  </p> | CPU </p> | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x </br></p> | `mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest` | AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference |  
-ONNX Runtime </p> | 1.6 </p> | CPU </p> | numpy>=1.16.0 </br> pandas~=1.1.x </br></p> | `mcr.microsoft.com/azureml/onnxruntime-1.6-ubuntu18.04-py37-cpu-inference:latest` |AzureML-onnxruntime-1.6-ubuntu18.04-py37-cpu-inference |
-XGBoost </p> | 0.9 </p> 1.4 </p> | CPU </p> CPU </p> | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 </br></p> scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x  </br></p> | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` </p> `mcr.microsoft.com/azureml/xgboost-1.4-ubuntu18.04-py37-cpu-inference:latest` </p> | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference </p> AzureML-xgboost-1.4-ubuntu18.04-py37-cpu-inference </p> | 
-None | None | CPU | None | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |
+**TensorFlow** | 1.15 | CPU | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
+| | 2.4 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
+| | 2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
+**PyTorch** | 1.6 | CPU | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
+| | 1.7 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
+**Scikit-Learn** | 0.24.1  | CPU | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest` | AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference |  
+**ONNX Runtime** | 1.6 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/onnxruntime-1.6-ubuntu18.04-py37-cpu-inference:latest` |AzureML-onnxruntime-1.6-ubuntu18.04-py37-cpu-inference |
+**XGBoost** | 0.9 | CPU | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference | 
+| | 1.4 | CPU | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/xgboost-1.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-1.4-ubuntu18.04-py37-cpu-inference |
+**No framework** | NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |
 
 ## Next steps
 
