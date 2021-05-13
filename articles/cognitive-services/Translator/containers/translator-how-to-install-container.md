@@ -59,7 +59,7 @@ All Cognitive Services containers require three primary elements:
 
 ## Host computer
 
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ## Container requirements and recommendations
 
