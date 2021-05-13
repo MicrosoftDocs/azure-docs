@@ -69,13 +69,12 @@ The next step is to deploy the **spatial analysis** container as an IoT Module o
 
 ### Set environment variables
 
-Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* files linked above. In the file, search for the `BILLING_ENDPOINT` and `API_KEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
+Most of the **Environment Variables** for the IoT Edge Module are already set in the sample *DeploymentManifest.json* files linked above. In the file, search for the `ENDPOINT` and `APIKEY` environment variables, shown below. Replace the values with the Endpoint URI and the API Key that you created earlier. Ensure that the EULA value is set to "accept". 
 
 ```json
 "EULA": { 
     "value": "accept"
 },
-
 "ENDPOINT":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
