@@ -112,8 +112,11 @@ $disk.Tier
 
 ## Change the performance tier of a disk without downtime (preview)
 
-You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier. For more information , see the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section.
+You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
+
 ### Prerequisites
+
+Your disk must meet the requirements laid out in the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section, if it does not, then changing the performance tier will incur downtime.
 
 You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. Please follow the steps below to enable the feature for your subscription:
 
