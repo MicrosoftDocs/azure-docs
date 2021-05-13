@@ -56,8 +56,8 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc enabled Kubernetes clusters. |
-| Event Grid on Kubernetes | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
-| [Azure API Management on Azure Arc](../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
+| [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc enabled Kubernetes clusters. |
+| [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc enabled Kubernetes clusters. |
 
 ## Usage of cluster extensions
 
@@ -260,5 +260,5 @@ Learn more about the cluster extensions currently available for Azure Arc enable
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
-> Event Grid on Kubernetes
-> [Azure API Management on Azure Arc](../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
+> [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
+> [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
