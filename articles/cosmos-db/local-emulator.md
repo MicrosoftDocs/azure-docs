@@ -66,7 +66,7 @@ Before you install the emulator, make sure you have the following hardware and s
 
 To get started, download and install the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) on your local computer. If you run into any issues when installing the emulator, see the [emulator troubleshooting](troubleshoot-local-emulator.md) article to debug.
 
-Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or macOS](#run-on-linux-macos) as described in next sections of this article.
+Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](local-emulator-on-docker-windows.md), [Linux, or macOS](#run-on-linux-macos) as described in next sections of this article.
 
 ## Check for emulator updates
 

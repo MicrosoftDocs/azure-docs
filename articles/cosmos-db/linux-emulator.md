@@ -46,26 +46,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 1. To get started, visit Docker Hub and install Docker Desktop for macOS. More details here: https://hub.docker.com/editions/community/docker-ce-desktop-mac/ 
 
-
-2. Next, retrieve the IP address of your local machine. This step is required when Direct mode setting is configured using Cosmos DB SDKs (.NET, Java).
-
-    ```bash
-    ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
-    ```
-
-3. Pull the Docker image from the registry.
-    ```bash
-    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-    ```
-
-4. Run the Docker image with the following configurations:
-
-    ```bash
-    docker run -p 8081:8081 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254  -m 3g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-    ```
-
-    Alternatively, you can use the Docker compose file available at <ADD GIST LINK>.
-
+[!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
 ## Install the certificate
  
@@ -75,21 +56,20 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
     ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
     ```
 
-
-2. Next, download the certificate for the emulator.
+1. Next, download the certificate for the emulator.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
     Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
-3. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+2. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp YourCTR.crt /usr/local/share/ca-certificates/
    ```
 
-4. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+3. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
@@ -115,7 +95,7 @@ In order to consume the endpoint via the UI using your desired web browser, foll
 
 You can now browse https://localhost:8081/_explorer/index.html or https://{your_local_ip}:8081/_explorer/index.html and retrieve the connection string to your Cosmos DB emulator.
 
-# Run the Cosmos DB Linux Emulator on Linux
+## Run the Cosmos DB Linux Emulator on Linux
 
 1. To get started, use `apt` package and install the latest version of Docker. 
 
@@ -124,23 +104,9 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     sudo apt-get install docker-ce docker-ce-cli containerd.io
     ```
 
-2. Next, retrieve the IP address of your local machine, this link allows you to communicate directly from SDKs (.NET, Java) in direct mode.
+[!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-    ```bash
-    ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
-    ```
-
-3. Pull the Docker image from the registry.
-    ```bash
-    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-    ```
-
-4. Run the Docker image with the following configurations:
-
-    ```bash
-    docker run -p 8081:8081 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -m 4g --cpus=2.0 --name=test-linux-emulator -e AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3 -e AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=$ipaddr -it mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-   ```
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
+Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
 5. Next, download the certificate for the emulator.
 
@@ -176,8 +142,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 | `AZURE_COSMOS_EMULATOR_PARTITION_COUNT`    |    10     |    Controls the total number of physical partitions, which in return controls the number of containers that can be created and can exist at a given point in time. We recommend to start small to improve the emulator start up time, i.e 3.     |
 |  Memory: `-m`   |         | On memory, 3 GB or more is required.     |
 | Cores:   `--cpus`  |         |   Make sure to provision enough memory and CPU cores; while the emulator might run with as little as 0.5 cores (very slow though) at least 2 cores are recommended.      |
-|`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  |true  | This setting used by itself will help persist the data between container's restarts.  |
-|`AZURE_COSMOS_EMULATOR_CERTIFICATE`  |Default  |Description  |
+|`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  | false  | This setting used by itself will help persist the data between container restarts.  |
 
 ## Troubleshooting
 
@@ -204,7 +169,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 /palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
     1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
     2. The process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
-    3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layou
+    3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
 ```
 
 The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
@@ -272,6 +237,7 @@ docker start -ai ID_OF_CONTAINER
 Provide as much information as possible detailing your issue:
 - Description of the error/issue encountered
 - Environment (OS, host configuration)
+- Computer and processor type
 - Command used to create and start the emulator (YML file if Docker compose is used)
 - Description of the workload
 - Sample of the database/collection and item used
