@@ -92,7 +92,7 @@ Learn how to update your managed online endpoints (preview) to add more deployme
 
 Use the following instructions to add a deployment to an existing managed online endpoint:
 
-1. Select **+ Add Deployment** button in the [endpoint details page](#view-managed-online-endpoints).
+1. Select **+ Add Deployment** button in the [endpoint details page](#view-managed-online-endpoints-preview).
 2. Follow the instructions to complete the deployment.
 
 Alternatively, you can use the **Models** page to add a deployment:
@@ -140,7 +140,7 @@ Deleting a managed online endpoint also deletes any deployments associated with 
 1. Select an endpoint by checking the circle next to the model name.
 1. Select **Delete**.
 
-Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints). 
+Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints-preview). 
 
 
 ### Delete an individual deployment
