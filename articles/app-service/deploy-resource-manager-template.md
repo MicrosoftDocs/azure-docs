@@ -78,7 +78,7 @@ The following example shows part of a template. The value of the connection stri
 }
 ```
 
-For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple).
 
 ## Find information about MSDeploy errors
 
