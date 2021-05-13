@@ -40,12 +40,21 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Architecture
+            url: architecture.md
+          - text: Authenticating Ledger nodes
+            url: authenticate-ledger-nodes.md
+
+   # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
           - text: Workflows
             url: workflows.md
 
-            
   # Card
-  - title: Tutorials
+  - title: how-to-guide
     linkLists:
       - linkListType: tutorial
         links:
@@ -55,7 +64,8 @@ landingContent:
             url: create-client-certificate.md
           - text: Register a Ledger service principal
             url: register-ledger-service-principal.md
-
+          - text: Register the Confidential Ledger resource provider
+            url: register-ledger-rp.md
   # Card
   - title: References
     linkLists:

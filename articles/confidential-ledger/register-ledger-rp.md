@@ -1,6 +1,6 @@
 ---
 title: Register a Ledger Service Principal with Microsoft Azure Confidential Ledger
-description: Register a Ledger Service Principal with Microsoft Azure Confidential Ledger
+description: Register the Confidential Ledger resource provider
 services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
