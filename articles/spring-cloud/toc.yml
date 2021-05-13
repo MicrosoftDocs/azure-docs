@@ -23,6 +23,8 @@
         href: quickstart-deploy-apps.md
       - name: Use logs, metrics and tracing
         href: quickstart-logs-metrics-tracing.md
+      - name: Integrate with Azure Database for MySQL
+        href: quickstart-integrate-azure-database-mysql.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
