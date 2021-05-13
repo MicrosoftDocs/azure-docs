@@ -88,7 +88,9 @@ App Configuration is regional service. For applications with different configura
 
 ## Client Applications in App Configuration 
 
-Excessive requests to App Configuration can result in throttling or overage charges. Applications take advantage of the caching and intelligent refreshing currently available to optimize the number of requests they send. This process can be mirrored in high volume client applications by avoiding direct connections to the configuration store. Instead, client applications connect to a custom service, and this service communicates with the configuration store. This proxy solution can ensure the client applications do not approach the throttling limit on the configuration store. For more information on throttling, see [the FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+When it comes to using App Configuration in client applications, there are two major factors to consider. Firstly, if you are using the connection string in a client application, you may risk exposing the access key of your App Configuration store to the public. Secondly, due to the typical scale of client application instances, it may cause excessive requests to your App Configuration store that can result in overage charges or throttling (for more information on throttling, see [the FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration)).
+
+You are recommended to use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without worrying about leaking its authentication information. It can be built using one of the App Configuration provider libraries to take advantage of the caching and refreshing capabilities to optimize the number of requests it sends (for more information, see topics in Quickstarts and Tutorials sections). This proxy service can then serve the configuration from its cache to your client applications. This approach avoids the two potential issues discussed previously.
 
 ## Next steps
 
