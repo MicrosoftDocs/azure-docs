@@ -30,7 +30,7 @@ ms.custom: seodec18
 
 **Question**: *Can I deploy the OCR (Read) capability on-premise?*
 
-**Answer**: Yes, the OCR (Read) cloud API is also available as a Docker container for on-premise deployment. Learn [how to deploy the OCR containers](/computer-vision-how-to-install-containers).
+**Answer**: Yes, the OCR (Read) cloud API is also available as a Docker container for on-premise deployment. Learn [how to deploy the OCR containers](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers).
 
 ---
 

@@ -102,6 +102,7 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
 > * Python 3.6+.
+> * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
 

@@ -39,6 +39,8 @@
   items:
     - name: App and deployment
       href: concept-understand-app-and-deployment.md
+    - name: Blue-green deployment strategies
+      href: concepts-blue-green-deployment-strategies.md
     - name: Quotas and limits
       href: quotas.md
     - name: Metrics
