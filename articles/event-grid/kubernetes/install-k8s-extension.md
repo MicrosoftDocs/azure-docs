@@ -44,7 +44,7 @@ If you run into an issue, see the [Troubleshooting](#troubleshooting) section fo
 ## PKI Certificate requirements
 The Event Grid broker (server) serves two kinds of clients. Server authentication is done using Certificates. Client authentication is done using either certificates or SAS keys based on the client type.
 
-- Event Grid operators that makes control plane requests to the Event Grid broker are authenticated using certificates.
+- Event Grid operators that make control plane requests to the Event Grid broker are authenticated using certificates.
 - Event Grid publishers that publisher events to an event grid topic are authenticated with the topic's SAS keys.
 
 In order to establish a secure HTTPS communication with the Event Grid broker and Event Grid operator we use PKI Certificates during the installation of Event Grid extension. Here are the general requirements for these PKI certificates:
