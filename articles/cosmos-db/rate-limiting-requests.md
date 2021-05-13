@@ -61,7 +61,7 @@ Where possible, testing a system under development with a load reflecting typica
 
 For more information about indexes, see [Indexing policies in Azure Cosmos DB](index-policy.md).
 
-## Measuring Cost
+## Measuring cost
 
 There are some key concepts when measuring cost:
 
@@ -151,7 +151,7 @@ You might pre-populate views into other collections after storing the data in Az
 
 For more information, see [Materialized View pattern](/azure/architecture/patterns/materialized-view).
 
-## Next Steps
+## Next steps
 
 * Learn how to [troubleshoot TooManyRequests errors](troubleshoot-request-rate-too-large.md) in Azure Cosmos DB.
 * Learn how to [troubleshoot Timeout errors](troubleshoot-request-timeout.md) in Azure Cosmos DB.
