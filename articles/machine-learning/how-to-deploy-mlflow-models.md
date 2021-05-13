@@ -104,7 +104,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Create a deployment config json using [deploy_configuration()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py#parameters) method values as a reference. Each of the deployment config parameters simply need to be defined as a dictionary. Here's an example below:
+Create a deployment config json using [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration#parameters) method values as a reference. Each of the deployment config parameters simply need to be defined as a dictionary. Here's an example below:
 
 ```json
 {'computeType': 'aks', 'computeTargetName': 'aks-mlflow'}
@@ -150,4 +150,3 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](./how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
-
