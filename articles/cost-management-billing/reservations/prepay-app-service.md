@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -84,10 +84,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 | **Field** | **Description** |
 | --- | --- |
 | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
-| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:
-- **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
-- **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator. |
+| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<UL><LI>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.</li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li> |
 | Region | The Azure region that's covered by the reservation. |
 | Isolated v2 reserved instance size | The size of the Isolated v2 reserved instances. |
 | Term | One year or three years. There's also a 5-year term available only for HBv2 Isolated v2 reserved instances. |

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ms.author: banders
 ---
 
