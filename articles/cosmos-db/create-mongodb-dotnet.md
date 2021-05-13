@@ -67,7 +67,7 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 1. In the NuGet **Browse** box, type *MongoDB.Driver*.
 1. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
 
-The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-your-connection-string).
+The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-the-connection-string).
 
 The following snippets are from the *DAL/Dal.cs* file.
 
