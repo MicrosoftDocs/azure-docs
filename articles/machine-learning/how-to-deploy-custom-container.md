@@ -67,7 +67,9 @@ To deploy a TensorFlow serving model, first open the `how-to-deploy-tfserving.sh
 The, run the script below.
 
 ```azurecli-interactive
+
 ./how-to-deploy-tfserving.sh
+
 ```
 
 If you'd rather run the steps one by one, see below.
@@ -76,8 +78,10 @@ If you'd rather run the steps one by one, see below.
 
 
 ```azurecli-interactive
+
 wget https://aka.ms/half_plus_two-model -O $BASE_PATH/half_plus_two.tar.gz
 tar -xvf $BASE_PATH/half_plus_two.tar.gz -C $BASE_PATH
+
 ```
 
 ### Run a tensorflow serving image locally to test that it works
@@ -93,6 +97,7 @@ docker run --rm -d -v $PWD/$BASE_PATH:$MODEL_BASE_PATH -p 8501:8501 \
 ### Check that you can send liveness and scoring requests to the image
 
 ```azurecli-interactive
+
 # Check liveness locally
 curl -v http://localhost:8501/v1/models/$MODEL_NAME
 
@@ -101,6 +106,7 @@ curl --header "Content-Type: application/json" \
   --request POST \
   --data @$BASE_PATH/sample_request.json \
   http://localhost:8501/v1/models/$MODEL_NAME:predict
+
 ```
 
 ### Stop the image
@@ -163,7 +169,7 @@ az ml endpoint create -f $BASE_PATH/$ENDPOINT_NAME.yml -n $ENDPOINT_NAME
 
 ### Run scoring
 
-```json
+```azurecli-interactive
 az ml endpoint invoke -n $ENDPOINT_NAME --request-file $BASE_PATH/sample_request.json
 ```
 
@@ -215,7 +221,7 @@ Once the script finishes running, open up the Azure portal and click on the endp
 
 For bonus points, try testing the classifier with a different JPEG. Look up an image on Bing Image search. Then run:
 
-```azure-cli-interactive
+```azurecli-interactive
 KEY=$(az ml endpoint list-keys -n triton-endpoint --query accessToken -o tsv)
 BASE_URL=$(az ml endpoint show -n triton-endpoint --query scoring_uri -o tsv | cut -d'/' -f3)
 endpoints/online/custom-container/test_triton.py --base_url=$BASE_URL --token=$KEY --num_requests=1 --image_url=<paste_image_link>
