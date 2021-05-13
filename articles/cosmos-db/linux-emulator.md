@@ -13,7 +13,7 @@ ms.date: 04/20/2021
 The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
 
 > [!NOTE]
-> The Cosmos DB Linux Emulator is currently in preview mode and supports only the SQL API. A known limitation when comparing with the Windows emulator is that data on the Linux emulator will not be retained between container restarts. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
+> The Cosmos DB Linux Emulator is currently in preview mode and supports only the SQL API. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
 > 
 > We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
 
@@ -187,8 +187,15 @@ The current Docker Host processor type is incompatible with our Docker image; i.
     - Please make sure you are [running the latest image of the Cosmos DB emulator for Linux](linux-emulator.md#refresh-linux-container). Otherwise, see the section above regarding connectivity-related issues.
     - If the Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
     - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
+    - If the emulator fails to start with the following error:
+  
+   ``` 
+   "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB emulator from creating and adding self signed certificate files into your certificate store."
+    ```
+
+    This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .Net Cosmos SDK client application).
     
-1. The emulator is crashing.
+2. The emulator is crashing.
     - Confirm that creating a container with the [recommended settings](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
     - Please start the emulator's Docker container in an attached mode (see `docker start -it`).
     - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#report-an-emulator-issue) to report the issue.   
