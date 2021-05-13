@@ -5,13 +5,13 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/10/2021
+ms.date: 05/25/2021
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
-The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../articles/event-hubs/event-hubs-dedicated-overview.md), PU is [processing unit](../articles/event-hubs/event-hubs-scalability.md#processing-units), TU is [throughput unit](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-). 
+The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../articles/event-hubs/event-hubs-dedicated-overview.md), PU is [processing unit](../articles/event-hubs/event-hubs-scalability.md#processing-units), TU is [throughput unit](../articles/event-hubs/event-hubs-scalability.md#throughput-units). 
 
 | Limit | Basic | Standard | Premium |  Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 

@@ -2,7 +2,7 @@
 title: Overview of premium event hubs - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of premium Azure Event Hubs, which offers multi-tenant deployments of event hubs for high-end streaming needs that require superior performance, better isolation.   
 ms.topic: article
-ms.date: 5/11/2021
+ms.date: 5/25/2021
 ---
 
 # Overview of Event Hubs Premium (Preview)
