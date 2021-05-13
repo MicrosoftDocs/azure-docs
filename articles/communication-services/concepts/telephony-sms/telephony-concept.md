@@ -38,7 +38,7 @@ With this option:
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
-For cloud calling, outbound calls are billed at per-minute rates depending on the target country.  The current rate list for PSTN calls is located on github at [https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv].
+For cloud calling, outbound calls are billed at per-minute rates depending on the target country. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### Azure direct routing
 
