@@ -26,7 +26,7 @@ The following table contains common problems and solutions you may see during ba
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. For more, see [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md]|
 | Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
-| The resource wasn't found. | Ensure you use `-t batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
+| The resource wasn't found. | Ensure you use `--type batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
 | The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be re-used to create a new endpoint in the same workspace. |
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
@@ -101,7 +101,7 @@ You can also view the results of periodic checks of the resource usage for each 
 
 - `~/logs/perf`: Set `--resource_monitor_interval` to change the checking interval in seconds. The default interval is `600`, which is approximately 10 minutes. To stop the monitoring, set the value to `0`. Each `<ip_address>` folder includes:
 
-    - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. On Windows, it's `tasklist`.
+    - `os/`: Information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`.
         - `%Y%m%d%H`: The sub folder name is the time to hour.
             - `processes_%M`: The file ends with the minute of the checking time.
     - `node_disk_usage.csv`: Detailed disk usage of the node.

@@ -97,7 +97,7 @@ Below is the YAML file defining the MLFlow batch endpoint:
 | name | The name of the batch endpoint, which must be unique across the workspace. The `name` value will be used as part of the scoring URI. The value must start with an English-language character, continue as a mix of numbers, characters, and the `-` symbol, and it must end with a number or character. It must be at least 3 characters long. The validating regular expression is: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
 | type | Type of the endpoint. Use `batch` for batch endpoint. |
 | auth_mode | Use `aad_token` for Azure token-based authentication. |
-| traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The batch endpoint with a value of `100` traffic is the active deployment. When invoked, all data is sent to the active deployment. |
+| traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The deployment with a value of `100` traffic is active. When invoked, all data is sent to the active deployment. |
 | deployments | A list of deployments to be created in the batch endpoint. The example only has one deployment named `autolog_deployment`. |
 
 Deployment Attributes:
@@ -217,7 +217,7 @@ To view the scoring results:
 
 1. Go to studio
 1. Navigate to **Experiments**
-1. Navigate to your endpoint's run (the value of `interactionEndpoints.studio` in the response to `endpoint invoke`)
+1. Navigate to your endpoint's run (the value of `interactionEndpoints.Studio.endpoint` in the response to `endpoint invoke`)
 1. In the graph of the run, click inside the `batchscoring` step
 1. Choose the Outputs + logs tab and choose **Show data outputs** 
 1. Choose the **View output** icon
