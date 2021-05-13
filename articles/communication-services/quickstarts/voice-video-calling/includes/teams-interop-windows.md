@@ -1,173 +1,175 @@
 ---
-title: Quickstart - Join a Teams meeting from an iOS app
-description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS
-author: chpalm
-ms.author: mikben
-ms.date: 03/10/2021
+title: Quickstart - Join a Teams meeting from an Windows app
+description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Windows
+author: aurighet
+ms.author: aurighet
+ms.date: 05/13/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS.
+In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Windows.
 
 ## Prerequisites
 
-- A working [Communication Services calling iOS app](../getting-started-with-calling.md).
+- A working [Communication Services calling Windows app](../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 
 ## Add the Teams UI controls and Enable the Teams UI controls
 
-Replace code in ContentView.swift with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
+Replace code in MainPage.xaml with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
 
-```swift
+```xml
+<Page
+    x:Class="CallingQuickstart.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CallingQuickstart"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel>
+        <TextBox PlaceholderText="Please enter the Teams meeting link." TextWrapping="Wrap" x:Name="TeamsLinkTextBox" Margin="10,10,10,10" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Join Teams Meeting" Click="JoinButton_ClickAsync" x:Name="JoinButton" Margin="10,10,10,10" />
+            <Button Content="Leave Meeting" Click="LeaveButton_ClickAsync" x:Name="LeaveButton" Margin="10,10,10,10" />
+        </StackPanel>
+        <TextBlock TextWrapping="Wrap" x:Name="CallStatusTextBlock" Margin="10,10,10,10" />
+        <TextBlock TextWrapping="Wrap" x:Name="RecordingStatusTextBlock" Margin="10,10,10,10" />
+    </StackPanel>
+</Page>
+```
 
-import SwiftUI
-import AzureCommunicationCalling
-import AVFoundation
+## Enable the Teams UI controls
 
-struct ContentView: View {
-    @State var meetingLink: String = ""
-    @State var callStatus: String = ""
-    @State var message: String = ""
-    @State var recordingStatus: String = ""
-    @State var callClient: CallClient?
-    @State var callAgent: CallAgent?
-    @State var call: Call?
-    @State var callObserver: CallObserver?
+Replace the content of `MainPage.xaml.cs` with following snippet:
 
-    var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField("Teams meeting link", text: $meetingLink)
-                    Button(action: joinTeamsMeeting) {
-                        Text("Join Teams Meeting")
-                    }.disabled(callAgent == nil)
-                    Button(action: leaveMeeting) {
-                        Text("Leave Meeting")
-                    }.disabled(call == nil)
-                    Text(callStatus)
-                    Text(message)
-                    Text(recordingStatus)
-                }
+```c
+using System;
+using System.Threading.Tasks;
+
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+using Azure.Communication;
+using Azure.Communication.Calling;
+
+namespace CallingQuickstart
+{
+    public sealed partial class MainPage : Page
+    {
+        string user_token_ = "<User_Access_Token>";
+
+        Call call_;
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private async void JoinButton_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            if (!await ValidateInput())
+            {
+                return;
             }
-            .navigationBarTitle("Calling Quickstart")
-        }.onAppear {
-            // Initialize call agent
-            var userCredential: CommunicationTokenCredential?
-            do {
-                userCredential = try CommunicationTokenCredential(token: "<USER ACCESS TOKEN>")
-            } catch {
-                print("ERROR: It was not possible to create user credential.")
-                self.message = "Please enter your token in source code"
-                return
+
+            //
+            //  Create CallClient
+            //
+            CallClient call_client = new CallClient();
+
+            //
+            //  Create CallAgent
+            //
+            CommunicationTokenCredential token_credential;
+            CallAgent call_agent;
+
+            try
+            {
+                token_credential = new CommunicationTokenCredential(user_token_);
+
+                CallAgentOptions call_agent_options = new CallAgentOptions();
+                call_agent = await call_client.CreateCallAgent(token_credential, call_agent_options);
+            }
+            catch
+            {
+                await new MessageDialog("It was not possible to create call agent. Please check if token is valid.").ShowAsync();
+                return;
             }
 
-            self.callClient = CallClient()
+            //
+            //  Join a Teams meeting
+            //
+            try
+            {
+                JoinCallOptions joinCallOptions = new JoinCallOptions();
+                TeamsMeetingLinkLocator teamsMeetingLinkLocator = new TeamsMeetingLinkLocator(TeamsLinkTextBox.Text);
+                call_ = await call_agent.JoinAsync(teamsMeetingLinkLocator, joinCallOptions);
+            }
+            catch
+            {
+                await new MessageDialog("It was not possible to join the Teams meeting. Please check if Teams Link is valid.").ShowAsync();
+                return;
+            }
 
-            // Creates the call agent
-            self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
-                if error == nil {
-                    guard let agent = agent else {
-                        self.message = "Failed to create CallAgent"
-                        return
-                    }
+            //
+            //  Set up call callbacks
+            //
+            call_.OnStateChanged += Call_OnStateChangedAsync;
+            call_.OnIsRecordingActiveChanged += Call_OnIsRecordingActiveChangedAsync;
+        }
 
-                    self.callAgent = agent
-                    self.message = "Call agent successfully created."
-                } else {
-                    self.message = "Failed to create CallAgent with error"
-                }
+        private async void Call_OnStateChangedAsync(object sender, PropertyChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                CallStatusTextBlock.Text = call_.State.ToString();
+            });
+        }
+        
+        private async void Call_OnIsRecordingActiveChangedAsync(object sender, PropertyChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                RecordingStatusTextBlock.Text = call_.IsRecordingActive ? "Recording is active." : "Recording is inactive.";
+            });
+        }
+        
+        private async void LeaveButton_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await call_.HangUp(new HangUpOptions());
+            }
+            catch
+            {
+                await new MessageDialog("It was not possible to leave the Teams meeting.").ShowAsync();
             }
         }
-    }
-
-    func joinTeamsMeeting() {
-        // Ask permissions
-        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
-            if granted {
-                let joinCallOptions = JoinCallOptions()
-                let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink);
-                guard let call = self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) else {
-                    self.message = "Failed to join Teams meeting"
-                    return
-                }
-
-                self.call = call
-                self.callObserver = CallObserver(self)
-                self.call!.delegate = self.callObserver
-                self.message = "Teams meeting joined successfully"
+        
+        private async Task<bool> ValidateInput()
+        {
+            if (user_token_.StartsWith("<"))
+            {
+                await new MessageDialog("Please enter token in source code.").ShowAsync();
+                return false;
             }
-        }
-    }
-
-    func leaveMeeting() {
-        if let call = call {
-            call.hangup(options: nil, completionHandler: { (error) in
-                if error == nil {
-                    self.message = "Leaving Teams meeting was successful"
-                } else {
-                    self.message = "Leaving Teams meeting failed"
-                }
-            })
-        } else {
-            self.message = "No active call to hanup"
+        
+            if (TeamsLinkTextBox.Text.Trim().Length == 0 || !TeamsLinkTextBox.Text.StartsWith("http"))
+            {
+                await new MessageDialog("Please enter Teams meeting link.").ShowAsync();
+                return false;
+            }
+        
+            return true;
         }
     }
 }
-
-class CallObserver : NSObject, CallDelegate {
-    private var owner:ContentView
-    init(_ view:ContentView) {
-        owner = view
-    }
-
-    public func onCallStateChanged(_ call: Call!,
-                                   args: PropertyChangedEventArgs!) {
-        owner.callStatus = CallObserver.callStateToString(state: call.state)
-        if call.state == .disconnected {
-            owner.call = nil
-            owner.message = "Left Meeting"
-        } else if call.state == .inLobby {
-            owner.message = "Waiting in lobby !!"
-        } else if call.state == .connected {
-            owner.message = "Joined Meeting !!"
-        }
-    }
-    
-    public func onIsRecordingActiveChanged(_ call: Call!, args: PropertyChangedEventArgs!) {
-        if (call.isRecordingActive == true) {
-            owner.recordingStatus = "This call is being recorded"
-        }
-        else {
-            owner.recordingStatus = ""
-        }
-    }
-
-    private static func callStateToString(state: CallState) -> String {
-        switch state {
-        case .connected: return "Connected"
-        case .connecting: return "Connecting"
-        case .disconnected: return "Disconnected"
-        case .disconnecting: return "Disconnecting"
-        case .earlyMedia: return "EarlyMedia"
-        case .hold: return "Hold"
-        case .incoming: return "Incoming"
-        case .none: return "None"
-        case .ringing: return "Ringing"
-        case .inLobby: return "InLobby"
-        default: return "Unknown"
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 ```
 
 ## Get the Teams meeting link
@@ -177,8 +179,6 @@ The Communication Services Calling SDK accepts a full Teams meeting link. This l
 
 ## Launch the app and join Teams meeting
 
-You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
-
-:::image type="content" source="../media/ios/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
+You can build and run your app on Visual Studio by selecting **Debug** > **Start Debugging** or by using the (F5) keyboard shortcut.
 
 Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.
