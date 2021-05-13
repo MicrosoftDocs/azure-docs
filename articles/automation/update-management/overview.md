@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ---
 
@@ -25,28 +25,26 @@ Before deploying Update Management and enabling your machines for management, ma
 
 ## About Update Management
 
-Machines that are managed by Update Management rely on the following to perform assessment and to deploy updates:
+Machines that are managed by Update Management require the following to perform assessment and to deploy updates:
 
-* [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux
-* PowerShell Desired State Configuration (DSC) for Linux
-* Automation Hybrid Runbook Worker (automatically installed when you enable Update Management on the machine)
-* Microsoft Update or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) for Windows machines
-* Either a private or public update repository for Linux machines
+* A [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux.
+* PowerShell Desired State Configuration (DSC) for Linux.
+* Automation [system Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md), which is automatically installed when you enable Update Management on the machine.
+* Microsoft Update or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) for Windows machines.
+* The Windows Update Agent (WUA) client is required on machines so that they can connect to Microsoft Update or WSUS to retrieve the list of software updates that must be scanned for compliance, and download updates included in the deployment scope.
+* Either a private or public update repository for Linux machines.
 
 The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux servers in a workspace:
 
 ![Update Management workflow](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant, or across tenants using [Azure Lighthouse](../../lighthouse/overview.md).
+Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same tenant, or across tenants using [Azure Lighthouse](../../lighthouse/overview.md).
 
-After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
+After an update package is released, it takes 2 to 3 hours for the update to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the update to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor Logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
 
 In addition to the scan schedule, the scan for update compliance is started within 15 minutes of the Log Analytics agent being restarted, before update installation, and after update installation.
 
 Update Management reports how up to date the machine is based on what source you're configured to sync with. If the Windows machine is configured to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of to a public repo.
-
-> [!NOTE]
-> To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network configuration](../automation-hybrid-runbook-worker.md#network-planning).
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as optional aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
@@ -106,7 +104,7 @@ Software Requirements:
 - .NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
 - Windows PowerShell 5.1 is required ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)
 
-Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Windows Update agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/agents/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment.
 
@@ -186,9 +184,9 @@ The average data usage by Azure Monitor logs for a machine using Update Manageme
 
 ## <a name="ports"></a>Network planning
 
-Check [Azure Automation Network Configuration](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) for detailed information on the ports, URLs, and other networking details required for Update Management.
+Review [Azure Automation Network Configuration](../automation-network-configuration.md) for detailed information on the ports, URLs, and other networking details required for Update Management.
 
-For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+For Windows machines, you must also allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Services](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
