@@ -562,7 +562,7 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: (Preview) No code deployment
+      - name: No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
       - name: Package models
