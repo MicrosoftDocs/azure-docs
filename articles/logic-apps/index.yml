@@ -28,7 +28,7 @@ landingContent:
           - text: Single-tenant versus multi-tenant and integration service environment
             url: single-tenant-overview-compare.md
           - text: What is Azure Arc enabled Logic Apps?
-            url: azure-arc-enabled-logic-apps-overview.md  
+            url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
           - text: Connectors overview for Azure Logic Apps
