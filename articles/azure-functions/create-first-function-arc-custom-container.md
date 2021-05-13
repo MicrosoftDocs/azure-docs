@@ -11,8 +11,6 @@ In this quickstart, you create an Azure Functions project running in a custom co
 
 > [!NOTE]
 > Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
->  
-> PowerShell function apps aren't currently supported on Azure Arc-enabled Kubernetes clusters.
 
 ## Prerequisites
 

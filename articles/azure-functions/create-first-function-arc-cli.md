@@ -12,7 +12,7 @@ In this quickstart, you create an Azure Functions project and deploy it to a fun
 > [!NOTE]
 > Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
 >  
-> PowerShell function apps aren't currently supported on Azure Arc-enabled Kubernetes clusters.
+> Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
 ## Prerequisites
 
@@ -152,6 +152,12 @@ az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custo
 In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
+
+Because it can take some time for a full deployment to complete on an Azure Arc-enabled Kubernetes cluster, you may want to re-run the following command to verify your published functions:
+
+```command
+func azure functionapp list-functions
+``` 
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
