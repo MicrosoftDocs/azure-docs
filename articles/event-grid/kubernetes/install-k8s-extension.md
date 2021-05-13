@@ -2,7 +2,6 @@
 title: Install Event Grid on Azure Arc enabled Kubernetes cluster
 description: This article provides steps to install Event Grid on Azure Arc enabled Kubernetes cluster. 
 author: jfggdl
-manager: JasonWHowell
 ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/11/2021
@@ -13,6 +12,9 @@ ms.topic: how-to
 This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) cluster.
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+
 
 ## Supported Kubernetes distributions
 Following are the supported Kubernetes distributions to which Event Grid can be deployed and run.

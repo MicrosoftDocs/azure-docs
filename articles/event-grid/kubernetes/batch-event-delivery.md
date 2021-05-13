@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - Batch event delivery
 description: This article describes how to deliver batch of events to the destination. 
 author: jfggdl
-manager: JasonWHowell
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/04/2021
@@ -11,6 +10,8 @@ ms.topic: conceptual
 
 # Event Grid on Kubernetes - Batch event delivery 
 Event Grid on Kubernetes with Azure Arc has support to deliver more than one event in a single delivery request. This feature makes it possible to increase the overall delivery throughput without having the HTTP per-request overheads. Batch event delivery is turned off by default and can be turned on using the event subscription configuration. 
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
 
 > [!WARNING]
 > The maximum allowed duration to process each delivery request does not change, even though the event handler code potentially has to do more work per batched request. Delivery timeout defaults to 60 seconds.

@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - event handlers and destinations
 description: This article describes different types of event handlers and destinations supported by Event Grid on Kubernetes
 author: jfggdl
-manager: JasonWHowell
 ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/12/2021
@@ -15,6 +14,8 @@ An event handler is any system that exposes an endpoint and is the destination f
 The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate) version.
 
 In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-prem or anywhere that Event Grid can reach. 
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
 
 Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
 
@@ -29,6 +30,7 @@ In addition to Webhooks, Event Grid on Kubernetes can send event to following de
 - Azure Event Hubs using its Azure Resource Manager resource ID.
 - Azure Service Bus topics or queues using its Azure Resource Manager resource ID.
 - Azure Storage queue using its Azure Resource Manager resource ID.
+
 
 
 ## Feature parity

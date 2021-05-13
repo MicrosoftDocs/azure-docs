@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - Event delivery and retry
 description: This article describes how Event Grid on Kubernetes with Azure Arc delivers events and how it handles undelivered messages.
 author: jfggdl
-manager: JasonWHowell
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/04/2021
@@ -13,6 +12,8 @@ ms.topic: conceptual
 Event Grid on Kubernetes with Azure Arc tries to deliver each message at least once for each matching subscription immediately. If it doesn't get a successful HTTP 200 response from the subscriber or if there is any failure, Event Grid on Kubernetes retries delivery based on a fixed retry schedule and retry policy. 
 
 By default, Event Grid on Kubernetes delivers one event at a time to the subscriber. However, the payload of the delivery request is an array with a single event. It can deliver more than one event at a time if you enable the output batching feature. For details about this feature, see [Batch event delivery](batch-event-delivery.md).
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
 
 > [!NOTE]
 > During the preview, Event Grid on Kubernetes features are supported through API version [2020-10-15-Preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions/createorupdate). 
