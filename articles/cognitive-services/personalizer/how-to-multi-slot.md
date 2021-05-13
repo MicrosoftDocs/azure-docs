@@ -15,6 +15,8 @@ zone_pivot_groups: programming-languages-set-six
 
 Multi-slot personalization (Preview) allows you to target content in web layouts, carousels, and lists where more than one action (such as a product or piece of content) is shown to your users. With Personalizer multi-slot APIs, you can have the AI models in Personalizer learn what user contexts and products drive certain behaviors, considering and learning from the placement in your user interface. For example, Personalizer may learn that certain products or content drive more clicks as a sidebar or a footer than as a main highlight on a page. 
 
+In this guide, you'll learn how to use the Personalizer multi-slot APIs.
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [Try multi-slot with C#](./includes/quickstart-multislot-csharp.md)]
