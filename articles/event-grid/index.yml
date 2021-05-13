@@ -27,10 +27,6 @@ landingContent:
         links:
           - text: What is Event Grid?
             url: overview.md
-                    
-  # Card
-  - title: Concepts
-      linkLists:
       - linkListType: concept
         links:
           - text: Event Grid concepts
@@ -40,8 +36,7 @@ landingContent:
           - text: Event handlers
             url: event-handlers.md
           - text: Event filters
-            url: event-filtering.md  
-
+            url: event-filtering.md                        
   # Card
   - title: Scenarios
     linkLists:
