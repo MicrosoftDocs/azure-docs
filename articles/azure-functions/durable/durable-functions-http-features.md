@@ -101,7 +101,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 }
 ```
 
-# [PowerShell](#tab/powrshell)
+# [PowerShell](#tab/powershell)
 
 **run.ps1**
 
