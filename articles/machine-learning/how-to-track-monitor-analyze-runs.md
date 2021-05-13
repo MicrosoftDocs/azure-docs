@@ -196,7 +196,7 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
 ## Run display name
-A run display name is an optional, non-unique, user-friendly field that can be added to a run to help annotate runs and provide more meaningful information to the run. 
+A run display name is an optional, non-unique, user-friendly property that can be added to a run to help annotate runs and provide more meaningful information to the run. 
 To edit the run display name, navigate to the **Run Details** page and select the **Edit** icon next to the run. By default, the run display name is set to the run ID. 
 The run ID is the unique identifier for the run and can be added as a column in the runs list view. 
 
