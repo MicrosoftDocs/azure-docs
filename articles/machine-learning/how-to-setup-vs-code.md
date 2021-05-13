@@ -15,6 +15,9 @@ ms.topic: how-to
 
 Learn how to set up the Azure Machine Learning Visual Studio Code extension for your machine learning workflows.
 
+    > [!div class="mx-imgBorder"]
+    > ![VS Code Extension](./media/how-to-setup-vs-code/vs-code-extension.PNG)
+
 The Azure Machine Learning extension for VS Code provides a user interface to:
 
 - Manage Azure Machine Learning resources (experiments, virtual machines, models, deployments, etc.)
