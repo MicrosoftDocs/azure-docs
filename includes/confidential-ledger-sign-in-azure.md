@@ -22,6 +22,6 @@ Connect-AzAccount
 ```
 ---
 
-If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal.
+If the CLI or PowerShell can open your default browser, it will do so and load an Azure sign-in page. Otherwise, visit [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal.
 
 If prompted, sign in with your account credentials in the browser.

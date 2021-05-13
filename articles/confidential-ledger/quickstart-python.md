@@ -18,7 +18,6 @@ Microsoft Azure Confidential Ledger is a new and highly secure service for manag
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 [API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## Prerequisites
@@ -72,20 +71,23 @@ pip install azure.confidentialledger
 We can now start writing our python application.  First, we'll import the required packages.
 
 ```python
+
+# Import the Azure authentication library
+
 from azure.identity import DefaultAzureCredential
 
-## Import control plane sdk
+## Import the control plane sdk
 
 from azure.mgmt.confidentialledger import ConfidentialLedger as ConfidentialLedgerAPI
 from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
-# import data plane sdk
+# import the data plane sdk
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
 ```
 
-Next, we'll use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the the app.
+Next, we'll use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the app.
 
 ```python
 credential = DefaultAzureCredential()
@@ -100,15 +102,17 @@ We'll finish setup by setting some variables for use in your application: the re
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
 
-identity_url = "https://identity.accledger.azure.com"
+identity_url = "https://eastus.identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 ```
 
 ### Use the control plane client library
 
-The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creating, updating, and deleting ledgers, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
+The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, and deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
 
-In our code, we will first create a ledger using `begin_create`. The `begin_create` function requires three parameters: your resource group, a name for the ledger, and a "properties" object.  Create a `properties` dictionary, and then assign it to a variable.
+In our code, we will first create a ledger using `begin_create`. The `begin_create` function requires three parameters: your resource group, a name for the ledger, and a "properties" object.  
+
+Create a `properties` dictionary with the following keys and values, and assign it to a variable.
 
 ```python
 properties = {
@@ -116,7 +120,6 @@ properties = {
     "tags": {},
     "properties": {
         "ledgerType": "Public",
-        "ledgerStorageAccount": "contosoledger",
         "aadBasedSecurityPrincipals": [],
     },
 }
@@ -124,7 +127,7 @@ properties = {
 ledger_properties = ConfidentialLedger(**properties)
 ```
 
-Now pass the resource group, the name of your ledger, and the properties object, to `begin_create`.
+Now pass the resource group, the name of your ledger, and the properties object to `begin_create`.
 
 ```python
 confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger_properties)
@@ -154,7 +157,8 @@ network_identity = identity_client.get_ledger_identity(
 
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
-     cert_file.write(network_identity.ledger_tls_certificate)
+    cert_file.write(network_identity.ledger_tls_certificate)
+
 
 ledger_client = ConfidentialLedgerClient(
      endpoint=ledger_url, 
@@ -168,14 +172,110 @@ We are now prepared to write to the ledger.  We will do so using the `append_to_
 
 ```python
 append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
-print(write_result.transaction_id)
+print(append_result.transaction_id)
 ```
+
+The print function will return the transaction id of your write to the ledger. You can use this transaction id to retrieve the message you wrote to the ledger.
+
+```python
+entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
+print(entry.contents)
+```
+
+The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction id.
 
 ## Full sample code
 
-
 ```python
-TODO
+from azure.identity import DefaultAzureCredential
+
+## Import control plane sdk
+
+from azure.mgmt.confidentialledger import ConfidentialLedger as ConfidentialLedgerAPI
+from azure.mgmt.confidentialledger.models import ConfidentialLedger
+
+# import data plane sdk
+
+from azure.confidentialledger import ConfidentialLedgerClient
+from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+
+# Set variables
+
+rg = "myResourceGroup"
+ledger_name = "mytestledger8"
+
+identity_url = "https://eastus.identity.confidential-ledger.core.azure.com"
+ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+
+# Authentication
+
+# Need to do az login to get default credential to work
+
+credential = DefaultAzureCredential(exclude_managed_identity_credential=True, exclude_environment_credential=True, exclude_visual_studio_code_credential=True, exclude_shared_token_cache_credential=True, exclude_interactive_browser_credential=True)
+
+# Control plane (azure.mgmt.confidentialledger)
+# 
+# initialize endpoint with credential and subscription
+
+confidential_ledger_mgmt = ConfidentialLedgerAPI(
+    credential, "60d1af23-8f73-401c-b411-b4c581ea61c2"
+)
+
+# Create properities dictionary for begin_create call 
+
+properties = {
+    "location": "eastus2euap",
+    "tags": {},
+    "properties": {
+        "ledgerType": "Public",
+        "aadBasedSecurityPrincipals": [],
+    },
+}
+
+ledger_properties = ConfidentialLedger(**properties)
+
+# Create a ledger
+
+foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+
+# Get the details of the ledger you just created
+
+print(f"{rg} / {ledger_name}")
+ 
+print("Here are the details of your newly created ledger:")
+myledger = confidential_ledger_mgmt.ledger.get(rg, ledger_name)
+
+print (f"- Name: {myledger.name}")
+print (f"- Location: {myledger.location}")
+print (f"- ID: {myledger.id}")
+
+# Data plane (azure.confidentialledger)
+#
+# Create a CL client
+
+identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
+network_identity = identity_client.get_ledger_identity(
+     ledger_id=ledger_name
+)
+
+ledger_tls_cert_file_name = "networkcert.pem"
+with open(ledger_tls_cert_file_name, "w") as cert_file:
+    cert_file.write(network_identity.ledger_tls_certificate)
+
+
+ledger_client = ConfidentialLedgerClient(
+     endpoint=ledger_url, 
+     credential=credential,
+     ledger_certificate_path=ledger_tls_cert_file_name
+)
+
+# Write to the ledger
+append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
+print(append_result.transaction_id)
+
+# Read from the ledger
+entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
+print(entry.contents)
 ```
 
 ## Clean up resources
