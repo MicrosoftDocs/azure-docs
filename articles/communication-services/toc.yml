@@ -9,7 +9,7 @@
     href: support.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
