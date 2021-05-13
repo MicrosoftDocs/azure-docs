@@ -71,6 +71,10 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Secure traffic between single-tenant workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Estimate storage costs for single-tenant workflows
+      href: estimate-storage-costs.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
