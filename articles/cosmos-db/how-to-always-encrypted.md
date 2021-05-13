@@ -29,7 +29,7 @@ To start using the preview of Always Encrypted for Azure Cosmos DB, you can:
 - Request the preview to be enabled on your Azure Cosmos DB account by filling [this form](https://ncv.microsoft.com/poTcF52I6N).
 
 > [!TIP]
-> Do you have any feedback to share regarding the preview of Always Encrypted for Azure Cosmos DB? reach out to [azurecosmosdbcse@service.microsoft.com](mailto:azurecosmosdbcse@service.microsoft.com).
+> Do you have any feedback to share regarding the preview of Always Encrypted for Azure Cosmos DB? Reach out to [azurecosmosdbcse@service.microsoft.com](mailto:azurecosmosdbcse@service.microsoft.com).
 
 ## Concepts
 
@@ -39,11 +39,11 @@ Always Encrypted for Azure Cosmos DB introduces some new concepts that are invol
 
 #### Data encryption keys
 
-When using Always Encrypted, data is encrypted with data encryption keys (DEK) that should be created ahead. These DEKs are stored in the Azure Cosmos DB service and are defined at the database level, so a DEK can be shared across multiple containers. The encryption is done at client-side by using the Azure Cosmos DB SDK.
+When using Always Encrypted, data is encrypted with data encryption keys (DEK) that should be created ahead. These DEKs are stored in the Azure Cosmos DB service and are defined at the database level, so a DEK can be shared across multiple containers. The creation of the DEKs is done client-side by using the Azure Cosmos DB SDK.
 
-You can create:
+You can:
 
-- One DEK per property to encrypt or
+- Create one DEK per property to encrypt, or
 - Use the same DEK to encrypt multiple properties.
 
 #### Customer-managed keys
@@ -54,13 +54,13 @@ Before DEKs get stored in Azure Cosmos DB, they are wrapped by a customer-manage
 
 ### Encryption policy
 
-Similar to an [indexing policy](index-policy.md), an encryption policy is a container-level specification describing how JSON properties should be encrypted before storing them in  a container. This policy must be provided when the container is created and it is immutable. In the current release, you can't update the encryption policy.
+Similar to an [indexing policy](index-policy.md), an encryption policy is a container-level specification describing how JSON properties should be encrypted. This policy must be provided when the container is created and it is immutable. In the current release, you can't update the encryption policy.
 
 For each property that you want to encrypt, the encryption policy defines:
 
-- The path of the property in the form of `/property`. Only top-level paths are currently supported, nested paths such as `/path/to/property` are not yet supported.
+- The path of the property in the form of `/property`. Only top-level paths are currently supported, nested paths such as `/path/to/property` are not supported.
 - The ID of the [DEK](#data-encryption-keys) to use when encrypting and decrypting the property.
-- An encryption type, it can be either randomized or deterministic.
+- An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
 
 > [!NOTE]
@@ -72,7 +72,7 @@ For each property that you want to encrypt, the encryption policy defines:
 
 The Azure Cosmos DB service never sees the plain text of properties encrypted with Always Encrypted. However, it still supports some querying capabilities over the encrypted data, depending on the encryption type used for a property. Always Encrypted supports the following two types of encryptions:
 
-- **Deterministic encryption:** It always generates the same encrypted value for any given plain text value and encryption configuration. Using deterministic encryption allows queries to perform equality filters on encrypted properties. However, it may allow attackers to guess information about encrypted values by examining patterns in the encrypted property. Especially if there's a small set of possible encrypted values, such as True/False, or North/South/East/West region.
+- **Deterministic encryption:** It always generates the same encrypted value for any given plain text value and encryption configuration. Using deterministic encryption allows queries to perform equality filters on encrypted properties. However, it may allow attackers to guess information about encrypted values by examining patterns in the encrypted property. This is especially true if there's a small set of possible encrypted values, such as True/False, or North/South/East/West region.
 
 - **Randomized encryption:** It uses a method that encrypts data in a less predictable manner. Randomized encryption is more secure, but prevents queries from filtering on encrypted properties.
 
@@ -253,7 +253,7 @@ Whenever a document is written to Azure Cosmos DB, the SDK looks up the encrypti
 
 - When the property to encrypt is a JSON array, every entry of the array is encrypted.
 
-- When the property to encrypt is a JSON object, only the leaf values of the object get encrypted. The intermediate sub-property names remaining in plain text form.
+- When the property to encrypt is a JSON object, only the leaf values of the object get encrypted. The intermediate sub-property names remain in plain text form.
 
 ### Read encrypted items
 
