@@ -138,56 +138,56 @@ Insert this code below `auto result = intentRecognizer->RecognizeOnceAsync().get
 ```cpp
 auto entities = result->GetEntities();
 
-    switch (result->Reason)
+switch (result->Reason)
+{
+case ResultReason::RecognizedSpeech:
+case ResultReason::RecognizedIntent:
+    std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+    std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+    if (entities.find("floorName") != entities.end())
     {
-    case ResultReason::RecognizedSpeech:
-    case ResultReason::RecognizedIntent:
-        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
-        std::cout << "    Intent Id = " << result->IntentId.c_str() << std::endl;
-        if (entities.find("floorName") != entities.end())
-        {
-            std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
-        }
+        std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
+    }
 
-        if (entities.find("action") != entities.end())
-        {
-            std::cout << "  Action: = " << entities["action"].c_str() << std::endl;
-        }
+    if (entities.find("action") != entities.end())
+    {
+        std::cout << "  Action: = " << entities["action"].c_str() << std::endl;
+    }
 
+    break;
+case ResultReason::NoMatch:
+{
+    auto noMatch = NoMatchDetails::FromResult(result);
+    switch (noMatch->Reason)
+    {
+    case NoMatchReason::NotRecognized:
+        std::cout << "NOMATCH: Speech was detected, but not recognized." << std::endl;
         break;
-    case ResultReason::NoMatch:
-    {
-        auto noMatch = NoMatchDetails::FromResult(result);
-        switch (noMatch->Reason)
-        {
-        case NoMatchReason::NotRecognized:
-            std::cout << "NOMATCH: Speech was detected, but not recognized." << std::endl;
-            break;
-        case NoMatchReason::InitialSilenceTimeout:
-            std::cout << "NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech." << std::endl;
-            break;
-        case NoMatchReason::InitialBabbleTimeout:
-            std::cout << "NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech." << std::endl;
-            break;
-        case NoMatchReason::KeywordNotRecognized:
-            std::cout << "NOMATCH: Keyword not recognized" << std::endl;
-            break;
-        }
+    case NoMatchReason::InitialSilenceTimeout:
+        std::cout << "NOMATCH: The start of the audio stream contains only silence, and the service timed out waiting for speech." << std::endl;
+        break;
+    case NoMatchReason::InitialBabbleTimeout:
+        std::cout << "NOMATCH: The start of the audio stream contains only noise, and the service timed out waiting for speech." << std::endl;
+        break;
+    case NoMatchReason::KeywordNotRecognized:
+        std::cout << "NOMATCH: Keyword not recognized" << std::endl;
         break;
     }
-    case ResultReason::Canceled:
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
+    break;
+}
+case ResultReason::Canceled:
+{
+    auto cancellation = CancellationDetails::FromResult(result);
 
-        if (!cancellation->ErrorDetails.empty())
-        {
-            std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
-            std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
-        }
+    if (!cancellation->ErrorDetails.empty())
+    {
+        std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
+        std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
     }
-    default:
-        break;
-    }
+}
+default:
+    break;
+}
 ```
 
 ## Check your code
@@ -220,7 +220,7 @@ int main()
     case ResultReason::RecognizedSpeech:
     case ResultReason::RecognizedIntent:
         std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
-        std::cout << "    Intent Id = " << result->IntentId.c_str() << std::endl;
+        std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
         if (entities.find("floorName") != entities.end())
         {
             std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -273,4 +273,13 @@ Now you're ready to build your app and test our speech recognition using the Spe
 
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
-3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
+3. **Start recognition** - It will prompt you to say something. The default language is English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
+
+For example if you say "Take me to floor 7", this should be the output:
+
+```
+Say something ...
+RECOGNIZED: Text = Take me to floor 7.
+  Intent Id = ChangeFloors
+  Floor name: = seven
+```
