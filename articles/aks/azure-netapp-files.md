@@ -1,16 +1,18 @@
 ---
-title: Integrate Azure NetApp Files with Azure Kubernetes Service
-description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
+title: Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
+description: Learn how to statically provision Azure NetApp Files with Azure Kubernetes Service
 services: container-service
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 05/10/2021
 
-#Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
+#Customer intent: As a cluster operator or developer, I want to learn how to statically provision ANF volumes to use in AKS clusters
 ---
 
-# Integrate Azure NetApp Files with Azure Kubernetes Service
+# Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to integrate Azure NetApp Files with Azure Kubernetes Service (AKS).
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to **manually create** an Azure NetApp Files (ANF) volume to use for Read-Write-Many (RWX) workloads in AKS.
+
+You can also create ANF volumes **on-demand** using [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -18,16 +20,16 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 > [!IMPORTANT]
 > Your AKS cluster must also be [in a region that supports Azure NetApp Files][anf-regions].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-### Limitations
+### Prerequisites
 
-The following limitations apply when you use Azure NetApp Files:
+The following considerations apply when you use Azure NetApp Files:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* After the initial deployment of an AKS cluster, only static provisioning for Azure NetApp Files is supported.
-* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later.
+* After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically. This article explains the steps involved in creating ANF volumes manually.
+* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later. This is covered in detail under [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
 
 ## Configure Azure NetApp Files
 
@@ -258,7 +260,9 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 ## Next steps
 
-For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf]. For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
+* To learn about dynamic provisioning of ANF volumes, see [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic].
+* For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
+* For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
 
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -271,6 +275,7 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
 [az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
 [az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
 [az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
