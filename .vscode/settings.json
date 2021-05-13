@@ -1,0 +1,4 @@
+
+{
+    "terminal.integrated.shellArgs.windows": "-ExecutionPolicy ByPass",
+}
