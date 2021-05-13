@@ -45,7 +45,8 @@ Basic load balancers don't support outbound rules or public IP prefixes.
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
-- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](create-public-ip-prefix-portal.md)
+- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](create-public-ip-prefix-portal.md).
+    - For the purposes of the example in this article, name the new public IP prefix **myPublicIPPrefixOutbound**.
 
 ## Create load balancer existing public IP
 
@@ -121,7 +122,27 @@ To change the IP, you'll associate a new public IP address previously created wi
 In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
 
 > [!IMPORTANT]
-> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see [Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)
+> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see **[Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)**.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**.
+
+3. In the search results, select **Load balancers**.
+
+4. In **Load Balancers**, select **myLoadBalancer** or the load balancer you wish to change.
+
+5. In settings of **myLoadBalancer**, select **Frontend IP configuration**.
+
+6. In **Frontend IP configuration**, select **LoadBalancerFrontendOutbound** or your load balancer outbound frontend.
+
+7. For **IP type**, select **Public IP prefix**.
+
+8. In **Public IP prefix**, select the public IP prefix you created previously **myPublicIPPrefixOutbound**.
+
+9. Select **Save**.
+
+10. In **Frontend IP configuration**, confirm the IP prefix was added to the outbound frontend configuration.
 
 ## Delete public IP address
 
@@ -139,7 +160,7 @@ In this section, you'll delete the IP address you replaced in the previous secti
 
 ## Next steps
 
-In this article, you learned how to create and associate a new public IP address with a load balancer. 
+In this article, you learned how to create a load balancer and use an existing public IP. You replaced the IP address in a load balancer frontend configuration. Finally, you changed an outbound frontend configuration to use a public IP prefix and learned how to clean up an IP address no longer needed.
 
 - For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
