@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Integrate with Azure Database for MySQL
-This document explains creation of an Azure Database for MySQL server and how to allow access from Azure resources.
+This document describes creation of an Azure Database for MySQL server and how to allow access from Azure resources.
 
 ## Variables preparation
 
@@ -23,7 +23,7 @@ export MYSQL_SERVER_NAME=<mysql-server-name> # customize this
 export MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_NAME}.mysql.database.azure.com
 export MYSQL_SERVER_ADMIN_NAME=<admin-name> # customize this
 export MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_NAME}\@${MYSQL_SERVER_NAME}
-export MYSQL_SERVER_ADMIN_PASSWORD=SuperS3cr3t # customize this
+export MYSQL_SERVER_ADMIN_PASSWORD=<password> # customize this
 export MYSQL_DATABASE_NAME=petclinic
 ```
 
