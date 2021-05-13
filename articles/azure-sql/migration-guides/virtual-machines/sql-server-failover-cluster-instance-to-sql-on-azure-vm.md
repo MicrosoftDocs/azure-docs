@@ -40,7 +40,7 @@ Prepare Azure for migration with Server Migration.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](/azure/migrate/create-manage-projects).
 **Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk.
 **Set up an Azure virtual network** | [Setup](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 
