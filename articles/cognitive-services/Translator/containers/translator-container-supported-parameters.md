@@ -35,15 +35,12 @@ Request parameters passed on the query string are:
 | --- | --- |
 | api-version | _Required parameter_.  <br>Version of the API requested by the client. Value must be `3.0`. |
 | to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](../reference/v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
+| from | _Required parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope.|
 
 ### Optional parameters
 
 | Query parameter | Description |
 | --- | --- |
-
-| Query parameter | Description |
-| --- | --- |
-| from | _Required parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope.|
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
@@ -105,12 +102,6 @@ Example of JSON responses are provided in the [examples](#examples) section.
 
 If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](../reference/v3-0-reference.md#errors).
 
-The following table lists array element and character limits for each operation of the Translator.
-
-| Operation | Maximum Size of Array Element |    Maximum Number of Array Elements |    Maximum Request Size (characters) |
-|:----|:----|:----|:----|
-| Translate | 10,000| 100| 10,000 |
-
 ## Examples
 
 ### Translate a single input
@@ -134,28 +125,6 @@ The response body is:
 ```
 
 The `translations` array includes one element, which provides the translation of the single piece of text in the input.
-
-### Translate a single input with language auto-detection
-
-This example shows how to translate a single sentence from English to Simplified Chinese. The request does not specify the input language. Auto-detection of the source language is used instead.
-
-```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
-```
-
-The response body is:
-
-```[
-    {
-        "detectedLanguage": {"language": "en", "score": 1.0},
-        "translations":[
-            {"text": "你好, 你叫什么名字？", "to": "zh-Hans"}
-        ]
-    }
-]
-```
-
-The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. The language auto-detection works better with longer input text.
 
 ### Translate multiple pieces of text
 
@@ -264,3 +233,10 @@ This feature works the same way with `textType=text` or with `textType=html`. Th
 ## Request limits
 
 Each translate request is limited to 10,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+
+The following table lists array element and character limits for the Translatro **translation** operation.
+
+| Operation | Maximum Size of Array Element |    Maximum Number of Array Elements |    Maximum Request Size (characters) |
+|:----|:----|:----|:----|
+| Translate | 10,000| 100| 10,000 |
+
