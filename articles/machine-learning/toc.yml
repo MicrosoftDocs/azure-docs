@@ -74,10 +74,6 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Deploy ML models with a managed online endpoint
-          href: tutorial-deploy-managed-online-endpoints.md
-        - name: Safe rollout for online endpoints
-          href: tutorial-safe-rollout-online-endpoints.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
@@ -464,6 +460,12 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
+      - name: Deploy & serve with endpoints
+        items: 
+          - name: Batch
+            items:
+            - name: Safe rollout for online endpoints
+              href: tutorial-safe-rollout-online-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
