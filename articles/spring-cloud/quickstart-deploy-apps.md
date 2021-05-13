@@ -207,10 +207,8 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
 
     ```azurecli
-    az configure --defaults group=<resource group name> spring-cloud=<service name>
-    
+    az configure --defaults group=<resource group name> spring-cloud=<service name>  
     az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
-
     ```
 
 1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
