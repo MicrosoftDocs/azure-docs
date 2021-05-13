@@ -38,7 +38,7 @@ After you've created a storage account, go to the **Access Control (IAM)** in th
     
 | Setting | Value |
 | --- | --- |
-| Role | [role-name](../../role-based-access-control/built-in-roles.md#role-name) |
+| Role | [role-name](../role-based-access-control/built-in-roles.md#role-name) |
 | Assign access to | [User, group, or service principal OR Managed identity] |
 | Members | [members] |
 
