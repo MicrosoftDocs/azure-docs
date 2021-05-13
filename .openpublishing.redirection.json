@@ -13641,6 +13641,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/hybrid-cloud-extension-installation.md",
       "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
       "redirect_document_id": false
