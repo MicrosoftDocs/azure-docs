@@ -58,11 +58,11 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 Because App Service on Arc is currently validated only on [Azure Kubernetes Service](/azure/aks/), create an Azure Arc enabled cluster on Azure Kubernetes Service. 
 
-1. Create a cluster in Azure Kubernetes Service with a public IP address.
+1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
     ```azurecli-interactive
-    aksClusterGroupName="" # A name for the resource group in which the cluster will be created 
-    aksName="${aksClusterGroupName}-aks" # A name for the AKS resource
+    aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
+    aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
     resourceLocation="eastus" # "eastus" or "westeurope"
 
     az group create -g $aksClusterGroupName -l $resourceLocation
@@ -80,10 +80,10 @@ Because App Service on Arc is currently validated only on [Azure Kubernetes Serv
     kubectl get ns
     ```
     
-3. Create a resource group to contain your Azure Arc resources:
+3. Create a resource group to contain your Azure Arc resources. Replace `<group-name>` with the resource group name you want.
 
     ```azurecli-interactive
-    groupName="" # A name for the resource group in which the connected cluster will be created
+    groupName="<group-name>" # Name of resource group for the connected cluster
 
     az group create -g $groupName -l $resourceLocation
     ```
@@ -91,7 +91,7 @@ Because App Service on Arc is currently validated only on [Azure Kubernetes Serv
 4. Connect the cluster you created to Azure Arc.
 
     ```azurecli-interactive
-    clusterName="${groupName}-cluster" # A name for the connected cluster resource
+    clusterName="${groupName}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $groupName --name $clusterName
     ```
@@ -109,7 +109,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 1. For simplicity, create the workspace now.
 
     ```azurecli-interactive
-    workspaceName="$groupName-workspace"
+    workspaceName="$groupName-workspace" # Name of the Log Analytics workspace
     
     az monitor log-analytics workspace create \
         --resource-group $groupName \
@@ -136,12 +136,12 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
 ## Install the App Service extension
 
-1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `kubeEnvironmentName`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
+1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
 
     ```bash
-    extensionName="appservice-ext" # A name for the extension resource
-    namespace="appservice-ns" # A namespace in your cluster in which the extension will be installed and resources will be provisioned.
-    kubeEnvironmentName="" # A name for the App Service Kubernetes environment resource
+    extensionName="appservice-ext" # Name of the App Service extension
+    namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
+    kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
     ```
     
 2. Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
@@ -228,7 +228,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc connected cluster.
 
     ```bash
-    customLocationName="my-custom-location"
+    customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
     ```
@@ -290,5 +290,5 @@ Before you can start creating apps on the custom location, you need an [App Serv
 ## Next steps
 
 - [Quickstart: Create a web app on Azure Arc](quickstart-arc.md)
-- [Deploy a function app to Azure Arc](../azure-functions/functions-infrastructure-as-code.md#deploy-to-azure-arc)
-<!-- - [Create and deploy single-tenant based logic app workflows with Arc enabled Logic Apps](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md) https://github.com/MicrosoftDocs/azure-docs-pr/pull/157287 -->
+- [Create your first function on Azure Arc](../azure-functions/create-first-function-arc-cli.md)
+- [Create your first logic app on Azure Arc](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md)
