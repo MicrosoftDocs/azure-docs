@@ -163,13 +163,54 @@ You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/ap
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
-### Update properties in digital twin components
+### Update sub-properties in digital twin components
 
 Recall that a model may contain components, allowing it to be made up of other models. 
 
 To patch properties in a digital twin's components, you can use path syntax in JSON Patch:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
+
+### Update sub-properties in object-type properties
+
+Models may contain properties that are of an object type. Those objects may have their own properties, and you may want to update one of those sub-properties belonging to the object-type property. This process is similar to the process for [updating sub-properties in components](#update-sub-properties-in-digital-twin-components), but may require some extra steps. 
+
+Consider a model with an object-type property, `ObjectProperty`. `ObjectProperty` has a string property named `StringSubProperty`.
+
+When a twin is created using this model, it's not necessary to instantiate the `ObjectProperty` at that time. If the object property is not instantiated during twin creation, there is no default path created to access `ObjectProperty` and its `StringSubProperty` for a patch operation. You will need to add the path to `ObjectProperty` yourself before you can update its properties.
+
+This can be done with a JSON Patch `add` operation, like this:
+
+```json
+[
+  {
+    "op": "add", 
+    "path": "/ObjectProperty", 
+    "value": {"StringSubProperty":"<string-value>"}
+  }
+]
+```
+
+>[!NOTE]
+> If `ObjectProperty` has more than one property, you should include all of them in the `value` field of this operation, even if you're only updating one:
+> ```json
+>... "value": {"StringSubProperty":"<string-value>", "Property2":"<property2-value>", ...}
+>```
+
+
+After this has been done once, a path to `StringSubProperty` exists, and it can be updated directly from now on with a typical `replace` operation:
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/ObjectProperty/StringSubProperty",
+    "value": "<string-value>"
+  }
+]
+```
+
+Although the first step isn't necessary in cases where `ObjectProperty` was instantiated when the twin was created, it's recommended to use it every time you update a sub-property for the first time, since you may not always know for sure whether the object property was initially instantiated or not.
 
 ### Update a digital twin's model
 
