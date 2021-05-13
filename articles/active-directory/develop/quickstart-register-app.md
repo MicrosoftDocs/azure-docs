@@ -29,6 +29,15 @@ The Microsoft identity platform performs identity and access management (IAM) on
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
+- The following roles are capable of working with app registrations.
+
+| Role                                                                                                 | Description                                                                                        |
+| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [Application administrator](../roles/permissions-reference.md#application-administrator)             | Can create and manage all aspects of app registrations and enterprise apps.                        |
+| [Application developer](../roles/permissions-reference.md#application-developer)                     | Can create application registrations independent of the 'Users can register applications' setting. |
+| [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator) | Can create and manage all aspects of app registrations and enterprise apps except App Proxy.       |
+
+- Learn more about [Azure AD built-in roles](../roles/permissions-reference.md)
 
 ## Register an application
 
