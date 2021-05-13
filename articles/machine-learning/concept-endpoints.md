@@ -167,9 +167,6 @@ You can use the following options for input data when invoking a batch endpoint:
 - Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
 - Data stored locally
 
-> [!NOTE]
-> For registered datasets, only FileDatasets are supported in preview.
-
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
 ### Security
