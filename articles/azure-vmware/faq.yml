@@ -175,7 +175,7 @@ sections:
         answer: Yes, vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter operations for key management.  When a host is removed from a cluster, data on SSDs is invalidated immediately.
 
       - question: Can I rename a datastore or cluster during creation?
-        answer: No, you can't change the name of datastores or clusters.
+        answer: No, you can't change the name of datastores or clusters. The cluster name is configurable through non-portal deployment mechanisms for non-primary clusters.
 
       - question: What is the Fault tolerance of hardware failure on the vSAN?
         answer: |
@@ -198,8 +198,8 @@ sections:
       - question: What kind of alerts can I expect to see for vSAN? 
         answer: Microsoft provides alerts when capacity consumption exceeds 75%. Alternatively, you can also monitor capacity consumption metrics that are integrated into Azure Monitor.
 
-      - question: How many 1.6 TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
-        answer: The [AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6-TB NVMe cache and eight 1.9-TB raw storage capacity. These are then split into two disk groups. 
+      - question: How many 1.6-TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
+        answer: The [AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes 2 1.6 TB NVMe Cache and 8 1.9TB raw storage capacity. These are then split into two disk groups. 
 
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
@@ -231,8 +231,6 @@ sections:
       - question: What are trial clusters?
         answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
 
-      - question: Can I use High-end hosts for trial clusters?
-        answer: No. High-end ESXi hosts are reserved for use in production clusters.
 
   - name: Identity management
     questions:
@@ -253,7 +251,7 @@ sections:
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: How can I change my credentials?
-        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
+        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
           
   - name: Billing and support
     questions:

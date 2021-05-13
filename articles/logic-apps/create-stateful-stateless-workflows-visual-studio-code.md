@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/23/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -1061,7 +1061,12 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app.
+   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+
+   > [!NOTE]
+   > The stop logic app and delete logic app operations affect workflow instances in different ways. 
+   > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
+   > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
@@ -1085,11 +1090,45 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows the Azure portal and the search bar with search results for deployed logic app, which appears selected.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="considerations-stop-logic-apps"></a>
+
+### Considerations for stopping logic apps
+
+Stopping a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels all in-progress and pending runs immediately.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+
+  To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
+
+  1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
+  1. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+  1. Expand your logic app, and then expand the **Workflows** node.
+  1. Open a workflow, and edit any part of that workflow's trigger.
+  1. Save your changes. This step resets the trigger's current state.
+  1. Repeat for each workflow.
+  1. When you're done, restart your logic app.
+
+<a name="considerations-delete-logic-apps"></a>
+
+### Considerations for deleting logic apps
+
+Deleting a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
 <a name="manage-deployed-apps-portal"></a>
 
 ## Manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 

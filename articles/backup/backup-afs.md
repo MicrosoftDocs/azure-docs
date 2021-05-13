@@ -2,7 +2,7 @@
 title: Back up Azure file shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 05/07/2021
 ---
 
 # Back up Azure file shares
@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 
 * [Learn](azure-file-share-backup-overview.md) about the Azure file share snapshot-based backup solution.
 * Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
-* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account that hosts the file share.
+* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

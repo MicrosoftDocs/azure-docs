@@ -60,7 +60,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline
+        href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup

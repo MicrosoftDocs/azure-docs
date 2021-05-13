@@ -47,7 +47,7 @@ You can assign permissions to queue data to an Azure AD security principal via A
 
 The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to Azure CLI. Permissions to queues are assigned via Azure RBAC. For example, if you are assigned the **Storage Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you are assigned the **Storage Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
 
-For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ### Example: Authorize an operation to create a queue with Azure AD credentials
 

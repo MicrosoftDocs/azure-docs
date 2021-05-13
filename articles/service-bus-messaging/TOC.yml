@@ -147,7 +147,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:

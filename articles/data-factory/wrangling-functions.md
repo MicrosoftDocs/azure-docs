@@ -59,8 +59,8 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
 * Row filters as a logical column
 * Number, text, logical, date, and datetime constants
 
-Merging/Joining tables
-----------------------
+## Merging/Joining tables
+
 * Power Query will generate a nested join (Table.NestedJoin; users can also
     manually write
     [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).

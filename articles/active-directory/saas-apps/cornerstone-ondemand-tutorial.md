@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 04/25/2021
 ms.author: jeedes
 ---
 
@@ -37,7 +37,17 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cornerstone Single Sign-On supports **SP** initiated SSO.
 * Cornerstone Single Sign-On supports [Automated user provisioning](cornerstone-ondemand-provisioning-tutorial.md).
+* If you are integrating one or multiple products from this particular list then you should use this Cornerstone OnDemand Single Sign-On app from the Gallery.
 
+    We offer solutions for :
+
+    1. Learning Management (LMS)
+    2. Performance Management (EPM)
+    3. Succession Planning
+    4. Recruiting (ATS)
+    5. Extended Enterprise
+    6. Human Resources
+    7. Employee Content
 
 ## Adding Cornerstone Single Sign-On from the gallery
 

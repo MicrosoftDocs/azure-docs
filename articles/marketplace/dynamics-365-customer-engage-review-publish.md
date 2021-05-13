@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
+ms.date: 04/30/2021
 ---
 
 # Review and publish a Dynamics 365 CE&PA offer
@@ -49,6 +49,9 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. Select **Review and publish**.
 1. Select **Go live** to make your offer publicly available.
 
+After you select **Review and publish**, we will perform certification and other verification processes before your offer is published to AppSource. We will notify you when your offer is available in preview so you can go live. If there is an issue, we will notify you with the details and provide guidance on how to fix it.
+
 ## Next steps
 
+- If you enabled _Third-party app license management through Microsoft_ for your offer, after you sell your offer, you’ll need to register the deal in Partner Center. To learn more, see [Managing licensing in marketplace offers](/partner-center/csp-commercial-marketplace-licensing).
 - [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md)

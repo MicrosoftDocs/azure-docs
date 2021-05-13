@@ -145,7 +145,7 @@
     - name: Security overview
       href: concepts-security.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/mariadb-security-baseline
+      href: /security/benchmark/azure/baselines/mariadb-security-baseline?toc=/azure/mariadb/TOC.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

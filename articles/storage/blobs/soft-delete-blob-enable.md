@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: "devx-track-azurecli"
+
 ---
 
 # Enable soft delete for blobs

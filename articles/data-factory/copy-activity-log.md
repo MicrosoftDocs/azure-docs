@@ -71,7 +71,7 @@ path | The path of the log files. | Specify the path that you want to store the 
 ## Monitoring
 
 ### Output from copy activity
-After the copy activity runs completely, you can see the path of log files from the output of each copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`.  The log files will be the csv files. 
+After the copy activity runs completely, you can see the path of log files from the output of each copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  The log files generated have the .txt extension and their data is in CSV format.
 
 ```json
 "output": {

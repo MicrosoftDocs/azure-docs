@@ -12,30 +12,31 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+- name: Quickstart
+  expanded: true
+  items: 
+    - name: Create ML resources to get started
+      href: quickstart-create-resources.md
 - name: Tutorials
   expanded: true
   items: 
     - name: "Python get started (Day 1)"
       expanded: true
       items:
-        - name: 1. Set up local computer
-          href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: '2. "Hello world"'
+        - name: '1. "Hello world"'
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Train your model
+        - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 4. Bring your own data
+        - name: 3. Bring your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
       items:
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Set up compute instance
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train a model
+            - name: 1. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 3. Deploy a model
+            - name: 2. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 
@@ -171,7 +172,7 @@
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/machine-learning-security-baseline
+          href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Data encryption
@@ -234,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Data protection
           items:
-            - name: Increase resiliency
-              displayName: high availability, disaster recovery
+            - name: Failover & disaster recovery
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
@@ -320,9 +321,9 @@
             - name: Get data labeled
               displayName: data, dataset, labeling
               href: how-to-create-labeling-projects.md
-            - name: Label images
+            - name: Label images and text
               displayName: data, dataset, labeling
-              href: how-to-label-images.md
+              href: how-to-label-data.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md

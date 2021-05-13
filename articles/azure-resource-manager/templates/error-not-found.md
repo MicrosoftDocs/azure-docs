@@ -2,7 +2,8 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error can occur when deploying an Azure Resource Manager template or when taking management actions.
 ms.topic: troubleshooting
-ms.date: 03/23/2021
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Resolve resource not found errors
 

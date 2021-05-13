@@ -7,7 +7,8 @@ author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
-ms.author: jaysoni
+ms.author: jaysoni 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot App Service issues in Application Gateway
@@ -75,7 +76,7 @@ In the previous example, notice that the response header has a status code of 30
 
 ## Solution: Rewrite the location header
 
-Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers.md#modify-a-redirection-url).
+Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers-url.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers-url.md#modify-a-redirection-url).
 
 > [!NOTE]
 > The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.

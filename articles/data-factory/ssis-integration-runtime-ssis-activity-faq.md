@@ -149,12 +149,12 @@ One potential cause is your Self-Hosted integration runtime is not installed or 
 
 ### Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy..."
 
-Check if security policies are correctly assigned to the account running self-hosted IR service. If Windows authentication is used on Execute SSIS Package activity or the execution credential is set in SSIS catalog (SSISDB), the same security policies must be assigned to the Windows account used. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-staging-tasks)
+Check if security policies are correctly assigned to the account running self-hosted IR service. If Windows authentication is used on Execute SSIS Package activity or the execution credential is set in SSIS catalog (SSISDB), the same security policies must be assigned to the Windows account used. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks)
 
 ### Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection"
 
 * Potential cause & recommended action:
-  * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
+  * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy)
   * Execution log can be found in [SSMS report](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) or in the log folder you specified in SSIS package execution activity.
   * vNet can also be used to access on-premises data as an alternative. More detail can be found at [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
 

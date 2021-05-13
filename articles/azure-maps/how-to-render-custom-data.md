@@ -3,7 +3,7 @@ title: Render custom data on a raster map | Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -30,7 +30,7 @@ To complete the procedures in this article, you first need to create an Azure Ma
 ## Render pushpins with labels and a custom image
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S0 or S1.
+> The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier.
 
 The Azure Maps account S0 tier supports only a single instance of the `pins` parameter. It allows you to render up to five pushpins, specified in the URL request, with a custom image.
 
@@ -55,7 +55,7 @@ To render pushpins with labels and a custom image, complete these steps:
 ## Get data from Azure Maps data storage
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
 You can also obtain the path and pin location information by using the [Data Upload API](/rest/api/maps/data/uploadpreview). Follow the steps below to upload the path and pins data.
 
@@ -164,7 +164,7 @@ You can also obtain the path and pin location information by using the [Data Upl
 ## Render a polygon with color and opacity
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
 
 You can modify the appearance of a polygon by using style modifiers with the [path parameter](/rest/api/maps/render/getmapimage#uri-parameters).
@@ -184,7 +184,7 @@ You can modify the appearance of a polygon by using style modifiers with the [pa
 ## Render a circle and pushpins with custom labels
 
 > [!Note]
-> The procedure in this section requires an Azure Maps account in pricing tier S1.
+> The procedure in this section requires an Azure Maps account Gen 1 (S1) or Gen 2 pricing tier.
 
 
 You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information about style modifiers, see [static image service path parameters](/rest/api/maps/render/getmapimage#uri-parameters).

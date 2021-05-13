@@ -290,8 +290,8 @@ If you want to enable this feature:
 }
 ```
 
-You can also enable this feature using the environment variable 
-`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+You can also enable this feature by setting the environment variable 
+`APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` to `true`
 (which will then take precedence over enabled specified in the json configuration).
 
 ## Suppressing specific auto-collected telemetry
@@ -329,7 +329,7 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
 }
 ```
 
-You can also suppress these instrumentations using these environment variables:
+You can also suppress these instrumentations by setting these environment variables to `false`:
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -342,7 +342,7 @@ You can also suppress these instrumentations using these environment variables:
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 

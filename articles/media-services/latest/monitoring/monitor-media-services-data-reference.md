@@ -23,9 +23,9 @@ Media Services supports monitoring metrics for the following resources:
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Media Services general | [General](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
-| Live Events | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
-| Streaming Endpoints | [Microsoft.Media/mediaservices/streamingEndpoints](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints). 
+| Media Services general | [General](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservices) |
+| Live Events | [Microsoft.Media/mediaservices/liveEvents](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) 
+| Streaming Endpoints | [Microsoft.Media/mediaservices/streamingEndpoints](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints). 
 
 
 You should also review [account quotas and limits](../limits-quotas-constraints-reference.md).
@@ -46,13 +46,13 @@ Media services has the following metric dimensions.  They are self-explantory ba
 Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services supports the following resource logs:
-[Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
+[Microsoft.Media/mediaservices](../../../azure-monitor/essentials/resource-logs-categories.md#microsoftmediamediaservices)
 
 ## Schemas
 
 For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## Key delivery log schema properties
+### Key delivery 
 
 These properties are specific to the key delivery log schema.
 
