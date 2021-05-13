@@ -63,10 +63,10 @@ If you use a Windows operating system, use this command instead `set ENDPOINT_NA
 
 The inputs needed to deploy a model on an online endpoint are:
 
-1. Model files (or the name and version of a model already registered in your workspace). In the example, we have a `scikit-learn` model that does regression.
-1. Code that is needed to score the model. In this case, we have a `score.py` file.
-1. An environment in which your model is run (as you'll see, the environment may be a Docker image with conda dependencies or may be a Dockerfile).
-1. Settings to specify the instance type and scaling capacity
+- Model files (or the name and version of a model already registered in your workspace). In the example, we have a `scikit-learn` model that does regression.
+- Code that is needed to score the model. In this case, we have a `score.py` file.
+- An environment in which your model is run (as you'll see, the environment may be a Docker image with conda dependencies or may be a Dockerfile).
+- Settings to specify the instance type and scaling capacity.
 
 The following snippet shows the `endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yaml` file that captures all the above information: 
 
