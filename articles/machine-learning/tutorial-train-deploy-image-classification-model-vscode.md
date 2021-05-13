@@ -126,7 +126,8 @@ This template submits a training job called `tensorflow-mnist-example` to the re
 
 To submit the training job:
 
-In the Visual Studio Code file explorer, right-click the *job.yml* file and select **Azure ML: Create Resource**.
+1. Open the *job.yml* file.
+1. Right-click the file in the text editor and select **Azure ML: Create Resource**.
 
 > [!div class="mx-imgBorder"]
 > ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)

@@ -77,8 +77,6 @@
           href: tutorial-train-deploy-model-cli.md
     - name: Visual Studio Code
       items: 
-        - name: Set up Azure Machine Learning extension
-          href: tutorial-setup-vscode-extension.md
         - name: Train and deploy a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: "Microsoft Power BI integration"
@@ -283,7 +281,7 @@
           href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
-        - name: Install and set up the CLI 2.0
+        - name: Install and set up the 2.0 CLI
           displayName: azurecli, mlops
           href: how-to-configure-cli.md
         - name: Set up dev environments
@@ -308,8 +306,11 @@
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
-        - name: Visual Studio Code
+        - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+          href: how-to-setup-vs-code.md
+        - name: Connect to compute instance VS Code
+          displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
         - name: Git integration
           displayName: github gitlab
