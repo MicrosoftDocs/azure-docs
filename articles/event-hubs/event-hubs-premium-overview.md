@@ -1,16 +1,16 @@
 ---
-title: Overview of premium event hubs - Azure Event Hubs | Microsoft Docs
+title: Overview of Event Hubs Premium (Preview)
 description: This article provides an overview of premium Azure Event Hubs, which offers multi-tenant deployments of event hubs for high-end streaming needs that require superior performance, better isolation.   
 ms.topic: article
 ms.date: 5/25/2021
 ---
 
 # Overview of Event Hubs Premium (Preview)
-
-
-
 Event Hubs premium caters to high-end streaming needs that require superior performance, better isolation with predictable latency, and minimal interference in a managed multitenant PaaS environment. 
 On top of all the features of the Standard offering, Premium offers several extra features such as dynamic partition scale up, extended retention, and customer-managed-keys.
+
+> [!IMPORTANT]
+> Event Hubs Premium is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 The Premium offering is billed by [Processing Units (PUs)](event-hubs-scalability.md#processing-units) that offers more generous quotas, better performance, and isolation compared to the standard offering. In comparison to Dedicated offering, since Event Hubs Premium is multi-tenant, it can dynamically scale more flexibly and quickly. Therefore, Event Hubs Premium is cost effective option for mid-range(<120MB/sec) throughput requirements that requires better isolation and flexibility in a multi-tenant PassS environment. 
 
@@ -44,7 +44,7 @@ Event Hubs premium implements a *Cluster in Cluster* model in its multitenant cl
 #### Cost savings and scalability
 As Event Hubs Premium is a multitenant offering, it can dynamically scale more flexibly and very quickly. Capacity is allocated in Processing Units that allocate isolated pods of CPU/Memory inside the cluster. The number of those pods can be scaled up/down per namespace. Therefore, Event Hubs Premium is a low-cost option for messaging scenarios with the overall throughput range that is less than 120 MB/s but higher than what you can achieve with the standard SKU.  
 
-## Event Hubs Premium quotas and limits
+## Quotas and limits
 The premium tier offers all the features of the standard plan, but with better performance, isolation and more generous quotas. 
 For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 

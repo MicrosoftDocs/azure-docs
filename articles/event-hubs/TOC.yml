@@ -4,8 +4,6 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: Event Hubs Premium
-      href: event-hubs-premium-overview.md      
 - name: Quickstarts
   expanded: true
   items:
@@ -75,6 +73,8 @@
   items:
     - name: Event Hubs terminology
       href: event-hubs-features.md
+    - name: Event Hubs Premium
+      href: event-hubs-premium-overview.md      
     - name: Event Hubs for Apache Kafka
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs Capture
