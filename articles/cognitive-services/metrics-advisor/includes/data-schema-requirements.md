@@ -19,6 +19,6 @@ Metrics Advisor is a service for time series anomaly detection, diagnostics and 
 
 Here's an example of expected metrics schema: 
 
-![Screenshot of metrics schema example](../media/tutorial/metric-schema.png)
+<!-- ![Screenshot of metrics schema example](../media/tutorial/metric-schema.png) -->
 
 Aggregate your data ahead to align with expected metrics schema if you're using data sources like ADLS, Azure Blob... which uses a file as metrics input. However, if you're using data sources like Azure SQL server, Azure Data Explorer or other sources, which support running a query to get metrics data from sources, you can use aggregation functions to aggregate data into expected schema.
