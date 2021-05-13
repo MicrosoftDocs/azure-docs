@@ -144,7 +144,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 * [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
 * [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
 * [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
