@@ -36,7 +36,9 @@ With this option:
 - You do not require deployment or maintenance of an on-premises deployment—because Voice Calling (PSTN) operates out of Azure Communication Services.
 - Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure direct routing for interoperability with third-party PBXs, analog devices, and other third-party telephony equipment supported by the SBC.
 
-This option requires an uninterrupted connection to Azure Communication Services.
+This option requires an uninterrupted connection to Azure Communication Services.  
+
+For cloud calling, outbound calls are billed at per-minute rates depending on the target country. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### Azure direct routing
 
