@@ -17,5 +17,8 @@ Metrics Advisor is a service for time series anomaly detection, diagnostics and 
 * **Timestamp** (optional): zero or one column with type of `DateTime` or `String`. When this column is not set, the timestamp is set as the start time of each ingestion period. Format the timestamp into: `yyyy-MM-ddTHH:mm:ssZ`. 
 * **Dimension** (optional): A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on. The dimension columns can be of any data type. Be cautious when working with large volumes of columns and values, to prevent excessive numbers of dimensions from being processed.
 
-> [!Note]
-> For each metric, there should only be one timestamp per measure, corresponding to one dimension combination. Aggregate your data ahead of onboarding or use the query to specify the data to be ingested.
+Here's an example of expected metrics schema: 
+
+![Screenshot of metrics schema example](../media/tutorial/metric-schema.png)
+
+Aggregate your data ahead to align with expected metrics schema if you're using data sources like ADLS, Azure Blob... which uses a file as metrics input. However, if you're using data sources like Azure SQL server, Azure Data Explorer or other sources, which support running a query to get metrics data from sources, you can use aggregation functions to aggregate data into expected schema.
