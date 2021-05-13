@@ -454,7 +454,7 @@ To connect to a Linux VM, do the following:
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-1. If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
+  If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
 
   ```powershell
   $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
