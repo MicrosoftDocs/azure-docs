@@ -45,7 +45,8 @@ To deploy your MLflow model to an Azure Machine Learning web service, your model
 
 In order to deploy to ACI, you don't need to define any deployment configuration, the service will default to an ACI deployment when a config is not provided.
 
-[!NOTE] You can set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method values as a reference if you want to customize your deployment parameters. 
+> [!NOTE] 
+> You can set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method values as a reference if you want to customize your deployment parameters. 
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
