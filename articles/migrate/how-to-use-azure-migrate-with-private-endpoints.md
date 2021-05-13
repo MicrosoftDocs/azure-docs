@@ -10,11 +10,11 @@ ms.date: 05/10/2020
 
 # Using Azure Migrate with private endpoints  
 
-This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network using [Azure private link](../private-link/private-endpoint-overview.md).
+This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md).
 
-You can use the [Azure Migrate: Discovery and Assessment](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) and [Azure Migrate: Server Migration](./migrate-services-overview.md#azure-migrate-server-migration-tool) tools to connect privately and securely to the Azure Migrate service over an ExpressRoute private peering or a site to site VPN connection, using Azure private link.
+You can use the [Azure Migrate: Discovery and Assessment](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) and [Azure Migrate: Server Migration](./migrate-services-overview.md#azure-migrate-server-migration-tool) tools to connect privately and securely to the Azure Migrate service over an ExpressRoute private peering or a site to site VPN connection, using Azure Private Link.
 
-The private endpoint connectivity method is recommended when there is an organizational requirement to access the Azure Migrate service and other Azure resources without traversing public networks. You can also use the private link support to use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
+The private endpoint connectivity method is recommended when there is an organizational requirement to access the Azure Migrate service and other Azure resources without traversing public networks. Using the Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
 
 ## Support requirements
 
@@ -40,7 +40,7 @@ The private endpoint connectivity method is recommended when there is an organiz
 Other migration tools may not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings.
 
 
-To enable public network access for the Azure Migrate project, go to the Azure Migrate **properties page** on the Azure portal, select **No**, and select **Save**.
+To enable public network access for the Azure Migrate project, Sign in to Azure Portal, Navigate to **Azure Migrate properties** page on the Azure port, select **No** > **Save**.
 
 ![Diagram that shows how to change the network access mode.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
@@ -48,7 +48,7 @@ To enable public network access for the Azure Migrate project, go to the Azure M
 
 **Considerations** | **Details**
 --- | ---
-**Pricing** | For pricing information, see [Azure blob pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure private link pricing](https://azure.microsoft.com/pricing/details/private-link/).  
+**Pricing** | For pricing information, see [Azure blob pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).  
 **Virtual network requirements** | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You may need ~15 IP addresses in the virtual network.  
 
 ## Create a project with private endpoint connectivity
@@ -59,20 +59,17 @@ Use this [article](./create-manage-projects.md#create-a-project-for-the-first-ti
 > You cannot change the connectivity method to private endpoint connectivity for existing Azure Migrate projects.
 
 In the **Advanced** configuration section, provide the below details to create a private endpoint for your Azure Migrate project.
-- In **Connectivity method**, choose **Private endpoint**.
-- In **Disable public endpoint access**, keep the default setting  **No**. Some migration tools may not be able to upload usage data to the Azure Migrate project if public network access is disabled. [Learn more.](#other-integrated-tools)
-- In **Virtual network subscription**, select the subscription for the private endpoint virtual network.
-- In **Virtual network**, select the virtual network for the private endpoint. The Azure Migrate appliance and other software components that need to connect to the Azure Migrate project must be on this network or a connected virtual network.
-- In **Subnet**, select the subnet for the private endpoint.
+1. In **Connectivity method**, choose **Private endpoint**.
+2. In **Disable public endpoint access**, keep the default setting  **No**. Some migration tools may not be able to upload usage data to the Azure Migrate project if public network access is disabled. [Learn more.](#other-integrated-tools)
+3. In **Virtual network subscription**, select the subscription for the private endpoint virtual network.
+4. In **Virtual network**, select the virtual network for the private endpoint. The Azure Migrate appliance and other software components that need to connect to the Azure Migrate project must be on this network or a connected virtual network.
+5. In **Subnet**, select the subnet for the private endpoint
 
-Select **Create**. Wait a few minutes for the Azure Migrate project to deploy. Do not close this page while the project creation is in progress.
+   ![Create project](./media/how-to-use-azure-migrate-with-private-endpoints/create-project.png)
 
-![Create project](./media/how-to-use-azure-migrate-with-private-endpoints/create-project.png)
+6. Select **Create**. to create a migrate project and attach a Private Endpoint to it. Wait a few minutes for the Azure Migrate project to deploy. Do not close this page while the project creation is in progress.
 
-
-This creates a migrate project and attaches a private endpoint to it.
-
-## Discover and assess servers for migration using Azure private link
+## Discover and assess servers for migration using Azure Private Link
 
 ### Set up the Azure Migrate appliance
 
@@ -128,7 +125,9 @@ Make sure the server meets the [hardware requirements](./migrate-appliance.md) f
 3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
 4. Run the script **AzureMigrateInstaller.ps1**, as follows:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink> .\AzureMigrateInstaller.ps1```
+    ```
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-public-PrivateLink> .\AzureMigrateInstaller.ps1
+    ```
 
 5. After the script runs successfully, it launches the appliance configuration manager so that you can configure the appliance. If you encounter any issues, review the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
@@ -174,14 +173,14 @@ After the discovery is complete, assess your servers ([VMware VMs](./tutorial-as
 
 You can also [assess your on-premises machines](./tutorial-discover-import.md#prepare-the-csv) with the Azure Migrate: Discovery and Assessment tool using an imported comma-separated values (CSV) file.   
 
-## Migrate servers to Azure using Azure private link
+## Migrate servers to Azure using Azure Private Link
 
 The following sections describe the steps required to use Azure Migrate with [private endpoints](../private-link/private-endpoint-overview.md) for migrations using ExpressRoute private peering or VPN connections.  
 
 This article shows a proof-of-concept deployment path for agent-based replications to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider using Azure private endpoints. You can use a similar approach for performing [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md) using private link.
 
 >[!Note]
->[Agentless VMware migrations](./tutorial-assess-physical.md) require Internet access or connectivity via ExpressRoute Microsoft peering. 
+>[Agentless VMware migrations](./tutorial-assess-physical.md) require Internet access or connectivity via ExpressRoute Microsoft peering.
 
 ### Set up a replication appliance for migration
 
@@ -205,7 +204,7 @@ After you set up the replication appliance, use the following instructions to cr
 
 5. Once you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Review the [detailed steps here](./tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](./tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service) on the machines you want to migrate.
 
-### Replicate servers to Azure using Azure private link
+### Replicate servers to Azure using Azure Private Link
 
 Now, follow [these steps](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) to select servers for replication.  
 
@@ -272,13 +271,13 @@ To replicate using ExpressRoute with private peering, [create a private endpoint
 
 >[!Note]
 >
-> - You can create private endpoints only on a General Purpose v2 (GPv2) storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure private link pricing](https://azure.microsoft.com/pricing/details/private-link/)
+> - You can create private endpoints only on a General Purpose v2 (GPv2) storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)
 
 The private endpoint for the storage account should be created in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
 
 Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the  virtual network and adds the DNS records for the resolution of new IPs and fully qualified domain names created. Learn more about [private DNS zones.](../dns/private-dns-overview.md)
 
-If the user creating the private endpoint is also the owner of the storage account, the private endpoint will be auto-approved. Otherwise, the owner of the storage account must approve the private endpoint for usage. To approve or reject a requested private endpoint connection, go to **Private endpoint connections** under **Networking** on the storage account page.
+If the user creating the private endpoint is also the owner of the storage account, the private endpoint will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for usage. To approve or reject a requested private endpoint connection, go to **Private endpoint connections** under **Networking** on the storage account page.
 
 Review the status of the private endpoint connection state before proceeding.
 
@@ -301,14 +300,15 @@ Next, follow these instructions to [review and start replication](./tutorial-mig
 Make sure the private endpoint is an approved state.  
 
 1. Go to Azure Migrate: Discovery and Assessment and Server Migration properties page.
+
 2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
 
 3. Select the private endpoint you want to diagnose.  
-    1. Validate that the connection state is Approved.
-    2. If the connection is in a Pending state, you need to get it approved.
-    3. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.
+   a. Validate that the connection state is Approved.           
+   b. If the connection is in a Pending state, you need to get it  approved.                         
+   c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
 
-    ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
+     ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
 
 
 ### Validate the Data flow through the private endpoints
@@ -350,13 +350,13 @@ If the DNS resolution is incorrect, follow these steps:
 If the DNS resolution is not working as described in the previous section, there might be an issue with your Private DNS Zone.  
 
 #### Confirm that the required Private DNS Zone resource exists  
-By default, Azure Migrate also creates a private DNS zone corresponding to the 'privatelink' subdomain for each resource type. The private DNS zone will be created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
+By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type. The private DNS zone will be created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
 - privatelink.vaultcore.azure.net for the key vault
 - privatelink.blob.core.windows.net for the storage account
 - privatelink.siterecovery.windowsazure.com for the recovery services vault (for Hyper-V and agent-based replications)
 - privatelink.prod.migration.windowsazure.com - migrate project, assessment project, and discovery site.   
 
-The private DNS zone will be automatically created by Azure Migrate (except for the cache/replication storage account selected by the user). You can locate the linked private DNS zone by navigating to the private endpoint page and selecting DNS configurations. You should see the private DNS zone under the private DNS integration section.
+Azure Migrate automatically creates the private DNS zone (except for the cache/replication storage account selected by the user). You can locate the linked private DNS zone by navigating to the private endpoint page and selecting DNS configurations. You should see the private DNS zone under the private DNS integration section.
 
 ![DNS configuration screenshot](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration.png)  
 
