@@ -124,7 +124,7 @@ Once the container is on your [host computer](#host-computer), use the following
 > [!IMPORTANT]
 >
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-> * The `EULA`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> * The `EULA`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
 

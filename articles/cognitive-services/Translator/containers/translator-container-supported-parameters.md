@@ -1,7 +1,7 @@
 ---
-title: Translator Translate Method
+title: "Container: Translator Translate Method"
 titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
+description: Understand the parameters, headers, and body messages for the container Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 05/12/2021
 ms.author: lajanuar
 ---
 
-# Translator 3.0: Translate
+# Container: Translator translate method
 
-Translates text.
+Translate text.
 
 ## Request URL
 
@@ -34,7 +34,7 @@ Request parameters passed on the query string are:
 | Query parameter | Description |
 | --- | --- |
 | api-version | _Required parameter_.  <br>Version of the API requested by the client. Value must be `3.0`. |
-| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
+| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](../v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 
 ### Optional parameters
 
@@ -46,7 +46,7 @@ Request parameters passed on the query string are:
 
 | Query parameter | Description |
 | --- | --- |
-| from | _Required parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](./v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](/azure/cognitive-services/translator/dynamic-dictionary) feature. |
+| from | _Required parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](/azure/cognitive-services/translator/dynamic-dictionary) feature. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
@@ -79,19 +79,17 @@ The following limitations apply:
 
 A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
 
-  * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
+* `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
-    * `to`: A string representing the language code of the target language.
+* `to`: A string representing the language code of the target language.
 
-    * `text`: A string giving the translated text.
+* `text`: A string giving the translated text.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the alignment element will be empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+* `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-    * `sentLen`: An object returning sentence boundaries in the input and output texts.
+* `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-      * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
-
-      * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+* `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 

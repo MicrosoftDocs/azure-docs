@@ -53,10 +53,10 @@ Request parameters passed on the query string are:
 | profanityMarker | _Optional parameter_.  <br>Specifies how profanities should be marked in translations. Possible values are: `Asterisk` (default) or `Tag`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
-| suggestedFrom | _Optional parameter_.  <br>Specifies a fallback language if the language of the input text can't be identified. Language auto-detection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed. |
+| suggestedFrom | _Optional parameter_.  <br>Specifies a fallback language if the language of the input text can't be identified. Language autodetection is applied when the `from` parameter is omitted. If detection fails, the `suggestedFrom` language will be assumed. |
 | fromScript | _Optional parameter_.  <br>Specifies the script of the input text. |
 | toScript | _Optional parameter_.  <br>Specifies the script of the translated text. |
-| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fallback to a general system when a custom system does not exist. |
+| allowFallback | _Optional parameter_.  <br>Specifies that the service is allowed to fall back to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.  <br>  <br>`allowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `allowFallback=true` specifies that the service is allowed to fall back to a general system when a custom system does not exist. |
 
 Request headers include:
 
@@ -92,7 +92,7 @@ A successful response is a JSON array with one result for each string in the inp
 
       * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language auto-detection is requested.
+    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
 
   * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -120,7 +120,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
 
-Example of JSON responses are provided in the [examples](#examples) section.
+Examples of JSON responses are provided in the [examples](#examples) section.
 
 ## Response headers
 
@@ -135,8 +135,8 @@ The following are the possible HTTP status codes that a request returns.
 
 | ProfanityAction | Action |
 | --- | --- |
-| `NoAction` | This is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
-| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a. |
+| `NoAction` |NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
+| `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is  |
 | `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;. |
 
 If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors).
@@ -165,9 +165,9 @@ The response body is:
 
 The `translations` array includes one element, which provides the translation of the single piece of text in the input.
 
-### Translate a single input with language auto-detection
+### Translate a single input with language autodetection
 
-This example shows how to translate a single sentence from English to Simplified Chinese. The request does not specify the input language. Auto-detection of the source language is used instead.
+This example shows how to translate a single sentence from English to Simplified Chinese. The request does not specify the input language. Autodetection of the source language is used instead.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
@@ -185,7 +185,7 @@ The response body is:
     }
 ]
 ```
-The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. The language auto-detection works better with longer input text.
+The response is similar to the response from the previous example. Since language autodetection was requested, the response also includes information about the language detected for the input text. The language autodetection works better with longer input text.
 
 ### Translate with transliteration
 
@@ -270,7 +270,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 
 | ProfanityAction | Action |
 | --- | --- |
-| `NoAction` | This is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
+| `NoAction` | NoAction is the default behavior. Profanity will pass from source to target.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a jackass. |
 | `Deleted` | Profane words will be removed from the output without replacement.  <br>  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a. |
 | `Marked` | Profane words are replaced by a marker in the output. The marker depends on the `ProfanityMarker` parameter.  <br>  <br>For `ProfanityMarker=Asterisk`, profane words are replaced with `***`:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a \\*\\*\\*.  <br>  <br>For `ProfanityMarker=Tag`, profane words are surrounded by XML tags &lt;profanity&gt; and &lt;/profanity&gt;:  <br>**Example Source (Japanese)**: 彼はジャッカスです。  <br>**Example Translation (English)**: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;. |
 
@@ -279,7 +279,7 @@ For example:
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-This returns:
+This request returns:
 
 ```
 [
@@ -311,7 +311,7 @@ That last request returns:
 
 ### Translate content with markup and decide what's translated
 
-It's common to translate content which includes markup such as content from an HTML page or content from an XML document. Include query parameter `textType=html` when translating content with tags. In addition, it's sometimes useful to exclude specific content from translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element will not be translated, while the content in the second `div` element will be translated.
+It's common to translate content that includes markup such as content from an HTML page or content from an XML document. Include query parameter `textType=html` when translating content with tags. In addition, it's sometimes useful to exclude specific content from translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element will not be translated, while the content in the second `div` element will be translated.
 
 ```
 <div class="notranslate">This will not be translated.</div>
