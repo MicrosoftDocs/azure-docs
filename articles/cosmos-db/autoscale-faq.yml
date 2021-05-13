@@ -13,11 +13,9 @@ summary: |
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
   
   With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your database or container based on usage. This article answers commonly asked questions about autoscale.
-  
-  ## Frequently asked questions
 
 sections:
-  - name: Ignored
+  - name: General
     questions:        
       - question: |
           What is the difference between "autopilot" and "autoscale" in Azure Cosmos DB?
