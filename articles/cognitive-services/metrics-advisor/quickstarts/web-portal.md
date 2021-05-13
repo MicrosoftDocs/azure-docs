@@ -29,7 +29,7 @@ When you provision a Metrics Advisor instance, you can use the APIs and web-base
 
     
 > [!TIP]
-> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Click **Go to resource** once it successfully deploys.
+> * It may 10 to 30 minutes for your Metrics Advisor resource to deploy. Select **Go to resource** once it successfully deploys.
 > * If you'd like to use the REST API to interact with the service, you will need the key and endpoint from the resource you create. You can find them in the  **Keys and endpoints** tab in the created resource.
 
 
@@ -37,7 +37,7 @@ This document uses a SQL Database as an example for creating your first monitor.
 
 ## Sign in to your workspace
 
-After your resource is created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774) with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then click **Get started**. For onboarding time series data, select **Add data feed** from the left menu.
+After your resource is created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774) with your Active Directory account. From the landing page, select your **Directory**, **Subscription** and **Workspace** that just created, then select **Get started**. For onboarding time series data, select **Add data feed** from the left menu.
 
  
 Currently you can create one Metrics Advisor resource at each available region. You can switch workspaces in Metrics Advisor portal at any time.
@@ -99,15 +99,15 @@ After configuring the schema, select **Verify schema**. Under this operation, Me
 > If you'd like to enable **root cause analysis** and other diagnostic capabilities, 'automatic roll up setting' needs to be configured. 
 > Once enabled, the automatic roll up settings cannot be changed.
 
-Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy which will be used in root case analysis and other diagnostic features. See [Automatic roll up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings) for more details.
+Metrics Advisor can automatically perform aggregation(SUM/MAX/MIN...) on each dimension during ingestion, then builds a hierarchy, which will be used in root case analysis and other diagnostic features. See [Automatic roll up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings) for more details.
 
-Give a custom name for the data feed, which will be displayed in your workspace. Click on **Submit**. 
+Give a custom name for the data feed, which will be displayed in your workspace. Select **Submit**. 
 
 ## Tune detection configuration
 
-After the data feed is added, Metrics Advisor will attempt to ingest metric data from the specified start date. It will take some time for data to be fully ingested, and you can view the ingestion status by clicking **Ingestion progress** at the top of the data feed page. If data is ingested, Metrics Advisor will apply detection, and continue to monitor the source for new data.
+After the data feed is added, Metrics Advisor will attempt to ingest metric data from the specified start date. It will take some time for data to be fully ingested, and you can view the ingestion status by selecting **Ingestion progress** at the top of the data feed page. If data is ingested, Metrics Advisor will apply detection, and continue to monitor the source for new data.
 
-When detection is applied, click one of the metrics listed in data feed to find the **Metric detail page** to: 
+When detection is applied, select one of the metrics listed in data feed to find the **Metric detail page** to: 
 - View visualizations of all time series slices under this metric
 - Update detecting configuration to meet expected results
 - Set up notification for detected anomalies
@@ -118,19 +118,19 @@ When detection is applied, click one of the metrics listed in data feed to find 
 
 After tuning the detection configuration, anomalies that are found should reflect actual anomalies in your data. Metrics Advisor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Use these features to analyze and diagnose incidents in your data.
 
-To view the diagnostic insights, click on the red dots on time series visualizations, which represent detected anomalies. A window will appear with a link to incident analysis page. 
+To view the diagnostic insights, select the red dots on time series visualizations, which represent detected anomalies. A window will appear with a link to incident analysis page. 
 
 :::image type="content" source="../media/incident-link.png" alt-text="Incident link" lightbox="../media/incident-link.png":::
 
-After clicking the link, you will be pivoted to the incident analysis page which analyzes on corresponding anomaly, with a bunch of diagnostics insights. At the top, there will be statistics about the incident, such as **Severity**, **Anomalies involved**, and impacted **Start time** and **End time**. 
+After selecting the link, you will be pivoted to the incident analysis page, which analyzes on corresponding anomaly, with a bunch of diagnostics insights. At the top, there will be statistics about the incident, such as **Severity**, **Anomalies involved**, and impacted **Start time** and **End time**. 
 
-Next you'll see the ancestor anomaly of the incident, and automated root-cause advice. This automated root cause advice is generated by analyzing the incident tree of all related anomalies, including: deviation, distribution and contribution to the parent anomalies. 
+Next you'll see the ancestor anomaly of the incident, and automated root-cause advice. This automated root cause advice is generated by analyzing the incident tree of all related anomalies, including: deviation, distribution, and contribution to the parent anomalies. 
 
 :::image type="content" source="../media/incident-diagnostic.png" alt-text="Incident diagnostics" lightbox="../media/incident-diagnostic.png":::
 
-Based on these, you can already get a straightforward view of what is happening and the impact of the incident as well as the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
+Based on these, you can already get a straightforward view of what is happening and the impact of the incident and the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
 
-But you can also pivot across more diagnostics insights leveraging additional features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Please find more at [How to: diagnose an incident](../how-tos/diagnose-incident.md). 
+But you can also pivot across more diagnostics insights using more features to drill down anomalies by dimension, view similar anomalies and do comparison across metrics. Find more at [How to: diagnose an incident](../how-tos/diagnose-incident.md). 
 
 ## Get notified when new anomalies are found
 
@@ -138,11 +138,11 @@ If you'd like to get alerted when an anomaly is detected in your data, you can c
 
 ### Create a web hook
 
-A web hook is the entry point to get anomaly noticed by a programmatic way from the Metrics Advisor service, which calls a user-provided API when an alert is triggered.For details on how to create a hook, please refer to the **Create a hook** section in [How-to: Configure alerts and get notifications using a hook](../how-tos/alerts.md#create-a-hook). 
+A web hook is the entry point to get anomaly noticed by a programmatic way from the Metrics Advisor service, which calls a user-provided API when an alert is triggered.For details on how to create a hook, refer to the **Create a hook** section in [How-to: Configure alerts and get notifications using a hook](../how-tos/alerts.md#create-a-hook). 
 
 ### Configure alert settings
 
-After creating a hook, an alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options** which defines which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure alerts and get notifications using a hook](../how-tos/alerts.md#add-or-edit-alert-settings) for more details.
+After creating a hook, an alert setting determines how and which alert notifications should be sent. You can set multiple alert settings for each metric. two important settings are **Alert for** which specifies the anomalies to be included, and **Filter anomaly options**, which define which anomalies to include in the alert. See the **Add or Edit alert settings** section in [How-to: Configure alerts and get notifications using a hook](../how-tos/alerts.md#add-or-edit-alert-settings) for more details.
 
 
 ## Next steps
