@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 ## How can I tell if the ACC Ledger service would be useful to my organization?
 
-You should consider using the Ledger if your organization stores records which are valuable enough for a motivated attacker to try and compromise the underlying logging/storage system. This includes "insider" scenarios where a rogue employee might attempt to forge, modify or remove previous records.
+You should consider using the Ledger if your organization stores records valuable enough for a motivated attacker to try to compromise the underlying logging/storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
 
 ## What makes ACC Ledger much more secure?
 
@@ -32,9 +32,6 @@ Ledger's authenticity verification can be broken down into two broad categories:
 - Verifying that Ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating Confidential Ledger Nodes](authenticate-ledger-nodes.md).
 - Verifying that the Ledger blocks, containing all of a user's transactions, have not been tampered with. For details, see [Offline Ledger verification](offline-ledger-verification.md).
 
-## What is the cost of ACC Ledger?
-
-During the private preview period, Ledger is provided to you free of cost. Once it's made publicly available, the Ledger will be a paid service. Additional information will be available closer to public preview.
 
 ## Next steps
 

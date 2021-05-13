@@ -24,15 +24,10 @@ Confidential Ledger appeals to use cases where critical metadata records must no
 
 For more information, we recommend checking out the Confidential Ledger demo showcased at [Microsoft Ignite 2020](https://mediusprodstatic.studios.ms/asset-b88de19d-4187-40c4-98f2-a65efc419e2a/OD221_1920x1080_AACAudio_1461.mp4?sv=2018-03-28&sr=b&sig=k5roi6WXnlqK1zP0fs5KYlJd4FD3Nuaf97z%2B2gV0aTs%3D&st=2020-09-22T08%3A05%3A01Z&se=2025-09-22T08%3A10%3A01Z&sp=r&rscd=filename%3DIG20-OD221-Inside%2BAzure%2BDatacenter%2BArchitecture%2Bwith%2BMark%2BRu.mp4).
 
-## Preview prerequisites
-
-Qualified participants must have an active NDA with Microsoft.
-
-Users of this preview should have signed up on this form and received notification that their Tenant ID has been enabled for this preview.
 
 ## Key Features
 
-The Confidential Ledger is exposed through REST APIs which can be integrated into new or existing applications. The Confidential Ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs supports basic operations such as create, update, get and, delete —- available workflows are detailed in [Azure Confidential Ledger workflows](workflows.md). The Functional APIs allow direct interaction with your instantiated Ledger and includes operations such as put and get data.
+The Confidential Ledger is exposed through REST APIs which can be integrated into new or existing applications. The Confidential Ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete —- available workflows are detailed in [Azure Confidential Ledger workflows](workflows.md). The Functional APIs allow direct interaction with your instantiated Ledger and include operations such as put and get data.
 
 ## Ledger security
 
@@ -46,16 +41,16 @@ You can also perform [offline Ledger verification](offline-ledger-verification.m
 
 Confidential Ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored as encrypted or in plaintext depending on your needs. When you create a Ledger, you will associate a Storage Account using the steps described in [Register a Confidential Ledger Service Principal](register-ledger-service-principal.md).
 
-The Confidential Ledger can be managed by administrators utilizing Administrative APIs (Control Plane), and can be called directly by your application code through Functional APIs (Data Plane). The Administrative APIs supports basic operations such as create, update, get and, delete — available workflows are detailed in [Azure Confidential Ledger workflows](workflows.md).
+The Confidential Ledger can be managed by administrators utilizing Administrative APIs (Control Plane), and can be called directly by your application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete — available workflows are detailed in [Azure Confidential Ledger workflows](workflows.md).
 
-The Functional APIs allow direct interaction with your instantiated Confidential Ledger and includes operations such as put and get data.
+The Functional APIs allow direct interaction with your instantiated Confidential Ledger and include operations such as put and get data.
 
 ## Preview Limitations
 
 - Once a Confidential Ledger is created, you cannot change the Ledger type.
 - Confidential Ledger APIs only support cert-based authentication (AAD-based authentication will come).
 - Confidential Ledger does not support standard Azure Disaster Recovery at this time. However, Azure Confidential Ledger offers built-in redundancy within the Azure region, as the Confidential Ledger runs on multiple independent nodes.
-- Users must create an Azure Storage account and pass the Storage Account name during Confidential Ledger creation. Users are also required to register the Ledger Service Principal. More details are available here [??]
+- Users must create an Azure Storage account and pass the Storage Account name during Confidential Ledger creation. Users are also required to register the Ledger Service Principal. More details are available [here](quickstart-python.md#register-the-microsoftconfidentialledger-resource-provider).
 - Confidential Ledger deletion leads to a "hard delete", so your data will not be recoverable after deletion.
 - Tools and code samples are maintained in a private repository. We plan to publish them on GitHub soon.
 - Confidential Ledger names must be unique per tenant. Ledgers with the same name, irrespective of their type, are not allowed within the same tenant.
