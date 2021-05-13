@@ -15,7 +15,7 @@ ms.date: 05/25/2021
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
 
 > [!NOTE]
-> You can also deploy self-hosted gateway to an [Azure Kubernetes Service cluster](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) or an [Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md).
+> You can also deploy self-hosted gateway to an [Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
 ## Prerequisites
 

@@ -10,18 +10,18 @@ ms.date: 05/25/2021
 
 # Deploy an Azure API Management gateway on Azure Arc (preview)
 
-With the integration between Azure API Management and [Azure Arc on Kubernetes](../azure-arc/kubernetes/overview.md), you can deploy the API Management gateway component as an extension in an Azure Arc enabled Kubernetes cluster. 
+With the integration between Azure API Management and [Azure Arc on Kubernetes](../azure-arc/kubernetes/overview.md), you can deploy the API Management gateway component as an [extension in an Azure Arc enabled Kubernetes cluster](../azure-arc/kubernetes/extensions.md). 
 
 Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expands API Management support for hybrid and multi-cloud environments. Enable the deployment using a cluster extension to make managing and applying policies to your Arc-enabled cluster a consistent experience.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 
 > [!NOTE]
-> You can deploy the self-hosted gateway to Kubernetes either as an [extension on Azure Arc](#deploy-the-api-management-gateway-extension-using-azure-cli) to an [Azure Arc enabled Kubernetes cluster](../azure-arc/kubernetes/extensions.md), or [directly to Kubernetes](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
+> You can also deploy the self-hosted gateway [directly to Kubernetes](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
 
 ## Prequisites
 
-* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md). 
+* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md) within [the supported Azure Arc regions](../azure-arc/kubernetes/overview.md#supportedregions).
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
@@ -57,17 +57,17 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
 ## Deploy the API Management gateway extension using Azure portal
 
 1. In the Azure portal, navigate to your Azure Arc connected cluster.
-1. In the left menu, select Extensions (preview) > + Add > API Management Gateway (preview).
-1. Select Create.
-1. In the Install API Management Gateway window, configure the gateway extension:
+1. In the left menu, select **Extensions (preview)** > **+ Add** > **API Management gateway (preview)**.
+1. Select **Create**.
+1. In the Install API Management gateway window, configure the gateway extension:
     * Select the subscription and resource group for your API Management instance.
-    * In Gateway details, select the API Management instance and Gateway name. Enter a Namespace scope for your extension and optionally a number of Replicas, if supported in your API Management service tier.
+    * In Gateway details, select the **API Management instance** and **Gateway name**. Enter a Namespace scope for your extension and optionally a number of Replicas, if supported in your API Management service tier.
     * In Kubernetes configuration, select the default configuration or a different configuration for your cluster. For options, see available extension configurations.
 
     :::image type="content" source="./media/how-to-deploy-self-hosted-gateway-azure-arc/deploy-gateway-extension-azure-arc.png" alt-text="Screenshot of deploying the extension in Azure portal":::
 
-1. On the Monitoring tab, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing Log Analytics workspace.
-1. Select Review + install and then Install.
+1. On the Monitoring tab, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing **Log Analytics** workspace.
+1. Select **Review + install** and then **Install**.
 
 ## Available extension configurations
 
@@ -78,6 +78,21 @@ The following extension configurations are **required**.
 | `gateway.endpoint` | The gateway endpoint's Configuration URL. |
 | `gateway.authKey` | Token for access to the gateway. | 
 | `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. Example above uses `NodePort`. |
+
+### Log Analytics settings
+
+If you have enabled Log Analytics, specify **all** of the following settings.
+
+| Setting | Description |
+| ------- | ----------- | 
+| `monitoring.customResourceId` | Azure Resource Manager resource ID for the API Management instance. |
+| `monitoring.workspaceId` | Workspace ID of Log Analytics. | 
+| `monitoring.ingestionKey` | Secret with ingestion key from Log Analytics. |
+
+> [!NOTE]
+> If you haven't enabled Log Analytics: 
+> 1. Walk through the [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) quickstart. 
+> 1. Learn where to find the [Log Analytics agent settings](../azure-monitor/agents/log-analytics-agent.md).
 
 ## Next Steps
 
