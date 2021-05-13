@@ -28,9 +28,7 @@ For more information, review the following documentation:
 
 ## Prerequisites
 
-A new or existing Azure virtual network that includes a subnet without any delegations.
-
-This subnet is used to deploy and allocate private IP addresses from the virtual network.
+You need to have a new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
 
 For more information, review the following documentation:
 
@@ -44,14 +42,19 @@ For more information, review the following documentation:
 
 ## Set up inbound traffic through private endpoints
 
-To secure inbound traffic to your workflow, use the Request trigger to start your workflow and . This trigger creates a 
-start your worklfow set up a logic app workflow with a callable endpoint, add a private endpoint to your virtual network, and make test calls to check access to the endpoint. To call your logic app workflow after you set up this endpoint, you must be connected to the virtual network.
+To secure inbound traffic to your workflow, complete these high-level steps:
+
+1. Start your workflow with a built-in trigger that can receive and handle inbound requests, such as the Request trigger or the HTTP + Webhook trigger. This trigger sets up your workflow with a callable endpoint.
+
+1. Add a private endpoint to your virtual network.
+
+1. Make test calls to check access to the endpoint. To call your logic app workflow after you set up this endpoint, you must be connected to the virtual network.
 
 ### Prerequisites for inbound traffic through private endpoints
 
-You need to have a new or existing single-tenant based logic app workflow that starts with the Request trigger.
+In addition to the [virtual network setup in the top-level prerequisites](#prerequisites), you need to have a new or existing single-tenant based logic app workflow that starts with a built-in trigger that can receive requests.
 
-The Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow.
+For example, the Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow. For this example, the steps continue with the Request trigger.
 
 For more information, review the following documentation:
 
@@ -64,6 +67,10 @@ For more information, review the following documentation:
 1. If you haven't already, create a single-tenant based logic app, and a blank workflow.
 
 1. After the designer opens, add the Request trigger as the first step in your workflow.
+
+   > [!NOTE]
+   > You can call Request triggers and webhook triggers only from inside your virtual network. 
+   > Managed API webhook triggers and actions won't work because they require a public endpoint to receive calls. 
 
 1. Based on your scenario requirements, add other actions that you want to run in your workflow.
 
@@ -100,10 +107,6 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 1. To make sure the connection is working correctly, create a virtual machine in the same virtual network that has the private endpoint, and try calling the logic app workflow.
 
 ### Considerations for inbound traffic through private endpoints
-
-* You can call Request triggers and webhook triggers only from inside your virtual network.
-
-* Managed API webhook triggers and actions won't work because they require a public endpoint to receive calls. 
 
 * If accessed from outside your virtual network, monitoring view can't access the inputs and outputs from triggers and actions.
 
