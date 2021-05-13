@@ -365,11 +365,7 @@ npm start
 ---
 
 >[!NOTE]  
-> Version 1.x of the Functions runtime requires the `host` command, as in the following example:
->
-> ```
-> func host start
-> ```
+> Version 1.x of the Functions runtime instead requires `func host start`. 
 
 `func start` supports the following options:
 
