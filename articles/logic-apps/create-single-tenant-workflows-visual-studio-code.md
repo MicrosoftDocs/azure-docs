@@ -1,23 +1,31 @@
 ---
-title: Create Logic Apps Preview workflows in Visual Studio Code
-description: Build and run workflows for automation and integration scenarios in Visual Studio Code with the Azure Logic Apps (Preview) extension.
+title: Create workflows in single-tenant Azure Logic Apps using Visual Studio Code
+description: Create automated workflows that integrate apps, data, services, and systems using single-tenant Azure Logic Apps and Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, az-logic-apps-dev
-ms.topic: conceptual
-ms.date: 04/23/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 05/25/2021
 ---
 
-# Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
+# Create an integration workflow using single-tenant Azure Logic Apps and Visual Studio Code
 
-> [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
-> Certain features might not be supported or might have constrained capabilities. For more information, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment and then deploy to the *single-tenant Azure Logic Apps environment*. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
-With [Azure Logic Apps Preview](single-tenant-overview-compare.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](single-tenant-overview-compare.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](single-tenant-overview-compare.md).
+While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
+
+> [!TIP]
+> If you don't have an Office 365 account, you can use any other available action that can send 
+> messages from your email account, for example, Outlook.com.
+> 
+> To create this example workflow using the Azure portal instead, follow the steps in 
+> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Both options provide the capability 
+> to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
+> Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
 ![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
+
+With [Azure Logic Apps Preview](single-tenant-overview-compare.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](single-tenant-overview-compare.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](single-tenant-overview-compare.md).
 
 In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-single-tenant-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
 
