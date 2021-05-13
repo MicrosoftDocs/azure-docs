@@ -4,9 +4,9 @@ description: Align your business with our eCommerce platform (Azure Marketplace)
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 05/12/2021
+author: MarlEva
+ms.author: maevan
+ms.date: 05/13/2021
 ---
 
 # Aligning your business with our e-commerce platform
