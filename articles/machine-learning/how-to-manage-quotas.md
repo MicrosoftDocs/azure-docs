@@ -98,7 +98,7 @@ The following table shows additional limits in the platform. Please reach out to
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
-### Azure Machine Learning managed online endpoints
+### Azure Machine Learning managed online endpoints (preview)
 Azure Machine Learning managed online endpoints have the following limits.
 
 | **Resource** | **Limit** |
@@ -114,6 +114,8 @@ Azure Machine Learning managed online endpoints have the following limits.
 | Total QPS at endpoint level for all deployments  | 100 |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 #### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.

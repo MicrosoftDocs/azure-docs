@@ -13,9 +13,9 @@ ms.topic: troubleshooting
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting managed online endpoints deployment and scoring
+# Troubleshooting managed online endpoints deployment and scoring (preview)
 
-Learn how to resolve common issues in the deployment and scoring of managed online endpoints. 
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning managed online endpoints (preview).
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -24,6 +24,8 @@ This document is structured in the way you should approach troubleshooting:
 1. Understand [common deployment errors](#common-deployment-errors) that might arise and how to fix them.
 
 The section [HTTP status codes](#http-status-codes) explains how invocation and prediction errors map to HTTP status codes when scoring endpoints with REST requests.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

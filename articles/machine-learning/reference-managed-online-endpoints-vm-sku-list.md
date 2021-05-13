@@ -1,7 +1,7 @@
 ---
-title: Managed Online Endpoints VM SKU list
+title: Managed online endpoints VM SKU list
 titleSuffix: Azure Machine Learning
-description: Lists the VM SKUs that can be used for Managed Online Endpoints (preview) in Azure Machine Learning.
+description: Lists the VM SKUs that can be used for managed online endpoints (preview) in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,9 +12,9 @@ author: rsethur
 ms.date: 05/10/2021
 ---
 
-# Managed online endpoints (preview) SKU list
+# Managed online endpoints SKU list (preview)
 
-This table shows the VM SKUs that are supported for Managed Online Endpoints (preview).
+This table shows the VM SKUs that are supported for Azure Machine Learning managed online endpoints (preview).
 
 * The `instance_type` attribute used for deployment must be specified in the form "Standard_F4s_v2". The table below lists instance names, for example, F2s v2. These names should be put in the specified form (`Standard_{name}`) for Azure CLI or Azure Resource Manager templates (ARM templates) requests to create and update deployments. 
 
@@ -28,4 +28,5 @@ This table shows the VM SKUs that are supported for Managed Online Endpoints (pr
 | Large | DS5 v2 | F16s v2 |E16 v3 | NC24s v2 <br/> NC24s v3 <br/> NC64as_T4_v3 |
 | X-Large <br/> (support long tail) | - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | - | - |
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
