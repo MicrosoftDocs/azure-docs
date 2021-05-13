@@ -14,7 +14,7 @@ ms.topic: how-to
 Learn how to configure an Azure Arc enabled Kubernetes cluster to train machine learning models with Azure Machine Learning
 
 > [!IMPORTANT]
-> Kubernetes attached compute cluster for training are only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
+> Attached compute Kubernetes clusters for training are only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Azure Arc enabled Kubernetes has a cluster extensions functionality that enables
 1. Install `Microsoft.AzureML.Kubernetes` extension on your Arc cluster.
 
     > [!NOTE]
-    > The Azure Arc enabled cluster and Azure Machine Learning workspace must be in the same region.
+    > Azure Arc enabled Kubernetes clusters and Azure Machine Learning workspaces must be in the same region.
 
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <myRG> --name <compute-name> --extension-type Microsoft.AzureML.Kubernetes --scope cluster --configuration-settings enableTraining=True

@@ -340,7 +340,7 @@ Azure Machine Learning provides you with the following options to attach your ow
 * [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Configure Azure Arc enabled Kubernetes cluster for machine learning model training](how-to-create-attach-arc-kubernetes.md)
 
 > [!IMPORTANT]
-> Kubernetes attached compute cluster for training are only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
+> Attached compute Kubernetes clusters for training are only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
 
 To attach your Kubernetes cluster use the Azure Machine Learning Python SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
