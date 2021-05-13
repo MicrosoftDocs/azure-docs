@@ -82,7 +82,7 @@ In this section, you'll sign in to the Azure portal and change the IP address of
 
 An Azure Load Balancer must have an IP address associated with a frontend. 
 
-To change the IP, we'll create a new IP address and associate it with the load balancer frontend.
+To change the IP, you'll associate a new public IP address previously created with the load balancer frontend.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
