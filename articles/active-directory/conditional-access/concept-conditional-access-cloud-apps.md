@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/26/2021
+ms.date: 05/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -136,7 +136,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Authentication context (Preview)
 
-Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, features like Privileged Identity Management, or applications protected by Microsoft Cloud App Security (MCAS). 
+Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Cloud App Security (MCAS). 
 
 For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but users who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
 
@@ -157,19 +157,14 @@ Create new authentication context definitions by selecting **New authentication 
 - **Publish to apps** checkbox when checked, advertises the authentication context to apps and makes them available to be assigned. If not checked the authentication context will be unavailable to downstream resources. 
 - **ID** is read-only and used in tokens and apps for request-specific authentication context definitions. It is listed here for troubleshooting and development use cases. 
 
-For an example policy using authentication context, see the article, [Conditional Access: Authentication context with Privileged Identity Management](howto-conditional-access-policy-authentication-context.md).
-
-### Add to Conditional Access policy
-
-Administrators can add configured authentication contexts to a Conditional Access policy by selecting it under **Assignments** > **Cloud apps or actions** > **Authentication context**.
+Administrators can then select published authentication contexts in their Conditional Access policies under **Assignments** > **Cloud apps or actions** > **Authentication context**.
 
 ### Tag resources with authentication contexts 
 
 For more information about authentication context use in applications, see the following articles.
 
-- Privileged Identity Management
-- SharePoint Online
-- Microsoft Cloud App Security
+- [SharePoint Online](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - Custom applications
 
 ## Next steps
