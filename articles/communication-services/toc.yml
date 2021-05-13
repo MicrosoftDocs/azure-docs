@@ -48,14 +48,6 @@
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-  - name: UI Framework
-    items:
-    - name: Get started with composite components
-      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
-    - name: Get started with stateful clients
-      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-stateful-client--page
-    - name: Get started with UI components
-      href: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
 - name: Tutorials
   expanded: false
   items:
