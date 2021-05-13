@@ -11,7 +11,7 @@ ms.date: 05/13/2021
 ms.custom: template-how-to 
 ---
 
-# Use a public IP address with a load balancer
+# Use a public IP address with a NAT gateway
 
 A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 
