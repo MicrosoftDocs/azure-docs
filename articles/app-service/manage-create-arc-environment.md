@@ -62,10 +62,10 @@ Because App Service on Arc is currently validated only on [Azure Kubernetes Serv
 
     ```azurecli-interactive
     aksClusterGroupName="" # A name for the resource group in which the cluster will be created 
-    location="eastus" # "eastus" or "westeurope"   
     aksName="${aksClusterGroupName}-aks" # A name for the AKS resource
+    resourceLocation="eastus" # "eastus" or "westeurope"
 
-    az group create -g $aksClusterGroupName -l $location
+    az group create -g $aksClusterGroupName -l $resourceLocation
     az aks create --resource-group $aksClusterGroupName --name $aksName --enable-aad --generate-ssh-keys
     infra_rg=$(az aks show --resource-group $aksClusterGroupName --name $aksName --output tsv --query nodeResourceGroup)
     az network public-ip create --resource-group $infra_rg --name MyPublicIP --sku STANDARD
@@ -85,7 +85,7 @@ Because App Service on Arc is currently validated only on [Azure Kubernetes Serv
     ```azurecli-interactive
     groupName="" # A name for the resource group in which the connected cluster will be created
 
-    az group create -g $groupName -l $location
+    az group create -g $groupName -l $resourceLocation
     ```
     
 4. Connect the cluster you created to Azure Arc.
