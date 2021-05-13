@@ -54,7 +54,7 @@ Next, use the Logic Apps storage calculator:
     * **Queue**, for Azure Queues Queue Class 2 operations.
     * **Tables**, for Azure Table Storage operations.
 
-    Each operation has a minimum, maximum and average count number. Choose the most relevant number to use for [estimating your storage operation costs](#estimate-storage-costs) based on your individual scenario. Typically, it's recommended to use the average count for accuracy. However, you might also use the maximum count to make sure your cost estimate has a buffer. 
+    Each operation has a minimum, maximum and "best guess" count number. Choose the most relevant number to use for [estimating your storage operation costs](#estimate-storage-costs) based on your individual scenario. Typically, it's recommended to use the "best guess" count for accuracy. However, you might also use the maximum count to make sure your cost estimate has a buffer. 
 
     :::image type="content" source="./media/estimate-storage-costs/storage-calculator-results.png" alt-text="Screenshot of Logic Apps storage calculator, showing output with estimated operations." lightbox="./media/estimate-storage-costs/storage-calculator-results.png":::
 
