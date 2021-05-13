@@ -3,7 +3,6 @@ title: Assign an Azure Key Vault access policy (Portal)
 description: How to use the Azure portal to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -39,7 +38,7 @@ For more information on creating groups in Azure Active Directory through the Az
 
 	![Selecting the security principal for the access policy](../media/authentication/assign-policy-portal-03.png)
 
-    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on managed identity and service principals, see [Key Vault authentication - app identity and service principals](authentication.md#app-identity-and-security-principals).)
+    If you're using a managed identity for the app, search for and select the name of the app itself. (For more information on security principals, see [Key Vault authentication](authentication.md).
  
 1.	Back in the **Add access policy** pane, select **Add** to save the access policy.
 
@@ -52,6 +51,5 @@ For more information on creating groups in Azure Active Directory through the Az
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
-- [Secure your key vault](secure-your-key-vault.md).
+- [Azure Key Vault security: Identity and access management](security-features.md#identity-management)
 - [Azure Key Vault developer's guide](developers-guide.md)

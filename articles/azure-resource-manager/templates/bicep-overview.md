@@ -27,6 +27,17 @@ To view equivalent JSON and Bicep files side by side, see the [Bicep Playground]
 
 If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
 
+## Benefits of Bicep versus other tools
+
+Bicep provides the following advantages over other options:
+
+* **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
+* **Authoring experience**: When you use VS Code to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
+* **Modularity**: You can break your Bicep code into manageable parts by using [modules](bicep-modules.md). The module deploys a set of related resources. Modules enable you to reuse code and simplify development. Add the module to a Bicep file anytime you need to deploy those resources.
+* **Integration with Azure services**: Bicep is integrated with Azure services such as Azure Policy, template specs, and Blueprints.
+* **No state or state files to manage**: All state is stored in Azure. Users can collaborate and have confidence their updates are handled as expected. Use the [what-if operation](template-deploy-what-if.md) to preview changes before deploying your template.
+* **No cost and open source**: Bicep is completely free. You don't have to pay for premium capabilities. It's also supported by Microsoft support.
+
 ## Bicep improvements
 
 Bicep offers an easier and more concise syntax when compared to the equivalent JSON. You don't use `[...]` expressions. Instead, you directly call functions, and get values from parameters and variables. You give each deployed resource a symbolic name, which makes it easy to reference that resource in your template.
@@ -52,11 +63,7 @@ For a full comparison of the syntax, see [Comparing JSON and Bicep for templates
 
 Bicep automatically manages dependencies between resources. You can avoid setting `dependsOn` when the symbolic name of a resource is used in another resource declaration.
 
-With Bicep, you can break your project into multiple modules.
-
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
-
-The VS Code extension for Bicep offers rich validation and intellisense. For example, you can use the extension's intellisense for getting properties of a resource.
 
 ## Known limitations
 

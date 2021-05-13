@@ -108,7 +108,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * ZTE Corporation
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
@@ -117,6 +116,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited

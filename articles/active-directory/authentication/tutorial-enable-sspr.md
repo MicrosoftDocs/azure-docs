@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
@@ -33,7 +33,7 @@ In this tutorial you learn how to:
 
 To finish this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD.
+* A working Azure AD tenant with at least an Azure AD free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD. Password change is supported in the Free tier, but password reset is not. 
     * For later tutorials in this series, you'll need an Azure AD Premium P1 or trial license for on-premises password writeback.
     * If needed, [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.

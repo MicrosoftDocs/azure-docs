@@ -136,6 +136,6 @@ The registration details report shows the following information for each user:
 
 ## Next steps
 
-- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

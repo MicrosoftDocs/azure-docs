@@ -1,21 +1,20 @@
 ---
 title: Alert types and descriptions
 description: Review Defender for IoT Alert descriptions.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 4/8/2021
+ms.date: 04/28/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Alert types and descriptions
 
-This article describes all of the alert types, that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, which allows you to manage the alert event. 
+This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define forwarding rules, exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event. 
 
 ## Policy engine alerts
 
-Policy engine alerts describe deviations from learned baseline network behavior.
+Policy engine alerts describe detected deviations from learned baseline behavior.
+
+>[!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 | Title  | Description | Severity |
 |--|--|--|
@@ -117,6 +116,8 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 
 ## Anomaly engine alerts
 
+Anomaly engine alerts describe detected anomalies in network activity.
+
 | Title | Description | Severity |
 |--|--|--|
 | Abnormal Exception Pattern in Slave | An excessive number of errors were detected on a source device. This may be the result of an operational issue. | Minor |
@@ -145,6 +146,8 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Unexpected Traffic for Standard Port | Traffic was detected on a device using a port reserved for another protocol. | Major |
 
 ## Protocol violation engine alerts
+
+Protocol engine alerts describe detected deviations in the packet structure, or field values compared to protocol specifications.
 
 | Title | Description | Severity |
 |--|--|--|
@@ -176,6 +179,8 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 
 ## Malware engine alerts
 
+Malware engine alerts describe detected malicious network activity.
+
 | Title | Description| Severity |
 |--|--|--|
 | Connection Attempt to Known Malicious IP | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
@@ -205,6 +210,8 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
 
 ## Operational engine alerts
+
+Operational engine alerts describe detected operational incidents, or malfunctioning entities.
 
 | Title | Description | Severity |
 |--|--|--|

@@ -35,4 +35,4 @@ The following tutorials are included in the getting started guide:
 
 ## Next steps
 After you complete a device-specific quickstart in this guide, explore the other device-specific articles and samples in the Azure RTOS getting started repo:
-* [Getting started with Azure RTOS and Azure IoT](https://github.com/azure-rtos/getting-started)
+* [Getting started with Azure RTOS and Azure IoT](https://github.com/azure-rtos/getting-started#getting-started-with-azure-rtos-and-azure-iot)

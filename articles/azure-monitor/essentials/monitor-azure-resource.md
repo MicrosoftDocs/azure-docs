@@ -127,7 +127,7 @@ Azure Monitor Logs consolidates logs and metrics from multiple services and othe
 You can access monitoring data collected from your resource from a command line or include in a script using [Azure PowerShell](/powershell/azure/) or [Azure Command Line Interface](/cli/azure/). 
 
 - See [CLI metrics reference](/cli/azure/monitor/metrics) for accessing metric data from CLI.
-- See [CLI Log Analytics reference](/cli/azure/ext/log-analytics/monitor/log-analytics) for accessing Azure Monitor Logs data using a log query from CLI.
+- See [CLI Log Analytics reference](/cli/azure/monitor/log-analytics) for accessing Azure Monitor Logs data using a log query from CLI.
 - See [Azure PowerShell metrics reference](/powershell/module/azurerm.insights/get-azurermmetric) for accessing metric data from Azure PowerShell.
 - See [Azure PowerShell log query reference](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) for accessing Azure Monitor Logs data using a log query from Azure PowerShell.
 

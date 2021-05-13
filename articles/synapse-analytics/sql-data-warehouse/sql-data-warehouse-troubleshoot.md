@@ -2,13 +2,13 @@
 title: Troubleshooting dedicated SQL pool (formerly SQL DW)
 description: Troubleshooting dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/13/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
@@ -50,7 +50,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 | TempDB space issues | [Monitor TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb) space usage.  Common causes for running out of TempDB space are:<br>- Not enough resources allocated to the query causing data to spill to TempDB.  See [Workload management](resource-classes-for-workload-management.md) <br>- Statistics are missing or out of date causing excessive data movement.  See [Maintaining table statistics](sql-data-warehouse-tables-statistics.md) for details on how to create statistics<br>- TempDB space is allocated per service level.  [Scaling your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-manage-compute-overview.md#scaling-compute) to a higher DWU setting allocates more TempDB space.|
 | Poor query performance and plans often is a result of missing statistics | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics](sql-data-warehouse-tables-statistics.md) for details on how to create statistics and why they are critical to your performance. |
 | Low concurrency / queries queued                             | Understanding [Workload management](resource-classes-for-workload-management.md) is important in order to understand how to balance memory allocation with concurrency. |
-| How to implement best practices                              | The best place to start to learn ways to improve query performance is [dedicated SQL pool (formerly SQL DW) best practices](sql-data-warehouse-best-practices.md) article. |
+| How to implement best practices                              | The best place to start to learn ways to improve query performance is [dedicated SQL pool (formerly SQL DW) best practices](../sql/best-practices-dedicated-sql-pool.md) article. |
 | How to improve performance with scaling                      | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-manage-compute-overview.md). |
 | Poor query performance as a result of poor index quality     | Some times queries can slow down because of [Poor columnstore index quality](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  See this article for more information and how to [Rebuild indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 

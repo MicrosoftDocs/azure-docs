@@ -142,7 +142,7 @@ A new resource group in Azure Resource Manager is created using the name of the 
 ## Limitations
 
 * In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](./remove-public-ip-address-vm.md) for more information on how to disassociate reserved IPs.  
-* Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
+* Public IPs upgraded from Basic to Standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Please ensure this is kept in mind when choosing which resources to associate the IP address with.
 * You cannot downgrade from Standard to Basic.
 
 ## Next Steps

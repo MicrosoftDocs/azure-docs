@@ -3,13 +3,12 @@ title: Access Key Vault behind a firewall - Azure Key Vault | Microsoft Docs
 description: Learn about the ports, hosts, or IP addresses to open to enable a key vault client application behind a firewall to access a key vault.
 services: key-vault
 author: amitbapat
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 04/15/2021
 ms.author: ambapat
 
 ---

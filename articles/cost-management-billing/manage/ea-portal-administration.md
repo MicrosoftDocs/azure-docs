@@ -419,51 +419,6 @@ To begin:
 1. Now the Microsoft account should be free from any active subscriptions and can be deleted.
 1. Any deleted account will remain in view in the portal in an inactive status for historic billing reasons.  You can filter it out of the view by selecting a check box to show only active accounts.
 
-## Account subscription ownership FAQ
-
-This document answers commonly asked questions relating to account subscription ownership.
-
-### Can I associate my existing Azure account to Azure EA enrollment?
-
-Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
-
-### How many Azure account owners can you have per subscription?
-
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
-
-### Is it possible to transfer subscription ownership to another account?
-
-Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator is able to transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
-
-To transfer subscriptions:
-
-1. In the Azure Enterprise portal, select **Manage** > **Account**.
-1. Hover over **Account** on the far right to see the **Transfer Ownership** (person icon) and **Transfer Subscription** (list icon) options. These options are only visible for active accounts.
-
-### Can an Azure account owner be listed under more than one department?
-
-No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
-
-### Can an Azure account owner be listed as a security group?
-
-No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
-
-### Can an individual user own multiple subscriptions?
-
-An Azure account owner can create and manage an unlimited number of subscriptions.
-
-### How can I access/view all my organization's subscriptions?
-
-Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
-
-### Where do I go to create a subscription?
-
-Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure EA Portal. You'll then need to sign in to the Azure EA Portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the '+ Add Subscription' link in the subscription tab on the EA Portal.  However, once your account is entitled it may be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
-
-### Who can create a subscription?
-
-To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner on the [EA portal](https://ea.azure.com).
-
 ## Azure EA term glossary
 
 - **Account**: An organizational unit on the Azure Enterprise portal. It is used to administer subscriptions and for reporting.
@@ -505,3 +460,4 @@ To create an enterprise Azure offer type subscription, you must be entitled in t
 
 - Read about how [virtual machine reservations](ea-portal-vm-reservations.md) can help save you money.
 - If you need help with troubleshooting Azure EA portal issues, see [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md).
+- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions about EA subscription ownership.

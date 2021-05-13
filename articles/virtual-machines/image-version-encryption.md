@@ -158,7 +158,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-To specify a disk encryption set for an image version, use [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
+To specify a disk encryption set for an image version, use [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk and a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1, and the data disk will be encrypted with DiskEncryptionSet2.
 

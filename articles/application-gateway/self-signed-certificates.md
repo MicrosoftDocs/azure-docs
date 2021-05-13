@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/23/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA

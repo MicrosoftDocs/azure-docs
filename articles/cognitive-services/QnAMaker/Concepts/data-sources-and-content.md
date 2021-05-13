@@ -74,7 +74,7 @@ The table below summarizes the types of content and file formats that are suppor
 If you need authentication for your data source, consider the following methods to get that content into QnA Maker:
 
 * Download the file manually and import into QnA Maker
-* Add the file from authenticated [Sharepoint location](../how-to/add-sharepoint-datasources.md)
+* Add the file from authenticated [SharePoint location](../how-to/add-sharepoint-datasources.md)
 
 ### URL content
 

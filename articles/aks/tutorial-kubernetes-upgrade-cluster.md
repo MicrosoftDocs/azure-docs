@@ -149,10 +149,10 @@ For more information on AKS, see [AKS overview][aks-intro]. For guidance on a cr
 <!-- LINKS - internal -->
 [aks-intro]: ./intro-kubernetes.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az aks show]: /cli/azure/aks#az-aks-show
-[az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az aks upgrade]: /cli/azure/aks#az-aks-upgrade
+[az aks show]: /cli/azure/aks#az_aks_show
+[az aks get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az aks upgrade]: /cli/azure/aks#az_aks_upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

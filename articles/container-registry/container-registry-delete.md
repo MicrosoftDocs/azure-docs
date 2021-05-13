@@ -284,6 +284,6 @@ For more information about image storage in Azure Container Registry see [Contai
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag

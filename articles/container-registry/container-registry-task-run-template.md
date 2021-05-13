@@ -236,13 +236,13 @@ To view the run log, see steps in the [preceding section](#view-run-log).
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-logs]: /cli/azure/acr/task#az-acr-task-logs
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-logs]: /cli/azure/acr/task#az_acr_task_logs
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

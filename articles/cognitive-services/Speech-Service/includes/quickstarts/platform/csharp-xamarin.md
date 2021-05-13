@@ -15,6 +15,9 @@ ms.custom: devx-track-csharp
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Xamarin](/xamarin/get-started/what-is-xamarin), an open-source platform for building modern and performant applications for iOS, Android, and Windows with .NET. If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
 
+> [!NOTE]
+> The Speech SDK for Xamarin supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
+
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Prerequisites

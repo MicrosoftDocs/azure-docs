@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 05/06/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
+
+You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**.  Then click **Metric** to view the available metrics: 
+
+[ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
@@ -51,6 +55,9 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## Performance metrics for volumes
 
+> [!NOTE] 
+> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
+
 - *Average Read Latency*   
     The average time for reads from the volume in milliseconds.
 - *Average Write Latency*   
@@ -59,24 +66,6 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The number of reads to the volume per second.
 - *Write IOPS*   
     The number of writes to the volume per second.
-<!-- These two metrics are not yet available, until ~ 2020.09
-- *Read MiB/s*   
-    Read throughput in bytes per second.
-- *Write MiB/s*   
-    Write throughput in bytes per second.
---> 
-<!-- ANF-4128; 2020.07
-- *Pool Provisioned Throughput*	  
-    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
-- *Pool Allocated to Volume Throughput*   
-    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
--->
-
-<!-- ANF-6443; 2020.11
-- *Pool Consumed Throughput*	
-    The total throughput being consumed by volumes in a given capacity pool.
--->
-
 
 ## <a name="replication"></a>Volume replication metrics
 
@@ -104,6 +93,32 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 - *Volume replication total transfer*   
     The cumulative bytes transferred for the relationship. 
+
+## Throughput metrics for capacity pools   
+
+* *Pool Allocated to Volume Throughput*    
+    The total throughput allocated to volumes in a given capacity pool. That is, the total of the volumes' allocated throughput in the capacity pool.   
+
+* *Pool Consumed Throughput*   
+    The total throughput being consumed by volumes in a given capacity pool.   
+
+* *Percentage Pool Allocated to Volume Throughput*   
+    Percentage of capacity pool provisioned throughput that is allocated to volumes.   
+
+* *Percentage Pool Consumed Throughput*    
+    Percentage of capacity pool provisioned throughput that is consumed by volumes.
+
+## Throughput metrics for volumes   
+
+*  *Volume Allocated Throughput*    
+    The parent capacity pool throughput (MiB/s) the volume is allocated with. This is the maximum throughput the volume is able to consume.
+
+* *Volume Consumed Throughput*    
+    The actual throughput (MiB/s) the volume is utilizing.
+
+* *Percentage Volume Consumed Throughput*   
+    Percentage of allocated throughput the volume is utilizing. That is, *Volume Consumed Throughput* as a percentage of *Volume Allocated Throughput*.
+
 
 ## Next steps
 

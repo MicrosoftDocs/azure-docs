@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 03/17/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
 
@@ -226,7 +226,7 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
     # To switch back to using ACR to build (if ACR is not in the VNet):
-    # ws.update(image_build_compute = None)
+    # ws.update(image_build_compute = '')
     ```
 
     > [!IMPORTANT]

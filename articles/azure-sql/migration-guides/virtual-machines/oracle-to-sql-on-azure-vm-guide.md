@@ -16,7 +16,7 @@ ms.date: 11/06/2020
 
 This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle. 
 
-For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Database Migration](/data-migration). 
 
 ## Prerequisites 
 
@@ -214,7 +214,7 @@ To publish your schema and migrate the data, follow these steps:
    ![Screenshot that shows a SQL Server instance in SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
-- The article [SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
+- The article [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
 - The white paper [SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -286,5 +286,3 @@ The Data SQL Engineering team developed these resources. This team's core charte
 
 - To assess the application access layer, use [Data Access Migration Toolkit Preview](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - For details on how to do data access layer A/B testing, see [Overview of Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
-
-

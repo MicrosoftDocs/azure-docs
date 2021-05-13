@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal (Preview)

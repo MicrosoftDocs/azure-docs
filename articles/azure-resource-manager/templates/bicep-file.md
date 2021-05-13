@@ -292,7 +292,7 @@ param existingKeyVaultName string
 
 ## Multi-line strings
 
-You can break a string into multiple lines. Use three single quote characters `'''` to start and end the multi-line string. 
+You can break a string into multiple lines. Use three single quote characters `'''` to start and end the multi-line string.
 
 Characters within the multi-line string are handled as-is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
 

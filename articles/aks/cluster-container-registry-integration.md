@@ -151,5 +151,5 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 * Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
-[AKS AKS CLI]: /cli/azure/aks#az-aks-create
+[AKS AKS CLI]: /cli/azure/aks#az_aks_create
 [Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

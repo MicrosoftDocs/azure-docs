@@ -39,7 +39,7 @@ This script uses the following commands to import to an App Configuration store.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Imports to an App Configuration store resource. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az_appconfig_kv_import) | Imports to an App Configuration store resource. |
 
 ## Next steps
 

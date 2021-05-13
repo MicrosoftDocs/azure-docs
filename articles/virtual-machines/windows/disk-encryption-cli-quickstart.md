@@ -23,7 +23,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password.
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password.
 
 ```azurecli-interactive
 az vm create \
@@ -59,7 +59,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 ## Create a Key Vault configured for encryption keys
 
-Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
+Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 > [!Important]
 > Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different.
 
@@ -75,7 +75,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption), providing you
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)
+You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show)
 
 ```azurecli-interactive
 az vm encryption show --name MyVM -g MyResourceGroup

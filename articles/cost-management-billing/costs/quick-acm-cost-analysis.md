@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, devx-track-azurecli
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -163,7 +163,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-After you sign in, use the [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) command to query month-to-date usage information for your subscription:
+After you sign in, use the [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription:
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \
@@ -180,7 +180,7 @@ az costmanagement query --timeframe MonthToDate --type Usage \
 
 The **--dataset-filter** parameter takes a JSON string or `@json-file`.
 
-You also have the option of using the [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
+You also have the option of using the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
 
 1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
 
@@ -194,7 +194,7 @@ You also have the option of using the [az costmanagement export](/cli/azure/ext/
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \

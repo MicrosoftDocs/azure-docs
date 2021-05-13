@@ -114,7 +114,7 @@ This data is a daily rate averaged across all nodes. So even if some machines se
 
 ### What data types are included in the 500-MB data daily allowance?
 
-Security Center's billing is closely tied to the billing for Log Analytics. Security Center provides a 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category.md#security):
+Security Center's billing is closely tied to the billing for Log Analytics. Security Center provides a 500 MB/node/day allocation against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 - WindowsEvent
 - SecurityAlert
 - SecurityBaseline

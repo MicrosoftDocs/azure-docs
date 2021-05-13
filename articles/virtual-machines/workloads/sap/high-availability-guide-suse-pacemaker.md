@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 04/30/2021
 ms.author: radeltch
 
 ---
@@ -438,8 +438,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >You can check the extension, by running SUSEConnect ---list-extensions.  
    >To achieve the faster failover times with Azure Fence Agent:
    > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
-   > - on SLES 15 install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
-
+   > - on SLES 15.X install version **4.6.2** of package python**3**-azure-mgmt-compute, but not higher. Avoid version 17.0.0-6.7.1 of package python**3**-azure-mgmt-compute, as it contains changes incompatible with Azure Fence Agent    
+     
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
