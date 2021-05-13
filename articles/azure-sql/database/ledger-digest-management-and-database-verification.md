@@ -70,20 +70,7 @@ When using automatic digest storage for generating and storing database digests,
 Using automatic digest storage allows you to change storage locations throughout the lifecycle of the ledger tables.  For example, if you start by using Azure Immutable Blob storage to store your digest files, but later you want to use Azure Confidential Ledger instead, you are able to do so. This change in location is stored in [sys.database_ledger_digest_locations](/sql/relational-databases/system-catalog-views/sys-database-ledger-digest-locations-transact-sql). To simplify running verification when multiple digest storage locations have been used, the following script will fetch the locations of the digests and execute verification using those locations.
 
 ```sql
-sp_verify_database_ledger_from_digest_storage <JSON_document_containing_URLs>, <table_name>
-```
-
-Below is an example of running the `sp_verify_database_ledger_from_url` system stored procedure:
-
-```sql
-EXECUTE sp_verify_database_ledger_from_digest_storage N'
-[
-    {
-        "path": “https://StorageAccountName.blob.core.windows.net/sqldbledgerdigests/serverName/DatabaseName/2020-1-1 00:00:00Z”,
-        “last_digest_block_id”:42,
-        "is_current":1
-    }
-]
+DECLARE @digest_locations NVARCHAR(MAX) = (SELECT * FROM sys.database_ledger_digest_locations FOR JSON AUTO, INCLUDE_NULL_VALUES) SELECT @digest_locations as digest_locations EXEC sys.sp_verify_database_ledger_from_digest_storage @digest_locations
 ```
 
 ### Database verification using manual digest storage
