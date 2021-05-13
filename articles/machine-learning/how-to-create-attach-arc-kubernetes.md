@@ -58,5 +58,5 @@ az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --clus
 ## Next steps
 
 - [Attach a Kubernetes cluster to Azure Machine Learning workspace (SDK)](how-to-attach-compute-targets.md)
-- [Attach a Kubernetes cluster to Azure Machine Learning workspace (Studio)](how-to-attach-compute-studio.md)
+- [Attach a Kubernetes cluster to Azure Machine Learning workspace (Studio)](how-to-create-attach-compute-studio.md)
 - [Configure and submit training runs](how-to-set-up-training-targets.md)
