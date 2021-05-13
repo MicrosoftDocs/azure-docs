@@ -39,11 +39,42 @@ This tutorial describes the steps you need to perform in both GitHub Enterprise 
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* Enterprise Managed Users enabled GitHub Enterprise and configured to login with SAML SSO through your Azure AD tenant.
+1. [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
+2.  A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+3. A GitHub `{enterprise}_admin` account.
 
-## Step 1. Plan your provisioning deployment
+## Step 1. Login to your {enterprise}_admin account
+
+1. Reach out to GitHub staff or sales team to create brand new enterprise account, say fabrikam for you.
+
+2. Login to the `_admin` account by following the instructions received in your inbox. Ensure that you are able to see the enterprise settings. `https://github.com/enterprises/{enterprise}/settings/security`
+
+*Do not create any assets in the enterprise using the admin account. This will only be used for setup. You will lose access to this account after completing the setup guide.*
+
+## Step 2. Generate Personal Access Token for the {enterprise}_admin account
+
+1. As a GitHub Enterprise Managed administrator navigate to the upper-right corner -> click your profile photo -> then click **Settings**.
+
+2. In the left sidebar, click **Developer settings**.
+
+3. In the left sidebar, click **Personal access tokens**.
+
+4. Click **Generate new token**.
+
+5. Select the **admin:enterprise** scope for this token.
+
+6. Click **Generate Token**.
+
+7. Copy and save the **secret token**. This value will be entered in the Secret Token field in the Provisioning tab of your GitHub Enterprise Managed User application in the Azure portal.
+
+## Step 3. Setup SAML Single Sign On
+
+In this step, the GitHub enterprise owner needs to work with the AAD administrator to configure SAML.
+1.
+
+
+
+## Step 4. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determine what data to [map between Azure AD and GitHub Enterprise Managed User](../app-provisioning/customize-application-attributes.md).
@@ -52,23 +83,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. The Tenant URL is `https://api.github.com/scim/v2/enterprises/{enterprise}`. This value will be entered in the Tenant URL field in the Provisioning tab of your GitHub Enterprise Managed User application in the Azure portal.
 
-2. As a GitHub Enterprise Managed administrator navigate to the upper-right corner -> click your profile photo -> then click **Settings**.
-
-3. In the left sidebar, click **Developer settings**.
-
-4. In the left sidebar, click **Personal access tokens**.
-
-5. Click **Generate new token**.
-
-6. Select the **admin:enterprise** scope for this token.
-
-7. Click **Generate Token**.
-
-8. Copy and save the **secret token**. This value will be entered in the Secret Token field in the Provisioning tab of your GitHub Enterprise Managed User application in the Azure portal.
 
 ## Step 3. Add GitHub Enterprise Managed User from the Azure AD application gallery
 
-Add GitHub Enterprise Managed User from the Azure AD application gallery to start managing provisioning to GitHub Enterprise Managed User. If you have previously setup GitHub Enterprise Managed User for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+to start managing provisioning to GitHub Enterprise Managed User. If you have previously setup GitHub Enterprise Managed User for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning
 
