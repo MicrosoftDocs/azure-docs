@@ -124,7 +124,7 @@ The following requirements apply to the Azure AD Password Protection proxy servi
     * If .NET 4.7.2 is not already installed, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
-* A *Global Administrator* or *Security Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD.
+* A *Global Administrator* or *Security Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD. Note that the a *Global Administrator* account is required in order to register the Azure AD Password Protection proxy service for the first time in a given tenant.
 * Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
@@ -196,7 +196,7 @@ To install the Azure AD Password Protection proxy service, complete the followin
 
 1. The proxy service is running on the machine, but doesn't have credentials to communicate with Azure AD. Register the Azure AD Password Protection proxy server with Azure AD using the `Register-AzureADPasswordProtectionProxy` cmdlet.
 
-    This cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. This cmdlet must also be run using an account with local administrator privileges.
+    This cmdlet requires either *Global Administrator* or *Security Administrator* credentials for your Azure tenant. In addition, *Global Administrator* credentials are required the first time a proxy is registered for a given tenant. This cmdlet must also be run using an account with local administrator privileges.
 
     After this command succeeds once, additional invocations will also succeed but are unnecessary.
 
