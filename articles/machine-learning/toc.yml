@@ -77,7 +77,7 @@
           href: tutorial-train-deploy-model-cli.md
     - name: Visual Studio Code
       items: 
-        - name: Train and deploy a TensorFlow image classification model
+        - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: "Microsoft Power BI integration"
       items:
