@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - create topics and subscriptions
 description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
 author: jfggdl
-manager: JasonWHowell
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/06/2021

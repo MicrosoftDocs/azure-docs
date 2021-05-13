@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - Batch event delivery
 description: This article describes how to deliver batch of events to the destination. 
 author: jfggdl
-manager: JasonWHowell
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/04/2021

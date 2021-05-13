@@ -2,7 +2,6 @@
 title: Event Grid on Kubernetes with Azure Arc - get support 
 description: This article provides you with the information on getting support for issues with Event Grid on Kubernetes with Azure Arc
 author: jfggdl
-manager: JasonWHowell
 ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/11/2021

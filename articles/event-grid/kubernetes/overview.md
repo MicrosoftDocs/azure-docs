@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - overview
 description: This article provides an overview about Event Grid on Kubernetes with Azure Arc.
 author: jfggdl
-manager: JasonWHowell
 ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/11/2021

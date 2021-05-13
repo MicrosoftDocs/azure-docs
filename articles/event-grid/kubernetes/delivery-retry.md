@@ -2,7 +2,6 @@
 title: Azure Event Grid on Kubernetes - Event delivery and retry
 description: This article describes how Event Grid on Kubernetes with Azure Arc delivers events and how it handles undelivered messages.
 author: jfggdl
-manager: JasonWHowell
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/04/2021
