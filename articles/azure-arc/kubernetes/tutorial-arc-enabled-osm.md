@@ -312,7 +312,7 @@ The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started
 - [BYO-Grafana dashboard](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/tasks_usage/metrics.md#importing-dashboards-on-a-byo-grafana-instance)
 
 
-## Monitoring OSM extension using Azure Monitor and Applications Insights
+## Monitoring application using Azure Monitor and Applications Insights
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
@@ -333,14 +333,33 @@ monitor_namespaces = ["namespace1", "namespace2"]
 ```azurecli-interactive
 kubectl apply -f container-azm-ms-osmconfig.yaml
 ```
-
-It may take 5 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
+It may take upto 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
 
     InsightsMetrics 
     | where Namespace == "prometheus"
     | where Name contains "envoy"
     | extend t=parse_json(Tags)
     | where t.app == "namespace1"
+
+### Navigating the OSM dashboard
+1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmux).
+2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
+3. Select the time-range & namespace to scope your services.
+
+![OSM workbook](./media/tutorial-arc-enabled-osm/osm-workbook.jpg)
+
+#### Requests Tab
+
+- This tab provides you the summary of all the http requests sent via service to service in OSM.
+- You can view all the services and all the services it is communicating to by selecting the service in grid.
+- You can view total requests, request error rate & P90 latency.
+- You can drill-down to destination and view trends for HTTP error/success code, success rate, Pods resource utilization, latencies at different percentiles.
+
+#### Connections Tab
+- This tab provides you a summary of all the connections between your services in Open Service Mesh.
+- Outbound connections: Total number of connections between Source and destination services.
+- Outbound active connections: Last count of active connections between source and destination in selected time range.
+- Outbound failed connections: Total number of failed connections between source and destination service
 
 ## Upgrade the OSM extension instance to a specific version
 >[!NOTE] 
