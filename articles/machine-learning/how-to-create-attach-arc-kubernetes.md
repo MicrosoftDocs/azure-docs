@@ -1,21 +1,21 @@
 ---
-title: Train machine learning models (preview)
+title:  Arc enabled Kubernetes training (preview)
 description: Configure Azure Arc enabled Kubernetes Cluster to train machine learning models with Azure Machine Learning
-titleSuffix: Azure Arc
+titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: azure-arc 
-ms.date: 05/11/2021
+ms.date: 05/18/2021
 ms.topic: how-to 
 ---
 
-# Configure cluster for machine learning training (preview)
+# Configure Kubernetes cluster for machine learning training (preview)
 
 Learn how to configure an Azure Arc enabled Kubernetes cluster to train machine learning models with Azure Machine Learning
 
 ## Prerequisites
 
-- Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](quickstart-connect-cluster.md)
+- Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure-arc/kubernetes/quickstart-connect-cluster.md)
 
 ## How does the integration with Azure Arc enabled Kubernetes work?
 
@@ -25,7 +25,7 @@ Azure Arc enabled Kubernetes has a cluster extensions functionality that enables
 
 ## Install Microsoft.AzureML.Kubernetes extension
 
-1. Install the Azure Arc extensions CLI. For more information, see [Kubernetes cluster extensions](extensions.md).
+1. Install the Azure Arc extensions CLI. For more information, see [Kubernetes cluster extensions](/azure-arc/kubernetes/extensions.md).
 1. Install `Microsoft.AzureML.Kubernetes` extension on your Arc cluster.
 
     > [!NOTE]
@@ -57,6 +57,6 @@ az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --clus
 
 ## Next steps
 
-- [Attach a Kubernetes cluster to Azure Machine Learning workspace (SDK)](/machine-learning/how-to-attach-compute-targets.md)
-- [Attach a Kubernetes cluster to Azure Machine Learning workspace (UI)](/machine-learning/how-to-attach-compute-studio.md)
-- [Use a cluster for training](/machine-learning/how-to-set-up-training-targets.md)
+- [Attach a Kubernetes cluster to Azure Machine Learning workspace (SDK)](how-to-attach-compute-targets.md)
+- [Attach a Kubernetes cluster to Azure Machine Learning workspace (Studio)](how-to-attach-compute-studio.md)
+- [Configure and submit training runs](how-to-set-up-training-targets.md)
