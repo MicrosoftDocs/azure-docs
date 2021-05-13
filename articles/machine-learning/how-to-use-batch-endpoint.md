@@ -34,7 +34,6 @@ In this article, you learn to do the following tasks:
 ## Prerequisites
 
 * An Azure subscription
-
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * The Azure Command Line Interface (CLI) and ML extension.
@@ -135,7 +134,7 @@ Option 1: Registered data
 
 Use `--input-data` to pass in an AML registered data.
 
-> **_NOTE:_** 
+> [!NOTE]
 > During Preview, only FileDataset is supported. 
 
 ```azurecli
@@ -221,10 +220,10 @@ To view the scoring results:
 1. In the graph of the run, click inside the `batchscoring` step
 1. Choose the Outputs + logs tab and choose **Show data outputs** 
 1. Choose the **View output** icon
-:::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location":::
+:::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location" lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png" :::
 1. On the popup panel, copy the path and choose the "Open Datastore" link.
 1. On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
-:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output":::
+:::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
 
 ## Add a deployment to the batch endpoint
 
