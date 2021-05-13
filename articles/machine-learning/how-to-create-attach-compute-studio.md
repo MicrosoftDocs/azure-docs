@@ -157,10 +157,19 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
     For Kubernetes compute targets, you can provide a configuration file to define your namespace, node types, and resources to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
 
-    ```yaml
-    namespace: example-namespace
-    nodeSelector:
-        gpu: example-node-type
+    ```json
+    {
+        "namespace": "<KUBERNETES-NAMESPACE>",
+        "nodeSelector": {
+            "VMSizes": "<VM-SIZE>"
+        },
+        "resources": {
+            "requests": {
+            },
+            "limits": {
+            }
+        }
+    }
     ```
 
     In your attach configuration you can define the following settings:
