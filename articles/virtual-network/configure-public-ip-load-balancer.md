@@ -25,7 +25,14 @@ Examples of resources that support standard SKU public IPs exclusively:
 
 Load balancer requires either a private or public IP address for the frontend configuration. The frontend of the load balancer is the connection point for clients internally and externally depending on the type of public IP address used. 
 
-Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Public IP prefixes extend the scalability of SNAT by allowing multiple IP addresses for outbound connections. Cross-region load balancers support the global tier option of standard SKU public IP addresses.
+Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Public IP prefixes extend the scalability of SNAT by allowing multiple IP addresses for outbound connections. 
+
+Examples of resources that support public IP prefixes:
+
+* NAT gateway
+* Azure Load Balancer
+
+Cross-region load balancers support the global tier option of standard SKU public IP addresses. The global tier public IP is used by the cross-region load balancer to advertise a frontend IP address of a load balancer to multiple Azure regions.
 
 Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to change the current public IP associated to a load balancer. Finally, you'll change the frontend configuration of an outbound backend pool to a public IP prefix.
 
@@ -112,6 +119,9 @@ To change the IP, you'll associate a new public IP address previously created wi
 ## Add public IP prefix
 
 In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
+
+> [!IMPORTANT]
+> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see [Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)
 
 ## Delete public IP address
 
