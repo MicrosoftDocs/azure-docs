@@ -50,7 +50,7 @@ Yes, when the live pipeline is in *inactive* state.
 
 **Is an RTSP simulator available to use during testing and development?**
 
-Yes, an [RTSP simulator]()<!--add-valid-link.md)--><!-- https://github.com/Azure/azure-video-analyzer/tree/master/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
+Yes, an [RTSP simulator]()<!--add-valid-link.md)--><!-- https://github.com/Azure/video-analyzer/tree/main/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
 
 ## Design your AI model 
 
@@ -102,7 +102,7 @@ Solutions vary depending on the communication protocol that's used by the infere
 
  First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
 
-For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample]()<!--add-valid-link.md)--><!-- https://github.com/Azure/azure-video-analyzer/blob/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/avaextension/server/server.py -->: 
+For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample]()<!--add-valid-link.md)--><!-- https://github.com/Azure/video-analyzer/tree/main/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/avaextension/server/server.py -->: 
 
 ```
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 
@@ -116,7 +116,7 @@ To set up and use multiple cameras, you can instantiate multiple live pipelines,
 
 **I want to be able to receive multiple frames before I make an inferencing decision. How can I enable that?** 
 
-Our current [default samples]()<!--add-valid-link.md)--><!--https://github.com/Azure/azure-video-analyzer/tree/master/utilities/video-analysis--> work in a *stateless* mode. They don't keep the state of the previous calls, or the ID of the caller. This means that multiple live pipelines might call the same inference server, but the server can't distinguish who is calling or the state per caller. 
+Our current [default samples]()<!--add-valid-link.md)--><!--https://github.com/Azure/video-analyzer/tree/main/utilities/video-analysis--> work in a *stateless* mode. They don't keep the state of the previous calls, or the ID of the caller. This means that multiple live pipelines might call the same inference server, but the server can't distinguish who is calling or the state per caller. 
 
 *Use the HTTP protocol*:
 
