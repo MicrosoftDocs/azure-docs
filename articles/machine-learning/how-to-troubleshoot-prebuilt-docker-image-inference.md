@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/07/2021
+ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
@@ -18,9 +18,11 @@ Learn how to troubleshoot problems you may see when using prebuilt docker images
 
 > [!IMPORTANT]
 > Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Model deployment failed
 
-If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return **None**.
+If model deployment fails, you won't see logs in [Azure Machine Learning Studio](https://ml.azure.com/) and `service.get_logs()` will return None.
+If there is a problem in the init() function of score.py, `service.get_logs()` will return logs for the same.
 
 So you'll need to run the container locally using one of the commands shown below and replace `<MCR-path>` with an image path. For a list of the images and paths, see [Prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md).
 
@@ -50,26 +52,28 @@ For problems when deploying a model from Azure Machine Learning to Azure Contain
 
 ## init() or run() failing to write a file in the container
 
-HTTP server in our Prebuilt Docker Images run as `non-root user`, it may not have access right to all directories. 
+HTTP server in our Prebuilt Docker Images run as *non-root user*, it may not have access right to all directories. 
 Only write to directories you have access rights to. For example, the `/tmp` directory in the container.
 
 ## Extra python packages not installed
 
 * Check if there is a typo in the environment variable or file name.
 * Check the container log to see if `pip install -r <your_requirements.txt>` is installed or not.
+* Check if [source directory](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor) is set correctly.
 * If installation not found and log says "file not found", check if the file name shown in the log is correct.
-* If installation started but failed or timed out, try to install the same `requirements.txt` locally with the same Python and pip version to see if the problem can be reproduced locally.
+* If installation started but failed timed out, try to install the same `requirements.txt` locally with same Python and pip version in clear environment (i.e. no cache directory ; `pip install --no-cache-dir -r requriements.txt`), see if the problem can be reproduced locally
 
 ## Mounting solution failed
 
 * Check if there is a typo in the environment variable or directory name.
 * The environment variable must be set to the relative path of the `score.py` file.
+* Check if [source directory](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor) is set correctly.
 * The directory needs to be the "site-packages" directory of the environment.
 * If `score.py` still returns `ModuleNotFound` and the module is supposed to be in the directory mounted, try to print the `sys.path` in `init()` or `run()` to see if any path is missing.
 
 ## Building an image based on the prebuilt Docker image failed
 
-* If failed during apt package installation, check if the user has been set to root before running the apt command? (Make sure switch back to non-root user)
+* If failed during apt package installation, check if the user has been set to root before running the apt command? (Make sure switch back to non-root user) 
 
 ## Image built based on the prebuilt Docker image can't boot up
 
@@ -77,7 +81,6 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 
 ```sh
 /var/runit
-/var/iot-server
 /var/log
 /var/lib/nginx
 /run
@@ -85,7 +88,7 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 /var/azureml-app
 ```
 
-* If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components needs to be loaded manually by `runsvdir /var/runit`
+* If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components needs to be loaded by `runsvdir /var/runit`
 
 ## Next steps
 

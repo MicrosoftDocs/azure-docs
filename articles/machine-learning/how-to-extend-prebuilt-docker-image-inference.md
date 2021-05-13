@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/07/2021
+ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
@@ -42,7 +42,9 @@ Below is a sample Dockerfile that uses an Azure Machine Learning prebuilt Docker
 ```Dockerfile
 FROM mcr.microsoft.com/azureml/<image_name>:<tag>
 
-<Additional steps>
+COPY requirements.txt /tmp/requirements.txt​
+
+RUN pip install –r /tmp/requirements.txt​
 ```
 
 Then put the above Dockerfile into the directory with all the necessary files and run the following command to build the image:
@@ -93,7 +95,6 @@ RUN pip install <library>
 
 If the model and code need to be built into the image, the following environment variables need to be set in the Dockerfile:
 
-* `AML_APP_ROOT`: The directory that contains your code.
 * `AZUREML_ENTRY_SCRIPT`: The entry script of your code. This file contains the `init()` and `run()` methods.
 * `AZUREML_MODEL_DIR`: The directory that contains the model file(s). The entry script should use this directory as the root directory of the model.
 
@@ -104,7 +105,6 @@ FROM <prebuilt docker image from MCR>
 
 # Code
 COPY <local_code_directory> /var/azureml-app
-ENV AML_APP_ROOT=/var/azureml-app
 ENV AZUREML_ENTRY_SCRIPT=<entryscript_file_name>
 
 # Model
@@ -112,31 +112,12 @@ COPY <model_directory> /var/azureml-app/azureml-models
 ENV AZUREML_MODEL_DIR=/var/azureml-app/azureml-models
 ```
 
-The directory structure created in the container will be similar to the following tree diagram:
-
-``` bash
-└── var
-    └── azureml-app
-        ├── azureml-models
-        │   └── model.onnx
-        ├── bar
-        │   ├── __init__.py
-        │   └── bar.py
-        ├── foo
-        │   ├── __init__.py
-        │   └── foo.py
-        ├── score.py
-        └── util
-            ├── __init__.py
-            └── misc.py
-```
-
 ## Example Dockerfile
 
 The following example demonstrates installing `apt` packages, setting environment variables, and including code and models as part of the Dockerfile:
 
 ```Dockerfile
-FROM mcr.microsoft.com/azureml/pytorch1.6-py3.7-inference-cpu:latest
+FROM mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest 
 
 USER root:root
 
@@ -153,7 +134,6 @@ USER dockeruser
 
 # Code
 COPY code /var/azureml-app
-ENV AML_APP_ROOT=/var/azureml-app
 ENV AZUREML_ENTRY_SCRIPT=score.py
 
 # Model
