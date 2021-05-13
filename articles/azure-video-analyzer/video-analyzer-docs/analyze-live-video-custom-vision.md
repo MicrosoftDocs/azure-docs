@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure Video Analyzer
-description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
+description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer and Azure Custom Vision.
 ms.topic: tutorial
 ms.date: 04/21/2021
 zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
+# Tutorial: Analyze live video with Azure Video Analyzer and Azure Custom Vision
 
 In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](add-valid-link.md) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
@@ -35,9 +35,9 @@ If you don't have an [Azure subscription](../../guides/developer/azure-developer
 
 Read through the following articles before you begin:
 
-- [Video Analyzer on IoT Edge overview](overview.md)
+- [Video Analyzer overview](overview.md)
 - [Azure Custom Vision overview](../../cognitive-services/custom-vision-service/overview.md)
-- [Video Analyzer on IoT Edge terminology](terminology.md)
+- [Video Analyzer terminology](terminology.md)
 - [Pipeline concept](pipeline.md)
 - [Video Analyzer without video recording](analyze-live-video-without-recording.md)
 - [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
@@ -60,7 +60,7 @@ This tutorial uses a [toy car inference video](https://lvamedia.blob.core.window
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
-In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
+In this tutorial, you'll use Video Analyzer to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
 ## Overview
 
@@ -175,7 +175,7 @@ After you're finished, you can export the model to a Docker container by using t
 10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
-    - The Video Analyzer on IoT Edge module named `avaedge`.
+    - The Video Analyzer module named `avaedge`.
     - A module named `rtspsim`, which simulates an RTSP server that acts as the source of a live video feed.
     - A module named `cv`, which as the name suggests is the Custom Vision toy truck detection model that applies Custom Vision to the images and returns multiple tag types. (Our model was trained on only one tag, delivery truck.)
 
@@ -237,7 +237,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
    - A second call to `livePipelineList` that shows that the active pipeline.
 
 6. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select **Enter** yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
+7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 8. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select **Enter**. The next series of calls cleans up resources:
 
    - A call to `livePipelineDeactivate` deactivates the pipeline.

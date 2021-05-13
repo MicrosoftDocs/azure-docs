@@ -12,7 +12,7 @@ This article describes Azure Video Analyzer quotas and limitations.
 
 ## Quotas and limitations - Edge module
 
-This section enumerates the quotas and limitations of the Video Analyzer on IoT Edge module.
+This section enumerates the quotas and limitations of the Video Analyzer module.
 
 ### Maximum period of disconnected use
 

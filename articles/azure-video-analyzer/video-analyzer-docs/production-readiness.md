@@ -1,6 +1,6 @@
 ---
 title: Production readiness and best practices
-description: This article provides guidance on how to configure and deploy the Azure Video Analyzer on IoT Edge module in production environments.
+description: This article provides guidance on how to configure and deploy the Azure Video Analyzer module in production environments.
 ms.topic: reference
 ms.date: 04/26/2021
 
@@ -135,8 +135,8 @@ Some system defined variables that you can use are:
 | :--------------------- | :----------------------------------------------------------- | :------------------- |
 | System.Runtime.DateTime        | UTC date time in ISO8601 file compliant format (basic representation YYYYMMDDThhmmss). | 20200222T173200Z     |
 | System.Runtime.PreciseDateTime | UTC date time in ISO8601 file compliant format with milliseconds (basic representation YYYYMMDDThhmmss.sss). | 20200222T173200.123Z |
-| System.TopologyName    | User provided name of the executing graph topology.          | IngestAndRecord      |
-| System.PipelineName    | User provided name of the executing graph instance.          | camera001            |
+| System.TopologyName    | User provided name of the executing pipeline topology.          | IngestAndRecord      |
+| System.PipelineName    | User provided name of the executing live pipeline.          | camera001            |
 
 > [!Tip]
 > System.Runtime.PreciseDateTime and System.Runtime.DateTime cannot be used when naming videos in the cloud.

@@ -1,6 +1,6 @@
 ---
 title: Monitoring and logging - Azure
-description: This article provides an overview of monitoring and logging in Azure Video Analyzer on IoT Edge.
+description: This article provides an overview of monitoring and logging in Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 04/27/2020
 

@@ -33,7 +33,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
-In this quickstart, you'll use Azure Video Analyzer on IoT Edge along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
+In this quickstart, you'll use Azure Video Analyzer along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
 
 ## Overview
 
@@ -47,9 +47,9 @@ The gRPC extension processor node takes decoded video frames as the input, and r
 ## About Intel OpenVINO™ DL Streamer – Edge AI Extension Module
 
 
-The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Azure Video Analyzer on IoT Edge from Microsoft.
+The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Azure Video Analyzer from Microsoft.
 
-In order to build complex, high-performance live video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Azure Video Analyzer on IoT Edge.
+In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Azure Video Analyzer.
 
 In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 
@@ -181,7 +181,7 @@ This is how you can pass through the model for each pipeline.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The *operations.json* code starts off with calls to the direct methods `PipelineTopologyList` and `PipelineInstanceList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+1. The *operations.json* code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     The **TERMINAL** window shows the next set of direct method calls:
 

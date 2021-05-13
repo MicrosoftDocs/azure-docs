@@ -25,7 +25,7 @@ As part of your Video Analyzer deployment, you set up Azure resources such as Io
 
 ### Pre-deployment issues
 
-If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy the Video Analyzer on IoT Edge module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the IoT Edge hub, IoT Edge agent, and other modules and their properties. You can use the following command to deploy the manifest file:
+If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy the Video Analyzer module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the IoT Edge hub, IoT Edge agent, and other modules and their properties. You can use the following command to deploy the manifest file:
 
 ```
 az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge-device --content <path-to-deployment_manifest.json>
@@ -38,7 +38,7 @@ If you encounter this error, we recommend that you check the JSON for missing br
 
 ### During deployment: Diagnose with live pipeline direct methods 
 
-After the Video Analyzer on IoT Edge module is deployed correctly on the IoT Edge device, you can create and run the live pipeline by invoking [direct methods](direct-methods.md).  
+After the Video Analyzer module is deployed correctly on the IoT Edge device, you can create and run the live pipeline by invoking [direct methods](direct-methods.md).  
 
 >[!NOTE]
 >  The direct method calls should be made to the **`avaedge`** module only.
@@ -69,7 +69,7 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
         
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot/direct-method.png":::
-1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Video Analyzer on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
+1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Video Analyzer module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
 ### Post deployment: Diagnose logs for issues during the run 
 
@@ -121,11 +121,11 @@ Video Analyzer via the pipeline extension processors can extend the pipeline to 
     
 * If you're running one or more live pipelines that uses the pipeline extension processor, you should use the `samplingOptions` field to manage the frames per second (fps) rate of the video feed. 
 
-   * In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the `maximumSamplesPerSecond` property on the `samplingOptions` field. You can set it to 0.5 ("maximumSamplesPerSecond": "0.5") on each instance of the graph and then re-run the instance to check for inference events on the hub.
+   * In certain situations, where the CPU or memory of the edge machine is highly utilized, you can lose certain inference events. To address this issue, set a low value for the `maximumSamplesPerSecond` property on the `samplingOptions` field. You can set it to 0.5 ("maximumSamplesPerSecond": "0.5") on each instance of the pipeline and then re-run the instance to check for inference events on the hub.
     
 ### Multiple direct methods in parallel – timeout failure 
 
-Video Analyzer provides a direct method-based programming model that allows you to set up multiple topologies and multiple pipelines. As part of the topology and pipeline setup, you invoke multiple direct method calls on the IoT Edge module. If you invoke these multiple method calls in parallel, especially the ones that start and stop the graphs, you might experience a timeout failure such as the following: 
+Video Analyzer provides a direct method-based programming model that allows you to set up multiple topologies and multiple pipelines. As part of the topology and pipeline setup, you invoke multiple direct method calls on the IoT Edge module. If you invoke these multiple method calls in parallel, especially the ones that start and stop the pipelines, you might experience a timeout failure such as the following: 
 
 Assembly Initialization method Microsoft.Media.VideoAnalyzer.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: <br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
@@ -307,13 +307,13 @@ To use your gRPC server with Video Analyzer, shared memory can be used for best 
 
 1. Open the Linux shared memory handle.
 1. Upon receiving of a frame, access the address offset within the shared memory.
-1. Acknowledge the frame processing completion so its memory can be reclaimed by Live Video Analytics.
+1. Acknowledge the frame processing completion so its memory can be reclaimed by Video Analyzer.
 
    > [!NOTE]
    > If you delay in acknowledging the receipt of the frame to Video Analyzer for a long time, it can result in the shared memory becoming full and causing data drops.
 1. Store each frame in a data structure of your choice (list, array, and so on) on the inferencing server.
 1. You can then run your processing logic when you have the desired number of image frames.
-1. Return the inferencing result back to Live Video Analytics when ready.
+1. Return the inferencing result back to Video Analyzer when ready.
 
 ## Next steps
 

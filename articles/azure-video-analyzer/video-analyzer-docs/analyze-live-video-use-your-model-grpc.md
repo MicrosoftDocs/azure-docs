@@ -88,7 +88,7 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 1. Search and enable “Show Verbose Message”.
 1. > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
-1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the OUTPUT window of Visual Studio Code.
+1. Right-click the Video Analyzer device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the OUTPUT window of Visual Studio Code.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
@@ -152,8 +152,8 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
    }
    ```
 
-   - A call to livePipelineActivate that starts the pipeline instance and the flow of video.
-   - A second call to livePipelineList that shows that the pipeline instance is in the running state.
+   - A call to livePipelineActivate that starts the live pipeline and the flow of video.
+   - A second call to livePipelineList that shows that the live pipeline is in the running state.
 
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
@@ -161,8 +161,8 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 
    The next series of calls cleans up resources:
 
-   - A call to `livePipelineDeactivate` deactivates the pipeline instance.
-   - A call to `livePipelineDelete` deletes the instance.
+   - A call to `livePipelineDeactivate` deactivates the live pipeline 
+   - A call to `livePipelineDelete` deletes the live pipeline.
    - A call to `pipelineTopologyDelete` deletes the topology.
    - A final call to `pipelineTopologyList` shows that the list is empty.
 

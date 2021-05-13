@@ -1,11 +1,11 @@
 ---
-title: Azure Video Analyzer on IoT Edge release notes - Azure
-description: This topic provides release notes of Azure Video Analyzer on IoT Edge releases, improvements, bug fixes, and known issues.
+title: Azure Video Analyzer release notes - Azure
+description: This topic provides release notes of Azure Video Analyzer releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
 ms.date: 05/25/2021
 
 ---
-# Azure Video Analyzer on IoT Edge release notes
+# Azure Video Analyzer release notes
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Video+Analyzer+on+IoT+Edge+release+notes%22&locale=en-us` into your RSS feed reader.
 
@@ -20,7 +20,7 @@ This article provides you with information about:
 
 ## May 25, 2021
 
-This release is the first public preview release of Azure Video Analyzer on IoT Edge. The release tag is
+This release is the first public preview release of Azure Video Analyzer. The release tag is
 
 ```
      mcr.microsoft.com/media/azure-video-analyzer:1.0.0

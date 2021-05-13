@@ -46,7 +46,7 @@ In the preceding output:
 
 ### MotionDetection event
 
-When motion is detected, the Video Analyzer on IoT Edge module sends an inference event. The **type** is set to **motion** to indicate that it's a result from the motion detection processor.
+When motion is detected, the Video Analyzer module sends an inference event. The **type** is set to **motion** to indicate that it's a result from the motion detection processor.
 
 Here's an example of this message:
 

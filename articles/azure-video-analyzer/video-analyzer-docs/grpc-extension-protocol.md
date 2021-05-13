@@ -194,7 +194,7 @@ x-ms-authentication: Basic (Base64 Encoded username:password)
 
 ## Configuring inference server for each MediaGraph over gRPC extension
 
-When configuring your inference server, you do not need to expose expose a node for every AI model that is packaged within the inference server. Instead, for a graph instance, you can use the extensionConfiguration property of the GrpcExtension node and define how to select the AI model(s). During execution, AVA will pass this string to the inferencing server which can use it to invoke the desired AI model. This extensionConfiguration property is an optional property and is server specific. The property can be used like below:
+When configuring your inference server, you do not need to expose expose a node for every AI model that is packaged within the inference server. Instead, for a live pipeline, you can use the extensionConfiguration property of the GrpcExtension node and define how to select the AI model(s). During execution, AVA will pass this string to the inferencing server which can use it to invoke the desired AI model. This extensionConfiguration property is an optional property and is server specific. The property can be used like below:
 
 ```
 {

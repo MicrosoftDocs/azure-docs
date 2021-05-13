@@ -44,7 +44,7 @@ ms.author: juliako
         Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
         ```
 1. In about 30 seconds, refresh Azure IoT Hub in the lower-left section. You should see the edge device `avasample-iot-edge-device`, which should have the following modules deployed:
-    * Video Analyzer on IoT Edge (module name **avaedge**)
+    * Video Analyzer (module name **avaedge**)
     * RTSP simulator (module name **rtspsim**)
 
 ### Prepare to monitor the modules 
