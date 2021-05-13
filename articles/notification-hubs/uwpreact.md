@@ -440,7 +440,7 @@ You might get the following error while running the React Native for Windows app
 
 `error MSB4057: The target "Deploy" does not exist in the project`
 
-This is a known issue with React Native for Windows. To fix this, unload the **.csproj** file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder. Then, in the **.csproj** file add the following line just before ...</Project>, then reload the project:
+This is a known issue with React Native for Windows. To fix this, unload the **.csproj** file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder. Then, in the **.csproj** file add the following line just before `...</Project>`, then reload the project:
 
 ```xml
 <Target Name="Deploy"/>
