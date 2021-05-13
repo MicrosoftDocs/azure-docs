@@ -1,7 +1,7 @@
 ---
 title: UI Library Overview
 titleSuffix: An Azure Communication Services concept document
-description: Learn about the various ways an app or service can authenticate to Communication Services.
+description: Learn about the Azure Communication Services UI Library.
 author: ddematheu2
 manager: chrispalm
 services: azure-communication-services
@@ -79,7 +79,7 @@ Understanding these requirements will help you choose the right client library:
 
 Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-sdkhttps://azure.github.io/communication-ui-sdk/?path=/story/use-cases--page), but key trade-offs are summarized below.
 
-| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../teams-interop) |
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   | ✔       | ✔    | ✔                                                                                                     |
 | Base Components       | Medium                    | Medium                | ✔       | ✔    | ✔                                                                                                     |

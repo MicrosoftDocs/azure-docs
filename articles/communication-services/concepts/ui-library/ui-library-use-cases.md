@@ -64,7 +64,7 @@ To take full advantage of these capabilities we recommend using the UI Component
 ## Supported identities:
 
 An Azure Communication Services identity is required to initialize the stateful client libraries and authenticate to the service.
-For more information on authentication, see [Authentication](../authentication) and [Access Tokens](../../quickstarts/access-tokens?pivots=programming-language-javascript)
+For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript)
 
 ## Customization
 
@@ -97,7 +97,7 @@ Developers can hook into the stateful client to read the state, handle events an
 ![UI Library recommended architecture with client-server architecture](images/Toolkit-architecture.png)
 
 Composite and Base Components are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
-trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens?pivots=programming-language-javascript) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial) for more information.
+trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
 
 These client libraries also require the context for the call or chat they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
