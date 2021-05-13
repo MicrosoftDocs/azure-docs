@@ -26,18 +26,6 @@ Data is valuable only when there's an easy way to process and get timely insight
 
 Event Hubs represents the "front door" for an event pipeline, often called an *event ingestor* in solution architectures. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. Event Hubs provides a unified streaming platform with time retention buffer, decoupling event producers from event consumers.
 
-## Key architecture components
-Event Hubs contains the following [key components](event-hubs-features.md):
-
-- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka (1.0 and above)
-- **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
-- **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable consuming applications to each have a separate view of the event stream. They read the stream independently at their own pace and with their own offsets.
-- **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
-- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session. The Event Hubs service delivers events through a session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
-
-The following figure shows the Event Hubs stream processing architecture:
-
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 The following sections describe key features of the Azure Event Hubs service:
 
@@ -73,6 +61,19 @@ Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Stre
 The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
 
 Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](/azure-stack/user/event-hubs-overview).
+
+## Key architecture components
+Event Hubs contains the following [key components](event-hubs-features.md):
+
+- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka (1.0 and above)
+- **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
+- **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable consuming applications to each have a separate view of the event stream. They read the stream independently at their own pace and with their own offsets.
+- **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
+- **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session. The Event Hubs service delivers events through a session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
+
+The following figure shows the Event Hubs stream processing architecture:
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
 
 
 ## Next steps
