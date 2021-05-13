@@ -75,8 +75,6 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Access Azure resources with managed endpoints
-          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items: 
         - name: Train a TensorFlow image classification model
@@ -476,6 +474,12 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
+      - name: Deploy & serve with endpoints
+        items: 
+          - name: Online
+            items:
+            - name: Deploy an ML model with a managed online endpoint
+              href: how-to-deploy-managed-online-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
