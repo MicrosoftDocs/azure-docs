@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: CLI quickstart
+          - text: Python quickstart
             url: quickstart-python.md
           - text: ARM template quickstart
             url: quickstart-template.md
