@@ -352,8 +352,14 @@ from azureml.core.compute import KubernetesCompute
 # Optional
 k8s_config = {
     "namespace": "<KUBERNETES-NAMESPACE>",
-    "nodeSelector: {
+    "nodeSelector": {
         "VMSizes": "<VM-SIZE>"
+    },
+    "resources": {
+        "requests": {
+        },
+        "limits": {
+        }
     }
 }
 
@@ -365,6 +371,12 @@ attach_config = KubernetesCompute.attach_configuration(
 compute_target = KubernetesCompute.attach(ws, "<COMPUTE-NAME>", attach_config)
 compute_target.wait_for_completion(show_output=True)
 ```
+
+Attach configuration is optional. In your attach configuration you can define the following settings:
+
+- **namespace**: Set to your default namespace is undefined. Training runs are dispatched to pods to the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
+- **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node clusters. 
+- **resources**: Set requests and limits such as CPU and memory for your compute.
 
 To detach a cluster from your workspace, use the following method:
 

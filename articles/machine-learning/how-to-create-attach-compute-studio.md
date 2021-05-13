@@ -155,13 +155,19 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-    For Kubernetes compute targets, you can provide a configuration file to define your namespace and node selectors to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
+    For Kubernetes compute targets, you can provide a configuration file to define your namespace, node types, and resources to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
 
     ```yaml
     namespace: example-namespace
     nodeSelector:
-        gpu: example-cluster
+        gpu: example-node-type
     ```
+
+    In your attach configuration you can define the following settings:
+
+    - **namespace**: Set to your default namespace is undefined. Training runs are dispatched to pods to the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
+    - **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node clusters. 
+   - **resources**: Set requests and limits such as CPU and memory for your compute.
 
     > [!IMPORTANT]
     > To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
