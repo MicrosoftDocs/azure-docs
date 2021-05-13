@@ -21,7 +21,7 @@ This tutorial takes you step by step through the process of deploying the Azure 
 
 ## Overview
 
-Azure Sentinel [solutions](/sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Azure Sentinel security content for a specific data connector using a single process.
+[Azure Sentinel solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Azure Sentinel security content for a specific data connector using a single process.
 
 The Azure Sentinel SAP data connector enables SAP logs to be ingested into your Azure Sentinel workspace, where you can view your data, create custom alerts, investigate, and more.
 
