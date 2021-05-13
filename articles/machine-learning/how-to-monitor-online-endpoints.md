@@ -1,5 +1,5 @@
 ---
-title: Monitor managed online endpoints
+title: Monitor managed online endpoints (preview)
 titleSuffix: Azure Machine Learning
 description: Monitor managed online endpoints and create alerts with Application Insights.
 services: machine-learning
