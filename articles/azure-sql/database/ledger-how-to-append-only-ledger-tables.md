@@ -13,6 +13,8 @@ ms.author: janders
 
 # Create and use append-only ledger tables
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 This article shows you how to create an [append-only ledger table](ledger-append-only-ledger-tables.md) in Azure SQL Database, insert values into your append-only ledger table, attempt to make updates to the data, and view the results using the ledger view. We'll use an example of a card key access system of a facility, which is an append-only system pattern. Our example will give you a practical look at the relationship between the append-only ledger table and its corresponding ledger view.
 
 For more information, see [Append-only ledger tables](ledger-append-only-ledger-tables.md).

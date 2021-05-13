@@ -13,6 +13,8 @@ ms.author: janders
 
 # Azure SQL Database updatable ledger tables
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 Updatable ledger tables are system-versioned tables that users can perform updates and deletes on while also providing tamper-evidence capabilities. When updates or deletes occur, all earlier versions of a row are preserved in a secondary table, known as the history table. The history table mirrors the schema of the updatable ledger table. When a row is updated, the latest version of the row remains in the ledger table, while its earlier version is inserted into the history table by the system, transparently to the application. 
 
 :::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
@@ -24,7 +26,7 @@ Both updatable ledger tables and [temporal tables](/sql/relational-databases/tab
 You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
 
-1. When creating a new database in the Azure Portal by selecting "Enable ledger on all future tables in this database" during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This enables ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
+1. When creating a new database in the Azure Portal by selecting **Enable ledger on all future tables in this database** during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This enables ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
 1. When creating a new table on a database where ledger isn't enabled at the database-level, by specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement.
 
 For details on options available when specifying the `LEDGER` argument in your T-SQL statement, see [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql).

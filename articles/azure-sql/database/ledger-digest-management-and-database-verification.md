@@ -13,6 +13,8 @@ ms.author: janders
 
 # Digest management and database verification
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 Azure SQL Database ledger provides a form of data integrity called forward-integrity, which provides evidence of data tampering on data in your ledger tables. For example, if a banking transaction occurs on a ledger table where a balance has been updated to value `x`, if an attacker later modifies the data, changing the balance from `x` to `y`, this tampering activity will be detected through database verification.  
 
 The database verification process takes as input one or more previously generated database digests and recomputes the hashes stored in the database ledger based on the current state of the ledger tables. If the computed hashes don't match the input digests, the verification fails, indicating that the data has been tampered with, and reports all inconsistencies detected.

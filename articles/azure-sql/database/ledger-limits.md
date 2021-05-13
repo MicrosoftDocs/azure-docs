@@ -13,6 +13,8 @@ ms.author: janders
 
 # Limitations for Azure SQL Database ledger
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 This article provides an overview of the limitations when using ledger tables with Azure SQL Database.  
 
 ## Limitations
