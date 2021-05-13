@@ -51,7 +51,7 @@ You can learn more about the technical details of the Netherite storage provider
 > [!NOTE]
 > The _Netherite_ name originates from the world of [Minecraft](https://minecraft.fandom.com/wiki/Netherite).
 
-## Microsoft SQL Server (MSSQL) (preview)
+## <a name="mssql">Microsoft SQL Server (MSSQL) (preview)</a>
 
 The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
 
@@ -137,7 +137,7 @@ There are many significant tradeoffs between the various supported storage provi
 |- |-              |-          |-      |
 | Official support status | ✅ Generally available (GA) | ⚠ Public preview | ⚠ Public preview |
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | In-memory emulation ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server), [Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup), and [Docker containers](https://docs.microsoft.com/sql/linux/sql-server-linux-docker-container-deployment)) |
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform)<br/>[Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) | In-memory emulation ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
 | Maximum throughput | Moderate | Very high | Moderate |
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |

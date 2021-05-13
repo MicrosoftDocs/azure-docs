@@ -3,7 +3,7 @@ title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ---
 
@@ -326,10 +326,10 @@ Managed identities aren't limited to Azure resource management. You can use mana
 
 The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
 
-HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
+HTTP requests sent by orchestrator functions and their responses are [serialized and persisted](durable-functions-serialization-and-persistence.md) as messages in the Durable Functions storage provider. This persistent queuing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the persistent queuing behavior also has limitations:
 
 * Each HTTP request involves additional latency when compared to a native HTTP client.
-* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
+* Depending on the [configured storage provider](durable-functions-storage-providers.md), large request or response messages can significantly degrade orchestration performance. For example, when using Azure Storage, HTTP payloads that are too large to fit into Azure Queue messages are compressed and stored in Azure Blob storage.
 * Streaming, chunked, and binary payloads aren't supported.
 * The ability to customize the behavior of the HTTP client is limited.
 
