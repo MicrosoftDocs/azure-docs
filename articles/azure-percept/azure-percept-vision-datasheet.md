@@ -28,7 +28,7 @@ Specifications listed below are for the Azure Percept Vision device, included in
 |Power                           |3.5 W     |
 |Ports                           |1x USB 3.0 Type C <br> 2x MIPI 4 Lane (up to 1.5 Gbps per lane)     |
 |Control Interfaces              |2x I2C <br> 2x SPI <br> 6x PWM (GPIOs: 2x clock, 2x frame sync, 2x unused) <br> 2x spare GPIO |
-|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL   |
+|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL <br> CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB  |
 |Operating Temperature           |0 degrees to 27 degrees C (Azure Percept Vision SoM assembly with housing) <br> -10 degrees to 70 degrees C (Vision SoM chip) |
 |Touch Temperature               |<= 48 degrees C |
 |Relative Humidity               |8% to 90%    |
