@@ -8,6 +8,8 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 04/15/2021
+
+# [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
 ---
 
 # Quickstart: Create an Microsoft Azure Confidential Ledger with an ARM template
@@ -82,4 +84,4 @@ Write-Host "Press [ENTER] to continue..."
 
 In this quickstart, you created an Confidential Ledger resource using an ARM template and validated the deployment. To learn more about the service, see [Overview of Microsoft Azure Confidential Ledger](overview.md).
 
-# [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+
