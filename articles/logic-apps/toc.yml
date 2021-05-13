@@ -66,7 +66,7 @@
   - name: Single-tenant Azure Logic Apps (Preview)
     items:
     - name: Single-tenant overview (Preview)
-      href: logic-apps-overview-preview.md
+      href: single-tenant-overview-compare.md
     - name: Create preview logic apps - Portal
       href: create-stateful-stateless-workflows-azure-portal.md
     - name: Create preview logic apps - Visual Studio Code

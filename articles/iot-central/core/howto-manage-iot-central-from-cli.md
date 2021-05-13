@@ -56,7 +56,11 @@ These commands first create a resource group in the east US region for the appli
 | template          | The application template to use. For more information, see the following table. |
 | display-name      | The name of the application as displayed in the UI. |
 
+### Application templates
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](howto-use-app-templates.md#create-an-application-template) section of your app.
 
 ## View your applications
 

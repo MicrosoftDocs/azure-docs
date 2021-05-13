@@ -34,6 +34,34 @@ details.
 |Services and apps|[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| Yes| Yes| Yes|
 
+## Scan regions
+The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
+ 
+### Purview scanner regions
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- SoutheastAsia
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
+- KoreaCentral
+- CentralUS
+- NorthCentralUS
+- EastAsia
+- WestCentralUS
+- AustraliaSoutheast
+
 ## Next steps
 
 - [Register and scan Azure Blob storage source](register-scan-azure-blob-storage-source.md)

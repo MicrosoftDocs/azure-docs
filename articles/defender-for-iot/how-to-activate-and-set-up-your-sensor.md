@@ -37,7 +37,7 @@ Your sensor was onboarded to Azure Defender for IoT in a specific management mod
 
 | Mode type | Description |
 |--|--|
-| **Cloud connected mode** | Information that the sensor detects is displayed in the sensor console. Alert information is also delivered through the IoT hub and can be shared with other Azure services, such as Azure Sentinel. |
+| **Cloud connected mode** | Information that the sensor detects is displayed in the sensor console. Alert information is also delivered through the IoT hub and can be shared with other Azure services, such as Azure Sentinel. You can also enable automatic threat intelligence updates. |
 | **Locally connected mode** | Information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console, if the sensor is connected to it. |
 
 A locally connected, or cloud-connected activation file was generated and downloaded for this sensor during onboarding. The activation file contains instructions for the management mode of the sensor. *A unique activation file should be uploaded to each sensor you deploy.*  The first time you sign in, you need to upload the relevant activation file for this sensor.
@@ -228,6 +228,8 @@ You access console tools from the side menu.
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
 ## See also
+
+[Threat intelligence research and packages #](how-to-work-with-threat-intelligence-packages.md)
 
 [Onboard a sensor](getting-started.md#onboard-a-sensor)
 
