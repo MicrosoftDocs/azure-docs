@@ -35,4 +35,4 @@ ms.author: aahi
 1. After both resources are created, still in the Azure portal, select the new authoring resource. Then select **Keys and Endpoint** to get the authoring **endpoint URL** and **key** for authoring programmatically.
 
 > [!TIP]
-> To use the resources, in the LUIS portal, [assign the resources](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps).
+> To use the resources, in the LUIS portal, [assign the resources](../luis-how-to-azure-subscription.md#assign-resources-using-luis-portal).

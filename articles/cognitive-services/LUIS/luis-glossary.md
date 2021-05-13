@@ -39,7 +39,7 @@ The [authoring key](luis-how-to-azure-subscription.md) is used to author the app
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-concept-azure-subscription.md) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
