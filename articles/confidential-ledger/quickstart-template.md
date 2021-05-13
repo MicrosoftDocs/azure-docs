@@ -18,7 +18,7 @@ ms.date: 04/15/2021
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](./index.yml)
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Azure resources defined in the template:
 
 1. Select the following image to sign in to Azure and open the template.
 
-    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](./index.yml)
 
 1. Select or enter the following values.
 
@@ -83,3 +83,5 @@ Write-Host "Press [ENTER] to continue..."
 ## Next steps
 
 In this quickstart, you created an Confidential Ledger resource using an ARM template and validated the deployment. To learn more about the service, see [Overview of Microsoft Azure Confidential Ledger](overview.md).
+
+# [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
