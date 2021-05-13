@@ -407,7 +407,7 @@ Keep these considerations in mind:
 > [!Important]
 > If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
 
-For the complete template, see [API Management with KeyVault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json).
+For the complete template, see [API Management with KeyVault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json).
 
 In this template, you will deploy:
 
