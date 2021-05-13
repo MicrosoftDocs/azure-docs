@@ -183,8 +183,18 @@ If you plan on continuing to use the Azure Machine Learning workspace, but want 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
 
-
 ## Next steps
+
+In this Azure Machine Learning tutorial, you used the machine learning CLI for the following tasks:
+
+> [!div class="checklist"]
+> * Set the default values for the Azure CLI to use
+> * Configure the variables to be used with your endpoint
+> * Create a blob storage account and Blob container 
+> * Create a managed endpoint
+> * Give the system assigned managed identity permission to access storage
+> * Create a deployment associated with managed endpoint
+> * Deploy the model 
 
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
