@@ -134,74 +134,63 @@ Within the **Apply to each**, click **Add an action** and create another **Apply
 
 Next, we will find the person entity type in the Text Analytics output. Within the **Apply to each 2**, click **Add an action**, and create another **Apply to each** action. Click inside the text box and select **Entities** in the Dynamic Content window that appears.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Add Text Analytics credentials to your flow. 2":::
+:::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Find the person entity in the Text Analytics output" lightbox="../media/tutorials/excel/add-apply-action-2.png":::
+
 
 Within the newly created **Apply to each 3** action, click **Add an action**, and add a **Condition** control.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add Text Analytics credentials to your flow. 3":::
+:::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Add a condition control to the Apply to each 3 action" lightbox="../media/tutorials/excel/create-condition.png":::
+
 
 In the Condition window, click on the first text box. In the Dynamic content window, search for **Category** and select it.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add Text Analytics credentials to your flow. 4":::
+:::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add a the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
+
 
 Make sure the second box is set to **is equal to**. Then select the third box, and search for `var_person` in the Dynamic content window. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Add Text Analytics credentials to your flow. 5":::
+:::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Add the person variable" lightbox="../media/tutorials/excel/choose-variable-value.png":::
+
 
 In the **If yes** condition, type in Excel then select **Update a Row**.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Add Text Analytics credentials to your flow. 6":::
+:::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Update the yes condition" lightbox="../media/tutorials/excel/yes-column-action.png":::
 
-Enter the Excel info, and update the **Key Column**, **Key Value** and **PersonName** fields. This will append the name detected by the API to the Excel sheet. 
+Enter the Excel information, and update the **Key Column**, **Key Value** and **PersonName** fields. This will append the name detected by the API to the Excel sheet. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Add Text Analytics credentials to your flow. 7":::
+:::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Add the excel information" lightbox="../media/tutorials/excel/yes-column-action-options.png":::
 
 ## Get the phone number
 
 Minimize the **Apply to each 3** action by clicking on the name. Then add another **Apply to each** action to **Apply to each 2**, like before. it will be named **Apply to each 4**. Select the text box, and add **entities** as the output for this action. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-phone.png" alt-text="Add Text Analytics credentials to your flow. 8":::
+:::image type="content" source="../media/tutorials/excel/add-apply-action-phone.png" alt-text="Add the entities from the Text Analytics output to another apply to each action." lightbox="../media/tutorials/excel/add-apply-action-phone.png":::
 
 Within **Apply to each 4**, add a **Condition** control. It will be named **Condition 2**. In the first text box, search for, and add **categories** from the Dynamic content window. Be sure the center box is set to **is equal to**. Then, in the right text box, enter `var_phone`. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add Text Analytics credentials to your flow. 9":::
+:::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Add a second condition control" lightbox="../media/tutorials/excel/condition-2-options.png":::
 
 In the **If yes** condition, add an **Update a row** action. Then enter the information like we did above, for the phone numbers column of the Excel sheet. This will append the phone number detected by the API to the Excel sheet. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Add Text Analytics credentials to your flow. 10":::
-
+:::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Add the excel information to the second if yes condition" lightbox="../media/tutorials/excel/condition-2-yes-column.png":::
 
 ## Get the plumbing issues
 
 Minimize **Apply to each 4** by clicking on the name. Then create another **Apply to each** in the parent action. Select the text box, and add **Entities** as the output for this action from the Dynamic content window. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-plumbing.png" alt-text="Add Text Analytics credentials to your flow. 11":::
-
+:::image type="content" source="../media/tutorials/excel/add-apply-action-plumbing.png" alt-text="Create another apply to each action" lightbox="../media/tutorials/excel/add-apply-action-plumbing.png":::
 
 Next, the flow will check if the issue description from the Excel table row contains the word "plumbing". If yes, it will add "plumbing" in the IssueType column. If not, we will enter "other."
 
 Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the Dynamic content window. Be sure the center box says **contains**. Then, in the right text box, find and select `var_plumbing`. 
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Add Text Analytics credentials to your flow. 12":::
-
+:::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Create a new condition control" lightbox="../media/tutorials/excel/condition-3-options.png":::
 
 In the **If yes** condition, click **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_plumbing`. This will apply a "plumbing" label to the row.
 
 In the **If no** condition, click **Add an action**, and select **Update a row**. Then enter the information like before. In the IssueType column, select `var_other`. This will apply an "other" label to the row.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Add Text Analytics credentials to your flow. 13":::
+:::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Add information to both conditions" lightbox="../media/tutorials/excel/plumbing-issue-condition.png":::
 
 ## Test the workflow
 
@@ -209,8 +198,7 @@ In the top-right corner of the screen, click **Save**, then **Test**. Select  **
 
 The Excel file will get updated in your OneDrive account. It will look like the below.
 
-> [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="The updated excel spreadsheet.":::
+:::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Test the workflow and view the output" lightbox="../media/tutorials/excel/updated-excel-sheet.png":::
 
 ## Next steps
 
