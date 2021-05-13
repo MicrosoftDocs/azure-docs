@@ -50,12 +50,12 @@ In the *Remediation* phase that follows, the user is challenged with MFA. Once c
 
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
+::: zone pivot="b2c-custom-policy"
+
 > [!IMPORTANT]
 > To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
 
 When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
-
-::: zone pivot="b2c-custom-policy"
 
 The following example shows a Conditional Access technical profile used to remediate the identified threat:
 
