@@ -139,7 +139,7 @@ gRPC extension module:
 
 To understand the details of how gRPC server is developed, let’s go through our code sample.
 
-1. Clone the repo from the GitHub link [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
+1. Clone the repo from the GitHub link [https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp).
 1. Launch VSCode and navigate to the /src/edge/modules/grpcExtension folder.
 1. Let's do a quick walkthrough of the files:
 
@@ -150,7 +150,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
           "grpcBinding": "tcp://0.0.0.0:5001"
         }
         ```
-    1. **Services\MediaGraphExtensionService.cs**: This class is responsible for handling the [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
+    1. **Services\PipelineExtensionService.cs**: This class is responsible for handling the [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) messages. It will read the frame in the message, invoke the ImageProcessor and write the inference results.
       Now that we have configured and initialized the gRPC server port connections, let’s look into how we can process the incoming gRPC messages.
 
         1. Once a gRPC session is established, the very first message that the gRPC server will receive from the client (Azure Video Analyzer) is a MediaStreamDescriptor which is defined in the [extension.proto](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc/extension.proto) file.
@@ -202,7 +202,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
     IEnumerable<Inference> ProcessImage(List<Image> images)
     ```
 
-    Once you've added the new class, you'll have to update the **MediaGraphExtensionService.cs** so it instantiates your class and invokes the ProcessImage method on it to run your processing logic.
+    Once you've added the new class, you'll have to update the **PipelineExtensionService.cs** so it instantiates your class and invokes the ProcessImage method on it to run your processing logic.
 
 ## Connect with Video Analyzer module
 
@@ -233,11 +233,11 @@ Now that you have created your gRPC extension module, we will now create and dep
 
     * Change the link to the pipeline topology:
 
-        * `"topologyUrl" : https://raw.githubusercontent.com/Azure/azure-video-analyzer/master/pipelines/live/topologies/grpcExtension/topology.json`
-        * Under `livePipelineSet`, edit the name of the pipeline topology to match the value in the preceding link:<br/>`"topologyName": "InferencingWithGrpcExtension"`
-        * Under `pipelineTopologyDelete`, edit the name:<br/>`"name": "InferencingWithGrpcExtension"`
+        * `"topologyUrl" : https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json`
+        * Under `livePipelineSet`, edit the name of the pipeline topology to match the value in the preceding link:<br/>`"topologyName": "EVRtoVideoSinkByGrpcExtension"`
+        * Under `pipelineTopologyDelete`, edit the name:<br/>`"name": "EVRtoVideoSinkByGrpcExtension"`
 
-            The topology (for example, `https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json`) must define an extension address:
+            The topology must define an extension address:
     * Extension address Parameter
 
         ```
@@ -297,11 +297,12 @@ The deployment manifest defines what modules are deployed to an edge device and 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv/create-deployment-single-device.png" alt-text="Generate and deploy the IoT Edge deployment manifest":::
 
 1. Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Hub device, which should be `avasample-iot-edge-device`.
-At this stage, the deployment of edge modules to your IoT Edge device has started. In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that a new module got deployed named lvaExtension.
+At this stage, the deployment of edge modules to your IoT Edge device has started. In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that a new module got deployed named avaextension.
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv/devices.png" alt-text="A new module got deployed named avaextension":::
 
 ## Next steps
 
 * Follow the **Prepare to monitor events** steps mentioned in the Analyze live video with your model quickstart to run the sample and interpret the results.
-* Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-assets/topology.json), and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
+* Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json), and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
+

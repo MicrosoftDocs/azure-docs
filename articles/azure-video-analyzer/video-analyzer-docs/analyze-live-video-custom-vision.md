@@ -1,15 +1,15 @@
 ---
 title: Get started with Azure Video Analyzer
-description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer and Azure Custom Vision.
+description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
 ms.date: 04/21/2021
 zone_pivot_groups: video-analyzer-programming-languages
 
 ---
 
-# Tutorial: Analyze live video with Azure Video Analyzer and Azure Custom Vision
+# Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
-In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](add-valid-link.md) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
+In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
@@ -35,9 +35,9 @@ If you don't have an [Azure subscription](../../guides/developer/azure-developer
 
 Read through the following articles before you begin:
 
-- [Video Analyzer overview](overview.md)
+- [Video Analyzer on IoT Edge overview](overview.md)
 - [Azure Custom Vision overview](../../cognitive-services/custom-vision-service/overview.md)
-- [Video Analyzer terminology](terminology.md)
+- [Video Analyzer on IoT Edge terminology](terminology.md)
 - [Pipeline concept](pipeline.md)
 - [Video Analyzer without video recording](analyze-live-video-without-recording.md)
 - [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
@@ -60,13 +60,13 @@ This tutorial uses a [toy car inference video](https://lvamedia.blob.core.window
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
-In this tutorial, you'll use Video Analyzer to detect such toy trucks and publish associated inference events to the IoT Edge hub.
+In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
 ## Overview
 
 ![Diagram that shows a Custom Vision overview.](./media/custom-vision/topology-custom-vision.svg)
 
-This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
 The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
@@ -83,6 +83,7 @@ Additional notes:
 
 - For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
+- Ensure to select General(compact) as the option for Domains when creating the Custom Vision project
 
 After you're finished, you can export the model to a Docker container by using the **Export** button on the **Performance** tab. Ensure you choose Linux as the container platform type. This is the platform on which the container will run. The machine you download the container on could be either Windows or Linux. The instructions that follow were based on the container file downloaded onto a Windows machine.
 
@@ -94,7 +95,7 @@ After you're finished, you can export the model to a Docker container by using t
 
    Run the following commands:
 
-   1. `docker build -t cvtruck`
+   1. `docker build -t cvtruck .`
 
       This command downloads many packages, builds the Docker image, and tags it as `cvtruck:latest`.
 
@@ -172,10 +173,10 @@ After you're finished, you can export the model to a Docker container by using t
 9. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
    ![Screenshot that shows Create Deployment for Single Device.](./media/custom-vision/deployment-amd64-json.png)
-10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
+10. You'll then be asked to select an IoT Hub device. Select **ava-sample-iot-edge-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
-    - The Video Analyzer module named `avaedge`.
+    - The Video Analyzer on IoT Edge module named `avaedge`.
     - A module named `rtspsim`, which simulates an RTSP server that acts as the source of a live video feed.
     - A module named `cv`, which as the name suggests is the Custom Vision toy truck detection model that applies Custom Vision to the images and returns multiple tag types. (Our model was trained on only one tag, delivery truck.)
 
@@ -237,7 +238,7 @@ If you open the topology for this tutorial in a browser, you'll see that the val
    - A second call to `livePipelineList` that shows that the active pipeline.
 
 6. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select **Enter** yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this tutorial discusses these messages.
+7. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 8. The pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline, return to the **TERMINAL** window and select **Enter**. The next series of calls cleans up resources:
 
    - A call to `livePipelineDeactivate` deactivates the pipeline.
