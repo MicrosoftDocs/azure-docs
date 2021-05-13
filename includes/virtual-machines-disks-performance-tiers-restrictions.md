@@ -21,7 +21,9 @@ Normally, you would have to deallocate your VM or detach your disk to change you
 
 The preview has the following limitations:
 - Available in West Central US region only.
-- Not currently available for shared disks
-- Must use one of the following methods to change the tier:
+- Not currently available for shared disks.
+- Must use one of the following methods to change the tier without downtime:
     - Azure Resource Manager templates with the `2020-12-01` API to change performance tiers without downtime.
-    - Accessing the Azure portal through the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview)
+    - Accessing the Azure portal through the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
+    - The latest Azure CLI.
+- Not currently available with the Azure PowerShell module.
