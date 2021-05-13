@@ -305,6 +305,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     Use 'az account set' to set the active subscription.
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
+<!--Snippet includes both the command and returned data. Label as "output"?-->
 
 4. Sign in to your Azure Stack Edge Pro environment by using the `az login` command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -367,6 +368,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud update --profile 2019-03-01-hybrid
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
+<!--Why is this sample included? If you remove the command-line prompt, it's identical to the preceding sample.-->
 
 ## Step 2: Create a VM
 

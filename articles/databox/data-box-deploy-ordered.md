@@ -113,7 +113,6 @@ If the extension is installed successfully, you'll see the following output:
 
         Please let us know how we are doing: https://aka.ms/clihats
 ```
-<!--Line 112 flagged for azurecli formatting.-->
 
 #### Use Azure Cloud Shell
 
