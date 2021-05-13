@@ -995,6 +995,8 @@ items:
     - name: Transform data
       href: ../data-factory/transform-data.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       items:
+      - name: SQL Pool Stored Procedure Activity
+        href: ./data-integration/sql-pool-stored-procedure-activity.md
       - name: Azure Function Activity
         href: ../data-factory/control-flow-azure-function-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Custom Activity
