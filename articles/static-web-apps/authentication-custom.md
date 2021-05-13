@@ -89,7 +89,7 @@ For more information on how to configure Apple as an authentication provider, se
 | Field Path                          | Description                                                                            |
 | ----------------------------------- | -------------------------------------------------------------------------------------- |
 | `registration.appIdSettingName`     | The name of the application setting containing the App ID.                             |
-| `registration.appSecretSettingName` | The name pf the application setting containing the App Secret.                         |
+| `registration.appSecretSettingName` | The name of the application setting containing the App Secret.                         |
 
 ```json
 {
