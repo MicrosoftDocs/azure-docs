@@ -9,7 +9,7 @@ ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/11/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: designer
 ---
 

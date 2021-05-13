@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
-ms.topic: conceptual
-ms.custom: how-to, synapse-azureml
+ms.topic: how-to
+ms.custom: synapse-azureml
 
 # Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 
@@ -63,7 +63,7 @@ for service in LinkedService.list(ws) :
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
 
-First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
+First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Create a workspace configuration file](how-to-configure-environment.md#workspace)). Then, the code prints all of the linked services available in the Workspace. Finally, `LinkedService.get()` retrieves a linked service named `'synapselink1'`. 
 
 ## Attach your Apache spark pool as a compute target for Azure Machine Learning
 

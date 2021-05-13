@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Troubleshoot Azure Application Consistent Snapshot tool (preview)
+# Troubleshoot Azure Application Consistent Snapshot tool
 
 This article provides troubleshooting content for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 

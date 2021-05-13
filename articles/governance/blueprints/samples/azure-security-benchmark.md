@@ -6,7 +6,7 @@ ms.topic: sample
 ---
 # Azure Security Benchmark blueprint sample
 
-The Azure Security Benchmark blueprint sample provides governance guard-rails using
+The Azure Security Benchmark blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
 [Azure Security Benchmark v1](../../../security/benchmarks/overview.md) controls. This blueprint
 helps customers deploy a core set of policies for any Azure-deployed architecture where they intend

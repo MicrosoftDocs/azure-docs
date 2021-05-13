@@ -18,7 +18,7 @@ This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-c
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
     > [!TIP]
-    >  Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+    >  Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 - Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command.
 

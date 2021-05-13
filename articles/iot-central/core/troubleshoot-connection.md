@@ -14,7 +14,7 @@ ms.custom: device-developer, devx-track-azurecli
 
 # Troubleshoot why data from your devices isn't showing up in Azure IoT Central
 
-This document helps device developers find out why the data their devices are sending to IoT Central may not be showing up in the application.
+This document helps you find out why the data your devices are sending to IoT Central may not be showing up in the application.
 
 There are two main areas to investigate:
 

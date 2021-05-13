@@ -4,10 +4,9 @@ titleSuffix: Azure Load Balancer
 description: In this tutorial, deploy an Azure Load Balancer with more than one availability set in the backend pool.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/16/2021
+ms.date: 04/21/2021
 ms.custom: template-tutorial
 ---
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal

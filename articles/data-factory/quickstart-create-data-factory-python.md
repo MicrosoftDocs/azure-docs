@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
@@ -70,7 +70,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
     > [!NOTE] 
     > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
-    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/azure-sdk-sovereign-domain)
     
     
 ## Create a data factory client

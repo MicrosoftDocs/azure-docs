@@ -13,7 +13,7 @@ The user can configure QnA Maker to use a different Cognitive search resource. T
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-### Configure QnA Maker to use different Cognitive Search resource
+## Configure QnA Maker to use different Cognitive Search resource
 
 If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
 
@@ -42,7 +42,7 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 
 Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
 
-### Get the latest runtime updates
+## Get the latest runtime updates
 
 The QnAMaker runtime is part of the Azure App Service instance that's deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in the Azure portal. Updates are made periodically to the runtime. The QnA Maker App Service instance is in auto-update mode after the April 2019 site extension release (version 5+). This update is designed to take care of ZERO downtime during upgrades.
 
@@ -63,7 +63,7 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 
     ![Restart of the QnAMaker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-### Configure App service idle setting to avoid timeout
+## Configure App service idle setting to avoid timeout
 
 The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically time out if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
 
@@ -82,7 +82,7 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
-### Business continuity with traffic manager
+## Business continuity with traffic manager
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 
@@ -107,7 +107,7 @@ The high-level idea as represented above is as follows:
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-### Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
+## Configure QnA Maker managed (Preview) service to use different Cognitive Search resource
 
 If you create a QnA service managed (Preview) and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker managed (Preview) service. After these resources are created, you can update the Search service in the **Configuration** tab.
 

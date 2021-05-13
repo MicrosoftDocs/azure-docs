@@ -7,13 +7,12 @@ ms.date: 12/08/2020
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
-1. Navigate to the private cloud you created in the [Deploy vSphere Cluster in Azure](../tutorial-create-private-cloud.md) tutorial. Select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
-1. Copy the authorization key. If there isn't an authorization key, you need to create one, select **+ Request an authorization key**.
+1. Request an ExpressRoute authorization key:
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Copy the authorization key. If there isn't an authorization key, you need to create one, select + Request an authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
+   [!INCLUDE [request-authorization-key](request-authorization-key.md)]
 
-1. Navigate to the Virtual Network Gateway you created in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
+1. Navigate to the virtual network gateway you plan to use and select **Connections** > **+ Add**.
 
 1. On the **Add connection** page, provide values for the fields, and select **OK**. 
 
@@ -22,9 +21,9 @@ ms.date: 12/08/2020
    | **Name**  | Enter a name for the connection.  |
    | **Connection type**  | Select **ExpressRoute**.  |
    | **Redeem authorization**  | Ensure this box is selected.  |
-   | **Virtual network gateway** | The Virtual Network gateway you created previously.  |
-   | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
-   | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
+   | **Virtual network gateway** | The virtual network gateway your intent to use.  |
+   | **Authorization key**  | Paste the authorization key you copied earlier. |
+   | **Peer circuit URI**  | Paste the ExpressRoute ID you copied earlier.  |
 
    :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Screenshot of the Add connection page to connect ExpressRoute to the virtual network gateway.":::
 

@@ -100,14 +100,14 @@ When using a Java application to connect to HBase remotely, you must use the ful
 In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. It contains the FQDN for the nodes in the cluster. For example:
 
 ```json
-"host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
+"host_name" : "hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
 The portion of the domain name beginning with the cluster name is the DNS suffix. For example, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 ### Verify communication inside virtual network
 
-To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, `ping hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 To use this information in a Java application, you can follow the steps in [Use Apache Maven to build Java applications that use Apache HBase with HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
 

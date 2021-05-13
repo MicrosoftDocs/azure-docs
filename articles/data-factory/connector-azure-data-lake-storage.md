@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Azure Data Lake Storage Gen2
 description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -42,7 +42,7 @@ For Copy activity, with this connector you can:
 >[!TIP]
 >For a walk-through of how to use the Data Lake Storage Gen2 connector, see [Load data into Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide information about properties that are used to define Data Factory entities specific to Data Lake Storage Gen2.
 
@@ -230,7 +230,7 @@ These properties are supported for the linked service:
 
 For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
 
@@ -274,7 +274,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Storage Gen2 as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 You have several options to copy data from ADLS Gen2:
 
@@ -344,7 +344,7 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
 

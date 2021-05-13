@@ -71,7 +71,7 @@
             - name: Security controls by Azure Policy
               href: ./security-controls-policy.md
             - name: Security baseline
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/TOC.json
       - name: Backends
         href: backends.md 
       - name: Subscriptions
@@ -107,8 +107,8 @@
               href: import-soap-api.md
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
-            - name: Import an API App
-              href: import-api-app-as-api.md
+            - name: Import a Web App
+              href: import-app-service-as-api.md
             - name: Import a Function App
               href: import-function-app-as-api.md
             - name: Import a Logic App

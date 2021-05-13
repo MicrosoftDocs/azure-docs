@@ -113,6 +113,7 @@ In a search index, the document key uniquely identifies each document. The field
 > [!IMPORTANT]
 > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
 >
+> If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
 #### Example
 

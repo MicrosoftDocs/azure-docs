@@ -245,6 +245,9 @@ All that's left now is to publish your changes to Azure.
 
 In the publish page, click **Publish**. 
 
+> [!IMPORTANT]
+> Ensure that your app service name doesn't match with any existing [App Registrations](../active-directory/manage-apps/add-application-portal.md). This will lead to Principal ID conflicts.
+
 **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publish your changes using Git, with the following commands:
 
 ```bash

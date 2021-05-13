@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Android app with Azure Maps | Microsoft Azure '
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/10/2020
+ms.date: 04/26/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -44,7 +44,7 @@ Create a new Azure Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Click the **Create** button.
 
-    ![Create Maps account in portal](media/quick-android-map/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Create Maps account in portal":::
 
 ## Get the primary key for your account
 

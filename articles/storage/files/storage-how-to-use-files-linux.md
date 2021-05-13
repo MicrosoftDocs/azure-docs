@@ -224,7 +224,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     ```
 4. **Add the following entries to /etc/auto.fileshares**
    ```bash
-   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares
    ```
 5. **Add the following entry to /etc/auto.master**
    ```bash

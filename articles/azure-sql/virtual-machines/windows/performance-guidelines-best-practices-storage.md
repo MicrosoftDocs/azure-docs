@@ -157,7 +157,7 @@ For example, the [M-series](../../../virtual-machines/m-series.md) documentation
 
 Likewise, you can see that the Standard_M32ts supports 20,000 uncached disk IOPS and 500 MBps uncached disk throughput. This limit is governed at the virtual machine level regardless of the underlying premium disk storage.
 
-For more information, see [uncached and cached limits](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+For more information, see [uncached and cached limits](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### Cached and temp storage throughput
@@ -225,7 +225,7 @@ For more information on disk capping limitations and using caching to avoid capp
 
 ## Write Acceleration
 
-Write Acceleration is a disk feature that is only available for the [M-Series](https://docs.microsoft.com/azure/virtual-machines/m-series) Virtual Machines (VMs). The purpose of Write Acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
+Write Acceleration is a disk feature that is only available for the [M-Series](../../../virtual-machines/m-series.md) Virtual Machines (VMs). The purpose of Write Acceleration is to improve the I/O latency of writes against Azure Premium Storage when you need single digit I/O latency due to high volume mission critical OLTP workloads or data warehouse environments. 
 
 Use Write Acceleration to improve write latency to the drive hosting the log files. Do not use Write Acceleration for SQL Server data files. 
 
