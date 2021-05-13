@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/13/2021
 ---
 # Resource functions for ARM templates
 
@@ -539,6 +539,16 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
+When referencing a resource that is deployed in the same template in Bicep, directly use the symbolic name of the resource to get the properties from the resource. For example:
+
+```bicep
+output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -575,9 +585,11 @@ Typically, you use the **reference** function to return a particular value from 
 # [Bicep](#tab/bicep)
 
 ```bicep
-output BlobUri string = reference(resourceId('Microsoft.Storage/storageAccounts', storageAccountName)).primaryEndpoints.blob
-output FQDN string = reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName)).dnsSettings.fqdn
+output BlobUri string = myStorageAccount.properties.primaryEndpoints.blob
+output FQDN string = myPublicIp.properties.dnsSettings.fqdn
 ```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource. *myPublicIp* is the symbolic name of the public IP address resource.
 
 ---
 
@@ -660,17 +672,7 @@ When referencing a resource that is deployed in the same template, provide the n
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-value: reference(storageAccountName)
-```
-
----
-
 When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
-
-# [JSON](#tab/json)
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -679,7 +681,19 @@ When referencing a resource that isn't deployed in the same template, provide th
 # [Bicep](#tab/bicep)
 
 ```bicep
-value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
+value: myStorageAccount
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+When referencing a resource that isn't deployed in the same template using Bicep, use the `existing` keyword. For example:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
 ```
 
 ---
@@ -695,8 +709,10 @@ To avoid ambiguity about which resource you're referencing, you can provide a fu
 # [Bicep](#tab/bicep)
 
 ```bicep
-value: reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName))
+value: myPublicIp
 ```
+
+In the preceding example, *myPublicIp* is the symbolic name of the public IP address resource.
 
 ---
 
@@ -794,28 +810,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param storageAccountName string
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2016-12-01' = {
-  name: storageAccountName
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  tags: {}
-  properties: {}
-}
-
-output referenceOutput object = reference(storageAccountName)
-output fullReferenceOutput object = reference(storageAccountName, '2016-12-01', 'Full')
-```
-
----
-
 The preceding example returns the two objects. The properties object is in the following format:
 
 ```json
@@ -870,6 +864,64 @@ The full object is in the following format:
   "provisioningOperation":"Read"
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2016-12-01' = {
+  name: storageAccountName
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {}
+  properties: {}
+}
+
+output referenceOutput object = myStorageAccount
+```
+
+The preceding example returns the an object that is the same as using Full for JSON:
+
+```json
+{
+  "apiVersion":"2016-12-01",
+  "location":"southcentralus",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.windows.net/",
+      "file":"https://examplestorage.file.core.windows.net/",
+      "queue":"https://examplestorage.queue.core.windows.net/",
+      "table":"https://examplestorage.table.core.windows.net/"
+    },
+    "primaryLocation":"southcentralus",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2016-12-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
+}
+```
+
+---
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
@@ -1011,6 +1063,24 @@ The preceding example returns an object in the following format:
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+In Bicep, you can often use the `id` property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
+
+```bicep
+myStorageAccount.id
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
+```
 
 ### Parameters
 
@@ -1173,6 +1243,7 @@ Often, you need to use this function when using a storage account or virtual net
   ]
 }
 ```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
