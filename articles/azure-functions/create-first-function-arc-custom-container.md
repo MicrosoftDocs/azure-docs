@@ -46,10 +46,6 @@ On your local computer:
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
-## Get the custom location
-
-[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
-
 ## Create the local function project
 
 In Azure Functions, a function project is the context for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
@@ -151,6 +147,8 @@ Docker Hub is a container registry that hosts images and provides image and cont
     ```
 
 1. Depending on your network speed, pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
+
+[!INCLUDE [functions-arc-get-custom-location](../../includes/functions-arc-get-custom-location.md)]
 
 ## Create Azure resources 
 

@@ -1,13 +1,9 @@
 ---
-title: "include file"
-description: "include file"
-services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
 ms.date: 05/12/2021
 ms.author: cephalin
-ms.custom: "include file"
 ---
 
 ## Add Azure CLI extensions

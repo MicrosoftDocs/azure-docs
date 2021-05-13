@@ -42,12 +42,6 @@ On your local computer:
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
-## Get the custom location
-
-To be able to create a function app in a custom location, you'll need to get information about the environment.
-
-[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
-
 ## Create the local function project
 
 In Azure Functions, a function project is the unit of deployment and execution for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
@@ -105,6 +99,8 @@ In Azure Functions, a function project is the unit of deployment and execution f
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```  
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+
+[!INCLUDE [functions-arc-get-custom-location](../../includes/functions-arc-get-custom-location.md)]
 
 ## Create Azure resources 
 
