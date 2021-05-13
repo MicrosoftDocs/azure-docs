@@ -238,6 +238,7 @@ Output of the default OSM configmap should look like the following:
 {
   "egress": "false",
   "enable_debug_server": "false",
+  "enable_privileged_init_container": "false",
   "envoy_log_level": "error",
   "permissive_traffic_policy_mode": "true",
   "prometheus_scraping": "true",
@@ -346,436 +347,48 @@ InsightsMetrics
 
 ## Upgrade the OSM extension instance to a specific version
 >[!NOTE] 
->Upgrading the OSM add-on could potentially overwrite user-configured values in the OSM configmap. To prevent any previous ConfigMap changes from being overwritten, pass in the same configuration settings file used to make those edits. If you've previously created a configuration protected settings file, pass it in as well.
+>1. Upgrading the OSM add-on could potentially overwrite user-configured values in the OSM configmap. To prevent any previous ConfigMap changes from being overwritten, pass in the same configuration settings file used to make those edits. If you've previously created a configuration protected settings file, pass it in as well.
+>2. There may be some downtime of the control plane during upgrades. The data plane will only be affected during CRD upgrades.
 
+### Supported Upgrades
+The OSM extension can be upgraded up to the next minor version. Downgrades and major version upgrades are not supported at this time.
 
+### CRD Upgrades
+The OSM extension cannot be upgraded to a new version if that version contains CRD version updates without deleting the existing CRDs first. You can check if an OSM upgrade also includes CRD version updates by checking the CRD Updates section of the [OSM release notes](https://github.com/openservicemesh/osm/releases).
 
+Please refer to the [OSM CRD Upgrades documentation](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) to prepare your cluster for such an upgrade. Make sure to back up your Custom Resources prior to deleting the CRDs so that they can be easily recreated after ugprading. Afterwards, follow the upgrade instructions using az k8s-extension in this guide instead of using Helm or the OSM CLI.
 
+>[!NOTE] Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
 
-
-
-
-
-
-
-
-
-
-
-## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
-
-When you deploy the OSM AKS add-on, you might occasionally experience a problem. The following guides will assist you on how to troubleshoot errors and resolve common problems.
-
-### Verifying and Troubleshooting OSM components
-
-#### Check OSM Controller Deployment
-
+### Upgrade Instructions
+1. [Delete outdated CRDs and install udpated CRDs](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) if necessary
+- Back up existing Custom Resources as a reference for when you create new ones.
+- Install the updated CRDs and Custom Resources prior to installing the new extension version.
+2. Set the new chart version as an environment variable:
 ```azurecli-interactive
-kubectl get deployment -n kube-system --selector app=osm-controller
+export VERSION=<chart version>
 ```
-
-A healthy OSM Controller would look like this:
-
-```Output
-NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-osm-controller   1/1     1            1           59m
-```
-
-#### Check the OSM Controller Pod
-
+3. Run az k8s-extension create with the new chart version
 ```azurecli-interactive
-kubectl get pods -n kube-system --selector app=osm-controller
+az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --release-namespace arc-osm-system --version $VERSION --configuration-protected-settings-file $PROTECTED_SETTINGS_FILE --configuration-settings-file $SETTINGS_FILE
 ```
+4. Recreate Custom Resources using new CRDs if necessary
 
-A healthy OSM Pod would look like this:
-
-```Output
-NAME                            READY   STATUS    RESTARTS   AGE
-osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
-osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
-```
-
-Even though we had one controller evicted at some point, we have another one that is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
-Column READY with 0/1 indicates the control plane container is crashing - we need to get logs. See Get OSM Controller Logs from Azure Support Center section below. Column READY with a number higher than 1 after the / would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
-
-> [!NOTE]
-> As of version v0.8.2 the OSM Controller is not in HA mode and will run in a deployed with replica count of 1 - single pod. The pod does have health probes and will be restarted by the kubelet if needed.
-
-#### Check OSM Controller Service
-
+## Uninstall Arc enabled Open Service Mesh
+Use the below command
 ```azurecli-interactive
-kubectl get service -n kube-system osm-controller
+az k8s-extension delete --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name osm -y
 ```
 
-A healthy OSM Controller service would look like this:
-
-```Output
-NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
-osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67m
-```
-
-> [!NOTE]
-> The CLUSTER-IP would be different. The service NAME and PORT(S) must be the same as the example above.
-
-#### Check OSM Controller Endpoints
-
+Verify that the extension instance has been deleted.
 ```azurecli-interactive
-kubectl get endpoints -n kube-system osm-controller
+az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 ```
+This should output a list of extensions without OSM. If you don't have any other extensions installed on your cluster, it will just be an empty array.
 
-A healthy OSM Controller endpoint(s) would look like this:
+When you use the az k8s-extension command to delete the OSM extension, the arc-osm-system namespace is not removed, and the actual resources within the namespace (mutating webhook configuration, osm-controller pod, etc) will take around ~10 minutes to delete.
 
-```Output
-NAME             ENDPOINTS                              AGE
-osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
-```
-
-#### Check OSM Injector Deployment
-
-```azurecli-interactive
-kubectl get pod -n kube-system --selector app=osm-injector
-```
-
-A healthy OSM Injector deployment would look like this:
-
-```Output
-NAME                            READY   STATUS    RESTARTS   AGE
-osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
-```
-
-#### Check OSM Injector Pod
-
-```azurecli-interactive
-kubectl get pod -n kube-system --selector app=osm-injector
-```
-
-A healthy OSM Injector pod would look like this:
-
-```Output
-NAME                            READY   STATUS    RESTARTS   AGE
-osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
-```
-
-#### Check OSM Injector Service
-
-```azurecli-interactive
-kubectl get service -n kube-system osm-injector
-```
-
-A healthy OSM Injector service would look like this:
-
-```Output
-NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
-osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
-```
-
-#### Check OSM Endpoints
-
-```azurecli-interactive
-kubectl get endpoints -n kube-system osm-injector
-```
-
-A healthy OSM endpoint would look like this:
-
-```Output
-NAME           ENDPOINTS           AGE
-osm-injector   10.240.1.172:9090   75m
-```
-
-#### Check Validating and Mutating webhooks
-
-```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
-```
-
-A healthy OSM Validating Webhook would look like this:
-
-```Output
-NAME              WEBHOOKS   AGE
-aks-osm-webhook-osm   1      81m
-```
-
-```azurecli-interactive
-kubectl get MutatingWebhookConfiguration --selector app=osm-injector
-```
-
-A healthy OSM Mutating Webhook would look like this:
-
-```Output
-NAME              WEBHOOKS   AGE
-aks-osm-webhook-osm   1      102m
-```
-
-#### Check for the service and the CA bundle of the Validating webhook
-
-```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
-```
-
-A well configured Validating Webhook Configuration would look exactly like this:
-
-```json
-{
-  "name": "osm-config-validator",
-  "namespace": "kube-system",
-  "path": "/validate-webhook",
-  "port": 9093
-}
-```
-
-#### Check for the service and the CA bundle of the Mutating webhook
-
-```azurecli-interactive
-kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
-```
-
-A well configured Mutating Webhook Configuration would look exactly like this:
-
-```json
-{
-  "name": "osm-injector",
-  "namespace": "kube-system",
-  "path": "/mutate-pod-creation",
-  "port": 9090
-}
-```
-
-#### Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle
-
-> [!NOTE]
-> As of v0.8.2 It is important to know that AKS RP installs the Validating Webhook, AKS Reconciler ensures it exists, but OSM Controller is the one that fills the CA Bundle.
-
-```azurecli-interactive
-kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
-```
-
-```azurecli-interactive
-kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
-```
-
-```Example Output
-1845
-```
-
-This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the Validating Webhook would be erroring out and prohibiting the user from making changes to the osm-config ConfigMap in the kube-system namespace.
-
-A sample error when the CA Bundle is incorrect:
-
-- An attempt to change the osm-config ConfigMap:
-
-```azurecli-interactive
-kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
-```
-
-- Error:
-
-```
-Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.kube-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
-```
-
-Work around for when the **Validating** Webhook Configuration has a bad certificate:
-
-- Option 1 - Restart OSM Controller - this will restart the OSM Controller. On start, it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
-
-```azurecli-interactive
-kubectl rollout restart deployment -n kube-system osm-controller
-```
-
-- Option 2 - Option 2. Delete the Validating Webhook - removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The AKS Reconciler will at some point ensure the Validating Webhook exists and will recreate it. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
-
-```azurecli-interactive
-kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
-```
-
-- Option 3 - Delete and Patch: The following command will delete the validating webhook, allowing us to add any values, and will immediately try to apply a patch. Most likely the AKS Reconciler will not have enough time to reconcile and restore the Validating Webhook giving us the opportunity to apply a change as a last resort:
-
-```azurecli-interactive
-kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
-```
-
-#### Check the `osm-config` **ConfigMap**
-
-> [!NOTE]
-> The OSM Controller does not require for the `osm-config` ConfigMap to be present in the kube-system namespace. The controller has reasonable default values for the config and can operate without it.
-
-Check for the existence:
-
-```azurecli-interactive
-kubectl get ConfigMap -n kube-system osm-config
-```
-
-Check the content of the osm-config ConfigMap
-
-```azurecli-interactive
-kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
-```
-
-```json
-{
-  "egress": "true",
-  "enable_debug_server": "true",
-  "enable_privileged_init_container": "false",
-  "envoy_log_level": "error",
-  "outbound_ip_range_exclusion_list": "169.254.169.254,168.63.129.16,20.193.20.233",
-  "permissive_traffic_policy_mode": "true",
-  "prometheus_scraping": "false",
-  "service_cert_validity_duration": "24h",
-  "use_https_ingress": "false"
-}
-```
-
-`osm-config` ConfigMap values:
-
-| Key                              | Type   | Allowed Values                                          | Default Value                          | Function                                                                                                                                                                                                                                |
-| -------------------------------- | ------ | ------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| egress                           | bool   | true, false                                             | `"false"`                              | Enables egress in the mesh.                                                                                                                                                                                                             |
-| enable_debug_server              | bool   | true, false                                             | `"true"`                               | Enables a debug endpoint on the osm-controller pod to list information regarding the mesh such as proxy connections, certificates, and SMI policies.                                                                                    |
-| enable_privileged_init_container | bool   | true, false                                             | `"false"`                              | Enables privileged init containers for pods in mesh. When false, init containers only have NET_ADMIN.                                                                                                                                   |
-| envoy_log_level                  | string | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | Sets the logging verbosity of Envoy proxy sidecar, only applicable to newly created pods joining the mesh. To update the log level for existing pods, restart the deployment with `kubectl rollout restart`.                            |
-| outbound_ip_range_exclusion_list | string | comma-separated list of IP ranges of the form a.b.c.d/x | `-`                                    | Global list of IP address ranges to exclude from outbound traffic interception by the sidecar proxy.                                                                                                                                    |
-| permissive_traffic_policy_mode   | bool   | true, false                                             | `"false"`                              | Setting to `true`, enables allow-all mode in the mesh i.e. no traffic policy enforcement in the mesh. If set to `false`, enables deny-all traffic policy in mesh i.e. an `SMI Traffic Target` is necessary for services to communicate. |
-| prometheus_scraping              | bool   | true, false                                             | `"true"`                               | Enables Prometheus metrics scraping on sidecar proxies.                                                                                                                                                                                 |
-| service_cert_validity_duration   | string | 24h, 1h30m (any time duration)                          | `"24h"`                                | Sets the service certificate validity duration, represented as a sequence of decimal numbers each with optional fraction and a unit suffix.                                                                                             |
-| tracing_enable                   | bool   | true, false                                             | `"false"`                              | Enables Jaeger tracing for the mesh.                                                                                                                                                                                                    |
-| tracing_address                  | string | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Address of the Jaeger deployment, if tracing is enabled.                                                                                                                                                                                |
-| tracing_endpoint                 | string | /api/v2/spans                                           | /api/v2/spans                          | Endpoint for tracing data, if tracing enabled.                                                                                                                                                                                          |
-| tracing_port                     | int    | any non-zero integer value                              | `"9411"`                               | Port on which tracing is enabled.                                                                                                                                                                                                       |
-| use_https_ingress                | bool   | true, false                                             | `"false"`                              | Enables HTTPS ingress on the mesh.                                                                                                                                                                                                      |
-| config_resync_interval           | string | under 1 minute disables this                            | 0 (disabled)                           | When a value above 1m (60s) is provided, OSM Controller will send all available config to each connected Envoy at the given interval                                                                                                    |
-
-#### Check Namespaces
-
-> [!NOTE]
-> The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
-
-We use the `osm namespace add` command to join namespaces to a given service mesh.
-When a k8s namespace is part of the mesh (or for it to be part of the mesh) the following must be true:
-
-View the annotations with
-
-```azurecli-interactive
-kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
-```
-
-The following annotation must be present:
-
-```Output
-{
-  "openservicemesh.io/sidecar-injection": "enabled"
-}
-```
-
-View the labels with
-
-```azurecli-interactive
-kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
-```
-
-The following label must be present:
-
-```Output
-{
-  "openservicemesh.io/monitored-by": "osm"
-}
-```
-
-If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
-
-> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
-
-#### Verify the SMI CRDs:
-
-Check whether the cluster has the required CRDs:
-
-```azurecli-interactive
-kubectl get crds
-```
-
-We must have the following installed on the cluster:
-
-- httproutegroups.specs.smi-spec.io
-- tcproutes.specs.smi-spec.io
-- trafficsplits.split.smi-spec.io
-- traffictargets.access.smi-spec.io
-- udproutes.specs.smi-spec.io
-
-Get the versions of the CRDs installed with this command:
-
-```azurecli-interactive
-for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
-    kubectl get crd $x -o json | jq -r '(.metadata.name, "----" , .spec.versions[].name, "\n")'
-done
-```
-
-Expected output:
-
-```Output
-httproutegroups.specs.smi-spec.io
-----
-v1alpha4
-v1alpha3
-v1alpha2
-v1alpha1
-
-
-tcproutes.specs.smi-spec.io
-----
-v1alpha4
-v1alpha3
-v1alpha2
-v1alpha1
-
-
-trafficsplits.split.smi-spec.io
-----
-v1alpha2
-
-
-traffictargets.access.smi-spec.io
-----
-v1alpha3
-v1alpha2
-v1alpha1
-
-
-udproutes.specs.smi-spec.io
-----
-v1alpha4
-v1alpha3
-v1alpha2
-v1alpha1
-```
-
-OSM Controller v0.8.2 requires the following versions:
-
-- traffictargets.access.smi-spec.io - [v1alpha3](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-access/v1alpha3/traffic-access.md)
-- httproutegroups.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#httproutegroup)
-- tcproutes.specs.smi-spec.io - [v1alpha4](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-specs/v1alpha4/traffic-specs.md#tcproute)
-- udproutes.specs.smi-spec.io - Not supported
-- trafficsplits.split.smi-spec.io - [v1alpha2](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-split/v1alpha2/traffic-split.md)
-- \*.metrics.smi-spec.io - [v1alpha1](https://github.com/servicemeshinterface/smi-spec/blob/v0.6.0/apis/traffic-metrics/v1alpha1/traffic-metrics.md)
-
-If CRDs are missing use the following commands to install these on the cluster:
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/access.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/specs.yaml
-```
-
-```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
-```
-
-## Disable Open Service Mesh (OSM) add-on for your AKS cluster
-
-To disable the OSM add-on, run the following command:
-
-```azurecli-interactive
-az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
-```
+>[!Note] Please use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
 
 <!-- LINKS - internal -->
 
