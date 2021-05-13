@@ -4,7 +4,7 @@ description: Secure HTTPS access to your custom domain by creating a TLS/SSL bin
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
