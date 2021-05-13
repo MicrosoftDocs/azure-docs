@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 05/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,8 +50,9 @@ The following Linux distributions are currently supported during the preview of 
 The following Azure regions are currently supported during the preview of this feature:
 
 - Azure Global
-- Azure Government
-- Azure China
+
+> [!Note]
+> The preview of this feature will be supported in Azure Government and Azure China by June of 2021.
  
 It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -67,24 +68,24 @@ VM network configuration must permit outbound access to the following endpoints 
 
 For Azure Global
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.com – For PAM (pluggable authentication modules) based authentication flows.
-- https://pas.windows.net – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.com` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pas.windows.net` – For Azure RBAC flows.
 
 For Azure Government
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.us – For PAM (pluggable authentication modules) based authentication flows.
-- https://pasff.usgovcloudapi.net – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.us` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pasff.usgovcloudapi.net` – For Azure RBAC flows.
 
 For Azure China
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.chinacloudapi.cn – For PAM (pluggable authentication modules) based authentication flows.
-- https://pas.chinacloudapi.cn – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.chinacloudapi.cn` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pas.chinacloudapi.cn` – For Azure RBAC flows.
 
 ### Virtual machine
 
@@ -366,6 +367,9 @@ For customers who are using previous version of Azure AD login for Linux that wa
                 --resource-group myResourceGroup \
                 --vm-name myVM
       ```
+## Using Azure Policy to ensure standards and assess compliance
+
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Linux virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Linux VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Linux VMs that do not have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Linux VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
 
 ## Troubleshoot sign-in issues
 
@@ -429,10 +433,6 @@ Solution 2: Perform these actions:
 ### Virtual machine scale set Connection Issues
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade has not been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
-
-### Other limitations
-
-Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the required role assignments. For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
 
 ## Preview feedback
 

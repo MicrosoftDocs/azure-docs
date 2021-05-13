@@ -178,7 +178,7 @@ You can also use the following environment variables in your script:
 
 Once you store the script, specify it during creation of your compute instance:
 
-1. Sign into the [studio](https://ml.azureml.com) and select your workspace.
+1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
 1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).

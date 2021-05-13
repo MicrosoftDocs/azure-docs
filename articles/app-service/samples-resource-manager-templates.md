@@ -31,7 +31,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |**Protecting an app**| **Description** |
 | [App integrated with Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2)| Deploys an App Service app and an Application Gateway, and isolates the traffic using service endpoint and access restrictions. |
 |**Linux app with connected resources**| **Description** |
-| [App on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Deploys an App Service app on Linux with Azure Database for MySQL. |
+| [App on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-linux-managed-mysql) | Deploys an App Service app on Linux with Azure Database for MySQL. |
 | [App on Linux with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-linux-managed-postgresql) | Deploys an App Service app on Linux with Azure Database for PostgreSQL. |
 |**App with connected resources**| **Description** |
 | [App with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Deploys an App Service app on Windows with Azure Database for MySQL. |
