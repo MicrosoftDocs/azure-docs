@@ -5,19 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 05/10/2021
 
-#Customer intent: As a cluster operator or developer, I want to learn how to statically provision volumes to use in AKS clusters
+#Customer intent: As a cluster operator or developer, I want to learn how to statically provision ANF volumes to use in AKS clusters
 ---
 
 # Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to **manually create** an Azure NetApp Files volume to use for Read-Write-Many (RWX) workloads in AKS. This is the preferred mode of operation if:
-* you would like to create volumes directly through Azure and not through the Kubernetes plane.
-* you need to share volumes **between AKS clusters**. 
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to **manually create** an Azure NetApp Files (ANF) volume to use for Read-Write-Many (RWX) workloads in AKS.
 
-You can also create volumes **on-demand**. Users have two options:
-
-* Dynamically create volumes using [NetApp Astra](https://cloud.netapp.com/astra) and [Trident](https://netapp-trident.readthedocs.io/). Astra is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Trident is NetApp's dynamic storage orchestrator that contains a CSI driver for Azure NetApp Files. Trident provides access to reliable persistent storage on-demand and lets Kubernetes users consume storage directly through Kubernetes. This is covered under [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic].
-* Dynamically create volumes using Trident's CSI driver. You can use Trident, NetApp's open-source storage provision to create volumes on-demand without requiring Astra. This is covered under [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netapp-files-csi].
+You can also create ANF volumes **on-demand** using [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -33,8 +28,8 @@ The following considerations apply when you use Azure NetApp Files:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* After the initial deployment of an AKS cluster, users can choose to provision volumes statically or dynamically. This article explains the steps involved in creating volumes manually.
-* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later. This is covered in detail under [Dynamic Provisioning of Azure NetApp Files volumes with Trident][az-netapp-files-dynamic].
+* After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically. This article explains the steps involved in creating ANF volumes manually.
+* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later. This is covered in detail under [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
 
 ## Configure Azure NetApp Files
 
@@ -265,7 +260,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 ## Next steps
 
-* To learn about dynamic provisioning of Azure NetApp Files volumes, see [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic].
+* To learn about dynamic provisioning of ANF volumes, see [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic].
 * For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
 * For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
 
@@ -281,7 +276,6 @@ Filesystem             Size  Used Avail Use% Mounted on
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
 [az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
-[az-netapp-files-csi]: azure-netapp-files-csi.md
 [az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
 [az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
 [az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show

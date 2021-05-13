@@ -215,6 +215,8 @@
               href: azure-files-csi.md
             - name: Azure NetApp Files CSI driver
               href: azure-netapp-files-csi.md
+            - name: CSI Secrets Store driver (preview)
+              href: csi-secrets-store-driver.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
