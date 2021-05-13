@@ -11,7 +11,7 @@ ms.topic: quickstart
 # Azure Event Grid on kubernetes - Create a topic and subscriptions
 In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
 
 
 ## Prerequisites
