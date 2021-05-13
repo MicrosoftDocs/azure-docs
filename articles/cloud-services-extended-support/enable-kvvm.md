@@ -1,5 +1,5 @@
 ---
-title: Apply the Azure Key Vault VM Extension in Azure Cloud Services (extended support) 
+title: Apply the Key Vault VM Extension in Azure Cloud Services (extended support) 
 description: Enable KeyVault VM Extension for Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
@@ -10,7 +10,7 @@ ms.date: 05/12/2021
 ms.custom: 
 ---
 
-# Apply the Azure KeyVault VM extension to Azure Cloud Services (extended support)
+# Apply the KeyVault VM extension to Azure Cloud Services (extended support)
 
 ## What is the Key Vault VM Extension?
 The Key Vault VM extension provides automatic refresh of certificates stored in an Azure Key Vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and upon detecting a change, retrieves, and installs the corresponding certificates. For more details, see [Key Vault VM extension for Windows](../virtual-machines/extensions/key-vault-windows.md).
@@ -36,7 +36,7 @@ To use the Azure Key Vault VM extension, you need to have an Azure Active Direct
 
 3. In the App Registrations page select **New Registration** on the top left corner of the page
     
-    :::image type="content" source="media/app-registration-1.jpg" alt-text="Shows the app registration sin the Azure portal.":::
+    :::image type="content" source="media/app-registration-1.png" alt-text="Shows the app registration sin the Azure portal.":::
 
 4. On the next page you can fill the form and complete the app creation.
 
