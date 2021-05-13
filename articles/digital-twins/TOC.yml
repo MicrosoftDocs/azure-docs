@@ -80,7 +80,11 @@
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
-      href: how-to-create-app-registration.md
+      items:
+      - name: Portal version
+        href: how-to-create-app-registration-portal.md
+      - name: CLI version
+        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
