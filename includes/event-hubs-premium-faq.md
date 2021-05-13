@@ -13,9 +13,8 @@ ms.custom: "include file"
 
 ### What can I achieve with a Processing Unit?
 
-How much you can ingest and stream with a Premium Unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
-
-One Premium Unit can approximately offer core capacity of ~5-10 MB/s ingress and 10-20 MB/s egress, give that we have sufficient enough partitions so that storage is not a throttling factor.  
+How much you can ingest and stream with a Processing Unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
+Please refer [Scaling with Event Hubs](../articles/event-hubs/event-hubs-scalability.md) more details on Processing Units. 
 
 ### Can I migrate my Standard namespaces to Premium namespace?
 We don't currently don't support migrating from standard namespaces to premium namespace.  
