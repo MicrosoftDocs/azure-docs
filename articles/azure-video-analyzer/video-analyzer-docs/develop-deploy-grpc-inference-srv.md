@@ -233,11 +233,11 @@ Now that you have created your gRPC extension module, we will now create and dep
 
     * Change the link to the pipeline topology:
 
-        * `"topologyUrl" : https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtension/topology.json`
-        * Under `livePipelineSet`, edit the name of the pipeline topology to match the value in the preceding link:<br/>`"topologyName": "InferencingWithGrpcExtension"`
-        * Under `pipelineTopologyDelete`, edit the name:<br/>`"name": "InferencingWithGrpcExtension"`
+        * `"topologyUrl" : https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json`
+        * Under `livePipelineSet`, edit the name of the pipeline topology to match the value in the preceding link:<br/>`"topologyName": "EVRtoVideoSinkByGrpcExtension"`
+        * Under `pipelineTopologyDelete`, edit the name:<br/>`"name": "EVRtoVideoSinkByGrpcExtension"`
 
-            The topology (for example, `https://github.com/Azure/video-analyzer/blob/master/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json`) must define an extension address:
+            The topology must define an extension address:
     * Extension address Parameter
 
         ```
