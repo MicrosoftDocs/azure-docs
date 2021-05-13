@@ -71,6 +71,8 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Estimate storage costs for single-tenant workflows
+      href: estimate-storage-costs.md
   - name: Develop
     items:
     - name: Create from prebuilt templates

@@ -1112,7 +1112,7 @@
         - name: API version 3.2
           href: mongodb-feature-support.md
         - name: FAQ
-          href: mongodb-api-faq.md
+          href: mongodb-api-faq.yml
         - name: Mapping consistency levels
           href: mongodb-consistency.md
     - name: How-to guides
@@ -1219,7 +1219,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: gremlin-api-faq.md
+          href: gremlin-api-faq.yml
         - name: Response headers
           href: gremlin-headers.md
         - name: Limits
@@ -1318,7 +1318,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: table-api-faq.md
+          href: table-api-faq.yml
     - name: How-to guides
       items:
         - name: Build apps with Table API
@@ -1473,7 +1473,7 @@
     - name: SQL playground
       href: https://www.documentdb.com/sql/demo
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: Whitepapers
       href: whitepapers.md
     - name: Partners
