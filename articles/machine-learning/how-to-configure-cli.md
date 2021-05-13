@@ -108,3 +108,4 @@ Submit the job, streaming the logs to the console output, and opening the run in
 ## Next steps
 
 - [Train models using Machine Learning CLI extension](how-to-train-cli.md)
+- [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)

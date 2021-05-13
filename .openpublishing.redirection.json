@@ -66043,6 +66043,11 @@
       "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
       "redirect_url": "https://azure.github.io/communication-ui-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
+      "redirect_url": "/azure/machine-learning/how-to-setup-vs-code",
+      "redirect_document_id": false
     }
   ]
 }
