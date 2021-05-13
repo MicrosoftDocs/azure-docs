@@ -1,7 +1,7 @@
 ---
-title: Deploy a managed endpoint using system managed identity for accessing Azure resources.
+title: Deploy ML models with managed endpoints
 titleSuffix: Azure Machine Learning
-description: Deploy your machine learning model as a web service managed by Azure and use system managed identity for accessing Azure resources within your scoring script.
+description: Deploy your machine learning model as a web service managed by Azure and use system-assigned managed identity for accessing Azure resources within your scoring script.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -34,7 +34,7 @@ Learn how to take the following actions:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, install the [Azure CLI](/cli/azure/install-azure-cli)and [leverage `ml` extension](how-to-configure-cli.md). 
+* To use the CLI commands in this document from your **local environment**, install the [Azure CLI](/cli/azure/install-azure-cli)and [leverage the `ml` extension](how-to-configure-cli.md). 
 
 * To follow along with the sample, clone the samples repository
 
@@ -48,7 +48,7 @@ Learn how to take the following actions:
 
 ## Set the defaults for Azure CLI
 
-To ensure the Azure CLI knows what resources to use throughout this tutorial, set the default values for the Azure subscription ID, Azure Machine Learning workspace and resource group you want to use. Doing so allows you to not have to specify these resources every time you call an Azure CLI command. 
+To ensure the correct resources are used throughout this tutorial, set the default values for the Azure subscription ID, Azure Machine Learning workspace, and resource group you want to use. Doing so allows you to not have to specify these resources every time you call an Azure CLI command. 
 
 > [!IMPORTANT]
 > Ensure your user account has "User Access Administrator" role assigned to resource group. 
@@ -60,7 +60,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 ## Define the configuration YAML file for your deployment
 
-In order to deploy a managed endpoint, you first need to define the configuration for your endpoint in a YAML file.
+To deploy a managed endpoint, you first need to define the configuration for your endpoint in a YAML file.
 
 The following code example creates a managed endpoint that,  
 * Shows the YAML files from `endpoints/online/managed/managed-identities/` directory.
@@ -75,11 +75,11 @@ The following code example creates a managed endpoint that,
 
 ## Configure variables for your deployment
 
-Configure the variable names for the workspace, workspace location and the endpoint you want to create. The following code exports these values as environment variables in your endpoint:
+Configure the variable names for the workspace, workspace location, and the endpoint you want to create. The following code exports these values as environment variables in your endpoint:
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
 
-Next, specify what you want to name your blob storage account, blob container and file. These variable names are defined here, and are referred to in `az storage account create` and `az storage container create` commands in the next section.
+Next, specify what you want to name your blob storage account, blob container, and file. These variable names are defined here, and are referred to in `az storage account create` and `az storage container create` commands in the next section.
 
 The following code exports those values as environment variables:
 
@@ -108,7 +108,7 @@ Then, upload your text file to the blob container.
 
 The following code creates a managed endpoint without specifying a deployment. Deployment creation is done later in the tutorial.
 
-When you create a managed endpoint a system assigned managed identity is created for the endpoint by default.
+When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 >[!IMPORTANT]
 > System assigned managed identities are immutable and can't be changed once created.
@@ -134,7 +134,7 @@ From here, you can give the system-assigned managed identity permission to acces
 
 ## Scoring script to access Azure resource
 
-Refer to the following scoring script, to understand how to use system-assigned managed identity token to access Azure resources. In this scenario the Azure resource is the storage account created in previous sections. 
+Refer to the following scoring script, to understand how to use system-assigned managed identity token to access Azure resources. In this scenario, the Azure resource is the storage account created in previous sections. 
 
 :::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/online/model-1/onlinescoring/score_managedidentity.py":::
 
@@ -178,7 +178,7 @@ To check the init method output, see the deployment log with the following code.
 > [!IMPORTANT]
 > The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
-If you plan on continuing to use the Azure Machine Learning workspace, but want to delete the deployed endpoint and storage to reduce costs, use the following commands. When you delete the endpoint all the deployments associated with it are deleted as well. 
+If you don't plan to continue using the deployed endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well. 
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
