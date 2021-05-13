@@ -19,7 +19,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 ## Unable to add VM image to blob container
 
-**Error Description:** In the Azure portal, when trying to upload a VM image to a blob container, the **Add** button is not available, and the image can't be uploaded. The **Add** button isn't available when you don't have the required contributor role permissions to the resource group or subscription for the device.
+**Error Description:** In the Azure portal, when trying to upload a VM image to a blob container, the **Add** button isn't available, and the image can't be uploaded. The **Add** button isn't available when you don't have the required contributor role permissions to the resource group or subscription for the device.
 
 **Suggested solution:** Make sure you have the required contributor permissions to add files to the resource group or storage account. For more information, see [Prerequisites for the Azure Stack Edge resource](azure-stack-edge-deploy-prep.md#prerequisites).
 
