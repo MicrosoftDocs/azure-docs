@@ -148,7 +148,7 @@ For batch endpoints using MLflow models, you need to specify the following:
 
 However, if you are **not** deploying an MLflow model, you need to provide additional requirements:
 - Scoring script - code needed to perform scoring/inferencing
-- Environment - a Docker image with Conda dependencies, or a dockerfile 
+- Environment - a Docker image with Conda dependencies
 
 
 ### Managed cost with autoscaling compute
