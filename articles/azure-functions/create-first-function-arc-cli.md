@@ -5,12 +5,14 @@ ms.topic: quickstart
 ms.date: 05/10/2021
 ---
 
-# Create your first function on Azure Arc
+# Create your first function on Azure Arc (preview)
 
-In this quickstart, you create an Azure Functions project and deploy it to a function app running on an Azure Arc-enabled Kubernetes cluster. 
+In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
-This scenario only supports function apps running on Linux.   
-PowerShell function app aren't currently supported on Azure Arc-enabled Kubernetes clusters.
+> [!NOTE]
+> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+>  
+> PowerShell function apps aren't currently supported on Azure Arc-enabled Kubernetes clusters.
 
 ## Prerequisites
 
@@ -95,7 +97,7 @@ In Azure Functions, a function project is the unit of deployment and execution f
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). By default, the *local.settings.json* file is excluded from source control in the *.gitignore* file. This exclusion is because the file can contain secrets that are downloaded from Azure.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -106,7 +108,7 @@ In Azure Functions, a function project is the unit of deployment and execution f
 
 ## Create Azure resources 
 
-Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two additional resources:
+Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two more resources:
 
 - A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
 - A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
@@ -155,7 +157,7 @@ In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom locati
 
 ## Next steps
 
-Now that you have your function app running in an Arc-enabled App Service Kubernetes environment, you can extend it by connecting to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 
