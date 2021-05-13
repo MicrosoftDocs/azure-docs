@@ -134,7 +134,15 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To remove images from your Azure container registry, you can use the Azure PowerShell cmdlet [Remove-AzContainerRegistryRepository](/powershell/module/az.containerregistry/remove-azcontainerregistryrepository). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
+The [Az.ContainerRegistry](/powershell/module/az.containerregistry) Azure PowerShell module contains multiple commands for removing images from your container instance. [Remove-AzContainerRegistryRepository](/powershell/module/az.containerregistry/remove-azcontainerregistryrepository) removes all images in a particular namespace such as `samples:nginx`, while [Remove-AzContainerRegistryManifest](/powershell/module/az.containerregistry/remove-azcontainerregistrymanifest) removes a specific tag or manifest.
+
+In the following example, you use the `Remove-AzContainerRegistryRepository` cmdlet to remove all images in the `samples:nginx` namespace.
+
+```azurepowershell
+Remove-AzContainerRegistryRepository -RegistryName myregistry -Name samples/nginx
+```
+
+In the following example, you use the `Remove-AzContainerRegistryManifest` cmdlet to delete the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurepowershell
 Remove-AzContainerRegistryManifest -RegistryName myregistry -RepositoryName samples/nginx -Tag latest
