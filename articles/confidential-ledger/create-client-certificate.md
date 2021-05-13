@@ -26,9 +26,6 @@ You can then generate a certificate by running `openssl` in a Bash or PowerShell
 openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout user_privk.pem -out user_cert.pem -subj=/CN="User Client Certificate"
 ```
 
-Open the user_cert.pem as text and copy/paste the certificate for future use in the [workflows](workflows.md).
-
 ## Next steps
 
 - [Overview of Microsoft Azure Confidential Ledger](overview.md)
-- [Administrative and Functional Workflows](workflows.md)

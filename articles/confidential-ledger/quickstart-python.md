@@ -101,7 +101,7 @@ We'll finish setup by setting some variables for use in your application: the re
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
 
-identity_url = "https://eastus.identity.confidential-ledger.core.azure.com"
+identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 ```
 

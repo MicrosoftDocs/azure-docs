@@ -16,4 +16,4 @@ ms.author: mbaldwin
 ## Next Steps
 
 - [Overview of Microsoft Azure Confidential Ledger](overview.md)
-- [register a a Confidential Ledger service principal](register-ledger-service-principal.md)
+- [Register a a Confidential Ledger service principal](register-ledger-service-principal.md)

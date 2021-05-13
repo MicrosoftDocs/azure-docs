@@ -10,10 +10,6 @@
     href: quickstart-python.md
   - name: ARM template
     href: quickstart-template.md 
-- name: Tutorials
-  items:
-  - name: Workflows
-    href: workflows.md
 - name: Concepts
   items:
   - name: Architecture

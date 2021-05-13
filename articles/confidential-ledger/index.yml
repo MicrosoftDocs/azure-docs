@@ -45,14 +45,6 @@ landingContent:
           - text: Authenticating Ledger nodes
             url: authenticate-ledger-nodes.md
 
-   # Card
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Workflows
-            url: workflows.md
-
   # Card
   - title: how-to-guide
     linkLists:
