@@ -7,22 +7,74 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 05/20/2021
+ms.date: 05/12/2021
 ms.custom: template-how-to 
 ---
 
 # Use a public IP address with a load balancer
 
-Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. 
+A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 
-You'll learn how to change a public IP address assigned to an Azure Load Balancer. 
+A basic SKU Azure Load Balancer supports the basic IP address SKU and is limited in availability options and feature sets. A standard SKU load balancer and IP address combination is the recommended deployment for production workloads. Standard SKU IP addresses support availability zones in supported regions. 
 
-You'll learn how to delete an IP address after it's removed from the load balancer.
+Examples of resources that support standard SKU public IPs exclusively:
+
+* NAT gateway
+* Cross-region load balancer
+* Azure Bastion.
+
+Load balancer requires either a private or public IP address for the frontend configuration. The frontend of the load balancer is the connection point for clients internally and externally depending on the type of public IP address used. 
+
+Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Cross-region load balancers support the global tier option of standard SKU public IP addresses.
+
+Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to create a load balancer with a new public IP address. Finally, you'll learn how to associate a new IP address with the frontend of an existing load balancer. 
+
+Standard SKU load balancer and public IP are used for the examples in this article. For basic SKU load balancers, the procedures are the same except for the selection of SKU upon creation of the load balancer and public IP resource.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A public SKU Azure Load Balancer deployed in your subscription. For more information, see [Quickstart: Create a public load balancer - Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md)
+- Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
+    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
+
+## Create load balancer existing public IP
+
+In this section, you'll create a standard SKU load balancer. You'll select the IP address you created in the prerequisites as the frontend IP of the load balancer.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**.
+
+3. In the search results, select **Load balancers**.
+
+4. Select **+ Create**.
+
+5. In **Create Load balancer**, enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupIP**. </br> Select **OK**. </br> Alternatively, select your resource group. |
+    | **Instance details** |   |
+    | Name | Enter **myLoadBalancer**. |
+    | Region | Select **(US) West US 2**. |
+    | Type | Leave the default of **Public**. |
+    | SKU | Leave the default of **Standard**. |
+    | Tier | Leave the default of **Regional**. |
+    | **Public IP address** |   |
+    | Public IP address | Select **Use existing**. |
+    | Choose public IP address | Select **myStandardPublicIP-1**. </br> Alternatively, select your public IP address. |
+    | Add a public IPv6 address | Leave the default of **No**. |
+
+6. Select the **Review + create** tab, or select the blue **Review + create** button. 
+
+7. Select **Create**.
+
+> [!NOTE]
+> This is a simple deployment of a load balancer. For advanced configuration and setup, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md)
+>
+> For more information on Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
 ## Change or remove public IP address
 
@@ -44,15 +96,11 @@ To change the IP, we'll create a new IP address and associate it with the load b
 
 6. In **Frontend IP configuration**, select **LoadBalancerFrontend** or your load balancer frontend.
 
-7. In the load balancer frontend configuration, select **Create new** in **Public IP address**.
+7. In the load balancer frontend configuration, select **myStandardPublicIP-2** in **Public IP address**.  Alternatively, select your public IP address.
 
-8. Enter **myNewPublicIP** in **Name** and select **OK**.
+8. Select **Save**.
 
-9. Select **Save**.
-
-10. Verify the load balancer frontend displays the new IP address named **myNewPublicIP**.
-
-    :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Verify new public IP address in frontend configuration" border="true":::
+9. Verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
     > [!NOTE]
     > These procedures are valid for a cross-region load balancer. For more information on cross-region load balancer, see **[Cross-region load balancer](../load-balancer/cross-region-overview.md)**.
@@ -65,9 +113,9 @@ In this section, you'll delete the IP address you replaced in the previous secti
 
 2. In the search results, select **Public IP addresses**.
 
-3. In **Public IP addresses**, select **myPublicIP-lb** or your public IP address.
+3. In **Public IP addresses**, select **myPublicIP** or your public IP address you want to remove.
 
-4. In the overview of **myPublicIP-lb**, select **Delete**.
+4. In the overview of **myPublic**, select **Delete**.
 
 5. Select **Yes** in **Delete public IP address**.
 
