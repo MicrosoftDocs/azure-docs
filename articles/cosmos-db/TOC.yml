@@ -626,6 +626,14 @@
               href: stored-procedures-triggers-udfs.md
             - name: JavaScript query API
               href: javascript-query-api.md
+        - name: Integrated cache
+          items:
+            - name: Dedicated gateway overview
+              href: dedicated-gateway.md
+            - name: Integrated cache overview
+              href: integrated-cache.md
+            - name: Integrated cache FAQ
+              href: integrated-cache-faq.md
         - name: Security
           items:
             - name: Secure access to data
@@ -731,6 +739,8 @@
                   href: performance-tips-async-java.md
                 - name: Sync Java SDK v2
                   href: performance-tips-java.md
+            - name: Configure the integrated cache
+              href: how-to-configure-integrated-cache.md
             - name: Performance test - sample app
               href: performance-testing.md
             - name: Cost-effective reads and writes
@@ -1355,6 +1365,9 @@
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
   items:
+    - name: Free tier
+      href: free-tier.md
+      displayName: free tier
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
