@@ -1,7 +1,7 @@
 ---
-title: Deploy ML models with managed endpoints
+title: Access Azure resources with a managed online endpoint
 titleSuffix: Azure Machine Learning
-description: Deploy your machine learning model as a web service managed by Azure and use system-assigned managed identity for accessing Azure resources within your scoring script.
+description: Use a managed online endpoint's system-assigned managed identity to access Azure resources for your machine learning model deployment. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,19 +13,18 @@ ms.topic: tutorial
 ms.custom: tutorial
 ---
 
-# Tutorial: Deploy and score a machine learning model with a managed endpoint (preview)
+# Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)
 
-In this tutorial, you learn how to create a managed endpoint to deploy and score a machine learning model. Managed endpoints can use a system assigned managed identity to access Azure resources like storage containers that contain your scoring script.
+In this tutorial, you learn how to leverage a managed online endpoint's system-assigned managed identity to securely access Azure resources needed for machine learning model scoring and deployment.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-Learn how to take the following actions:
+This tutorial demonstrates how to take the following actions with the Azure CLI and its ML extension:
 
 > [!div class="checklist"]
 > * Set the default values for the Azure CLI to use
-> * Configure the variables to be used with your endpoint
-> * Create a blob storage account and Blob container 
-> * Create a managed endpoint
+> * Configure the variables to be used with your managed online endpoint
+> * Create a blob storage account and blob container 
+> * Create a managed online endpoint
 > * Give the system assigned managed identity permission to access storage
 > * Create a deployment associated with managed endpoint
 > * Deploy the model 
@@ -41,8 +40,6 @@ Learn how to take the following actions:
 * You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
 
 * If you've not already set the defaults for Azure CLI, you should save your default settings. , run:
-
-* [Optional] To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
 
 * A trained machine learning model ready for scoring and deployment.
 
@@ -90,7 +87,7 @@ After these variables are exported, create a text file locally. When the endpoin
 
 ## Create blob storage and container
 
-For this example, you create a blob storage account and blob container. Then, upload the previously created text file to the blob container. 
+For this example, you create a blob storage account and blob container, and then upload the previously created text file to the blob container. 
 
 First, create a storage account. 
 
@@ -104,9 +101,9 @@ Then, upload your text file to the blob container.
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
 
-## Create an endpoint
+## Create a managed online endpoint
 
-The following code creates a managed endpoint without specifying a deployment. Deployment creation is done later in the tutorial.
+The following code creates a managed online endpoint without specifying a deployment. Deployment creation is done later in the tutorial.
 
 When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
 
