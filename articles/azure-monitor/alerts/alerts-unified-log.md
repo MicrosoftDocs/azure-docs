@@ -188,7 +188,7 @@ See this alert stateless evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. This feature is currently in preview. You can set this using **Automatically resolve alerts** in the alert details section.
+Stateful alerts fire once per incident and resolve. This feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 
