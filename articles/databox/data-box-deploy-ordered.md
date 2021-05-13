@@ -95,7 +95,7 @@ To install the extension for Azure Data Box, run the following command: `az
 
 If the extension is installed successfully, you'll see the following output:
 
-```azurecli
+```output
     The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
     PS C:\Windows>
 
@@ -113,6 +113,7 @@ If the extension is installed successfully, you'll see the following output:
 
         Please let us know how we are doing: https://aka.ms/clihats
 ```
+<!--Line 112 flagged for azurecli formatting.-->
 
 #### Use Azure Cloud Shell
 
