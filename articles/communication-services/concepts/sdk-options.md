@@ -86,7 +86,7 @@ Support via .NET Core 2.0:
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
 
-The Calling package supports UWP apps build with .Net Native or C++/WinRT on:
+The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
 - Windows 10 10.0.17763
 - Windows Server 2019 10.0.17763
 
