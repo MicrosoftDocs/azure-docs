@@ -65,9 +65,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: UI Framework overview
+          - text: UI Library overview
             url: concepts/ui-framework/ui-sdk-overview.md
-          - text: UI Framework capabilities
+          - text: UI Library use cases
             url: concepts/ui-framework/ui-sdk-features.md
   - title: Telephony and SMS
     linkLists:
