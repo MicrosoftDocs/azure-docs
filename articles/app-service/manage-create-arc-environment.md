@@ -58,7 +58,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 Because App Service on Arc is currently validated only on [Azure Kubernetes Service](/azure/aks/), create an Azure Arc enabled cluster on Azure Kubernetes Service. 
 
-1. Create a cluster with a public IP address.
+1. Create a cluster in Azure Kubernetes Service with a public IP address.
 
     ```azurecli-interactive
     aksClusterGroupName="" # A name for the resource group in which the cluster will be created 
@@ -136,11 +136,12 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
 ## Install the App Service extension
 
-1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md) and the cluster namespace in which resources should be provisioned.
+1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `kubeEnvironmentName`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
 
     ```bash
     extensionName="appservice-ext" # A name for the extension resource
     namespace="appservice-ns" # A namespace in your cluster in which the extension will be installed and resources will be provisioned.
+    kubeEnvironmentName="" # A name for the App Service Kubernetes environment resource
     ```
     
 2. Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
@@ -169,11 +170,29 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${logAnalyticsWorkspaceIdEnc}" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
-    
+
     > [!NOTE]
     > To install the extension without Log Analytics integration, remove the last three `--configuration-settings` parameters from the command.
     >
+
+    The following table describes the various `--configuration-settings` parameters when running the command:
     
+    | Parameter | Description |
+    | - | - |
+    | `Microsoft.CustomLocation.ServiceAccount` | The service account that should be created for the custom location that will be created. It is recommended that this be set to the value `default`. |
+    | `appsNamespace` | The namespace to provision the app definitions and pods. Must match that of the extension release namespace. |
+    | `clusterName` | The name of the App Service Kubernetes environment that will be created against this extension. |
+    | `loadBalancerIp` | The public IP of the Kubernetes cluster. App Service apps receive traffic on this IP address. Also informs default DNS mapping. |
+    | `keda.enabled` | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
+    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). |
+    | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class above. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
+    | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace` above. |
+    | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
+    | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics`. |
+    | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
+    | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
+    | | |
+        
 3. Save the `id` property of the App Service extension for later.
 
     ```azurecli-interactive
@@ -249,13 +268,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
 Before you can start creating apps on the custom location, you need an [App Service Kubernetes environment](overview-arc-integration.md#app-service-kubernetes-environment).
 
-1. Set the following environment variable for the App Service Kubernetes environment. Choose a unique name for `kubeEnvironmentName`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
-
-    ```bash
-    kubeEnvironmentName="" # A name for the App Service Kubernetes environment resource
-    ```
-    
-2. Create the App Service Kubernetes environment:
+1. Create the App Service Kubernetes environment:
 
     ```azurecli-interactive
     az appservice kube create \
@@ -265,7 +278,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
         --static-ip "$staticIp"
     ```
     
-3. Validate that the App Service Kubernetes environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
+2. Validate that the App Service Kubernetes environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
     ```azurecli-interactive
     az appservice kube show \
@@ -277,4 +290,5 @@ Before you can start creating apps on the custom location, you need an [App Serv
 ## Next steps
 
 - [Quickstart: Create a web app on Azure Arc](quickstart-arc.md)
+- [Deploy a function app to Azure Arc](../azure-functions/functions-infrastructure-as-code.md#deploy-to-azure-arc)
 <!-- - [Create and deploy single-tenant based logic app workflows with Arc enabled Logic Apps](../logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md) https://github.com/MicrosoftDocs/azure-docs-pr/pull/157287 -->
