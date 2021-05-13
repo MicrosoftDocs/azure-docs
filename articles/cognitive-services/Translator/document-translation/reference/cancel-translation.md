@@ -88,9 +88,10 @@ The following information is returned in a successful response.
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be "documents" or "document id" for an invalid document.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error (can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
-|inner.Eroor.message|string|Gets high-level error message.|
+|innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
