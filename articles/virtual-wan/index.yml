@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual WAN documentation
-summary: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface.
 
 metadata:
   title: Virtual WAN documentation 
