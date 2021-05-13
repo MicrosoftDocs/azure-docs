@@ -15,6 +15,10 @@ Event Grid on Kubernetes allows specifying filters on any property in the json p
 - Key - The json path to the property on which to apply the filter.
 - Value - The reference value against which the filter is run (or) Values - The set of reference values against which the filter is run.
 
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+
+
+
 ## Filter by event type
 By default, all [event types](event-schemas.md) (`type` attribute) for the event source are sent to the endpoint. You can decide to send only certain event types to your endpoint. The JSON syntax for filtering by event type is:
 
