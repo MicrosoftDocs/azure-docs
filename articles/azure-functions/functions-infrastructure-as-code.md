@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
+You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
@@ -52,7 +52,7 @@ An Azure storage account is required for a function app. You need a general purp
 }
 ```
 
-In addition, the property `AzureWebJobsStorage` must be specified as an app setting in the site configuration. If the function app doesn't use Application Insights for monitoring, it should also specify `AzureWebJobsDashboard` as an app setting.
+You must also specify the `AzureWebJobsStorage` property as an app setting in the site configuration. If the function app doesn't use Application Insights for monitoring, it should also specify `AzureWebJobsDashboard` as an app setting.
 
 The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues.  When Application Insights is not enabled, the runtime uses the `AzureWebJobsDashboard` connection string to log to Azure Table storage and power the **Monitor** tab in the portal.
 
@@ -177,7 +177,7 @@ For a sample Azure Resource Manager template, see [Function app on Consumption p
 
 ### Create a Consumption plan
 
-A Consumption plan does not need to be defined. One will automatically be created or selected on a per-region basis when you create the function app resource itself.
+A Consumption plan doesn't need to be defined. One will automatically be created or selected on a per-region basis when you create the function app resource itself.
 
 The Consumption plan is a special type of "serverfarm" resource. For Windows, you can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties:
 
@@ -212,7 +212,7 @@ The settings required by a function app running in Consumption plan defer betwee
 
 #### Windows
 
-On Windows, a Consumption plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
+On Windows, a Consumption plan requires an another setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -301,7 +301,7 @@ The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#websi
 <a name="premium"></a>
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and extra capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
 
 ### Create a Premium plan
 
@@ -330,7 +330,7 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 
 ### Create a function app
 
-A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
+A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires an extra setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -569,7 +569,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
 
 Azure Functions can be deployed to [Azure Arc enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
 
-To create the app and plan resources, you will need to have the resource ID of the custom location and App Service Kubernetes environment that you are deploying to. For most templates, these can be collected as parameters.
+To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you are deploying to. For most templates, you can supply these as parameters.
 
 ```json
 {
@@ -584,7 +584,7 @@ To create the app and plan resources, you will need to have the resource ID of t
 }
 ```
 
-Both sites and plans will need to reference the custom location through an `extendedLocation` field. This block sits outside of `properties`, peer to `kind` and `location`:
+Both sites and plans must reference the custom location through an `extendedLocation` field. This block sits outside of `properties`, peer to `kind` and `location`:
 
 ```json
 {
@@ -766,7 +766,7 @@ Here is an example that uses HTML:
 
 ### Deploy using PowerShell
 
-The following PowerShell commands create a resource group and deploy a template that create a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+The following PowerShell commands create a resource group and deploy a template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
 
 ```powershell
 # Register Resource Providers if they're not already registered

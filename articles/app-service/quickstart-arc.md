@@ -13,19 +13,7 @@ In this quickstart, you create an [App Service app to an Azure Arc enabled Kuber
 
 - [Set up your Azure Arc enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
-## Add Azure CLI extensions
-
-Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-
-[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-
-Because these CLI commands are not yet part of the core CLI set, add them with the following commands:
-
-```azurecli-interactive
-az extension add --upgrade --yes --name customlocation
-az extension remove --name appservice-kube
-az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
-```
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## 1. Create a resource group
 
@@ -49,22 +37,7 @@ Currently does not work
 
 ## 2. Get the custom location
 
-Get the following information about the custom location from your cluster administrator (see [Create a custom location](manage-create-arc-environment.md#create-a-custom-location)).
-
-```azurecli-interactive
-customLocationGroup="<resource-group-containing-custom-location>"
-customLocationName=<name-of-custom-location>
-```
-
-Get the custom location ID for the next step.
-
-```azurecli-interactive
-customLocationId=$(az customlocation show \
-    --resource-group $customLocationGroup \
-    --name $customLocationName \
-    --query id \
-    --output tsv)
-```
+[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 
 ## 3. Create an app
