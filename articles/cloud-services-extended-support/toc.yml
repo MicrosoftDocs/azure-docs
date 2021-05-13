@@ -72,7 +72,7 @@
     - name: Apply WAD extension
       href: enable-wad.md
     - name: Apply the Key Vault extension
-      href: enable-kvvm.md
+      href: enable-key-vault-virtual-machine.md
   - name: Enable alerts
     href: enable-alerts.md
   - name: Configure scaling
