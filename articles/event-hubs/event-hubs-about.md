@@ -51,7 +51,7 @@ With a broad ecosystem based on the industry-standard AMQP 1.0 protocol and avai
 ## Event Hubs premium and dedicated 
 Event Hubs **premium** caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. On top of all the features of the standard offering, the premium tier offers several extra features such as dynamic partition scale up, extended retention, and customer-managed-keys. For more information, see [Event Hubs Premium](event-hubs-premium-overview.md).
 
-Event Hubs **dedicated** tier offers single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the premium offering and more.
+Event Hubs **dedicated** tier offers single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the premium offering and more. For more information, see [Event Hubs Dedicated](event-hubs-dedicated-overview.md).
 
 See [comparison between Event Hubs tiers](event-hubs-quotas.md) for more details.
 
