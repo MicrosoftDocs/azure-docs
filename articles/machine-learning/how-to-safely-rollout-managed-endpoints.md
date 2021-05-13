@@ -47,7 +47,7 @@ az account set --subscription <subscription id>
 az configure --defaults workspace=<azureml workspace name> group=<resource group>
 ```
 
-* An existing managed endpoint. This article assumes that your deployment is as described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* An existing managed endpoint. 
 
 * If you have not already set the environment variable $ENDPOINT_NAME, do so now:
 
@@ -74,7 +74,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 ## Scale your existing deployment to handle more traffic
 
-In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, the second version of the YAML file (`2-scale-blue.yml`) changes the value to `2`:
+In the existing endpoint, the `instance_count` is set to the value `1`. To handle more traffic, the second version of the YAML file (`2-scale-blue.yml`) changes the value to `2`:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yml" range="29":::
 
