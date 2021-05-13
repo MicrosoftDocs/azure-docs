@@ -9,9 +9,9 @@ metadata:
   services: api-management
   ms.service: api-management
   ms.topic: landing-page
-  author: georgewallace
-  ms.author: gwallace
-  ms.date: 03/08/2020
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/13/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,11 +23,16 @@ landingContent:
         links:
           - text: What is API Management?
             url: api-management-key-concepts.md
-          - text: Features availability
+          - text: Policies to transform APIs
+            url: api-management-howto-policies.md
+          - text: Hybrid and multi-cloud management
+            url: self-hosted-gateway-overview.md
+          - text: Developer portal
+            url: api-management-howto-developer-portal.md
+          - text: Service tiers and features
             url: api-management-features.md
-
   # Card (optional)
-  - title: Create an instance
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -41,33 +46,16 @@ landingContent:
             url: vscode-create-service-instance.md
           - text: ARM template
             url: quickstart-arm-template.md
-
-  # Card
-  - title: Manage API Management
-    linkLists:
       - linkListType: tutorial
         links:
-          - text: 1. Import and publish your first API
+          - text: Import and publish your first API
             url: import-and-publish.md
-          - text: 2. Create and publish a product
-            url: api-management-howto-add-products.md
-          - text: 3. Mock API responses
-            url: mock-api-responses.md
-          - text: 4. Transform and protect your API
+          - text: Transform and protect your API
             url: transform-api.md
-          - text: 5. Monitor published APIs
-            url: api-management-howto-use-azure-monitor.md
-          - text: 6. Debug your APIs using request tracing
-            url: api-management-howto-api-inspector.md
-          - text: 7. Use revisions to make non-breaking changes safely
-            url: api-management-get-started-revise-api.md
-          - text: 8. Publish multiple versions of your API
-            url: api-management-get-started-publish-versions.md
-          - text: 9. Customize the style of the Developer portal pages
-            url: api-management-howto-developer-portal-customize.md
-          - text: 10. Manage APIs in Visual Studio Code
-            url: visual-studio-code-tutorial.md
-  # Card
+          - text: Create and publish a product
+            url: api-management-howto-add-products.md
+
+ # Card
   - title: Import APIs
     linkLists:
       - linkListType: how-to-guide
@@ -76,31 +64,24 @@ landingContent:
             url: import-api-from-oas.md
           - text: SOAP API
             url: import-soap-api.md
-          - text: WebSocket API
-            url: websocket-api.md
           - text: Web App
             url: import-app-service-as-api.md
           - text: Function App
             url: import-function-app-as-api.md
           - text: Logic App
-            url: import-logi-app-as-api.md
+            url: import-logic-app-as-api.md
 
   # Card
-  - title: Hybrid and multi-cloud management
+  - title: Manage API Management
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Self-hosted gateway overview
-            url: self-hosted-gateway-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Host gateway on Azure Arc
-            url: how-to-deploy-self-hosted-gateway-azure-arc.md
-          - text: Host gateway on Kubernetes
-            url: how-to-deploy-self-hosted-gateway-kubernetes.md
-          - text: Host gateway on Docker
-            url: how-to-deploy-self-hosted-gateway-docker.md
-
+          - text: Secure access to APIs
+            url: api-management-howto-mutual-certificates-for-clients.md
+          - text: Protect API backend
+            url: api-management-howto-protect-backend-with-aad.md 
+          - text: Deploy in virtual network
+            url: api-management-using-with-vnet.md
   # Card
   - title: Samples
     linkLists:
