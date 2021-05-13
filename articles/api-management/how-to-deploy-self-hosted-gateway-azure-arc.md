@@ -66,7 +66,7 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
 
     :::image type="content" source="./media/how-to-deploy-self-hosted-gateway-azure-arc/deploy-gateway-extension-azure-arc.png" alt-text="Screenshot of deploying the extension in Azure portal":::
 
-1. On the **Monitoring tab**, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing **Log Analytics** workspace.
+1. On the **Monitoring** tab, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing **Log Analytics** workspace.
 1. Select **Review + install** and then **Install**.
 
 ## Available extension configurations
