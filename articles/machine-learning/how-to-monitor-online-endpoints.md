@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Monitor managed online endpoints
+# Monitor managed online endpoints (preview)
 
-In this article, you learn how to monitor Azure Machine Learning managed online endpoints. Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor Azure Machine Learning managed online endpoints (preview). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
 
 In this article you learn how to:
 
@@ -25,8 +25,8 @@ In this article you learn how to:
 
 ## Prerequisites
 
-- Deploy an Azure Machine Learning managed online endpoint
-- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint
+- Deploy an Azure Machine Learning managed online endpoint (preview).
+- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint.
 
 ## View metrics
 
@@ -40,7 +40,7 @@ Use the following steps to view metrics for a managed endpoint or deployment:
 
 ## Available metrics
 
-Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments.
+Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments (preview).
 
 ### Metrics at endpoint scope
 
