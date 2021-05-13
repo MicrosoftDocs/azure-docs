@@ -25,7 +25,7 @@ The following settings are supported in SQL Pool Stored Procedure activity:
 | name                      | Name of the activity                     | Yes      |
 | description               | Text describing what the activity is used for | No       |
 | type                      | For SQL Pool Stored Procedure Activity, the activity type is **SqlPoolStoredProcedure** | Yes      |
-| sqlPool         | Reference to a [dedicated SQL pool](../sql-data-warehouse-overview-what-is.md) in the current Azure Synapse workspace. | Yes      |
+| sqlPool         | Reference to a [dedicated SQL pool](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in the current Azure Synapse workspace. | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure to invoke. | Yes      |
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
 
@@ -54,4 +54,4 @@ Example:
 ## Next steps
  
 - [Pipeline and activity](../../data-factory/concepts-pipelines-activities.md)
-- [Dedicated SQL Pool](../sql-data-warehouse-overview-what-is.md)
+- [Dedicated SQL Pool](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
