@@ -7,5 +7,5 @@ ms.author: juliako
 ---
 
 
-This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in Python. The information in this tutorial builds on the [Detect motion and emit events](../../../get-started-detect-motion-emit-events.md) quickstart.
+This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in Python. 
 
