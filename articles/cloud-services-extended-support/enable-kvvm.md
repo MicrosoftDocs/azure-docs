@@ -50,52 +50,52 @@ To use the Azure Key Vault VM extension, you need to have an Azure Active Direct
 
 7. Install first version of the certificates created in the first step and the Key Vault VM extension using the ARM template as shown below:
 
-```json
-    {
-   "osProfile":{
-      "secrets":[
-         {
-            "sourceVault":{
-               "id":"[parameters('sourceVaultValue')]"
-            },
-            "vaultCertificates":[
-               {
-                  "certificateUrl":"[parameters('bootstrpCertificateUrlValue')]"
-               }
-            ]
-         }
-      ]
-   }{
-      "name":"KVVMExtensionForPaaS",
-      "properties":{
-         "type":"KeyVaultForPaaS",
-         "autoUpgradeMinorVersion":true,
-         "typeHandlerVersion":"1.0",
-         "publisher":"Microsoft.Azure.KeyVault",
-         "settings":{
-            "secretsManagementSettings":{
-               "pollingIntervalInS":"3600",
-               "certificateStoreName":"My",
-               "certificateStoreLocation":"LocalMachine",
-               "linkOnRenewal":false,
-               "requireInitialSync":false, 
-               "observedCertificates":"[parameters('keyVaultObservedCertificates']"
-            },
-            "authenticationSettings":{
-               "clientId":"Your AAD app ID",
-               "clientCertificateSubjectName":"Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
-            }
-         }
-      }
-   }
-```
-You might need to specify the certificate store for boot strap certificate in ServiceDefinition.csdef like below:
-
-```xml
-    <Certificates>
-             <Certificate name="bootstrapcert" storeLocation="LocalMachine" storeName="My" />
-    </Certificates> 
-```
+    ```json
+        {
+       "osProfile":{
+          "secrets":[
+             {
+                "sourceVault":{
+                   "id":"[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates":[
+                   {
+                      "certificateUrl":"[parameters('bootstrpCertificateUrlValue')]"
+                   }
+                ]
+             }
+          ]
+       }{
+          "name":"KVVMExtensionForPaaS",
+          "properties":{
+             "type":"KeyVaultForPaaS",
+             "autoUpgradeMinorVersion":true,
+             "typeHandlerVersion":"1.0",
+             "publisher":"Microsoft.Azure.KeyVault",
+             "settings":{
+                "secretsManagementSettings":{
+                   "pollingIntervalInS":"3600",
+                   "certificateStoreName":"My",
+                   "certificateStoreLocation":"LocalMachine",
+                   "linkOnRenewal":false,
+                   "requireInitialSync":false, 
+                   "observedCertificates":"[parameters('keyVaultObservedCertificates']"
+                },
+                "authenticationSettings":{
+                   "clientId":"Your AAD app ID",
+                   "clientCertificateSubjectName":"Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
+                }
+             }
+          }
+       }
+    ```
+    You might need to specify the certificate store for boot strap certificate in ServiceDefinition.csdef like below:
+    
+    ```xml
+        <Certificates>
+                 <Certificate name="bootstrapcert" storeLocation="LocalMachine" storeName="My" />
+        </Certificates> 
+    ```
 
 ## Next steps
 Further improve your deployment by [enabling monitoring in Cloud Services (extended support)](enable-alerts.md)
