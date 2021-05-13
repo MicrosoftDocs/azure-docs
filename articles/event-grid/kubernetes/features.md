@@ -4,7 +4,7 @@ description: This article compares features of Event Grid on Kubernetes with Eve
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/04/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
 ---
 

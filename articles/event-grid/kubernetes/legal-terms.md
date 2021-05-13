@@ -4,7 +4,7 @@ description: This article provides information legal terms and third-party notic
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/11/2021
+ms.date: 05/25/2021
 ms.topic: article
 ---
 
