@@ -28,7 +28,7 @@ Run the following Azure CLI command to create a topic:
 ```azurecli-interactive
 az eventgrid topic create --name <EVENT GRID TOPIC NAME> \
                         --resource-group <RESOURCE GROUP NAME> \
-                        -location <REGION> \
+                        --location <REGION> \
                         --kind azurearc \
                         --extended-location-name /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ExtendedLocation/customLocations/<CUSTOM LOCATION NAME> \
                         --extended-location-type customlocation \
