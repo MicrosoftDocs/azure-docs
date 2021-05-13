@@ -148,7 +148,7 @@ catch (Exception)
 }
 ```
 
-`<USER ACCESS TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens) documentation if a credential token has to be sourced.
+`<USER ACCESS TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
 
 ## Create CallAgent and place a call
 
@@ -187,14 +187,14 @@ call_.Hangup(hangupOptions).Completed +=
 };
 ```
 
-# Run the code
+## Run the code
 
 Make sure Visual Studio will build the app for `x64`, `x86` or `ARM64`, then hit `F5` to start running the app. After that, click on the `Call` button to place a call to the callee defined.
 
 Keep in mind that the first time the app runs, the system will prompt user for granting access to the microphone.
 
-# Clean up resources
+## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group.
 Deleting the resource group also deletes any other resources associated with it.
-Learn more about [cleaning up resources](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource#clean-up-resources).
+Learn more about [cleaning up resources](../../../quickstarts/create-communication-resource#clean-up-resources.md).
