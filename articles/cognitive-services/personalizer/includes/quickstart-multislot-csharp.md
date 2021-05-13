@@ -19,7 +19,7 @@ ms.date: 03/23/2021
     * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting Up
+## Setting up
 
 [!INCLUDE [Upgrade Personalizer instance to multi-slot](upgrade-personalizer-multi-slot.md)]
 
@@ -66,9 +66,9 @@ using System.Threading.Tasks;
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a [MultiSlotRankRequest], then send a post request to the [multislot/rank] endpoint (/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank). The response is then parsed into a [MultiSlotRankResponse].
+To ask for the single best item of the content for each slot, create a [MultiSlotRankRequest], then send a post request to the [multislot/rank] endpoint (https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). The response is then parsed into a [MultiSlotRankResponse].
 
-To send a reward score to Personalizer, create a [MultiSlotReward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest), then send a post request to [multislot/events/{eventId}/reward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward).
+To send a reward score to Personalizer, create a [MultiSlotReward], then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
@@ -81,7 +81,7 @@ These code snippets show you how to do the following tasks by sending HTTP reque
 * [Multi-Slot Reward API](#send-a-reward)
 
 
-## Create Base URLs
+## Create base URLs
 
 In this section you'll do two things:
 * Specify your key and endpoint

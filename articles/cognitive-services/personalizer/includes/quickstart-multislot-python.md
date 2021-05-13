@@ -10,7 +10,7 @@ ms.custom: cog-serv-seo-aug-2020
 ms.date: 03/23/2021
 ---
 
-[Reference documentation](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://aka.ms/personalizer/ms-python)
+[Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://aka.ms/personalizer/ms-python)
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ ms.date: 03/23/2021
     * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting Up
+## Setting up
 
 [!INCLUDE [Upgrade Personalizer instance to Multi-Slot](upgrade-personalizer-multi-slot.md)]
 
@@ -44,9 +44,9 @@ RESOURCE_KEY = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>"
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a [rank_request], then send a post request to the [multislot/rank] endpoint (/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank). The response is then parsed into a [rank_response].
+To ask for the single best item of the content for each slot, create a [rank_request], then send a post request to the [multislot/rank] endpoint (https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). The response is then parsed into a [rank_response].
 
-To send a reward score to Personalizer, create a [rewards](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest), then send a post request to [multislot/events/{eventId}/reward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward).
+To send a reward score to Personalizer, create a [rewards], then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 

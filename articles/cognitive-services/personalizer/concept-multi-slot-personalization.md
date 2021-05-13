@@ -60,11 +60,11 @@ Using multi-slot personalization requires an API that differs slightly from the 
 
 You declare the slots available to assign actions to in each Rank call request, in the slots object:
 
-1. **Array of slots**: You need to declare an array of slots. Slots are *ordered*: the position of each slot in the array matters. We strongly recommend ordering your slot definitions based on how many rewards/clicks/conversions each slot tends to get, starting with the one that gets the most. For example, you'd put a large home page "hero" box for a website as slot 1, rather than a small footer.  All other things being equal, Personalizer will assign actions with more chances of getting rewards earlier in the sequence.
-1. **Slot ID**: You need to give a slotId to each slot - a string unique for all other slots in this Rank call.
-1. **Slot features**: You should provide additional metadata that describes and further distinguishes it from other slots. These are called *features*. When determining slot features, you must follow the same guidelines recommended for the features of context and actions (See: [Features for context and actions]()).  Typical slot features help identify size, position, or visual characteristics of a user interface element. For example `position: "top-left"`, `size: "big"`, `animated: "no"`, `sidebar: "true"` or  `sequence: "1"`.
-1. **Baseline actions**: You need to specify the baseline action Id for each slot. That is, the Id of the Action that would be shown in that slot if Personalizer didn't exist. This is required to train Personalizer in [Apprentice Mode]() and to have a meaningful number when doing [Offline Evaluations]().
-1. **Have enough actions**: Make sure you call Rank with more Actions than slots, so that Personalizer can assign at least one action to each slot. Personalizer won't repeat action recommendations across slots: The rank response will assign each action at most to one slot. 
+* **Array of slots**: You need to declare an array of slots. Slots are *ordered*: the position of each slot in the array matters. We strongly recommend ordering your slot definitions based on how many rewards/clicks/conversions each slot tends to get, starting with the one that gets the most. For example, you'd put a large home page "hero" box for a website as slot 1, rather than a small footer.  All other things being equal, Personalizer will assign actions with more chances of getting rewards earlier in the sequence.
+* **Slot ID**: You need to give a slotId to each slot - a string unique for all other slots in this Rank call.
+* **Slot features**: You should provide additional metadata that describes and further distinguishes it from other slots. These are called *features*. When determining slot features, you must follow the same guidelines recommended for the features of context and actions (See: [Features for context and actions]()).  Typical slot features help identify size, position, or visual characteristics of a user interface element. For example `position: "top-left"`, `size: "big"`, `animated: "no"`, `sidebar: "true"` or  `sequence: "1"`.
+* **Baseline actions**: You need to specify the baseline action ID for each slot. That is, the ID of the Action that would be shown in that slot if Personalizer didn't exist. This is required to train Personalizer in [Apprentice Mode]() and to have a meaningful number when doing [Offline Evaluations]().
+* **Have enough actions**: Make sure you call Rank with more Actions than slots, so that Personalizer can assign at least one action to each slot. Personalizer won't repeat action recommendations across slots: The rank response will assign each action at most to one slot. 
 
 It is OK if you add or remove slots over time, add and change their features, or re-order the array: Personalizer will adapt and keep training based on the new information.
 
@@ -131,7 +131,7 @@ The reward API specifies the eventId for the reward in the URL:
 https://{endpoint}/personalizer/v1.0/events/{eventId}/reward
 ``` 
 
-For example, the reward for the event above with id: 123456D0-BFEE-4598-8196-C57383D38E10/reward will be sent to `https://{endpoint}/personalizer/v1.0/events/123456D0-BFEE-4598-8196-C57383D38E10/reward/reward`:
+For example, the reward for the event above with ID: 123456D0-BFEE-4598-8196-C57383D38E10/reward will be sent to `https://{endpoint}/personalizer/v1.0/events/123456D0-BFEE-4598-8196-C57383D38E10/reward/reward`:
 
 ```json
 { 
@@ -176,6 +176,6 @@ Additionally, when you enable multi-slot, consider the following:
 | Offline Evaluations |Compares performance of Personalizer against baseline and optimized learning settings, based on which Action would have been chosen them.| (Preview Limitation) Only evaluates performance of the first slot in the array. For more accurate evaluations, we recommend making sure the slot with most rewards is the first one in your array. |
 | Automatic Optimization (Preview) | Your Personalizer loop can periodically perform Offline Evaluations in the background and optimize Learning Settings without administrative intervention | (Preview Limitation) Automatic Optimization is disabled for Personalizer loops that have multi-slot APIs enabled. |
 
-## Next Steps
+## Next steps
 * [How to use multi-slot personalization](how-to-multi-slot.md)
 * [Sample: Jupyter notebook running a multi-slot personalization loop](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer/azure-notebook)
