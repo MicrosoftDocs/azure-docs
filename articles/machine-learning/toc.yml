@@ -285,6 +285,9 @@
           href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
+        - name: Install and set up the CLI 2.0
+          displayName: azurecli, mlops
+          href: how-to-configure-cli.md
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
@@ -373,6 +376,8 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
+        - name: Train with the CLI 2.0
+          href: how-to-train-cli.md
         - name: Configure & submit training run 
           displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
           href: how-to-set-up-training-targets.md
@@ -506,6 +511,8 @@
         href: how-to-troubleshoot-deployment.md
       - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
+      - name: Troubleshooting managed online endpoints
+        href: how-to-troubleshoot-managed-online-endpoints.md
       - name: Monitoring managed online endpoints
         href: how-to-monitor-online-endpoints.md
       - name: Viewing managed online endpoint costs
@@ -635,6 +642,8 @@
     - name: Curated environments
       displayName: environments, curated environments
       href: resource-curated-environments.md         
+    - name: Managed online endpoints VM SKU list
+      href: reference-managed-online-endpoints-vm-sku-list.md
     - name: Azure CLI
       href: /cli/azure/ml
 - name: Resources

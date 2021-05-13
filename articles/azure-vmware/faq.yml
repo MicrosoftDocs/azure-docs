@@ -251,7 +251,7 @@ sections:
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: How can I change my credentials?
-        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
+        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
           
   - name: Billing and support
     questions:

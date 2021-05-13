@@ -51,7 +51,7 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
 Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
-az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
+az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> --location <region>
 ```
 
 > [!TIP]
@@ -94,7 +94,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --name <nam
 Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
 
 ```azurecli-interactive
-az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
+az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-event-hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
 ```
 
 ### Create twins hub event route
@@ -104,7 +104,7 @@ Azure Digital Twins instances can emit [twin update events](./concepts-event-not
 Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route.
 
 ```azurecli-interactive
-az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
 ```
 
 ### Get twins hub connection string
@@ -201,13 +201,13 @@ Next, you'll add environment variables in the function app's settings that allow
 Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>
 ```
 
 ## Create and connect a Time Series Insights instance
@@ -251,10 +251,10 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
 To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-Use the following CLI command to update the *Temperature* property on the *thermostat67* twin that you added to your instance in the [Prerequisites](#prerequisites) section.
+Use the following CLI command to update the *Temperature* property on the thermostat67 twin that you added to your instance in the [Prerequisites](#prerequisites) section.
 
 ```azurecli-interactive
-az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update --dt-name <your-azure-digital-twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 **Repeat the command at least 4 more times with different temperature values**, to create several data points that can be observed later in the Time Series Insights environment.
@@ -271,7 +271,7 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the *thermostat67* twin, choose the property *Temperature*, and select **Add**.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the thermostat67 twin, choose the property *Temperature*, and select **Add**.
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and select add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 

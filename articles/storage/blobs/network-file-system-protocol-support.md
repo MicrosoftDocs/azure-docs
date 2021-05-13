@@ -123,7 +123,7 @@ The status of items that appear in this tables will change over time as support 
 
 - NFS 3.0 support can't be enabled on existing storage accounts.
 
-- NFS 3.0 support cant' be disabled in a storage account after you've enabled it.
+- NFS 3.0 support can't be disabled in a storage account after you've enabled it.
 
 -  Files can't be viewed in either the Azure portal or Azure Storage Explorer. To list files and directories, either [mount a Blob Storage container by using the NFS 3.0 protocol](network-file-system-protocol-support-how-to.md), or use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api).
 

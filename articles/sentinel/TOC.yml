@@ -25,6 +25,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+  - name: Deploy the Azure Sentinel solution for SAP
+    href: sap-deploy-solution.md
 - name: Concepts
   items:
   - name: Classify data using entities
@@ -49,8 +51,12 @@
       href: automate-responses-with-playbooks.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
+  - name: Use SOC-ML anomalies to detect threats
+    href: soc-ml-anomalies.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Threat intelligence integrations
+    href: threat-intelligence-integration.md
   - name: Bring your own machine learning platform
     href: bring-your-own-ml.md
   - name: Integrate Microsoft 365 Defender with Azure Sentinel
@@ -59,6 +65,12 @@
     href: watchlists.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Azure Sentinel solutions
+    items:
+    - name: About Sentinel solutions
+      href: sentinel-solutions.md
+    - name: Solutions catalog
+      href: sentinel-solutions-catalog.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Use Azure Data Explorer for long-term log retention
@@ -266,8 +278,22 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Enable user and entity behavior analytics
-    href: enable-entity-behavior-analytics.md
+  - name: Deploy solutions
+    items:
+    - name: Discover and deploy solutions
+      href: sentinel-solutions-deploy.md
+    - name: Advanced - Deploy the SAP data connector on-premises
+      href: sap-solution-deploy-alternate.md
+  - name: Work with SOC-ML anomaly rules
+    href: work-with-anomaly-rules.md
+  - name: Create custom entity activities
+    href: customize-entity-activities.md
+  - name: Use user and entity behavior analytics
+    items:
+    - name: Enable UEBA
+      href: enable-entity-behavior-analytics.md
+    - name: Investigate with UEBA
+      href: investigate-with-ueba.md
   - name: Map data fields to entities
     href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
@@ -280,8 +306,12 @@
     href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
+  - name: Collaborate in Microsoft Teams
+    href: collaborate-in-microsoft-teams.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: Handle false positives
+    href: false-positives.md
   - name: Audit Azure Sentinel queries and activities
     href: audit-sentinel-data.md
   - name: Hunting
@@ -337,6 +367,14 @@
     href: cef-name-mapping.md
   - name: MCAS alerts not onboarded to Microsoft 365 Defender
     href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+  - name: SAP solution references
+    items:
+      - name: Detailed SAP solution requirements
+        href: sap-solution-detailed-requirements.md
+      - name: Available SAP logs
+        href: sap-solution-log-reference.md
+      - name: SAP solution security content reference
+        href: sap-solution-security-content.md
 - name: Resources
   items:
   - name: Useful resources
