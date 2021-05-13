@@ -6,7 +6,7 @@ summary: Learn how to use the Anomaly Detector API to monitor data over time and
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
   titleSuffix: Azure Cognitive Services
-  description: Use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+  description: Use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -17,12 +17,14 @@ metadata:
   ms.author: aahi
 
 landingContent:
-- title: About the Anomaly Detector API
+- title: About the Anomaly Detector APIs
   linkLists:
     - linkListType: overview
       links:
-        - text: What is the Anomaly Detector API?
+        - text: What is the Anomaly Detector univariate API?
           url: overview.md
+        - text: What is the Anomaly Detector multivariate API?
+          url: overview-multivariate.md
     - linkListType: get-started
       links:
         - text: Anomaly Detector demo
@@ -46,12 +48,22 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#
+        - text: Using C# (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
-        - text: Using JavaScript
+        - text: Using JavaScript (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
-        - text: Using Python
+        - text: Using Python (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Using C# (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp-multivariate
+        - text: Using JavaScript (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript-multivariate
+        - text: Using Python (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python-multivariate
+        - text: Using Java (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java-multivariate
+
+
     - linkListType: tutorial
       links:
         - text: Visualize anomalies using batch detection and Power BI
