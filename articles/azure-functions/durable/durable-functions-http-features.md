@@ -353,6 +353,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+The feature is currently supported in PowerShell.
+
 ---
 
 In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net/.default`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
