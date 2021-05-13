@@ -72,7 +72,7 @@ az ml endpoint show --name $ENDPOINT_NAME
 
 You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment called `blue`. 
 
-## Scale your existing deployment to handle additional traffic
+## Scale your existing deployment to handle more traffic
 
 In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, change the value to `2` in the YAML configuration file:
 
