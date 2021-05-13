@@ -21,10 +21,7 @@ Before you get started, decide on the names of the resources you will create.  T
 - your-resource-group-name
 - your-storage-account-name
 - your-media-services-account-name
-
-<!--- your-keyvault-name
-- your-key-name
-- your-region-->
+- your-region
 
 You'll see these names referenced in the commands below. Use the same names for each step.
 
