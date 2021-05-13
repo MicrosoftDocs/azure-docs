@@ -99,9 +99,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 \* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
 
-
 ## Firewall protected storage
 
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]
