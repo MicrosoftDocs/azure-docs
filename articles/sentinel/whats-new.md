@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/13/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,7 +27,8 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## May 2021
 
-- [Sentinel solutions (Public preview)](#sentinel-solutions-public-preview)
+- [Azure Sentinel solutions (Public preview)](#azure-sentinel-solutions-public-preview)
+- [Continuous Threat Monitoring for SAP solution (Public preview)](#continuous-threat-monitoring-for-sap-solution-public-preview)
 - [Threat intelligence integrations (Public preview)](#threat-intelligence-integrations-public-preview)
 - [Fusion over scheduled alerts (Public preview)](#fusion-over-scheduled-alerts-public-preview)
 - [SOC-ML anomalies (Public preview)](#soc-ml-anomalies-public-preview)
@@ -37,11 +38,21 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
-### Sentinel solutions (Public preview)
+### Azure Sentinel solutions (Public preview)
 
 Azure Sentinel now offers **packaged content** [solutions](sentinel-solutions-catalog.md) that include combinations of one or more data connectors, workbooks, analytics rules, playbooks, hunting queries, parsers, watchlists, and other components for Azure Sentinel.
 
 Solutions provide improved in-product discoverability, single-step deployment, and end-to-end product scenarios. For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md).
+
+### Continuous Threat Monitoring for SAP solution (Public preview)
+
+Azure Sentinel solutions includes **Continuous Threat Monitoring for SAP**, which enables you to ingest SAP logs into your Azure Sentinel workspace, where you can view your data, create custom alerts, investigate, and more.
+
+The SAP data connector provides both stateless and stateful connections for logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and file storage data via OSSAP Control interface.
+
+To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment. After the SAP data connector is deployed, deploy the SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
+
+For more information, see [Tutorial: Deploy the Azure Sentinel solution for SAP (public preview)](sap-deploy-solution.md).
 
 ### Threat intelligence integrations (Public preview)
 
