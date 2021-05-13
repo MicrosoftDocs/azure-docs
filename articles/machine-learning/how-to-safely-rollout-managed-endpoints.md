@@ -141,6 +141,13 @@ If you are not going use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="delete_endpoint" :::
 
+Snippet from azureml-examples-cli-preview
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+
+Snippet from main
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+
+
 ## Next steps
 - Understand managed inference [tk](concept-article.md)
 - Batch inference {>> And backlink batch inference to tutorial 1 <<}
