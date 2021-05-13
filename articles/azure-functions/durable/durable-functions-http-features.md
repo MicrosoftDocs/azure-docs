@@ -354,7 +354,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell) 
 
 The feature is currently supported in PowerShell.
 
