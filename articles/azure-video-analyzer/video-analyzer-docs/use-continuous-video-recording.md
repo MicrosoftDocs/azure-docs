@@ -7,7 +7,7 @@ ms.date: 04/01/2021
 ---
 # Tutorial: Continuous video recording and playback
 
-In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there's a need to maintain an archive of the footage from a camera for days, weeks, months or even years. 
+In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there is a need to maintain an archive of the footage from a camera for days, weeks, months or even years. 
 
 In this tutorial you will:
 
