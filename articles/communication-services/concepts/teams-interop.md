@@ -22,7 +22,8 @@ ms.service: azure-communication-services
 > [!NOTE]
 > Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting. Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
-
+> [!NOTE]
+VoIP and Chat usage is only billed to your Azure resource when using Azure APIs and SDKs. Teams clients interacting with Azure Communication Services applications are free.
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.
 
