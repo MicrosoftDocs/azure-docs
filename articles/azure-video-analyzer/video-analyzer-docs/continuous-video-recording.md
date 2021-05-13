@@ -55,7 +55,7 @@ The `segmentLength` property ensures that the edge module will upload video at m
 ## See also
 
 * [Event-based video recording](event-based-video-recording-concept.md) 
-* [Playback of recorded content](video-playback-concept.md) 
+* [Playback of recorded content](playback-recordings-how-to.md) 
 
 ## Next steps
 
@@ -65,6 +65,6 @@ The `segmentLength` property ensures that the edge module will upload video at m
 [pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
 [terminology-video]: terminology.md#video
 [concept-pipeline]: pipeline.md
-[concept-video-playback]: video-playback-concept.md
+[concept-video-playback]: playback-recordings-how-to.md
 [concept-recording]: video-recording-concept.md
 -->
