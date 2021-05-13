@@ -76,14 +76,14 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 
 * The non-root user needs to be `dockeruser`. Otherwise, the owner of the following directories must be set to the user name you want to use when running the image:
 
-```sh
-/var/runit
-/var/log
-/var/lib/nginx
-/run
-/opt/miniconda
-/var/azureml-app
-```
+    ```bash
+    /var/runit
+    /var/log
+    /var/lib/nginx
+    /run
+    /opt/miniconda
+    /var/azureml-app
+    ```
 
 * If the `ENTRYPOINT` has been changed in the new built image, then the HTTP server and related components needs to be loaded by `runsvdir /var/runit`
 

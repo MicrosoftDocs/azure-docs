@@ -34,9 +34,9 @@ In this article, you learn how to:
 - A scoring file for your deployed model. For a step-by-step example of registering a model and creating a scoring file, see [Tutorial: Image classification](tutorial-train-models-with-aml.md).
 - A custom environment registered to your workspace **-or-** a Docker container registry image with a Python environment. For more information on environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
-## Create a managed online endpoint
+## Create a managed online endpoint (preview)
 
-Use the studio to create a managed online endpoint directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You cannot create an empty managed online endpoint.
+Use the studio to create a managed online endpoint (preview) directly in your browser. When you create a managed online endpoint in the studio, you must define an initial deployment. You cannot create an empty managed online endpoint.
 
 1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
 1. In the left navigation bar, select the **Endpoints** page.
@@ -55,9 +55,9 @@ You can also create a managed online endpoint from the **Models** page in the st
 
 Follow the setup wizard to configure your managed online endpoint.
 
-## View managed online endpoints
+## View managed online endpoints (preview)
 
-You can view your managed online endpoints in the **Endpoints** page. Use the endpoint details page to find critical information including the endpoint URI, status, testing tools, activity monitors, deployment logs, and sample consumption code:
+You can view your managed online endpoints (preview) in the **Endpoints** page. Use the endpoint details page to find critical information including the endpoint URI, status, testing tools, activity monitors, deployment logs, and sample consumption code:
 
 1. In the left navigation bar, select **Endpoints**.
 1. (Optional) Create a **Filter** on **Compute type** to show only **Managed** compute types.
@@ -84,15 +84,15 @@ To use the monitoring tab, you must select "**Enable Application Insight diagnos
 
 For more information on how viewing additional monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
-## Update managed online endpoints
+## Update managed online endpoints (preview)
 
-Learn how to update your managed online endpoints to add more deployments and adjust traffic allocation.
+Learn how to update your managed online endpoints (preview) to add more deployments and adjust traffic allocation.
 
 ### Add a managed online deployment
 
 Use the following instructions to add a deployment to an existing managed online endpoint:
 
-1. Select **+ Add Deployment** button in the [endpoint details page](#view-managed-online-endpoints).
+1. Select **+ Add Deployment** button in the [endpoint details page](#view-managed-online-endpoints-preview).
 2. Follow the instructions to complete the deployment.
 
 Alternatively, you can use the **Models** page to add a deployment:
@@ -127,9 +127,9 @@ Use the following instructions to scale an individual deployment up or down by a
 1. Select **Update**.
 
 
-## Delete managed online endpoints and deployments
+## Delete managed online endpoints and deployments (preview)
 
-Learn how to delete an entire managed online endpoint and it's associated deployments. Or, delete an individual deployment from a managed online endpoint.
+Learn how to delete an entire managed online endpoint (preview) and it's associated deployments (preview). Or, delete an individual deployment from a managed online endpoint.
 
 ### Delete a managed online endpoint
 
@@ -140,7 +140,7 @@ Deleting a managed online endpoint also deletes any deployments associated with 
 1. Select an endpoint by checking the circle next to the model name.
 1. Select **Delete**.
 
-Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints). 
+Alternatively, you can delete a managed online endpoint directly in the [endpoint details page](#view-managed-online-endpoints-preview). 
 
 
 ### Delete an individual deployment

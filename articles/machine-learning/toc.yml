@@ -75,6 +75,8 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
+        - name: Access Azure resources with managed endpoints
+          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items: 
         - name: Train a TensorFlow image classification model
@@ -480,6 +482,10 @@
             items:
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
+            - name: Batch scoring with batch endpoints
+              href: how-to-use-batch-endpoint.md
+            - name: Troubleshooting batch endpoints
+              href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
@@ -556,7 +562,7 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: (Preview) No code deployment
+      - name: No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
       - name: Package models
