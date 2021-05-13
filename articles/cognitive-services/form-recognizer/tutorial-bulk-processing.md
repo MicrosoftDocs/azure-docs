@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Extract form data in bulk using Azure Data Factory - Form Recognizer"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Set up Azure Data Factory activities to trigger the training and running of Form Recognizer models and digitize a large backlog of documents.
 
 author: laujan

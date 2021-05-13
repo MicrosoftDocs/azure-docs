@@ -116,6 +116,8 @@
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
+        - name: Optimize using rate limiting
+          href: rate-limiting-requests.md
     - name: Change feed overview
       href: change-feed.md
     - name: Built-in Jupyter notebooks

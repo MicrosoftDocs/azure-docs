@@ -1,6 +1,6 @@
 ---
 title: How to deploy the Form Recognizer sample labeling tool
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
 author: laujan
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: IDs - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn concepts related to data extraction from identity documents with the Form Recognizer Pre-built IDs API.
 services: cognitive-services
 author: laujan
