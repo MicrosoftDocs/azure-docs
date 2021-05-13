@@ -26,7 +26,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-automl-runtime**
     + Improved AutoML Scoring script to make it consistent with designer
     + Patch bug where forecasting with the Prophet model would throw a "missing column" error if trained on an earlier version of the SDK.
-    + Added ARIMAX model to public-facing forecasting supported model lists of AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and is a special case of the transfer function models developed by Box and Jenkins. Please see the following [link](https://robjhyndman.com/hyndsight/arimax/) for the distinction between the two approaches. Unlike the rest of the multivariate models in AutoML that use auto-generated time dependent features (hour of the day, day of the year, etc), this model only uses features provided by user and makes it easy to interpret the coefficients.
+    + Added the ARIMAX model to the public-facing, forecasting-supported model lists of the AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and a special case of the transfer function models developed by Box and Jenkins. For a discussion of how the two approaches are different, see [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/). Unlike the rest of the multivariate models that use auto-generated, time-dependent features (hour of the day, day of the year, and so on) in AutoML, this model uses only features that are provided by the user, and it makes interpreting coefficients easy.
   + **azureml-contrib-dataset**
     + Updated documentation description with indication that libfuse should be installed while using mount.
   + **azureml-core**
