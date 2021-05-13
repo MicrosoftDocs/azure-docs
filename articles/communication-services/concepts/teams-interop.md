@@ -56,5 +56,5 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 For more information, see the following articles:
 
-- Learn about [UI Framework](./ui-framework/ui-sdk-overview.md)
-- Learn about [UI Framework capabilities](./ui-framework/ui-sdk-features.md)
+- Learn about [UI Library](./ui-library/ui-library-overview.md)
+- Learn about [UI Library capabilities](./ui-library/ui-library-use-cases.md)

@@ -66048,6 +66048,16 @@
       "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
       "redirect_url": "https://azure.github.io/communication-ui-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+      "redirect_url": "/articles/communication-services/concepts/ui-library/ui-library-use-cases.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+      "redirect_url": "/articles/communication-services/concepts/ui-library/ui-library-overview.md",
+      "redirect_document_id": false
     }
   ]
 }
