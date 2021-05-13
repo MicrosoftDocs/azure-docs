@@ -83,7 +83,7 @@ Upon completion of this flow, the application will receive an Access Token that 
 
 Client capabilities help a resources provider like a Web API detect whether the calling client application understands the claims challenge and can then customize its response accordingly. This capability might be useful when not all API clients are capable of handling claim challenges, and some earlier versions still expect a different response.
 
-Some popular applications like [Microsoft Graph](/graph/overview) send claims challenges only if the calling client app declares that it'is capable of handling them by using *client capabilities*.
+Some popular applications like [Microsoft Graph](/graph/overview) send claims challenges only if the calling client app declares that it's capable of handling them by using *client capabilities*.
 
 To avoid extra traffic or impacts to user experience, Azure AD does not assume that your app can handle claims challenged unless you explicitly opt in. An application will not receive claims challenges (and will not be able to use the related features such as CAE tokens) unless it declares it is ready to handle them with the "cp1" capability.
 
