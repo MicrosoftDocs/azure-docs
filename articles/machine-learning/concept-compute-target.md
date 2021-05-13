@@ -131,7 +131,20 @@ To learn more about isolation, see [Isolation in the Azure public cloud](../secu
 
 ## Unmanaged compute
 
-An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
+An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads. 
+
+Azure Machine Learning supports the following unmanaged compute types:
+
+* Your local computer
+* Remote virtual machines
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure Data Lake Analytics
+* Azure Container Instance
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+
+For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 
 ## Next steps
 

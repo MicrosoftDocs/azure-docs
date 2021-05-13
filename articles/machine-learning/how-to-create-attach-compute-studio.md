@@ -170,7 +170,8 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
 To detach your compute use the following steps:
 
-In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove. Use the __Detach__ link to detach your compute.
+1. In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove. 
+1. Use the __Detach__ link to detach your compute.
 
 ## Next steps
 

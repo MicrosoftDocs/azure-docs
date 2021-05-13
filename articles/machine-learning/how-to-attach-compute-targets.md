@@ -332,17 +332,17 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="kubernetes"></a>Kubernetes(preview)
+## <a id="kubernetes"></a>Kubernetes (preview)
 
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure.
-* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Configure Azure Arc enabled Kubernetes cluster for machine learning training (preview)](/azure/azure-arc/kubernetes/how-to-train-machine-learning.md)
+* [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Configure Azure Arc enabled Kubernetes cluster for machine learning model training](how-to-create-attach-arc-kubernetes.md)
 
 > [!IMPORTANT]
-> Kubernetes attached compute clusters for training are only supported in the EastUS2EUAP, EastUS and West Europe regions.
+> Kubernetes attached compute cluster for training are only supported in the following regions: westcentralus, southcentralus, southeastasia, uksouth, westus2, australiaeast, eastus2, westeurope, northeurope, eastus, francecentral.
 
-To attach your Kubernetes cluster use the Azure Machine Learning SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
+To attach your Kubernetes cluster use the Azure Machine Learning Python SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
 The following code shows how to attach an Azure Kubernetes cluster to your Azure Machine Learning workspace.
 
