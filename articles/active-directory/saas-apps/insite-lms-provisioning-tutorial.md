@@ -20,7 +20,7 @@ ms.author: Zhchia
 
 # Tutorial: Configure Insite LMS for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Insite LMS and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Insite LMS](https://www.insite-it.net/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Insite LMS and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Insite LMS](https://www.insite-it.net/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -48,8 +48,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Navigate to `https://portal.insitelms.net/<OrganizationName>`.
 1. Download and install the Desktop Client.
-1. Login with your Admin Account and Navigate to **Users** Module.
-1. Select the User `scim@insitelms.net` and press the button **Generate Access Token**. If you can't find the scim-User please contact the Support-Team
+1. Log in with your Admin Account and Navigate to **Users** Module.
+1. Select the User `scim@insitelms.net` and press the button **Generate Access Token**. If you can't find the scim-User, contact the Support-Team
 	1.	Choose **AzureAdScimProvisioning** and press **generate** 
 	1.	Copy the **AccessToken**
 1. The **Tenant Url** is `https://web.insitelms.net/<OrganizationName>/api/scim`.
