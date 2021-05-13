@@ -56,7 +56,6 @@ You can create a **credential entity** to store credential related information, 
 |[**Azure Log Analytics**](#log) | Basic<br>Service principal<br>Service principal from key vault |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
-|[**ElasticSearch**](#es) | Basic |
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
@@ -419,7 +418,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ```
 
     <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
-
+<!--
 ## <span id="es">Elasticsearch</span>
 
 * **Host**: Specify the master host of Elasticsearch Cluster.
@@ -431,9 +430,9 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
-    ```
-
+    ``` -->
     <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
+
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
