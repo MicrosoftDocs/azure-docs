@@ -1,21 +1,21 @@
 ---
-title: Manage and reduce costs
+title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
-description: Learn cost-saving tips to lower your cost when building machine learning models in Azure Machine Learning
+description: Learn cost-saving tips to optimize your cost when building machine learning models in Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: subject-cost-optimization
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 05/15/2021
 ---
 
-# Manage and reduce Azure Machine Learning costs
+# Manage and optimize Azure Machine Learning costs
 
-Learn how to manage and reduce costs when training and deploying machine learning models to Azure Machine Learning.
+Learn how to manage and optimize costs when training and deploying machine learning models to Azure Machine Learning.
 
-Use the following tips to help you manage and reduce your compute resource costs.
+Use the following tips to help you manage and optimize your compute resource costs.
 
 - Configure your training clusters for autoscaling
 - Set quotas on your subscription and workspaces
@@ -24,7 +24,10 @@ Use the following tips to help you manage and reduce your compute resource costs
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
-- Colocate resources
+- Set data retention and deletion policies
+- Deploy resources to the same region
+
+For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
 
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
@@ -86,7 +89,7 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 ## Train locally
 
-When prototyping and training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training runs](how-to-set-up-training-targets.md#select-a-compute-target).
+When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. For more information, see [Configure and submit training runs](how-to-set-up-training-targets.md#select-a-compute-target).
 
 Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
 
@@ -94,12 +97,16 @@ Visual Studio Code provides a full-featured environment for developing your mach
 
 One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
 
-## Archive and delete stale data
+## Set data retention & deletion policies
 
-Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space on your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](storage/blobs/storage-lifecycle-management-concepts.md).
+Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space in your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](/storage/blobs/storage-lifecycle-management-concepts.md).
 
-## Colocate compute resources
+## Deploy resources to the same region
 
-When picking a region for your compute, you might see network latency and increased data transfer costs if your resources are in different locations, especially when that distance is far from each other. Azure network cost is incurred from outbound bandwidth from Azure data center. The key to reduce network cost is to deploy all your resources in the same data center region whenever possible. If you can deploy Azure Machine Learning workspace and compute in the same region that has your data, you can enjoy lower cost and higher performance.
+Computes located in different regions may experience network latency and increased data transfer costs. Azure network costs are incurred from outbound bandwidth from Azure data centers. To help reduce network costs, deploy all your resources in the region. Provisioning your Azure Machine Learning workspace and dependent resources in the same region as your data can help lower cost and improve performance.
 
-You might want to have private connection between your on-premises network and your Azure network to have hybrid cloud environment. ExpressRoute enables you to do that but considering the high cost of ExpressRoute, it may be more cost effective to move away from a hybrid-cloud setup and move all resources to Azure cloud. 
+For hybrid cloud scenarios like ExpressRoute, it can sometimes be more cost effective to move all resources to Azure to reduce network costs and latency.
+
+## Next steps
+
+- [Plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md)

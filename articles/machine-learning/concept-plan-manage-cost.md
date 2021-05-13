@@ -9,26 +9,18 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/15/2021
 ---
 
 # Plan to manage costs for Azure Machine Learning
 
-This article describes how to plan and manage costs for Azure Machine Learning. First, you use the Azure pricing calculator to help plan for costs before you add any resources. Next, as you add the Azure resources, review the estimated costs. Finally, use cost-saving tips as you train your model with managed Azure Machine Learning compute clusters.
+This article describes how to plan and manage costs for Azure Machine Learning. First, you use the Azure pricing calculator to help plan for costs before you add any resources. Next, as you add the Azure resources, review the estimated costs. 
 
 After you've started using Azure Machine Learning resources, use the cost management features to set budgets and monitor costs. Also review the forecasted costs and identify spending trends to identify areas where you might want to act.
 
 Understand that the costs for Azure Machine Learning are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you're billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Machine Learning. After you're familiar with managing costs for Azure Machine Learning, apply similar methods to manage costs for all the Azure services used in your subscription.
 
-To learn how to manage and reduce Azure Machine Learning costs, see [how to manage and reduce cost](how-to-manage-reduce-cost.md)
-
-<!-- When you train your machine learning models, use managed Azure Machine Learning compute clusters to take advantage of more cost-saving tips:
-
-* Configure your training clusters for autoscaling
-* Set quotas on your subscription and workspaces
-* Set termination policies on your training run
-* Use low-priority virtual machines (VM)
-* Use an Azure Reserved VM Instance -->
+For more information on optimizing costs, see [how to manage and optimize cost in Azure Machine Learning](how-to-manage-reduce-cost.md).
 
 ## Prerequisites
 
@@ -150,7 +142,19 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ## Other ways to manage and reduce costs for Azure Machine Learning
 
-To learn how to manage and reduce Azure Machine Learning costs, see [how to manage and reduce cost](how-to-manage-reduce-cost.md)
+Use the following tips to help you manage and optimize your compute resource costs.
+
+- Configure your training clusters for autoscaling
+- Set quotas on your subscription and workspaces
+- Set termination policies on your training run
+- Use low-priority virtual machines (VM)
+- Use an Azure Reserved VM Instance
+- Train locally
+- Parallelize training
+- Set data retention and deletion policies
+- Deploy resources to the same region
+
+For more information, see [manage and optimize costs in Azure Machine Learning](how-to-manage-reduce-cost.md).
 
 ## Next steps
 
