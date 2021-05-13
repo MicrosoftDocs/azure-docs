@@ -125,5 +125,5 @@ jdbc_df = spark.read \
 ```
 
 ## Next steps
-- [Learn more about the SQL Server and Azure SQL connector](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15)
+- [Learn more about the SQL Server and Azure SQL connector](/sql/connect/spark/connector)
 - [View Azure Data SQL Samples](https://github.com/microsoft/sql-server-samples)
