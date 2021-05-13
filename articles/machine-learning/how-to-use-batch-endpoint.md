@@ -94,7 +94,7 @@ Below is the YAML file defining the MLFlow batch endpoint:
 | Key | Description |
 | --- | ----------- |
 | $schema | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options for a batch endpoint YAML file. |
-| name | The name of the batch endpoint, which must be unique across the workspace. The `name` value will be used as part of the scoring URI. The value must start with an English-language character, continue as a mix of numbers, characters, and the `-` symbol, and it must end with a number or character. It must be at least 3 characters long. The validating regular expression is: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
+| name | The name of the batch endpoint, which must be unique across the region. The `name` value will be used as part of the scoring URI. The value must start with an English-language character, continue as a mix of numbers, characters, and the `-` symbol, and it must end with a number or character. It must be at least 3 characters long. The validating regular expression is: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
 | type | Type of the endpoint. Use `batch` for batch endpoint. |
 | auth_mode | Use `aad_token` for Azure token-based authentication. |
 | traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The deployment with a value of `100` traffic is active. When invoked, all data is sent to the active deployment. |
@@ -107,11 +107,11 @@ Deployment Attributes:
 | name | The name of the deployment. |
 | model | The model to be used for batch scoring. Use `name`, `version`, and `local_path` to upload a model from your local machine. Use the `azureml:` prefix to reference an existing model resource in your workspace. For instance, `azureml: autolog:1` would point to version 1 of a model named `autolog`. |
 | compute.target | The compute target. Use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named `cpu-cluster`. |
-| compute.instance_count | The number of compute nodes to be used for batch scoring. |
-| mini_batch_size | [Optional] The number of files the `scoring_script` can process in one `run()` call. Default is `1`. |
-| output_file_name | [Optional] The name of the batch scoring output file. Default is `parallel_run_step.txt`. |
+| compute.instance_count | The number of compute nodes to be used for batch scoring. Default is `1`.|
+| mini_batch_size | [Optional] The number of files the `scoring_script` can process in one `run()` call. Default is `10`. |
+| output_file_name | [Optional] The name of the batch scoring output file. Default is `predictions.csv`. |
 | retry_settings.max_retries | [Optional] The number of max tries for a failed `scoring_script` `run()`. Default is`3`. |
-| retry_settings.timeout | [Optional] The timeout in seconds for a `scoring_script` `run()`. Default is `60`. |
+| retry_settings.timeout | [Optional] The timeout in seconds for a `scoring_script` `run()`. Default is `30`. |
 | error_threshold | [Optional] The number of file failures that should be ignored. If the error count for the entire input goes above this value, the job will be terminated. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. Default is `-1`, which specifies that any number of failures is allowed without terminating the run. | 
 | logging_level | [Optional] Log verbosity. Values in increasing verbosity are: WARNING, INFO, and DEBUG. Default is INFO. |
 
@@ -181,7 +181,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, and `error_threshold`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, andd `logging_level`.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1

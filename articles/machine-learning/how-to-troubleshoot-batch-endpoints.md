@@ -28,7 +28,7 @@ The following table contains common problems and solutions you may see during ba
 | Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
 | The resource wasn't found. | Ensure you use `--type batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be re-used to create a new endpoint in the same workspace. |
+| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be re-used to create a new endpoint in the same region. |
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
 
 ##  Scoring script requirements
@@ -112,4 +112,19 @@ You can also view the results of periodic checks of the resource usage for each 
 
 You can use Python logging in your scoring script. Logs are stored in `logs/user/stdout/<node_id>/processNNN.stdout.txt`. 
 
-code sample tk
+```python
+import argparse
+import logging
+
+# Get logging_level
+arg_parser = argparse.ArgumentParser(description="Argument parser.")
+arg_parser.add_argument("--logging_level", type=str, help="logging level")
+args, unknown_args = arg_parser.parse_known_args()
+print(args.logging_level)
+
+# Initialize python logger
+logger = logging.getLogger(__name__)
+logger.setLevel(args.logging_level.upper())
+logger.info("Info log statement")
+logger.debug("Debug log statement")
+```
