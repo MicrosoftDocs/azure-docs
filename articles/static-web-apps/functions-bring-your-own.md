@@ -15,7 +15,7 @@ Azure Static Web Apps APIs are supported by two possible configurations:
 
 - **Managed functions**:  By default, the API of a static web app is an Azure Functions application managed and deployed by Azure Static Web Apps associated with some restrictions.
 
-- **Bring your own functions**: Optionally, you can provide an existing Azure Functions application, which is accompanied by all the features of Azure Functions. With this configuration, you're responsible to handle a separate deployment for the Functions app.
+- **Bring your own functions**: Optionally, you can provide an existing Azure Functions application of any plan type, which is accompanied by all the features of Azure Functions. With this configuration, you're responsible to handle a separate deployment for the Functions app.
 
 The following table contrasts the differences between using managed and existing functions.
 
@@ -23,9 +23,9 @@ The following table contrasts the differences between using managed and existing
 | --- | --- | --- |
 | Access to Azure Functions triggers | Http only | [All](../azure-functions/functions-triggers-bindings.md#supported-bindings) |
 | Supported runtimes | Node.js<br>.NET<br>Python | [All](../azure-functions/supported-languages.md#languages-by-runtime-version) |
+| Supported Azure Functions [hosting plans](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>Dedicated |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the _api_ route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
-| [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) | | ✔ |
 | [Durable Functions](../azure-functions/durable/durable-functions-overview.md) programming model | | ✔ |
 | [Managed identity](../app-service/overview-managed-identity.md) | | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | | ✔ |
