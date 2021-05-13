@@ -32,7 +32,7 @@ Premium Event Hubs offers three compelling benefits for customers who require be
 
 #### Superior performance with the new two-tier storage engine
 
-Event Hubs premium uses a new two-tier log storage engine that drastically improves the data ingress performance with substantially reduced overall latency and latency jitter without compromising the durability guarantees. Event Hubs Premium is faster than any implementation of Apache Kafka at the same reliability level. 
+Event Hubs premium uses a new two-tier log storage engine that drastically improves the data ingress performance with substantially reduced overall latency and latency jitter without compromising the durability guarantees. 
 
 #### Better isolation and predictability
 
