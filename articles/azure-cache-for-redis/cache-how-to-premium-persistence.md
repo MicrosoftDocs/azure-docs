@@ -86,7 +86,6 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 13. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
 ## Persistence FAQ
 
@@ -95,14 +94,14 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
 * [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
-* [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 * [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 * [Will I be charged for the storage being used in Data Persistence](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
 
 ### RDB persistence
 
 * [Can I change the RDB backup frequency after I create the cache?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
-* [Why if I have an RDB backup frequency of 60 minutes there's more than 60 minutes between backups?](#why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+* [Why is there more than 60 minutes between backups when I have an RDB backup frequency of 60 minutes?](#why-is-there-more-than-60-minutes-between-backups-when-i-have-an-rdb-backup-frequency-of-60-minutes)
 * [What happens to the old RDB backups when a new backup is made?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 
 ### AOF persistence
@@ -147,7 +146,7 @@ Yes, you can use the same storage account for persistence across two different c
 
 Yes, you can change the backup frequency for RDB persistence on the **Data persistence** on the left. For instructions, see Configure Redis persistence.
 
-### Why is there is than 60 minutes between backups if I have an RDB backup frequency of 60 minutes?
+### Why is there more than 60 minutes between backups when I have an RDB backup frequency of 60 minutes?
 
 The RDB persistence backup frequency interval doesn't start until the previous backup process has completed successfully. If the backup frequency is 60 minutes and it takes a backup process 15 minutes to complete, the next backup won't start until 75 minutes after the start time of the previous backup.
 
@@ -159,7 +158,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 Use a second storage account for AOF persistence when you believe you have higher than expected set operations on the cache.  Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
 
-### Does AOF persistence effect throughout, latency, or performance of my cache?
+### Does AOF persistence affect throughout, latency, or performance of my cache?
 
 AOF persistence affects throughput by about 15% – 20% when the cache is below maximum load (CPU and Server Load both under 90%). There shouldn't be latency issues when the cache is within these limits. However, the cache will reach these limits sooner with AOF enabled.
 
@@ -175,7 +174,7 @@ When the AOF file becomes large enough, a rewrite is automatically queued on the
 
 If the AOF file at the time of scaling is significantly large, then expect the scale operation to take longer than expected because it will be reloading the file after scaling has finished.
 
-For more information on scaling, see [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+For more information on scaling, see [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 ### How is my AOF data organized in storage?
 
