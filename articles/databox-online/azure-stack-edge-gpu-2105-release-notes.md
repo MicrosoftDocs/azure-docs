@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/11/2021
+ms.date: 05/13/2021
 ms.author: alkohli
 ---
 
@@ -19,25 +19,27 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3239**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3239** (NEEDS TO BE CHANGED AGAIN). This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 
 The following new features are available in the Azure Stack Edge 2105 release. 
- 
+
+- **VM related improvements** - The following key VM related improvements were made: 
+    - **VLAN configuration support** - In this release, the virtual local area network (VLAN) configuration can be changed by connecting to the PowerShell interface of the device. For more information, see [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)
+    - **IP Forwarding support** -  Beginning this release, we support the routing for IP network interfaces. --NEED MORE INFO-- 
 - **Support for Az cmdlets** - Starting this release, the Az cmdlets are available (in preview) when connecting to the local Azure Resource Manager of the device or when deploying VM workloads. For more information, see [Az cmdlets](/powershell/azure/new-azureps-module-az?view=azps-5.9.0).
 - **Enable remote PowerShell session over HTTP** - Starting this release, you can enable a remote PowerShell session into a device over *http* via the local UI. For more information, see how to [Enable Remote PowerShell over http](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-via-remote-powershell-over-http) for your device.
 
 
-<!--## Issues fixed in 2105 release
+## Issues fixed in 2105 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|Kubernetes |Brief description of issue fixed|
-|**2.**|VM |Brief description of issue fixed| 
--->
+|**1.**|VM |Failure during DHCP lease renewal should not cause network interface record to be removed.|
+|**2.**|VM | Monitoring improvements to resolve locking issue when provisioning VMs.| 
 
 ## Known issues in 2105 release
 
@@ -46,7 +48,6 @@ The following table provides a summary of known issues in the 2105 release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
-
 
 
 ## Known issues from previous releases
