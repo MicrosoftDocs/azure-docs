@@ -33,19 +33,11 @@ Now, you can move to the next step by creating a storage account and assign perm
 
 The next step in export data is to assign permission for Azure API for FHIR service to write to the storage account.
 
-After you've created a storage account, go to the **Access Control (IAM)** in the storage account, and then select **Add role assignment**. For detailed steps about adding a role assignment, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+After you've created a storage account, go to the **Access Control (IAM)** in the storage account, and then select **Add role assignment**. 
 
-    
-| Setting | Value |
-| --- | --- |
-| Role | [role-name](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
-| Assign access to | [User, group, or service principal OR Managed identity] |
-| Members | [members] |
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
-
-> [!NOTE]
-> Grant the **Storage Blob Data Contributor** role to your Azure API for FHIR service instance.
+It is here that you'll add the role [Storage Blob Data Contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) to our service name, and then select **Save**.
 
 Now you are ready to select the storage account in Azure API for FHIR as a default storage account for $export.
 
