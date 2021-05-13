@@ -21,13 +21,13 @@ Examples of resources that support standard SKU public IPs exclusively:
 
 * NAT gateway
 * Cross-region load balancer
-* Azure Bastion.
+* Azure Bastion
 
 Load balancer requires either a private or public IP address for the frontend configuration. The frontend of the load balancer is the connection point for clients internally and externally depending on the type of public IP address used. 
 
 Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Cross-region load balancers support the global tier option of standard SKU public IP addresses.
 
-Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to create a load balancer with a new public IP address. Finally, you'll learn how to associate a new IP address with the frontend of an existing load balancer. 
+Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to change the current public IP associated to a load balancer. 
 
 Standard SKU load balancer and public IP are used for the examples in this article. For basic SKU load balancers, the procedures are the same except for the selection of SKU upon creation of the load balancer and public IP resource.
 
