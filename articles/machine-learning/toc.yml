@@ -482,6 +482,8 @@
         items: 
           - name: Online
             items:
+            - name: Deploy an ML model with a managed online endpoint
+              href: how-to-deploy-managed-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
           - name: Batch
