@@ -480,6 +480,12 @@
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
+          - name: Batch
+            items:
+            - name: Batch scoring with batch endpoints
+              href: how-to-use-batch-endpoint.md
+            - name: Troubleshooting batch endpoints
+              href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
