@@ -15,81 +15,82 @@ summary: |
   
   This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
 
-  ## How to evaluate the efficiency of Gremlin queries
+sections:
+  - name: Gremlin queries
+    questions:
+      - question: |
+          How to evaluate the efficiency of Gremlin queries
+        answer: |
+          The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
   
-  The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
-  
-  **Query example**
-  
-  ```
-  g.V('mary').out('knows').executionProfile()
-  ```
-  
-  **Example output**
-  
-  ```json
-  [
-    {
-      "gremlin": "g.V('mary').out('knows').executionProfile()",
-      "totalTime": 8,
-      "metrics": [
-        {
-          "name": "GetVertices",
-          "time": 3,
-          "annotations": {
-            "percentTime": 37.5
-          },
-          "counts": {
-            "resultCount": 1
-          }
-        },
-        {
-          "name": "GetEdges",
-          "time": 5,
-          "annotations": {
-            "percentTime": 62.5
-          },
-          "counts": {
-            "resultCount": 0
-          },
-          "storeOps": [
+          **Query example**
+          
+          ```
+          g.V('mary').out('knows').executionProfile()
+          ```
+          
+          **Example output**
+          
+          ```json
+          [
             {
-              "count": 0,
-              "size": 0,
-              "time": 0.6
+              "gremlin": "g.V('mary').out('knows').executionProfile()",
+              "totalTime": 8,
+              "metrics": [
+                {
+                  "name": "GetVertices",
+                  "time": 3,
+                  "annotations": {
+                    "percentTime": 37.5
+                  },
+                  "counts": {
+                    "resultCount": 1
+                  }
+                },
+                {
+                  "name": "GetEdges",
+                  "time": 5,
+                  "annotations": {
+                    "percentTime": 62.5
+                  },
+                  "counts": {
+                    "resultCount": 0
+                  },
+                  "storeOps": [
+                    {
+                      "count": 0,
+                      "size": 0,
+                      "time": 0.6
+                    }
+                  ]
+                },
+                {
+                  "name": "GetNeighborVertices",
+                  "time": 0,
+                  "annotations": {
+                    "percentTime": 0
+                  },
+                  "counts": {
+                    "resultCount": 0
+                  }
+                },
+                {
+                  "name": "ProjectOperator",
+                  "time": 0,
+                  "annotations": {
+                    "percentTime": 0
+                  },
+                  "counts": {
+                    "resultCount": 0
+                  }
+                }
+              ]
             }
           ]
-        },
-        {
-          "name": "GetNeighborVertices",
-          "time": 0,
-          "annotations": {
-            "percentTime": 0
-          },
-          "counts": {
-            "resultCount": 0
-          }
-        },
-        {
-          "name": "ProjectOperator",
-          "time": 0,
-          "annotations": {
-            "percentTime": 0
-          },
-          "counts": {
-            "resultCount": 0
-          }
-        }
-      ]
-    }
-  ]
-  ```
-  
-  The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
-  
-  ## Other frequently asked questions
-
-sections:
+          ```
+          
+          The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
+          
   - name: Other frequently asked questions
     questions:
       - question: |

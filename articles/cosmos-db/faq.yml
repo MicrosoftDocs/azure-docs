@@ -14,7 +14,7 @@ summary: |
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
   
 sections:
-  - name: General
+  - name: General FAQ
     questions:
       - question: |
           What are the typical use cases for Azure Cosmos DB?
@@ -88,8 +88,9 @@ sections:
           
           To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
           
-          ## Try Azure Cosmos DB subscriptions
-
+      - question: |
+          Try Azure Cosmos DB subscriptions
+        answer: |
           You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) and use any personal Microsoft account (MSA). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
 
           Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID.
@@ -136,12 +137,13 @@ sections:
           Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new container and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
           
       - question: |
-          Does Azure CosmosDB support time series analysis?
+          Does Azure Cosmos DB support time series analysis?
         answer: |
-          Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
+          Yes Azure Cosmos DB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
 
-          ## What are the Azure Cosmos DB service quotas and throughput limits
-
+      - question: |
+          What are the Azure Cosmos DB service quotas and throughput limits
+        answer: |
           See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
 
   - name: Frequently asked questions about SQL API
@@ -252,5 +254,5 @@ additionalContent: |
 
   * Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb-api-faq.yml)
   * Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq.yml)
-  * Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra-faq.md)
+  * Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra-faq.yml)
   * Frequently asked questions about [Table API in Azure Cosmos DB](table-api-faq.yml)
