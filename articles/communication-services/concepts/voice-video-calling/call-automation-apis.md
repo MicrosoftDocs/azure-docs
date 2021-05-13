@@ -448,5 +448,216 @@ Content-Type: application/json
   "message": "<error-message>",
 }
 ```
+## In-Call Events
+Event notifications are sent as JSON payloads to the calling application via the `callbackUri`set during the create call request.
+
+### CallState Event - Establishing
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/531f3600-481f-41c8-8a75-3e8b2e8e6200/callState",
+        "data": {
+            "ConversationId": null,
+            "CallLegId": "531f3600-481f-41c8-8a75-3e8b2e8e6200",
+            "CallState": "Establishing"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-05-05T20:08:39.0157964Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+### CallState Event - Established
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/531f3600-481f-41c8-8a75-3e8b2e8e6200/callState",
+        "data": {
+            "ConversationId": "aHR0cHM6Ly9jb252LXVzc2MtMDIuY29udi5za3lwZS5jb20vY29udi92RFNacTFyTEIwdVotM0dQdjBabUpnP2k9OCZlPTYzNzU1NzQzNzg4NTgzMTgxMQ",
+            "CallLegId": "531f3600-481f-41c8-8a75-3e8b2e8e6200",
+            "CallState": "Established"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-05-05T20:08:59.5783985Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### CallState Event - Terminating
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/531f3600-481f-41c8-8a75-3e8b2e8e6200/callState",
+        "data": {
+            "ConversationId": "aHR0cHM6Ly9jb252LXVzc2MtMDIuY29udi5za3lwZS5jb20vY29udi92RFNacTFyTEIwdVotM0dQdjBabUpnP2k9OCZlPTYzNzU1NzQzNzg4NTgzMTgxMQ",
+            "CallLegId": "531f3600-481f-41c8-8a75-3e8b2e8e6200",
+            "CallState": "Terminating"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-05-05T20:13:45.7398707Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### CallState Event - Terminated
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/531f3600-481f-41c8-8a75-3e8b2e8e6200/callState",
+        "data": {
+            "ConversationId": "aHR0cHM6Ly9jb252LXVzc2MtMDIuY29udi5za3lwZS5jb20vY29udi92RFNacTFyTEIwdVotM0dQdjBabUpnP2k9OCZlPTYzNzU1NzQzNzg4NTgzMTgxMQ",
+            "CallLegId": "531f3600-481f-41c8-8a75-3e8b2e8e6200",
+            "CallState": "Terminated"
+        },
+        "eventType": "Microsoft.Communication.CallLegStateChanged",
+        "eventTime": "2021-05-05T20:13:46.1541814Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### DTMF Received Event
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/471f3600-4e1f-4cd4-9eec-4a484e4cbf00/dtmf",
+        "data": {
+            "ToneInfo": {
+                "SequenceId": 1,
+                "Tone": "Tone1"
+            },
+            "CallLegId": "471f3600-4e1f-4cd4-9eec-4a484e4cbf00"
+        },
+        "eventType": "Microsoft.Communication.DtmfReceived",
+        "eventTime": "2021-05-05T20:31:00.4818813Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### PlayAudioResult Event
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/511f3600-401f-4296-b6d0-b8da6f343b00/playAudio",
+        "data": {
+            "ResultInfo": {
+                "Code": 200,
+                "Subcode": 0,
+                "Message": "Action completed successfully."
+            },
+            "OperationContext": "6c6cbbc7-66b2-47a8-a29c-5e5f73aee86d",
+            "Status": "Completed",
+            "CallLegId": "511f3600-401f-4296-b6d0-b8da6f343b00"
+        },
+        "eventType": "Microsoft.Communication.PlayAudioResult",
+        "eventTime": "2021-05-05T20:38:22.0476663Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### Cancel media processing Event
+```
+{
+        "id": null,
+        "topic": null,
+        "subject": "callLeg/471f3600-4e1f-4cd4-9eec-4a484e4cbf00/playAudio",
+        "data": {
+            "ResultInfo": {
+                "Code": 400,
+                "Subcode": 8508,
+                "Message": "Action falied, the operation was cancelled."
+            },
+            "OperationContext": "d8aeabf7-47a0-4803-b0cc-6059a708440d",
+            "Status": "Completed",
+            "CallLegId": "471f3600-4e1f-4cd4-9eec-4a484e4cbf00"
+        },
+        "eventType": "Microsoft.Communication.PlayAudioResult",
+        "eventTime": "2021-05-05T20:31:01.2789071Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### Invite Participant result Event
+```
+{
+        "id": "52154ee2-b2ba-420f-b42f-a69c6101c516",
+        "topic": null,
+        "subject": "callLeg/421f6d00-18fc-4d11-bde6-e5e371494753/inviteParticipantResult",
+        "data": {
+            "ResultInfo": null,
+            "OperationContext": "5dbcbdd4-febf-4091-a5be-543f09b2692c",
+            "Status": "Completed",
+            "CallLegId": "421f6d00-18fc-4d11-bde6-e5e371494753",
+            "Participants": [
+                {
+                    "RawId": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-de04-ee58-740a-113a0d00330d",
+                    "CommunicationUser": {
+                        "Id": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-de04-ee58-740a-113a0d00330d"
+                    },
+                    "PhoneNumber": null,
+                    "MicrosoftTeamsUser": null
+                }
+            ]
+        },
+        "eventType": "Microsoft.Communication.InviteParticipantResult",
+        "eventTime": "2021-05-05T21:49:52.8138396Z",
+        "metadataVersion": null,
+        "dataVersion": null
+}
+```
+
+### Participants Updated Event
+```
+{
+    "id": null,
+    "topic": null,
+    "subject": "callLeg/411f6d00-088a-4ee4-a7bf-c064ac10afeb/participantsUpdated",
+    "data": {
+        "CallLegId": "411f6d00-088a-4ee4-a7bf-c064ac10afeb",
+        "Participants": [
+            {
+                "Identifier": {
+                    "RawId": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-7904-f8c2-51b9-a43a0d0010d9",
+                    "CommunicationUser": {
+                        "Id": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-7904-f8c2-51b9-a43a0d0010d9"
+                    },
+                    "PhoneNumber": null,
+                    "MicrosoftTeamsUser": null
+                },
+                "ParticipantId": "de7539f7-019e-4934-a4c9-9a770e5e07bb",
+                "IsMuted": false
+            },
+            {
+                "Identifier": {
+                    "RawId": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-547e-c56e-71bf-a43a0d002dc1",
+                    "CommunicationUser": {
+                        "Id": "8:acs:016a7064-0581-40b9-be73-6dde64d69d72_00000009-547e-c56e-71bf-a43a0d002dc1"
+                    },
+                    "PhoneNumber": null,
+                    "MicrosoftTeamsUser": null
+                },
+                "ParticipantId": "16c3518f-5ff5-4989-8073-39255a71fb58",
+                "IsMuted": false
+            }
+        ]
+    },
+    "eventType": "Microsoft.Communication.ParticipantsUpdated",
+    "eventTime": "2021-04-16T06:26:37.9121542Z",
+    "metadataVersion": null,
+    "dataVersion": null
+}
+```
+
 ## Next steps
 Check out our [sample](https://github.com/Azure/communication-preview/tree/master/samples/Server-Calling/IncidentReporter) to learn more.

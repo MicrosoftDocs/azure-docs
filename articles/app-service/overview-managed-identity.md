@@ -18,6 +18,9 @@ This topic shows you how to create a managed identity for App Service and Azure 
 > [!Important] 
 > Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
 
+> [!NOTE]
+> Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## Add a system-assigned identity

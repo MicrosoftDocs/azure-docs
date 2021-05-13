@@ -23,9 +23,17 @@ In most cases, app developers need to know nothing more than how to deploy to th
 
 The following public preview limitations apply to App Service Kubernetes environments. They will be updated when additional distributions are validated and more regions are supported.
 
-| Validated Kubernetes distributions | Azure Kubernetes Service |
-|-|-|
-| Supported Azure regions | East US, West Europe |
+| Limitation                                              | Details                                                                          |
+|---------------------------------------------------------|----------------------------------------------------------------------------------|
+| Supported Azure regions                                 | East US, West Europe                                                             |
+| Validated Kubernetes distributions                      | Azure Kubernetes Service                                                         |
+| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported) |
+| Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                               |
+| Feature: Key vault references                           | Not available (depends on managed identities)                                    |
+| Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                    |
+| Feature: In-portal editing for Functions and Logic Apps | Not available                                                                    |
+| Feature: FTP publishing                                 | Not available                                                                    |
+| Logs                                                    | Log Analytics must be configured with cluster extension; not per-site            |
 
 ## Pods created by the App Service extension
 
@@ -34,16 +42,16 @@ When the App Service extension is installed on the Arc-enabled Kubernetes cluste
 
 The following table describes the role of each pod that is created by default:
 
-| Pod | Description |
-| - | - |
-| `<extensionName>-k8se-app-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. |
-| `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane requests. It routes the inbound traffic to the correct apps. |
-| `<extensionName>-k8se-activator` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. |
-| `<extensionName>-k8se-build-service` | Supports deployment operations and serves the [Advanced tools feature](resources-kudu.md). |
-| `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). |
-| `<extensionName>-k8se-img-cacher` | Pulls placeholder and app images into a local cache on the node. |
-| `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. |
-| `placeholder-azure-functions-*` | Used to speed up cold starts for Azure Functions. |
+| Pod                                   | Description                                                                                                                       |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `<extensionName>-k8se-app-controller` | The core operator pod that creates resources on the cluster and maintains the state of components.                                |
+| `<extensionName>-k8se-envoy`          | A front-end proxy layer for all data-plane requests. It routes the inbound traffic to the correct apps.                           |
+| `<extensionName>-k8se-activator`      | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. |
+| `<extensionName>-k8se-build-service`  | Supports deployment operations and serves the [Advanced tools feature](resources-kudu.md).                                        |
+| `<extensionName>-k8se-http-scaler`    | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh).                               |
+| `<extensionName>-k8se-img-cacher`     | Pulls placeholder and app images into a local cache on the node.                                                                  |
+| `<extensionName>-k8se-log-processor`  | Gathers logs from apps and other components and sends them to Log Analytics.                                                      |
+| `placeholder-azure-functions-*`       | Used to speed up cold starts for Azure Functions.                                                                                 |
 
 ## App Service Kubernetes environment
 
@@ -51,7 +59,7 @@ The App Service Kubernetes environment resource is required before apps may be c
 
 Only one Kubernetes environment resource may created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
 
-## FAQ for App Service
+## FAQ for App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
 - [How much does it cost?](#how-much-does-it-cost)
 - [Are both Windows and Linux apps supported?](#are-both-windows-and-linux-apps-supported)
@@ -59,6 +67,7 @@ Only one Kubernetes environment resource may created in a custom location. In mo
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
 - [Are networking features supported?](#are-networking-features-supported)
+- [Are managed identities supported?](#are-managed-identities-supported)
 
 ### How much does it cost?
 
@@ -83,6 +92,10 @@ During the preview period, certain App Service features are being validated. Whe
 ### Are networking features supported?
 
 No. Networking features such as hybrid connections, Virtual Network integration, or IP restrictions, are not supported. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
+
+### Are managed identities supported?
+
+No. Apps cannot be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
 
 ## Next steps
 
