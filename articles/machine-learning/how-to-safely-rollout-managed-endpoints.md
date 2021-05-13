@@ -76,7 +76,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, change the value to `2` in the YAML configuration file:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yml range="29":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yml" range="29":::
 
 Update the deployment with:
 
@@ -89,7 +89,7 @@ Update the deployment with:
 
 To deploy your new model, add a new section to the `deployments` section of your configuration file, but specify in the `traffic` section that it should receive 0% of traffic:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/3-create-green.yml range="7,35-56":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/canary-declarative-flow/3-create-green.yml" range="7,35-56":::
 
 Update the deployment: 
 
