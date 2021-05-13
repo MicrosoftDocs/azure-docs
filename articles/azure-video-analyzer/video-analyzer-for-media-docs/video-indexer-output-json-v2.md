@@ -97,7 +97,7 @@ This section shows the summary of the insights.
 |faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects-public-preview).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects-preview).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
@@ -174,7 +174,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |labels|The [labels](#labels) insight.|
 |shots|The [shots](#shots) insight.|
 |brands|The [brands](#brands) insight.|
-|audioEffects|The [audioEffects](#audioeffects-public-preview) insight.|
+|audioEffects|The [audioEffects](#audioeffects-preview) insight.|
 |sentiments|The [sentiments](#sentiments) insight.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) insight.|
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) insight.|
