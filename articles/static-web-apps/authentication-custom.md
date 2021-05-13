@@ -43,21 +43,26 @@ The following tables contain the different configuration options for each provid
 ```json
 {
   "auth": {
-    "azureActiveDirectory": {
-      "registration": {
-        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "<AAD_CLIENT_ID>",
-        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
+          "clientIdSettingName": "<AAD_CLIENT_ID>",
+          "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+        }
       }
     }
   }
 }
 ```
 
-Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 then you need to add the following entry to your configuration.
+Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 (the issuer endpoint does not end with "/v2.0"), then you need to add the following `userDetailsClaim` entry to your configuration in the `"azureActiveDirectory"` object.
 
 ```json
-"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+"azureActiveDirectory": {
+  "registration": { ... },
+  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+}
 ```
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
@@ -72,10 +77,12 @@ For more information on how to configure Azure Active Directory, see the [App Se
 ```json
 {
   "auth": {
-    "apple": {
-      "registration": {
-        "clientIdSettingName": "<APPLE_CLIENT_ID>",
-        "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "apple": {
+        "registration": {
+          "clientIdSettingName": "<APPLE_CLIENT_ID>",
+          "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -94,10 +101,12 @@ For more information on how to configure Apple as an authentication provider, se
 ```json
 {
   "auth": {
-    "facebook": {
-      "registration": {
-        "appIdSettingName": "<FACEBOOK_APP_ID>",
-        "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+    "identityProviders": {
+      "facebook": {
+        "registration": {
+          "appIdSettingName": "<FACEBOOK_APP_ID>",
+          "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+        }
       }
     }
   }
@@ -116,10 +125,12 @@ For more information on how to configure Facebook as an authentication provider,
 ```json
 {
   "auth": {
-    "github": {
-      "registration": {
-        "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-        "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+    "identityProviders": {
+      "github": {
+        "registration": {
+          "clientIdSettingName": "<GITHUB_CLIENT_ID>",
+          "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -136,10 +147,12 @@ For more information on how to configure Facebook as an authentication provider,
 ```json
 {
   "auth": {
-    "google": {
-      "registration": {
-        "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
-        "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "google": {
+        "registration": {
+          "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
+          "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -158,10 +171,12 @@ For more information on how to configure Google as an authentication provider, s
 ```json
 {
   "auth": {
-    "twitter": {
-      "registration": {
-        "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-        "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+    "identityProviders": {
+      "twitter": {
+        "registration": {
+          "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
+          "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+        }
       }
     }
   }

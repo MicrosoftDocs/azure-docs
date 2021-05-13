@@ -8,7 +8,7 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 
-zone_pivot_groups: acs-plat-web-ios-android-windows
+zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Join your calling app to a Teams meeting
