@@ -19,7 +19,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Microsoft.IC3.Azure.Communication.Calling.UAP`. 
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. 
 
 ### Request access
 
