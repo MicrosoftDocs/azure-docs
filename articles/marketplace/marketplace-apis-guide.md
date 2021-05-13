@@ -1,6 +1,6 @@
 ---
-title: Align your business with our eCommerce platform
-description: Learn how to aligning your business with our eCommerce platform (Azure Marketplace).
+title: Align your business with our eCommerce platform and Azure Marketplace
+description: Align your business with our eCommerce platform (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,16 +9,16 @@ ms.author: mingshen
 ms.date: 05/12/2021
 ---
 
-# Aligning your Business with our eCommerce Platform
+# Aligning your business with our e-commerce platform
 
 This article describes how the commercial marketplace User Interface (UI) and programmatic Application Programming Interfaces (APIs) combine to support your business processes. The links under the API point to the specific interfaces developers can use to integrate their CRM system with the commercial marketplace.
 
 ## Overview of activities
 
-The activities below are not necessarily sequential. The activity you use is dependent on your business needs and sales processes. This guide shows how to integrate different APIs to automate each activity.
+The activities below are not sequential. The activity you use is dependent on your business needs and sales processes. This guide shows how to integrate different APIs to automate each activity.
 
 | <center>Activity | ISV sales activities | Corresponding Marketplace API | Corresponding Marketplace UI |
-| -- | -- | -- | -- |
+| --- | --- | --- | --- |
 | <center>**1. Product Marketing**<br><img src="media/api-guide/icon-product-marketing.png" alt="The icon for product marketing"> | Create product messaging, positioning, promotion, pricing | Create product messaging, positioning, promotion, pricing<br>[Partner Ingestion API](https://apidocs.microsoft.com/services/partneringestion/)<br>[Azure Apps Onboarding API](partner-center-portal/azure-app-apis.md)</ul> | Create product messaging, positioning, promotion, pricing<br>Partner Center (PC) → Offer Creation |
 | <center>**2. Demand Generation**<br><img src="media/api-guide/icon-demand-generation.png" alt="The icon for demand generation"> | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC<br>[Lead CRM Connector for D365, SFDC and Marketo](partner-center-portal/commercial-marketplace-get-customer-leads.md)<br>[Co-Sell Connector for SalesForce CRM](/partner-center/connector-salesforce)<br>[Co-Sell Connector for Dynamics 365 CRM](/partner-center/connector-dynamics.md) | Product Promotion<br>Lead nurturing<br>Eval, trial & PoC<br>Azure Marketplace and AppSource<br>PC Marketplace Insights<br>PC Co-Sell Opportunities |
 | <center>**3. Negotiation and Quote Creation**<br><img src="media/api-guide/icon-negotiation-quote-creation.png" alt="The icon for negotiation and quote creation"> | T&Cs<br>Pricing<br>Discount approvals<br>Final quote | T&Cs<br>Pricing<br>Discount approvals<br>Final quote<br>[CPP API for VM's](cloud-partner-portal-api-overview.md)<br>[Microsoft Graph for AAD API](/azure/active-directory/reports-monitoring/concept-reporting-api.md)<br>[Partner Center '7' API Family](https://apidocs.microsoft.com/services/partnercenter) | T&Cs<br>Pricing<br>Discount approvals<br>Final quote<br>PC → Plans (public or private) |
