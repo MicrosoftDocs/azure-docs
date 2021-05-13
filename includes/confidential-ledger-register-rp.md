@@ -21,3 +21,16 @@ az provider register --namespace "microsoft.ConfidentialLedger"
 Register-AzureRmResourceProvider -ProviderNamespace "microsoft.ConfidentialLedger"
 ```
 ---
+
+You can verify that registration is complete with the Azure CLI [az provider register](/cli/azure/provider#az_provider_show) command or the Azure PowerShell [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) cmdlet.
+
+# [Azure CLI](#tab/azure-cli)
+```azurecli
+az provider show --namespace "microsoft.ConfidentialLedger"
+```
+# [Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzureRmResourceProvider -ProviderNamespace "microsoft.ConfidentialLedger"
+```
+---
