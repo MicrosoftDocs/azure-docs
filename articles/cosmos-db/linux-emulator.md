@@ -1,5 +1,6 @@
 ---
 title: Running the emulator on Docker for Linux
+titleSuffix: Running the Azure Cosmos DB emulator on Docker for Linux
 description: Learn how to run and use the Azure Cosmos DB Linux Emulator on Linux, and macOS. Using the emulator you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -87,11 +88,9 @@ In order to consume the endpoint via the UI using your desired web browser, foll
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
--	Open Keychain Access
--	File > Import Items > emulatorcert.crt
--	Once the emulatorcert.crt is loaded into KeyChain
--	Double-click on the name, it should be easily identified as "localhost"
--	Change the trust settings to "Always Trust"
+-	Open up the Keychain Access app on your Mac to import the emulator certificate.
+-	Select File and Import Items and import the emulatorcert.crt.
+-	Once the emulatorcert.crt is loaded into KeyChain, double-click on the name i.e. "localhost" and change the trust settings to "Always Trust". 
 
 You can now browse https://localhost:8081/_explorer/index.html or https://{your_local_ip}:8081/_explorer/index.html and retrieve the connection string to your Cosmos DB emulator.
 
@@ -106,7 +105,7 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
+    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
 1. Next, download the certificate for the emulator.
 
@@ -177,7 +176,7 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
         This error is likely because the current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
 3. My app received too many connectivity-related timeouts.
-    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
+    - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
     - Ensure the number of TCP connections does not exceed your current OS settings.
     - Try reducing the size of the documents in your application. 
 4. My app could not provision databases/containers.
@@ -195,7 +194,7 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB emulator from creating and adding self signed certificate files into your certificate store."
    ```
 
-    This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .Net Cosmos SDK client application).
+    This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .NET Cosmos SDK client application).
     
 2. The emulator is crashing.
     - Confirm that creating a container with the [recommended settings](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
@@ -207,8 +206,6 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
     - See section regarding connectivity-related issues above.
     - Make sure that the self-signed emulator certificate is properly imported and manually trusted in order for your browser to access the data explorer page.
     - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](linux-emulator.md#report-an-emulator-issue).
-2. My data isn't persisting in between docker container restarts.
-    - This is a known limitation, we're working on adding support for this in future iterations of the emulator.
 
 ### Performance
 1. Number of requests per second is low, latency of the requests is high. 
