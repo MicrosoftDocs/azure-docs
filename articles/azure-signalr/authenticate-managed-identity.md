@@ -81,14 +81,14 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Azure Functions App
 
-On Azure portal, add an application setting whose name is `AzureSignalRConnectionString` and value is `Endpoint=https://<name>.signalr.net;AuthType=aad;`.
+On Azure portal, add an application setting with name `AzureSignalRConnectionString` and value `Endpoint=https://<name>.signalr.net;AuthType=aad;`.
 
-On local, in your `local.appsettings.json` file, add connection string in the `Values` section:
+On local, in your `local.appsettings.json` file, add in the `Values` section:
 ```json
 {
-  "Values": {
-    "AzureSignalRConnectionString":"Endpoint=https://<name>.signalr.net;AuthType=aad;"
-  }
+    "Values": {
+        "AzureSignalRConnectionString": "Endpoint=https://<name>.signalr.net;AuthType=aad;"
+    }
 }
 ```
 
