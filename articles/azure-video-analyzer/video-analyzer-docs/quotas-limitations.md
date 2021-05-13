@@ -18,7 +18,7 @@ This section enumerates the quotas and limitations of the Video Analyzer edge mo
 
 The edge module can sustain temporary loss of internet connectivity. If the module remains disconnected for more than 36 hours, it will deactivate any live pipelines that were running. All further direct method calls will be blocked.
 
-To resume the edge module to an operational state, you will have to restore the internet connectivity so that the module is able to successfully communicate with the Azure Video Analyzer account.
+To restore the edge module to an operational state, you will have to re-establish the internet connectivity so that the module is able to successfully communicate with the Azure Video Analyzer account.
 
 ### Maximum number of live pipelines
 
