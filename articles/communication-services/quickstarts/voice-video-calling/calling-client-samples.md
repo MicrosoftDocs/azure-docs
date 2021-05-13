@@ -10,7 +10,7 @@ ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Quickstart: Use the Communication Services Calling SDK
