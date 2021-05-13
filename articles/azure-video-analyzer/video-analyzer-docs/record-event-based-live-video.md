@@ -77,7 +77,7 @@ In this tutorial, you will:
 
 In Visual Studio Code, browse to src/edge. You'll see the .env file that you created and a few deployment template files. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). The .env file contains values for the variables used in these templates, such as Video Analyzer credentials.
 
-Open src/edge/deployment.objectCounter.template.json. There are four entries under the **modules** section that correspond to the items listed in the previous "Concepts" section
+Open src/edge/deployment.objectCounter.template.json. There are four entries under the **modules** section that correspond to the items listed in the previous "Overview" section
 
 * **avaedge**: This is the Video Analyzer on IoT Edge module.
 * **yolov3**: This is the AI module built by using the YOLO v3 model.
@@ -132,7 +132,7 @@ If this is your first tutorial with Video Analyzer on IoT Edge, Visual Studio Co
 Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be avasample-iot-edge-device.
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
-In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are four modules deployed named avaedge, rtspsim, yolov3, and objectCounter.
+In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are six modules deployed named $edgeAgent, $edgeHub avaedge, rtspsim, yolov3, and objectCounter.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/modules.png" alt-text="Four modules deployed":::
