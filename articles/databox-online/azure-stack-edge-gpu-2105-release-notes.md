@@ -19,15 +19,13 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.XXXX.XXXX**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3239**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 
 The following new features are available in the Azure Stack Edge 2105 release. 
  
-- **New features/improvements for Virtual Machines** - Beginning this release, you can ......
-- **Improvements for compute** - Starting this release, you can ....
-
+- **Support for Az cmdlets** - Starting this release, the Az cmdlets are available (in preview) when connecting to the local Azure Resource Manager of the device or when deploying VM workloads. For more information, see [Az cmdlets](/powershell/azure/new-azureps-module-az?view=azps-5.9.0).
 - **Enable remote PowerShell session over HTTP** - Starting this release, you can enable a remote PowerShell session into a device over *http* via the local UI. For more information, see how to [Enable Remote PowerShell over http](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-via-remote-powershell-over-http) for your device.
 
 
@@ -47,8 +45,7 @@ The following table provides a summary of known issues in the 2105 release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
-|**2.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2103 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
-|**3.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
+
 
 
 ## Known issues from previous releases
@@ -84,6 +81,8 @@ The following table provides a summary of known issues carried over from the pre
 |**25.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that do not exist on the network.| |
 |**26.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it is not possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create 1 VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available 1 GPU. |
 |**27.**|Custom script VM extension |There is a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <ul><li> Connect to the Windows VM using remote desktop protocol (RDP). </li><li> Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. </li><li> If the `waappagent.exe` is not running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.</li><li> While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. </li><li>After you kill the process, the process starts running again with the newer version.</li><li>Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.</li><li>[Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md). </li><ul> |
+|**28.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2103 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
+|**29.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
 
 
 ## Next steps
