@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/12/2021
+ms.date: 05/13/2021
 ms.author: alkohli
 ---
 # Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU
@@ -28,7 +28,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 **Error Description:** A VHD stored as a block blob cannot be downloaded. To be downloaded, a VHD must be stored as a page blob.
 
-**Suggested solution:** Upload the VHD to the Azure storage account as a page blob. Then download the blob. For upload instructions, see [Upload VHD to storage account using Storage Explorer](/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer).
+**Suggested solution:** Upload the VHD to the Azure storage account as a page blob. Then download the blob. For upload instructions, see [Use Storage Explorer for upload](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
 
 
 ## Only blobs formatted as VHDs can be imported
@@ -55,4 +55,5 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 ## Next steps
 
-* Learn more about how to [Troubleshoot your Azure Stack Edge Pro issues](azure-stack-edge-troubleshoot.md).<!--Not updated.-->
+* Learn how to [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
+* Learn how to [Deploy VMs using Azure PowerShell cmdlets](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
