@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/13/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     a. Click **Enable Single Sign-On with SAML**.  
  
-    b. In the **Identity Provider URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.    
+    b. In the **Identity Provider URL** textbox, fill the value with : `https://YourAccountName.samanage.com` .
  
     c. Confirm the **Login URL** matches the **Sign On URL** of **Basic SAML Configuration** section in Azure portal.
  
