@@ -318,7 +318,7 @@ The restore options to **Create new VM** and **Replace existing** aren't support
 
 Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup can't be used to in such cases, which exclude the disk and backup the VM.
 
-If you set up disk exclusion settings on an IaaS VM to back up selective disks and _stop protection and retain data_, when resuming protection, you need to set up disk exclusion settings again.
+If you use disk exclusion or selective disks while backing up Azure VM, _[stop protection and retain backup data](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_. When resuming backup for this resource, you need to set up disk exclusion settings again.
 
 ## Billing
 
