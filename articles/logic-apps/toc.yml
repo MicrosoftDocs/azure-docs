@@ -67,13 +67,13 @@
     items:
     - name: Single-tenant overview (Preview)
       href: single-tenant-overview-compare.md
-    - name: Create preview logic apps - Portal
-      href: create-stateful-stateless-workflows-azure-portal.md
-    - name: Create preview logic apps - Visual Studio Code
-      href: create-stateful-stateless-workflows-visual-studio-code.md
-    - name: About DevOps deployment for single-tenant
+    - name: Create single-tenant workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create single-tenant workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Set up deployment for single-tenant
+    - name: Set up DevOps deployment for single-tenant
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
   - name: Develop
     items:
