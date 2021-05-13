@@ -139,3 +139,8 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 ```azurecli
 az logicapp config appsettings set --name functionAppName --resource-group resourceGroupName --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Single-tenant (preview) vs. multi-tenant and integration service environment for Logic Apps](single-tenant-overview-compare.md)
