@@ -5,7 +5,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 05/13/2021
 ---
 
 # LUIS resources
@@ -22,13 +22,9 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 > * LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource, which gives you a 10,000 free transactions monthly, and not the authoring resource, which gives you 1,000 prediction transactions monthly.
 > * You should author LUIS apps in the [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
-## Create LUIS resources 
-
 [!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-## Create LUIS resources in LUIS Portal
-
-### Create LUIS Authoring resource
+## Create a LUIS authoring resource using the LUIS portal
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you can skip the next step.
 
@@ -43,9 +39,9 @@ LUIS allows three types of Azure resources and one non-Azure resource:
     * **Azure resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
     * **Pricing tier** - the pricing tier determines the maximum transaction per second and month.
 
-### Create LUIS Prediction resource
+## Create a LUIS Prediction resource using the LUIS portal
 
-[!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-pred-resource-portal.md)
+[!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
 
 ## Create LUIS resources in the Azure CLI

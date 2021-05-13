@@ -7137,7 +7137,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-azure-subscription.md",
-      "redirect_url": "/azure/cognitive-services/containers/luis-how-to-azure-subscription",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
     },
     {
