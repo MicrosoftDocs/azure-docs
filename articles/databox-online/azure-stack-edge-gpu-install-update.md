@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 05/13/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,9 +20,9 @@ The procedure described in this article was performed using a different version 
 
 > [!IMPORTANT]
 > - Update **2105** is the current update and corresponds to:
->   - Device software version - **2.2.1592.3239**
->   - Kubernetes server version - **v1.17.3**
->   - IoT Edge version: **0.1.0-beta13**
+>   - Device software version - **2.2.1592.3244**
+>   - Kubernetes server version - **v1.20.2**
+>   - IoT Edge version: **0.1.0-beta14**
 >   - GPU driver version: **460.32.03**
 >   - CUDA version: **11.2**
 >    

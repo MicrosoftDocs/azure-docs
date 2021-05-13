@@ -19,15 +19,18 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3239** (NEEDS TO BE CHANGED AGAIN). This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2105** release, which maps to software version number **2.2.1592.3244**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
 
 ## What's new
 
 The following new features are available in the Azure Stack Edge 2105 release. 
 
-- **VM related improvements** - The following key VM related improvements were made: 
-    - **VLAN configuration support** - In this release, the virtual local area network (VLAN) configuration can be changed by connecting to the PowerShell interface of the device. For more information, see [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)
-    - **IP Forwarding support** -  Beginning this release, we support the routing for IP network interfaces. --NEED MORE INFO-- 
+- **Virtual Local Area Network (VLAN) configuration support** - In this release, the virtual local area network (VLAN) configuration can be changed by connecting to the PowerShell interface of the device. For more information, see [Create vLAN networks on virtual switch](azure-stack-edge-gpu-create-virtual-switch-powershell).
+- **IP Forwarding support** - Beginning this release, IP forwarding is supported for network interfaces attached to Virtual Machines (VMs). 
+    - IP forwarding enables VMs to receive network traffic from an IP not assigned to any of the IP configurations assigned to a network interface on the VM. 
+    - IP forwarding also lets VMs send network traffic with a different source IP address than the one assigned to the IP configurations for the VM's network interface.
+        
+    For more information, see [Enable or disable IP forwarding](../virtual-network/virtual-network-network-interface.md#enable-or-disable-ip-forwarding). 
 - **Support for Az cmdlets** - Starting this release, the Az cmdlets are available (in preview) when connecting to the local Azure Resource Manager of the device or when deploying VM workloads. For more information, see [Az cmdlets](/powershell/azure/new-azureps-module-az?view=azps-5.9.0).
 - **Enable remote PowerShell session over HTTP** - Starting this release, you can enable a remote PowerShell session into a device over *http* via the local UI. For more information, see how to [Enable Remote PowerShell over http](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-via-remote-powershell-over-http) for your device.
 
