@@ -102,7 +102,7 @@ The queryLanguage parameter required for speller must be consistent with any [la
 
 + Lexicons invoked during spell check are specified using one of the language codes listed above.
 
-In a query request, the queryLanguage applies equally to speller, [answers](semantic-answers.md), and captions. There is no override for individual parts of a semantic response. Currently, the list of supported languages is smaller for spell check than it is for semantic ranking, captions, and answers. A table that shows language availability across features can be found in the [REST API reference](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents##queryLanguage).
+In a query request, the queryLanguage applies equally to speller, [answers](semantic-answers.md), and captions. There is no override for individual parts of a semantic response. Currently, the list of supported languages is smaller for spell check than it is for semantic ranking, captions, and answers. A table that shows language availability across features can be found in the [REST API reference](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
 > [!NOTE]
 > Language consistency across various property values is only a concern if you are using language analyzers. If you are using language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`), then the queryLanguage value can be whatever you want.

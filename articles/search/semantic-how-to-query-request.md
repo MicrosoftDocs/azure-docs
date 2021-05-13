@@ -114,7 +114,7 @@ Add the following parameters to the rest. Both parameters are required.
 "queryLanguage": "en-us",
 ```
 
-The queryLanguage must be a [supported language](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents##queryLanguage) and it must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. For example, if the queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"), and spell check and any of the semantic features must also use an English variant. 
+The queryLanguage must be a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and it must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. For example, if the queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"), and spell check and any of the semantic features must also use an English variant. 
 
 In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
