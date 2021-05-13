@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 05/04/2021 
+  ms.date: 05/11/2021 
 
 
 # card 1
@@ -40,7 +40,7 @@ landingContent:
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
 
-
+# card 2
   - title: FAQ
     linkLists:
       - linkListType: reference
@@ -66,7 +66,7 @@ landingContent:
           - text: Billing and support
             url: /azure/azure-vmware/faq#billing-and-support
 
-# card 2
+# card 3
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -98,7 +98,18 @@ landingContent:
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
 
-# card 3
+# card 12
+  - title: Identity management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Access and identity for private clouds
+          url: concepts-identity.md
+        - text: Rotate cloudadmin credentials
+          url: rotate-cloudadmin-credentials.md
+
+
+# card 4
   - title: Extend Azure VMware Solution
     linkLists:
       - linkListType: reference 
@@ -124,7 +135,7 @@ landingContent:
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
 
-# card 4
+# card 5
   - title: Azure native integration
     linkLists:
       - linkListType: how-to-guide
@@ -142,7 +153,7 @@ landingContent:
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
 
-# backup and restore
+# card 6 == backup and restore
   - title: Backup and restore with Azure Backup Server
     linkLists:
       - linkListType: how-to-guide
@@ -154,7 +165,7 @@ landingContent:
           - text: Monitor Azure Backup workloads 
             url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
 
-# card 5
+# card 7
   - title: VMware solutions
     linkLists:
       - linkListType: how-to-guide
@@ -166,7 +177,7 @@ landingContent:
           - text: Deploy VMs from the content library
             url: deploy-vm-content-library.md            
 
-# card 6
+# card 8
   - title: VMware ecosystem
     linkLists:
       - linkListType: reference
@@ -176,7 +187,7 @@ landingContent:
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
 
-# card 7
+# card 9
   - title: Resources
     linkLists:
       - linkListType: reference
@@ -202,7 +213,7 @@ landingContent:
           - text: Rotate vCenter & NSX-T passwords using Azure Logic App
             url: https://youtu.be/cK1qY3knj88
                             
-# Move resources (card 8)
+# Move resources (card 10)
   - title: Move Azure VMware Solution resources
     linkLists:
       - linkListType: reference
@@ -212,7 +223,7 @@ landingContent:
 
 
 
-# card 8
+# card 11
   - title: Troubleshooting
     linkLists:
       - linkListType: reference

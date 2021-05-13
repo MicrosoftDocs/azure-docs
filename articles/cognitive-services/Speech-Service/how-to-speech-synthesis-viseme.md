@@ -1,7 +1,7 @@
 ---
 title: How to get facial pose events for lip-sync
 titleSuffix: Azure Cognitive Services
-description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
+description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events
 
 > [!NOTE]
-> Viseme events are only available for `en-US-AriaNeural` voice for now.
+> Viseme events are only available for `en-US` English (United States) [neural voices](language-support.md#text-to-speech) for now.
 
 A _viseme_ is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
@@ -30,7 +30,10 @@ Using visemes, you can create more natural and intelligent news broadcast assist
 
 ## Get viseme events with the Speech SDK
 
-To make viseme events, we convert input text into a set of phoneme sequences and their corresponding viseme sequences. We estimate the start time of each viseme in the speech audio. Viseme events contain a sequence of viseme IDs, each with an offset into the audio where that viseme appears. These events can drive mouth animations that simulate a person speaking the input text.
+To make viseme events, TTS service converts input text into a set of phoneme sequences and their corresponding viseme sequences.
+Then the start time of each viseme in the speech audio is estimated.
+Viseme events contain a sequence of viseme IDs, each with an offset into the audio where that viseme appears.
+These events can drive mouth animations that simulate a person speaking the input text.
 
 | Parameter | Description |
 |-----------|-------------|

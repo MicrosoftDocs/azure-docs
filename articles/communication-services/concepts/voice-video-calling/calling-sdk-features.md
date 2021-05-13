@@ -41,9 +41,9 @@ The following list presents the set of features which are currently available in
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️              | ✔️                 |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️              | ✔️                 |
-|                   | Active speaker                                                                                                      | ✔️   | ✔️              | ✔️                 |
-|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️              | ✔️                 |
-|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️              | ✔️                 |
+|                   | Active speaker                                                                                                      | ✔️   | ✔️              | ❌                 |
+|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️              | ❌                |
+|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️              | ❌                 |
 |                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️              | ✔️                 |
 |                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️              | ✔️                 |
 |                   | Show if a participant is muted                                                                                      | ✔️   | ✔️              | ✔️                 |

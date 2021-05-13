@@ -5,8 +5,8 @@ description:  Learn how to make your data available to your local or remote comp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sihhu
-author: MayMSFT
+ms.author: yogipandey
+author: ynpandey
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
