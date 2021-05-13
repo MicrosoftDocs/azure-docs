@@ -18,7 +18,6 @@ If you would like Media Services to encrypt data using a key from your Key Vault
 
 To use any of the commands in this article you first have to be logged in to the subscription that you want to use.
 
-
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
 ## Resource names
@@ -38,11 +37,7 @@ You'll see these names referenced in the commands below. It is not required to u
 
 If you are not sure of what the region name is for the API, use this command to get a listing.
 
-```azurecli-interactive
-
 [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
-
-```
 
 ## Create a resource group
 
