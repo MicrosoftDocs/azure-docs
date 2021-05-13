@@ -1,26 +1,21 @@
 ---
-title: Request host quota and enable Azure VMware Solution
-description: Learn how to request host quota/capacity and enable the Azure VMware Solution resource provider. You can also request more hosts in an existing Azure VMware Solution private cloud.
+title: Request host quota for Azure VMware Solution
+description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 04/21/2021
+ms.date: 05/13/2021
 ---
 
-# Request host quota and enable Azure VMware Solution
+# Request host quota for Azure VMware Solution
 
-In this how-to, you'll learn how to request host quota/capacity and enable the [Azure VMware Solution](introduction.md) resource provider, which enables the service. Before you can enable Azure VMware Solution, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
-
-
-The overall process is simple and includes two steps:
-- Request additional host quota/capacity for either [EA customers](#request-host-quota-for-ea-customers) or [CSP customers](#request-host-quota-for-csp-customers) 
-- Enable the Microsoft.AVS resource provider
+>It can take a few days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
 
 ## Eligibility criteria
 
-You'll need an Azure account in an Azure subscription. The Azure subscription must follow with one of the following criteria:
+You'll need an Azure account in an Azure subscription. The Azure subscription must adhere to one of the following criteria:
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
@@ -105,4 +100,5 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 ## Next steps
 
-After enabling the resource, and the proper networking in place, you can [create a private cloud](tutorial-create-private-cloud.md).
+Before you can deploy Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
+
