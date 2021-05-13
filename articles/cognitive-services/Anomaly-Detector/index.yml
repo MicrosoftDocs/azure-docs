@@ -55,13 +55,13 @@ landingContent:
         - text: Using Python (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Using C# (multivariate)
-          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp-multivariate
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
         - text: Using JavaScript (multivariate)
-          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript-multivariate
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript
         - text: Using Python (multivariate)
-          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python-multivariate
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python
         - text: Using Java (multivariate)
-          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java-multivariate
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
 
 
     - linkListType: tutorial
