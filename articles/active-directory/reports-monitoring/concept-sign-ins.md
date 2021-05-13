@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -46,9 +46,9 @@ You can use the the sign-ins log to find answers to questions like:
 
 ## Who can access it?
 
-You can always access your own sign-ins log. 
+You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 
-To access the sign-ins log of another user, you need to be:
+To access the sign-ins log, you need to be:
 
 - A global administrator
 
@@ -57,7 +57,7 @@ To access the sign-ins log of another user, you need to be:
 
     - Security reader
 
-    - Gobal reader
+    - Global reader
 
     - Report reader
 
@@ -68,20 +68,13 @@ To access the sign-ins log of another user, you need to be:
 The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 
-## Where can you find it in the Azure Portal?
+## Where can you find it in the Azure portal?
 
-On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Select Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
-
-![Screenshot shows Sign-ins selected from the Monitoring menu.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
-
-It may take up to two hours for some sign-in records to show up in the portal.
-
-> [!IMPORTANT]
-> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
+Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 
 ## What is the default view?
@@ -273,6 +266,35 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 
 ![Screenshot shows the Activity section where you can select Sign-ins.](./media/concept-sign-ins/08.png "Sign-in activity")
 
+## Authentication details
+
+The **Authentication Details** tab located within the sign-ins report provides the following information, for each authentication attempt:
+
+- A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- The sequence of authentication methods used to sign-in
+- Whether or not the authentication attempt was successful
+- Detail about why the authentication attempt succeeded or failed
+
+This information allows admins to troubleshoot each step in a user’s sign-in, and track:
+
+- Volume of sign-ins protected by multi-factor authentication 
+- Usage and success rates for each authentication method 
+- Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
+- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+
+While viewing the Sign-ins report, select the **Authentication Details** tab: 
+
+![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+
+>[!IMPORTANT]
+>The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+>- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+>- The **Primary authentication** row is not initially logged. 
+
+
 ## Usage of managed applications
 
 With an application-centric view of your sign-in data, you can answer questions such as:
@@ -305,7 +327,7 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
+* [Sign-in activity report error codes]()
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
-* [First party Microsoft applications in sign-ins report](https://docs.microsoft.com/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
+* [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

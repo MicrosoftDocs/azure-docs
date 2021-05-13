@@ -75,7 +75,7 @@
       - name: Security
         items:
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/databox-security-baseline
+          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
         - name: Review security 
@@ -116,8 +116,10 @@
           href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
       - name: Troubleshoot
         items:
-        - name: Data Box issues
+        - name: Data Box copy issues
           href: data-box-troubleshoot.md
+        - name: Data Box upload issues
+          href: data-box-troubleshoot-data-upload.md
         - name: Data Box Blob storage issues
           href: data-box-troubleshoot-rest.md    
  
@@ -169,7 +171,7 @@
           href: data-box-disk-troubleshoot-data-copy.md
         - name: Validation issues
           href: data-box-disk-troubleshoot.md
-        - name: Upload issues
+        - name: Review upload errors
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  

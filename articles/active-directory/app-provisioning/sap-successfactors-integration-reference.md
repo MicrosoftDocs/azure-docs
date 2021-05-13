@@ -1,15 +1,16 @@
 ---
 title: Azure Active Directory and SAP SuccessFactors integration reference
-description: Technical deep dive into SAP SuccessFactors-HR driven provisioning 
+description: Technical deep dive into SAP SuccessFactors-HR driven provisioning for Azure Active Directory.
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/19/2021
-ms.author: chmutali
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 

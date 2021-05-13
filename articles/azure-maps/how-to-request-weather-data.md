@@ -3,7 +3,7 @@ title: Request real-time and forecasted weather data using Azure Maps Weather se
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -36,7 +36,7 @@ This video provides examples for making REST calls to Azure Maps Weather service
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
     >[!IMPORTANT]
-    >The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) requires an S1 pricing tier key. All other APIs require an S0 pricing tier key.
+    >The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)requires a Gen 1 (S1) or Gen 2 pricing tier.  All other APIs require an S0 pricing tier key.
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -286,7 +286,7 @@ In this example, you'll use the [Get Severe Weather Alerts API](/rest/api/maps/w
 The [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.  In this example, we request for five days by setting `duration=5`.
 
 >[!IMPORTANT]
->In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In the S1 pricing tier, you can also request daily forecast for the next 25 days, and 45 days.
+>In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen 1 (S1) or Gen 2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
 
 In this example, you'll use the [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
@@ -534,7 +534,7 @@ In this example, you'll use the [Get Daily Forecast API](/rest/api/maps/weather/
 The [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and UV index.
 
 >[!IMPORTANT]
->In the S0 pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In the S1 pricing tier, you can also request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
+>In the S0 pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In either Gen 1 (S1) or Gen 2 pricing tier, you can request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
 
 In this example, you'll use the [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 

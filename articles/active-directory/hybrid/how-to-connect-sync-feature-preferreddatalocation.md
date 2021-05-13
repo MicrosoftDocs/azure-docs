@@ -198,7 +198,7 @@ In general, full synchronization cycle is required. This is because you have add
 
 1. Run **Full import** on the on-premises Active Directory Connector:
 
-   1. Go to the **Operations** tab in the Synchronization Service Manager.
+   1. Go to the **Connectors** tab in the Synchronization Service Manager.
    2. Right-click the **on-premises Active Directory Connector**, and select **Run**.
    3. In the dialog box, select **Full Import**, and select **OK**.
    4. Wait for the operation to complete.

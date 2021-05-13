@@ -7,7 +7,8 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 
-ms.reviewer: carlrab
+ms.reviewer: carlrab 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)

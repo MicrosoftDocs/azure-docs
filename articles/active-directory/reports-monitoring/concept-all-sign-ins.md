@@ -1,6 +1,6 @@
 ---
 title: Sign-ins logs in Azure Active Directory - preview | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory. 
+description: Overview of the sign-ins logs in Azure Active Directory including new features in preview. 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -26,7 +26,7 @@ As an IT administrator, you want to know how your IT environment is doing. The i
 
 To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
 
-- **Sign-ins** – Information about sign-ins and how your resources are used by your users.
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
@@ -39,7 +39,7 @@ The classic sign-ins report in Azure Active Directory provides you with an overv
 
 - Managed identities for Azure resource sign-ins
 
-This article gives you an overview of the sign-in activity report with the preview of non-interactive, application, and managed identities for Azure resources sign-ins. For information about the sign-in report without the preview features, see  [Sign-in activity logs in the Azure Active Directory portal](concept-sign-ins.md).
+This article gives you an overview of the sign-in activity report with the preview of non-interactive, application, and managed identities for Azure resources sign-ins. For information about the sign-in report without the preview features, see  [Sign-in logs in Azure Active Directory](concept-sign-ins.md).
 
 
 
@@ -67,7 +67,15 @@ The sign-ins report provides answers to questions like:
 Your tenant must have an Azure AD Premium license associated with it to see sign-in activities. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
 
 
-## User sign-ins in the Azure Portal
+
+
+## Where can you find it in the Azure portal?
+
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
+
+![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 In the sign-ins report blade, you can switch between:
 
@@ -427,6 +435,6 @@ Each JSON download consists of four different files:
 
 ## Next steps
 
-* [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
+* [Sign-in activity report error codes](./concept-sign-ins.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)

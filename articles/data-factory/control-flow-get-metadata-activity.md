@@ -1,11 +1,11 @@
 ---
 title: Get Metadata activity in Azure Data Factory 
 description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Get Metadata activity in Azure Data Factory

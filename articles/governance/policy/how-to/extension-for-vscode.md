@@ -6,14 +6,14 @@ ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
 
-> Applies to Azure Policy extension version **0.1.1** and newer
+> Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code to look up
 [aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
-The Azure Policy extension for Visual Studio Code can be installed on Windows.
+The Azure Policy extension for Visual Studio Code can be installed on Linux, Mac, and Windows.
 
 ## Prerequisites
 
