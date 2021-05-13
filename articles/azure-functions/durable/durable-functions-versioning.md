@@ -93,7 +93,7 @@ The naive approach to versioning is to do nothing and let in-flight orchestratio
 * Orchestrations may fail with a `NonDeterministicOrchestrationException` error.
 * Orchestrations may get stuck indefinitely, reporting a `Running` status.
 * If a function gets removed, any function that tries to call it may fail with an error.
-* If a function gets removed after it was scheduled to run, then the app may experience low-level runtime failures in the Durable Task Framework engine, potentially resulting in severe performance degredation.
+* If a function gets removed after it was scheduled to run, then the app may experience low-level runtime failures in the Durable Task Framework engine, potentially resulting in severe performance degradation.
 
 Because of these potential failures, the "do nothing" strategy is not recommended.
 
