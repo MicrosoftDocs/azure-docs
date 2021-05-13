@@ -41,25 +41,25 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./media/form-recognizer.svg
       summary: Turn documents into usable data at a fraction of the time and cost
-      url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/
+      url: ../cognitive-services/form-recognizer/index.yml
     # Card
     - title: Azure Immersive Reader
       imageSrc: ./media/immersive-reader.svg
       summary: Help users read and comprehend text
-      url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/
+      url: ../cognitive-services/immersive-reader/index.yml
     # Card
     - title: Azure Metrics Advisor
       imageSrc: ./media/metrics-advisor.svg
       summary: Proactively monitor metrics and diagnose issues
-      url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/
+      url: ../cognitive-services/metrics-advisor/index.yml
     - title: Azure Cognitive Search
       imageSrc: ./media/cognitive-search.svg
       summary: Bring AI-powered cloud search to your mobile and web apps
-      url: https://docs.microsoft.com/azure/search/
+      url: ../search/index.yml
     - title: Azure Video Analyzer
       imageSrc: ./media/video-analytics.svg
       summary: Extract actionable insights from your videos
-      url: https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview
+      url: https://aka.ms/video-analyzer-hub
     - title: Azure Bot Service
       imageSrc: ./media/bot-services.svg
       summary: Create bots and connect them across channels
@@ -81,15 +81,15 @@ additionalContent:
         - title: Get coding with quickstarts
           links:
           - text: Azure Form Recognizer
-            url: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool
+            url: ../cognitive-services/form-recognizer/quickstarts/label-tool.md
           - text: Azure Metrics Advisor
-            url: https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal
+            url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader
-            url: https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries
+            url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
           - text: Azure Cognitive Search
-            url: https://docs.microsoft.com/azure/search/search-get-started-portal
+            url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
-            url: https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events
+            url: https://aka.ms/video-analytics-qs
           - text: Azure Bot Service
             url: https://docs.microsoft.com/composer/quickstart-create-bot
             
