@@ -54,7 +54,7 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
-### Configure connection settings
+### Configure connection settings and query
 
 [Add the data feeds](../how-tos/onboard-your-data.md) by connecting to your time series data source. Start by selecting the following parameters:
 
@@ -68,10 +68,11 @@ This quickstart uses a SQL Database as an example. You can also ingest your own 
 :::image type="content" source="../media/connection-settings.png" alt-text="Connection settings" lightbox="../media/connection-settings.png":::
 
 
-### Verify the connection and load the data schema
+### Load data
 
-After the connection string and query string are created, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
+After the connection string and query string are created, select **Load data**. Under this operation, Metrics Advisor will check connection and permission to load data, check necessary parameters (@IntervalStart and @IntervalEnd) which need to be used in query, and check the column name from data source. 
 
+If there's an error at this step, confirm that:
 1. Your connection string and query are correct.
 2. Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
 
@@ -89,6 +90,8 @@ Once the data schema is loaded and shown like below, select the appropriate fiel
 
 
 :::image type="content" source="../media/schema-configuration.png" alt-text="Schema configuration" lightbox="../media/schema-configuration.png":::
+
+After configuring the schema, select **Verify schema**. Under this operation, Metrics Advisor will check whether timestamp returned from query aligns with metric granularity, whether there’s only one timestamp value returned for each query run, and whether duplicate values returned for same dim-com within one metric interval.  
 
 ### Automatic roll up settings
 
