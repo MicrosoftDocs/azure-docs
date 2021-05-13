@@ -61,3 +61,10 @@ The `segmentLength` property ensures that the edge module will upload video at m
 
 [Tutorial: continuous video recording](use-continuous-video-recording.md) 
 
+<!-- links 
+[pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
+[terminology-video]: terminology.md#video
+[concept-pipeline]: pipeline.md
+[concept-video-playback]: video-playback-concept.md
+[concept-recording]: video-recording-concept.md
+-->
