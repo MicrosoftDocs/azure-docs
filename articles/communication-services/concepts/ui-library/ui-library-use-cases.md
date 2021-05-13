@@ -12,22 +12,23 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# UI Library Use Cases
+# UI Library use cases
 
-[!INCLUDE Public Preview Notice]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-sdk). There you will find additional conceptual documentation, quickstarts and examples.
->
->
+
 
 UI Library supports a number of use cases across calling and chat experiences.
 These capabilities are available through UI Components and Composites.
 For Composites, these capabilities are built directly in and exposed when the composite is integrated into an application.
+
 For UI Components, these capabilities are exposed through a combination of UI functionality and underlying stateful libraries.
+
 To take full advantage of these capabilities we recommend using the UI Components in conjunction with the stateful call and chat client libraries.
 
-## Calling Use Cases
+## Calling use cases
 
 | Area                | Use Cases                                              |
 | ------------------- | ------------------------------------------------------ |
@@ -49,7 +50,7 @@ To take full advantage of these capabilities we recommend using the UI Component
 |                     | Local preview available for user to check video        |
 | Participants        | Participant roster                                     |
 
-## Chat Use Cases
+## Chat use cases
 
 | Area         | Use Cases                                        |
 | ------------ | ------------------------------------------------ |
@@ -63,7 +64,7 @@ To take full advantage of these capabilities we recommend using the UI Component
 |              | Chat title changed                               |
 | Participants | Participant roster                               |
 
-## Supported identities:
+## Supported identities
 
 An Azure Communication Services identity is required to initialize the stateful client libraries and authenticate to the service.
 For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript)
@@ -83,9 +84,10 @@ This is a key area of differentiation between Composites and UI Components, wher
 | Call control layout can be modified                 | X          | X             |
 | Data models can be injected to modify user metadata | X          | X             |
 
-## Observability:
+## Observability
 
 As part of the decoupled state management architecture of the UI Library, developers are able to access the stateful calling and chat clients directly.
+
 Developers can hook into the stateful client to read the state, handle events and override behavior to pass onto the UI Components.
 
 | Use Case                                  | Composites | UI Components |
