@@ -12,7 +12,7 @@ ms.author: mbaldwin
 # Register a Ledger Service Principal
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
-```
+
 
 ## Next steps
 
