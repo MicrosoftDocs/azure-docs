@@ -42,7 +42,7 @@ Audio Events Detection can be used in many domains. Two examples are:
 
 ## Result formats
 
-The audio effects are retrieved in the insights JSON that includes the category id, type, name, and set of instances per category along with their specific timeframe and confidence score.
+The audio effects are retrieved in the insights JSON that includes the category ID, type, name, and set of instances per category along with their specific timeframe and confidence score.
 
 The `name` parameter will be presented in the language in which the JSON was indexed, while the type will always remain the same.
 
@@ -88,7 +88,7 @@ audioEffects: [{
 ],
 ```
 
-## How to Index Audio Affects?
+## How to index Audio Effects
 
 In order to set the index process to include the detection of Audio Effects, the user should chose the Advanced preset. Through the video + Audio or Audio only.
 
