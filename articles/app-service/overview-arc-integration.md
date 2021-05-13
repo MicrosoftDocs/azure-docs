@@ -84,6 +84,10 @@ During the preview period, certain App Service features are being validated. Whe
 
 No. Networking features such as hybrid connections, Virtual Network integration, or IP restrictions, are not supported. Networking should be handled directly in the networking rules in the Kubernetes cluster itself.
 
+### Are managed identities supported?
+
+No. Apps cannot be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+
 ## Next steps
 
 [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
