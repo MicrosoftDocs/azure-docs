@@ -147,7 +147,7 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 > [!NOTE]
 > Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
-Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. 
 
 The following examples show how to create and deploy a template spec.
 
@@ -172,7 +172,7 @@ az deployment group create \
   --template-spec $id
 ```
 
-For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+For more information, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Preview changes
 
