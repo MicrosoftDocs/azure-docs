@@ -10,22 +10,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2021
 ---
-# Create a query for semantic captions in Cognitive Search
+# Create a query that invokes semantic ranking and returns semantic captions
 
 > [!IMPORTANT]
 > Semantic search is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In this article, learn how to formulate a search request that uses semantic ranking and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in queries formulated using the "semantic" query type.
+In Cognitive Search, you can formulate a query request that invokes a semantic ranking algorithm over a result set and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in query requests formulated using the "semantic" query type.
 
 Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it does not compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
-+ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. If you have an existing S1 or greater service in one of these regions, you can request access without having to create a new service.
++ A Cognitive Search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe. If you have an existing S1 or greater service in one of these regions, you can request access without having to create a new service.
 
 + Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
 
-+ An existing search index containing English content
++ An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage)
 
 + A search client for sending queries
 
@@ -33,7 +33,7 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include the semantic option and other parameters described in this article.
 
-## What's a semantic query?
+## What's a semantic query type?
 
 In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
 
@@ -96,7 +96,7 @@ The following table summarizes the query parameters used in a semantic query so 
 | Parameter | Type | Description |
 |-----------|-------|-------------|
 | queryType | String | Valid values include simple, full, and semantic. A value of "semantic" is required for semantic queries. |
-| queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. |
+| queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. For more information, see [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | searchFields | String | A comma-delimited list of searchable fields. Specifies the fields over which semantic ranking occurs, from which captions and answers are extracted. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
 | answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
@@ -114,11 +114,11 @@ Add the following parameters to the rest. Both parameters are required.
 "queryLanguage": "en-us",
 ```
 
-The queryLanguage must be a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and it must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. For example, if the queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"), and spell check and any of the semantic features must also use an English variant. 
+The queryLanguage must be a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and it must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. For example, you indexed French strings using a French language analyzer (such as "fr.microsoft" or "fr.lucene"), then queryLanguage should also be French language variant.
 
-In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
+In a query request, if you are also using [spell correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. Spell check supports [fewer languages](speller-how-to-add.md#supported-languages), so if you are using that feature, you must set queryLanguage to one from that list.
 
-While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't explicitly check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
+While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
 <a name="searchfields"></a>
 
