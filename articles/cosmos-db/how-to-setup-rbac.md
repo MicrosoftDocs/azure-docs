@@ -4,15 +4,12 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 05/25/2021
 ms.author: thweiss
 ---
 
-# Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account (Preview)
+# Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB role-based access control is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
@@ -42,7 +39,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
 > [!IMPORTANT]
 > This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
-> - [ARM templates](manage-with-templates.md)
+> - [Azure Resource Manager (ARM) templates](manage-with-templates.md)
 > - [Azure PowerShell scripts](manage-with-powershell.md),
 > - [Azure CLI scripts](manage-with-cli.md),
 > - Azure management libraries available in
@@ -268,6 +265,10 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 ]
 ```
 
+### Using Azure Resource Manager templates
+
+See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+
 ## <a id="role-assignments"></a> Create role assignments
 
 Once you've created your role definitions, you can associate them with your AAD identities. When creating a role assignment, you need to provide:
@@ -319,6 +320,10 @@ principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
+### Using Azure Resource Manager templates
+
+See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+
 ## Initialize the SDK with Azure AD
 
 To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an AAD token on behalf of the identity you wish to use.
@@ -328,7 +333,6 @@ The way you create a `TokenCredential` instance is beyond the scope of this arti
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
-- In REST API
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
@@ -376,11 +380,34 @@ const client = new CosmosClient({
 });
 ```
 
-### In REST API
+## Authenticate requests on the REST API
 
-The Azure Cosmos DB RBAC is currently supported with the 2021-03-15 version of REST API. When constructing the [authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
+The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of REST API. When constructing the [authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
+
+## Enforcing RBAC as the only authentication method
+
+In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
+
+### Using Azure PowerShell
+
+```powershell
+$resourceGroupName = "<myResourceGroup>"
+$accountName = "<myCosmosAccount>"
+$account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+$account.Properties.disableLocalAuth = $true
+$account | Set-AzResource -Force
+```
+
+### Using the Azure CLI
+
+```azurecli
+resourceGroupName='<myResourceGroup>'
+accountName='<myCosmosAccount>'
+az cosmos db update --account-name $accountName --resource-group $resourceGroupName --disableLocalAuth true
+```
 
 ## Auditing data requests
 
@@ -397,7 +424,6 @@ This additional information flows in the **DataPlaneRequests** log category and 
 - You can only assign role definitions to Azure AD identities belonging to the same Azure AD tenant as your Azure Cosmos DB account.
 - Azure AD group resolution is not currently supported for identities that belong to more than 200 groups.
 - The Azure AD token is currently passed as a header with each individual request sent to the Azure Cosmos DB service, increasing the overall payload size.
-- Accessing your data with Azure AD through the [Azure Cosmos DB Explorer](data-explorer.md) isn't supported yet. Using the Azure Cosmos DB Explorer still requires the user to have access to the account's primary key for now.
 
 ## Frequently asked questions
 
@@ -411,15 +437,11 @@ Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
-The [.NET V3](sql-api-sdk-dotnet-standard.md) and [Java V4](sql-api-sdk-java-v4.md) SDKs are currently supported.
+The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) and [JavaScript V3](sql-api-sdk-node.md) SDKs are currently supported.
 
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 
 Yes.
-
-### Is it possible to disable the usage of the account primary key when using RBAC?
-
-Disabling the account primary key is not currently possible.
 
 ## Next steps
 
