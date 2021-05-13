@@ -54,7 +54,6 @@ Create an `Environment` object and enable Docker.
 from azureml.core import Environment
 
 fastai_env = Environment("fastai2")
-fastai_env.docker.enabled = True
 ```
 
 The specified base image in the following code supports the fast.ai library, which allows for distributed deep-learning capabilities. For more information, see the [fast.ai Docker Hub repository](https://hub.docker.com/u/fastdotai). 
