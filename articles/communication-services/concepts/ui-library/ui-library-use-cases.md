@@ -94,7 +94,7 @@ Developers can hook into the stateful client to read the state, handle events an
 
 ## Recommended architecture
 
-![UI Library recommended architecture with client-server architecture](images/Toolkit-architecture.png)
+:::image type="content" source="../media/ui-library-architecture.png" alt-text="UI Library recommended client-server architecture":::
 
 Composite and Base Components are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
 trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
