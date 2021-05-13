@@ -10,7 +10,7 @@ ms.date: 05/25/2021
 
 # Create an integration workflow using single-tenant Azure Logic Apps and Visual Studio Code
 
-This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment and then deploy to the *single-tenant Azure Logic Apps environment*. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment. When you're ready, you can deploy to the *single-tenant Azure Logic Apps environment*, or elsewhere, for example, Docker containers. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -19,40 +19,23 @@ While this example workflow is cloud-based and has only two steps, you can creat
 > messages from your email account, for example, Outlook.com.
 > 
 > To create this example workflow using the Azure portal instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Both options provide the capability 
-> to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
-> Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
+> [Create integration workflows using single tenant Azure Logic Apps and the Azure portal](create-single-tenant-workflows-azure-portal.md). 
+> Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
+> However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
 ![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-With [Azure Logic Apps Preview](single-tenant-overview-compare.md), you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](single-tenant-overview-compare.md#stateful-stateless) in Visual Studio Code by using the Azure Logic Apps (Preview) extension. By using this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers. To learn more about the new logic app type, see [Overview for Azure Logic Apps Preview](single-tenant-overview-compare.md).
+As you progress, you'll complete these high-level tasks:
 
-In Visual Studio Code, you can start by creating a project where you can *locally* build and run your logic app's workflows in your development environment by using the Azure Logic Apps (Preview) extension. While you can also start by [creating a new **Logic App (Preview)** resource in the Azure portal](create-single-tenant-workflows-azure-portal.md), both approaches provide the capability for you to deploy and run your logic app in the same kinds of hosting environments.
-
-Meanwhile, you can still create the original logic app type. Although the development experiences in Visual Studio Code differ between the original and new logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized into their own categories and sections.
-
-This article shows how to create your logic app and a workflow in Visual Studio Code by using the Azure Logic Apps (Preview) extension and performing these high-level tasks:
-
-* Create a project for your logic app and workflow.
-
+* Create a project for your logic app and a blank [*stateful*](single-tenant-overview-compare.md#stateful-stateless) workflow.
 * Add a trigger and an action.
-
 * Run, test, debug, and review run history locally.
-
 * Find domain name details for firewall access.
-
 * Deploy to Azure, which includes optionally enabling Application Insights.
-
 * Manage your deployed logic app in Visual Studio Code and the Azure portal.
-
 * Enable run history for stateless workflows.
-
 * Enable or open the Application Insights after deployment.
-
 * Deploy to a Docker container that you can run anywhere.
-
-> [!NOTE]
-> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 ## Prerequisites
 
@@ -62,36 +45,20 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* To build the same example logic app in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
+* To create the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
-  If you choose to use a different [email connector that's supported by Azure Logic Apps](/connectors/), such as Outlook.com or [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), you can still follow the example, and the general overall steps are the same, but your user interface and options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
+  If you choose a [different email connector](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Outlook.com, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
 <a name="storage-requirements"></a>
 
 ### Storage requirements
 
-#### Windows
+Whether you use Linux, Windows, or macOS, you can locally build and run your logic app project in Visual Studio Code by using Azurite as your backend storage for your workflows. To set up and use Azurite, follow these steps:
 
-To locally build and run your logic app project in Visual Studio Code when using Windows, follow these steps to set up the Azure Storage Emulator:
+1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite). For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
 
-1. Download and install [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+1. Before you run your logic app, make sure that you start Azurite.
 
-1. If you don't have one already, you need to have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658), so that the emulator can run.
-
-   For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
-
-1. Before you can run your project, make sure that you start the emulator.
-
-   ![Screenshot that shows the Azure Storage Emulator running.](./media/create-single-tenant-workflows-visual-studio-code/start-storage-emulator.png)
-
-#### macOS and Linux
-
-To locally build and run your logic app project in Visual Studio Code when using macOS or Linux, follow these steps to create and set up an Azure Storage account.
-
-> [!NOTE]
-> Currently, the designer in Visual Studio Code doesn't work on Linux OS, but you can still run build, run, and deploy 
-> logic apps that use the Logic Apps Preview runtime to Linux-based virtual machines. For now, you can build your logic 
-> apps in Visual Studio Code on Windows or macOS and then deploy to a Linux-based virtual machine.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and [create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal), which is a [prerequisite for Azure Functions](../azure-functions/storage-considerations.md).
 

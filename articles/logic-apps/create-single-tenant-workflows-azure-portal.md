@@ -19,9 +19,9 @@ While this example workflow is cloud-based and has only two steps, you can creat
 > messages from your email account, for example, Outlook.com.
 > 
 > To create this example workflow using Visual Studio Code instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Both options provide the capability 
-> to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
-> Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
+> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+> Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
+> However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
 ![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Standard)" resource.](./media/create-single-tenant-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
@@ -33,11 +33,6 @@ As you progress, you'll complete these high-level tasks:
 * View the workflow's run and trigger history.
 * Enable or open the Application Insights after deployment.
 * Enable run history for stateless workflows.
-
-For more information, review the following documentation:
-
-* [What is Azure Logic Apps?](logic-apps-overview.md)
-* [What is the single-tenant Azure Logic Apps environment?](single-tenant-overview-compare.md)
 
 ## Prerequisites
 
