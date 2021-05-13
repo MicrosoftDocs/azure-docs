@@ -329,4 +329,4 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
 ## Next steps
 
-- [Backup vaults overview](backup-vault-overview.md)
+[Backup vaults overview](backup-vault-overview.md)

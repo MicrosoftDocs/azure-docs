@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/20/2019
+ms.date: 04/2/2021
 ms.author: negoe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
@@ -18,9 +18,9 @@ ms.custom: aaddev
 
 # Single-page application: Acquire a token to call an API
 
-The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a valid token exists and returns it. When no valid token is in the cache, it sends a silent token request to Azure Active Directory (Azure AD) from a hidden iframe. This method also allows the library to renew tokens. For more information about single sign-on session and token lifetime values in Azure AD, see [Token lifetimes](active-directory-configurable-token-lifetimes.md).
+The pattern for acquiring tokens for APIs with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a valid token exists and returns it. When no valid token is in the cache, it attempts to use its refresh token to get the token. If the refresh token's 24-hour lifetime has expired, MSAL.js will open a hidden iframe to silently request a new authorization code, which it will exchange for a new, valid refresh token. For more information about single sign-on session and token lifetime values in Azure AD, see [Token lifetimes](active-directory-configurable-token-lifetimes.md).
 
-The silent token requests to Azure AD might fail for reasons like an expired Azure AD session or a password change. In that case, you can invoke one of the interactive methods (which will prompt the user) to acquire tokens:
+The silent token requests to Azure AD might fail for reasons like a password change or updated conditional access policies.  More often, failures are due to the refresh token's 24-hour lifetime expiring and [the browser blocking 3rd party cookies](reference-third-party-cookies-spas.md), which prevents the use of hidden iframes to continue authenticating the user.  In these cases, you should invoke one of the interactive methods (which may prompt the user) to acquire tokens:
 
 * [Pop-up window](#acquire-a-token-with-a-pop-up-window), by using `acquireTokenPopup`
 * [Redirect](#acquire-a-token-with-a-redirect), by using `acquireTokenRedirect`
@@ -99,10 +99,89 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
 The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 
+You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule } from '@azure/msal-angular';
+
+@NgModule({
+	declarations: [
+		// ...
+	],
+	imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+		auth: {
+			clientId: 'Enter_the_Application_Id_Here',
+		},
+		cache: {
+			cacheLocation: 'localStorage',
+			storeAuthStateInCookie: isIE,
+		}
+		}), {
+			interactionType: InteractionType.Popup,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Popup,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+	],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+	],
+	bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+For success and failure of the silent token acquisition, MSAL Angular provides events that you can subscribe to. It's also important to remember to unsubscribe.
+
+```javascript
+import { MsalBroadcastService } from '@azure/msal-angular';
+import { EventMessage, EventType } from '@azure/msal-browser';
+
+// In app.component.ts
+export class AppComponent implements OnInit {
+	private readonly _destroying$ = new Subject<void>();
+
+	constructor(private broadcastService: MsalBroadcastService) { }
+
+	ngOnInit() {
+		this.broadcastService.msalSubject$
+		.pipe(
+			filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS),
+			takeUntil(this._destroying$)
+		)
+		.subscribe((result: EventMessage) => {
+			// Do something with event payload here
+		});
+	}
+
+	ngOnDestroy(): void {
+		this._destroying$.next(undefined);
+		this._destroying$.complete();
+	}
+}
+```
+
+Alternatively, you can explicitly acquire tokens by using the acquire-token methods as described in the core MSAL.js library.
+
+# [Angular (MSAL.js v1)](#tab/angular1)
+The MSAL Angular wrapper provides the HTTP interceptor, which will automatically acquire access tokens silently and attach them to the HTTP requests to APIs.
 You can specify the scopes for APIs in the `protectedResourceMap` configuration option. `MsalInterceptor` will request these scopes when automatically acquiring tokens.
 
 ```javascript
@@ -150,7 +229,6 @@ For success and failure of the silent token acquisition, MSAL Angular provides c
     this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
     });
 }
-
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
    if (this.subscription) {
@@ -335,8 +413,54 @@ myMSALObj.acquireTokenPopup(request);
 
 To learn more, see [Optional claims](active-directory-optional-claims.md).
 
-# [Angular](#tab/angular)
+# [Angular (MSAL.js v2)](#tab/angular2)
 
+This code is the same as described earlier, except we recommend bootstrapping the `MsalRedirectComponent` to handle redirects. `MsalInterceptor` configurations can also be changed to use redirects.
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
+@NgModule({
+    declarations: [
+      // ...
+    ],
+    imports: [
+		// ...
+		MsalModule.forRoot( new PublicClientApplication({
+			auth: {
+				clientId: 'Enter_the_Application_Id_Here',
+			},
+			cache: {
+				cacheLocation: 'localStorage',
+				storeAuthStateInCookie: isIE,
+			}
+		}), {
+			interactionType: InteractionType.Redirect,
+			authRequest: {
+				scopes: ['user.read']
+			}
+		}, {
+			interactionType: InteractionType.Redirect,
+			protectedResourceMap: new Map([ 
+				['https://graph.microsoft.com/v1.0/me', ['user.read']]
+			])
+		})
+    ],
+    providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: MsalInterceptor,
+			multi: true
+		}
+    ],
+    bootstrap: [AppComponent, MsalRedirectComponent]
+})
+export class AppModule { }
+```
+
+# [Angular (MSAL.js v1)](#tab/angular1)
 This code is the same as described earlier.
 
 # [React](#tab/react)

@@ -40,7 +40,7 @@ landingContent:
           - text: Authentication and authorization
             url: concepts/authentication.md
           - text: Event handling
-            url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
+            url: ../event-grid/event-schema-communication-services.md
           - text: Notifications
             url: concepts/notifications.md
           - text: Troubleshooting
@@ -61,6 +61,20 @@ landingContent:
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
+  - title: UI Framework
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with composites
+            url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
+          - text: Get started with UI components
+            url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
+      - linkListType: concept
+        links:
+          - text: UI Framework overview
+            url: concepts/ui-framework/ui-sdk-overview.md
+          - text: UI Framework capabilities
+            url: concepts/ui-framework/ui-sdk-features.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
@@ -84,7 +98,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: https://docs.microsoft.com/learn/modules/communication-service-send-sms-console-app/
+            url: /learn/modules/communication-service-send-sms-console-app/
   - title: Chat
     linkLists:
       - linkListType: quickstart

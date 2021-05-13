@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer:
-  ms.date: 02/03/2021
+  ms.date: 03/31/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -325,9 +325,9 @@ sections:
           Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](../../best-practices-availability-paired-regions.md) with the region of the source database.
           
       - question: |
-          Can I set up geo-replication with Hyperscale database
+          Can I set up geo-replication with a Hyperscale database
         answer: |
-          Not at this time.
+          [Geo-replication](active-geo-replication-overview.md) for Hyperscale databases is in public preview.
 
       - question: |
           Can I take a Hyperscale database backup and restore it to my on-premises server, or on SQL Server in a VM
@@ -342,9 +342,9 @@ sections:
           Yes. Some Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.
 
       - question: |
-          Will Polybase work with Hyperscale
+          Will PolyBase work with Hyperscale
         answer: |
-          No. Polybase is not supported in Azure SQL Database.
+          No. PolyBase is not supported in Azure SQL Database.
 
       - question: |
           Does Hyperscale have support for R and Python

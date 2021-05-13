@@ -66,7 +66,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./database/security-controls-policy.md
       - name: Security baseline
-        href: database/security-baseline.md
+        href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
       - name: Azure Defender for SQL
@@ -1324,15 +1324,21 @@
   
   - name: Migration guides
     items: 
-      - name: Overview
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
       - name: From Db2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
       - name: From Oracle
         href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
       - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
-
+        items: 
+        - name: Overview
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+        - name: Migration guide
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+        - name: Availability group (AG)
+          href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md 
+        - name: Failover cluster instance (FCI)
+          href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md 
+         
         
 - name: Reference
   items:

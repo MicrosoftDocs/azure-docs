@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot copy activity performance
 description: Learn about how to troubleshoot copy activity performance in Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019

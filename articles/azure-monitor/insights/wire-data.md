@@ -17,7 +17,7 @@ ms.date: 03/26/2021
 >
 >Support for Wire Data solution will end on **March 31, 2022**.  Until the retirement date, existing customers using the Wire Data 2.0 (preview) solution may continue to use it.
 >
->New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources#map-data-types-with-azure-sentinel-connection-options).
+>New and existing customers should install the [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md).  The Map data set they collect is comparable to the Wire Data 2.0 (preview) data set.  VM insights includes the Service Map data set along with additional performance data and features for analysis. Both offerings have [connections with Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options).
  
 
 Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
@@ -26,9 +26,9 @@ In addition to the Log Analytics agent, the Wire Data solution uses Microsoft De
 
 ## Migrate to Azure Monitor VM insights or Service Map
 
-In many cases, we see that customers often have both Wire Data 2.0 (preview) and  [VM insights](../vm/vminsights-overview.md) or [Service Map solution](../vm/service-map.md) already enabled on the same VMs.  This means you have the replacement offering enabled on your VM.  You can simply [remove the Wire Data 2.0 (preview) solution from your Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+In many cases, we see that customers often have both Wire Data 2.0 (preview) and  [VM insights](../vm/vminsights-overview.md) or [Service Map solution](../vm/service-map.md) already enabled on the same VMs.  This means you have the replacement offering enabled on your VM.  You can simply [remove the Wire Data 2.0 (preview) solution from your Log Analytics workspace](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
-If you have VMs that only have Wire Data 2.0 (preview) enabled on them, then you can onboard the VMs to [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md) and then [remove the Wire Data 2.0 (preview) solution from your Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+If you have VMs that only have Wire Data 2.0 (preview) enabled on them, then you can onboard the VMs to [VM insights](../vm/vminsights-enable-overview.md) or [Service Map solution](../vm/service-map.md) and then [remove the Wire Data 2.0 (preview) solution from your Log Analytics workspace](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
 ## Migrate your queries to the VMConnection table from Azure Monitor VM insights
 
@@ -120,7 +120,7 @@ VMConnection
 
 ### More examples queries
 
-Refer to the [VM insights log search documentation](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-log-search) and the [VM insights alert documentation](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-alerts#sample-alert-queries) for additional example queries.
+Refer to the [VM insights log search documentation](../vm/vminsights-log-search.md) and the [VM insights alert documentation](../vm/vminsights-alerts.md#sample-alert-queries) for additional example queries.
 
 ## Uninstall Wire Data 2.0 Solution
 
@@ -129,7 +129,7 @@ To uninstall Wire Data 2.0 you simply need to remove the Solution from your Log 
 * the Wire Data Management pack being removed from the VMs that are connected to the Workspace 
 * the Wire Data data type no longer appearing in your Workspace
 
-Follow [these instructions](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution) to remove the Wire Data solution.
+Follow [these instructions](./solutions.md?tabs=portal#remove-a-monitoring-solution) to remove the Wire Data solution.
 
 >[!NOTE]
 >If you have either the Service Map or VM insights solution on your workspace then the management pack will not be removed, as these solutions also use this management pack.
@@ -227,5 +227,5 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 
 ## Next steps
 
-- See [Deploy VM insights](./vminsights-enable-overview.md) for requirements and methods that to enable monitoring for your virtual machines.
+- See [Deploy VM insights](../vm/vminsights-enable-overview.md) for requirements and methods that to enable monitoring for your virtual machines.
 - [Search logs](../logs/log-query-overview.md) to view detailed wire data search records.

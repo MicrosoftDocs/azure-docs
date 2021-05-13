@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
+ms.date: 04/23/2021
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
@@ -226,24 +226,6 @@ To review your logic app in Azure portal, follow these steps:
 
    ![Your new logic app in Azure portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
-<a name="disable-enable-logic-app"></a>
-
-## Disable or enable logic app
-
-In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, deactivate your logic app first. You can then reactive your logic app after you've confirmed that your logic app still works.
-
-1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
-
-1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
-
-   1. To disable the logic app that you want, open the logic app's menu, and select **Disable**.
-
-      ![Disable your logic app](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
-
-   1. When you're ready to reactivate your logic app, open the logic app's menu, and select **Enable**.
-
-      ![Enable your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
-
 <a name="edit-logic-app"></a>
 
 ## Edit deployed logic app
@@ -253,13 +235,13 @@ In Visual Studio Code, you can open and edit the workflow definition for an alre
 > [!IMPORTANT] 
 > Before you edit an actively running logic app in production, 
 > avoid the risk in breaking that logic app and minimize disruption by 
-> [disabling your logic app first](#disable-enable-logic-app).
+> [disabling your logic app first](#disable-enable-logic-apps).
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
 1. In the Azure window, under **Logic Apps**, expand your Azure subscription, and select the logic app you want.
 
-1. Open your logic app's menu, and select **Open in Editor**. Or, next to your logic app's name, select the edit icon.
+1. Open your logic app menu, and select **Open in Editor**. Or, next to your logic app's name, select the edit icon.
 
    ![Open editor for existing logic app](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -284,7 +266,7 @@ In Visual Studio Code, you can open and review the earlier versions for your log
 > [!IMPORTANT] 
 > Before you change an actively running logic app in production, 
 > avoid the risk in breaking that logic app and minimize disruption by 
-> [disabling your logic app first](#disable-enable-logic-app).
+> [disabling your logic app first](#disable-enable-logic-apps).
 
 1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
 
@@ -313,6 +295,61 @@ In Visual Studio Code, you can open and review the earlier versions for your log
       ![Confirm promoting earlier version](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
       Visual Studio Code promotes the selected version to the current version and assigns a new number to the promoted version. The previously current version now appears under the promoted version.
+
+<a name="disable-enable-logic-apps"></a>
+
+## Disable or enable logic apps
+
+In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, disable your logic app first. You can then reactivate your logic app after you've confirmed that your logic app still works.
+
+> [!NOTE]
+> Disabling a logic app affects workflow instances in the following ways:
+>
+> * The Logic Apps service continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+>
+> * The Logic Apps service doesn't create or run new workflow instances.
+>
+> * The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
+>
+>   To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
+>
+>   1. In the logic app, edit any part of the workflow's trigger.
+>   1. Save your changes. This step resets your trigger's current state.
+>   1. Reactivate your logic app.
+
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
+
+1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
+
+   1. To disable the logic app that you want, open the logic app menu, and select **Disable**.
+
+      ![Disable your logic app](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
+
+   1. When you're ready to reactivate your logic app, open the logic app menu, and select **Enable**.
+
+      ![Enable your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
+
+<a name="delete-logic-apps"></a>
+
+## Delete logic apps
+
+Deleting a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service makes a best effort to cancel any in-progress and pending runs.
+
+  Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the service works through the cancellation process.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
+
+1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
+
+1. Find the logic app that you want to delete, open the logic app menu, and select **Delete**.
+
+   ![Delete your logic app](./media/quickstart-create-logic-apps-visual-studio-code/delete-logic-app.png)
 
 ## Next steps
 

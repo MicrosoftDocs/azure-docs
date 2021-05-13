@@ -3,7 +3,7 @@ title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
 # Geolocation and IP address handling

@@ -105,8 +105,8 @@ To learn more about how delegation works in Active Directory Domain Services, se
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
-[Set-ADUser]: /powershell/module/addsadministration/set-aduser
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer
+[Set-ADUser]: /powershell/module/activedirectory/set-aduser
 
 <!-- EXTERNAL LINKS -->
 [kcd-technet]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)

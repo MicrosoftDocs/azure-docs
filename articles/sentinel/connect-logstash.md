@@ -79,7 +79,7 @@ Use the information in the Logstash [Structure of a config file](https://www.ela
 
 > [!TIP]
 > - You can find the workspace ID and primary key in the workspace resource, under **Agents management**.
-> - **However**, because having credentials and other sensitive information stored in cleartext in configuration files is not in line with security best practices, you are strongly encouraged to make use of the **Logstash key store** in order to securely include your **workspace ID** and **workspace primary key** in the configuration. See [Elastic's documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html) for instructions.
+> - **However**, because having credentials and other sensitive information stored in cleartext in configuration files is not in line with security best practices, you are strongly encouraged to make use of the **Logstash key store** in order to securely include your **workspace ID** and **workspace primary key** in the configuration. See [Elastic's documentation](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html) for instructions.
 
 #### Sample configurations
 
