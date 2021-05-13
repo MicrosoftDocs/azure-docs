@@ -160,8 +160,6 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 ## Enable and access call logs (Windows)
 
-# [Windows](#tab/Windows)
-
 When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
 These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
