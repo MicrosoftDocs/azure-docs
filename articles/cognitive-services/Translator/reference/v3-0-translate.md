@@ -34,7 +34,7 @@ Request parameters passed on the query string are:
 | Query parameter | Description |
 | --- | --- |
 | api-version | _Required parameter_.  <br>Version of the API requested by the client. Value must be `3.0`. |
-| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](./reference/v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
+| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 
 ### Optional parameters
 
