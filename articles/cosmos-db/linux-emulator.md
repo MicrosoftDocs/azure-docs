@@ -108,20 +108,20 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
 Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
-5. Next, download the certificate for the emulator.
+1. Next, download the certificate for the emulator.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
 
-6. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+2. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
    ```
 
-7. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+3. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
@@ -149,15 +149,16 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
 ### Connectivity
 1. My app can't connect to emulator endpoint ("The SSL connection could not be established") or I can't start the Data Explorer.
     - Ensure the emulator is running, execute: 
-    ```bash
-    docker ps --all
-    ```
+        ```bash
+        docker ps --all
+        ```
     - Verify that the specific emulator container is in a running state.
     - Verify that no other applications are using emulator ports: 8081 and 10250-10255.
     - Verify that the container port 8081, is mapped correctly and accessible from an environment outside of the container.  
-     ```bash
-    netstat -lt
-    ```
+       
+       ```bash
+       netstat -lt
+       ```
     - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
     - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](linux-emulator.md#consuming-endpoint-via-ui).
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
@@ -165,14 +166,14 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
 2. The Docker container failed to start and has the following error message:
 
-```
-/palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
+    ```
+    /palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
     1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
     2. The process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
     3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
-```
+    ```
 
-The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
+    The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
 2. My app received too many connectivity-related timeouts.
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
@@ -189,16 +190,17 @@ The current Docker Host processor type is incompatible with our Docker image; i.
     - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
     - If the emulator fails to start with the following error:
   
-   ``` 
+   ```
    "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB emulator from creating and adding self signed certificate files into your certificate store."
-    ```
+   ```
 
     This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .Net Cosmos SDK client application).
     
 2. The emulator is crashing.
     - Confirm that creating a container with the [recommended settings](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
     - Please start the emulator's Docker container in an attached mode (see `docker start -it`).
-    - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#report-an-emulator-issue) to report the issue.   
+    - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#report-an-emulator-issue) to report the issue.  
+   
 ### Data explorer errors
 1. I can't view my data.
     - See section regarding connectivity-related issues above.
@@ -215,30 +217,36 @@ The current Docker Host processor type is incompatible with our Docker image; i.
 ## Refresh Linux Container
 
 1. Run the following command to view all Docker containers.
-```bash
-docker ps --all
-```
+ 
+   ```bash
+   docker ps --all
+   ```
+
 2. Remove the container using the ID retrieved from above command.
 
-```bash
-docker rm ID_OF_CONTAINER_FROM_ABOVE
-```
+   ```bash
+   docker rm ID_OF_CONTAINER_FROM_ABOVE
+   ```
+
 3. Next list all Docker images.
-```bash
-docker images
-```
+   ```bash
+   docker images
+   ```
+
 4. Remove the image using the ID retrieved from previous step.
-```bash
-docker rmi ID_OF_IMAGE_FROM_ABOVE
-```
+   ```bash
+   docker rmi ID_OF_IMAGE_FROM_ABOVE
+   ```
+
 5. Pull the latest image of the Cosmos DB Linux Emulator.
-```bash
-docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-```
+   ```bash
+   docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+   ```
+
 6. To start a stopped container run the following:
-```bash
-docker start -ai ID_OF_CONTAINER
-```
+   ```bash
+   docker start -ai ID_OF_CONTAINER
+   ```
 
 ## Report an emulator issue 
 Provide as much information as possible detailing your issue:
