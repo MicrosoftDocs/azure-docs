@@ -81,16 +81,16 @@ Following is an example:
 
 ## Deploy the UI templates
 
-- Deploy the provided [Azure AD B2C UI templates](https://github.com/azure-ad-b2c/partner-integrations/blob/adstoffe/remove-middle-layer-api/samples/Dynamics-Fraud-Protection/ui-templates) to a public facing internet hosting service such as Azure Blob Storage.
+1. Deploy the provided [Azure AD B2C UI templates](https://github.com/azure-ad-b2c/partner-integrations/blob/adstoffe/remove-middle-layer-api/samples/Dynamics-Fraud-Protection/ui-templates) to a public facing internet hosting service such as Azure Blob Storage.
 
-- Replace the value `https://<YOUR-UI-BASE-URL>/` with the root URL for your deployment location.
+2. Replace the value `https://<YOUR-UI-BASE-URL>/` with the root URL for your deployment location.
 
   >[!NOTE]
   >You'll later need the base URL to configure the Azure AD B2C policies.
 
-- In the `ui-templates/js/dfp.js` file, replace `<YOUR-DFP-INSTANCE-ID>` with your Microsoft DFP instance ID.
+3. In the `ui-templates/js/dfp.js` file, replace `<YOUR-DFP-INSTANCE-ID>` with your Microsoft DFP instance ID.
 
-- Ensure CORS is enabled for your Azure AD B2C domain name `https://{your_tenant_name}.b2clogin.com` or `your custom domain`.
+4. Ensure CORS is enabled for your Azure AD B2C domain name `https://{your_tenant_name}.b2clogin.com` or `your custom domain`.
 
 See [UI customization documentation](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-custom-policy) to learn more.
 
