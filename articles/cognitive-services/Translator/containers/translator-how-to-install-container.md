@@ -202,13 +202,7 @@ Then, run the `docker logs` command with the <Container ID> for the correspondin
 docker logs <Container ID> --timestamps --since=4h | grep Error
 ```
 
-## Billing
 
-Translator containers send billing information to Azure, using a _Translator_ resource on your Azure account. 
-
-[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
-
-For more information about these options, see [Configure containers](translator-container-configuration.md).
 
 ## Text translation code samples
 
