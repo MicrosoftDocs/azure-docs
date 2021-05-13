@@ -478,6 +478,10 @@
         href: how-to-deploy-and-where.md
       - name: Deploy & serve with endpoints
         items: 
+          - name: Online
+            items:
+            - name: Safe rollout for online endpoints
+              href: how-to-safely-rollout-managed-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints
