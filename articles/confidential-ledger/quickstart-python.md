@@ -147,7 +147,9 @@ print (f"- ID: {myledger.id}")
 
 ### Use the data plane client library
 
-Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). To do so, we must first create a Confidential Ledger client.  
+Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). 
+
+First, we will generate and save a Confidential Ledger certificate.  
 
 ```python
 identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
@@ -158,24 +160,26 @@ network_identity = identity_client.get_ledger_identity(
 ledger_tls_cert_file_name = "networkcert.pem"
 with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
+```
 
+Now we can use the network certificate, along with the ledger URL and our credentials, to create a Confidential Ledger client.
 
+```python
 ledger_client = ConfidentialLedgerClient(
      endpoint=ledger_url, 
      credential=credential,
      ledger_certificate_path=ledger_tls_cert_file_name
 )
-
 ```
 
-We are now prepared to write to the ledger.  We will do so using the `append_to_ledger` function.
+We are prepared to write to the ledger.  We will do so using the `append_to_ledger` function.
 
 ```python
 append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
 print(append_result.transaction_id)
 ```
 
-The print function will return the transaction id of your write to the ledger. You can use this transaction id to retrieve the message you wrote to the ledger.
+The print function will return the transaction id of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
 entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
@@ -224,7 +228,7 @@ confidential_ledger_mgmt = ConfidentialLedgerAPI(
 # Create properities dictionary for begin_create call 
 
 properties = {
-    "location": "eastus2euap",
+    "location": "eastus",
     "tags": {},
     "properties": {
         "ledgerType": "Public",
