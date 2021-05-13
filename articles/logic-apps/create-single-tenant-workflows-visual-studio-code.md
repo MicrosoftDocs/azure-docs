@@ -85,12 +85,12 @@ To set up and use Azurite, follow these steps:
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
-    Currently, you can have both the Consumption (multi-tenant) and Standard (single-tenant) extension versions installed. Although the development experiences differ in some ways between the extensions, your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes them into different sections by extension names, **Logic Apps** and **Azure Logic Apps (Preview)**.
+    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
 
     > [!IMPORTANT]
-    > Projects that you created with earlier extensions no longer work. To continue, uninstall any previous versions, and create new logic app projects.
+    > Projects created with earlier extensions no longer work. To continue, uninstall any previous versions, and create new logic app projects.
 
-    **To install the **Azure Logic Apps (Preview)** extension, follow these steps:**
+    **To install the **Azure Logic Apps (Standard)** extension, follow these steps:**
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
@@ -109,35 +109,9 @@ To set up and use Azurite, follow these steps:
 
 * To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
-* To test the example logic app that you create in this article, you need a tool that can send calls to the Request trigger, which is the first step in example logic app. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
+* To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
 
-* If you create your logic app and deploy with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
-
-<a name="migrate-private-preview"></a>
-
-## Migrate from private preview extension
-
-Any logic app projects that you created with the **Azure Logic Apps (Private Preview)** extension won't work with the Public Preview extension. However, you can migrate these projects to new projects by following these steps:
-
-1. Uninstall the private preview extension.
-
-1. Delete any associated extension bundle and NuGet package folders in these locations:
-
-   * The **Microsoft.Azure.Functions.ExtensionBundle.Workflows** folder, which contains previous extension bundles and is located along either path here:
-
-     * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
-
-     * `C:\Users\{userName}\.azure-functions-core-tools\Functions\ExtensionBundles`
-
-   * The **microsoft.azure.workflows.webjobs.extension** folder, which is the [NuGet](/nuget/what-is-nuget) cache for the private preview extension and is located along this path:
-
-     `C:\Users\{userName}\.nuget\packages`
-
-1. Install the **Azure Logic Apps (Preview)** extension.
-
-1. Create a new project in Visual Studio Code.
-
-1. Copy your previously created logic app's **workflow.definition** file to your new project.
+* If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
 <a name="set-up"></a>
 
@@ -461,7 +435,7 @@ The workflow in this example uses this trigger and these actions:
 
 When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
-To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own tool.
+To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own equivalent tool.
 
 #### Set up call forwarding using **ngrok**
 
