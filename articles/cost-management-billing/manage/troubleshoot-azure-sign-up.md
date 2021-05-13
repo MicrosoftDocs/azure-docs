@@ -23,7 +23,7 @@ You may experience an issue when you try to sign up for a new account in the Mic
 
 Before beginning sign-up, verify the following:
 
-- The information for your Azure Account Profile (including contact email address, street address, and telephone number) is correct.
+- The information for your Azure profile (including contact email address, street address, and telephone number) is correct.
 - Your credit card information is correct.
 - You don't already have a Microsoft account that has the same information.
 
