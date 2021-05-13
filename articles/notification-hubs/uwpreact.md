@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 05/12/2021
 ms.custom: template-concept
 ---
 
@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 This article provides an overview of the Azure Notification Hub sample application built to demonstrate the capabilities of Azure Notification Hub on multiple platforms. The application uses a land survey scenario, in which the desktop **Contoso Land Survey** application sends notifications, which both Android and iOS Contoso applications can receive.
 
-You can download the complete sample from [GitHub](https://github.com/Azure/azure-notificationhubs-samples).
+You can download the [complete sample from GitHub](https://github.com/Azure/azure-notificationhubs-samples/NotificationHubSample).
 
 ## Prerequisites
 
@@ -417,14 +417,22 @@ Open the **app** folder in your preferred terminal or shell window. Then, do the
 3. Open another terminal window, and run `npx react-native run-windows` to run the UWP application.
 4. If the deployment or build fails, see the troubleshooting guide.
 
-### Android/iOS
+### Android
 
-1. Configure Firebase and APNS on your React-Native project to make sure you are able to use the notification capabilities.
-2. For Android, after you have successfully configured the Firebase project, download the **google-services.json** file from the Firebase portal. Replace **./app/android/app/google-services.json** with this new file. Make sure the application package name matches the one configured in Firebase. The package name is configured in the **AndroidManifest.xml** file.
-3. For iOS, notifications can only be received by applications signed and installed via the App Store or TestFlight. You must create an application in your Apple developer account. The application's bundle identifier configured in your Apple developer account should be configured in your application's **Info.plist** and **Entitlements.plist** files.
+1. Configure Firebase on your React-Native project to make sure you are able to use the notification capabilities.
+2. After you have successfully configured the Firebase project, download the **google-services.json** file from the Firebase portal. 
+3. Replace **./app/android/app/google-services.json** with this new file. Make sure the application package name matches the one configured in Firebase. The package name is configured in the **AndroidManifest.xml** file.
 4. For more information about how to configure notifications in a React Native application, see [Tutorial: Send push notifications to React Native](/azure/developer/mobile-apps/notification-hubs-backend-service-react-native).
 5. After the notifications are configured, run `npm run start` to start the metro server in one console window. If your Windows application is already running, you can skip this step.
-6. In a new console window, run `npx react-native run-android` to run Android, or `npx react-native run-ios` to run the iOS application. As previously mentioned, the notifications won't work on iOS if deployed locally. You cannot receive notifications in the iOS simulator.
+6. In a new console window, run `npx react-native run-android` to run the Android application.
+
+### iOS
+
+1. Configure APNS on your React-Native project to make sure you are able to use the notification capabilities.
+2. In iOS, notifications can only be received by applications signed and installed via the App Store or TestFlight. You must create an application in your Apple developer account. The application's bundle identifier configured in your Apple developer account should be configured in your application's **Info.plist** and **Entitlements.plist** files.
+3. For more information about how to configure notifications in a React Native application, see [Tutorial: Send push notifications to React Native](/azure/developer/mobile-apps/notification-hubs-backend-service-react-native).
+4. After the notifications are configured, run `npm run start` to start the metro server in one console window. If your Windows application is already running, you can skip this step.
+5. In a new console window, run `npx react-native run-ios` to run the iOS application. As previously mentioned, the notifications won't work on iOS if deployed locally. You cannot receive notifications in the iOS simulator.
 
 ## Troubleshooting
 
@@ -432,7 +440,11 @@ You might get the following error while running the React Native for Windows app
 
 `error MSB4057: The target "Deploy" does not exist in the project`
 
-This is a known issue with React Native for Windows. To fix this, unload the **.csproj** file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder, and then add the following line just before ...</Project> and reload the project.
+This is a known issue with React Native for Windows. To fix this, unload the **.csproj** file for the **CheckboxWindows** and **ReactNativeAsyncStorage** projects in Visual Studio after opening **app.sln** in the **app/windows** folder. Then, in the **.csproj** file add the following line just before ...</Project>, then reload the project:
+
+```xml
+<Target Name="Deploy"/>
+```
 
 ## Next steps
 
