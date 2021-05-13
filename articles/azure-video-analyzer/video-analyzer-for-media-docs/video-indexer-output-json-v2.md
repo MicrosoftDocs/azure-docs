@@ -583,7 +583,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects (public preview)
+#### audioEffects (preview)
 
 |Name|Description
 |---|---|
@@ -592,24 +592,33 @@ Business and product brand names detected in the speech to text transcript and/o
 |instances|A list of time ranges where this audio effect appeared. Each instance has a confidence field.|
 
 ```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Siren",
-    "instances": [
-    {
-       "confidence": 0.87,
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-       "confidence": 0.87,
-       "start": "00:01:13",
-        "end": "00:01:21"
+audioEffects: [{
+ {
+        id: 0,
+        type: "Laughter",
+        name: "Laughter",
+        instances: [{
+                confidence: 0.8815,
+                adjustedStart: "0:00:10.2",
+                adjustedEnd: "0:00:11.2",
+                start: "0:00:10.2",
+                end: "0:00:11.2"
+            }, {
+                confidence: 0.8554,
+                adjustedStart: "0:00:48.26",
+                adjustedEnd: "0:00:49.56",
+                start: "0:00:48.26",
+                end: "0:00:49.56"
+            }, {
+                confidence: 0.8492,
+                adjustedStart: "0:00:59.66",
+                adjustedEnd: "0:01:00.66",
+                start: "0:00:59.66",
+                end: "0:01:00.66"
+            }
+        ]
     }
-    ]
-}
-]
+],
 ```
 
 #### sentiments
