@@ -256,9 +256,16 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 ## Next steps
 
 Learn more about the cluster extensions currently available for Azure Arc enabled Kubernetes:
+
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> 
+> [!div class="nextstepaction"]
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> 
+> [!div class="nextstepaction"]
 > [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
+> 
 > Event Grid on Kubernetes
+> 
 > Azure API Management on Azure Arc
