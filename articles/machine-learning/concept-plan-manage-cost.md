@@ -20,7 +20,7 @@ After you've started using Azure Machine Learning resources, use the cost manage
 
 Understand that the costs for Azure Machine Learning are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you're billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Machine Learning. After you're familiar with managing costs for Azure Machine Learning, apply similar methods to manage costs for all the Azure services used in your subscription.
 
-For more information on optimizing costs, see [how to manage and optimize cost in Azure Machine Learning](how-to-manage-reduce-cost.md).
+For more information on optimizing costs, see [how to manage and optimize cost in Azure Machine Learning](how-to-manage-optimize-cost.md).
 
 ## Prerequisites
 
@@ -154,11 +154,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Set data retention and deletion policies
 - Deploy resources to the same region
 
-For more information, see [manage and optimize costs in Azure Machine Learning](how-to-manage-reduce-cost.md).
+For more information, see [manage and optimize costs in Azure Machine Learning](how-to-manage-optimize-cost.md).
 
 ## Next steps
 
-- [Manage and optimize costs in Azure Machine Learning](how-to-manage-reduce-cost.md).
+- [Manage and optimize costs in Azure Machine Learning](how-to-manage-optimize-cost.md).
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
