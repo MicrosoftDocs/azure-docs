@@ -2,8 +2,8 @@
 title: Create an Azure Shared Image Gallery using the portal 
 description: Learn how to use Azure portal to create and share virtual machine images.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019

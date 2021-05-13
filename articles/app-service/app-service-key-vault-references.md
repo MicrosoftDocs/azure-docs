@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: mattchenderson
 
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 04/23/2021
 ms.author: mahender
 ms.custom: seodec18
 
@@ -25,10 +25,21 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
    > [!NOTE] 
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
-1. Create an [access policy in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
-   > [!IMPORTANT]
-   > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md) unless the app is hosted within an [App Service Environment](./environment/intro.md).
+### Access network-restricted vaults
+
+> [!NOTE]
+> Linux-based applications are not presently able to resolve secrets from a network-restricted key vault unless the app is hosted within an [App Service Environment](./environment/intro.md).
+
+If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access.
+
+1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
+
+2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
+
+> [!IMPORTANT]
+> Accessing a vault through virtual network integration is currently incompatible with [automatic updates for secrets without a specified version](#rotation).
 
 ## Reference syntax
 
@@ -43,7 +54,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 For example, a complete reference would look like the following:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
 ```
 
 Alternatively:
@@ -53,6 +64,9 @@ Alternatively:
 ```
 
 ## Rotation
+
+> [!IMPORTANT]
+> [Accessing a vault through virtual network integration](#access-network-restricted-vaults) is currently incompatible with automatic updates for secrets without a specified version.
 
 If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
 
@@ -64,6 +78,17 @@ To use a Key Vault reference for an application setting, set the reference as th
 
 > [!TIP]
 > Most application settings using Key Vault references should be marked as slot settings, as you should have separate vaults for each environment.
+
+### Considerations for Azure Files mounting
+
+Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount Azure Files as the file system. This setting has additional validation checks to ensure that the app can be properly started. The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests which modify these settings, the platform will attempt to validate if this content share exists, and it will attempt to create it if not. If it cannot locate or create the content share, the request is blocked.
+
+When using Key Vault references for this setting, this validation check will fail by default, as the secret itself cannot be resolved while processing the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to "1". This will bypass all checks, and the content share will not be created for you. You should ensure it is created in advance. 
+
+> [!CAUTION]
+> If you skip validation and either the connection string or content share are invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
+
+As part of creating the site, it is also possible that attempted mounting of the content share could fail due to managed identity permissions not being propagated or the virtual network integration not being set up. You can defer setting up Azure Files until later in the deployment template to accommodate this. See [Azure Resource Manager deployment](#azure-resource-manager-deployment) to learn more. App Service will use a default file system until Azure Files is set up, and files are not copied over, so you will need to ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Azure Resource Manager deployment
 

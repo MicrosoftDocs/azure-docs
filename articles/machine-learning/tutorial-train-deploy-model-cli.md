@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 04/02/2021
 ---
 
 # Tutorial: Train and deploy a model from the CLI
@@ -34,7 +34,7 @@ Learn how to take the following actions:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
@@ -80,20 +80,6 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-## Install the machine learning extension
-
-To install the machine learning extension, use the following command:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-If you get a message that the extension is already installed, use the following command to update to the latest version:
-
-```azurecli-interactive
-az extension update -n azure-cli-ml
-```
-
 ## Create a resource group
 
 A resource group is a container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
@@ -123,7 +109,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
+For more information on working with resource groups, see [az group](/cli/azure/group).
 
 ## Create a workspace
 

@@ -53,7 +53,7 @@ After you've created an edge node, you can connect to the edge node using SSH, a
 > [!WARNING]
 > Custom components that are installed on the edge node receive commercially reasonable support from Microsoft. This might result in resolving problems you encounter. Or, you may be referred to community resources for further assistance. The following are some of the most active sites for getting help from the community:
 >
-> * [Microsoft Q&A question page for HDInsight](/answers/topics/azure-hdinsight.html
+> * [Microsoft Q&A question page for HDInsight](/answers/topics/azure-hdinsight.html)
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [https://apache.org](https://apache.org), such as the [Apache Hadoop](https://hadoop.apache.org/) site.

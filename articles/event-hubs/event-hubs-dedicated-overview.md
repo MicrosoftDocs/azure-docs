@@ -26,10 +26,12 @@ Dedicated Event Hubs offers three compelling benefits for customers who need ent
 
 A dedicated cluster guarantees capacity at full scale. It can ingress up to gigabytes of streaming data with fully durable storage and subsecond latency to accommodate any burst in traffic. 
 
-#### Inclusive and exclusive access to features 
-The Dedicated offering includes features like Capture at no additional cost, and exclusive access to upcoming features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building client-side features.  
+#### Inclusive and exclusive access to features
+
+The Dedicated offering includes features like Capture at no additional cost and exclusive access to features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 #### Cost Savings
+
 At high ingress volumes (>100 throughput units), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units in the Standard offering.
 
 
@@ -47,7 +49,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Partitions | 32 per Event Hub | 1024 per event hub<br/>2000 per CU |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
 | Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
-| Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
+| [Event retention](event-hubs-features.md#event-retention) | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
 | Capture | Pay per hour | Included |
 
 For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
@@ -66,4 +68,4 @@ Contact your Microsoft sales representative or Microsoft Support to get addition
 
 - [Create an Event Hubs cluster through the Azure portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
-- The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.
+- The [Event Hubs FAQ](event-hubs-faq.yml) contains pricing information and answers some frequently asked questions about Event Hubs.

@@ -167,7 +167,7 @@ Specify the policy settings as follows:
     ![Differential backup policy](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Incremental backups are now supported in public preview. You can choose either a differential or an incremental as a daily backup but not both.
+    > You can choose either a differential or an incremental as a daily backup but not both.
 1. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one incremental backup per day.
     * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
@@ -194,7 +194,7 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 1. In the vault menu, select **Backup items**.
 2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
+3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 By default, the retention of on-demand backups is 45 days.

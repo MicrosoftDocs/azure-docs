@@ -41,8 +41,8 @@ To use administrative units, you need an Azure Active Directory Premium license 
 You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
 
 - [Create, remove, populate, and add roles to administrative units](admin-units-manage.md): Includes complete how-to procedures.
-- [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): Covers how to work with administrative units by using PowerShell.
-- [Administrative unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): Provides detailed documentation on Microsoft Graph for administrative units.
+- [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
+- [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
 
 ### Plan your administrative units
 

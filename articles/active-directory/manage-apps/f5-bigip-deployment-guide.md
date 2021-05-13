@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access
@@ -260,7 +261,7 @@ A BIG-IP system is administered via its web config UI, which can be accessed usi
 
 - From a VPN client connected to the BIG-IP-VM’s internal network
 
-- Published via [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
+- Published via [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
 You’ll need to decide on the most suitable method before you can proceed with the remaining configurations. If necessary, you can connect directly to the web config from the internet by configuring the BIG-IP’s primary IP with a public IP. Then adding an NSG rule to allow the 8443 traffic to that primary IP. Make sure to restrict the source to your own trusted IP, otherwise anyone will be able to connect.
 

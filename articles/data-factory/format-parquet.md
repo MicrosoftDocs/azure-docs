@@ -1,14 +1,11 @@
 ---
 title: Parquet format in Azure Data Factory 
 description: 'This topic describes how to deal with Parquet format in Azure Data Factory.'
-author: linda33wj
-manager: shwang
-ms.reviewer: craigg
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Parquet format in Azure Data Factory
@@ -26,7 +23,7 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **Parquet**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
-| compressionCodec | The compression codec to use when writing to Parquet files. When reading from Parquet files, Data Factories automatically determine the compression codec based on the file metadata.<br>Supported types are “**none**”, “**gzip**”, “**snappy**” (default), and "**lzo**". Note currently Copy activity doesn't support LZO when read/write Parquet files. | No       |
+| compressionCodec | The compression codec to use when writing to Parquet files. When reading from Parquet files, Data Factories automatically determine the compression codec based on the file metadata.<br>Supported types are "**none**", "**gzip**", "**snappy**" (default), and "**lzo**". Note currently Copy activity doesn't support LZO when read/write Parquet files. | No       |
 
 > [!NOTE]
 > White space in column name is not supported for Parquet files.
@@ -115,9 +112,9 @@ The associated data flow script is:
 
 ```
 source(allowSchemaDrift: true,
-	validateSchema: false,
-	rowUrlColumn: 'fileName',
-	format: 'parquet') ~> ParquetSource
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'parquet') ~> ParquetSource
 ```
 
 ### Sink properties
@@ -140,13 +137,13 @@ The associated data flow script is:
 
 ```
 ParquetSource sink(
-	format: 'parquet',
-	filePattern:'output[n].parquet',
-	truncate: true,
+    format: 'parquet',
+    filePattern:'output[n].parquet',
+    truncate: true,
     allowSchemaDrift: true,
-	validateSchema: false,
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> ParquetSink
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> ParquetSink
 ```
 
 ## Data type support
@@ -162,7 +159,7 @@ For copy running on Self-hosted IR with Parquet file serialization/deserializati
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
-- **To install Visual C++ 2010 Redistributable Package**: Visual C++ 2010 Redistributable Package is not installed with self-hosted IR installations. You can find it from [here](https://www.microsoft.com/download/details.aspx?id=14632).
+- **To install Visual C++ 2010 Redistributable Package**: Visual C++ 2010 Redistributable Package is not installed with self-hosted IR installations. You can find it from [here](https://www.microsoft.com/download/details.aspx?id=26999).
 
 > [!TIP]
 > If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline.

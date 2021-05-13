@@ -67,7 +67,7 @@ Guest users that have been assigned the Co-Administrator role might see some dif
 
 You would expect that user B could manage everything. The reason for this difference is that the Microsoft account is added to the subscription as a guest user instead of a member user. Guest users have different default permissions in Azure AD as compared to member users. For example, member users can read other users in Azure AD and guest users cannot. Member users can register new service principals in Azure AD and guest users cannot.
 
-If a guest user needs to be able to perform these tasks, a possible solution is to assign the specific Azure AD roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). For more information about granting access for guest users, see [Add or remove Azure role assignments for external guest users using the Azure portal](role-assignments-external-users.md).
+If a guest user needs to be able to perform these tasks, a possible solution is to assign the specific Azure AD roles the guest user needs. For example, in the previous scenario, you could assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to read other users and assign the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role to be able to create service principals. For more information about member and guest users and their permissions, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). For more information about granting access for guest users, see [Assign Azure roles to external guest users using the Azure portal](role-assignments-external-users.md).
 
 Note that the [Azure built-in roles](../role-based-access-control/built-in-roles.md) are different than the [Azure AD roles](../active-directory/roles/permissions-reference.md). The built-in roles don't grant any access to Azure AD. For more information, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -147,5 +147,5 @@ Follow these steps to view the Account Administrator.
 ## Next steps
 
 * [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 * [Add or change Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)

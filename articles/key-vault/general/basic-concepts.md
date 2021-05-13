@@ -3,7 +3,6 @@ title: What is Azure Key Vault? | Microsoft Docs
 description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -15,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault basic concepts
 
-Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and managed HSM pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
+Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and managed hardware security module(HSM) pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
 
 Here are other important terms:
 
@@ -50,6 +49,11 @@ To do any operations with Key Vault, you first need to authenticate to it. There
 - **Service principal and certificate**: You can use a service principal and an associated certificate that has access to Key Vault. We don't recommend this approach because the application owner or developer must rotate the certificate.
 - **Service principal and secret**: Although you can use a service principal and a secret to authenticate to Key Vault, we don't recommend it. It's hard to automatically rotate the bootstrap secret that's used to authenticate to Key Vault.
 
+## Encryption of data in transit
+
+Azure Key Vault enforces [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between Azure Key vault and clients. Clients negotiate a TLS connection with Azure Key Vault. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+
+[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
 ## Key Vault roles
 
@@ -77,7 +81,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-- Learn how to [secure your vault](secure-your-key-vault.md).
+- Learn about [Azure Key Vault security features](security-features.md).
 - Learn how to [secure your managed HSM pools](../managed-hsm/access-control.md)
 
 <!--Image references-->

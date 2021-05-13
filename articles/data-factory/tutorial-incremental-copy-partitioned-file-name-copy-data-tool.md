@@ -1,24 +1,17 @@
 ---
 title: Incrementally copy new files based on time partitioned file name
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer:
-manager:
 ms.service: data-factory
-ms.workload: data-services
-
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
+ms.date: 02/18/2021
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copies new files based on time partitioned file name from Azure Blob storage to Azure Blob storage.
 
@@ -60,7 +53,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
 
-   ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which to create the new data factory.
@@ -78,8 +71,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 8. After creation is finished, the **Data Factory** home page is displayed.
 9. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 

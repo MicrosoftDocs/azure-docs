@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: landing-page
-  ms.date: 10/27/2020
+  ms.date: 05/05/2021
   ms.author: aahi
 
 landingContent:
@@ -21,7 +21,7 @@ landingContent:
         - text: What are Cognitive Services containers?
           url: ../cognitive-services-container-support.md
         - text: Frequently Asked Questions
-          url: container-faq.md
+          url: container-faq.yml
         - text: Container image tags
           url: container-image-tags.md  
 - title: Container recipes 
@@ -72,8 +72,6 @@ landingContent:
           text: Custom Speech to text 
         - url: ../speech-service/speech-container-howto.md?tabs=tts
           text: Text to speech
-        - url: ../speech-service/speech-container-howto.md?tabs=ctts
-          text: Custom text to speech 
         - url: ../speech-service/speech-container-howto.md?tabs=ntts
           text: Neural text to speech 
         - url: ../speech-service/speech-container-howto.md?tabs=lid

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to an IoT hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+#Customer intent: As a device builder, I want to see a working IoT Plug and Play device sample connecting to an IoT hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # How to connect an  IoT Plug and Play bridge sample running on Linux or Windows to IoT Hub

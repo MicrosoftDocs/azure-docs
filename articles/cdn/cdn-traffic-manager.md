@@ -89,7 +89,10 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
     > [!NOTE]
     > If your domain is currently live and cannot be interrupted, do this step last. Verify that the CDN endpoints and traffic manager domains are live before you update your custom domain DNS to Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > For implemeting this fail over scenerio both endpoints needs to be in different profiles, and the different profiles should be by different CDN provider to avoid domain name conflicts.
+    > 
 
 2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input **cdndemo101.dustydogpetcare.online**. Verify that the checkmark to validate the custom domain is green. 
 

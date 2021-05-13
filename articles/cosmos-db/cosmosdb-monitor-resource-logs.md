@@ -12,7 +12,7 @@ ms.author: sngun
 # Monitor Azure Cosmos DB data by using diagnostic settings in Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostics setting for Azure Cosmos DB accounts abd send resource logs to the following sources:
 - Log Analytics workspaces
@@ -20,8 +20,10 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 - Event hub
 - Storage Account
 
+
 > [!NOTE]
 For SQL API accounts, we recommend creating the diagnostic setting in resource specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting-rest-api). This option provides some additional cost-optimizations with an improved view for handling data.
+=======
 
 ## Create using Azure Portal
 

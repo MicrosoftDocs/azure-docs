@@ -28,7 +28,7 @@ Using intent recognition, your applications, tools, and devices can determine wh
 
 ## Get started
 
-See the [quickstart](quickstarts/intent-recognition.md) to get started with intent recognition.
+See the [quickstart](get-started-intent-recognition.md) to get started with intent recognition.
 
 ## Sample code
 
@@ -48,6 +48,6 @@ Sample code for intent recognition:
 
 ## Next steps
 
-* Complete the intent recognition [quickstart](quickstarts/intent-recognition.md)
+* Complete the intent recognition [quickstart](get-started-intent-recognition.md)
 * [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)

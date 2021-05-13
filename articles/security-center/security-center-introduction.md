@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -68,7 +68,7 @@ Security Center helps you **identify Shadow IT subscriptions**. By looking at su
 
 ### Continuous assessments
 
-Security Center continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix in order to protect your machines. This list of recommendations is enabled and supported by [Azure Security Benchmark](../security/benchmarks/introduction.md), the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+Security Center continuously discovers new resources that are being deployed across your workloads and assesses whether they are configured according to security best practices, if not, they're flagged and you get a prioritized list of recommendations for what you need to fix in order to protect your machines. This list of recommendations is enabled and supported by [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 To help you understand how important each recommendation is to your overall security posture, Security Center groups the recommendations into security controls and adds a **secure score** value to each control. This is crucial in enabling you to **prioritize your security work**.
 
@@ -97,7 +97,7 @@ Security Center's threat protection enables you to detect and prevent threats at
 
 Security Center's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Security alerts":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 ### Integration with Microsoft Defender for Endpoint
 

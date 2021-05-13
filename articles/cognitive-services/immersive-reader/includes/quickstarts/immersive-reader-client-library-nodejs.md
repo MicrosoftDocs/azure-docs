@@ -93,7 +93,7 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 resource: 'https://cognitiveservices.azure.com/'
             }
         },
-        function(err, resp, tokenResult) {
+        function(err, res, tokenResult) {
             if (err) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');
@@ -251,4 +251,5 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)
+> [!div class="nextstepaction"]
+> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)

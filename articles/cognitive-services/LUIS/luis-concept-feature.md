@@ -154,11 +154,9 @@ Shipping address (machine learned entity)
 
 ### Required feature using prebuilt entities
 
-The city, state, and country/region are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. That means the entire shipping address isn't returned if the entities that have required features aren't found.
+Prebuilt entities such as city, state, and country/region are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. However, the `isRequired` flag is only related to the entity it is assigned to and doesn't affect the hierarchy. If the prebuilt sub-entity feature is not found, this will not affect the detection and return of the parent entity.
 
-What if the city, state, or country/region are in the utterance, but they're in a location or are slang that LUIS doesn't expect? If you want to provide some post processing to help resolve the entity, due to a low-confidence score from LUIS, don't mark the feature as required.
-
-Another example of a required feature for the shipping address is to make the street number a required, [prebuilt](luis-reference-prebuilt-entities.md) number. This allows a user to enter "1 Microsoft Way" or "One Microsoft Way". Both resolve to the numeral "1" for the street-number subentity.
+As an example of a required feature, consider you want to detect addresses. You might consider making a street number a requirement. This would allow a user to enter "1 Microsoft Way" or "One Microsoft Way", and both would resolve to the numeral "1" for the street number sub-entity. See the [prebuilt entity ](luis-reference-prebuilt-entities.md) article for more information.
 
 ### Required feature using list entities
 

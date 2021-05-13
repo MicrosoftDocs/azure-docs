@@ -1,9 +1,9 @@
 ---
 title: Block blob storage performance tiers — Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 11/12/2019
 ms.service: storage
 ms.subservice: blobs
@@ -59,7 +59,7 @@ Standard performance supports different [access tiers](storage-blob-storage-tier
 
 ## Migrate from standard to premium
 
-You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md).
+You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](../common/storage-account-create.md).
 
 To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 

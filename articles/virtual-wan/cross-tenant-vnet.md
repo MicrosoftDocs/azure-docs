@@ -86,7 +86,7 @@ In the following steps, you will switch between the context of the two subscript
 1. Connect the VNet to the hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. You can view the new connection in either PowerShell, or the Azure portal.

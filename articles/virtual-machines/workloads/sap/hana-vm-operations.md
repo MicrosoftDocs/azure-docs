@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -308,9 +307,9 @@ The following sections describe some of the operations related to deploying SAP 
 ### Back up and restore operations on Azure VMs
 The following documents describe how to back up and restore your SAP HANA deployment:
 
-- [SAP HANA backup overview](./sap-hana-backup-guide.md)
-- [SAP HANA file-level backup](./sap-hana-backup-file-level.md)
-- [SAP HANA storage snapshot benchmark](./sap-hana-backup-guide.md)
+- [SAP HANA backup overview](../../../backup/sap-hana-db-about.md)
+- [SAP HANA file-level backup](../../../backup/sap-hana-db-about.md)
+- [SAP HANA storage snapshot benchmark](../../../backup/sap-hana-db-about.md)
 
 
 ### Start and restart VMs that contain SAP HANA

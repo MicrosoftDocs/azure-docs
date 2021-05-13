@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Set up service alerts
 

@@ -127,7 +127,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 Now that you've covered integrating Azure Traffic Manager with Azure VMware Solution, you may want to learn about:
 
-- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md).
-- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
-- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md).
+- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
+- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)
+- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md)

@@ -2,7 +2,8 @@
 title: Create a Linux environment with the Azure CLI 
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
@@ -429,7 +430,7 @@ Fault domains define a grouping of virtual machines that share a common power so
 
 Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. During planned maintenance, the order in which update domains are rebooted might not be sequential, but only one update domain is rebooted at a time.
 
-Azure automatically distributes VMs across the fault and update domains when placing them in an availability set. For more information, see [managing the availability of VMs](../manage-availability.md).
+Azure automatically distributes VMs across the fault and update domains when placing them in an availability set. For more information, see [managing the availability of VMs](../availability.md).
 
 Create an availability set for your VM with [az vm availability-set create](/cli/azure/vm/availability-set). The following example creates an availability set named *myAvailabilitySet*:
 

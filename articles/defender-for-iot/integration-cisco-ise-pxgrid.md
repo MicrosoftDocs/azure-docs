@@ -1,13 +1,8 @@
 ---
 title: About the Cisco ISE pxGrid integration
-titleSuffix: Azure Defender for IoT
 description: Bridging the capabilities of Defender for IoT with Cisco ISE pxGrid, provides security teams unprecedented device visibility to the enterprise ecosystem.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/28/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About the Cisco ISE pxGrid integration

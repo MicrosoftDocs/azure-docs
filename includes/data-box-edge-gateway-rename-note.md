@@ -2,8 +2,8 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 03/12/2021
 ms.author: alkohli
 ---
-> [!IMPORTANT] 
+> [!NOTE] 
 > Azure Data Box Edge is rebranded as Azure Stack Edge.

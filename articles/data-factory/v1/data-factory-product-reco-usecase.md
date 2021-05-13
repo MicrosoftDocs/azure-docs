@@ -1,15 +1,10 @@
 ---
 title: Data Factory Use Case - Product Recommendations
 description: Learn about an use case implemented by using Azure Data Factory along with other services.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---

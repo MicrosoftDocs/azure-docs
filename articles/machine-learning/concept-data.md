@@ -17,7 +17,7 @@ ms.custom: devx-track-python, data4ml
 
 # Secure data access in Azure Machine Learning
 
-Azure Machine Learning makes it easy to connect to your data in the cloud.  It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
+Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 
 *    Interoperability with Pandas and Spark DataFrames
 *    Versioning and tracking of data lineage
@@ -50,7 +50,7 @@ The following diagram provides a visual demonstration of this recommended workfl
 <a name="datastores"></a>
 ## Connect to storage with datastores
 
-Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
+Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying storage service. 
 
 Supported cloud-based storage services in Azure that can be registered as datastores:
 
@@ -62,6 +62,9 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for PostgreSQL
 + Databricks File System
 + Azure Database for MySQL
+
+>[!TIP]
+> The generally available functionality for creating datastores requires credential-based authentication for accessing storage services, like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 <a name="datasets"></a>
 ## Reference data in storage with datasets
@@ -80,9 +83,9 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 
 There are 2 types of datasets: 
 
-+ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
++ A [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) references single or multiple files in your datastores or public URLs. If your data is already cleansed and ready to use in training experiments, you can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
-+ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Additional datasets capabilities can be found in the following documentation:
 

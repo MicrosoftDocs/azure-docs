@@ -13,9 +13,9 @@ This article explains how to view and manage task run logs.
 
 ## View streamed logs
 
-When you trigger a task manually, log output is streamed directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command, you see log output streamed to the console. 
+When you trigger a task manually, log output is streamed directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az_acr_build), [az acr run](/cli/azure/acr#az_acr_run), or [az acr task run](/cli/azure/acr/task#az_acr_task_run) command, you see log output streamed to the console. 
 
-The following sample [az acr run](/cli/azure/acr#az-acr-run) command manually triggers a task that runs a container pulled from the same registry:
+The following sample [az acr run](/cli/azure/acr#az_acr_run) command manually triggers a task that runs a container pulled from the same registry:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
@@ -53,7 +53,7 @@ Run ID: cf4 was successful after 5s
 
 ## View stored logs 
 
-Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal. Or, use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command to view a selected log. By default, logs are retained for 30 days.
+Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal. Or, use the [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) command to view a selected log. By default, logs are retained for 30 days.
 
 If a task is automatically triggered, for example by a source code update, accessing the stored logs is the *only* way to view the run logs. Automatic task triggers include source code commits or pull requests, base image updates, and timer triggers.
 
@@ -65,7 +65,7 @@ To view run logs in the portal:
 
 ![View task run login portal](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-To view a log using the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) and specify a run ID, a task name, or a specific image create by a build task. If a task name is specified, the command shows the log for the last created run.
+To view a log using the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) and specify a run ID, a task name, or a specific image create by a build task. If a task name is specified, the command shows the log for the last created run.
 
 The following example outputs the log for the run with ID *cf4*:
 
@@ -78,7 +78,7 @@ az acr task logs --registry mycontainerregistry1220 \
 
 You might want to store task run logs on a local file system or use an alternative archiving solution such as Azure Storage.
 
-For example, create a local *tasklogs* directory, and redirect the output of [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) to a local file:
+For example, create a local *tasklogs* directory, and redirect the output of [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) to a local file:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -96,13 +96,13 @@ You can also save local log files to Azure Storage. For example, use the [Azure 
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

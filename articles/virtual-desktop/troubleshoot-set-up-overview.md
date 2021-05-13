@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshooting overview, feedback, and support for Windows Virtual Desktop
 

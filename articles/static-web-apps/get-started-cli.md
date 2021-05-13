@@ -55,7 +55,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -67,7 +67,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -80,7 +80,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -93,14 +93,19 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > The URL passed to the `s` parameter must not include the `.git` suffix.
 
-    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing Azure resource group name.
+    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing [Azure resource group name](../azure-resource-manager/management/manage-resources-cli.md).
+
+      - See the [az group](/cli/azure/group#az_group_list) documentation for details on listing resource groups.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 

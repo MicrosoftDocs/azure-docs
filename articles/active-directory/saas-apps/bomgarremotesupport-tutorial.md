@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/03/2021
 ms.author: jeedes
 ---
 
@@ -46,7 +46,7 @@ To configure the integration of BeyondTrust Remote Support into Azure AD, you ne
 1. In the **Add from the gallery** section, type **BeyondTrust Remote Support** in the search box.
 1. Select **BeyondTrust Remote Support** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for BeyondTrust Remote Support
+## Configure and test Azure AD SSO for BeyondTrust Remote Support
 
 Configure and test Azure AD SSO with BeyondTrust Remote Support using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BeyondTrust Remote Support.
 
@@ -71,17 +71,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<HOSTNAME>.bomgar.com/saml`
-
-    b. In the **Identifier** box, type a URL using the following pattern:
+    a. In the **Identifier** box, type a URL using the following pattern:
     `https://<HOSTNAME>.bomgar.com`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<HOSTNAME>.bomgar.com/saml/sso`
+    
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<HOSTNAME>.bomgar.com/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. You will get these values explained later in the tutorial.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-On URL. You will get these values explained later in the tutorial.
 
 1. BeyondTrust Remote Support application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -165,6 +165,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create BeyondTrust Remote Support test user
 
+In this section, a user called Britta Simon is created in BeyondTrust Remote Support. BeyondTrust Remote Support supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in BeyondTrust Remote Support, a new one is created after authentication.
+
+Follow the below procedure, which is mandatory for configuring the BeyondTrust Remote Support.
+
 We will be configuring the User Provision Settings here. The values used in this section will be referenced from the **User Attributes & Claims** section in the Azure portal. We configured this to be the default values which are already imported at the time of creation, however, the value can be customized if necessary.
 
 ![Screenshot shows the User Provision Settings where you can configure user values.](./media/bomgarremotesupport-tutorial/user-attribute.png)
@@ -173,7 +177,7 @@ We will be configuring the User Provision Settings here. The values used in this
 > The groups and e-mail attribute are not necessary for this
 implementation. If utilizing Azure AD groups and assigning them to BeyondTrust Remote Support Group Policies for permissions, the Object ID of the group will need to be referenced via its properties in the Azure portal and placed in the ‘Available Groups’ section. Once this has been completed, the Object ID/AD Group will now be available for assignment to a group policy for permissions.
 
-![Screenshot shows the I T section with Membership type, Source, Type, and Object I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Screenshot shows the I T section with Membership type, Source, Type, and Object I D.](./media/bomgarremotesupport-tutorial/config-user-2.png)
 
 ![Screenshot shows the Basic Settings page for a group policy.](./media/bomgarremotesupport-tutorial/group-policy.png)
 

@@ -72,9 +72,9 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
     > [!TIP]
     > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
-1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
-1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available).
+1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 
 > [!TIP]
 > To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).

@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Data locations for Windows Virtual Desktop (classic)
 

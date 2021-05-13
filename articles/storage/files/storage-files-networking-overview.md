@@ -15,11 +15,20 @@ You can connect to an Azure file share in two ways:
 - Accessing the share directly via the Server Message Block (SMB), Network File System (NFS) (preview), or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
 - Creating a cache of the Azure file share on an on-premises server (or on an Azure VM) with Azure File Sync, and accessing the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.) for your use case. This access pattern is handy because it combines the best of both on-premises performance and cloud scale and serverless attachable services, such as Azure Backup.
 
-This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [Azure File Sync networking considerations](storage-sync-files-networking-overview.md).
+This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [Azure File Sync networking considerations](../file-sync/file-sync-networking-overview.md).
 
 Networking configuration for Azure file shares is done on the Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. Storage accounts expose multiple settings that help you secure network access to your file shares: network endpoints, storage account firewall settings, and encryption in transit. 
 
 We recommend reading [Planning for an Azure Files deployment](storage-files-planning.md) prior to reading this conceptual guide.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps. The sections below provide links and additional context to the documentation referenced in the video.
+   :::column-end:::
+:::row-end:::
 
 ## Accessing your Azure file shares
 When you deploy an Azure file share within a storage account, your file share is immediately accessible via the storage account's public endpoint. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of Azure. 

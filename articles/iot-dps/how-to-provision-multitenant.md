@@ -22,11 +22,12 @@ It is common to combine these two scenarios. For example, a multitenant IoT solu
 
 This article uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices in a multitenant scenario across regions. You will perform the following steps in this article:
 
-* Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
-* Create a multitenant enrollment
-* Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
-* Set up the development environment for the Azure IoT C SDK on both Linux VMs
-* Simulate the devices to see that they are provisioned for the same tenant in the closest region.
+> [!div class="checklist"]
+> * Use the Azure CLI to create two regional IoT hubs (**West US** and **East US**)
+> * Create a multitenant enrollment
+> * Use the Azure CLI to create two regional Linux VMs to act as devices in the same regions (**West US** and **East US**)
+> * Set up the development environment for the Azure IoT C SDK on both Linux VMs
+> * Simulate the devices to see that they are provisioned for the same tenant in the closest region.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -42,7 +43,7 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 In this section, you will use the Azure Cloud Shell to create two new regional IoT hubs in the **West US** and **East US** regions for a tenant.
 
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
     The following example creates a resource group named *contoso-us-resource-group* in the *eastus* region. It is recommended that you use this group for all resources created in this article. This will make clean up easier after you are finished.
 
@@ -50,7 +51,7 @@ In this section, you will use the Azure Cloud Shell to create two new regional I
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Use the Azure Cloud Shell to create an IoT hub in the **eastus** region with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to the *contoso-us-resource-group*.
+2. Use the Azure Cloud Shell to create an IoT hub in the **eastus** region with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. The IoT hub will be added to the *contoso-us-resource-group*.
 
     The following example creates an IoT hub named *contoso-east-hub* in the *eastus* location. You must use your own unique hub name instead of **contoso-east-hub**.
 
@@ -60,7 +61,7 @@ In this section, you will use the Azure Cloud Shell to create two new regional I
     
     This command may take a few minutes to complete.
 
-3. Use the Azure Cloud Shell to create an IoT hub in the **westus** region with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to the *contoso-us-resource-group*.
+3. Use the Azure Cloud Shell to create an IoT hub in the **westus** region with the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This IoT hub will also be added to the *contoso-us-resource-group*.
 
     The following example creates an IoT hub named *contoso-west-hub* in the *westus* location. You must use your own unique hub name instead of **contoso-west-hub**.
 
@@ -413,16 +414,11 @@ To delete the resource group by name:
 
 ## Next steps
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+* To learn more about reprovisioning, see
 
+> [!div class="nextstepaction"]
+> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
 
-
-
-
-
-
-
-
-
-
+* To learn more about deprovisioning, see
+> [!div class="nextstepaction"]
+> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)

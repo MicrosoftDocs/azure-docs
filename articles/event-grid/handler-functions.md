@@ -2,7 +2,7 @@
 title: Use a function in Azure as an event handler for Azure Event Grid events
 description: Describes how you can use functions created in and hosted by Azure Functions as event handlers for Event Grid events. 
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ---
 
 # Use a function as an event handler for Event Grid events
@@ -74,6 +74,9 @@ You can use the [az eventgrid event-subscription create](/cli/azure/eventgrid/ev
 
 ### Azure PowerShell
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
+
+> [!NOTE]
+> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your azure function with an Azure Active Directory application, you have to take the generic web hook approach and use the HTTP Trigger.
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers.

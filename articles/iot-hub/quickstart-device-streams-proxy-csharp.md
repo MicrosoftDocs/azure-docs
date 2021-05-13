@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -32,7 +32,7 @@ This article first describes the setup for SSH (using port 22) and then describe
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 
-    You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+    You can download the [.NET Core SDK for multiple platforms from .NET](https://dotnet.microsoft.com/download).
 
     Verify the current version of C# on your development machine by using the following command:
 

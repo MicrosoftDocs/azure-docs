@@ -117,7 +117,7 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](/cli/azure/webapp/config/container#az_webapp_config_container_set).
 
 **Can I expose more than one port on my custom container image?**
 
@@ -138,6 +138,20 @@ We have automatic port detection. You can also specify an app setting called *WE
 **Do I need to implement HTTPS in my custom container?**
 
 No, the platform handles HTTPS termination at the shared front ends.
+
+**Do I need to use PORT variable in code for built-in containers?**
+
+No, PORT variable is not necessary due to automatic port detection. If no port is detected, it defaults to 80.
+To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.
+
+**Do I need to use WEBSITES_PORT for custom containers?**
+
+Yes, this is required for custom containers. To manually configure a custom port, use the EXPOSE instruction in the Dockerfile and the app setting, WEBSITES_PORT, with a port value to bind on the container.
+
+**Can I use ASPNETCORE_URLS in the Docker image?**
+
+Yes, overwrite the environmental variable before .NET core app starts.
+E.g. In the init.sh script: export ASPNETCORE_URLS={Your value}
 
 ## Multi-container with Docker Compose
 
@@ -201,3 +215,4 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 - [What is Azure App Service on Linux?](overview.md#app-service-on-linux)
 - [Set up staging environments in Azure App Service](deploy-staging-slots.md)
 - [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)
+- [Things You Should Know: Web Apps and Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)

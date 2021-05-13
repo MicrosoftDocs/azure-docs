@@ -6,7 +6,7 @@ ms.author: brbell
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
 ---
@@ -29,7 +29,7 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
@@ -43,7 +43,7 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
 | Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
 
-<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 
 ## Ddsv4-series
 
@@ -60,7 +60,7 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
@@ -74,7 +74,7 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 | Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
-<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

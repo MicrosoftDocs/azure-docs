@@ -28,9 +28,9 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 
 If migrating an existing web application, check to see if it is using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles](/rest/api/maps/render/getmaptile) \| [satellite tiles](/rest/api/maps/render/getmapimagerytile)). The links below provide details on how to use Azure Maps in some commonly used open-source map control libraries.
 
-* Cesium - A 3D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentation](https://cesiumjs.org/)
-* Leaflet – Lightweight 2D map control for the web. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentation](https://leafletjs.com/)
-* OpenLayers - A 2D map control for the web that supports projections. [Code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentation](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) - A 3D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Plugin repo]()
+* [Leaflet](https://leafletjs.com/) – Lightweight 2D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Plugin repo]()
+* [OpenLayers](https://openlayers.org/) - A 2D map control for the web that supports projections. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Plugin repo]()
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
@@ -59,7 +59,7 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Tile Layers              | ✓                                                                                      |
 | KML Layer                | ✓                                                                                      |
 | Contour layer            | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Data binning layer       | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Data binning layer       | Included in the open-source Azure Maps [Gridded Data Source module](https://github.com/Azure-Samples/azure-maps-gridded-data-source)       |
 | Animated tile layer      | Included in the open-source Azure Maps [Animation module](https://github.com/Azure-Samples/azure-maps-animations) |
 | Drawing tools            | ✓                                                                                      |
 | Geocoder service         | ✓                                                                                      |
@@ -67,10 +67,10 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Distance Matrix service  | ✓                                                                                      |
 | Spatial Data service     | N/A                                                                                    |
 | Satellite/Aerial imagery | ✓                                                                                      |
-| Birds eye imagery         | Planned                                                                                |
-| Streetside imagery       | Planned                                                                                |
+| Birds eye imagery         | N/A                                                                                |
+| Streetside imagery       | N/A                                                                                |
 | GeoJSON support          | ✓                                                                                      |
-| GeoXML support           | ✓                                                                                      |
+| GeoXML support           | ✓ [Spatial IO module](how-to-use-spatial-io-module.md)                                                                                     |
 | Well-Known Text support  | ✓                                                                                      |
 | Custom map styles        | Partial                                                                                |
 

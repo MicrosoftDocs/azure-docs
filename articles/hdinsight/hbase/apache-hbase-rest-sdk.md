@@ -108,7 +108,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following image:
 
-![Apache HBase sample data output](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+:::image type="content" source="./media/apache-hbase-rest-sdk/hdinsight-table-roles.png" alt-text="Apache HBase sample data output" border="true":::
 
 ## Select data
 

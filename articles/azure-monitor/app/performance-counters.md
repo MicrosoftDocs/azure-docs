@@ -17,7 +17,7 @@ The Metrics pane shows the default set of performance counters.
 
 ![Performance counters reported in Application Insights](./media/performance-counters/performance-counters.png)
 
-The current default counters that are configured to be collected for ASP.NET/ASP.NET Core web applications are:
+The current default counters that are configured to be collected for ASP.NET web applications are:
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -27,6 +27,14 @@ The current default counters that are configured to be collected for ASP.NET/ASP
 - Process\\Private Bytes
 - Process\\IO Data Bytes/sec
 - ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
+
+The current default counters that are configured to be collected for ASP.NET Core web applications are:
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
 - Processor(_Total)\\% Processor Time
 
 ## Add counters
@@ -106,7 +114,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## Performance counters in Analytics
-You can search and display performance counter reports in [Analytics](../log-query/log-query-overview.md).
+You can search and display performance counter reports in [Analytics](../logs/log-query-overview.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
@@ -144,7 +152,7 @@ Support for performance counters in ASP.NET Core is limited:
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
-Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../alerts/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
 

@@ -73,7 +73,7 @@ Review samples in the GitHub repo [azure-event-hubs-for-kafka](https://github.co
 Also, see the following articles:
 
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
-- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.yml)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
 
 

@@ -1,11 +1,10 @@
 ---
 title: Azure Kinect DK hardware specifications
 description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
-author: tesych
-ms.author: tesych
-ms.reviewer: jarrettr
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 02/14/2020
+ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
 ms.custom: 
@@ -41,6 +40,8 @@ The Azure Kinect device consists of the following size and weight dimensions.
 - **Weight**: 440 g
 
 ![Azure Kinect DK dimensions](./media/resources/hardware-specs-media/dimensions.png)
+
+A STEP file for the Azure Kinect device is available [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets). 
 
 ## Operating environment
 

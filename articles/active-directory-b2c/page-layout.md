@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,7 +18,24 @@ ms.subservice: B2C
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
+## jQuery version
+
+Azure AD B2C page layout uses the following version of the [jQuery library](https://jquery.com/):
+
+|From page layout version  |jQuery version  |
+|---------|---------|
+|2.1.4 | 3.5.1 |
+|1.2.0 | 3.4.1 |
+|1.1.0 | 1.10.2 |
+
 ## Self-asserted page (selfasserted)
+
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
 
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
@@ -70,9 +87,20 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
 
+> [!TIP]
+> If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
+- Minor bug fixes.
+
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
-- Allowing the "forgot password" link to use as claims exchange like social IDP.
+- Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
@@ -108,6 +136,15 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**1.2.3**
+- Allowing tooltip string override via language localization.
+- Security fixes.
+- Minor bug fixes.
 
 **1.2.2**
 - Fixed an issue with auto-filling the verification code when using iOS.
@@ -145,6 +182,10 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 ## Exception Page (globalexception)
 
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
 **1.2.0**
 
 - Accessibility fixes
@@ -165,6 +206,10 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
 
 **1.2.0**
 

@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -78,8 +77,8 @@ Example scenario: The maximum concurrent jobs value is currently set to 24, and 
 The limit on the number of concurrent jobs depends on the computer's logic core and memory. Try to adjust the value downward to a value such as 24, and then view the result.
 
 > [!TIP] 
-> -	To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> -	To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### Self-hosted IR high availability (HA) SSL certificate issue
@@ -469,9 +468,9 @@ For Azure Data Factory v2 customers:
 
 
 For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn’t support Azure Data Factory v1.
+- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
 - The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn’t support Azure Data Factory v1.
+- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
 
 
 ## Self-hosted IR connectivity issues

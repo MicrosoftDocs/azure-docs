@@ -3,7 +3,7 @@ title: Troubleshoot entitlement management - Azure AD
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -45,7 +45,6 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * When you remove a member of a team, they are removed from the Microsoft 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
 
-* Ensure your directory is not configured for multi-geo. Entitlement management currently does not support multi-geo locations for SharePoint Online. SharePoint Online sites must be in the default geo-location to be governed with entitlement management. For more information, see [Multi-Geo Capabilities in OneDrive and SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## Access packages
 
@@ -73,7 +72,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ### View a request's delivery errors
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -101,7 +100,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 - If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -119,7 +118,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 You can only cancel a pending request that has not yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

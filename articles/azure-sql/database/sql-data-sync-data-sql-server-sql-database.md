@@ -96,6 +96,9 @@ Before setting up the private link, read the [general requirements](sql-data-syn
 - [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [Use PowerShell to sync between a database in Azure SQL Database and a databases in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
+### Set up Data Sync with REST API
+- [Use REST API to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
+
 ### Review the best practices for Data Sync
 
 - [Best practices for Azure SQL Data Sync](sql-data-sync-best-practices.md)
@@ -143,6 +146,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
+- If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
+- Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 
 #### Unsupported data types
 
@@ -192,7 +197,7 @@ Once the sync group is created and provisioned, you can then disable these setti
 
 ### How much does the SQL Data Sync service cost
 
-There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. For more information, see [data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### What regions support Data Sync
 

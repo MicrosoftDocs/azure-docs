@@ -1,12 +1,12 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
 description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 # Understand the roles required to perform common tasks in Synapse
@@ -81,7 +81,7 @@ View the logs for notebook and job execution |Synapse Compute Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
 Create a notebook or job definition|Synapse User, or </br>Azure Owner, Contributor, or Reader on the workspace</br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
 List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor on the workspace|artifacts/read
-Run a notebook and review its output|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
+Run a notebook and review its output, or submit a Spark job|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
 PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|

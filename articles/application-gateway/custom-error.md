@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Application Gateway custom error pages

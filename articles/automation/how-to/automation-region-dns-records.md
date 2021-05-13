@@ -16,7 +16,7 @@ The [Azure Automation](../automation-intro.md) service uses a number of DNS reco
 * Webhooks
 
 >[!NOTE]
->Linux Hybrid Runbook Worker registration will fail with the new records unless it is version 1.6.10.2 or higher. You must upgrade to a newer version of the [Log Analytics agent for Linux](../../azure-monitor/platform/agent-linux.md) in order for the machine to receive an updated version of the worker role and use these new records. Existing machines will continue working without any issues.  
+>Linux Hybrid Runbook Worker registration will fail with the new records unless it is version 1.6.10.2 or higher. You must upgrade to a newer version of the [Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux.md) in order for the machine to receive an updated version of the worker role and use these new records. Existing machines will continue working without any issues.  
 
 ## DNS records per region
 
@@ -93,7 +93,7 @@ We recommend that you use the addresses listed when defining [exceptions](../aut
 * [Azure IP Ranges and Service Tags - Azure public](https://www.microsoft.com/download/details.aspx?id=56519)
 * [Azure IP Ranges and Service Tags- Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Azure IP Ranges and Service Tags - Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Azure IP Ranges and Service Tags – Azure China Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
+* [Azure IP Ranges and Service Tags - Azure China Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
 
 The IP address file lists the IP address ranges that are used in the Microsoft Azure datacenters. It includes compute, SQL, and storage ranges, and reflects currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 

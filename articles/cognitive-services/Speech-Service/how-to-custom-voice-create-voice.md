@@ -56,7 +56,7 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 > [!NOTE]
 > It is required that if you are using Custom Neural Voice, you must register your voice talent in the **Voice Talent** tab. When preparing your recording script, make sure you include the below sentence to acquire the voice talent acknowledgement of using their voice data to create a TTS voice model and generate synthetic speech. 
 “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-This sentence will be used to verify if the recordings in your training datasets are done by the same person that makes the consent. [Read more about how your data will be processed and how voice talent verification is done here](https://aka.ms/CNV-data-privacy). 
+This sentence will be used to verify if the recordings in your training datasets are done by the same person that makes the consent. [Read more about how your data will be processed and how voice talent verification is done here](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## Build your custom voice model
 
@@ -83,7 +83,7 @@ After your dataset has been validated, you can use it to build your custom voice
 5. Select the **training method** in the next step. 
 
     > [!NOTE]
-    > If you would like to train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](https://aka.ms/gating-overview) and [apply the access here](https://aka.ms/customneural). 
+    > If you would like to train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
     
     On this page you can also select to upload your script for testing. The testing script must be a txt file, less than 1Mb. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph. 
 
@@ -122,7 +122,7 @@ Each training will generate 100 sample audio files automatically to help you tes
 
 3.	On the model detail page, you can find the sample audio files under the **Testing** tab. 
 
-The quality of the voice depends on a number of factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](https://aka.ms/CNV-limits). 
+The quality of the voice depends on a number of factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## Create and use a custom voice endpoint
 

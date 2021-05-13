@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: include

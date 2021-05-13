@@ -13,7 +13,7 @@ ms.date: 07/22/2020
 
 This article describes how to create and publish a Power BI app offer to [Microsoft AppSource](https://appsource.microsoft.com/).
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](../create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 

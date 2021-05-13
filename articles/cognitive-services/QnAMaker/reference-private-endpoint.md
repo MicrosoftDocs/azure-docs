@@ -11,7 +11,7 @@ ms.date: 01/12/2021
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Now, QnA Maker provides you support to create private endpoints to the Azure Search Service. This functionality is available in QnA Maker managed. 
 
-Private endpoints are provided by [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/) 
+Private endpoints are provided by [Azure Private Link](../../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page.](https://azure.microsoft.com/pricing/details/private-link/) 
 
 ## Prerequisites
 > [!div class="checklist"]

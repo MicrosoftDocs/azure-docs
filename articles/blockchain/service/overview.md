@@ -1,21 +1,25 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
+ms.reviewer: patricka
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure
 ---
 
 # What is Azure Blockchain Service?
 
-Azure Blockchain Service is a fully managed ledger service that gives users the ability to grow and operate blockchain networks at scale in Azure. By providing unified control for both infrastructure management as well as blockchain network governance, Azure Blockchain Service provides:
+Azure Blockchain Service is a fully managed ledger service that gives users the ability to grow and operate blockchain networks at scale in Azure.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+By providing unified control for both infrastructure management as well as blockchain network governance, Azure Blockchain Service provides:
 
 * Simple network deployment and operations
 * Built-in consortium management
 * Develop smart contracts with familiar development tools
 
-Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.goquorum.com/) ledger using the [Istanbul Byzantine Fault Tolerance (IBFT)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
+Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.goquorum.com/) ledger using the [Istanbul Byzantine Fault Tolerance (IBFT)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/) consensus mechanism.
 
 These capabilities require almost no administration and all are provided at no additional cost. You can focus on app development and business logic rather than allocating time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver your solutions without having to learn new skills.
 
@@ -25,7 +29,7 @@ Deploying Azure Blockchain Service is done through the Azure portal, Azure CLI, 
 
 ### Performance and service tiers
 
-Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard). 
+Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard).
 
 ![Pricing tiers](./media/overview/pricing-tiers.png)
 

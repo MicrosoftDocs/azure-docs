@@ -1,10 +1,11 @@
 ---
 title: Manage an Azure Automation Run As account
-description: This article tells how to manage your Run As account with PowerShell or from the Azure portal.
+description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice:
-ms.date: 01/19/2021
-ms.topic: conceptual
+ms.date: 04/29/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account
@@ -23,7 +24,7 @@ When you renew the self-signed certificate, the current valid certificate is ret
 >If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
 >[!NOTE]
->If you have configured your Run As account to use a certificate issued by your enterprise certificate authority and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
+>If you have configured your Run As account to use a certificate issued by your enterprise or third-party certificate authority (CA) and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
 
 Use the following steps to renew the self-signed certificate.
 
@@ -59,10 +60,10 @@ Before granting the Run As account permissions, you need to first note the displ
 
 For detailed steps for how to add role assignments, check out the following articles depending on the method you want to use.
 
-* [Add Azure role assignment from the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Add Azure role assignment using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Add Azure role assignment using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
-* [Add Azure role assignment using the REST API](..//role-based-access-control/role-assignments-rest.md)
+* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
+* [Assign Azure roles using the REST API](..//role-based-access-control/role-assignments-rest.md)
 
 After assigning the Run As account to the role, in your runbook specify `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` to set the subscription context to use. For more information, see [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 

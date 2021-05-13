@@ -19,7 +19,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Get help or open a support ticket
 
-1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](partner-center-portal/create-account.md).
+1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
 1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
 

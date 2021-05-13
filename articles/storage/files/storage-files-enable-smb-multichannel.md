@@ -4,7 +4,7 @@ description: Learn how to enable SMB Multichannel on Azure premium file shares.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -23,7 +23,7 @@ Azure FileStorage accounts support SMB Multichannel (preview), which increases t
 
 ## Prerequisites
 
-- [Create a FileStorage account](storage-how-to-create-premium-fileshare.md).
+- [Create a FileStorage account](./storage-how-to-create-file-share.md).
 - If you intend to use the Azure PowerShell module, [install the 3.0.1-preview version of the module](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## Getting started
@@ -61,7 +61,7 @@ Once you have created a FileStorage account, you can follow the instructions to 
 1. Select **File shares** under **File service**, and then select **File share settings**.
 1. Toggle **SMB Multichannel** to **on** (or **off** to disable) and select **save**.
 
-:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot of storage account, smb multichannel is toggled on.":::
+:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Screenshot of storage account, smb multichannel is toggled on."  lightbox="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png":::
 
 If the SMB Multichannel option is not visible under **File share settings** or you get a failed to update setting error while updating the configuration, please make sure that your subscription is registered and your account is in one of the [supported regions](#regional-availability) with supported account type and replication.
 

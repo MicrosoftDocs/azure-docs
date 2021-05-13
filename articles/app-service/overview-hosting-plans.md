@@ -52,7 +52,7 @@ When you create an app in App Service, it is put into an App Service plan. When 
 
 In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together based on the autoscale settings.
 
-For information on scaling out an app, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
+For information on scaling out an app, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="cost"></a>
 

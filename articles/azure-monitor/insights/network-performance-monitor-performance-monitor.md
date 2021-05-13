@@ -1,7 +1,6 @@
 ---
 title: Performance Monitor in Network Performance Monitor
 description: The Performance Monitor capability in Network Performance Monitor helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
@@ -12,7 +11,7 @@ ms.date: 02/20/2018
 # Network Performance Monitor solution: Performance monitoring
 
 > [!IMPORTANT]
-> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 The Performance Monitor capability in [Network Performance Monitor](network-performance-monitor.md) helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before your users complain. Key advantages are that you can: 
 
@@ -127,4 +126,4 @@ In the following image, the root cause of the problem areas to the specific sect
 ![Topology map with node properties selected](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## Next steps
-[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../logs/log-query-overview.md) to view detailed network performance data records.

@@ -20,6 +20,9 @@ To determine the health and proximity of each backend for a given Front Door env
 > [!WARNING]
 > Since Front Door has many edge environments globally, health probe volume for your backends can be quite high - ranging from 25 requests every minute to as high as 1200 requests per minute, depending on the health probe frequency configured. With the default probe frequency of 30 seconds, the probe volume on your backend should be about 200 requests per minute.
 
+> [!NOTE]
+> Front Door HTTP/HTTPS probes are sent with `User-Agent` header set with value: `Edge Health Probes`. 
+
 ## Supported protocols
 
 Front Door supports sending probes over either HTTP or HTTPS protocols.​ These probes are sent over the same TCP ports configured for routing client requests, and cannot be overridden.

@@ -68,7 +68,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Update the subnet to disable private endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Update the subnet to disable private endpoint network policies for the private endpoint with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -78,7 +78,7 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
 * In **CreatePrivateEndpointQS-rg**.
@@ -90,7 +90,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a bastion subnet:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet:
 
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.0.1.0/24**.
@@ -105,7 +105,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.1.0/24
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host:
 
 * Named **myBastionHost**.
 * In **CreatePrivateEndpointQS-rg**.
@@ -147,6 +147,8 @@ az vm create \
     --admin-username azureuser
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create private endpoint
 
 In this section, you'll create the private endpoint.
@@ -179,9 +181,9 @@ az network private-endpoint create \
 
 ## Configure the private DNS zone
 
-In this section, you'll create and configure the private DNS zone using [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+In this section, you'll create and configure the private DNS zone using [az network private-dns zone create](/cli/azure/network/private-dns/zone#az_network_private_dns_zone_create).  
 
-You'll use [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) to create the virtual network link to the dns zone.
+You'll use [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create) to create the virtual network link to the dns zone.
 
 You'll create a dns zone group with [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

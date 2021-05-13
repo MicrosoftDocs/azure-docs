@@ -1,17 +1,17 @@
 ---
-title: Add or remove Azure role assignments using Azure PowerShell - Azure RBAC
+title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2020
+ms.date: 02/15/2021
 ms.author: rolyon
 ---
 
-# Add or remove Azure role assignments using Azure PowerShell
+# Assign Azure roles using Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using Azure PowerShell.
 
@@ -19,19 +19,19 @@ ms.author: rolyon
 
 ## Prerequisites
 
-To add or remove role assignments, you must have:
+To assign roles, you must have:
 
-- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
 - The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 
-## Steps to add a role assignment
+## Steps to assign an Azure role
 
-In Azure RBAC, to grant access, you add a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. To add a role assignment, follow these steps.
+To assign a role consists of three elements: security principal, role definition, and scope.
 
 ### Step 1: Determine who needs access
 
-You can assign a role to a user, group, service principal, or managed identity. To add a role assignment, you might need to specify the unique ID of the object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
+You can assign a role to a user, group, service principal, or managed identity. To assign a role, you might need to specify the unique ID of the object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
 
 **User**
 
@@ -69,7 +69,7 @@ Get-AzADServicePrincipal -SearchString <principalName>
 (Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
     
-### Step 2: Find the appropriate role
+### Step 2: Select the appropriate role
 
 Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
 
@@ -123,9 +123,9 @@ For management group scope, you need the management group name. You can find the
 Get-AzManagementGroup
 ```
     
-### Step 4: Add role assignment
+### Step 4: Assign role
 
-To add a role assignment, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. Depending on the scope, the command typically has one of the following formats.
+To assign a role, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. Depending on the scope, the command typically has one of the following formats.
 
 **Resource scope**
 
@@ -185,9 +185,9 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
     
-## Add role assignment examples
+## Assign role examples
 
-#### Add role assignment for all blob containers in a storage account resource scope
+#### Assign a role for all blob containers in a storage account resource scope
 
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a storage account named *storage12345*.
 
@@ -207,7 +207,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### Add role assignment for a specific blob container resource scope
+#### Assign a role for a specific blob container resource scope
 
 Assigns the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role to a service principal with object ID *55555555-5555-5555-5555-555555555555* at a resource scope for a blob container named *blob-container-01*.
 
@@ -228,7 +228,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### Add role assignment for a group in a specific virtual network resource scope
+#### Assign a role for a group in a specific virtual network resource scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to the *Pharma Sales Admins* group with ID aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa at a resource scope for a virtual network named *pharma-sales-project-network*.
 
@@ -253,7 +253,7 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-#### Add a role assignment for a user at a resource group scope
+#### Assign a role for a user at a resource group scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong\@contoso.com* user at the *pharma-sales* resource group scope.
 
@@ -292,7 +292,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### Add role assignment for a user using the unique role ID at a resource group scope
+#### Assign a role for a user using the unique role ID at a resource group scope
 
 There are a couple of times when a role name might change, for example:
 
@@ -319,7 +319,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### Add role assignment for an application at a resource group scope
+#### Assign a role for an application at a resource group scope
 
 Assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to an application with service principal object ID 77777777-7777-7777-7777-777777777777 at the *pharma-sales* resource group scope.
 
@@ -339,7 +339,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### Add role assignment for a user at a subscription scope
+#### Assign a role for a user at a subscription scope
 
 Assigns the [Reader](built-in-roles.md#reader) role to the *annm\@example.com* user at a subscription scope.
 
@@ -359,7 +359,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### Add role assignment for a user at a management group scope
+#### Assign a role for a user at a management group scope
 
 Assigns the [Billing Reader](built-in-roles.md#billing-reader) role to the *alain\@example.com* user at a management group scope.
 
@@ -378,36 +378,6 @@ ObjectId           : 44444444-4444-4444-4444-444444444444
 ObjectType         : User
 CanDelegate        : False
 ```
-
-## Remove a role assignment
-
-In Azure RBAC, to remove access, you remove a role assignment by using [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
-
-The following example removes the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role assignment from the *patlong\@contoso.com* user on the *pharma-sales* resource group:
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
--RoleDefinitionName "Virtual Machine Contributor" `
--ResourceGroupName pharma-sales
-```
-
-Removes the [Reader](built-in-roles.md#reader) role from the *Ann Mack Team* group with ID 22222222-2222-2222-2222-222222222222 at a subscription scope.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
--RoleDefinitionName "Reader" `
--Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-Removes the [Billing Reader](built-in-roles.md#billing-reader) role from the *alain\@example.com* user at the management group scope.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
--RoleDefinitionName "Billing Reader" `
--Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
-```
-
-If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## Next steps
 

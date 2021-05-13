@@ -9,7 +9,7 @@ ms.date: 11/08/2019
 
 One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
 
-Today, Azure Backup provides a variety of built-in policies (using [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)) to help you automatically ensure that your Azure virtual machines are configured for backup. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
+Today, Azure Backup provides a variety of built-in policies (using [Azure Policy](../governance/policy/overview.md)) to help you automatically ensure that your Azure virtual machines are configured for backup. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
 
 ## Policy 1 - Configure backup on VMs without a given tag to an existing recovery services vault in the same location
 
@@ -24,7 +24,7 @@ If you organize applications in dedicated resource groups and want to have them 
 ## Policy 4 - [Preview] Configure backup on VMs with a given tag to a new recovery services vault with a default policy
 This policy works the same as Policy 3 above, with the only difference being that you can use this policy to **include** VMs which contain a certain tag, in the scope of this policy. 
 
-In addition to the above, Azure Backup also provides an [audit-only](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) policy - **Azure Backup should be enabled for Virtual Machines**. This policy identifies which virtual machines do not have backup enabled, but doesn't automatically configure backups for these VMs. This is useful when you are only looking to evaluate the overall compliance of the VMs but not looking to take action immediately.
+In addition to the above, Azure Backup also provides an [audit-only](../governance/policy/concepts/effects.md#audit) policy - **Azure Backup should be enabled for Virtual Machines**. This policy identifies which virtual machines do not have backup enabled, but doesn't automatically configure backups for these VMs. This is useful when you are only looking to evaluate the overall compliance of the VMs but not looking to take action immediately.
 
 ## Supported Scenarios
 

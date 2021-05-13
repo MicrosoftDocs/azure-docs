@@ -28,6 +28,7 @@ This tutorial describes the steps you need to perform in both Parsable and Azure
 > * Create users in Parsable
 > * Remove users in Parsable when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and Parsable
+> * Provision groups and group memberships in Parsable
 
 ## Prerequisites
 
@@ -103,17 +104,25 @@ This section guides you through the steps to configure the Azure AD provisioning
    |userName|String|&check;|
    |displayName|String|
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Parsable**.
 
-11. To enable the Azure AD provisioning service for Parsable, change the **Provisioning Status** to **On** in the **Settings** section.
+11. Review the group attributes that are synchronized from Azure AD to Parsable in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Parsable for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;|
+      |members|Reference|
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for Parsable, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to Parsable by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Parsable by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -125,6 +134,10 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 02/15/2021 - Group provisioning has been enabled.
 
 ## Additional resources
 

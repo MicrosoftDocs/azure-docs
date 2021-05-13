@@ -1,13 +1,14 @@
 ---
-title: 'Azure VPN Gateway: Configure packet capture'
+title: 'Configure packet capture for VPN Gateway'
+titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 services: vpn-gateway
-author: radwiv
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
+ms.date: 02/22/2021
+ms.author: alzam
 ---
 
 # Configure packet capture for VPN gateways
@@ -23,6 +24,7 @@ You can run VPN Gateway packet capture on the gateway or on a specific connectio
 It's helpful to use a five-tuple filter (source subnet, destination subnet, source port, destination port, protocol) and TCP flags (SYN, ACK, FIN, URG, PSH, RST) when you're isolating problems in high-volume traffic.
 
 The following examples of JSON and a JSON schema provide explanations of each property. Here are some limitations to keep in mind when you run packet captures:
+
 - In the schema shown here, the filter is an array, but currently only one filter can be used at a time.
 - You can't run multiple gateway-wide packet captures at the same time.
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
@@ -313,7 +315,13 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 }
 ```
 
-## Set up packet capture by using PowerShell
+## Packet capture - portal
+
+You can set up packet capture in the Azure portal.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+
+## Packet capture - PowerShell
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

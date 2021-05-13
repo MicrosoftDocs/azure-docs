@@ -36,7 +36,9 @@ Threat Intelligence also provides useful context within other Azure Sentinel exp
 
 ## Azure Sentinel data connectors for threat intelligence
 
-Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. Let’s talk about each of the data connectors.
+Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. 
+
+See this catalog of [threat intelligence integrations](threat-intelligence-integration.md) available with Azure Sentinel.
 
 ### Adding threat indicators to Azure Sentinel with the Threat Intelligence Platforms data connector
 
@@ -415,7 +417,7 @@ Let’s walk through how to find the threat intelligence workbook provided in Az
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Bar chart":::
 
-Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. There is a whole lot you can do with workbooks, and while the provided templates are a great starting point, you will likely want to dive in and customize these templates, or create new dashboards combining many different data sources so you can visualize your data in unique ways. Since Azure Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates. A great place to start is this article on how to [Create interactive reports with Azure Monitor workbooks](../azure-monitor/platform/workbooks-overview.md). 
+Workbooks provide powerful interactive dashboards that give you insights into all aspects of Azure Sentinel. There is a whole lot you can do with workbooks, and while the provided templates are a great starting point, you will likely want to dive in and customize these templates, or create new dashboards combining many different data sources so you can visualize your data in unique ways. Since Azure Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates. A great place to start is this article on how to [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
 There is also a rich community of [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks) where you can download additional templates and contribute your own templates.
 
@@ -423,4 +425,5 @@ There is also a rich community of [Azure Monitor workbooks on GitHub](https://gi
 In this document, you learned about the threat intelligence capabilities of Azure Sentinel, and the new Threat Intelligence blade. For practical guidance on using Azure Sentinel's threat intelligence capabilities, see the following articles:
 
 - [Connect threat intelligence data](./connect-threat-intelligence.md) to Azure Sentinel.
+- [Integrate TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) with Azure Sentinel.
 - Create [built-in](./tutorial-detect-threats-built-in.md) or [custom](./tutorial-detect-threats-custom.md) alerts, and [investigate](./tutorial-investigate-cases.md) incidents, in Azure Sentinel.

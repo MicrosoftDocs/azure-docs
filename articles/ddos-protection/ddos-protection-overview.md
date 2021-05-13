@@ -3,7 +3,7 @@ title: Azure DDoS Protection Standard Overview
 description: Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks.
 services: virtual-network
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
@@ -49,7 +49,7 @@ To learn about Azure DDoS Protection Standard pricing, see [Azure DDoS Protectio
 
 ## Reference architectures
 
-DDoS Protection Standard is designed for [services that are deployed in a virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
+DDoS Protection Standard is designed for [services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](./ddos-protection-reference-architectures.md). 
 
 ## Next steps
 

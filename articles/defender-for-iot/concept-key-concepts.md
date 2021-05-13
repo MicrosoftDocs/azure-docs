@@ -1,12 +1,8 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Basic concepts 

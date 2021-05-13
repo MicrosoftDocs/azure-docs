@@ -10,7 +10,7 @@ ms.author: errobin
 ---
 # <a name="obconnecttsg"></a> Troubleshooting outbound connections failures
 
-This article is intended that provide resolutions for common problems can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to SNAT port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to SNAT port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
 
 ## <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
 [Ephemeral ports](load-balancer-outbound-connections.md) used for [PAT](load-balancer-outbound-connections.md) are an exhaustible resource, as described in [Standalone VM without a Public IP address](load-balancer-outbound-connections.md) and [Load-balanced VM without a Public IP address](load-balancer-outbound-connections.md). You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhaustion using [this](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guide.

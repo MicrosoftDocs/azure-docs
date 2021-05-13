@@ -66,20 +66,18 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 |------|-------------|
 | Email | Email address of the user |
 | userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccount | SAM account name that has been synced from on-premises Azure AD |
+| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
 | objectid | Objectid of the user in Azure AD |
 | employeeid | Employee ID of the user |
 | Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
-For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+For more info, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
 
 You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
 
-1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
-
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
 1. Click on the required claim which you want to modify.
-
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
 
     ![Org Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)

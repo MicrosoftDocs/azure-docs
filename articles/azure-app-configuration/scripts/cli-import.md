@@ -28,7 +28,7 @@ This sample script imports key-value settings to an Azure App Configuration stor
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --format json --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
@@ -39,7 +39,7 @@ This script uses the following commands to import to an App Configuration store.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Imports to an App Configuration store resource. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az_appconfig_kv_import) | Imports to an App Configuration store resource. |
 
 ## Next steps
 

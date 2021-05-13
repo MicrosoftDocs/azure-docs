@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -56,62 +56,6 @@ To check roles assigned to a user for a subscription:
 
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
-
-## In which Azure regions is Traffic Analytics available?
-
-You can use traffic analytics for NSGs in any of the following supported regions:
-- Canada Central
-- West Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- Central US
-- West US
-- West US 2
-- France Central
-- West Europe
-- North Europe
-- Brazil South
-- UK West
-- UK South
-- Australia East
-- Australia Southeast 
-- East Asia
-- Southeast Asia
-- Korea Central
-- Central India
-- South India
-- Japan East
-- Japan West
-- US Gov Virginia
-- China East 2
-
-The Log Analytics workspace must exist in the following regions:
-- Canada Central
-- West Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- Central US
-- West US
-- West US 2
-- France Central
-- West Europe
-- North Europe
-- UK West
-- UK South
-- Australia East
-- Australia Southeast
-- East Asia
-- Southeast Asia 
-- Korea Central
-- Central India
-- Japan East
-- US Gov Virginia
-- China East 2
-
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
 Yes, these NSGs can be in different regions than your Log Analytics workspace.
@@ -122,7 +66,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/log-query/log-query-overview.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/logs/log-query-overview.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -261,7 +205,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](../azure-monitor/platform/alerts-log.md) to create the alert
+- Refer to [log alerts documentation](../azure-monitor/alerts/alerts-log.md) to create the alert
 
 ## How do I check which VMs are receiving most on-premises traffic?
 

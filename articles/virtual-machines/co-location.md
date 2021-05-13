@@ -1,19 +1,16 @@
 ---
-title: Co-locate VMs 
-description: Learn about how co-locating Azure VM resources for improved latency.
+title: Proximity placement groups 
+description: Learn about using proximity placement groups in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
 ---
 
-# Co-locate resources for improved latency
-
-When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
-
-## Proximity placement groups
+# Proximity placement groups
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 

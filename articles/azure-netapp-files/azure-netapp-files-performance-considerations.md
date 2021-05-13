@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/19/2021
 ms.author: b-juche
 ---
 # Performance considerations for Azure NetApp Files
@@ -67,5 +67,6 @@ If you use manual QoS volumes, you don’t have to overprovision the volume quot
 
 ## Next steps
 
+- [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/tco?hs_preview=tIKQbfoF-41214739590)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)
