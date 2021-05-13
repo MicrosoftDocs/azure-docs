@@ -57,7 +57,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a topic and a subscription
-            url: webhook-handler.md
+            url: create-topic-subscription.md
           - text: Install Event Grid extension on Kubernetes cluster
             url: install-k8s-extension.md     
           - text: Get support

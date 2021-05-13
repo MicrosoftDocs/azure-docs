@@ -24,7 +24,7 @@ Regardless of the edition of Event Grid you use, there is an **event publisher**
 
 
 ## Event Grid on Kubernetes with Azure Arc
-Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md#install-event-grid-on-azure-arc-enabled-kubernetes-cluster) on it. 
+Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md#install-event-grid-on-kubernetes-extension) on it. 
 
 ### Use case
 Event Grid on Kubernetes supports various event-driven integration scenarios. However, the main encompassing scenario supported and expressed as a user story is:
@@ -84,8 +84,8 @@ Follow these steps in the order to start routing events using Event Grid on Kube
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Install an Event Grid extension](install-k8s-extension.md), which is the actual resource that deploys Event Grid to a Kubernetes cluster. To learn more about the extension, see [Event Grid Extension](install-k8s-extension.md#event-grid-extension) section to learn more. 
 1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it is the place where topics and event subscriptions are deployed.
-1. [Create a topic and one or more event subscriptions](webhook-handler.md).
-1. [Publish events](webhook-handler.md).
+1. [Create a topic and one or more event subscriptions](create-topic-subscription.md).
+1. [Publish events](create-topic-subscription.md).
 
 Here are more resources that you can use:
 
