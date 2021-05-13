@@ -29,7 +29,7 @@ The following new features are available in the Azure Stack Edge 2105 release.
 - **Enable remote PowerShell session over HTTP** - Starting this release, you can enable a remote PowerShell session into a device over *http* via the local UI. For more information, see how to [Enable Remote PowerShell over http](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-via-remote-powershell-over-http) for your device.
 
 
-## Issues fixed in 2105 release
+<!--## Issues fixed in 2105 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
@@ -37,6 +37,7 @@ The following table lists the issues that were release noted in previous release
 | --- | --- | --- |
 |**1.**|Kubernetes |Brief description of issue fixed|
 |**2.**|VM |Brief description of issue fixed| 
+-->
 
 ## Known issues in 2105 release
 
