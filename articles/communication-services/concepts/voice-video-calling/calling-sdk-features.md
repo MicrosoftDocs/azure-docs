@@ -30,6 +30,7 @@ Key features of the Calling SDK:
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling SDKs.
 
+
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------- | ----------------- |
 | Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -72,6 +73,7 @@ The following list presents the set of features which are currently available in
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+
 
 ## Calling SDK streaming support
 The Communication Services Calling SDK supports the following streaming configurations:

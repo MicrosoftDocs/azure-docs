@@ -164,7 +164,7 @@ This table lists the methods that you can use to create a VM in a VNet.
 | [Azure portal](./windows/quick-create-portal.md) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
 | [Azure PowerShell](./windows/tutorial-manage-vm.md) | Includes the use of [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to add the NIC that you previously created to the VM configuration. |
 | [Azure CLI](./linux/create-cli-complete.md) | Create and connect a VM to a Vnet, subnet, and NIC that build as individual steps. |
-| [Template](./windows/ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
+| [Template](./windows/ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) as a guide for deploying a VM using a template. |
 
 ## Next steps
 For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../virtual-machines/linux/tutorial-virtual-network.md) tutorials.
