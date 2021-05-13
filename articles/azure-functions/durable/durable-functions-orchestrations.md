@@ -290,7 +290,8 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 ```
 # [PowerShell](#tab/powershell)
 
-The feature is not currently supported in PowerShell
+The feature is not currently supported in PowerShell.
+
 ---
 
 In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).

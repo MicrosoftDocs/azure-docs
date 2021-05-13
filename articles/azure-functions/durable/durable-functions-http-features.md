@@ -255,7 +255,8 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-The feature is currently supported in PowerShell
+The feature is currently supported in PowerShell.
+
 ---
 
 By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
