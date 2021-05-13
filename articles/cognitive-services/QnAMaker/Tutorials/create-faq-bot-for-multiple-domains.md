@@ -18,7 +18,7 @@ You can design your bot to handle queries across multiple domains with QnA Maker
 * Create a separate knowledge base for each domain.
 * Create a separate QnA Maker resource for each domain.
 
-### Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
+## Create a single knowledge base and tag QnA pairs into distinct domains with metadata.
 
 The content authors can use documents to extract QnAs or add custom QnAs to the knowledgebase. In order to group these QnAs into specific domains or categories, you can add [metadata](../How-To/query-knowledge-base-with-metadata.md) to the QnA pairs.
 
@@ -30,16 +30,16 @@ For the bot on surface products, you can take the following steps to create a bo
  
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
->[!div class="mx-imgBorder"]
->[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+   >[!div class="mx-imgBorder"]
+   >[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
 
 
 3. In this knowledge base, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. 
 
    As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
->[!div class="mx-imgBorder"]
->[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-2.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-2.png#lightbox)
+   >[!div class="mx-imgBorder"]
+   >[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-2.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-2.png#lightbox)
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
@@ -80,19 +80,19 @@ For the bot on surface products, you can take the following steps to create a bo
 
       ![Extract metadata from query]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
 
-#### How large can our knowledge bases be? 
+### How large can our knowledge bases be? 
 
 You add upto 50000 QnA pairs to a single knowledge base. If your data exceeds 50,000 QnA pairs, you should consider splitting the knowledge base.
 
-### Create a separate knowledge base for each domain
+## Create a separate knowledge base for each domain
 
 You can also create a separate knowledge base for each domain and maintain the knowledge bases separately. All APIs require for the user to pass on the knowledge base ID to make any update to the knowledge base or fetch an answer to the user's question.  
 
-When the user question is received by the service, you would need to pass on the KB id in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
+When the user question is received by the service, you would need to pass on the KB ID in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
 
 >[!div class="mx-imgBorder"]
 >![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
 
-### Create a separate QnA Maker resource for each domain.
+## Create a separate QnA Maker resource for each domain.
 
 Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two QnA Maker resources - one  for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource. Read more about [Role based access control](../How-To/manage-qna-maker-app.md). 
