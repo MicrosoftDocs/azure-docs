@@ -656,7 +656,7 @@ sudo crm configure property stonith-timeout=900
 
 ## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected and the resource agent determines that there is another available cluster node, the azure-events agent will place the target cluster node in standby mode, in order to force the cluster to migrate resources away from the VM with pending [Azure scheduled events] (../../linux/scheduled-events.md). To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected and the resource agent determines that there is another available cluster node, the azure-events agent will place the target cluster node in standby mode, in order to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that additional Pacemaker resources must be configured. 
 
 1. **[A]** Make sure the package for the **azure-events** agent is already installed and up to date. 
 
