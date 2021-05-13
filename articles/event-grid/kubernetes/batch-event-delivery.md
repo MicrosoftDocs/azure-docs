@@ -4,7 +4,7 @@ description: This article describes how to deliver batch of events to the destin
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/04/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
 ---
 
