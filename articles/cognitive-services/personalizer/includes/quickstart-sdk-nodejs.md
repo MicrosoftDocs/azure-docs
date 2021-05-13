@@ -73,9 +73,9 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 The Personalizer client is a [PersonalizerClient](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-To ask for the single best item of the content, create a [RankRequest](/javascript/api/@azure/cognitiveservices-personalizer/rankrequest), then pass it to [client.Rank](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest#rank-rankrequest--msrest-requestoptionsbase-) method. The Rank method returns a RankResponse.
+To ask for the single best item of the content, create a [RankRequest](/javascript/api/@azure/cognitiveservices-personalizer/rankrequest), then pass it to [client.Rank](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient#rank-rankrequest--msrest-requestoptionsbase-) method. The Rank method returns a RankResponse.
 
-To send a reward to Personalizer, create a [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest), then pass it to the [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events?view=azure-node-latest#reward-string--rewardrequest--servicecallback-void--) method on the Events class.
+To send a reward to Personalizer, create a [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest), then pass it to the [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events#reward-string--rewardrequest--servicecallback-void--) method on the Events class.
 
 Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture.
 
