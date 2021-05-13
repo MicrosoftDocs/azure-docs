@@ -271,7 +271,7 @@ pip package version 3.1.0b4
 **New samples** are available on GitHub.
 
 * The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects.
-* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool.
+* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](label-tool.md) for getting started with the tool.
 * The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
 ## July 2020
@@ -335,7 +335,7 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
