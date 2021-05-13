@@ -59,7 +59,7 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
     1. A public certificate
     1. A private key
 
-Publishing clients can use the Event Grid broker CA certificate to validate the server when publishing events to a topic.
+    Publishing clients can use the Event Grid broker CA certificate to validate the server when publishing events to a topic.
 
     > [!IMPORTANT]
     > While a domain associated to client might have more than one public certificate issued by different certificate authorities, Event Grid on Kubernetes only allows uploading a single CA certificate for clients when installing Event Grid. As a consequence, the certificates for the Event Grid operator should be issued (signed) by the same CA in order for the certificate chain validation to succeed and a TLS session to be successfully established.
