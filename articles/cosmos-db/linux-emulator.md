@@ -164,8 +164,9 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
         - .NET: See the [certificates section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
-2. The Docker container failed to start and has the following error message:
-
+2. The Docker container failed to start:
+    - The emulator errors out with the following message:
+        
         ```
         /palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
         1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
@@ -173,13 +174,13 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
         3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
         ```
 
-        The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
+        This error is likely because the current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
-2. My app received too many connectivity-related timeouts.
+3. My app received too many connectivity-related timeouts.
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
     - Ensure the number of TCP connections does not exceed your current OS settings.
     - Try reducing the size of the documents in your application. 
-1. My app could not provision databases/containers.
+4. My app could not provision databases/containers.
     - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](linux-emulator.md#configuration-options).
 
 
