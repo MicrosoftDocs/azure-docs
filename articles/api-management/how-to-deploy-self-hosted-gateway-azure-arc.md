@@ -36,11 +36,11 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
     * The following example uses the `service.Type='NodePort'` extension configuration. See more [available extension configurations](#available-extension-configurations).
 
     ```azurecli
-    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> 
-    --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway 
-    --scope namespace --target-namespace <namespace> 
-    --configuration-settings gateway.endpoint='<Configuration URL>' 
-    --configuration-protected-settings gateway.authKey='<token>' --release-train preview
+    az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> \
+      --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway \
+      --scope namespace --target-namespace <namespace> \
+      --configuration-settings gateway.endpoint='<Configuration URL>' \
+      --configuration-protected-settings gateway.authKey='<token>' --release-train preview
     ```
 
     > [!TIP]
@@ -59,14 +59,14 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
 1. In the Azure portal, navigate to your Azure Arc connected cluster.
 1. In the left menu, select **Extensions (preview)** > **+ Add** > **API Management gateway (preview)**.
 1. Select **Create**.
-1. In the Install API Management gateway window, configure the gateway extension:
+1. In the **Install API Management gateway** window, configure the gateway extension:
     * Select the subscription and resource group for your API Management instance.
-    * In Gateway details, select the **API Management instance** and **Gateway name**. Enter a Namespace scope for your extension and optionally a number of Replicas, if supported in your API Management service tier.
-    * In Kubernetes configuration, select the default configuration or a different configuration for your cluster. For options, see available extension configurations.
+    * In **Gateway details**, select the **API Management instance** and **Gateway name**. Enter a **Namespace** scope for your extension and optionally a number of **Replicas**, if supported in your API Management service tier.
+    * In **Kubernetes configuration**, select the default configuration or a different configuration for your cluster. For options, see [available extension configurations](#available-extension-configurations).
 
     :::image type="content" source="./media/how-to-deploy-self-hosted-gateway-azure-arc/deploy-gateway-extension-azure-arc.png" alt-text="Screenshot of deploying the extension in Azure portal":::
 
-1. On the Monitoring tab, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing **Log Analytics** workspace.
+1. On the **Monitoring tab**, optionally enable monitoring to upload metrics tracking requests to the gateway and backend. If enabled, select an existing **Log Analytics** workspace.
 1. Select **Review + install** and then **Install**.
 
 ## Available extension configurations
@@ -77,7 +77,7 @@ The following extension configurations are **required**.
 | ------- | ----------- | 
 | `gateway.endpoint` | The gateway endpoint's Configuration URL. |
 | `gateway.authKey` | Token for access to the gateway. | 
-| `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. Example above uses `NodePort`. |
+| `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. |
 
 ### Log Analytics settings
 

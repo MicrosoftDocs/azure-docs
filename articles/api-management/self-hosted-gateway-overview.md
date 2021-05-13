@@ -81,3 +81,4 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 -   [Read a whitepaper for additional background on this topic](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+-   [Deploy self-hosted gateway to Azure Arc enabled Kubernetes cluster](ow-to-deploy-self-hosted-gateway-azure-arc.md)
