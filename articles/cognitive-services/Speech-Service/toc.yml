@@ -71,7 +71,7 @@
           href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: 'Go'
           displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
-          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -110,6 +110,8 @@
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
+        - name: Lower speech synthesis latency using Speech SDK
+          href: how-to-lower-tts-latency.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
         - name: Get facial pose events for lip-sync
