@@ -28,7 +28,7 @@ The server can also be used when creating validation gates in a continuous integ
 > [!NOTE]
 > To avoid package conflicts, install the server in a virtual environment.
 
-To install the azureml-inference-server-http package, run the following command in your cmd/terminal:
+To install the `azureml-inference-server-http package`, run the following command in your cmd/terminal:
 
 ```bash
 python -m pip install azureml-inference-server-http
