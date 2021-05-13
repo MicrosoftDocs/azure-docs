@@ -119,7 +119,7 @@ Change the status to **On** to enable managed identity in Azure API for FHIR.
 
 1. Select **Add**, and then select **Add role assignment** to open the Add role assignment page.
 
-1. Assign the [AcrPull](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#acrpull) role. For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the [AcrPull](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#acrpull) role. For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
 ### Register the ACR servers in Azure API for FHIR
 
