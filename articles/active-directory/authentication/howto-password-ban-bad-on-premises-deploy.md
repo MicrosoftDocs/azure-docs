@@ -124,7 +124,7 @@ The following requirements apply to the Azure AD Password Protection proxy servi
     * If .NET 4.7.2 is not already installed, download and run the installer found at [The .NET Framework 4.7.2 offline installer for Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
-* A *Global Administrator* account is required to register the Azure AD Password Protection proxy service for the first time in a given tenant. Subsequent proxy and forest regisrations with Azure AD may use an account with either *Global Administrator* or *Security Administrator* credentials.
+* A *Global Administrator* account is required to register the Azure AD Password Protection proxy service for the first time in a given tenant. Subsequent proxy and forest registrations with Azure AD may use an account with either *Global Administrator* or *Security Administrator* credentials.
 * Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
