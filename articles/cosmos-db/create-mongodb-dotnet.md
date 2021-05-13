@@ -55,9 +55,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-gettin
 
 The preceding commands:
 
-1. Creates the *C:\git-samples* directory for the sample. Chose a folder appropriate for your operating system.
-1. Changes to the *C:\git-samples* folder.
-1. Clones the sample into the *C:\git-samples* folder.
+1. Create the *C:\git-samples* directory for the sample. Chose a folder appropriate for your operating system.
+1. Change your current directory to the *C:\git-samples* folder.
+1. Clone the sample into the *C:\git-samples* folder.
 
 If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
