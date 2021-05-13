@@ -140,8 +140,3 @@ Update the deployment with:
 If you are not going use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="delete_endpoint" :::
-
-## Next steps
-- Understand managed inference [tk](concept-article.md)
-- Batch inference {>> And backlink batch inference to tutorial 1 <<}
-- Managed identity tutorials
