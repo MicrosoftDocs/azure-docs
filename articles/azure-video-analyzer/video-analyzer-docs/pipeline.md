@@ -2,7 +2,7 @@
 title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 05/13/2021
 
 ---
 # Pipeline
@@ -25,7 +25,9 @@ A pipeline supports different types of nodes
 
 ## Pipeline topologies
 
-A pipeline topology enables you to define what nodes are in the pipeline, how they are connected, with parameters as placeholders for values. As an example, if you want to record videos from multiple IP cameras, you can define a topology consisting of an RTSP source node and a video sink. The RTSP source node can have RTSP URL, username, and password as parameters. The video sink node can have the video name as a parameter. Values for these parameters can be provided when creating multiple pipelines from the same topology - one pipeline per camera.
+A pipeline topology enables you to describe how live video should be processed and analyzed for your custom needs through a set of interconnected nodes. You can create different topologies for different scenarios by selecting which nodes are in the topology, how they are connected, with parameters as placeholders for values. A pipeline is an individual instance of a specific pipeline topology. A pipeline is where media is actually processed. Pipelines can be associated with individual cameras (as well as other aspects) through user defined parameters declared in the pipeline topology.
+
+As an example, if you want to record videos from multiple IP cameras, you can define a pipeline topology consisting of an RTSP source node and a video sink node. The RTSP source node can have RTSP URL, username, and password as parameters. The video sink node can have the video name as a parameter. Values for these parameters can be provided when creating multiple pipelines from the same topology - one pipeline per camera.
 
 ## Pipeline states
 
@@ -67,11 +69,11 @@ The motion detection processor node enables you to detect motion in live video. 
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor).
+The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor). Additionally, this node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the HTTP endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports JPEG, PNG, BMP, and RAW formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports jpeg, png, and bmp formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
 
 #### Cognitive Services extension processor
 
@@ -83,11 +85,11 @@ The signal gate processor node enables you to conditionally forward media from o
 
 #### Object tracker processor
 
-The object tracker processor node enables you to track objects detected in an upstream HTTP or gRPC extension processor node. This means you can focus on building a custom object detection model that meets your business needs and combine it with the object tracker to generate insights such as dwell time, heatmap, etc.
+The object tracker processor node enables you to track objects detected in an upstream HTTP or gRPC extension processor node. This node comes in handy when you need to detect objects in every frame, but the edge device does not have the necessary compute power to be able to apply the AI model on every frame. If you can only run your computer vision model on every 10th frame, the object tracker can take the results from one such frame, and then use [optical flow](https://en.wikipedia.org/wiki/Optical_flow) techniques to generate results for the 2nd, 3rd,…, 9th frame, until the model is applied again on the next frame. There is a trade-off between compute power and accuracy when using this node. The closer the frames on which the AI model is applied, the better the accuracy. However this means applying the AI model more frequently, translating to higher compute power. One common use of the object tracker processor node is to detect when an object crosses a line.
 
 #### Line crossing processor
 
-The line crossing processor node enables you to trigger an event when an object crosses a line defined by you. In addition to that, it also maintains a count of the number of objects that cross the line (from the time a pipeline is activated). A line crossing processor node can be applied downstream from a HTTP or gRPC extension node that is configured to invoke an AI extension service for object detection.
+The line crossing processor node enables you to detect when an object crosses a line defined by you. In addition to that, it also maintains a count of the number of objects that cross the line (from the time a pipeline is activated). This node must be used downstream of an object tracker processor node.
 
 ### Sinks
 
@@ -108,7 +110,7 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies-at-preview) for additional rules on how different nodes can be used within a pipeline.
+See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies) for additional rules on how different nodes can be used within a pipeline.
 
 ## Scenarios
 
