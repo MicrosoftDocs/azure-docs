@@ -38,7 +38,7 @@ To restore a deleted dedicated SQL pool (formerly SQL DW), use the [Restore-AzSq
 7. Verify that the restored data warehouse is online.
 8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-```Powershell
+```powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net

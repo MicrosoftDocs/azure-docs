@@ -152,7 +152,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
 6. Add the following using statements to `MainActivity.cs`:
 
     ```csharp
-    using Azure.Messaging.NotificationHubs;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
 7. Add the following properties to the MainActivity class:

@@ -7,7 +7,8 @@ ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 12/10/2019 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Enable Azure Automation State Configuration

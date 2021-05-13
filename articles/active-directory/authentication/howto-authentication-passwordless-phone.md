@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 04/21/2021
 
 ms.author: justinha
 author: justinha
@@ -35,6 +35,7 @@ To use passwordless phone sign-in with the Microsoft Authenticator app, the foll
 
 - Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method.
 - Latest version of Microsoft Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
+- The device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user. 
 
 > [!NOTE]
 > If you enabled Microsoft Authenticator passwordless sign-in using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it supercedes the PowerShell policy. We recommend you enable for all users in your tenant via the new *Authentication Methods* menu, otherwise users not in the new policy are no longer be able to sign in without a password.

@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
-ms.custom: contentperf-fy21q3
+ms.custom: contentperf-fy21q3, devx-track-azurecli
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI
@@ -206,7 +206,7 @@ az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resourc
 To delete the AKS cluster, use the following command: 
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster
+az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 ## Next steps

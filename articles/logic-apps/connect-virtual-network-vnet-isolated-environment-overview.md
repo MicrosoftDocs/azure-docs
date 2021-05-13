@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/24/2021
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -28,7 +28,7 @@ Running logic apps in your own separate dedicated instance helps reduce the impa
 
 * Direct access to resources that are inside or connected to your virtual network
 
-  Logic apps that you create and run in an ISE can use [specifically designed connectors that run in your ISE](../connectors/apis-list.md#ise-connectors). If an ISE connector exists for an on-premises system or data source, you can connect directly without having to use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For more information, see [Dedicated versus multi-tenant](#difference) and [Access to on-premises systems](#on-premises) later in this topic.
+  Logic apps that you create and run in an ISE can use [specifically designed connectors that run in your ISE](../connectors/managed.md#ise-connectors). If an ISE connector exists for an on-premises system or data source, you can connect directly without having to use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For more information, see [Dedicated versus multi-tenant](#difference) and [Access to on-premises systems](#on-premises) later in this topic.
 
 * Continued access to resources that are outside or not connected to your virtual network
 
@@ -48,7 +48,7 @@ When you create and run logic apps in an ISE, you get the same user experiences 
 
 * Built-in triggers and actions, such as HTTP, display the **CORE** label and run in the same ISE as your logic app.
 
-* Managed connectors that display the **ISE** label are specially designed for ISEs and *always run in the same ISE as your logic app*. For example, here are some [connectors that offer ISE versions](../connectors/apis-list.md#ise-connectors):<p>
+* Managed connectors that display the **ISE** label are specially designed for ISEs and *always run in the same ISE as your logic app*. For example, here are some [connectors that offer ISE versions](../connectors/managed.md#ise-connectors):<p>
 
   * Azure Blob Storage, File Storage, and Table Storage
   * Azure Service Bus, Azure Queues, Azure Event Hubs
@@ -74,7 +74,7 @@ Logic apps that run inside an ISE can directly access on-premises systems and da
 
 * The **ISE** connector, if available, for an on-premises system or data source
 
-  If an ISE connector is available, you can directly access the system or data source without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). However, if you need to access SQL Server from an ISE and use Windows authentication, you must use the connector's non-ISE version and the on-premises data gateway. The connector's ISE version doesn't support Windows authentication. For more information, see [ISE connectors](../connectors/apis-list.md#ise-connectors) and [Connect from an integration service environment](../connectors/apis-list.md#integration-service-environment).
+  If an ISE connector is available, you can directly access the system or data source without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). However, if you need to access SQL Server from an ISE and use Windows authentication, you must use the connector's non-ISE version and the on-premises data gateway. The connector's ISE version doesn't support Windows authentication. For more information, see [ISE connectors](../connectors/managed.md#ise-connectors) and [Connect from an integration service environment](../connectors/managed.md#integration-account-connectors).
 
 * A custom connector
 

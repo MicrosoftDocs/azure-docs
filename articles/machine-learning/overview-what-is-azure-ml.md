@@ -73,14 +73,14 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 + **Track experiments**
 
-  Learn how to [track and visualize data science experiments](tutorial-first-experiment-automated-ml.md) in the studio. 
+  Learn how to [track and visualize data science experiments](how-to-track-monitor-analyze-runs.md) in the studio. 
 
-    ![Run details in Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-history.png" alt-text="Run details in Azure Machine Learning studio":::
 
 
 + **And much more...**
 
-  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net). 
+  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net).
 
 
 ## MLOps: Deploy & lifecycle management
@@ -121,9 +121,10 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 
 ## Next steps
 
-- Create your first experiment with your preferred method:
-- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Jupyter notebooks on a compute instance to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning to train & deploy ML models](tutorial-first-experiment-automated-ml.md) 
   + [Manage resources in Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Use Visual Studio Code to train and deploy an image classification model](tutorial-train-deploy-image-classification-model-vscode.md)

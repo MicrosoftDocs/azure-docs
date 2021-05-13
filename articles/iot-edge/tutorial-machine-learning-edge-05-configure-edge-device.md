@@ -8,7 +8,7 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp, devx-track-azurecli
+ms.custom: amqp
 ---
 
 # Tutorial: Configure an Azure IoT Edge device

@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -18,7 +18,7 @@ Azure Spring Cloud Config server is a centralized configuration service for dist
 
 ## Prerequisites
 
-* Complete the previous quickstart in this series: [Provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
+* Complete the previous quickstart in this series: [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
 
 ## Azure Spring Cloud config server procedures
 
@@ -46,11 +46,11 @@ Azure Spring Cloud Config server is centralized configuration service for distri
 
 #### [Portal](#tab/Azure-portal)
 
-The following procedure sets up the config server using the Azure portal to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md).
+The following procedure sets up the config server using the Azure portal to deploy the [PetClinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
+2. In the **Default repository** section, set **URI** to "https://github.com/azure-samples/spring-petclinic-microservices-config".
 
 3. Click **Validate**.
 
@@ -68,18 +68,18 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md).
 
-Set up your config-server with the location of the git repository for the project:
+The following procedure uses the Azure CLI to set up the config server to deploy the [Pet Clinic sample](https://github.com/azure-samples/spring-petclinic-microservices).
+
+Run the following command to set the Default repository.
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
-```
----
+
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./spring-cloud-howto-config-server.md).
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
 
 ## Troubleshooting of Azure Spring Cloud config server
 
@@ -108,7 +108,7 @@ The following procedure explains how to troubleshoot config server settings.
 
 ## Next steps
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
+> [Build and deploy apps](./quickstart-deploy-apps.md)

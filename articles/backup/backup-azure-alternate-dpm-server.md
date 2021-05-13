@@ -84,4 +84,4 @@ To recover data from an Azure Backup Server:
 Read the other FAQs:
 
 * [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups
-* [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent
+* [Common questions](backup-azure-file-folder-backup-faq.yml) about the Azure Backup agent

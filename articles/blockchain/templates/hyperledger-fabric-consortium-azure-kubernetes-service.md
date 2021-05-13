@@ -4,7 +4,7 @@ description: How to deploy and configure a Hyperledger Fabric consortium network
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-azurecli
 ---
 
 # Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
@@ -108,7 +108,7 @@ To build the blockchain consortium after deploying the ordering service and peer
 > The script is provided to help with demonstration, development, and test scenarios only. The channel and consortium that this script creates has basic Hyperledger Fabric policies to simplify demo, dev, and test scenarios. For production setup, we recommend updating channel/consortium Hyperledger Fabric policies in line with your organization's compliance needs by using the native Hyperledger Fabric APIs.
 
 
-All the commands to run the Azure Hyperledger Fabric script can be executed through Azure Bash command-line interface (CLI). You can sign in to Azure Cloud Shell through the ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the upper-right corner of the Azure portal. On the command prompt, type `bash` and select the Enter key to switch to the Bash CLI, or select **Bash** from the Cloud Shell toolbar.
+All the commands to run the Azure Hyperledger Fabric script can be executed through Azure Bash command-line interface (CLI). You can sign in to Azure Cloud Shell throughâ€¯the ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the upper-right corner of the Azure portal. On the command prompt, type `bash` and select the Enter key to switch to the Bash CLI, or select **Bash** from the Cloud Shell toolbar.
 
 See [Azure Cloud Shell](../../cloud-shell/overview.md) for more information.
 
@@ -119,7 +119,7 @@ The following image shows the step-by-step process to build a consortium between
 
 ![Diagram of the process to build a consortium.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-After you finish the initial setup, use the client application to achieve the following operations:  
+After you finish the initial setup, use the client application to achieve the following operations: â€¯
 
 - Channel management
 - Consortium management
@@ -288,15 +288,15 @@ From the peer organization's client, run the command to set anchor peers for the
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -351,7 +351,7 @@ From the peer organization's client, run the following command to invoke the cha
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Pass the invoke function name and space-separated list of arguments in `<invokeFunction>` and `<invokeFuncArgs>` respectively. Continuing with the chaincode_example02.go chaincode example, to perform an invoke operation, set `<invokeFunction>` to `invoke` and `<invokeFuncArgs>` to `"a" "b" "10"`.  
+Pass the invoke function name and space-separated list of arguments inâ€¯`<invokeFunction>`â€¯andâ€¯`<invokeFuncArgs>`â€¯respectively. Continuing with the chaincode_example02.go chaincode example, to perform an invoke operation, setâ€¯`<invokeFunction>`â€¯toâ€¯`invoke`â€¯andâ€¯`<invokeFuncArgs>`â€¯to `"a" "b" "10"`.  
 
 >[!NOTE]
 > Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. The world state is then updated on all peer nodes of all the peer organizations in the channel.  
@@ -368,7 +368,7 @@ Endorsing peers are peers where chaincode is installed and is called for executi
 
 If you're using *azhlfTool* to install chaincode, pass any peer node names as a value to the endorsing peer argument. Chaincode is installed on every peer node for that organization. 
 
-Pass the query function name and space-separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again taking chaincode_example02.go chaincode as a reference, to query the value of "a" in the world state, set `<queryFunction>` to `query` and `<queryArgs>` to `"a"`.  
+Pass the query function name and space-separated list of arguments inâ€¯`<queryFunction>`â€¯andâ€¯`<queryFuncArgs>`â€¯respectively. Again takingâ€¯chaincode_example02.goâ€¯chaincode as a reference, to query the value of "a" in the world state, setâ€¯`<queryFunction>`â€¯toâ€¯`query` andâ€¯`<queryArgs>` to `"a"`.  
 
 ## Troubleshoot
 

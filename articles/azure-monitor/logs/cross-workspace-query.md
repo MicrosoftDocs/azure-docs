@@ -37,8 +37,8 @@ Identifying a workspace can be accomplished one of several ways:
 
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
-    >[!Note]
-    >Because app and workspace names are not unique, this identifier might be ambiguous. When there are multiple instances of the resource name, reference should be by Qualified name, Resource ID, or Azure Resource ID.
+    >[!IMPORTANT]
+    >Because app and workspace names are not unique, this identifier might be ambiguous. It's recommended that reference is by Qualified name, Workspace ID, or Azure Resource ID.
 
     `workspace("contosoretail-it").Update | count`
 

@@ -20,11 +20,16 @@ See [supported RDP file settings](/windows-server/remote/remote-desktop-services
 
 RDP files have the following properties by default:
 
-|RDP property|On Desktop|As a RemoteApp|
-|---|---|---|
-|Multi-monitor mode|Disabled|Enabled|
-|Drive redirections enabled|Drives, clipboard, printers, COM ports, and smart cards|Drives, clipboard, and printers|
-|Remote audio mode|Play locally|Play locally|
+|RDP property|For both Desktop and RemoteApp|
+|---|---|
+|Multi-monitor mode|Disabled|
+|Drive redirections enabled|Drives, clipboard, printers, COM ports, smart cards, devices, and usbdevicestore|
+|Remote audio mode|Play locally|
+|VideoPlayback|Enabled|
+|EnableCredssp|Enabled|
+
+>[!NOTE]
+>Multi-monitor mode is only applicable for desktop app groups and will be ignored for RemoteApp app groups.
 
 ## Prerequisites
 

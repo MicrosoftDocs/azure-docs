@@ -2,7 +2,7 @@
 title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: seodec18
 
 ---
@@ -62,7 +62,7 @@ To configure a metric alert in the Azure portal:
 
 For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-You can also configure a near real-time alert using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
+You can also configure a near real-time alert using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Azure Monitor log Alerts](../azure-monitor/alerts/alerts-log.md).
 
 ## Batch diagnostics
 
@@ -135,21 +135,32 @@ Azure Batch service logs contain events emitted by the Batch service during the 
 
 ```json
 {
-    "poolId": "myPool1",
+    "id": "myPool1",
     "displayName": "Production Pool",
-    "vmSize": "Small",
+    "vmSize": "Standard_F1s",
+    "imageType": "VirtualMachineConfiguration",
     "cloudServiceConfiguration": {
-        "osFamily": "5",
+        "osFamily": "3",
         "targetOsVersion": "*"
     },
     "networkConfiguration": {
         "subnetId": " "
     },
+    "virtualMachineConfiguration": {
+          "imageReference": {
+            "publisher": " ",
+            "offer": " ",
+            "sku": " ",
+            "version": " "
+          },
+          "nodeAgentId": " "
+        },
     "resizeTimeout": "300000",
-    "targetDedicatedComputeNodes": 2,
+    "targetDedicatedNodes": 2,
+    "targetLowPriorityNodes": 2,
     "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
-    "enableAutoscale": false,
+    "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "isAutoPool": false
 }
