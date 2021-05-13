@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/11/2021
+ms.date: 05/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
 ---
@@ -332,7 +332,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="kubernetes"></a>Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+## <a id="kubernetes"></a>Kubernetes(preview)
 
 Azure Machine Learning provides you with the following options to attach your own Kubernetes clusters for training:
 
@@ -366,7 +366,14 @@ compute_target = KubernetesCompute.attach(ws, "<COMPUTE-NAME>", attach_config)
 compute_target.wait_for_completion(show_output=True)
 ```
 
-To detach your compute, see [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md#detach)
+To detach a cluster from your workspace, use one of the following method:
+
+> [!WARNING]
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
+
+```python
+compute_target.detach()
+```
 
 ## Notebook examples
 
