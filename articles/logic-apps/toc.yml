@@ -63,14 +63,20 @@
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
-  - name: Single-tenant Azure Logic Apps (Preview)
+  - name: Single-tenant Azure Logic Apps
     items:
-    - name: Single-tenant overview (Preview)
+    - name: Single-tenant overview
       href: single-tenant-overview-compare.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+  - name: Azure Arc enabled Logic Apps
+    items:
+    - name: About Azure Arc enabled Logic Apps
+      href: azure-arc-enabled-logic-apps-overview.md
+    - name: Create and deploy Arc enabled logic apps
+      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
