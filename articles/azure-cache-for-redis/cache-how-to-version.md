@@ -14,6 +14,14 @@ In this article, you'll learn how to configure the Redis software version to be 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
+> [!NOTE]
+> Redis 6 is currently in preview. At this time, Redis 6 does not support clustering, ACL, PowerShell, Azure CLI, and Terraform. The Redis version also cannot be changed once a cache is created. 
+>
+
+> [!IMPORTANT]
+> Once Redis 6 is generally available (GA), you will no longer be able to create Redis 4 caches. You will be able to upgrade your Redis 4 caches to Redis 6 caches at GA. 
+>
+
 ## Create a cache
 To create a cache, follow these steps:
 
