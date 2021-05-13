@@ -71,6 +71,8 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Parameterize single-tenant workflows
+      href: parameterize-workflow-app.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
