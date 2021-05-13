@@ -162,21 +162,21 @@
       - name: Control plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/management
+          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/resourcemanagement
+          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client
+          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/client
+          href: /java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true
         - name: JavaScript SDK
-          href: /javascript/api/@azure/digital-twins-core/
+          href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK
-          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
+          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
-    href: /cli/azure/dt
+    href: /cli/azure/dt?view=azure-cli-latest&preserve-view=true
   - name: DTDL v2 spec
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
   - name: Query language reference

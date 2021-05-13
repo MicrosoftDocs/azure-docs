@@ -159,7 +159,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument). Here is an example.
+You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -234,7 +234,7 @@ Then, **copy the following code** of the runnable sample into your project:
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** file you downloaded earlier to your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), and the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
