@@ -39,6 +39,8 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 It is here that you'll add the role [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) to our service name, and then select **Save**.
 
+![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 Now you are ready to select the storage account in Azure API for FHIR as a default storage account for $export.
 
 ## Selecting the storage account for $export
