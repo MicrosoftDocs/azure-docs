@@ -7,7 +7,10 @@ ms.date: 05/11/2021
 
 # Create your first function on Azure Arc using a custom container
 
-In this quickstart, you create an Azure Functions project in a custom container and deploy it to a function app running on an Azure Arc-enabled Kubernetes cluster. This scenario supports only running on Linux. PowerShell function app aren't currently supported on Azure Arc-enabled Kubernetes clusters.
+In this quickstart, you create an Azure Functions project in a custom container and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). 
+
+This scenario only supports function apps running on Linux.   
+PowerShell function app aren't currently supported on Azure Arc-enabled Kubernetes clusters.
 
 ## Prerequisites
 
@@ -43,7 +46,15 @@ On your local computer:
 
 ## Create an App Service Kubernetes environment
 
-Before you begin, uou must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. When you create the environment, make sure to copy down the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
+Before you begin, you must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. When you create the environment, make sure to copy down the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
+
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
+
+## Get the custom location
+
+To be able to create a function app in a custom location, you'll need to get information about the environment.
+
+[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 ## Create the local function project
 
