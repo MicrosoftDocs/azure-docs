@@ -15,7 +15,7 @@ ms.custom: tutorial
 
 # Tutorial: Deploy and score a machine learning model with a managed endpoint (preview)
 
-In this tutorial, you learn how to create a managed endpoint  to deploy and score a machine learning model. Managed endpoints can use a system assigned managed identity to access Azure resources like storage containers that contain your scoring script.
+In this tutorial, you learn how to create a managed endpoint to deploy and score a machine learning model. Managed endpoints can use a system assigned managed identity to access Azure resources like storage containers that contain your scoring script.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -32,23 +32,23 @@ Learn how to take the following actions:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, install the [Azure CLI](/cli/azure/install-azure-cli)and [leverage the `ml` extension](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md). 
 
-* To follow along with the sample, clone the samples repository
+* You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
-    ```azurecli
-    git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli
-    ```
-* A basic understanding of what [system assigned managed identity accomplishes](how-to-create-attach-compute-studio.md#managed-identity). 
+* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
+
+* If you've not already set the defaults for Azure CLI, you should save your default settings. , run:
+
+* [Optional] To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
 
 * A trained machine learning model ready for scoring and deployment.
 
 ## Set the defaults for Azure CLI
 
-To ensure the correct resources are used throughout this tutorial, set the default values for the Azure subscription ID, Azure Machine Learning workspace, and resource group you want to use. Doing so allows you to not have to specify these resources every time you call an Azure CLI command. 
+To ensure the correct resources are used throughout this tutorial, set the default values for the Azure subscription ID, Azure Machine Learning workspace, and resource group you want to use. Doing so allows you to avoid having to repeatedly pass in the values every time you call an Azure CLI command. 
 
 > [!IMPORTANT]
 > Ensure your user account has "User Access Administrator" role assigned to resource group. 
@@ -142,12 +142,9 @@ Refer to the following scoring script, to understand how to use system-assigned 
 
 Create a deployment that's associated with the managed endpoint.
 
-> NOTE It can take 8-10 minutes for deployment to complete. 
+This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
-
-> [!WARNING]
-> The value of the `--name` argument may override the `name` key inside the YAML file. 
 
 Check the status of the deployment. 
 
@@ -174,9 +171,6 @@ To check the init method output, see the deployment log with the following code.
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
 
 ## Delete the endpoint and storage account
-
-> [!IMPORTANT]
-> The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
 If you don't plan to continue using the deployed endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well. 
 
