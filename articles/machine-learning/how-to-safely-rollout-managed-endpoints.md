@@ -62,7 +62,7 @@ cd azureml-examples/cli
 
 The commands in this tutorial are in the file `how-to-deploy-declarative-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/canary-declarative-flow/` subdirectory.
 
-## Confirm your existing deployment is deployed
+## Confirm your existing deployment is create
 
 You can view the status of your existing deployment by running: 
 
@@ -81,6 +81,9 @@ In the deployment described in [Deploy and score a machine learning model with a
 Update the deployment with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="scale_blue" :::
+
+> [!IMPORTANT]
+> Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
 
 ## Deploy a new model, but send it no traffic yet
 
