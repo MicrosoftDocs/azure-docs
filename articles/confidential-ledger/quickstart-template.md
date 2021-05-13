@@ -18,7 +18,7 @@ ms.date: 04/15/2021
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](./index.yml)
+[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-confidential-ledger-create).
-
-:::code language="json" source="~/quickstart-templates/101-confidential-ledger-create/azuredeploy.json":::
+The template used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
 
 Azure resources defined in the template:
 
@@ -38,7 +36,7 @@ Azure resources defined in the template:
 
 1. Select the following image to sign in to Azure and open the template.
 
-    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](./index.yml)
+    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
 
 1. Select or enter the following values.
 
