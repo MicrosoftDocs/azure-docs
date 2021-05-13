@@ -21,9 +21,9 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-        - text: What is the Anomaly Detector univariate API?
+        - text: What is the Anomaly Detector univariate?
           url: overview.md
-        - text: What is the Anomaly Detector multivariate API?
+        - text: What is the Anomaly Detector multivariate?
           url: overview-multivariate.md
     - linkListType: get-started
       links:
