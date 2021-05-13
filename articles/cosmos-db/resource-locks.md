@@ -32,7 +32,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 ### PowerShell
 
-```powershell
+```powershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "my-cosmos-account"
 $lockName = "$accountName-Lock"
@@ -52,7 +52,7 @@ New-AzResourceLock `
 
 ### Azure CLI
 
-```bash
+```azurecli-interactive
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
 $lockName="$accountName-Lock"
