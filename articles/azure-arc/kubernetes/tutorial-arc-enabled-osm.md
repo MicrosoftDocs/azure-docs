@@ -7,7 +7,6 @@ ms.date: 05/12/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-zone_pivot_groups: client-operating-system
 ---
 
 # Azure Arc-enabled Open Service Mesh (Preview)
@@ -17,24 +16,6 @@ zone_pivot_groups: client-operating-system
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
 OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. [Read more](https://docs.openservicemesh.io/#features) on the service mesh scenarios enabled by Open Service Mesh.
-
-::: zone pivot="client-operating-system-linux"
-
-[!INCLUDE [Linux - download and install client binary](includes/servicemesh/osm/install-osm-binary-linux.md)]
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos"
-
-[!INCLUDE [macOS - download and install client binary](includes/servicemesh/osm/install-osm-binary-macos.md)]
-
-::: zone-end
-
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [Windows - download and install client binary](includes/servicemesh/osm/install-osm-binary-windows.md)]
-
-::: zone-end
 
 ### Support limitations for Arc enabled Open Service Mesh
 - Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
@@ -335,11 +316,13 @@ kubectl apply -f container-azm-ms-osmconfig.yaml
 ```
 It may take upto 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
 
-    InsightsMetrics 
-    | where Namespace == "prometheus"
-    | where Name contains "envoy"
-    | extend t=parse_json(Tags)
-    | where t.app == "namespace1"
+```azurecli-interactive
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where Name contains "envoy"
+| extend t=parse_json(Tags)
+| where t.app == "namespace1"
+```
 
 ### Navigating the OSM dashboard
 1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmux).
