@@ -66,7 +66,6 @@ Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated enviro
 Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
  --- | --- | --- | --- | --- |
 0.9 | CPU | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference | 
-1.4 | CPU | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/xgboost-1.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-1.4-ubuntu18.04-py37-cpu-inference |
 
 ### No framework
 
