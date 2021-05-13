@@ -289,7 +289,7 @@ scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring
 2. Get the access token:
 
 ```azurecli
-auth_token=$(az account get-access-token --query accessToken -o tsv)
+auth_token=$(az account get-access-token --resource https://ml.azure.com --query accessToken -o tsv)
 ```
 
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
