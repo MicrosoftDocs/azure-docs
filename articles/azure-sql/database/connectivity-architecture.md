@@ -68,55 +68,58 @@ The table below lists the IP Addresses of Gateways by region. To connect to SQL 
 
 Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](gateway-migration.md)
 
-| Region name          | Gateway IP addresses |
+| |
+ 
+
+| Alphabetical order  | Region DisplayName| Gateway IP addresses |
 | --- | --- |
-| Australia Central    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
-| Australia Central 2   | 20.36.113.0, 20.36.112.6 |
-| Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 |
-| Brazil South         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
-| Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Canada East          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Central US           | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
-| China East           | 139.219.130.35     |
-| China East 2         | 40.73.82.1         |
-| China North          | 139.219.15.17      |
-| China North 2        | 40.73.50.0         |
-| East Asia            | 52.175.33.150, 13.75.32.4, 13.75.32.14 |
-| East US              | 40.121.158.30, 40.79.153.12, 40.78.225.32 |
-| East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3,  40.70.144.193 |
-| France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| France South         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
-| Germany Central      | 51.4.144.100       |
-| Germany North East   | 51.5.144.179       |
-| Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| India Central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
-| India South          | 104.211.224.146    |
-| India West           | 104.211.160.80, 104.211.144.4 |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 |
-| Japan West           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
-| Korea Central        | 52.231.32.42, 52.231.17.22 ,52.231.17.23, 20.44.24.32, 20.194.64.33 |
-| Korea South          | 52.231.200.86, 52.231.151.96 |
-| North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
-| North Europe         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
-| Norway East          | 51.120.96.0, 51.120.96.33 |
-| Norway West          | 51.120.216.0       |
-| South Africa North   | 102.133.152.0, 102.133.120.2, 102.133.152.32 |
-| South Africa West    | 102.133.24.0       |
-| South Central US     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
-| South East Asia      | 104.43.15.0, 40.78.232.3, 13.67.16.193 |
-| Switzerland North    | 51.107.56.0, 51.107.57.0 |
-| Switzerland West     | 51.107.152.0, 51.107.153.0 |
-| UAE Central          | 20.37.72.64        |
-| UAE North            | 65.52.248.0        |
-| UK South             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
-| UK West              | 51.141.8.11, 51.140.208.96, 51.140.208.97 |
-| West Central US      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
-| West Europe          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
-| West US              | 104.42.238.205, 13.86.216.196   |
-| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
-| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
-|                      |                    |
+| Asia East          |East Asia | 52.175.33.150, 13.75.32.4, 13.75.32.14 |
+| Asia Southeast     | Southeast Asia | 104.43.15.0, 40.78.232.3, 13.67.16.193 |
+| Australia Central   |Australia Central | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
+| Australia Central 2 | Australia Central 2 | 20.36.113.0, 20.36.112.6 |
+| Australia East      |Australia East | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
+| Australia South East| Australia Southeast| 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 |
+| Brazil South        | Brazil South| 191.233.200.14, 191.234.144.16, 191.234.152.3 |
+| Canada Central      |Canada Central | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
+| Canada East         |Canada East | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
+| China East          | China East | 139.219.130.35     |
+| China East 2        | China East 2 | 40.73.82.1         |
+| China North         | China North | 139.219.15.17      |
+| China North 2       | China North 2| 40.73.50.0         |
+| France Central      |  France Central| 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
+| France South        | France South| 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
+| Europe West         |West Europe | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
+| Europe North        | North Europe| 40.113.93.91, 52.138.224.1, 13.74.104.113 |
+| Germany Central     | Germany | 51.4.144.100       |
+| Germany North East  | | 51.5.144.179       |
+| Germany West Central| Germany West Central| 51.116.240.0, 51.116.248.0, 51.116.152.0 |
+| India Central       | Central India | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
+| India South         | South India | 104.211.224.146    |
+| India West          |West India| 104.211.160.80, 104.211.144.4 |
+| Japan East          |Japan East | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 |
+| Japan West          | Japan West | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
+| Korea Central       |Korea Central | 52.231.32.42, 52.231.17.22 ,52.231.17.23, 20.44.24.32, 20.194.64.33 |
+| Korea South         |Korea South | 52.231.200.86, 52.231.151.96 |
+| Norway East         |Norway East | 51.120.96.0, 51.120.96.33 |
+| Norway West         |Norway West | 51.120.216.0       |
+| South Africa North  |South Africa North | 102.133.152.0, 102.133.120.2, 102.133.152.32 |
+| South Africa West   | South Africa West | 102.133.24.0       |
+| Switzerland North   |Switzerland North | 51.107.56.0, 51.107.57.0 |
+| Switzerland West    | Switzerland West| 51.107.152.0, 51.107.153.0 |
+| UAE Central         |UAE Central | 20.37.72.64        |
+| UAE North           |UAE North | 65.52.248.0        |
+| UK South            | UK South| 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
+| UK West             | UK West| 51.141.8.11, 51.140.208.96, 51.140.208.97 |
+| US Central         |Central US | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
+| US East            | East US| 40.121.158.30, 40.79.153.12, 40.78.225.32 |
+| US East 2           |East US 2 | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3,  40.70.144.193 |
+| US  North Central   | North Central US| 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
+| US South Central    |South Central US | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
+| US West            |West US | 104.42.238.205, 13.86.216.196   |
+| US West 2           | West US 2| 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| US West 2           |West US 2 | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| US West Central   |West Central US | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
+|                     | |                    |
 
 
 ## Next steps
