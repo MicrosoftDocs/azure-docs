@@ -58,7 +58,7 @@ For example, the Request trigger creates an endpoint on your workflow that can r
 
 For more information, review the following documentation:
 
-* [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azur-portal.md)
+* [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 * [Receive and respond to inbound HTTP requests using Azure Logic Apps](../connectors/connectors-native-reqres.md)
 
@@ -76,7 +76,7 @@ For more information, review the following documentation:
 
 1. When you're done, save your workflow.
 
-For more information, review [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azur-portal.md).
+For more information, review [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md).
 
 #### Copy the endpoint URL
 
