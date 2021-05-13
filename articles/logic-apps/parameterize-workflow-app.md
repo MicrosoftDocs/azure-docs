@@ -89,7 +89,7 @@ To add, update, or delete app settings, review the following sections:
 
 To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
 
-This example shows file settings for either ARM or Bicep templates:
+This example shows file settings for either ARM templates or Bicep templates:
 
 ```json
 "appSettings": [
