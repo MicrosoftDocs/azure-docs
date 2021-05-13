@@ -44,7 +44,7 @@ Event Hubs premium implements a *Cluster in Cluster* model in its multitenant cl
 #### Cost savings and scalability
 As Event Hubs Premium is a multitenant offering, it can dynamically scale more flexibly and very quickly. Capacity is allocated in Processing Units that allocate isolated pods of CPU/Memory inside the cluster. The number of those pods can be scaled up/down per namespace. Therefore, Event Hubs Premium is a low-cost option for messaging scenarios with the overall throughput range that is less than 120 MB/s but higher than what you can achieve with the standard SKU.  
 
-## Event Hubs Premium quotas and limits
+## Quotas and limits
 The premium tier offers all the features of the standard plan, but with better performance, isolation and more generous quotas. 
 For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
