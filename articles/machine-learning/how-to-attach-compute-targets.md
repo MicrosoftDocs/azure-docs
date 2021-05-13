@@ -369,7 +369,7 @@ compute_target.wait_for_completion(show_output=True)
 To detach a cluster from your workspace, use one of the following method:
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](../azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](/aks/kubernetes-walkthrough.md#delete-the-cluster) or to delete an Azure Arc enabled Kubernetes cluster, see [Azure Arc quickstart](/azure-arc/kubernetes/quickstart-connect-cluster#clean-up-resources).
 
 ```python
 compute_target.detach()
