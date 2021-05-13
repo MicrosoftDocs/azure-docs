@@ -1433,6 +1433,8 @@
           items:
             - name: Monitor with diagnostic logs
               href: cosmosdb-monitor-resource-logs.md
+            - name: Troubleshoot issues with diagnostic logs queries
+              href: cosmosdb-monitor-logs-quickstart-queries-sql.md
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts
