@@ -31,10 +31,9 @@ Managed online endpoints (preview) provide you the ability to deploy your model 
 
 * If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
 
-```azurecli
-az account set --subscription <subscription id>
-az configure --defaults workspace=<azureml workspace name> group=<resource group>
-```
+   ```azurecli
+   az account set --subscription <subscription id>
+   az configure --defaults workspace=<azureml workspace name> group=<resource group>
 
 * [Optional] To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
 
