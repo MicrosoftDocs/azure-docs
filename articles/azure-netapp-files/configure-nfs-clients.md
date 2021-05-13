@@ -253,7 +253,7 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
-## Configure two VMs with the same hostname to access an Azure NetApp Files NFSv4.1 volume 
+## Configure two VMs with the same hostname to access an NFSv4.1 volume 
 
 This section explains how you can configure two VMs that have the same hostname to access an Azure NetApp Files NFSv4.1 volume within the same VNet. This procedure can be useful when you conduct a disaster recovery (DR) test and require a test system with the same hostname as the primary DR system. This procedure is only required when you have the same hostname on two VMs that are accessing the same Azure NetApp Files volumes in a VNet.
 
@@ -270,7 +270,7 @@ This section explains how you can configure two VMs that have the same hostname 
     `uniquenfs4-1 can be any alphanumeric string`   
     `Reboot VM`   
 
-3. On the test DR system, verify the `nfs4_unique_id` has been set after VM reboot:       
+3. On the test DR system, verify the `nfs4_unique_id` has been set after the VM reboot:       
 
     `systool -v -m nfs | grep -i nfs4_unique`
 
