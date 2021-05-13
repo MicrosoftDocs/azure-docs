@@ -13,7 +13,6 @@ ms.author: mbaldwin
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
-
 ## Next steps
 
 - [Overview of Microsoft Azure Confidential Ledger](overview.md)

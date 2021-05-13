@@ -71,7 +71,6 @@ pip install azure.confidentialledger
 We can now start writing our python application.  First, we'll import the required packages.
 
 ```python
-
 # Import the Azure authentication library
 
 from azure.identity import DefaultAzureCredential
