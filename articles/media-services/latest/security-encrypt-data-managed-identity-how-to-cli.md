@@ -14,6 +14,10 @@ ms.author: inhenkel
 
 If you would like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
 
+## Sign in to Azure
+
+ [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
+
 ## Resource names
 
 Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. For example, "myMediaTestRG" for your resource group and "myMediaTestStorageAccount".  The names of resources you'll need are:
