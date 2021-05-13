@@ -16,7 +16,7 @@ keywords: document processing
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-#Get started with Form Recognizer Anlyze documents, extract text, tables, selection marks and key value pairs
+# Get started with Form Recognizer Anlyze documents, extract text, tables, selection marks and key value pairs
 
 Get started with the Form Recognizer using the Form Recognizer Sample Tool. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents—the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the sample tool or REST API or SDK. Follow these steps to try out Form Recgonizer via the sample tool. 
 
@@ -42,10 +42,12 @@ To complete this quickstart, you must have:
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Analyze Layout
+
 Extract text, tables, selection marks and structure from a document. 
+
 1. Go to the [Form Recgonizer Sample Tool](https://fott-2-1.azurewebsites.net/) 
 2. At the sample tool home page select "use layout to get text, tables and selection marks"
-:::image type="content" source="../media/label-tool/Layout0.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
+:::image type="content" source="../media/label-tool/Layout0.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
 
 3. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
@@ -57,12 +59,12 @@ Extract text, tables, selection marks and structure from a document.
 4. Click "Run Layout"
 The Form REcognizer sample labeling tool will call the Analyze Layout API and analyze the document.
 5. View the results - see the hightlied text extracted, selection marks detected and tables detected. 
-:::image type="content" source="../media/label-tool/Layout2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
+:::image type="content" source="../media/label-tool/Layout2.jpg" alt-text="Connection settings for Form Recognizer tool.":::
 
 6. Download the JSON output file to view the detailed Layout Results.
-	 - The "readResults" node contains every line of text with its respective bounding box placement on the page.
-	 - The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-	 - The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+     - The "readResults" node contains every line of text with its respective bounding box placement on the page.
+     - The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+     - The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 ## Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
 Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty Cards or Busingess Cards using a Form Recognizer Prebuilt model. 
@@ -73,10 +75,10 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 3. Select source url
 
 4. Choose the file you would like to analyze from the below options: 
-	 - A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
-	 	 - A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/ID-US-Driver-License.jpg) for this quickstart.
-	 - A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
-	 - A URL for an image of a business card. You can use a [sample buisness card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
+     - A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
+          - A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/ID-US-Driver-License.jpg) for this quickstart.
+     - A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
+     - A URL for an image of a business card. You can use a [sample buisness card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 
 5. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
@@ -92,10 +94,10 @@ The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and 
 
 10. Download the JSON output file to view the detailed results.
 
-	 - The "readResults" node contains every line of text with its respective bounding box placement on the page.
-	 - The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-	 - The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
-	 - The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+     - The "readResults" node contains every line of text with its respective bounding box placement on the page.
+     - The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+     - The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+     - The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
 ## Train & Analyze a custom Form
 Train a custom form model tailored to your documents. Extract text, tables, selection marks and key value pais from your documents usign Form Recognizer Custom. 
@@ -104,11 +106,11 @@ Train a custom form model tailored to your documents. Extract text, tables, sele
 - An Azure Storage blob container that contains a set of training data. First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this quickstart, you can use the files under the Train folder of the [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip) (download and extract sample_data.zip).
 - Configure cross-domain resource sharing (CORS) on the Azure Storage blob
 Enable CORS on your storage account. Select your storage account in the Azure portal and then choose the **CORS** tab on the left pane. On the bottom line, fill in the following values. Select **Save** at the top.
-	* Allowed origins = *
-	* Allowed methods = \[select all\]
-	* Allowed headers = *
-	* Exposed headers = *
-	* Max age = 200
+    * Allowed origins = *
+    * Allowed methods = \[select all\]
+    * Allowed headers = *
+    * Exposed headers = *
+    * Max age = 200
 
 > [!div class="mx-imgBorder"]
 > ![CORS setup in the Azure portal](../media/label-tool/cors-setup.png)
@@ -125,12 +127,12 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 4. Configure the project settings fill in the fields with the following values:
 
-	* **Display Name** - the project display name
-	* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
-	* ** Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values: 
-		* **Display Name** - The connection display name.
-		* **Description** - Your project description.
-		* **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+    * **Display Name** - the project display name
+    * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+    * ** Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values: 
+        * **Display Name** - The connection display name.
+        * **Description** - Your project description.
+        * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
@@ -184,7 +186,7 @@ Next, you will create tags (labels) and apply them to the text elements that you
 
 Follow the steps above to label for the five forms in the sample dataset.
 
-:::image type="content" source="../media/label-tool/custom1.png" alt-text="Label the samples.":::
+:::image type="content" source="../media/label-tool/custom1.jpg" alt-text="Label the samples.":::
 
 #### Train a custom model
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
