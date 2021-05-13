@@ -1,15 +1,15 @@
 ---
 title: Continuous video recording from the edge - Azure Video Analyzer
-description: Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. This topic discusses what CVR is and how to use it with Azure Video Analyzer.
+description: Continuous video recording (CVR) refers to the process of continuously recording from a live video source. This topic discusses what CVR is and how to use it with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 05/10/2021
 
 ---
 
 # Continuous video recording    
 
-Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology](pipeline.md) consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the [pipeline](pipeline.md) can be found  in [the CVR json](add-valid-link.md)<!--pipeline-cvr-json-->.
+Continuous video recording (CVR) refers to the process of continuously recording the video from a video source. Azure Video Analyzer supports recording video continuously, on a 24x7 basis, from a CCTV camera via a video processing [pipeline topology](pipeline.md) consisting of an RTSP source node and a video sink node. The diagram below shows a graphical representation of such a pipeline. The JSON representation of the topology can be found in this [document](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json). You can use such a topology to create arbitrarily long recordings (years worth of content), which can be browsed based on UTC time.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
@@ -25,7 +25,7 @@ It is recommended to read the following articles before proceeding.
  
 ## Resilient recording
 
-Video Analyzer supports operating under conditions where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the video resource on a periodic basis. If you examine the [pipeline topology JSON](add-valid-link.md) <!--pipeline-cvr-json-->, you will see it has the following properties defined:
+Video Analyzer supports operating under conditions where the edge device may occasionally lose connectivity with the cloud or experience a drop in available bandwidth. To account for this, the video from the source is recorded locally into a cache and is automatically synced with the video resource on a periodic basis. If you examine the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json), you will see it has the following properties defined:
 
 ```
 "segmentLength": "PT30S",
@@ -33,13 +33,15 @@ Video Analyzer supports operating under conditions where the edge device may occ
 "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
 ```
 
-The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The localMediaCachePath property tells the video sink to use that folder path to cache media data before uploading to the asset. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
+The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The `localMediaCachePath` property tells the video sink to use that folder path to cache media data before uploading to the cloud. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
 
 If your edge module loses connectivity for a long time and the content stored in the cache folder reaches the `localMediaCacheMaximumSizeMiB` value, the video sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the video sink starts to delete data recorded at 10AM. 
 
 When network connectivity is restored, the video sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the video sink will start uploading from the 10:05AM mark.
 
 If you later examine the video resource using [these APIs](playback-recordings-how-to.md) you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
+
+Gaps in recordings can also occur, for example, if you restart pipelines for whatever reason. You can also stop a pipeline and restart at a later time - as long as the camera settings do not change, you can continue to record to the same Video Analyzer video resource.
 
 ## Segmented recording  
 
@@ -59,12 +61,3 @@ The `segmentLength` property ensures that the edge module will upload video at m
 
 [Tutorial: continuous video recording](use-continuous-video-recording.md) 
 
-<!-- links 
-[pipeline-cvr-json]: https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset
-[terminology-video]: terminology.md#video
-
-[concept-pipeline]: pipeline.md
-[concept-video-playback]: video-playback-concept.md
-[concept-recording]: video-recording-concept.md
-
--->
