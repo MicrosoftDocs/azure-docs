@@ -75,7 +75,7 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Deploy managed endpoints with system managed identity
+        - name: Access Azure resources with managed endpoints
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items: 
