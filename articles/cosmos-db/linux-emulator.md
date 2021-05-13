@@ -166,14 +166,14 @@ Alternatively, the endpoint above which downloads the self-signed emulator certi
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
 2. The Docker container failed to start and has the following error message:
 
-    ```
-    /palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
-    1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
-    2. The process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
-    3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
-    ```
+        ```
+        /palrun: ERROR: Invalid mapping of address 0x40037d9000 in reserved address space below 0x400000000000. Possible causes:
+        1. The process (itself, or via a wrapper) starts up its own running environment sets the stack size limit to unlimited via syscall setrlimit(2);
+        2. The process (itself, or via a wrapper) adjusts its own execution domain and flag the system its legacy personality via syscall personality(2);
+        3. Sysadmin deliberately sets the system to run on legacy VA layout mode by adjusting a sysctl knob vm.legacy_va_layout.
+        ```
 
-    The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
+        The current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
 2. My app received too many connectivity-related timeouts.
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up. 
