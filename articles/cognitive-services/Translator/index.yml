@@ -27,7 +27,7 @@ landingContent:
           - text: Translator
             url: translator-info-overview.md
           - text: Document Translation
-            url:  document-translation/overview.md  
+            url:  document-translation/overview.md 
           - text: Custom Translator
             url: custom-translator/overview.md
           - text: Pricing

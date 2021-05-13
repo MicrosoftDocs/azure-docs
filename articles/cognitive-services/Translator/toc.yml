@@ -58,10 +58,8 @@
         href: containers/translator-container-configuration.md
       - name: Reference
         items:
-        - name: "Reference: supported translation parameters"
+        - name: "Container: Translate"
           href: containers/translator-container-supported-parameters.md
-      - name: "Container: Translate"
-        href: containers/translator-container-supported-parameters.md
   - name: Concepts
     items:
     - name: How the API counts characters

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/13/2021
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -16,10 +16,15 @@ keywords: on-premises, Docker, container, identify
 
 # Install and run Translator containers (Preview)
 
-  Containers package everything an application needs to run—dependencies, configurations, libraries, and other binaries—and to enable smooth and consistent deployment across any computing environment. The Translator container works in collaboration with  [Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined),  an open-source platform for the development lifecycle of containerized applications, to enable you to run features of the Translator API in your own environment.
+  Containers enable you to run some features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
-> [!NOTE]
- > Containers offer encapsulation, isolation, and portability in a predictable environment and can add a layer of security to your application. However, containers should only be considered one part of the overall program for securing your app. To learn more about container security, *see* our [**Container security**](/azure/security-center/container-security) documentation.
+Translator container enables you to build a translator application architecture that is optimized for both robust cloud capabilities and edge locality.
+
+> [!IMPORTANT]
+>
+> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See the [**Request approval to the run the container**] (#Request approval to the run the container) section below for more information.
+> * Translator container supports limited features compared to the cloud offerings.  Please refer to **Container: Translate** for more details.
+
 <!-- markdownlint-disable MD033 -->
 
 ## Prerequisites
@@ -32,7 +37,7 @@ You'll also need the following to use Translator containers:
 |--|--|
 | Familiarity with Docker | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
 | Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
-| Translator resource | <ul><li>An Azure [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource and the associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
+| Translator resource | <ul><li>An Azure [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource with region other than 'global', associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
 |||
 
 |Optional|Purpose|
@@ -48,15 +53,13 @@ All Cognitive Services containers require three primary elements:
 
 * **API key** and **Endpoint URL**.  The API key is used to start the container. You can retrieve the API key and Endpoint URL values by navigating to the Translator resource _Keys and Endpoint_ page and selecting the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
-:::image type="content" source="../media/keys-and-endpoint.png" alt-text="location of endpoint url on resource overview page":::
-
 > [!IMPORTANT]
->* Translator containers are **not** available in the global region location. 
-> * Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service. *See* [Azure Cognitive Services security](../../cognitive-services-security.md) for ways to securely store and access your credentials.
+>
+> * Subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ## Host computer
 
-To use containers, you'll need and x64-based computer with a Linux OS that runs Docker containers. It can be a computer on your premises or a Docker hosting service on Azure, such as [**Azure Kubernetes Service**](/azure/aks/intro-kubernetes), [**Azure Container Instances**](/azure/container-instances/container-instances-overview), or a [**Kubernetes cluster deployed to Azure Stack Hub**](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ## Container requirements and recommendations
 
@@ -70,78 +73,45 @@ The following table describes the minimum and recommended specifications for Tra
 For every language pair, it's recommended to have 2 GB of memory. By default, the Translator offline container has four language pairs. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
+>
 > * CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the docker run command.
 >
 > * The minimum and recommended specifications are based on Docker limits, not host machine resources.
 
 ## Request approval to the run the container
 
-Fill out and submit the [**Azure Cognitive Services
-Application for Gated Services**](https://aka.ms/csgate) to request access to the container. 
+Complete and submit the [**Azure Cognitive Services
+Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
-## Container images
-
-Container images for Translator are available in the following container registry:
-
-|Container|Repository|
-|-----------|-----------|
-|Translator connected| translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator|
-
-## Get container images with **docker  pull**
-
-* To perform the [**docker pull**](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need to access the container registry. From the Azure CLI, you can log in to the Azure Container Registry using the following command:
-
-```azurecli
- [az acr login](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-login) 
-```
-
-* Next, authenticate your current user name with the corresponding Azure Container Registry
-
-```azurecli
-az acr login --name translatorcontainerpreview
-```
-
-* Now, you're free to execute the `docker pull` command.
-
-* Depending on the language support you need, provide the corresponding `<image-tag>`.
-
-```dockerfile
-docker pull translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator:<image-tag>
-```
-
-## Use the container
-
-Once the container is on your [host computer](#host-computer), use the following process to work with the container.
-
-1. [**Run the container with docker run**](#run-the-container-with-docker-run).
-1. [**Query the container's Translator endpoint**](#query-the-containers-translator-endpoint).
-1. [**Stop the container**](#stop-the-container)
-
-### Run the container with **docker run**
+## Get container images with **docker commands**
 
 > [!IMPORTANT]
 >
-> * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
+> * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
 > * The `EULA`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to download a container image from Microsoft Container registry and run it.
 
-```dockerfile
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
-translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator:en_ar_de_ru_zh_1.0.11 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+```Docker
+docker run --rm -it -p 5000:80 --memory 12g --cpus 4 \
+-v /mnt/d/TranslatorContainer:/usr/local/models \
+-e apikey={API_KEY} \
+-e eula=accept \
+-e billing={ENDPOINT_URI} \
+-e Languages=en,fr,es,ar,ru  \
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation
 ```
 
 The above command:
 
-* Runs a Translator offline container from the container image.
-* Allocates eight gigabytes (GB) of memory and four CPU core.
+* Downloads and runs a Translator container from the container image.
+* Allocates 12 gigabytes (GB) of memory and four CPU core.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Accepts the end-user agreement (EULA)
+* Configures billing endpoint
+* Downloads translation models for languages English, French, Spanish, Arabic, and Russian
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Run multiple containers on the same host
@@ -185,25 +155,6 @@ There are several ways to validate that the container is running:
 
 :::image type="content" source="../../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png" alt-text="Container home page":::
 
-### View your container's logs
-
-  If you're having trouble during the docker run process, it may be useful to view the **docker logs** from the container's execution. First, execute the `docker ps` command with the formatting flag to limit the details displayed for all the containers.
-
-```dockerfile
-docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}"
-
-CONTAINER ID        IMAGE                                                                      STATUS
-d7324af7220f        translatorcontainerpreview.azurecr.io/cognitive-services-offline-translator   Up 4 minutes
-```
-
-Then, run the `docker logs` command with the <Container ID> for the corresponding container in question to view its logs. The following command will collect Error logs for the last four hours.
-
-```dockerfile
-docker logs <Container ID> --timestamps --since=4h | grep Error
-```
-
-
-
 ## Text translation code samples
 
 ### Translate text with swagger
@@ -214,8 +165,8 @@ Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
 
 1. Select **POST /translate**
 1. Select **Try it out**
-1. Enter the **From** parameter as `en-US`
-1. Enter the **To** parameter as `de-DE`
+1. Enter the **From** parameter as `en`
+1. Enter the **To** parameter as `de`
 1. Enter the **api-version** parameter as `3.0`
 1. Under **texts**, replace `string` with the following JSON
 
@@ -224,16 +175,16 @@ Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
         {
             "text": "hello, how are you"
         }
-    ]cd
+  ]
 ```
 
-1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following response:
+Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following response:
 
 ```json
 "translations": [
       {
           "text": "hallo, wie geht es dir",
-          "to": "de-DE"
+          "to": "de"
       }
     ]
 ```
@@ -276,7 +227,7 @@ namespace TranslateContainer
     class Program
     {
         const string ApiHostEndpoint = "http://localhost:5000";
-        const string TranslateApi = "/translate?api-version=3.0&from=en-US&to=de-DE";
+        const string TranslateApi = "/translate?api-version=3.0&from=en&to=de";
 
         static async Task Main(string[] args)
         {
@@ -313,12 +264,11 @@ namespace TranslateContainer
 
 ## Summary
 
-In this article, you learned concepts and workflows for downloading, installing, and running Translator offline containers. Now you know:
+In this article, you learned concepts and workflows for downloading, installing, and running Translator container. Now you know:
 
-* Translator provides Linux containers for Docker that support 12 language pairs.
-* Container images are downloaded from the Container Preview Registry.
-* Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Translator offline containers by specifying the container's host URI.
+* Translator provides Linux containers for Docker.
+* Container images are downloaded from the container registry and run in Docker.
+* You can use the REST API to call 'translate' operation in Translator container by specifying the container's host URI.
 
 ## Next steps
 
