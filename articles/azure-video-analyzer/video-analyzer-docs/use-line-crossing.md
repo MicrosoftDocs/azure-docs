@@ -2,16 +2,16 @@
 title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 05/18/2021
 ---
 
-# Quickstart: Detect when objects cross a virtual line in a live video
+# Tutorial: Detect when objects cross a virtual line in a live video
 
-This quickstart shows you how to use Azure Video Analyzer detect when objects cross a virtual line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and send the results to a line crossing node.
+This tutorial shows you how to use Azure Video Analyzer detect when objects cross a virtual line in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames and send the results to a line crossing node.
 
 The line crossing node enables you to detect when objects cross the virtual line. The events contain the direction (clockwise, counterclockwise) and a total counter per direction.  
 
-This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
+This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream.
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/track-objects-live-video/line-crossing-tracker-topology.png" alt-text="Detect when objects cross a virtual line in live video.":::
 
-This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
 The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
 The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line the line crossing node will emit an event. The events are sent to the IoT Edge Hub message sink. 
 
-In this quickstart, you will:
+In this tutorial, you will:
 
 1. Setup your development environment.
 1. Deploy the required edge modules.
@@ -72,7 +72,7 @@ In this quickstart, you will:
 
 ### Review sample video
 
-When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This tutorial uses the video file to simulate a live stream.
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
@@ -118,7 +118,7 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
 ## Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The operations.json code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+1. The operations.json code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts/tutorials, then this process will return empty lists and then pause. To continue, select the Enter key.
     
     ```
     -------------------------------Executing operation pipelineTopologyList-----------------------  
@@ -169,7 +169,7 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
     * A call to `livePipelineActivate` that starts the live pipeline and the flow of video.
     * A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 1. The live pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
 1. The next series of calls cleans up resources:
 
