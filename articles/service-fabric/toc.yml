@@ -835,7 +835,7 @@
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
     - name: Modernize your application
       href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
-- name: Support and help options
+- name: Support options
   href: service-fabric-support.md
 - name: Reference
   items:
