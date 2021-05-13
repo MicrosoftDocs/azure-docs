@@ -112,9 +112,26 @@ $disk.Tier
 
 ## Change the performance tier of a disk without downtime (preview)
 
-You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section.
+You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier. For more information , see the [Change performance tier without downtime (preview)](#change-performance-tier-without-downtime-preview) section.
+
+### Prerequisites
+
+You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. Please follow the steps below to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name LiveTierChange
+    ```
+ 
+2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name LiveTierChange
+    ```
 
 
+### Update the performance tier of a disk without downtime via ARM template
 The following script will update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Replace `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>`, and `<yourDesiredPerformanceTier>` then run the script:
 
  ```cli

@@ -280,7 +280,7 @@ You can modify these parameters as needed:
 
 For more information,
 - [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
+- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/troubleshooting/ETW)
 
 ## Collect logs with dotnet-trace
 

@@ -194,7 +194,7 @@ Add the following code to the end of the `Main` method to create and initialize 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-In your command window, run the program with `dotnet run`. In the output, look for the print messages that *sampleTwin-0*, *sampleTwin-1*, and *sampleTwin-2* were created. 
+In your command window, run the program with `dotnet run`. In the output, look for the print messages that sampleTwin-0, sampleTwin-1, and sampleTwin-2 were created. 
 
 Then, run the program again. 
 
