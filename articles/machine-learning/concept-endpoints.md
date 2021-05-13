@@ -21,8 +21,6 @@ In this article, you learn about:
 > [!div class="checklist"]
 > * Endpoints
 > * Deployments
->
-> And the different types of endpoints:
 > * Managed online endpoints
 > * AKS online endpoints
 > * Batch inference endpoints
@@ -33,7 +31,7 @@ After you train a machine learning model, you need to deploy the model so that o
 
 :::image type="content" source="media/concept-managed-endpoints/endpoint-concept1.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-An **Endpoint** is an HTTPS endpoint that clients can send data to and receive the inferencing output of trained models. It provides: 
+An **Endpoint** is an HTTPS endpoint that clients can invoke to receive the inferencing output of trained models. It provides: 
 - Authentication using 'key & token' based auth 
 - SSL termination 
 - Traffic allocation between deployments 
@@ -44,7 +42,6 @@ A **Deployment** is a set of compute resources hosting the model that performs t
 - Model details (code, model, environment) 
 - Compute resource and scale settings 
 - Advanced settings (like request and probe settings)
-
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent ARM resources that will appear in the Azure portal.
 
@@ -58,13 +55,13 @@ For an online endpoint, you need to specify the following:
 - Model files (or specify a registered model in your workspace) 
 - Scoring script - code needed to perform scoring/inferencing
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
-- Compute instance SKU & scale settings 
+- Compute instance & scale settings 
 
 Learn how to deploy online endpoints from the CLI, ARM/REST, and the studio web portal.
 
 ### Benefits of online endpoints
 
-Azure Machine Learning online endpoints provide the following benefits:
+Online endpoints let you deploy machine learning models and provide the following benefits:
 - Safe rollout with native support for blue/green deployment 
 - Debugging in a local docker environment using local endpoints
 - Integration with Application Insights to monitor and diagnose issues  
@@ -72,9 +69,9 @@ Azure Machine Learning online endpoints provide the following benefits:
 
 ### Traffic allocation
 
-Recall, that a single online endpoint can have multiple deployments. Although client applications can specify a deployment using request parameters to the same endpoint, the endpoint can also perform load balancing to allocate any percentage of traffic to each deployment.
+Recall, that a single online endpoint can have multiple deployments. Although client applications can specify a deployment using request parameters to a single endpoint, the endpoint can also perform load balancing to allocate any percentage of traffic to each deployment.
 
-Traffic allocation can be used to perform blue/green deployment by balancing requests between different instances of a deployment.
+Traffic allocation can be used to perform blue/green deployments by balancing requests between different instances.
 
 ## Managed online endpoints vs AKS online endpoints
 
@@ -87,7 +84,7 @@ There are two types of online endpoints: **managed online endpoints** and **AKS 
 
 ### Managed online endpoints
 
-Managed online endpoints can help streamline your deployment process:
+Managed online endpoints can help streamline your deployment process compared to AKS online endpoints:
 
 - Managed infrastructure
     - Automatically provisioning the compute and hosting the model (you just need to specify the VM type and scale settings) 
@@ -104,8 +101,13 @@ Managed online endpoints can help streamline your deployment process:
 
 ## Batch endpoint
 
-**Batch endpoints** are endpoints that are used to perform inferencing on large volumes of data over a period of time. Compared to **online endpoints**, **batch endpoints** run asynchronously and store their output to a data store.
- 
+**Batch endpoints** are endpoints that are used to perform inferencing on large volumes of data over a period of time. Compared to **online endpoints**, **batch endpoints** run jobs asynchronously and store their output to a data store.
+
+### MLFlow models
+
+
+### Traffic allocation
+
 
 
 ## Next steps
