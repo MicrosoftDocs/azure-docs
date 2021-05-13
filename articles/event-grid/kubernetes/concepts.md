@@ -85,4 +85,4 @@ When using a topic, events must always be published in an array. For low through
    As a data plane service, it serves all event publishing requests and delivers events to their destinations configured on event subscriptions.
 
 ## Next steps
-To get started, see [Create topics and subscriptions](create-topic-subscription.md).
+To get started, see [Create topics and subscriptions](webhook-handler.md).

@@ -23,20 +23,20 @@ Through Webhooks, Event Grid supports the following destinations **hosted on a K
 * Azure Functions on Kubernetes with Azure Arc. 
 * Azure Logic Apps on Kubernetes with Azure Arc.
 
-In addition to Webhooks, Event Grid on Kubernetes can send event to following destinations **hosted on Azure**:
+In addition to Webhooks, Event Grid on Kubernetes can send events to the following destinations **hosted on Azure**:
 
-- Azure Event Grid
-- Azure Functions **using Webhooks only**.
-- Azure Event Hubs using its Azure Resource Manager resource ID.
-- Azure Service Bus topics or queues using its Azure Resource Manager resource ID.
-- Azure Storage queue using its Azure Resource Manager resource ID.
+- Azure Event Grid **using Webhooks**
+- Azure Functions **using Webhooks only**
+- Azure Event Hubs using its Azure Resource Manager resource ID
+- Azure Service Bus topics or queues using its Azure Resource Manager resource ID
+- Azure Storage queue using its Azure Resource Manager resource ID
 
 
 
 ## Feature parity
-Event Grid on Kubernetes offers a good level of feature parity with Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you can use Azure Event Grid's [rest api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) as a reference when managing event subscriptions on Event Grid on Kubernetes.
+Event Grid on Kubernetes offers a good level of feature parity with Azure Event Grid's support for event subscriptions. The following list enumerates the main differences in event subscription functionality. Apart from those differences, you can use Azure Event Grid's [REST api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions) as a reference when managing event subscriptions on Event Grid on Kubernetes.
 
-1. Use [rest api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions).
+1. Use [REST api version 2020-10-15-preview](/rest/api/eventgrid/version2020-10-15-preview/eventsubscriptions).
 2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
 3. There's no [dead letter location](../manage-event-delivery.md#set-dead-letter-location) support. That means that you cannot use ``properties.deadLetterDestination`` in your event subscription payload.
 4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
@@ -72,21 +72,17 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 ## Azure Event Grid
 
-To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `eventGrid` and provide:
+To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `WebHook` and provide:
 
 * **endpointUrl**: Azure event grid topic URL in the cloud
-* **sasKey**: Azure event grid topic's SAS key
-* **topicName**: Name to stamp all outgoing events to Event Grid. Topic name is useful when posting to an Event Grid domain topic.
 
    ```json
         {
           "properties": {
             "destination": {
-              "endpointType": "eventGrid",
+              "endpointType": "WebHook",
               "properties": {
                  "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
-                 "sasKey": "<your-event-grid-topic-saskey>",
-                 "topicName": null
               }
             }
           }
@@ -97,10 +93,7 @@ To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `eve
 
 To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
 
-* **connectionString**: Connection string for the specific event hub that's generated using a Shared Access Policy.
-
-    >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string won't work. You can generate an entity specific connection string by navigating to the specific event hub in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
+* **resourceId**: resource ID for the specific event hub.
 
     ```json
         {
@@ -108,7 +101,7 @@ To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
             "destination": {
               "endpointType": "eventHub",
               "properties": {
-                "connectionString": "<your-event-hub-connection-string>"
+                "resourceId": "<Azure Resource ID of your event hub>"
               }
             }
           }
@@ -119,10 +112,7 @@ To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
 
 To publish to a Service Bus queue, set the `endpointType` to `serviceBusQueue` and provide:
 
-* **connectionString**: Connection string for the specific Service Bus queue that's generated using a Shared Access Policy.
-
-    >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string won't work. Generate an entity specific connection string by navigating to the specific Service Bus queue in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
+* **resourceId**: resource ID for the specific Service Bus queue.
 
     ```json
         {
@@ -130,7 +120,7 @@ To publish to a Service Bus queue, set the `endpointType` to `serviceBusQueue` a
             "destination": {
               "endpointType": "serviceBusQueue",
               "properties": {
-                "connectionString": "<your-service-bus-queue-connection-string>"
+                "resourceId": "<Azure Resource ID of your Service Bus queue>"
               }
             }
           }
@@ -139,12 +129,9 @@ To publish to a Service Bus queue, set the `endpointType` to `serviceBusQueue` a
 
 ## Service Bus topics
 
-To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` and provide:
+To publish to a Service Bus topic, set the `endpointType` to `serviceBusTopic` and provide:
 
-* **connectionString**: Connection string for the specific Service Bus topic that's generated using a Shared Access Policy.
-
-    >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string won't work. Generate an entity specific connection string by navigating to the specific Service Bus topic in the Azure portal and clicking **Shared access policies** to generate a new entity specific connection string.
+* **resourceId**: resource ID for the specific Service Bus topic.
 
     ```json
         {
@@ -152,7 +139,7 @@ To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` a
             "destination": {
               "endpointType": "serviceBusTopic",
               "properties": {
-                "connectionString": "<your-service-bus-topic-connection-string>"
+                "resourceId": "<Azure Resource ID of your Service Bus topic>"
               }
             }
           }
@@ -164,10 +151,7 @@ To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` a
 To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and provide:
 
 * **queueName**: Name of the Azure Storage queue you're publishing to.
-* **connectionString**: Connection string for the storage account the queue is in.
-
-    >[!NOTE]
-    > Unlike Event Hubs, Service Bus queues, and Service Bus topics, the connection string used for Storage queues isn't entity specific. Instead, it must but the connection string for the storage account.
+* **resourceID**: Azure resource ID of the storage account that contains the queue.
 
     ```json
         {
@@ -176,7 +160,7 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
               "endpointType": "storageQueue",
               "properties": {
                 "queueName": "<your-storage-queue-name>",
-                "connectionString": "<your-storage-account-connection-string>"
+                "resourceId": "<Azure Resource ID of your Storage account>"
               }
             }
           }

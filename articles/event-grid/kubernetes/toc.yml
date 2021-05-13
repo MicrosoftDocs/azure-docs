@@ -10,8 +10,8 @@
     href: features.md
 - name: Quickstarts
   items:
-  - name: Create a topic and a subscription
-    href: create-topic-subscription.md
+  - name: Webhook as event handler
+    href: webhook-handler.md
 - name: Samples
   items:
   - name: Code Samples
@@ -32,7 +32,7 @@
     href: filter-events.md    
 - name: How-to guides
   items:
-  - name: Install extension on Kubernetes cluster
+  - name: Install Event Grid extension
     href: install-k8s-extension.md
 
 - name: Reference

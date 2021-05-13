@@ -84,12 +84,12 @@ Follow these steps in the order to start routing events using Event Grid on Kube
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Install an Event Grid extension](install-k8s-extension.md), which is the actual resource that deploys Event Grid to a Kubernetes cluster. To learn more about the extension, see [Event Grid Extension](install-k8s-extension.md#event-grid-extension) section to learn more. 
 1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it is the place where topics and event subscriptions are deployed.
-1. [Create a topic and one or more event subscriptions](create-topic-subscription.md).
-1. [Publish events](create-topic-subscription.md).
+1. [Create a topic and one or more event subscriptions](webhook-handler.md).
+1. [Publish events](webhook-handler.md).
 
 Here are more resources that you can use:
 
-* [Client SDKs](../sdk-overview.md#data-plane-sdks).
-* [Publish events examples using the client SDKs](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/).
+* [Data plane SDKs](../sdk-overview.md#data-plane-sdks).
+* [Publish events examples using the Data plane SDKs](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/).
 * [Event Grid CLI](/cli/azure/eventgrid).
 * [Management SDKs](../sdk-overview.md#management-sdks).
