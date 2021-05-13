@@ -49,9 +49,6 @@ Next, use the Logic Apps storage calculator:
     
     You can see estimated operation counts by run and by month in the two tables. The following operations are shown:
 
-    > [!NOTE]
-    > Blob storage estimations are currently unavailable. For now, you can still use the calculator to estimate [queue storage](#estimate-queue-operations-costs) and [table storage](#estimate-table-operations-costs).
-
     * **Blob (read)**, for Azure Blob Storage read operations.
     * **Blob (write)**, for Azure Blob Storage write operations.
     * **Queue**, for Azure Queues Queue Class 2 operations.
@@ -65,10 +62,7 @@ Next, use the Logic Apps storage calculator:
 
 After you've [calculated your Logic Apps storage needs](#estimate-storage-needs), you can estimate your possible monthly storage costs. You can estimate prices for the following storage operation types:
 
-> [!NOTE]
-> Blob storage estimations are currently unavailable. For now, you can still use the calculator to estimate [queue storage](#estimate-queue-operations-costs) and [table storage](#estimate-table-operations-costs).
-
-* [Blob storage  read and write operations](#estimate-blob-storage-operations-costs)
+* [Blob storage read and write operations](#estimate-blob-storage-operations-costs)
 * [Queue storage operations](#estimate-queue-operations-costs)
 * [Table storage operations](#estimate-table-operations-costs)
 
