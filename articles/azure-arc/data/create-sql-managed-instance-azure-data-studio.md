@@ -1,6 +1,6 @@
 ---
-title: Create Azure SQL managed instance using Azure Data Studio
-description: Create Azure SQL managed instance using Azure Data Studio
+title: Create Azure SQL Managed Instance using Azure Data Studio
+description: Create Azure SQL Managed Instance using Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Create SQL managed instance - Azure Arc using Azure Data Studio
+# Create SQL Managed iInstance - Azure Arc using Azure Data Studio
 
-This document walks you through the steps for installing Azure SQL managed instance - Azure Arc using Azure Data Studio
+This document walks you through the steps for installing Azure SQL Managed Instance - Azure Arc using Azure Data Studio
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -38,18 +38,18 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-## Create Azure SQL managed instance on Azure Arc
+## Create Azure SQL Managed Instance on Azure Arc
 
 - Launch Azure Data Studio
 - On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
-- From the deployment options, select **Azure SQL managed instance - Azure Arc** 
+- From the deployment options, select **Azure SQL Managed Instance - Azure Arc** 
   > [!NOTE]
   > You may be prompted to install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] here if it is not currently installed.
 - Accept the Privacy and license terms and click **Select** at the bottom
 
 
 
-- In the Deploy Azure SQL managed instance - Azure Arc blade, enter the following information:
+- In the Deploy Azure SQL Managed Instance - Azure Arc blade, enter the following information:
   - Enter a name for the SQL Server instance
   - Enter and confirm a password for the SQL Server instance
   - Select the storage class as appropriate for data
@@ -57,18 +57,18 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 - Click the **Deploy** button
 
-- This should initiate the creation of the Azure SQL managed instance - Azure Arc on the data controller.
+- This should initiate the creation of the Azure SQL Managed Instance - Azure Arc on the data controller.
 
 - In a few minutes, your creation should successfully complete
 
-## Connect to Azure SQL managed instance - Azure Arc from Azure Data Studio
+## Connect to Azure SQL Managed Instance - Azure Arc from Azure Data Studio
 
 - Log in to the Azure Arc data controller, by providing the namespace, username and password for the data controller: 
 ```console
 azdata login
 ```
 
-- View all the Azure SQL managed instances provisioned, using the following commands:
+- View all the Azure SQL Managed Instances provisioned, using the following commands:
 
 ```console
 azdata arc sql mi list
@@ -90,7 +90,7 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 - Enter the password for the `sa` account
 - Optionally, enter the specific database name to connect to
 - Optionally, select/Add New Server Group as appropriate
-- Select **Connect** to connect to the Azure SQL managed instance - Azure Arc
+- Select **Connect** to connect to the Azure SQL Managed Instance - Azure Arc
 
 
 
