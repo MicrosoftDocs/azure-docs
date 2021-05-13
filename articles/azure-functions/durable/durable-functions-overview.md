@@ -21,7 +21,7 @@ Durable Functions currently supports the following languages:
 * **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
 * **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **PowerShell**: support for Durable Functions is currently in public preview. Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.2.2 of the Durable Functions extension, or a later version. Only the following patterns are currently supported: [Function chaining](#chaining), [Fan-out/fan-in](#fan-in-out), [Async HTTP APIs](#async-http).
+* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
 
 To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
 
