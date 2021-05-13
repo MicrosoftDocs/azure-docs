@@ -66045,8 +66045,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
-      "redirect_url": "/azure/articles/machine-learning/how-to-setup-vs-code",
+      "source_path_from_root": "/articles/machine-learning/how-to-setup-vs-code.md",
+      "redirect_url": "/azure/articles/machine-learning/tutorial-setup-vscode-extension",
       "redirect_document_id": false
     }
   ]
