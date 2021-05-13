@@ -1,6 +1,6 @@
 ---
-title: Connect single-tenant workflows and private endpoints on virtual networks
-description: Set up private endpoint access between single-tenant logic app workflows and virtual networks, and storage accounts.
+title: Secure traffic between single-tenant workflows and virtual networks
+description: Secure traffic between virtual networks, storage accounts, and single-tenant workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -10,59 +10,54 @@ ms.date: 05/13/2021
 # As a developer, I want to connect to my single-tenant workflows from virtual networks using private endpoints.
 ---
 
-# Secure access between virtual networks and single-tenant workflows in Azure Logic Apps using private endpoints (preview)
+# Secure traffic between virtual networks and single-tenant workflows in Azure Logic Apps using private endpoints (preview)
 
-To securely and privately communicate between your logic app workflow and a virtual network, you can set up a *private endpoint* that makes this communication possible, inbound or outbound.
+To securely and privately communicate between your logic app workflow and a virtual network, you can set up *private endpoints* for inbound traffic and use virtual network integration for outbound traffic.
 
-A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. This service can be an Azure service such as Azure Logic Apps, Azure Storage, Azure Cosmos DB, SQL, or your own Private Link Service. The private endpoint uses a private IP address from your virtual network, which effectively brings the service into your virtual network.
+A private endpoint is a network interface that privately and securely connects to a service powered by Azure Private Link. This service can be an Azure service such as Azure Logic Apps, Azure Storage, Azure Cosmos DB, SQL, or your own Private Link Service. The private endpoint uses a private IP address from your virtual network, which effectively brings the service into your virtual network.
 
-This article shows how to set up a logic app workflow with a callable endpoint, add a private endpoint to your virtual network, and make test calls to check access to the endpoint. To call your logic app workflow after you set up this endpoint, you must be connected to the virtual network.
+This article shows how to set up access through private endpoints for inbound traffic, outbound traffic, and connection to storage accounts.
 
 For more information, review the following documentation:
 
-- [What is an Azure Private Endpoint?](../private-link/private-endpoint-overview.md)
+- [What is Azure Private Endpoint?](../private-link/private-endpoint-overview.md)
+
+- [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 - [What is single-tenant logic app workflow in Azure Logic Apps?](single-tenant-overview-compare.md)
 
 ## Prerequisites
 
-* A new or existing Azure virtual network that includes a subnet without any delegations.
+A new or existing Azure virtual network that includes a subnet without any delegations.
 
-  This subnet is used to deploy and allocate private IP addresses from the virtual network.
+This subnet is used to deploy and allocate private IP addresses from the virtual network.
 
-  For more information, review the following documentation:
+For more information, review the following documentation:
 
-  * [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+* [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
-  * [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
+* [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
 
-  * [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+* [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
-* A new or existing single-tenant based logic app workflow that starts with the Request trigger.
+<a name="set-up-inbound"></a>
 
-  The Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow.
+## Set up inbound traffic through private endpoints
 
-  For more information, review the following documentation:
+To secure inbound traffic to your workflow, use the Request trigger to start your workflow and . This trigger creates a 
+start your worklfow set up a logic app workflow with a callable endpoint, add a private endpoint to your virtual network, and make test calls to check access to the endpoint. To call your logic app workflow after you set up this endpoint, you must be connected to the virtual network.
 
-  * [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azur-portal.md)
+### Prerequisites for inbound traffic through private endpoints
 
-  * [Receive and respond to inbound HTTP requests using Azure Logic Apps](../connectors/connectors-native-reqres.md)
+You need to have a new or existing single-tenant based logic app workflow that starts with the Request trigger.
 
-## Secure inbound traffic
+The Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow.
 
-### Considerations
+For more information, review the following documentation:
 
-* You can call Request triggers and webhook triggers only from inside your virtual network.
+* [Create single-tenant logic app workflows in Azure Logic Apps](create-single-tenant-workflows-azur-portal.md)
 
-* Managed API webhook triggers and actions won't work because they require a public endpoint to receive calls. 
-
-* If accessing from outside your virtual network, monitoring view won't have access to the inputs and outputs from triggers and actions.
-
-* Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code. 
-
-  For GitHub integration to work, remove the `WEBSITE_RUN_FROM_PACKAGE` setting from your logic app or set the value to `0`.
-
-* Enabling Private Link doesn't affect outbound traffic, which still flows through the App Service infrastructure.
+* [Receive and respond to inbound HTTP requests using Azure Logic Apps](../connectors/connectors-native-reqres.md)
 
 ### Create the workflow
 
@@ -104,19 +99,56 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 1. To make sure the connection is working correctly, create a virtual machine in the same virtual network that has the private endpoint, and try calling the logic app workflow.
 
-## Secure outbound traffic
+### Considerations for inbound traffic through private endpoints
 
-## Secure access to storage account
+* You can call Request triggers and webhook triggers only from inside your virtual network.
 
-You can restrict storage account access so that only resources inside a virtual network have access. Azure Storage supports adding private endpoints to your storage account. That way, logic app workflows can communicate privately and securely with the storage account through the private endpoint. For more information, review the [Use private endpoints for Azure Storage documentation](../storage/common/storage-private-endpoints.md).
+* Managed API webhook triggers and actions won't work because they require a public endpoint to receive calls. 
 
-In your logic app settings, point the `AzureWebJobsStorage` setting at the connection string for the storage account that has the private endpoints by choosing one of these options:
+* If accessed from outside your virtual network, monitoring view can't access the inputs and outputs from triggers and actions.
+
+* Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code. 
+
+  For GitHub integration to work, remove the `WEBSITE_RUN_FROM_PACKAGE` setting from your logic app or set the value to `0`.
+
+* Enabling Private Link doesn't affect outbound traffic, which still flows through the App Service infrastructure.
+
+<a name="set-up-outbound"></a>
+
+## Set up outbound traffic through private endpoints
+
+To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. By default, outbound traffic from your logic app is only affected by network security groups (NSGs) and user-defined routes (UDRs) when going to a private address, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. However, by routing all outbound traffic through your own virtual network, you can subject all outbound traffic to NSGs, routes, and firewalls. To make sure that all outbound traffic is affected by the NSGs and UDRs on your integration subnet, set the logic app setting, `WEBSITE_VNET_ROUTE_ALL` to `1`.
+
+> [!IMPORTANT]
+> For the Logic Apps runtime to work, you need to have an uninterrupted connection to 
+> the backend storage. For Azure-hosted managed connectors to work, you need to have 
+> an uninterrupted connection to the managed API service.
+
+To make sure that your logic app uses private domain name server (DNS) zones in your virtual network, set WEBSITE_DNS_SERVER to 168.63.129.16 to ensure your app uses private DNS zones in your vNET
+
+### Considerations for outbound traffic through private endpoints
+
+Setting up virtual network integration doesn't affect inbound traffic, which continues to use the App Service shared endpoint. To secure inbound traffic, review [Set up inbound traffic through private endpoints](#set-up-inbound).
+
+For more information, review the following documentation:
+
+- [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+- [Network security groups](../virtual-network/network-security-groups-overview.md)
+- [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md)
+
+## Connect to storage account with private endpoints
+
+You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Logic app workflows can then use these endpoints to communicate with the storage account.
+
+In your logic app settings, set `AzureWebJobsStorage` to the connection string for the storage account that has the private endpoints by choosing one of these options:
 
 * **Azure portal**: On your logic app menu, select **Configuration**. Update the `AzureWebJobsStorage` setting with the connection string for the storage account.
 
 * **Visual Studio Code**: In your project root-level **local.settings.json** file, update the `AzureWebJobsStorage` setting with the connection string for the storage account.
 
-### Checklist
+ For more information, review the [Use private endpoints for Azure Storage documentation](../storage/common/storage-private-endpoints.md).
+
+### Considerations for private endpoints on storage accounts
 
 * Create different private endpoints for each of the Table, Queue, and Blob storage services.
 
@@ -124,13 +156,14 @@ In your logic app settings, point the `AzureWebJobsStorage` setting at the conne
 
   `"WEBSITE_VNET_ROUTE_ALL": "1"`
 
-* To make sure that your logic app uses private domain name server (DNS) zones in your virtual network, set the the `WEBSITE_DNS_SERVER` setting to `168.63.129.16`.
+* To make your logic app use private domain name server (DNS) zones in your virtual network, set the the `WEBSITE_DNS_SERVER` setting to `168.63.129.16`.
 
-* Unless you are also using private endpoints, deploy your workflow from Visual Studio Code and set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`. If you use private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+* You need to have a separate publicly accessible storage account when you deploy your logic app. Make sure that you set the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for that storage account.
 
-* You need a separate publicly accessible storage account when you deploy your logic ap. Make sure that you set the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for that storage account.
+* If your logic app uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+
+  If your logic app doesn't use private endpoints, you can deploy from Visual Studio Code and set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`. 
 
 ## Next steps
 
 * [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
-* []
