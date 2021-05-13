@@ -1,6 +1,6 @@
 ---
 title: Set up DevOps for single-tenant Azure Logic Apps (preview)
-description: Learn to set up DevOps deployment for workflows in single-tenant Azure Logic Apps (preview).
+description: How to set up DevOps deployment for workflows in single-tenant Azure Logic Apps (preview).
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -30,11 +30,11 @@ This article shows how to deploy a single-tenant based logic app project from Vi
 
 If you don't already have a logic app project or infrastructure set up, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
 
-- [GitHub sample for Logic Apps (single-tenant)](https://github.com/Azure/logicapps/tree/master/github-sample)
+- [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
   This sample includes an example logic app project for single-tenant Azure Logic Apps plus examples for Azure deployment and GitHub Actions.
 
-- [Azure DevOps sample for Logic Apps (single-tenant)](https://github.com/Azure/logicapps/tree/master/azure-devops-sample)
+- [Azure DevOps sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample)
 
   This sample includes an example logic app project for single-tenant Azure Logic Apps plus examples for Azure deployment and Azure Pipelines.
   
@@ -112,34 +112,14 @@ After you push your logic app project to your source repository, you can set up 
 
 ### Build your project
 
-To set up a build pipeline based on your logic app project type, choose the associated option:
+To set up a build pipeline based on your logic app project type, follow the corresponding actions:
 
-:::row:::
-   :::column:::
-      **Project type**
-   :::column-end:::
-   :::column:::
-      **More information**
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      NuGet-based
-   :::column-end:::
-   :::column:::
-      The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-      Bundle-based
-   :::column-end:::
-   :::column:::
-      The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files.
-      > [!IMPORTANT]
-      > Make sure that the .zip file includes all workflow folders, configuration files such as host.json, connections.json, and any other related files.
-   :::column-end:::
-:::row-end:::
+* Nuget-based: The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation.
+
+* Bundle-based: The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files.
+
+  > [!IMPORTANT]
+  > Make sure that the .zip file includes all workflow folders, configuration files such as host.json, connections.json, and any other related files.
 
 ### Release to Azure
 
@@ -191,7 +171,7 @@ For more information, review the [Deploy an Azure Function using Azure Pipelines
 
 #### [Azure CLI](#tab/azure-cli)
 
-If you use other deployment tools, you can deploy your logic app by using the single-tenant Logic Apps Azure CLI commands. For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
+If you use other deployment tools, you can deploy your logic app by using the Azure CLI commands for single-tenant Azure Logic Apps. For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
 
 `az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip`
 

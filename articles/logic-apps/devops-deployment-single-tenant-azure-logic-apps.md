@@ -20,7 +20,7 @@ This article provides an introduction and overview about the current continuous 
 
 ## Single-tenant versus multi-tenant
 
-In the original multi-tenant Logic Apps, resource deployment is based on Azure Resource Manager (ARM) templates, which combine and handle resource provisioning for both logic apps and infrastructure. In single-tenant Logic Apps, deployment becomes easier because you can use separate provisioning between apps and infrastructure.
+In the original multi-tenant Logic Apps, resource deployment is based on Azure Resource Manager (ARM) templates, which combine and handle resource provisioning for both logic apps and infrastructure. In single-tenant Azure Logic Apps, deployment becomes easier because you can use separate provisioning between apps and infrastructure.
 
 When you create logic apps using the **Logic App (Preview)** resource type, your workflows are powered by the redesigned Azure Logic Apps (Preview) runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) extensibility and is [hosted as an extension on the Azure Functions runtime](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564). This design provides portability, flexibility, and more performance for your logic apps plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
@@ -34,7 +34,7 @@ By using standard build and deploy options, you can focus on app development sep
 
 ## DevOps deployment capabilities
 
-Single-tenant Logic Apps inherits many capabilities and benefits from the Azure Functions platform and Azure App Service ecosystem. These updates include a whole new deployment model and more ways to use DevOps for your logic app workflows.
+single-tenant Azure Logic Apps inherits many capabilities and benefits from the Azure Functions platform and Azure App Service ecosystem. These updates include a whole new deployment model and more ways to use DevOps for your logic app workflows.
 
 <a name="local-development-testing"></a>
 
@@ -56,7 +56,7 @@ The single-tenant model gives you the capability to separate the concerns betwee
 
 ### Resource structure
 
-Single-tenant Logic Apps introduces a new resource structure where your logic app can host multiple workflows. This structure differs from the multi-tenant version where you have a 1:1 mapping between logic app resource and workflow. With this 1-to-many relationship, workflows in the same logic app can share and reuse other resources. Plus, these workflows also benefit from improved performance due to shared tenancy and proximity to each other.
+Single-tenant Azure Logic Apps introduces a new resource structure where your logic app can host multiple workflows. This structure differs from the multi-tenant version where you have a 1:1 mapping between logic app resource and workflow. With this 1-to-many relationship, workflows in the same logic app can share and reuse other resources. Plus, these workflows also benefit from improved performance due to shared tenancy and proximity to each other.
 
 This resource structure looks and works similarly to Azure Functions where a function app can host many functions. If you're working in a logic app project within Visual Studio Code, your project folder and file structure looks like the following example:
 
@@ -93,7 +93,7 @@ At your project's root level, you can find the following files and folders, alon
 | workflow-designtime | Folder | Contains development environment-related settings files. |
 | .funcignore | File | Review [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md) |
 | connections.json | File | Contains the metadata, endpoints, and keys for any managed connections and Azure functions that your workflows use. <p><p>**Important**: To use different connections and functions for each environment, make sure that you parameterize this **connections.json** file and update the endpoints. |
-| host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Logic Apps service, logic apps, workflows, triggers, and actions. |
+| host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Azure Logic Apps platform, logic apps, workflows, triggers, and actions. |
 | local.settings.json | File | Contains settings for your logic app that become app settings after deployment. **(TODO: CONFIRM ACCURACY)** |
 | SharedCode | Folder | **(TODO: MORE INFO REQUIRED HERE)** |
 | Dockerfile | Folder | Contains one or more Dockerfiles to use for deploying the logic app as a container. |
@@ -101,13 +101,13 @@ At your project's root level, you can find the following files and folders, alon
 
 For example, to create custom built-in operations, you must have a NuGet based project, not an extension bundle-based project. A NuGet-based project includes a .bin folder that contains packages and other library files that your app needs, while a bundle-based project doesn't include this folder and files. For more information about converting your project to use NuGet, review [Enable built-connector authoring](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
-For more information and best practices about how to best organize workflows in your logic app, performance, and scaling, review the similar [guidance for Azure Functions](../azure-functions/functions-best-practices.md) that you can generally apply to single-tenant Logic Apps.
+For more information and best practices about how to best organize workflows in your logic app, performance, and scaling, review the similar [guidance for Azure Functions](../azure-functions/functions-best-practices.md) that you can generally apply to single-tenant Azure Logic Apps.
 
 <a name="deployment-containers"></a>
 
 ### Container deployment
 
-Single-tenant Logic Apps supports deployment to containers, which means that you can containerize your logic app workflows and run them anywhere that containers can run. After you containerize your app, deployment works mostly the same as any other container you deploy and manage.
+Single-tenant Azure Logic Apps supports deployment to containers, which means that you can containerize your logic app workflows and run them anywhere that containers can run. After you containerize your app, deployment works mostly the same as any other container you deploy and manage.
  
 For examples that include Azure DevOps, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/). For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container from Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
 
@@ -117,13 +117,13 @@ For examples that include Azure DevOps, review [CI/CD for Containers](https://az
 
 In multi-tenant Logic Apps, maintaining environment variables for logic apps across poses a challenge across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
-In the single-tenant Logic Apps service, you can call and reference your environment variables at runtime by using app settings and parameters, so you don't have to redeploy as often.
+In single-tenant Azure Logic Apps, you can call and reference your environment variables at runtime by using app settings and parameters, so you don't have to redeploy as often.
 
 <a name="managed-connectors-built-in-operations"></a>
 
 ## Managed connectors and built-in operations
 
-The Azure Logic Apps ecosystem provides [hundreds of Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and built-in operations as part of a constantly growing collection that you can use in the single-tenant Logic Apps service. The way that Microsoft maintains these connectors and built-in operations stays mostly the same in single-tenant Logic Apps.
+The Azure Logic Apps ecosystem provides [hundreds of Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and built-in operations as part of a constantly growing collection that you can use in the single-tenant Logic Apps service. The way that Microsoft maintains these connectors and built-in operations stays mostly the same in single-tenant Azure Logic Apps.
 
 The most significant improvement is that the single-tenant service makes more popular managed connectors also available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
 
@@ -214,7 +214,7 @@ To call functions created and hosted in Azure Functions, you use the built-in Az
 
 In the single-tenant Logic Apps service, the hosting model for logic app workflows is a single tenant where your workloads benefit from more isolation than in the multi-tenant version. Plus, the service runtime is portable, which means you can run your workflows anywhere that Azure Functions can run. Still, this design requires a way for logic apps to authenticate their identity so they can access the managed connector ecosystem in Azure. Your apps also need the correct permissions to run operations when using managed connections.
 
-By default, each single-tenant logic app has an automatically enabled system-assigned managed identity. This identity differs from the authentication credentials or connection string used for creating a connection. At runtime, your logic app uses this identity to authenticate its connections through Azure access policies. If you disable this identity, connections won't work at runtime.
+By default, each single-tenant based logic app has an automatically enabled system-assigned managed identity. This identity differs from the authentication credentials or connection string used for creating a connection. At runtime, your logic app uses this identity to authenticate its connections through Azure access policies. If you disable this identity, connections won't work at runtime.
 
 The following sections provide more information about the authentication types that you can use to authenticate managed connections, based on where your logic app runs. For each managed connection, your logic app project's connections.json file has an `authentication` object that specifies the authentication type that your logic app can use to authenticate that managed connection.
 
