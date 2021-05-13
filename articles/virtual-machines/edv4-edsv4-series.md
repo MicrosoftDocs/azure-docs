@@ -73,6 +73,8 @@ Edsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
 
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes and information
