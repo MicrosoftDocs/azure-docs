@@ -247,17 +247,17 @@ The possible uses of list* are shown in the following table.
 | Microsoft.Web/customApis | listWsdlInterfaces |
 | microsoft.web/locations | listwsdlinterfaces |
 | microsoft.web/apimanagementaccounts/apis/connections | listconnectionkeys |
-| microsoft.web/apimanagementaccounts/apis/connections | listsecrets |
+| microsoft.web/apimanagementaccounts/apis/connections | `listSecrets` |
 | microsoft.web/sites/backups | [list](/rest/api/appservice/webapps/listbackups) |
 | Microsoft.Web/sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
 | microsoft.web/sites/functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
-| microsoft.web/sites/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
+| microsoft.web/sites/functions | [listSecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
-| microsoft.web/sites/slots/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
+| microsoft.web/sites/slots/functions | [listSecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 | microsoft.web/sites/slots/backups | [list](/rest/api/appservice/webapps/listbackupsslot) |
 | Microsoft.Web/sites/slots/config | [list](/rest/api/appservice/webapps/listconfigurationsslot) |
-| microsoft.web/sites/slots/functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
+| microsoft.web/sites/slots/functions | [listSecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
 To determine which resource types have a list operation, you have the following options:
 
@@ -301,7 +301,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a `list` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the `list` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
 ### List example
 
@@ -345,7 +345,7 @@ Determines whether a resource type supports zones for a region.
 | providerNamespace | Yes | string | The resource provider namespace for the resource type to check for zone support. |
 | resourceType | Yes | string | The resource type to check for zone support. |
 | location | Yes | string | The region to check for zone support. |
-| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
+| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must be a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
 | offset | No | integer | The offset from the starting logical zone. The function returns an error if offset plus numberOfZones exceeds the number of supported zones. |
 
 ### Return value
@@ -442,7 +442,7 @@ Every resource type returns different properties for the reference function. The
 
 The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios.
 
-Typically, you use the **reference** function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
+Typically, you use the `reference` function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
 
 ```json
 "outputs": {
@@ -489,9 +489,9 @@ The reference function can only be used in the properties of a resource definiti
 
 You can't use the reference function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the reference function is resolved.
 
-To use the reference function or any list* function in the outputs section of a nested template, you must set the  ```expressionEvaluationOptions``` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
+To use the `reference` function or any `list*` function in the outputs section of a nested template, you must set the `expressionEvaluationOptions` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
 
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the `reference` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the `reference` function refers to a resource that doesn't exist. Use the `if` function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Implicit dependency
 
@@ -786,7 +786,7 @@ If you use resourceId while deploying to a management group or tenant, the resou
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-To avoid confusion, we recommend that you not use resourceId when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
+To avoid confusion, we recommend that you don't use `resourceId` when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
 
 For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
 
