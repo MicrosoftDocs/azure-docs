@@ -16,11 +16,14 @@ If you would like Media Services to encrypt data using a key from your Key Vault
 
 ## Sign in to Azure
 
+To use any of the commands in this article you first have to be logged in to the subscription that you want to use.
+
+
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
 ## Resource names
 
-Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. For example, "myMediaTestRG" for your resource group and "myMediaTestStorageAccount".  The names of resources you'll need are:
+Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "media-test1-rg" for your resource group and "media-test1-stor".  The names of resources you'll need are:
 
 - your-resource-group-name
 - your-storage-account-name
@@ -29,7 +32,17 @@ Before you get started, decide on the names of the resources you will create.  T
 - your-key-name
 - your-region
 
-You'll see these names referenced in the commands below. Use the same names for each step.
+You'll see these names referenced in the commands below. It is not required to use hyphens.  However, use the same names for each step in this article.
+
+### List Azure regions
+
+If you are not sure of what the region name is for the API, use this command to get a listing.
+
+```azurecli-interactive
+
+[!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
+
+```
 
 ## Create a resource group
 
