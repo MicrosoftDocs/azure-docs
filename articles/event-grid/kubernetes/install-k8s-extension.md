@@ -4,7 +4,7 @@ description: This article provides steps to install Event Grid on Azure Arc enab
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/25/2021
+ms.date: 05/11/2021
 ms.topic: how-to
 ---
 
@@ -80,17 +80,27 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 1. **Storage size**. Default is 1 GiB. Consider the ingestion rate when determining the size of your storage. Ingestion rate in MiB/second measured as the size of your events times the publishing rate (events per second) across all topics on the Event Grid broker is a key factor when allocating storage. Events are transient in nature and once they are delivered, there is no storage consumption for those events. While ingestion rate is a main driver for storage use, it is not the only one. Metadata holding topic and event subscription configuration also consumes storage space, but that normally requires a lower amount of storage space than the events ingested and being delivered by Event Grid.
 1. **Memory limit**. Default is 1 GiB. 
 1. **Memory request**. Default is 200 MiB. This field is not editable.
-1. Select **Configuration** at the bottom of the page.
+
+    :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page" lightbox="./media/install-k8s-extension/basics-page.png":::
+1. Select **Next: Configuration** at the bottom of the page.
 1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients that communicate with the Event Grid broker.
 
     > [!IMPORTANT]
     > Enabling this option will make that all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid broker won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
 1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
-1. Select the **Monitoring** at the bottom of the page.
+
+    :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page" lightbox="./media/install-k8s-extension/configuration-page.png":::
+1. Select the **Next: Monitoring** at the bottom of the page.
 1. **Enable metrics** by checking this option. Event Grid on Kubernetes exposes metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).
-1. Select **Tags** to define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
-1. Select **Review + Install** at the bottom of the page.
-1. On the **Review + Install** tab, select **Install**.
+
+    :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page" lightbox="./media/install-k8s-extension/monitoring-page.png":::    
+1. Select **Next: Tags** to navigate to the **Tags** page. Define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
+
+    :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page" lightbox="./media/install-k8s-extension/tags-page.png":::
+1. Select **Review + create** at the bottom of the page.
+1. On the **Review + create** tab, select **Create**.
+    
+    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page" lightbox="./media/install-k8s-extension/review-create-page.png":::   
     
     > [!IMPORTANT]
     > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure Portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
