@@ -125,7 +125,7 @@ az ml endpoint show --name mybatchedp --type batch
 
 ## Start a batch scoring job using CLI
 
-A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in paralle. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
+A batch scoring workload runs as an offline job. Batch scoring is designed to process large data. Inputs are processed in parallel on the compute cluster. A data partition is assigned to a process on a node. A single node with multiple processes will have multiple partitions run in parallel. By default, batch scoring stores the scoring outputs in blob storage. You can start a batch scoring job using CLI by passing in the data inputs. You can also configure the outputs location and overwrite some of the settings to get the best performance.
 
 ### Start a bath scoring job with different inputs options
 
@@ -181,7 +181,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, andd `logging_level`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, and `logging_level`.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -248,7 +248,7 @@ More deployment attributes for the non-MLflow model:
 | --- | ----------- |
 | code_configuration.code.local_path | The directory that contains all the source code to score the model. |
 | code_configuration.scoring_script | The python file in the above directory. This file must have an `init()` function and a `run()` function. Use the `init()` function for any costly or common preparation. For example, use it to load the model into a global object. This function will be called only once at beginning of process. Use `run(mini_batch)` to score each entry; the value of `mini_batch` is a list of file paths. The `run()` method should return a pandas `DataFrame` or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in your run result to map the input to a specific run output result. Run output will be written in output file and is not guaranteed to be in order, so you should use some key in the output to map it to the correct input. |
-| environment | The environment to score the model on the compute target. You can define the environment inline by specifying the name, version and path. Use `conda_file` to include dependencies that will be installed on top of `docker.image`. Use the `azureml:` prefix to reference an existing environment. For instance, `azureml: mnist-env:1` would point to version 1 of an environment named `mnist-env`. |
+| environment | The environment to score the model on the compute target. You can define the environment inline by specifying the name, version, and path. Use `conda_file` to include dependencies that will be installed on top of `docker.image`. Use the `azureml:` prefix to reference an existing environment. For instance, `azureml: mnist-env:1` would point to version 1 of an environment named `mnist-env`. |
 
 To review the details of your deployment, run:
 
