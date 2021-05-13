@@ -31,7 +31,7 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
-        - name: Use automatic source language detection
+        - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
