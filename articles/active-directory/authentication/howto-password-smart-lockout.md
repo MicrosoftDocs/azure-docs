@@ -21,7 +21,7 @@ Smart lockout helps lock out bad actors that try to guess your users' passwords 
 
 ## How smart lockout works
 
-By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period grows over additional unsuccessful sign-in attempts.
+By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts (Azure US Gov is 3). The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period grows over additional unsuccessful sign-in attempts.
 
 Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
 
@@ -70,7 +70,7 @@ To check or modify the smart lockout values for your organization, complete the 
 1. Search for and select *Azure Active Directory*, then select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout.
 
-    The default is 10.
+    The default is 10 (Azure US Gov is 3).
 
 1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout.
 
