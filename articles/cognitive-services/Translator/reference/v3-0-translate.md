@@ -34,7 +34,7 @@ Request parameters passed on the query string are:
 | Query parameter | Description |
 | --- | --- |
 | api-version | _Required parameter_.  <br>Version of the API requested by the client. Value must be `3.0`. |
-| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](./v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
+| to  | _Required parameter_.  <br>Specifies the language of the output text. The target language must be one of the [supported languages](./reference/v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.  <br>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian. |
 
 ### Optional parameters
 
@@ -46,7 +46,7 @@ Request parameters passed on the query string are:
 
 | Query parameter | Description |
 | --- | --- |
-| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](./v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](/azure/cognitive-services/translator/dynamic-dictionary) feature. |
+| from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](/azure/cognitive-services/translator/dynamic-dictionary) feature. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
 | category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator [project details](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details) to this parameter to use your deployed customized system. Default value is: `general`. |
 | profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
