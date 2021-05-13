@@ -16,3 +16,19 @@ Change the `your-region` value to the geographic region that will be used to sto
 ```azurecli-interactive
 az group create --name your-resource-group-name --location your-region
 ```
+
+The command returns:
+
+```json
+{
+  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name",
+  "location": "your-region",
+  "managedBy": null,
+  "name": "your-resource-group-name",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+```
