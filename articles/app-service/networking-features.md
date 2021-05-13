@@ -21,7 +21,7 @@ There are two main deployment types for Azure App Service:
 The features you use will depend on whether you're in the multitenant service or in an ASE. 
 
 > [!NOTE]
-> Networking features are not available for apps deployed in Azure Arc.
+> Networking features are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
 ## Multitenant App Service networking features 
 
