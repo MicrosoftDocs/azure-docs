@@ -129,7 +129,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 - Managed identity
     -  Use managed identities to access secured resources from scoring script
 
-:::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
+:::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 - View costs 
     - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
