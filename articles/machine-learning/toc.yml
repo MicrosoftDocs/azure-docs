@@ -465,7 +465,7 @@
           - name: Batch
             items:
             - name: Safe rollout for online endpoints
-              href: tutorial-safe-rollout-online-endpoints.md
+              href: how-to-safely-rollout-managed-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
