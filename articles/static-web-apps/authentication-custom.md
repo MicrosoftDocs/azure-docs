@@ -35,29 +35,34 @@ The following tables contain the different configuration options for each provid
 # [Azure Active Directory](#tab/aad)
 
 | Field Path                             | Description                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                              |
-| `registration.clientIdSettingName`     | The name of an application setting that is configured with the Application (client) ID for the Azure AD app registration. |
-| `registration.clientSecretSettingName` | The name of the application setting that is configured with a client secret for the Azure AD app registration.            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                  |
+| `registration.clientIdSettingName`     | The name of the application setting containing the Application (client) ID for the Azure AD app registration. |
+| `registration.clientSecretSettingName` | The name of the application setting containing the client secret for the Azure AD app registration.           |
 
 ```json
 {
   "auth": {
-    "azureActiveDirectory": {
-      "registration": {
-        "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-        "clientIdSettingName": "<AAD_CLIENT_ID>",
-        "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
+          "clientIdSettingName": "<AAD_CLIENT_ID>",
+          "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+        }
       }
     }
   }
 }
 ```
 
-Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 then you need to add the following entry to your configuration.
+Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 (the issuer endpoint does not end with "/v2.0"), then you need to add the following `userDetailsClaim` entry to your configuration in the `"azureActiveDirectory"` object.
 
 ```json
-"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+"azureActiveDirectory": {
+  "registration": { ... },
+  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+}
 ```
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
@@ -66,16 +71,18 @@ For more information on how to configure Azure Active Directory, see the [App Se
 
 | Field Path                             | Description                                                                                  |
 | -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                       |
+| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                                   |
 
 ```json
 {
   "auth": {
-    "apple": {
-      "registration": {
-        "clientIdSettingName": "<APPLE_CLIENT_ID>",
-        "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "apple": {
+        "registration": {
+          "clientIdSettingName": "<APPLE_CLIENT_ID>",
+          "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -88,17 +95,18 @@ For more information on how to configure Apple as an authentication provider, se
 
 | Field Path                          | Description                                                                            |
 | ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting for the App ID.                                    |
-| `registration.appId`                | The value of the App ID. This value can be used as an alternative to the `appIdSettingName`. |
-| `registration.appSecretSettingName` | The name pf the application setting for the App Secret.                                |
+| `registration.appIdSettingName`     | The name of the application setting containing the App ID.                             |
+| `registration.appSecretSettingName` | The name of the application setting containing the App Secret.                         |
 
 ```json
 {
   "auth": {
-    "facebook": {
-      "registration": {
-        "appIdSettingName": "<FACEBOOK_APP_ID>",
-        "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+    "identityProviders": {
+      "facebook": {
+        "registration": {
+          "appIdSettingName": "<FACEBOOK_APP_ID>",
+          "appSecretSettingName": "<FACEBOOK_APP_SECRET>"
+        }
       }
     }
   }
@@ -111,16 +119,18 @@ For more information on how to configure Facebook as an authentication provider,
 
 | Field Path                             | Description                                                                                  |
 | -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                |
+| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                            |
 
 ```json
 {
   "auth": {
-    "github": {
-      "registration": {
-        "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-        "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+    "identityProviders": {
+      "github": {
+        "registration": {
+          "clientIdSettingName": "<GITHUB_CLIENT_ID>",
+          "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -131,16 +141,18 @@ For more information on how to configure Facebook as an authentication provider,
 
 | Field Path                             | Description                                                                                  |
 | -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting for the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting for the Client Secret.                                   |
+| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                |
+| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                            |
 
 ```json
 {
   "auth": {
-    "google": {
-      "registration": {
-        "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
-        "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+    "identityProviders": {
+      "google": {
+        "registration": {
+          "clientIdSettingName": "<GOOGLE_CLIENT_ID>",
+          "clientSecretSettingName": "<GOOGLE_CLIENT_SECRET>"
+        }
       }
     }
   }
@@ -153,17 +165,18 @@ For more information on how to configure Google as an authentication provider, s
 
 | Field Path                               | Description                                                                                        |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | The name of the application setting for the Consumer Key.                                          |
-| `registration.consumerKey`               | The value of the Consumer Key. This value can be used as an alternative to the `consumerKeySettingName`. |
-| `registration.consumerSecretSettingName` | The name of the application setting for the Consumer Secret.                                       |
+| `registration.consumerKeySettingName`    | The name of the application setting containing the Consumer Key.                                   |
+| `registration.consumerSecretSettingName` | The name of the application setting containing the Consumer Secret.                                |
 
 ```json
 {
   "auth": {
-    "twitter": {
-      "registration": {
-        "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-        "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+    "identityProviders": {
+      "twitter": {
+        "registration": {
+          "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
+          "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+        }
       }
     }
   }
@@ -245,8 +258,8 @@ Authentication providers require redirect URL to complete the login or logout re
 
 | Type   | URL pattern                                                 |
 | ------ | ----------------------------------------------------------- |
-| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME>/callback`  |
-| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME>/callback` |
+| Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
+| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
