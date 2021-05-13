@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/25/2021
 ---
 
 # Create parameters for values that change in workflows across environments for single-tenant Azure Logic Apps
@@ -40,9 +40,9 @@ To reference parameters in your trigger or action inputs, use the expression `@p
 > [!IMPORTANT]
 > Make sure that you also include any parameters that you reference in your **parameters.json** file.
 
-In *single-tenant* Azure Logic Apps, you can parameterize different parts of your **connections.json** file. You can then check your **connections.json** file into source control, and then manage any connections through your **parameters.json** file. To parameterize your **connections.json** file, replace the values for literals, such as `ConnectionRuntimeUrl`, with a single `parameters()` expression, for example, `@parameters('api-runtimeUrl').
+In *single-tenant* Azure Logic Apps, you can parameterize different parts of your **connections.json** file. You can then check your **connections.json** file into source control, and then manage any connections through your **parameters.json** file. To parameterize your **connections.json** file, replace the values for literals, such as `ConnectionRuntimeUrl`, with a single `parameters()` expression, for example, `@parameters('api-runtimeUrl')`.
 
-You can also parameterize complex objects, such as the `authentication` JSON object. For example, replace the `authentication` object value with a string that holds a single parameters expression, such as `@parameters('api-auth')`). 
+You can also parameterize complex objects, such as the `authentication` JSON object. For example, replace the `authentication` object value with a string that holds a single parameters expression, such as `@parameters('api-auth')`. 
 
 > [!NOTE]
 > The only valid expression types in the **connections.json** file are `@parameters` and `@appsetting`.
@@ -75,31 +75,21 @@ The following example shows a basic parameters file:
 
 Typically, you need to manage multiple versions of parameter files. You might have targeted values for different deployment environments, such as development, testing, and production. Managing these parameter files often works like managing ARM template parameter files. When you deploy to a specific environment, you promote the corresponding parameter file, generally through a pipeline for DevOps.
 
-You can also dynamically replace parameter files using the following Azure Command Line Interface (Azure CLI) command:
-
-```azurecli
-az 
-```
-
-> [!NOTE]
-> Similar functionality for the Azure portal and Logic Apps Designer are not yet available.
-
 ## Define app settings
 
 In Azure Logic Apps, app settings contain global configuration options for all workflows in the same logic app. When you run workflows locally, these settings are accessible as local environment variables in the **local.settings.json** file. You can then reference these app settings in your parameters.
 
 To add, update, or delete app settings, review the following sections:
 
-* [ARM templates](#arm-template-app-settings)
-* [Azure portal](#azure-portal-app-settings)
-* [Azure CLI](#azure-cli-app-settings)
+* [ARM templates](#app-settings-in-an-arm-template-or-bicep-template)
+* [Azure portal](#app-settings-in-the-azure-portal)
+* [Azure CLI](#app-settings-using-azure-cli)
 
 ### App settings in an ARM template or Bicep template
 
 To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
 
-
-This example shows an ARM template file setting:
+This example shows file settings for either ARM or Bicep templates:
 
 ```json
 "appSettings": [
@@ -118,25 +108,11 @@ This example shows an ARM template file setting:
 ], 
 ```
 
-This example shows an Bicep template file setting:
-
-``` 
-appSettings: [  
-    {  
-    name: 'string'  
-    value: 'string'  
-    }  
-    <...>
-] 
-```
-
 ### App settings in the Azure portal
 
 To review the app settings for your logic app in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your single-tenant based logic app.
-[Delete]
-[Delete]
 1. On your logic app menu, under **Settings**, select **Configuration**.
 1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
 1. To view all values, select **Show Values**. Or, to view a single value, select that value.
@@ -161,7 +137,5 @@ az logicapp config appsettings list --name logicAppName --resource-group resourc
 To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name n` and `--resource-group -g` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
 
 ```azurecli
-az logicapp config appsettings set --name functionAppName \--resource-group resourcegroupName \--settings CUSTOM_LOGIC_APP_SETTING=12345 
+az logicapp config appsettings set --name functionAppName --resource-group resourceGroupName --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
-
-For samples and more information about setting up logic apps for deployment using DevOps, review **(TODO: link to DevOps doc)**.
