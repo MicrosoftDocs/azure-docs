@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins CLI command set
 
-In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command set for the [Azure CLI](/cli/azure/what-is-azure-cli)** that you can use to perform most major actions with the service, including:
+In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a command set for the [Azure CLI](/cli/azure/what-is-azure-cli) that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance
 * Managing models
 * Managing digital twins
@@ -56,7 +56,7 @@ The Azure CLI will automatically prompt you to install the extension on the firs
 Alternatively, you can use the following command to install the extension yourself at any time (or update it if it turns out that you already have an older version). The command can be run in either the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
-az extension add --upgrade -n azure-iot
+az extension add --upgrade --name azure-iot
 ```
 
 ## Next steps
