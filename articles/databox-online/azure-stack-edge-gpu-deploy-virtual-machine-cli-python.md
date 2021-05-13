@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -160,7 +160,6 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     haikunator
     msrestazure==0.6.2
     ```
-
     To install the versions, run the following command:
 
     ```powershell
@@ -281,24 +280,24 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     | Environment name | The name of the environment you are trying to connect to | Provide a name, for example, `aze-environ` |
     | Resource Manager endpoint | This URL is `https://Management.<appliancename><dnsdomain>`. <br> To get this URL, go to **Devices** page in the local web UI of your device. |For example, `https://management.team3device.teatraining1.com`.  |
     
-    ```azurecli
+    ```powershell
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.<appliance name>.<DNS domain>"
     ```
     The following shows sample usage of the above command:
     
-    ```azurecli
+    ```powershell
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
     
 4. Set the active environment by using the following commands:
 
-    ```azurecli
+    ```powershell
     az cloud set -n <EnvironmentName>
     ```
     The following shows sample usage of the above command:
 
-    ```azurecli
+    ```powershell
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.
@@ -314,14 +313,14 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
    The following shows sample usage of `az login`:
     
-    ```azurecli
+    ```powershell
     PS C:\Certificates> az login -u EdgeARMuser
     ```
    After using the login command, you are prompted for a password. Provide the Azure Resource Manager password.
 
    The following shows sample output for a successful sign-in after supplying the password:  
    
-   ```azurecli
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [
@@ -357,13 +356,13 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 5. Change the profile to version 2019-03-01-hybrid. To change the profile version, run the following command:
 
-    ```azurecli
+    ```powershell
     az cloud update --profile 2019-03-01-hybrid
     ```
 
     The following shows sample usage of `az cloud update`:
 
-    ```azurecli
+    ```powershell
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud update --profile 2019-03-01-hybrid
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```

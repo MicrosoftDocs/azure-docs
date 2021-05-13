@@ -217,7 +217,6 @@ Take the following steps to enable Container Insights on your workspace.
     }
     PS /home/alpa>
     ```
-<!--Flagged for "azurecli" labeling. Output blocks labeled "output" in azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md, which has the most Azure CLI code blocks.-->
 
 ## Configure Azure Monitor on your device
 
