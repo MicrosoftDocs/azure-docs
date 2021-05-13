@@ -63,12 +63,6 @@ landingContent:
             url: concepts/call-flows.md
   - title: UI Framework
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Get started with composites
-            url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
-          - text: Get started with UI components
-            url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
       - linkListType: concept
         links:
           - text: UI Framework overview
