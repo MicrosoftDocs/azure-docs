@@ -44,33 +44,29 @@ On your local computer:
 
 + Run `docker login` to sign in to Docker. This command fails if Docker isn't running, in which case start docker and retry the command.
 
-## Create an App Service Kubernetes environment
-
-Before you begin, you must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. When you create the environment, make sure to copy down the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
+[!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## Get the custom location
 
-To be able to create a function app in a custom location, you'll need to get information about the environment.
-
 [!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 ## Create the local function project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
+In Azure Functions, a function project is the context for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
 
     # [C\#](#tab/csharp)
 
     ```console
-    func init LocalFunctionProj --dotnet
+    func init LocalFunctionProj --dotnet --docker
     ```
     # [JavaScript](#tab/nodejs)
 
     ```console
-    func init LocalFunctionProj --javascript
+    func init LocalFunctionProj --javascript --docker
     ```
 
     # [Python](#tab/python)
@@ -94,10 +90,11 @@ In Azure Functions, a function project is a container for one or more individual
     Now, you create the project inside the virtual environment. 
     
     ```console
-    func init LocalFunctionProj --python
+    func init LocalFunctionProj --python --docker
     ```
-
     ---
+
+    The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime. 
 
 1. Navigate into the project folder:
 
@@ -112,17 +109,60 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```  
-[!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
+
+## Build the container image and test locally
+
+The Dockerfile in the project root describes the minimum required environment to run the function app in a container. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`.   
+
+The following command builds the Docker image for the container.
+
+```console
+docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
+```
+
+In this example, replace `<DOCKER_ID>` with your Docker Hub account ID. When the command completes, you can run the new container locally.
+    
+To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, with the adding the ports argument, `-p 8080:80`.
+
+```console
+docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
+```
+
+Again, replace `<DOCKER_ID` with your Docker ID and adding the ports argument, `-p 8080:80`
+
+Once the image is running in a local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the HTTP triggered function uses anonymous authorization, you can still call the function even though it's running in the container. Functions access key settings are enforced when running locally in a container. If you have problems calling the function, make sure that [access to the function](functions-bindings-http-webhook-trigger.md#authorization-keys) is set to anonymous.  
+
+After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
+
+## Push the image to Docker Hub
+
+Docker Hub is a container registry that hosts images and provides image and container services. To share your image, which includes deploying to Azure, you must push it to a registry.
+
+1. If you haven't already signed in to Docker, do so with the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, replacing `<docker_id>` with your Docker ID. This command prompts you for your username and password. A "Login Succeeded" message confirms that you're signed in.
+
+    ```console
+    docker login
+    ```
+    
+1. After you've signed in, push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command, again replacing `<docker_id>` with your Docker ID.
+
+    ```console
+    docker push <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+
+1. Depending on your network speed, pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
 
 ## Create Azure resources 
 
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two additional resources:
 
 - A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
-- A function app, which provides the context for executing your function code. A function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+- A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
->[!NOTE]
->Function apps run in an App Service Kubernetes environment on a Dedicated (App Service) plan. When you create your function app without an existing plan, a plan is created for you.  
+> [!NOTE]
+> Function apps run in an App Service Kubernetes environment on a Dedicated (App Service) plan. When you create your function app without an existing plan, a plan is created for you.  
 
 ### Create Storage account
 
@@ -132,8 +172,8 @@ Use the [az storage account create](/cli/azure/storage/account#az_storage_accoun
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
->[!NOTE]  
->A storage account is currently required by Azure Functions tooling. 
+> [!NOTE]  
+> A storage account is currently required by Azure Functions tooling. 
 
 In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
@@ -142,30 +182,45 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 Run the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command to create a new function app in the environment.
 
 # [C\#](#tab/csharp)  
-```azurecli-interactive
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime dotnet 
+```azurecli
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime dotnet --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 # [JavaScript](#tab/nodejs)  
-```azurecli-interactive
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime node --runtime-version 12
+```azurecli
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime node --runtime-version 12 --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 # [Python](#tab/python)  
-```azurecli-interactive
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime python --runtime-version 3.8
+```azurecli
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime python --runtime-version 3.8 --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
 ```
 ---
 
-In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location of the App Service Kubernetes environment (see [Prerequisites](#prerequisites)). Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
+In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
 
-[!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
+The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
+
+When you first create the function app, it pulls the initial image from your DockerHub. You can also [Enable continuous deployment to Azure](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) from  DockerHub.  
+
+To learn how to enable SSH in the image, see [Enable SSH connections](functions-create-function-linux-custom-image.md#enable-ssh-connections).
+
+### Set required app settings
+
+Run the following commands to create an app setting for the storage account connection string:
+
+```azurecli-interactive
+storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <STORAGE_NAME> --query connectionString --output tsv)
+az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
+```
+
+This code must be run either in Cloud Shell or in Bash on your local computer. Replace `<STORAGE_NAME>` with the name of the storage account and `<APP_NAME>` with the function app name.  
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
 ## Next steps
 
-Now that you have your function app running in an Arc-enabled App Service Kubernetes environment, you can extend it by connecting to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can extend it by connecting to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 

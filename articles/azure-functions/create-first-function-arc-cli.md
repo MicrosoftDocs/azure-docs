@@ -36,13 +36,7 @@ On your local computer:
 
 ---
 
-## Create an App Service Kubernetes environment
-
-Before you begin, you must [create an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. 
-
-When you create the environment, make sure to make note of both the custom location name and the resource group that contains the custom location. You can use these to find the custom location ID, which you'll need when creating the resources to run your function app in the environment. 
-
-If you didn't create the environment, check with your cluster administrator.
+[!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
@@ -54,7 +48,7 @@ To be able to create a function app in a custom location, you'll need to get inf
 
 ## Create the local function project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
+In Azure Functions, a function project is the unit of deployment and execution for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
 
@@ -115,10 +109,10 @@ In Azure Functions, a function project is a container for one or more individual
 Before you can deploy your function code to your new App Service Kubernetes environment, you need to create two additional resources:
 
 - A [Storage account](../storage/common/storage-account-create.md), which is currently required by tooling and isn't part of the environment.
-- A function app, which provides the context for executing your function code. A function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+- A function app, which provides the context for executing your function code. The function app runs in the App Service Kubernetes environment and maps to your local function project. A function app lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
->[!NOTE]
->Function apps run in an App Service Kubernetes environment on a Dedicated (App Service) plan. When you create your function app without an existing plan, a plan is created for you.  
+> [!NOTE]
+> Function apps run in an App Service Kubernetes environment on a Dedicated (App Service) plan. When you create your function app without an existing plan, the correct plan is created for you.  
 
 ### Create Storage account
 
@@ -128,8 +122,8 @@ Use the [az storage account create](/cli/azure/storage/account#az_storage_accoun
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
->[!NOTE]  
->A storage account is currently required by Azure Functions tooling. 
+> [!NOTE]  
+> A storage account is currently required by Azure Functions tooling. 
 
 In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The `--location` value is a standard Azure region. 
 
@@ -138,22 +132,22 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 Run the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command to create a new function app in the environment.
 
 # [C\#](#tab/csharp)  
-```azurecli-interactive
+```azurecli
 az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime dotnet 
 ```
 
 # [JavaScript](#tab/nodejs)  
-```azurecli-interactive
+```azurecli
 az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime node --runtime-version 12
 ```
 
 # [Python](#tab/python)  
-```azurecli-interactive
+```azurecli
 az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 3 --runtime python --runtime-version 3.8
 ```
 ---
 
-In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location of the App Service Kubernetes environment (see [Prerequisites](#prerequisites)). Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
+In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. 
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
