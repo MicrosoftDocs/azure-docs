@@ -28,7 +28,7 @@ In this tutorial you will:
 Read these articles before you begin:
 
 - [Video Analyzer overview](overview.md)
-- [Video Analyzer on IoT Edge terminology](terminology.md)
+- [Video Analyzer terminology](terminology.md)
 - [Pipeline concepts](pipeline.md)
 - [Event-based video recording](record-event-based-live-video.md)
 - [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)

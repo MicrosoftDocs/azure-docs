@@ -31,7 +31,7 @@ If you want to view the underlying JSON behind an existing pipeline, on the left
 
 ## Instances
 
-To create an instance of a pipeline, along the left under pipelines right-click on the name of the pipeline and select **Create instance**.  You will then need to fill in an instance name, and any required parameters before continuing.  In the top right you can then either click **Save** which will save it in an inactive state, or **Save and activate** which will start the instance immediately.
+To create an instance of a pipeline, along the left under pipelines right-click on the name of the pipeline and select **Create instance**.  You will then need to fill in an instance name, and any required parameters before continuing.  In the top right you can then either click **Save** which will save it in an inactive state, or **Save and activate** which will start the instance immediately. 
 
 To activate an existing instance, along the left under pipelines right-click on the name of the pipeline instance and select **Active pipeline instance**.
 

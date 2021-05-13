@@ -169,8 +169,8 @@ Also look at the line crossing node parameter placeholders `linecrossingName` an
     * A call to `livePipelineActivate` that starts the live pipeline and the flow of video.
     * A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
-1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
+1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this tutorial discusses these messages.
+1. The live pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter.
 1. The next series of calls cleans up resources:
 
     * A call to `livePipelineDeactivate` deactivates the live pipeline.
