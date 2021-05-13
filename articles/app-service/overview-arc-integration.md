@@ -68,6 +68,7 @@ Only one Kubernetes environment resource may created in a custom location. In mo
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
 - [Are networking features supported?](#are-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
+- [What logs are collected?](#what-logs-are-collected)
 
 ### How much does it cost?
 
@@ -96,6 +97,12 @@ No. Networking features such as hybrid connections, Virtual Network integration,
 ### Are managed identities supported?
 
 No. Apps cannot be assigned managed identities when running in Azure Arc. If your app needs an identity for working with another Azure resource, consider using an [application service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) instead.
+
+### What logs are collected?
+
+Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it will send all logs to that workspace.
+
+By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor may impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ## Next steps
 
