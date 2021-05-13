@@ -80,7 +80,7 @@ In the **Advanced** configuration section, provide the below details to create a
     > [!Important]
     > Do not close the Discover machines page during the creation of resources.  
     - At this step, Azure Migrate creates a key vault, storage account, Recovery Services vault (only for agentless VMware migrations), and a few internal resources and attaches a private endpoint to each resource. The private endpoints are created in the virtual network selected during the project creation.  
-    - Once the private endpoints are created, the DNS CNAME resource records for the Azure Migrate resources are updated to an alias in a subdomain with the prefix 'privatelink'. By default, Azure Migrate also creates a private DNS zone corresponding to the 'privatelink' subdomain for each resource type and inserts DNS A records for the associated private endpoints. This enables the Azure Migrate appliance and other software components residing in the source network to reach the Azure Migrate resource endpoints on private IP addresses.  
+    - Once the private endpoints are created, the DNS CNAME resource records for the Azure Migrate resources are updated to an alias in a subdomain with the prefix *privatelink*. By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type and inserts DNS A records for the associated private endpoints. This enables the Azure Migrate appliance and other software components residing in the source network to reach the Azure Migrate resource endpoints on private IP addresses.  
     - Azure Migrate also enables a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the migrate project, and grants permissions to the managed identity to securely access the storage account.  
 
 4. After the key is successfully generated, copy the key details to configure and register the appliance.   
@@ -238,7 +238,7 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
 
 **_Grant the required permissions to access the storage account_**
 
- The managed identity of the vault must be granted the following role permissions on the storage account required for replication.  In this case, you must create the storage account in advance.
+ To the managed identity of the vault you must be grant the following role permissions on the storage account required for replication.  In this case, you must create the storage account in advance.
 
 >[!Note]
 > For migrating Hyper-V VMs to Azure using private link, you must grant access to both the replication storage account and cache storage account.
@@ -277,11 +277,11 @@ To replicate using ExpressRoute with private peering, [create a private endpoint
 >
 > - You can create private endpoints only on a General Purpose v2 (GPv2) storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)
 
-The private endpoint for the storage account should be created in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
+Create The private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
 
 Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the  virtual network and adds the DNS records for the resolution of new IPs and fully qualified domain names created. Learn more about [private DNS zones.](../dns/private-dns-overview.md)
 
-If the user creating the private endpoint is also the owner of the storage account, the private endpoint will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for usage. To approve or reject a requested private endpoint connection, go to **Private endpoint connections** under **Networking** on the storage account page.
+If the user creating the private endpoint is also the storage account owner, the private endpoint creation will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for usage. To approve or reject a requested private endpoint connection, go to **Private endpoint connections** under **Networking** on the storage account page.
 
 Review the status of the private endpoint connection state before proceeding.
 
