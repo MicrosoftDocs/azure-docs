@@ -105,7 +105,7 @@ Every time a pipeline is executed, intermediate datasets are generated at each s
 
 Computes located in different regions may experience network latency and increased data transfer costs. Azure network costs are incurred from outbound bandwidth from Azure data centers. To help reduce network costs, deploy all your resources in the region. Provisioning your Azure Machine Learning workspace and dependent resources in the same region as your data can help lower cost and improve performance.
 
-For hybrid cloud scenarios like ExpressRoute, it can sometimes be more cost effective to move all resources to Azure to reduce network costs and latency.
+For hybrid cloud scenarios like those using ExpressRoute, it can sometimes be more cost effective to move all resources to Azure to optimize network costs and latency.
 
 ## Next steps
 
