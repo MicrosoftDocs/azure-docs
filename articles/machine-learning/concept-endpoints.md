@@ -29,7 +29,7 @@ In this article, you learn about:
 
 After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** and **Deployments** to do so.
 
-:::image type="content" source="media/concept-managed-endpoints/endpoint-concept1.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
+:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
 An **Endpoint** is an HTTPS endpoint that clients can invoke to receive the inferencing output of trained models. It provides: 
 - Authentication using 'key & token' based auth 
@@ -53,7 +53,7 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 
 ### Online endpoints requirements
 
-To an online endpoint, you need to specify the following:
+To create an online endpoint, you need to specify the following:
 - Model files (or specify a registered model in your workspace) 
 - Scoring script - code needed to perform scoring/inferencing
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
@@ -61,11 +61,13 @@ To an online endpoint, you need to specify the following:
 
 Learn how to deploy online endpoints from the CLI, ARM/REST, and the studio web portal.
 
-### Monitoring and costs
+### Monitoring and cost management
 
- Native integration with Application Insights to monitor SLAs and diagnose issues.  
+All online endpoints have native integration with Application Insights to monitor SLAs and diagnose issues. [Managed online endpoints](#managed-online-endpoints-vs-AKS-online-endpoints) also include native integration with Azure Logs and Azure Metrics.
 
-Use the Azure portal to view costs at the endpoint level.
+You can also use the Azure portal to easily view cost at the endpoint level.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/view-endpoint-costs.png" alt-text="Screenshot showing the costs for a single endpoint":::
 
 ### Local endpoint for debugging
 
