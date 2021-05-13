@@ -11,14 +11,13 @@ ms.author: mbaldwin
 ---
 # Authenticating Azure Confidential Ledger nodes
 
-## Establishing the authenticity of Confidential Ledger server nodes
+Azure Confidential Ledger nodes can be authenticated by code samples and by users.
 
-- Code sample when initializing gets the node cert by querying Identity Service
-- After retrieving node cert, Code sample will query the Ledger network to get a quote
-- This quote is then validated using the Host Verify binaries
-- If the verification succeeds the Code sample proceeds to Ledger operations
+## Code samples
 
-## Establishing the authenticity of Confidential Ledger nodes
+When initializing, code samples get the node certificate by querying Identity Service. After retrieving the node certificate, a code sample will query the Ledger network to get a quote, which is then validated using the Host Verify binaries. If the verification succeeds, the code sample proceeds to Ledger operations.
+
+## Users
 
 Users can validate the authenticity of Confidential Ledger nodes to confirm they are indeed interfacing with their Ledger’s enclave. You can build trust in Confidential Ledger nodes in a few ways, which can be stacked on one another to increase the overall level of confidence. As such, Steps 1-2 help build confidence in that Confidential Ledger enclave as part of the initial TLS handshake and authentication within functional workflows. Beyond that, a persistent client connection is maintained between the user’s client and the Confidential Ledger.
 
@@ -28,3 +27,4 @@ Users can validate the authenticity of Confidential Ledger nodes to confirm they
 ## Next steps
 
 - [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Azure Confidential Ledger architecture](architecture.md)

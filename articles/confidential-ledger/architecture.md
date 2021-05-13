@@ -13,10 +13,11 @@ ms.author: mbaldwin
 
 ## Architecture diagram
 
-This image provides architectural overview of Azure Confidential Ledger.
+This image provides an architectural overview of Azure Confidential Ledger.
 
 :::image type="content" source="./media/architecture-overview.png" alt-text="Architecture Overview":::
 
 ## Next steps
 
 - [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Authenticating Azure Confidential Ledger nodes](authenticate-ledger-nodes.md)
