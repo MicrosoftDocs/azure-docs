@@ -133,8 +133,6 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
 **Explanation**: You already have Event Grid installed. The preview version of Event Grid only supports one Event Grid extension instance deployed to a cluster.
 
 
-## Resources
-
-1. [Deploy and manage Kubernetes cluster extensions](../../azure-arc/kubernetes/conceptual-extensions.md).
-
+## Next steps
+See the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).
 
