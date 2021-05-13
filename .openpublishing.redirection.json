@@ -26746,6 +26746,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-overview-preview.md",
+      "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-azure-portal.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-azure-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-visual-studio-code.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
       "redirect_url": "/azure/machine-learning/",
       "redirect_document_id": false
