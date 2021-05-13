@@ -16,7 +16,7 @@
   - name: Client libraries and REST API
     href: quickstarts/client-library.md
   - name: Get started with Form Recognizer
-    href: quickstarts/ get-started-with-form-recognizer-.md  
+    href: quickstarts/get-started-with-form-recognizer-.md  
 - name: Samples
   items:
   - name: "C#/.NET"
