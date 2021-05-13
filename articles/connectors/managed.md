@@ -509,7 +509,7 @@ For more information, see these topics:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
 [appfigures-icon]: ./media/apis-list/appfigures.png

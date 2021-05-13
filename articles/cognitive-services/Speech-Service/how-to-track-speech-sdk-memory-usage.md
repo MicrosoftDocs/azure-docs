@@ -12,6 +12,7 @@ ms.date: 12/10/2019
 ms.author: rhurey
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
+ROBOTS: NOINDEX
 ---
 
 # How to track Speech SDK memory usage

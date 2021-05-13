@@ -31,7 +31,7 @@ The following table describes the types of storage accounts recommended by Micro
 | Premium file shares<sup>4</sup> | File shares only | LRS<br /><br />ZRS<sup>2</sup> | Resource Manager<sup>3</sup> | Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.<br />[Learn more...](../files/storage-files-planning.md#management-concepts) |
 | Premium page blobs<sup>4</sup> | Page blobs only | LRS | Resource Manager<sup>3</sup> | Premium storage account type for page blobs only.<br />[Learn more...](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Azure Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage is only supported on general-purpose V2 storage accounts with a hierarchical namespace enabled. For more information on Data Lake Storage Gen2, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
 <sup>2</sup> Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) are available only for standard general-purpose v2, premium block blob, and premium file share accounts in certain regions. For more information about Azure Storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 

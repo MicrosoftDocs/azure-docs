@@ -101,7 +101,7 @@ Make note of the default host name of each web app so you can define the backend
 
 Create a basic Front Door with default load balancing settings, health probe, and routing rules by running to follow:
 
-Create Front Door with [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true):
+Create Front Door with [az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \

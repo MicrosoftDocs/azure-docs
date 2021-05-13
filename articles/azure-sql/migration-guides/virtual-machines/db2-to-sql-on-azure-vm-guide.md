@@ -16,7 +16,7 @@ ms.date: 11/06/2020
 
 This guide teaches you to migrate your user databases from IBM Db2 to SQL Server on Azure VM, by using the SQL Server Migration Assistant for Db2. 
 
-For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration). 
+For other migration guides, see [Azure Database Migration Guides](/data-migration). 
 
 ## Prerequisites
 

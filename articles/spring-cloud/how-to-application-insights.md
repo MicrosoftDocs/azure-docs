@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
-This document explains how to monitor apps and microservices using the Application Insights Java agent in Azure Spring Cloud. 
+This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud. 
 
 With this feature you can:
 
@@ -83,6 +83,7 @@ In the left navigation pane, click **Application Insights** to jump to the **Ove
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## ARM Template
+
 To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
 
 ```json
@@ -116,6 +117,7 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 ```
 
 ## CLI
+
 Apply ARM template with the CLI command:
 
 * For an existing Azure Spring Cloud instance:
@@ -135,7 +137,29 @@ az spring-cloud app-insights update --disable â€“name "assignedName" â€�
 
 ```
 
+## Java Agent Update/Upgrade
+
+The Java agent will be updated/upgraded regularly with the JDK, which may impact the following scenarios.
+
+> [!Note]
+> The JDK version will be updated/upgraded quarterly per year.
+
+* Existing applications that use the Java agent before updating/upgrading will not be affected.
+* Applications created after updating/upgrading will leverage the new version of the Java agent.
+* Existing applications that did not previsously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
+
+## Java Agent Configuration Hot-Loading
+
+Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
+
+> [!Note]
+> The hot-loading mechanism has delay in minutes.
+
+* When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
+* If you enable the Java agent, then you must restart applications.
+* When you disable the Java agent, applications will stop to send all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
+
 ## See also
-* [Use distributed tracing with Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md)
+* [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
-* [Stream logs in real time](spring-cloud-howto-log-streaming.md)
+* [Stream logs in real time](./how-to-log-streaming.md)

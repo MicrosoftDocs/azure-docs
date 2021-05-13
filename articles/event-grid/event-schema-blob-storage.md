@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 05/12/2021
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -24,11 +24,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
  |Event name |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API.   |
+ |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br><br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** instead of when the Block Blob is completely committed.    |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
-
-> [!NOTE]
-> For **Azure Blob Storage**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, and `PutBlockList` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
 ### List of the events for Azure Data Lake Storage Gen 2 REST APIs
 
@@ -561,7 +558,7 @@ The data object has the following properties:
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
 | [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
-| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
+| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 
 ## Next steps

@@ -57,7 +57,7 @@ az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource
 
 You can use the Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
-To [delete a Time Series Insights Environments](/cli/azure/ext/timeseriesinsights/tsi/environment#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
+To [delete a Time Series Insights Environments](/cli/azure/tsi/environment#az_tsi_environment_delete), run the following command:
 
 ```azurecli-interactive
 az tsi environment delete --name "my-tsi-env" --resource-group $rg

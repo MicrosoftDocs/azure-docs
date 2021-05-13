@@ -7,8 +7,8 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, automl
+ms.topic: how-to
+ms.custom: contperf-fy21q1, automl
 ms.date: 08/20/2020
 ---
 
@@ -284,7 +284,7 @@ Supported aggregation operations for target column values include:
 ### Enable deep learning
 
 > [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs.
+> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs or runs intiated in Databricks.
 
 You can also apply deep learning with deep neural networks, DNNs, to improve the scores of your model. Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 

@@ -36,7 +36,7 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
-- Visit [performance best practices for serverless SQL pool](best-practices-sql-on-demand.md) to optimize query.  
+- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
 ## CREATE 'STATEMENT' is not supported in master database
 

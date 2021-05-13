@@ -117,7 +117,7 @@ You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure
 
 ### Create database with shared throughput
 
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
 ```java
 // Create instance of CosmosClient
@@ -134,7 +134,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.create
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
 ```
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
 ```java
 // Create instance of CosmosClient
@@ -155,7 +155,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 ### Create container with dedicated throughput
 
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
 ```java
 // Get reference to database that container will be created in
@@ -171,7 +171,7 @@ CosmosAsyncContainer container = database.createContainer(autoscaleContainerProp
                                 .getContainer();
 ```
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
 ```java
 // Get reference to database that container will be created in
@@ -190,7 +190,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 ### Read the current throughput (RU/s)
 
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
 ```java
 // Get a reference to the resource
@@ -206,7 +206,7 @@ int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThrough
 int currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
 ```java
 // Get a reference to the resource
@@ -226,14 +226,14 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 ### Change the autoscale max throughput (RU/s)
 
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
 ```java
 // Change the autoscale max throughput (RU/s)
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)

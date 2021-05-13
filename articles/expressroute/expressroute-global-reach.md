@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 04/28/2021
 ms.author: duau
 ms.custom: references_regions
 
@@ -35,6 +35,7 @@ ExpressRoute Global Reach is supported in the following places.
 
 * Australia
 * Canada
+* Denmark
 * France
 * Germany
 * Hong Kong SAR

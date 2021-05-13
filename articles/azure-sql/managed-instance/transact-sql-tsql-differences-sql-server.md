@@ -6,8 +6,8 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: 
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1

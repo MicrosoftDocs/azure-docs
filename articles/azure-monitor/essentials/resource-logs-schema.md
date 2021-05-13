@@ -2,7 +2,7 @@
 title: Azure Resource Logs supported services and schemas
 description: Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 05/10/2021
 ---
 
 # Common and service-specific schema for Azure Resource Logs
@@ -72,6 +72,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Media Services | [Media services monitoring schemas](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Power BI Dedicated | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data Model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
@@ -79,7 +80,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Storage | [Blobs](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [Files](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Queues](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview),  [Tables](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
+| Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
 | Virtual Network Gateways | Schema not available. |

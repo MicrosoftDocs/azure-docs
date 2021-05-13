@@ -108,7 +108,7 @@ In this section, you update the single-page web application to call the Node.js 
 
 To change the settings in the SPA:
 
-1. In the [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] project you downloaded or cloned in the previous tutorial, open the *apiConfig.js* file inside the *JavaScriptSPA* folder.
+1. In the [ms-identity-b2c-javascript-spa][github-js-spa] project you downloaded or cloned in the previous tutorial, open the *apiConfig.js* file inside the *App* folder.
 1. Configure the sample with the URI for the *demo.read* scope you created earlier and the URL of the web API.
     1. In the `apiConfig` definition, replace the `b2cScopes` value with the full URI for the *demo.read* scope (the **Scope** value you recorded earlier).
     1. Change the domain in the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
@@ -198,4 +198,4 @@ Now that you've seen an SPA request a resource from a protected web API, gain a 
 > [Application types that can be used in Active Directory B2C >](application-types.md)
 
 <!-- Links - EXTERNAL -->
-[github-js-spa]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+[github-js-spa]: https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa
