@@ -123,5 +123,5 @@ landingContent:
             url: how-to-set-up-over-the-air-updates.md
           - text: Update your device over-the-air (OTA)
             url: how-to-update-over-the-air.md
-          - text: Update your device over USB
+          - text: Update your device over USB-C cable connection
             url: how-to-update-via-usb.md
