@@ -58,11 +58,14 @@ Base type for list return in the Get supported glossary formats API.
 
 Base type for list return in the Get supported glossary formats API.
 
-|Status Code|Description|
-|--- |--- |
-|200|OK. Returns the list of supported glossary file formats.|
-|500|Internal Server Error.|
-|Other Status Codes|Too many requestsServer temporary unavailable|
+|Name|Type|Description|
+|--- |--- |--- |
+|value|FileFormat []|FileFormat[] contains the details listed below.|
+|value.contentTypes|string []|Supported Content-Types for this format.|
+|value.defaultVersion|string|Default version if none is specified|
+|value.fileExtensions|string []| Supported file extension for this format.|
+|value.format|string|Name of the format.|
+|value.versions|string []| Supported version.|
 
 ### Error response
 
@@ -70,9 +73,10 @@ Base type for list return in the Get supported glossary formats API.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
@@ -82,33 +86,37 @@ The following is an example of a successful response.
 
 ```JSON
 {
-    "value": [
-        {
-            "format": "XLIFF",
-            "fileExtensions": [
-                ".xlf"
-            ],
-            "contentTypes": [
-                "application/xliff+xml"
-            ],
-            "versions": [
-                "1.0",
-                "1.1",
-                "1.2"
-            ]
-        },
-        {
-            "format": "TSV",
-            "fileExtensions": [
-                ".tsv",
-                ".tab"
-            ],
-            "contentTypes": [
-                "text/tab-separated-values"
-            ],
-            "versions": []
-        }
-    ]
+  "value": [
+    {
+      "format": "XLIFF",
+      "fileExtensions": [
+        ".xlf"
+      ],
+      "contentTypes": [
+        "application/xliff+xml"
+      ],
+      "defaultVersion": "1.2",
+      "versions": [
+        "1.0",
+        "1.1",
+        "1.2"
+      ]
+    },
+    {
+      "format": "TMX",
+      "fileExtensions": [
+        ".tmx"
+      ],
+      "contentTypes": [],
+      "versions": [
+        "1.0",
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4"
+      ]
+    }
+  ]
 }
 ```
 

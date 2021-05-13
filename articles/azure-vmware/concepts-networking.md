@@ -2,7 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 05/13/2021
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -64,7 +64,7 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 
 - [Azure VMware Solution storage concepts](concepts-storage.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
-- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
