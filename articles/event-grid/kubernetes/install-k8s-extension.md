@@ -72,7 +72,7 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 1. Select **+ Add**. A page showing the available Azure Arc Kubernetes extensions is displayed.
 1. Select **Event Grid**.
 1. Select **Create** on the Event Grid on Kubernetes with Azure Arc page.
-1. The **Basics** tab on the **Install Even Grid** page is shown. The **Project Details** section shows read-only subscription and resource group values because Azure Arc extensions are deployed under the same Azure subscription and resource group of the connected cluster on which they are installed.
+1. The **Basics** tab on the **Install Event Grid** page is shown. The **Project Details** section shows read-only subscription and resource group values because Azure Arc extensions are deployed under the same Azure subscription and resource group of the connected cluster on which they are installed.
 1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
 1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. The default is **eventgrid-system**. If the namespace provided does not exist, it's created for you.
 1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
@@ -83,10 +83,10 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 
     :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page" lightbox="./media/install-k8s-extension/basics-page.png":::
 1. Select **Next: Configuration** at the bottom of the page.
-1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients that communicate with the Event Grid broker.
+1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients communicate with the Event Grid broker.
 
     > [!IMPORTANT]
-    > Enabling this option will make that all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid broker won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
+    > Enabling this option will make all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
 1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
 
     :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page" lightbox="./media/install-k8s-extension/configuration-page.png":::
