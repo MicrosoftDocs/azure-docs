@@ -839,7 +839,7 @@ For a existing logic app resource, run the Azure CLI command, `az webapp scale`,
 
 `az webapp scale -g {resource-group} --name {appinsights} --number-of-workers 7`
 
-For a new logic app, run the Azure ClI command, `az logicapp create`, for example:
+For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
 `az logicapp create -g {resource-group} --name {appinsights} --storage-account {storage-account-name} --custom-location {custom-location} --functions-version 3 --plan {hosting-plan-name} --runtime node --runtime-version 12 --min-worker-count 2 --max-worker-count 4`
 
