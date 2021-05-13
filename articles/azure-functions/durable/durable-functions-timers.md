@@ -184,10 +184,10 @@ $expiryTime =  New-TimeSpan -Seconds 30
 $activityTask = Invoke-DurableActivity -FunctionName 'GetQuote'-NoWait
 $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
 
-$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -NoWait
+$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -Any
 
 if ($winner -eq $activityTask) {
-    $timerTask.Cancel()
+    Stop-DurableTaskTimer -Task $timerTask
     return $True
 }
 else {

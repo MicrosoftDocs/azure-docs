@@ -125,12 +125,12 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 $transferDetails = $Context.Input
 
-Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{'account' = transferDetails['sourceAccount']; 'amount' = transferDetails['amount']}
+Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
 
 try {
-    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{'account' = transferDetails['sourceAccount']; 'amount' = transferDetails['amount']}
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.destinationAccount; amount = transferDetails.amount }
 } catch {
-    Invoke-DurableActivity -FunctionName 'sourceAccount' -Input @{'account' = transferDetails['sourceAccount']; 'amount' = transferDetails['amount']}
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
 }
 ```
 
@@ -320,7 +320,7 @@ $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
 $winner = Wait-DurableTask -Task @($activityTask, $timerTask) -NoWait
 
 if ($winner -eq $activityTask) {
-    $timerTask.Cancel()
+    Stop-DurableTimerTask -Task $timerTask
     return $True
 }
 else {

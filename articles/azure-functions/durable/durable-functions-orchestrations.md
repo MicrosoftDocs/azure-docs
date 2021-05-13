@@ -290,18 +290,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 ```
 # [PowerShell](#tab/powershell)
 
-```powershell
-param($Context)
-
-$url = $Context.Input
-
-$res = Invoke-WebRequest -Method 'GET' -Uri $url
-
-if($response.StatusCode -ge 400) {
-    # handling of error codes goes here
-}
-
-```
+The feature is not currently supported in PowerShell
 ---
 
 In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -426,7 +415,7 @@ $location = @{
     State  = 'WA'
 }
 
-Invoke-ActivityFunction -FunctionName 'GetWeather' -Input ($location | ConvertTo-Json)
+Invoke-ActivityFunction -FunctionName 'GetWeather' -Input $location
 
 # ...
 
@@ -436,8 +425,7 @@ Invoke-ActivityFunction -FunctionName 'GetWeather' -Input ($location | ConvertTo
 ```powershell
 param($location)
 
-$City, $State = $location[('City','State')]
-
+"Hello $($location.City), $($location.State)!"
 # ...
 ```
 ---

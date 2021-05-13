@@ -225,26 +225,9 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 > In Python, the `custom_status` field will be set when the next `yield` or `return` action is scheduled.
 
 # [PowerShell](#tab/powershell)
-```powershell
-param($Request, $TriggerMetadata)
 
-$FunctionName = $Request.Params.FunctionName
-$InstanceId = Start-NewOrchestration -FunctionName $FunctionName
+The feature is not currently implemented in PowerShell
 
-Write-Host "Started orchestration with ID = '$InstanceId'"
-
-$jobStatus = Invoke-DurableActivity -FunctionName $FunctionName -InstanceId $InstanceId
-
-while ($jobStatus != 'London') {
-    Start-DurableTimer -Duration 0.2
-    $jobStatus = Invoke-DurableActivity -FunctionName $FunctionName -InstanceId $InstanceId
-}
-
-Push-OutputBinding -Name Response -Value -Value ([HttpResponseContext]@{
-    StatusCode = [HttpStatusCode]::OK
-    Body = 'Success'
-})
-```
 ---
 
 ### Output customization

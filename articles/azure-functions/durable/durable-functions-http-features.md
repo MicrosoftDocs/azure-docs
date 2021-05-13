@@ -255,17 +255,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-param($Context)
-
-$url = $Context.Input
-$response = Invoke-WebRequest -Method 'GET' -uri $url
-
-if($response.StatusCode -ge 400) {
-    # handling of error codes goes here
-}
-
-```
+The feature is currently supported in PowerShell
 ---
 
 By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
