@@ -37,22 +37,7 @@ Currently does not work
 
 ## 2. Get the custom location
 
-Get the following information about the custom location from your cluster administrator (see [Create a custom location](manage-create-arc-environment.md#create-a-custom-location)).
-
-```azurecli-interactive
-customLocationGroup="<resource-group-containing-custom-location>"
-customLocationName=<name-of-custom-location>
-```
-
-Get the custom location ID for the next step.
-
-```azurecli-interactive
-customLocationId=$(az customlocation show \
-    --resource-group $customLocationGroup \
-    --name $customLocationName \
-    --query id \
-    --output tsv)
-```
+[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 
 ## 3. Create an app

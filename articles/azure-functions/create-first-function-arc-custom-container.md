@@ -62,34 +62,26 @@ In Azure Functions, a function project is a container for one or more individual
     func init LocalFunctionProj --javascript
     ```
 
-    # [Python](#tab/python/bash)
+    # [Python](#tab/python)
 
-    Python requires a virtual environment, the commands for which differ between [bash](create-first-function-arc-cli?python%2Cbash) and a Windows [console](create-first-function-arc-cli?python%cmd).
+    Python requires a virtual environment, the commands for which differ between bash and a Windows command line.
     
-    ```bash
-    python -m venv .venv
-    ```
-    
-    ```bash
-    source .venv/bin/activate
-    ```
+     + bash: 
 
-    ```console
-    func init LocalFunctionProj --python
-    ```
+        ```bash
+        python -m venv .venv
+        source .venv/bin/activate
+        ```
     
-    # [Python](#tab/python/cmd)
+     + command line:
 
-    Python requires a virtual environment, the commands for which differ between [bash](create-first-function-arc-cli?python%2Cbash) and a Windows [console](create-first-function-arc-cli?python%cmd).
+        ```cmd
+        py -m venv .venv
+        .venv\scripts\activate
+        ```  
+
+    Now, you create the project inside the virtual environment. 
     
-    ```cmd
-    py -m venv .venv
-    ```
-    
-    ```cmd
-    .venv\scripts\activate
-    ```      
- 
     ```console
     func init LocalFunctionProj --python
     ```
@@ -98,18 +90,9 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. Navigate into the project folder:
 
-    # [bash](#tab/bash)
-
     ```console
     cd LocalFunctionProj
     ```
-
-    # [cmd](#tab/cmd)
-
-    ```console
-    cd LocalFunctionProj
-    ```
-    ---
 
     This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
