@@ -77,7 +77,6 @@ To estimate monthly costs for your logic app's blob storage operations:
 1. On the **Products** tab, select **Storage** &gt; **Storage Accounts**. Or, in the **Search Bar** search box, enter **Storage Accounts** and select the tile.
     :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Screenshot of Azure pricing calculator, showing tile to add Storage Accounts view." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
 1. On the **Storage Accounts added** notification, select **View** to see the **Storage Accounts** section of the calculator. Or, go to the **Storage Accounts** section manually.
-    :::image type="content" source="./media/estimate-storage-costs/estimate-blob-storage1.png" alt-text="Screenshot of Azure pricing calculator, showing settings for Block Blob Storage estimate." lightbox="./media/estimate-storage-costs/estimate-blob-storage1.png":::
 1. For **Region**, select your logic app's region.
 1. For **Type**, select **Block Blob Storage**.
 1. For **Performance Tier**, select your performance tier.
@@ -85,7 +84,6 @@ To estimate monthly costs for your logic app's blob storage operations:
 1. Adjust any other settings as needed.
 1. Under **Write Operations**, enter your **Blob (write)** operations number from the Logic Apps storage calculator *as is*.
 1. Under **Read Operations**, enter your **Blob (read)** operations number from the Logic Apps storage calculator *as is*.
-    :::image type="content" source="./media/estimate-storage-costs/estimate-blob-storage2.png" alt-text="Screenshot of Azure pricing calculator, showing read and write operations estimates." lightbox="./media/estimate-storage-costs/estimate-blob-storage2.png":::
 1. Review the estimated blob storage operations costs.
 
 ### Estimate queue operations costs
@@ -96,7 +94,6 @@ To estimate monthly costs for your logic app's queue operations:
 1. On the **Products** tab, select **Storage** &gt; **Storage Accounts**. Or, in the **Search Bar** search box, enter **Storage Accounts** and select the tile.
     :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Screenshot of Azure pricing calculator, showing tile to add Storage Accounts view." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
 1. On the **Storage Accounts added** notification, select **View** to see the **Storage Accounts** section of the calculator. Or, go to the **Storage Accounts** section manually.
-    :::image type="content" source="./media/estimate-storage-costs/estimate-queue-storage.png" alt-text="Screenshot of Azure pricing calculator, showing queue storage operations settings and estimates." lightbox="./media/estimate-storage-costs/estimate-queue-storage.png":::
 1. For **Region**, select your logic app's region.
 1. For **Type**, select **Queue Storage**.
 1. For **Storage Account Type**, select your storage account type.
@@ -112,7 +109,6 @@ To estimate monthly costs for your logic app's table storage operations:
 1. On the **Products** tab, select **Storage** &gt; **Storage Accounts**. Or, in the **Search Bar** search box, enter **Storage Accounts** and select the tile.
     :::image type="content" source="./media/estimate-storage-costs/pricing-calculator-storage-tile.png" alt-text="Screenshot of Azure pricing calculator, showing tile to add Storage Accounts view." lightbox="./media/estimate-storage-costs/pricing-calculator-storage-tile.png":::
 1. On the **Storage Accounts added** notification, select **View** to see the **Storage Accounts** section of the calculator. Or, go to the **Storage Accounts** section manually.
-    :::image type="content" source="./media/estimate-storage-costs/estimate-table-storage.png" alt-text="Screenshot of Azure pricing calculator, showing table storage operations settings and estimates." lightbox="./media/estimate-storage-costs/estimate-table-storage.png":::
 1. For **Region**, select your logic app's region.
 1. For **Type**, select **Table Storage**.
 1. For **Tier**, select your performance tier.
