@@ -251,7 +251,7 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | Change Tracking | Supported as File Integrity Monitoring (FIM) in ASC on AMA private preview : [Sign up link](https://aka.ms/AMAgent) |
 | Update Management | New version that doesn’t need any agent is in private preview: [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 | VM Insights guest health (new) | Public preview: [VM insights guest health (preview)](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-health-overview) |
-| SQL Monitoring (new) | Public preview excusively on AMA: [SQL insights (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/sql-insights-overview) |
+| SQL Monitoring (new) | Public preview excusively on AMA: [SQL insights (preview)](https://docs.microsoft.com/azure/azure-monitor/insights/sql-insights-overview) |
 | VM Insights with metrics support | *Private preview coming soon* |
 
 
