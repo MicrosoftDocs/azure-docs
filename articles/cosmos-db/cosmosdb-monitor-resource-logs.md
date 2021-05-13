@@ -14,16 +14,14 @@ ms.author: sngun
 
 Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
-Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostics setting for Azure Cosmos DB accounts abd send resource logs to the following sources:
+Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostics setting for Azure Cosmos DB accounts and send resource logs to the following sources:
 - Log Analytics workspaces
   - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific** tables
 - Event hub
 - Storage Account
-
-
+  
 > [!NOTE]
-For SQL API accounts, we recommend creating the diagnostic setting in resource specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting-rest-api). This option provides some additional cost-optimizations with an improved view for handling data.
-=======
+> For SQL API accounts, we recommend creating the diagnostic setting in resource specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting-using-azure-monitor-rest-api). This option provides some additional cost-optimizations with an improved view for handling data.
 
 ## Create using Azure Portal
 
@@ -48,11 +46,11 @@ For SQL API accounts, we recommend creating the diagnostic setting in resource s
 |TableApiRequests     |   Table API    |     Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Table. When you enable this category, make sure to disable DataPlaneRequests.       |    `operationName`, `requestCharge`, `piiCommandText`     |
 |Requests     |    All APIs     |    Select this option to collect metric data from Azure Cosmos DB to the destinations in the diagnostic setting. This is the same data collected automatically in Azure Metrics. Collect metric data with resource logs to analyze both kinds of data together and to send metric data outside of Azure Monitor.    |     N/A    |
 
-## <a id="create-diagnostic-setting-rest-api"></a> Create diagnostic setting using Azure Monitor REST API
-Use the [Azure Monitor REST API for creating a diagnostic setting via the interactive console.](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)
+## Create diagnostic setting using Azure Monitor REST API
+Use the [Azure Monitor REST API for creating a diagnostic setting via the interactive console.](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)
 
 > [!Note]
-If you are using SQL API, we recommend setting **logAnalyticsDestinationType** to **Dedicated** for enabling resource specific tables.
+> If you are using SQL API, we recommend setting **logAnalyticsDestinationType** to **Dedicated** for enabling resource specific tables.
 
 ### Request
 
@@ -140,17 +138,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 ## Create diagnostic setting using Azure CLI
-Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with Azure CLI. See the documentation for this command for descriptions of its parameters.
+Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with Azure CLI. See the documentation for this command for descriptions of its parameters.
 
-> [!Note] If you are using SQL API, we recommend setting **export-to-resource-specific** to **true**.
+> [!Note] 
+> If you are using SQL API, we recommend setting **export-to-resource-specific** to **true**.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --resource /{subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/ --name {DIAGNOSTIC_SETTING_NAME} --export-to-resource-specific true --logs '[{"category": "QueryRuntimeStatistics","categoryGroup": null,"enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --workspace /subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
 ```
 
 ## Next steps
-* For more information on how to query resource-specific tables see [troubleshooting using resource specific tables](cosmodb-monitor-logs-quickstart-queries.md#resource-specific-queries).
+* For more information on how to query resource-specific tables see [troubleshooting using resource specific tables](cosmsodb-monitor-logs-quickstart-queries.md#resource-specific-queries).
 
-* For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](cosmodb-monitor-logs-quickstart-queries.md#azurediagnostics-queries).
+* For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](cosmosdb-monitor-logs-quickstart-queries.md#azurediagnostics-queries).
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
