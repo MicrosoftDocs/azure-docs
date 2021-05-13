@@ -158,6 +158,8 @@ conceptualContent:
           itemType: overview
           text: What is Event Grid on Kubernetes?
         - url: ../event-grid/kubernetes/create-topic-subscription.md
+          itemType: quickstart
+          text: Create a topic and a subscription
       # footerLink
       footerLink:
         url: ../event-grid/kubernetes/index.yml
