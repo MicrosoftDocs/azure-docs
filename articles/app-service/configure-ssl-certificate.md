@@ -65,6 +65,7 @@ The free App Service managed certificate is a turn-key solution for securing you
 - Is not exportable.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.
+- If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
