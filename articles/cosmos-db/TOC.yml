@@ -116,7 +116,7 @@
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
-        - name: Rate limiting requests
+        - name: Optimize using rate limiting
           href: rate-limiting-requests.md
     - name: Change feed overview
       href: change-feed.md
