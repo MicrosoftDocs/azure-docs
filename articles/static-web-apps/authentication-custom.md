@@ -56,10 +56,13 @@ The following tables contain the different configuration options for each provid
 }
 ```
 
-Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 then you need to add the following entry to your configuration.
+Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 (the issuer endpoint does not end with "/v2.0"), then you need to add the following `userDetailsClaim` entry to your configuration in the `"azureActiveDirectory"` object.
 
 ```json
-"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+"azureActiveDirectory": {
+  "registration": { ... },
+  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+}
 ```
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).

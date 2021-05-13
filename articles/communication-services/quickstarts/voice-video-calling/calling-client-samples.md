@@ -10,7 +10,7 @@ ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Quickstart: Use the Communication Services Calling SDK
@@ -27,6 +27,10 @@ Get started with Azure Communication Services by using the Communication Service
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Calling with iOS](./includes/calling-sdk-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Calling with Windows](./includes/get-started-windows.md)]
 ::: zone-end
 
 ## Clean up resources
