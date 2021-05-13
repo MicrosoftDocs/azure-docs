@@ -69,7 +69,7 @@ Replace the special chars in the file name, which will work in the synapse bu
 #### Symptoms
 When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
 
-![Screenshot that shows the no data output symptom](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
+![Screenshot that shows the no data output symptom.](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
 
 #### Cause
 The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
@@ -84,11 +84,11 @@ You may encounter an issue where one attribute (string type) of the CDM ent
 
 - In the CSV source data (refer to the second column): <br/>
 
-    ![Screenshot that shows the attribute in the CSV source data](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+    ![Screenshot that shows the attribute in the CSV source data.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
 
 - In the CDM source data preview: <br/>
 
-    ![Screenshot that shows the separate column in the CDM source data ](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+    ![Screenshot that shows the separate column in the CDM source data.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
 
  
 You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
@@ -127,7 +127,7 @@ Please remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the dat
 #### Symptoms
 When you use CDM in the data flow with the model format, you cannot preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
 
-![Screenshot that shows the corpus path error](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+![Screenshot that shows the corpus path error.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
 
 #### Cause
 Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
@@ -135,14 +135,14 @@ Your data partition path in the model.json is pointing to a blob storage locati
 #### Recommendation
 To solve this issue, you can refer to this article: [ADF Adds Support for Inline Datasets and Common Data Model to Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), and the following picture shows the way to fix the corpus path error in this article.
 
-![Screenshot that shows how to fix the corpus path error](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+![Screenshot that shows how to fix the corpus path error.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
 
 ### Unable to read CSV data files
 
 #### Symptoms 
 You use the inline dataset as the common data model with manifest as a source, and you have provided the entry manifest file, root path, entity name and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
 
-![Screenshot that shows the issue of unable to read data files](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+![Screenshot that shows the issue of unable to read data files.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
 
 #### Cause
 Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](https://docs.microsoft.com/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](https://docs.microsoft.com/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
@@ -167,7 +167,7 @@ If a column is added to the source after an "initial" load to the delta, the sub
 `DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
 
 #### Cause
-This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. PG has a backlog item to support the merged schema option for delete/update/upsert as well. 
+This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
 
 #### Recommendation
 To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
@@ -191,7 +191,7 @@ If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL s
 - [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
     Refer to the content in the following picture in this article：<br/>
 
-    ![Screenshots that shows the referring content in the article above](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
+    ![Screenshots that shows the referring content in the article above.](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
 
 #### Recommendation
 You can try to use copy activities to unblock this issue. 
@@ -244,11 +244,11 @@ The first symptom and the second symptom cannot be solved currently. For the thi
 When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox or activity run will fail.
 - For CSV, the data misalignment exists when the schema of files is different. 
 
-    ![Screenshot that shows the first schema error](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+    ![Screenshot that shows the first schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
 
 - For Excel, an error occurs when the schema of the file is different.
 
-    ![Screenshot that shows the second schema error](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+    ![Screenshot that shows the second schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
 
 #### Cause
 
@@ -270,7 +270,7 @@ If you still want to transfer files such as CSV and Excel files with different s
 ### Serverless pool (SQL on-demand) related issues
 
 #### Symptoms
-You use the Azure Synapse Analytics as a source and the linked service actually is a Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
+You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
 
 1. When you want to use Synapse serverless pool as a Sink, you face the following error:<br/>
 `Sink results in 0 output columns. Please ensure at least one column is mapped`
@@ -284,7 +284,7 @@ You use the Azure Synapse Analytics as a source and the linked service actually 
 #### Cause
 Causes of the symptoms are stated below respectively:
 1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
-1. Serverless pool doesn't support PolyBase, so 'enable staging' is not supported.
+1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
 1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
 1. There is a known limitation in Synapse serverless pool, blocking you to fetch Cosmos DB data from data flows.
 1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
@@ -334,7 +334,7 @@ You can try to solve this issue by the following methods:
 #### Symptoms
 When you use the Synapse as a source/sink in the data flow to preview data, debug/trigger run, etc. and enable staging to use the PolyBase, and the staging store's linked service (Blob, Gen2, etc.) is created to use the Managed Identity (MI) authentication, your job could fail with the following error shown in the picture: <br/>
 
-![Screenshots that shows the service identity error](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+![Screenshots that shows the service identity error.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
 
 #### Error Message
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
