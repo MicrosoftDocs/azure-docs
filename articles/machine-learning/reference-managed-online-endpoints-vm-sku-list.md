@@ -1,5 +1,5 @@
 ---
-title: Managed online endpoints VM SKU list
+title: Managed online endpoints VM SKU list (preview)
 titleSuffix: Azure Machine Learning
 description: Lists the VM SKUs that can be used for managed online endpoints (preview) in Azure Machine Learning.
 services: machine-learning
