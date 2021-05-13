@@ -417,6 +417,15 @@ groups:
     title: Command line
   - id: development-environment-vs
     title: Visual Studio
+#Owner: shinardi
+- id: bring-third-party-dependency-programming-functions
+  title: Programming Languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -1219,12 +1228,4 @@ groups:
     title: Node.js
   - id: programming-language-python
     title: Python
-- id: iot-develop-set2
-# Owner: timlt
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-python
-    title: Python
+    

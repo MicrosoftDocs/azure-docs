@@ -19,7 +19,7 @@
 
 [!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 
-## Use the Python SDK to send messages
+## Run a simulated device
 In this section, you use the Python SDK to send messages from your simulated device to your IoT hub.
 
 1. Open a new console window. You will use this console to install the Python SDK and work with Python sample code. You should now have two console windows open: the one you just opened, and the Cloud Shell or CLI console that you used previously to enter CLI commands.

@@ -438,7 +438,7 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 You can tag resources, resource groups, and subscriptions during deployment with an Azure Resource Manager template (ARM template).
 
 > [!NOTE]
-> The tags you apply through the ARM template overwrite any existing tags.
+> The tags you apply through an ARM template or Bicep file overwrite any existing tags.
 
 ### Apply values
 

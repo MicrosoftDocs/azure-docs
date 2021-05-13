@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 04/26/2021
 ms.author: alkohli
-ms.custom: "contperf-fy21q3"
+ms.custom: "contperf-fy21q4"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 

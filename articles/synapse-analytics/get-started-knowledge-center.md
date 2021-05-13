@@ -46,7 +46,7 @@ There are three items in this section:
 1. Scroll to the first query (lines 28 to 32) and select the query text.
 1. Click Run. It will run only code you have selected.
 
-## Gallery: A collectiopn of sample data sets and sample code
+## Gallery: A collection of sample datasets and sample code
 
 1. Go to the **Knowledge Center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.

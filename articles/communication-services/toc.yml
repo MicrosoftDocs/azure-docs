@@ -42,20 +42,12 @@
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Add video calling to your app (JavaScript)
+    - name: Add video calling to your app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-  - name: UI Framework
-    items:
-    - name: Getting started with composite components
-      href: quickstarts/ui-framework/get-started-with-composites.md
-    - name: Getting started with base components
-      href: quickstarts/ui-framework/get-started-with-components.md
-    - name: Create your own UI Framework component
-      href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials
   expanded: false
   items:
@@ -124,7 +116,7 @@
     href: concepts/privacy.md  
   - name: Pricing
     href: concepts/pricing.md  
-  - name: Push Notifications
+  - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md

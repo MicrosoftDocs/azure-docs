@@ -108,6 +108,9 @@ It's a best practice to use the least privileged role to perform administrative 
 |Privileged Identity Management | Privileged role administrator |
 | Terms of use | Security administrator or Conditional access administrator |
 
+>[!NOTE]
+>The least privileged role for Entitlement management will be changing from the User Administrator role to the Identity Governance Administrator role.
+
 ## Next steps
 
 - [What is Azure AD entitlement management?](entitlement-management-overview.md)

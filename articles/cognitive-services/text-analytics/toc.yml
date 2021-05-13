@@ -1,3 +1,4 @@
+items:
 - name: Text Analytics API Documentation
   href: index.yml
 - name: Overview
@@ -22,7 +23,7 @@
         - name: C#
           href: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples
         - name: Python
-          href: https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.0.0/sdk/textanalytics/ai-text-analytics/samples
+          href: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.0.0_tests/sdk/textanalytics/azure-ai-textanalytics/samples
         - name: Java
           href: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics
         - name: JavaScript
@@ -32,11 +33,11 @@
         - name: C#
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
         - name: Python
-          href: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.0.0/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+          href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples
         - name: Java
           href: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics
         - name: JavaScript
-          href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples
+          href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples
 - name: Responsible use of AI
   items: 
   - name: Transparency notes
@@ -134,13 +135,13 @@
     - name: v3.1-preview
       items:
         - name: .NET
-          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
         - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
-          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
     - name: v3.0
       items:
         - name: .NET

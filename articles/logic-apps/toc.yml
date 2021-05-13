@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Logic Apps?
+  - name: About Azure Logic Apps
     href: logic-apps-overview.md
 - name: Quickstarts
   expanded: true
@@ -36,13 +36,15 @@
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
-  - name: Connectors overview for Logic Apps
-    href: ../connectors/apis-list.md
-  - name: Managed connectors for Logic Apps
-    href: ../connectors/managed.md
-  - name: Built-in connectors for Logic Apps
-    href: ../connectors/built-in.md
-  - name: Schedule recurring workflows
+  - name: Connectors and built-in operations
+    items:
+    - name: Connectors overview
+      href: ../connectors/apis-list.md
+    - name: Managed connectors
+      href: ../connectors/managed.md
+    - name: Built-in operations
+      href: ../connectors/built-in.md
+  - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
@@ -61,14 +63,14 @@
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
-  - name: Azure Logic Apps Preview
+  - name: Single-tenant Azure Logic Apps (Preview)
     items:
-    - name: Overview for Azure Logic Apps Preview
-      href: logic-apps-overview-preview.md
-    - name: Create stateful and stateless workflows - Azure portal
-      href: create-stateful-stateless-workflows-azure-portal.md
-    - name: Create stateful and stateless workflows - Visual Studio Code
-      href: create-stateful-stateless-workflows-visual-studio-code.md
+    - name: Single-tenant overview (Preview)
+      href: single-tenant-overview-compare.md
+    - name: Create single-tenant workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create single-tenant workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
   - name: Develop
     items:
     - name: Create from prebuilt templates

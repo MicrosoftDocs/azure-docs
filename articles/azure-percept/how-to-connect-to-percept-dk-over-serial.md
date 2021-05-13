@@ -64,5 +64,3 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
     1. Connection Type: Serial
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/putty-serial-session.png" alt-text="PuTTY session window with serial parameters selected.":::
-
-## Next Steps

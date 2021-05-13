@@ -26,7 +26,7 @@ Event Hubs traffic is controlled by [throughput units](event-hubs-scalability.md
 You can enable or disable Auto-inflate on a Standard tier Event Hubs namespace by using either of the following methods:
 
 - The [Azure portal](https://portal.azure.com).
-- An [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
+- An [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
 > [!NOTE]
 > Basic tier Event Hubs namespaces do not support Auto-inflate.
@@ -34,32 +34,32 @@ You can enable or disable Auto-inflate on a Standard tier Event Hubs namespace b
 ### Enable Auto-inflate through the portal
 
 
-#### Enable at the time of creation 
+#### Enable at the time of creation
 You can enable the Auto-inflate feature **when creating an Event Hubs namespace**:
- 
+
 ![Enable auto inflate at the time event hub creation](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 With this option enabled, you can start small with your throughput units and scale up as your usage needs increase. The upper limit for inflation does not immediately affect pricing, which depends on the number of throughput units used per hour.
 
 #### Enable auto-inflate for an existing event hub
-You can also enable the Auto-inflate feature and modify its settings by using the following instructions: 
- 
-1. On the **Event Hubs Namespace** page, select **Disabled** under **Auto-inflate throughput units**.  
+You can also enable the Auto-inflate feature and modify its settings by using the following instructions:
+
+1. On the **Event Hubs Namespace** page, select **Disabled** under **Auto-inflate throughput units**.
 
     ![Select throughput units on the Event Hubs namespace page](./media/event-hubs-auto-inflate/select-throughput-units.png)
 2. In the **Scale Settings** page, select the checkbox for **Enable** (if the autoscale feature wasn't enabled).
 
     ![Select Enable](./media/event-hubs-auto-inflate/scale-settings.png)
-3. Enter the **maximum** number of throughput units or use the scrollbar to set the value. 
-4. (optional) Update the **minimum** number of throughput units at the top of this page. 
+3. Enter the **maximum** number of throughput units or use the scrollbar to set the value.
+4. (optional) Update the **minimum** number of throughput units at the top of this page.
 
 
 > [!NOTE]
-> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md). 
+> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md).
 
 ### Enable Auto-Inflate using an Azure Resource Manager template
 
-You can enable Auto-inflate during an Azure Resource Manager template deployment. For example, set the 
+You can enable Auto-inflate during an Azure Resource Manager template deployment. For example, set the
 `isAutoInflateEnabled` property to **true** and set `maximumThroughputUnits` to 10. For example:
 
 ```json
@@ -103,7 +103,7 @@ You can enable Auto-inflate during an Azure Resource Manager template deployment
     ]
 ```
 
-For the complete template, see the [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
+For the complete template, see the [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate) template on GitHub.
 
 
 ## Next steps
