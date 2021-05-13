@@ -34,55 +34,68 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 ### Enable managed identity at hub creation time using ARM template
 
-To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the Azure Resource Manager (ARM) template below. This ARM template has two required resources, and they both need to be deployed before creating other resources like `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
+To enable the system-assigned managed identity in your IoT hub at resource provisioning time, use the Azure Resource Manager (ARM) template below. 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "resources": [
+  "parameters": 
     {
-      "type": "Microsoft.Devices/IotHubs",
-      "apiVersion": "2020-03-01",
-      "name": "<provide-a-valid-resource-name>",
-      "location": "<any-of-supported-regions>",
-      "identity": {
-        "type": "SystemAssigned"
+      "iotHubName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of iothub resource"
+        }
       },
-      "sku": {
-        "name": "<your-hubs-SKU-name>",
-        "tier": "<your-hubs-SKU-tier>",
-        "capacity": 1
+      "skuName": {
+        "type": "string",
+        "defaultValue": "S1",
+        "metadata": {
+          "description": "SKU name of iothub resource, by default is Standard S1"
+        }
+      },
+      "skuTier": {
+        "type": "string",
+        "defaultValue": "Standard",
+        "metadata": {
+          "description": "SKU tier of iothub resource, by default is Standard"
+        }
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location of iothub resource. Please provide any of supported-regions of iothub"
+        }
       }
     },
+  "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-02-01",
+      "apiVersion": "2020-10-01",
       "name": "createIotHub",
-      "dependsOn": [
-        "[resourceId('Microsoft.Devices/IotHubs', '<provide-a-valid-resource-name>')]"
-      ],
       "properties": {
         "mode": "Incremental",
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "0.9.0.0",
+          "contentVersion": "1.0.0.0",
           "resources": [
             {
               "type": "Microsoft.Devices/IotHubs",
-              "apiVersion": "2020-03-01",
-              "name": "<provide-a-valid-resource-name>",
-              "location": "<any-of-supported-regions>",
+              "apiVersion": "2021-03-31",
+              "name": "[parameters('iotHubName')]",
+              "location": "[parameters('location')]",
               "identity": {
                 "type": "SystemAssigned"
               },
               "sku": {
-                "name": "<your-hubs-SKU-name>",
-                "tier": "<your-hubs-SKU-tier>",
-                "capacity": 1
+              "name": "[parameters('skuName')]",
+              "tier": "[parameters('skuTier')]",
+              "capacity": 1
               }
             }
-          ]
+          ] 
         }
       }
     }
