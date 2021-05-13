@@ -377,7 +377,7 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get the request telemetry id and the operation id using the 2.x SDK
+### Get the request telemetry Id and the operation Id using the 2.x SDK
 
 > [!NOTE]
 > This feature is only in 3.0.3 and later
@@ -392,7 +392,7 @@ Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions ar
 </dependency>
 ```
 
-and get the request telemetry id and the operation id in your code:
+and get the request telemetry Id and the operation Id in your code:
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
