@@ -70,15 +70,118 @@ The, run the script below.
 ./how-to-deploy-tfserving.sh
 ```
 
-This script will:
-1. Download a simple TensorFlow model that divides an input by two and adds 2 to the result
-2. Build an image from the tensorflow/serving base image
-3. Push this image into your workspace's Azure Container Registry
-4. Run the image locally to test that it works
-5. Deploy the image as a managed online endpoint
-6. Run predictions against that deployed endpoint
+If you'd rather run the steps one by one, see below.
 
-Once the script finishes running, open up the Azure portal and click on the endpoint in order to see the metrics that were collected.
+### Download a simple TensorFlow model that divides an input by two and adds 2 to the result
+
+
+```azurecli-interactive
+wget https://aka.ms/half_plus_two-model -O $BASE_PATH/half_plus_two.tar.gz
+tar -xvf $BASE_PATH/half_plus_two.tar.gz -C $BASE_PATH
+```
+
+### Run a tensorflow serving image locally to test that it works
+
+```azurecli-interactive
+
+docker run --rm -d -v $PWD/$BASE_PATH:$MODEL_BASE_PATH -p 8501:8501 \
+ -e MODEL_BASE_PATH=$MODEL_BASE_PATH -e MODEL_NAME=$MODEL_NAME \
+ --name="tfserving-test" docker.io/tensorflow/serving:latest
+
+```
+
+### Check that you can send liveness and scoring requests to the image
+
+```azurecli-interactive
+# Check liveness locally
+curl -v http://localhost:8501/v1/models/$MODEL_NAME
+
+# Check scoring locally
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data @$BASE_PATH/sample_request.json \
+  http://localhost:8501/v1/models/$MODEL_NAME:predict
+```
+
+### Stop the image
+
+```azurecli-interactive
+docker stop tfserving-test
+```
+
+### Create a YAML file for your endpoint
+
+```yaml
+$schema: https://azuremlsdk2.blob.core.windows.net/latest/managedOnlineEndpoint.schema.json
+name: tfserving-endpoint
+type: online
+auth_mode: aml_token
+traffic:
+  tfserving: 100
+
+deployments:
+  - name: tfserving
+    model:
+      name: tfserving-mounted
+      version: 1
+      local_path: ./half_plus_two
+    environment_variables:
+      MODEL_BASE_PATH: /var/azureml-app/azureml-models/tfserving-mounted/1
+      MODEL_NAME: half_plus_two
+    environment:
+      docker:
+        image: docker.io/tensorflow/serving:latest
+      inference_config:
+        liveness_route:
+          port: 8501
+          path: /v1/models/half_plus_two
+        readiness_route:
+          port: 8501
+          path: /v1/models/half_plus_two
+        scoring_route:
+          port: 8501
+          path: /v1/models/half_plus_two:predict
+    instance_type: Standard_F2s_v2
+    scale_settings:
+      scale_type: manual
+      instance_count: 1
+      min_instances: 1
+      max_instances: 2
+```
+
+### Deploy the endpoint
+
+```azurecli-interactive
+az ml endpoint create -f $BASE_PATH/$ENDPOINT_NAME.yml -n $ENDPOINT_NAME
+```
+
+### Create a sample JSON payload
+
+```json
+{"instances": [1.0, 2.0, 5.0]}
+```
+
+### Run scoring
+
+```json
+az ml endpoint invoke -n $ENDPOINT_NAME --request-file $BASE_PATH/sample_request.json
+```
+
+### Check endpoint logs
+
+```azurecli-interactive
+az ml endpoint get-logs -n $ENDPOINT_NAME --deployment $DEPLOYMENT_NAME
+az ml endpoint get-logs -n $ENDPOINT_NAME --deployment $DEPLOYMENT_NAME --container storage-initializer
+```
+
+View metrics for your endpoint in the [Azure portal](https://portal.azure.com)
+
+### Delete endpoint and model
+
+```azurecli-interactive
+az ml endpoint delete -n $ENDPOINT_NAME -y
+az ml model delete -n tfserving-mounted --version 1
+```
 
 ## Deploy Triton ensemble model
 
