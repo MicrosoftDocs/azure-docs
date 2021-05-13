@@ -17,7 +17,7 @@ ms.custom: tutorial
 
 # Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)
 
-In this tutorial, you learn how to to securely access Azure resources from your scoring script with a managed online endpoint and a system assigned managed identity.
+In this tutorial, you learn how to securely access Azure resources from your scoring script with a managed online endpoint and a system assigned managed identity.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 This tutorial demonstrates how to take the following actions with the Azure CLI and its ML extension:
