@@ -14,7 +14,7 @@ Continuous video recording (CVR) refers to the process of continuously recording
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
-An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of recorded content](video-playback-concept.md) for more details.
+An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
 
 ## Suggested pre-reading  
 
@@ -39,7 +39,7 @@ If your edge module loses connectivity for a long time and the content stored in
 
 When network connectivity is restored, the video sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the video sink will start uploading from the 10:05AM mark.
 
-If you later examine the video resource using [these APIs](playback-recordings-how-to.md) you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
+If you later examine the video resource using [these APIs](playback-recordings-how-to.md#query-api) you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
 
 Gaps in recordings can also occur, for example, if you restart pipelines for whatever reason. You can also stop a pipeline and restart at a later time - as long as the camera settings do not change, you can continue to record to the same Video Analyzer video resource.
 
@@ -50,12 +50,12 @@ The `segmentLength` property, shown above, will help you control the write trans
 The `segmentLength` property ensures that the edge module will upload video at most once per `segmentLength` seconds. This property has a minimum value of 30 seconds (also the default), and can be increased by 30-second increments to a maximum of 5 minutes.
 
 > [!NOTE]
-> See the [playback recordings](playback-recordings-how-to.md) article for the effect that `segmentLength` has on playback.
+> See the [Playback of video recordings](playback-recordings-how-to.md) article for the effect that `segmentLength` has on playback.
 
 ## See also
 
 * [Event-based video recording](event-based-video-recording-concept.md) 
-* [Playback of recorded content](playback-recordings-how-to.md) 
+* [Playback of video recordings](playback-recordings-how-to.md) 
 
 ## Next steps
 
