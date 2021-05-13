@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Percept documentation
-summary: Azure Percept is an end-to-end solution for building and deploying perception based AI at the edge. # < 160 chars
+summary: Azure Percept is an end-to-end solution for building and deploying perception-based AI at the edge. # < 160 chars
 
 metadata:
   title: Azure Percept documentation
@@ -111,7 +111,7 @@ landingContent:
           - text: Dev Tools Pack Installer
             url: dev-tools-installer.md
 
-  - title: Keep your Azure Percept DK up-to-date
+  - title: Keep your Azure Percept DK up to date
     linkLists:
       - linkListType: overview
         links:
