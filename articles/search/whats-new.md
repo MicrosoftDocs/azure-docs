@@ -7,12 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/07/2021
+ms.date: 05/19/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+
+## May 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [queryLanguages for spell check and semantic results](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents##queryLanguage) | For query requests that invoke spell check or queryType=semantic, you can now set the queryLanguage to any supported language. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
 
 ## April 2021
 

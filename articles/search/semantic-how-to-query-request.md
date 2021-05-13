@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 05/19/2021
 ---
 # Create a query for semantic captions in Cognitive Search
 
@@ -96,7 +96,7 @@ The following table summarizes the query parameters used in a semantic query so 
 | Parameter | Type | Description |
 |-----------|-------|-------------|
 | queryType | String | Valid values include simple, full, and semantic. A value of "semantic" is required for semantic queries. |
-| queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
+| queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. |
 | searchFields | String | A comma-delimited list of searchable fields. Specifies the fields over which semantic ranking occurs, from which captions and answers are extracted. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
 | answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
@@ -114,11 +114,11 @@ Add the following parameters to the rest. Both parameters are required.
 "queryLanguage": "en-us",
 ```
 
-The queryLanguage must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. If queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). Any language-agnostic analyzers, such as keyword or simple, have no conflict with queryLanguage values.
+The queryLanguage must be a [supported language](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents##queryLanguage) and it must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. For example, if the queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"), and spell check and any of the semantic features must also use an English variant. 
 
 In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
-While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
+While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't explicitly check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
 <a name="searchfields"></a>
 
