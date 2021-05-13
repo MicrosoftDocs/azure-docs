@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,6 +20,12 @@ This article describes how to list roles you have assigned in Azure Active Direc
 
 - Role assignments at the organization-wide scope are added to and can be seen in the list of single application role assignments.
 - Role assignments at the single application scope aren't added to and can't be seen in the list of organization-wide scoped assignments.
+
+## Prerequisites
+
+- AzureADPreview module
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## List role assignments in the Azure portal
 
@@ -41,31 +47,9 @@ To download all assignments for a specific role, on the **Roles and administrato
 
 ![download all assignments for a role](./media/view-assignments/download-role-assignments.png)
 
-## List role assignments using Azure AD PowerShell
+## List role assignments using PowerShell
 
 This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
-
-### Prepare PowerShell
-
-First, you must [download the Azure AD preview PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
-
-To install the Azure AD PowerShell module, use the following commands:
-
-``` PowerShell
-Install-Module -Name AzureADPreview
-Import-Module -Name AzureADPreview
-```
-
-To verify that the module is ready to use, use the following command:
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
-```
-
-### List role assignments
 
 Example of listing the role assignments.
 
@@ -80,7 +64,7 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## List role assignments using Microsoft Graph API
+## List role assignments using the Microsoft Graph API
 
 This section describes how to list role assignments with organization-wide scope.  To list single-application scope role assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
 

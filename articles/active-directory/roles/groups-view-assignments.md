@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -21,6 +21,14 @@ ms.collection: M365-identity-device-management
 
 This section describes how the roles assigned to a group can be viewed using Azure AD admin center. Viewing groups and assigned roles are default user permissions.
 
+## Prerequisites
+
+- AzureADPreview module
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
+## Azure portal
+
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with any non-admin or admin credentials.
 
 1. Select the group that you are interested in.
@@ -29,7 +37,7 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
    ![View all roles assigned to a selected group](./media/groups-view-assignments/view-assignments.png)
 
-## Using PowerShell
+## PowerShell
 
 ### Get object ID of the group
 
@@ -43,7 +51,7 @@ Get-AzureADMSGroup -SearchString "Contoso_Helpdesk_Administrators"
 Get-AzureADMSRoleAssignment -Filter "principalId eq '<object id of group>" 
 ```
 
-## Using Microsoft Graph API
+## Microsoft Graph API
 
 ### Get object ID of the group
 

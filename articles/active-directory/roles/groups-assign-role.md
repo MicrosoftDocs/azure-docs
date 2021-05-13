@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,7 +20,13 @@ ms.collection: M365-identity-device-management
 
 This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to an Azure AD group.
 
-## Using Azure AD admin center
+## Prerequisites
+
+- AzureADPreview module
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
+## Azure portal
 
 Assigning a group to an Azure AD role is similar to assigning users and service principals except that only groups that are role-assignable can be used. In the Azure portal, only groups that are role-assignable are displayed.
 
@@ -40,7 +46,7 @@ Assigning a group to an Azure AD role is similar to assigning users and service 
 
 For more information on assigning role permissions, see [Assign administrator and non-administrator roles to users](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## Using PowerShell
+## PowerShell
 
 ### Create a group that can be assigned to role
 
@@ -60,7 +66,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
-## Using Microsoft Graph API
+## Microsoft Graph API
 
 ### Create a group that can be assigned Azure AD role
 
