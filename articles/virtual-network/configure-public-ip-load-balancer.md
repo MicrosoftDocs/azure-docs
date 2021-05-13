@@ -25,17 +25,20 @@ Examples of resources that support standard SKU public IPs exclusively:
 
 Load balancer requires either a private or public IP address for the frontend configuration. The frontend of the load balancer is the connection point for clients internally and externally depending on the type of public IP address used. 
 
-Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Cross-region load balancers support the global tier option of standard SKU public IP addresses.
+Standard load balancer and public IP support outbound rules for Source Network Address Translation (SNAT) of outbound connections from the backend pool of the load balancer. Public IP prefixes extend the scalability of SNAT by allowing multiple IP addresses for outbound connections. Cross-region load balancers support the global tier option of standard SKU public IP addresses.
 
-Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to change the current public IP associated to a load balancer. 
+Sometimes it's necessary within a deployment to update or change a public IP address associated with a resource. In this article, you'll learn how to create a load balancer with an existing public IP address in your subscription. You'll learn how to change the current public IP associated to a load balancer. Finally, you'll change the frontend configuration of an outbound backend pool to a public IP prefix.
 
 Standard SKU load balancer and public IP are used for the examples in this article. For basic SKU load balancers, the procedures are the same except for the selection of SKU upon creation of the load balancer and public IP resource.
+
+Basic load balancers don't support outbound rules or public IP prefixes.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
+- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](create-public-ip-prefix-portal.md)
 
 ## Create load balancer existing public IP
 
@@ -104,6 +107,11 @@ To change the IP, you'll associate a new public IP address previously created wi
 
     > [!NOTE]
     > These procedures are valid for a cross-region load balancer. For more information on cross-region load balancer, see **[Cross-region load balancer](../load-balancer/cross-region-overview.md)**.
+
+
+## Add public IP prefix
+
+In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
 
 ## Delete public IP address
 
