@@ -236,4 +236,4 @@ If you deploy your container group in an [Azure virtual network](container-insta
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet).
