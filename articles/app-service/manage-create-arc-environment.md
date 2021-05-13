@@ -194,9 +194,9 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
 You can use `kubectl` to see the pods that have been created in your Kubernetes cluster:
 
-    ```bash
-    kubectl get pods -n ${namespace}
-    ```
+```bash
+kubectl get pods -n ${namespace}
+```
 
 You can learn more about these pods and their role in the system from [Pods created by the App Service extension](overview-arc-integration.md#pods-created-by-the-app-service-extension).
 
