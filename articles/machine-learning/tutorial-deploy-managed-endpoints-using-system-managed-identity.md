@@ -1,7 +1,7 @@
 ---
 title: Access Azure resources with a managed online endpoint
 titleSuffix: Azure Machine Learning
-description: Use a managed online endpoint's system-assigned managed identity to access Azure resources for your machine learning model deployment. 
+description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,6 +11,8 @@ author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
 ms.custom: tutorial
+
+# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with a managed online endpoint and system assigned managed identity. 
 ---
 
 # Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)
