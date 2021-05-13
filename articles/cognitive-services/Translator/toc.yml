@@ -60,6 +60,9 @@
         items:
         - name: "Container: Translate"
           href: containers/translator-container-supported-parameters.md
+      - name: All Cognitive Services containers documentation
+          href: ../containers/index.yml
+          maintainContext: true
   - name: Concepts
     items:
     - name: How the API counts characters
