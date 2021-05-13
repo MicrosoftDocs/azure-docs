@@ -36,7 +36,7 @@ Event Hubs is a fully managed Platform-as-a-Service (PaaS) with little configura
 Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a [partitioned consumer model](event-hubs-scalability.md#partitions), enabling multiple applications to process the stream concurrently and letting you control the speed of processing. Azure Event Hubs also integrates with [Azure Functions](../azure-functions/index.yml) for a serverless architecture.
 
 ## Capture event data
-[Capture](event-hubs-capture-overview.md) your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units). Event Hubs enables you to focus on data processing rather than on data capture.
+[Capture](event-hubs-capture-overview.md) your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units). Event Hubs enables you to focus on data processing rather than on data capture.
 
 ## Scalable
 With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. The [Auto-inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units to meet your usage needs.
@@ -68,7 +68,7 @@ Event Hubs contains the following [key components](event-hubs-features.md):
 - **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka (1.0 and above)
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable consuming applications to each have a separate view of the event stream. They read the stream independently at their own pace and with their own offsets.
-- **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
+- [Throughput units](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units): Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
 - **Event receivers**: Any entity that reads event data from an event hub. All Event Hubs consumers connect via the AMQP 1.0 session. The Event Hubs service delivers events through a session as they become available. All Kafka consumers connect via the Kafka protocol 1.0 and later.
 
 The following figure shows the Event Hubs stream processing architecture:
