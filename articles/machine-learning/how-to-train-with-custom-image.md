@@ -48,7 +48,7 @@ ws = Workspace.from_config()
 
 ### Define your environment
 
-Create an `Environment` object and enable Docker.
+Create an `Environment` object.
 
 ```python
 from azureml.core import Environment
