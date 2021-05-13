@@ -15,6 +15,8 @@ ms.date: 05/25/2021
 
 # What are Azure Machine Learning endpoints (preview)?
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 Use Azure Machine Learning endpoints (preview) to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 
 In this article, you learn about:
