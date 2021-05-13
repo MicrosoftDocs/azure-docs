@@ -75,7 +75,8 @@ main = df.Orchestrator.create(orchestrator_function)
 ```powershell
 param($Context)
 
-$approvalEvent = Start-DurableExternalEventListener -EventName "Approval"
+$approved = Start-DurableExternalEventListener -EventName "Approval"
+
 if ($approved) {
     # approval granted - do the approved action
 } else {
