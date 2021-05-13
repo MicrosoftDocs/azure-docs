@@ -500,6 +500,8 @@
       - name: Advanced entry script authoring
         displayName: swagger inference schema binary cors
         href: how-to-deploy-advanced-entry-script.md
+      - name: Inference HTTP server
+        href: how-to-azureml-inference-server-http.md
       - name: Monitor web services
         items:
         - name: Collect & evaluate model data
