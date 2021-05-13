@@ -4,7 +4,7 @@ description: This article describes different types of event handlers and destin
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
 ---
 

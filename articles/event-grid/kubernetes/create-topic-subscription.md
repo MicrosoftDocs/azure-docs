@@ -4,7 +4,7 @@ description: This article describes how to create an event grid topic on a Kuber
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/06/2021
+ms.date: 05/25/2021
 ms.topic: quickstart
 ---
 

@@ -4,7 +4,7 @@ description: This article provides steps to install Event Grid on Azure Arc enab
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/11/2021
+ms.date: 05/25/2021
 ms.topic: how-to
 ---
 

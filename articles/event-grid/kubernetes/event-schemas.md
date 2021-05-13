@@ -4,7 +4,7 @@ description: This article describes event schemas that are supported by Event Gr
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
-ms.date: 05/04/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
 ---
 
