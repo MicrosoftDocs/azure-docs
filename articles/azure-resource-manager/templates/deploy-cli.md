@@ -166,7 +166,7 @@ az deployment group create \
   --template-spec $id
 ```
 
-For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+For more information, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Preview changes
 

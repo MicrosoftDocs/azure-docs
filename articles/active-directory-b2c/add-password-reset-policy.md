@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/11/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -57,10 +57,10 @@ To enable self-service password reset for the sign-up or sign-in user flow:
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 1. Under **Customize** in the left menu, select **Page layouts**.
-1. In the **Page Layout Version**, choose **2.1.2 - Current** or above.
+1. In the **Page Layout Version**, choose **2.1.3** or above.
 1. Select **Save**.
 
 ::: zone-end
