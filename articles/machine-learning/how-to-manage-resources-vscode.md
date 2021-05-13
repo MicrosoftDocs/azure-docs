@@ -44,7 +44,7 @@ Alternatively, you can create a resource by using the command palette:
 
 ## Version resources
 
-Some resources like environments, datasets, and models allow you to make changes a resource and store the different versions.
+Some resources like environments, datasets, and models allow you to make changes to a resource and store the different versions.
 
 To version a resource:
 
@@ -121,7 +121,7 @@ For more information, see [datasets](concept-data.md#datasets)
 ### Create dataset
 
 1. Expand the subscription node that contains your workspace.
-1. Expand the workspace node you want to create the datastore under.
+1. Expand the workspace node you want to create the dataset under.
 1. Right-click the **Datasets** node and select **Create Dataset**.
 1. A specification file appears. Configure the specification file.
 1. Right-click the template file and select **Azure ML: Create Resource**.
@@ -305,7 +305,7 @@ For more information, see [compute targets for inference](concept-compute-target
 
 1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the **Attached computes** node inside your **Compute** node.
+1. Expand the **Inference clusters** node inside your **Compute** node.
 1. Right-click the compute you want to:
     - **View Compute Properties**. Displays read-only configuration data about your attached compute.
     - **Detach compute**. Detaches the compute from your workspace.
