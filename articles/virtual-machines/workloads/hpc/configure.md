@@ -29,7 +29,7 @@ On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers a
 - Some other VM images on the Marketplace also come pre-installed with the Nvidia GPU drivers, including some VM images from Nvidia.
 
 Depending on the workloads' Linux distro and version needs, both the [CentOS-HPC VM images](#centos-hpc-vm-images) and [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace are the easiest way to get started with HPC and AI workloads on Azure.
-It is also recommended to create [custom VM images](../../linux/tutorial-custom-images.md) with workload specific customization and configuration and reuse those recurringly.
+It is also recommended to create [custom VM images](../../linux/tutorial-custom-images.md), from the HPC VM images listed above, with workload specific customization and configuration.
 
 ### VM sizes supported by the HPC VM images
 The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, which do not support ConnectX3-Pro InfiniBand cards. These VM images only support ConnextX-5 and newer InfiniBand cards. This implies the following VM size support matrix for the InfiniBand OFED in these HPC VM images:
@@ -54,12 +54,14 @@ For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances)
 
 > [!NOTE] 
 > SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:
->- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
->- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
->- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
->- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
->- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
->- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
+>- OpenLogic:CentOS-HPC:7.6:latest
+>- OpenLogic:CentOS-HPC:7_6gen2:latest
+>- OpenLogic:CentOS-HPC:7.7:latest
+>- OpenLogic:CentOS-HPC:7_7-gen2:latest
+>- OpenLogic:CentOS-HPC:7.8:latest
+>- OpenLogic:CentOS-HPC:7_8-gen2:latest
+>- OpenLogic:CentOS-HPC:8_1:latest
+>- OpenLogic:CentOS-HPC:8_1-gen2:latest
 
 #### Non SR-IOV enabled VMs
 For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC version 6.5 or a later version, up to 7.4 in the Marketplace are suitable. As an example, for [H16-series VMs](../../h-series.md), versions 7.1 to 7.4 are recommended. These VM images come pre-loaded with the Network Direct drivers for RDMA and Intel MPI version 5.1.
@@ -98,7 +100,7 @@ The following are some optional optimization settings for improved performance o
 
 ### Update LIS
 
-If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](../../linux/endorsed-distros.md) can be installed or updated on supported OS distros, especially is deploying using a custom image or an older OS version such as CentOS/RHEL 6.x or earlier version of 7.x.
+If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](../../linux/endorsed-distros.md) can be installed or updated on supported OS distros, especially when deploying using a custom image or an older OS version such as CentOS/RHEL 6.x or earlier version of 7.x.
 
 ```bash
 wget https://aka.ms/lis
