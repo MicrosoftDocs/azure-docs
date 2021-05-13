@@ -61,7 +61,7 @@ landingContent:
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
-  - title: UI Framework
+  - title: UI Library
     linkLists:
       - linkListType: concept
         links:
