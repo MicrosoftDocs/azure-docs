@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/13/2021
 ---
 # Resource functions for ARM templates
 
@@ -922,61 +922,6 @@ The preceding example returns the an object that is the same as using Full for J
 ```
 
 ---
-
-The preceding example returns the two objects. The properties object is in the following format:
-
-```json
-{
-   "creationTime": "2017-10-09T18:55:40.5863736Z",
-   "primaryEndpoints": {
-     "blob": "https://examplestorage.blob.core.windows.net/",
-     "file": "https://examplestorage.file.core.windows.net/",
-     "queue": "https://examplestorage.queue.core.windows.net/",
-     "table": "https://examplestorage.table.core.windows.net/"
-   },
-   "primaryLocation": "southcentralus",
-   "provisioningState": "Succeeded",
-   "statusOfPrimary": "available",
-   "supportsHttpsTrafficOnly": false
-}
-```
-
-The full object is in the following format:
-
-```json
-{
-  "apiVersion":"2016-12-01",
-  "location":"southcentralus",
-  "sku": {
-    "name":"Standard_LRS",
-    "tier":"Standard"
-  },
-  "tags":{},
-  "kind":"Storage",
-  "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
-    "primaryEndpoints": {
-      "blob":"https://examplestorage.blob.core.windows.net/",
-      "file":"https://examplestorage.file.core.windows.net/",
-      "queue":"https://examplestorage.queue.core.windows.net/",
-      "table":"https://examplestorage.table.core.windows.net/"
-    },
-    "primaryLocation":"southcentralus",
-    "provisioningState":"Succeeded",
-    "statusOfPrimary":"available",
-    "supportsHttpsTrafficOnly":false
-  },
-  "subscriptionId":"<subscription-id>",
-  "resourceGroupName":"functionexamplegroup",
-  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
-  "condition":true,
-  "isConditionTrue":true,
-  "isTemplateResource":false,
-  "isAction":false,
-  "provisioningOperation":"Read"
-}
-```
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
