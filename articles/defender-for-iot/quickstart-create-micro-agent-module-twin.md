@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a Defender IoT micro agent module twin (Preview)'
 description: In this quickstart, learn how to create individual DefenderIotMicroAgent module twins for new devices.
-ms.date: 1/20/2021
+ms.date: 05/10/2021
 ms.topic: quickstart
 ---
 
@@ -11,7 +11,7 @@ You can create individual **DefenderIotMicroAgent** module twins for new devic
 
 ## Prerequisites
 
-- None
+None
 
 ## Device twins 
 
