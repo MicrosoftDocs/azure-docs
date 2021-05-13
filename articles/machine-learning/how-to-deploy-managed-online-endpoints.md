@@ -67,7 +67,7 @@ The inputs needed to deploy a model on an online endpoint are:
 - An environment in which your model is run (as you'll see, the environment may be a Docker image with conda dependencies or may be a Dockerfile).
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the `endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yaml` file that captures all the above information: 
+The following snippet shows the `endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml` file that captures all the above information: 
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
