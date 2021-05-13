@@ -215,7 +215,7 @@ For example, the following PowerShell creates a new storage pool with the interl
       -AllocationUnitSize 65536 -Confirm:$false 
   ```
 
-In Windows Server 2016 and later, the default value for `-StorageSubsystemFriendlyName` is ``
+In Windows Server 2016 and later, the default value for `-StorageSubsystemFriendlyName` is `Windows Storage on <VM Name>`
 
 
 
