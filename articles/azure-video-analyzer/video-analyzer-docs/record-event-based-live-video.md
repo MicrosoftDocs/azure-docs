@@ -119,7 +119,7 @@ This action builds the objectCounter module for object counting and pushes the i
 This step creates the IoT Edge deployment manifest at src/edge/config/deployment.objectCounter.amd64.json. Right-click that file, and select **Create Deployment for Single Device**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Create deployment for single device":::
+> :::image type="content" source="./media/event-based-video-recording/create-deployment-single-device.png" alt-text="Create deployment for single device":::
 
 If this is your first tutorial with Video Analyzer on IoT Edge, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
 
