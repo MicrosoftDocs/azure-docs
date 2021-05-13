@@ -15,7 +15,7 @@ ms.date: 05/25/2021
 
 # What are Azure Machine Learning endpoints (preview)?
 
-Use Azure Machine Learning endpoints to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
+Use Azure Machine Learning endpoints (preview) to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 
 In this article, you learn about:
 > [!div class="checklist"]
@@ -27,7 +27,7 @@ In this article, you learn about:
 
 ## What are endpoints and deployments (preview)?
 
-After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** and **Deployments** to do so.
+After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** (preview) and **Deployments** (preview) to do so.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
@@ -49,7 +49,7 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 
 ## What are online endpoints (preview)?
 
-**Online endpoints** are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
+**Online endpoints** (preview) are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
 
 ### Online endpoints requirements
 
@@ -97,7 +97,7 @@ Traffic allocation can be used to perform safe rollout blue/green deployments by
 
 ## Managed online endpoints vs AKS online endpoints (preview)
 
-There are two types of online endpoints: **managed online endpoints** and **AKS online endpoints**. The following table highlights some of their key differences.
+There are two types of online endpoints: **managed online endpoints** (preview) and **AKS online endpoints** (preview). The following table highlights some of their key differences.
 
 |  | Managed online endpoints | AKS online endpoints |
 |-|-|-|
@@ -128,21 +128,20 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
 ## What are batch endpoints (preview)?
 
-**Batch endpoints** are endpoints that are used to perform inferencing on large volumes of data over a period of time. **Batch endpoints** run jobs asynchronously and store their output to a data store.
+**Batch endpoints** (preview) are endpoints that are used to perform batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
-### No-code MLFlow deployments
+### No-code MLflow model deployments
 
-Use [MLFlow tracking](how-to-use-mlflow.md) to dramatically streamline deployment to batch endpoints with the no-code deployment experience.  
+Use the no-code batch endpoint creation experience for [MLflow models](how-to-use-mlflow.md) to automatically create scoring scripts and execution environments.  
 
-For batch endpoints using MLFlow models, you need to specify the following:
+For batch endpoints using MLflow models, you need to specify the following:
 - Model files (or specify a registered model in your workspace)
 - Compute target
 
-However, if you are **not** deploying an MLFlow model, you need to provide additional requirements:
-- Model files (or specify a registered model in your workspace) 
+However, if you are **not** deploying an MLflow model, you need to provide additional requirements:
 - Scoring script - code needed to perform scoring/inferencing
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
-- Compute target
+
 
 ### Compute autoprovisioning and job-based scaling
 
@@ -155,7 +154,7 @@ The job-based structure also lets you scale instance count, mini batch size, and
 Use the following data locations when submitting a batch job:
 
 - Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets]()
-- Cloud data -  Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
+- Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
 - Data stored locally
 
 > [!NOTE]
