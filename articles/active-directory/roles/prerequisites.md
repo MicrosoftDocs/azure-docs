@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
 
-If you want to manage Azure Active Directory (Azure AD) roles using PowerShell or Graph Explorer, you must have required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Azure AD role features.
+If you want to manage Azure Active Directory (Azure AD) roles using PowerShell or Graph Explorer, you must have the required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Azure AD role features.
 
 ## AzureAD module
 
@@ -38,7 +38,7 @@ You must have the following module installed:
 To check which version of AzureAD you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
 
 ```powershell
-Get-InstalledModule AzureAD
+Get-InstalledModule -Name AzureAD
 ```
 
 You should see output similar to the following:
@@ -59,15 +59,43 @@ Install-Module -Name AzureAD
 
 #### Update AzureAD
 
-To update the AzureAD module to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+To update AzureAD to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
 
 ```powershell
 Install-Module -Name AzureAD
 ```
 
-## AzureADPreview module
+#### Use AzureAD
 
-Some PowerShell commands in Azure AD roles require the AzureADPreview module. To use PowerShell commands for administrative units, you must have the following module installed:
+To use AzureAD, follow these steps to make sure it is imported into the current session.
+
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if the installed AzureAD module is loaded into memory.
+
+    ```powershell
+    Get-Module -Name AzureAD
+    ```
+
+1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/powershellget/import-module) to import AzureAD. The `-Force` parameter removes the loaded module and then imports it again.
+
+    ```powershell
+    Import-Module -Name AzureAD -Force
+    ```
+
+1. Run [Get-Module](/powershell/module/microsoft.powershell.core/get-module) again.
+
+    ```powershell
+    Get-Module -Name AzureAD
+    ```
+
+    You should see output similar to the following:
+    
+    ```powershell
+    ModuleType Version    Name                                ExportedCommands
+    ---------- -------    ----                                ----------------
+    Binary     2.0.2.130  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
+    ```
+
+## AzureADPreview module
 
 To use PowerShell commands to do the following:
 
@@ -86,7 +114,7 @@ You must have the following module installed:
 To check which version of AzureADPreview you have installed, use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule).
 
 ```powershell
-Get-InstalledModule AzureADPreview
+Get-InstalledModule -Name AzureADPreview
 ```
 
 You should see output similar to the following:
@@ -99,41 +127,49 @@ Version    Name                                Repository           Description
 
 #### Install AzureADPreview
 
-If you don't have AzureADPreview installed, do the following.
-
-1. Use [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview.
-
-    ```powershell
-    Install-Module -Name AzureADPreview
-    ```
-
-1. Use [Import-Module](/powershell/module/powershellget/import-module) to import AzureADPreview.
-
-    ```powershell
-    Import-Module -Name AzureADPreview
-    ```
-
-1. Close and re-open the Windows PowerShell window.
-
-1. Use [Import-Module](/powershell/module/powershellget/import-module) to import AzureADPreview.
-
-    ```powershell
-    Import-Module -Name AzureADPreview
-    ```
-
-1. Use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule) to verify that the module is installed.
-
-    ```powershell
-    Get-InstalledModule AzureADPreview
-    ```
-
-#### Update AzureADPreview
-
-To update the AzureADPreview module to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+If you don't have AzureADPreview installed, se [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview.
 
 ```powershell
 Install-Module -Name AzureADPreview
 ```
+
+#### Update AzureADPreview
+
+To update AzureADPreview to the latest version, re-run [Install-Module](/powershell/module/powershellget/install-module).
+
+```powershell
+Install-Module -Name AzureADPreview
+```
+
+#### Use AzureADPreview
+
+To use AzureADPreview, follow these steps to make sure it is imported into the current session.
+
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if the installed AzureADPreview module is loaded into memory.
+
+    ```powershell
+    Get-Module -Name AzureADPreview
+    ```
+
+1. If you don't see any output in the previous step, use [Import-Module](/powershell/module/powershellget/import-module) to import AzureADPreview. The `-Force` parameter removes the loaded module and then imports it again.
+
+    ```powershell
+    Import-Module -Name AzureADPreview -Force
+    ```
+
+1. Run [Get-Module](/powershell/module/microsoft.powershell.core/get-module) again.
+
+    ```powershell
+    Get-Module -Name AzureADPreview
+    ```
+
+    You should see output similar to the following:
+    
+    ```powershell
+    ModuleType Version    Name                                ExportedCommands
+    ---------- -------    ----                                ----------------
+    Binary     2.0.2.129  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
+    ```
 
 ## Graph Explorer
 
