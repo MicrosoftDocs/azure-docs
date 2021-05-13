@@ -82,7 +82,7 @@ Your custom branding won't immediately appear when your users go to sites such a
     
         - **Square logo image, dark theme.** Same as the square logo image above. This logo image takes the place of the square logo image when used with a dark background, such as with Windows 10 Azure AD joined screens during the out-of-box experience (OOBE).  If your logo looks good on white, dark blue, and black backgrounds, you don't need to add this image.
          
-        - **Assistive text.** At this time some tenants may be presented with assistive text when exicuting the "change a password" flow (Strong password required. ect...). An example of assistive text is shown below. Currently assistive text is not customizable. Every tenant may not display assistive text.
+        - **Assistive text.** At this time some tenants may be presented with assistive text when executing the "change a password" flow for example, (strong password required). Currently, assistive text isn't customizable and every tenant may not display assistive text. An example of assistive text is shown below.
 
         ![Assistive text](https://user-images.githubusercontent.com/39276631/111838823-1ce38e80-88b7-11eb-8b76-df8c960c952d.PNG)
         
