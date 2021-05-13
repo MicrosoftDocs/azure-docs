@@ -40,7 +40,7 @@ The following steps outline how to change the performance tier of an existing di
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
     > [!IMPORTANT]
-    > If your disk is in West Central US, you can change its tier without downtime. Changing the disk if it is in any other region will involve downtime. To change your performance tier without downtime, you must access the Azure portal from the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview)
+    > If your disk is in West Central US, and it isn't a shared disk, you can change its tier without downtime. Changing the disk if it is in any other region will involve downtime. To change your performance tier without downtime, you must access the Azure portal from the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview)
 
 1. Navigate to the VM containing the disk you'd like to change.
 1. Either deallocate the VM or detach the disk.
