@@ -280,7 +280,7 @@
       href: identity-protection-investigate-risk.md
     - name: Configure Conditional Access
       href: conditional-access-user-flow.md
-    - name: Credential protection
+    - name: Mitigate credential attacks
       href: threat-management.md
     - name: Fraud protection partners
       items: 
