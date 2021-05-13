@@ -140,10 +140,10 @@ In the preceding examples an on-premises device wants to reach a resource in a S
    * Source IP Address: **127.30.0.4**
    * Destination IP Address: 10.200.0.4
 1. Reply from Spoke is initiated.
-   * Source IP Address: 30.0.0.1
+   * Source IP Address: 10.200.0.4
    * Destination IP Address: **127.30.0.4**
 1. Traffic enters the Site-to-site VPN gateway and the translation is reversed and sent to on-premises.
-   * Source IP Address: 19.0.0.1
+   * Source IP Address: 10.200.0.4
    * Destination IP Address: **10.30.0.4**
 
 ### Verification checks
