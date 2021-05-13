@@ -42,8 +42,6 @@ On your local computer:
 
 ---
 
-+ Run `docker login` to sign in to Docker. This command fails if Docker isn't running, in which case start docker and retry the command.
-
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
