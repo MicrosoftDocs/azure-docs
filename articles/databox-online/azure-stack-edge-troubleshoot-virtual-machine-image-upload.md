@@ -56,4 +56,4 @@ This article describes how to troubleshoot issues that occur when downloading an
 ## Next steps
 
 * Learn how to [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
-* Learn how to [Deploy VMs using Azure PowerShell cmdlets](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
+* Learn how to [Deploy VMs via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
