@@ -41,8 +41,6 @@ This tutorial demonstrates how to take the following actions with the Azure CLI 
 
 * You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
 
-* If you've not already set the defaults for Azure CLI, you should save your default settings. , run:
-
 * A trained machine learning model ready for scoring and deployment.
 
 ## Set the defaults for Azure CLI
