@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Safe rollout for online endpoints (preview)
 
-You have an existing endpoint in production and you want to deploy new code. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. 
+You have an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. 
 
 In this article, you'll learn to:
 
@@ -62,7 +62,7 @@ cd azureml-examples/cli
 
 The commands in this tutorial are in the file `how-to-deploy-declarative-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/canary-declarative-flow/` subdirectory.
 
-## Confirm your existing deployment is create
+## Confirm your existing deployment is created
 
 You can view the status of your existing deployment by running: 
 
@@ -74,7 +74,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 ## Scale your existing deployment to handle more traffic
 
-In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, change the value to `2` in the YAML configuration file:
+In the deployment described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1`. To handle more traffic, the second version of the YAML file (`2-scale-blue.yml`) changes the value to `2`:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/2-scale-blue.yml" range="29":::
 
@@ -83,11 +83,11 @@ Update the deployment with:
 :::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" id="scale_blue" :::
 
 > [!IMPORTANT]
-> Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
+> Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. 
 
 ## Deploy a new model, but send it no traffic yet
 
-To deploy your new model, add a new section to the `deployments` section of your configuration file, but specify in the `traffic` section that it should receive 0% of traffic:
+To deploy your new model, add a new section to the `deployments` section of your configuration file, but specify in the `traffic` section that it should receive 0% of traffic. The file `3-create-green.yml` incorporates this change:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/3-create-green.yml" range="7,35-56":::
 
@@ -105,7 +105,7 @@ If you want to use a REST client to invoke the deployment directly without going
 
 ## Test the new deployment with a small percentage of live traffic
 
-Once you have tested your `green` deployment, you can serve some percentage of traffic by modifying the `traffic` node in the configuration file:
+Once you have tested your `green` deployment, the `4-flight-green.yml` file demonstrates how to serve some percentage of traffic by modifying the `traffic` configuration in the configuration file:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/canary-declarative-flow/4-flight-green.yml" range="5-7":::
 
