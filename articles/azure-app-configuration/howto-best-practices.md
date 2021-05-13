@@ -94,5 +94,4 @@ You are recommended to use a proxy service between your client applications and 
 
 ## Next steps
 
-* [Keys and values](./concept-key-value.md)
-* 
+* [Keys and values](./concept-key-value.md) 
