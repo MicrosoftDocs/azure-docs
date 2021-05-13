@@ -91,7 +91,7 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 ### Security
 
 - Authentication: Key and Azure ML Tokens
-- Managed identity: User assigned and system assigned
+- Managed identity: User assigned and system assigned (managed online endpoint only)
 - SSL by default for endpoint invocation
 
 
@@ -105,7 +105,7 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | AKS |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) at endpoint level | Manual setup at the cluster level |
+| **Out-of-box logging** | Azure Logs and Log Analytics at endpoint level | Manual setup at the cluster level |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
 | **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
@@ -124,7 +124,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 
 - Monitoring and logs
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
-    - Debug deployments using the logs and [native integration with Azure Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics).
+    - Debug deployments using the logs and native integration with Azure Log Analytics.
 
 - Managed identity
     -  Use managed identities to access secured resources from scoring script
@@ -151,15 +151,15 @@ However, if you are **not** deploying an MLflow model, you need to provide addit
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 
 
-### Compute autoprovisioning and job-based scaling
+### Managed cost with autoscaling compute
 
-Batch endpoints handle requests using an asynchronous job-based system. As a result, Azure Machine Learning can automatically provision and teardown compute resources whenever a job is submitted, so you only pay for compute when you're using it.
+Invoking a batch endpoint triggers an asynchronous batch inference job. Compute resources are automatically provisioned when the job starts, and automatically de-allocated as the job completes. So you only pay for compute when you use it.
 
-The job-based structure also lets you scale instance count, mini batch size, and other scaling settings for each individual batch scoring job.
+You can override compute resource settings (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution as well as reduce cost.
 
 ### Flexible data sources and storage
 
-Use the following data locations when submitting a batch job:
+You can use the following options for input data when invoking a batch endpoint:
 
 - Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets]()
 - Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
@@ -170,12 +170,9 @@ Use the following data locations when submitting a batch job:
 
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
-
-
 ### Security
 
 - Authentication: Azure Active Directory Tokens
-- Managed identity: System assigned
 - SSL by default for endpoint invocation
 
 ## Next steps
