@@ -8,7 +8,7 @@ ms.date: 04/04/2021
 ---
 # Manage recording policy with Video Analyzer
 
-You can use Azure Video Analyzer for [continuous video recording](continuous-video-recording.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
+You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record to a video resource, the media data is written to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
 
