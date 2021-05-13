@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Join a Teams meeting from an Windows app
+title: Quickstart - Join a Teams meeting from a Windows app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Windows
 author: aurighet
 ms.author: aurighet
