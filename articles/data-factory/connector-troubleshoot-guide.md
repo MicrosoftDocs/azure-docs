@@ -495,7 +495,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
-## Dynamics 365, Dataverse, and Dynamics CRM
+## Dynamics 365, Common Data Service, and Dynamics CRM
 
 ### Error code: DynamicsCreateServiceClientError
 
@@ -557,20 +557,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
- - **Cause**: You are seeing `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior
-AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000` if your use case meets the following conditions:
-    1. You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM, AND
-    2. You are using Office365 Authentication (see this [link]() to ADF connector ACOM doc), AND
-    3. Your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc)
 
-    Under these circumstances, the connection used to succeed before 7/15/2021.
-    Starting 7/15/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
-
- - **Recommendation**: 
-	
-    If your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 7/15/2021. Refer this [link](/azure/data-factory/connector-dynamics-crm-office-365#prerequisites) for detailed steps.
-
- 
  - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 
  
  - **Recommendation**: 
