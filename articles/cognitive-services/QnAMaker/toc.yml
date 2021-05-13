@@ -16,10 +16,14 @@
       href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
-  - name: Integrate with Power Virtual Agent
-    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
+  - name: Customize your bot
+    items:
+    - name: Add multiple domains to FAQ Bot
+      href: Tutorials/create-faq-bot-for-multiple-domains.md
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Concepts
   items:
   - name: Plan your knowledge base
