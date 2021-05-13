@@ -194,7 +194,7 @@ In the **If no** condition, click **Add an action**, and select **Update a row**
 
 ## Test the workflow
 
-In the top-right corner of the screen, click **Save**, then **Test**. Select  **I'll perform the trigger action**. Click **Save & Test**, **Run flow**, then **Done**.
+In the top-right corner of the screen, click **Save**, then **Test**. Under **Test Flow**, select **manually**. Then click **Test**, and **Run flow**.
 
 The Excel file will get updated in your OneDrive account. It will look like the below.
 
