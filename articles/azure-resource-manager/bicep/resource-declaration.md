@@ -204,4 +204,4 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 ## Next steps
 
 * To conditionally deploy a resource, see [Conditional deployment in ARM templates](conditional-resource-deployment.md).
-* To set resource dependencies, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To set resource dependencies, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).

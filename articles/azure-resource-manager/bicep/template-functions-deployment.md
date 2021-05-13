@@ -456,7 +456,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
+For more information about using parameters, see [Parameters in Bicep](./parameters.md).
 
 ## variables
 

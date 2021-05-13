@@ -42,7 +42,7 @@ The type of returned value is set to `object`, which means it returns a template
 
 To get the `primaryEndpoints` property from the storage account, you use the storage account symbolic name. The autocomplete feature of the Visual Studio Code presents you a full list of the properties:
 
-   ![Visual Studio Code Bicep symbolic name object properties](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
+   ![Visual Studio Code Bicep symbolic name object properties](./media/tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## Deploy Bicep file
 
@@ -103,23 +103,23 @@ Now, let's look at the resource group and deployment history.
 1. Depending on the steps you did, you should have at least one and perhaps several storage accounts in the resource group.
 1. You should also have several successful deployments listed in the history. Select that link.
 
-   ![Select deployments](./media/bicep-tutorial-add-outputs/select-deployments.png)
+   ![Select deployments](./media/tutorial-add-outputs/select-deployments.png)
 
 1. You see all of your deployments in the history. Select the deployment called **addoutputs**.
 
-   ![Show deployment history](./media/bicep-tutorial-add-outputs/show-history.png)
+   ![Show deployment history](./media/tutorial-add-outputs/show-history.png)
 
 1. You can review the inputs.
 
-   ![Show inputs](./media/bicep-tutorial-add-outputs/show-inputs.png)
+   ![Show inputs](./media/tutorial-add-outputs/show-inputs.png)
 
 1. You can review the outputs.
 
-   ![Show outputs](./media/bicep-tutorial-add-outputs/show-outputs.png)
+   ![Show outputs](./media/tutorial-add-outputs/show-outputs.png)
 
 1. You can review the JSON template.
 
-   ![Show template](./media/bicep-tutorial-add-outputs/show-template.png)
+   ![Show template](./media/tutorial-add-outputs/show-template.png)
 
 ## Clean up resources
 
