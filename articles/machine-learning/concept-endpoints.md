@@ -45,6 +45,15 @@ A **Deployment** is a set of compute resources hosting the model that performs t
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent ARM resources that will appear in the Azure portal.
 
+### Multiple developer interfaces
+
+Create and manage batch and online endpoints with multiple developer tools:
+- CLI
+- ARM/REST API
+- Azure Machine Learning studio web portal
+- Azure portal (IT/Admin)
+- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
+
 Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [**online endpoints**](#what-are-online-endpoints-preview) and [**batch endpoints**](#what-are-batch-endpoints-preview).
 
 ## What are online endpoints (preview)?
@@ -61,38 +70,29 @@ To create an online endpoint, you need to specify the following:
 
 Learn how to deploy online endpoints from the CLI, ARM/REST, and the studio web portal.
 
-### Monitoring and cost management
+### Test and deploy locally for faster debugging
 
-:::image type="content" source="media/concept-endpoints/online-endpoint-monitoring.png" alt-text="Screenshot showing the costs for a single endpoint":::
+Deploy locally to test your endpoints without deploying to the cloud. Azure Machine Learning creates a local Docker image that mimics the Azure ML image. Azure Machine Learning will build and run deployments for you locally, and cache the image for rapid iterations.
 
-All online endpoints have native integration with Application Insights to monitor SLAs and diagnose issues. [Managed online endpoints](#managed-online-endpoints-vs-aks-online-endpoints-preview) also include native integration with Azure Logs and Azure Metrics.
-
-You can also use the Azure portal to easily view cost at the endpoint level.
-
-### Security
-
-- Authentication: Key and Azure ML Tokens
-- Managed identity: User assigned and system assigned
-- SSL by default for endpoint invocation
-
-### Multiple developer interfaces
-
-Create and manage your online endpoints with multiple developer tools:
-- CLI
-- ARM/REST API
-- Azure Machine Learning studio web portal
-- Azure portal (IT/Admin)
-- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
-
-Deploy and test your model in a local Docker environment using local endpoints for faster debugging.
-
-### Native blue/green deployment
+### Native blue/green deployment 
 
 Recall, that a single endpoint can have multiple deployments. The online endpoint can perform load balancing to allocate any percentage of traffic to each deployment.
 
 Traffic allocation can be used to perform safe rollout blue/green deployments by balancing requests between different instances.
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
+
+### Application Insights integration
+
+All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
+
+However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+
+### Security
+
+- Authentication: Key and Azure ML Tokens
+- Managed identity: User assigned and system assigned
+- SSL by default for endpoint invocation
 
 
 ## Managed online endpoints vs AKS online endpoints (preview)
@@ -102,29 +102,37 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 |  | Managed online endpoints | AKS online endpoints |
 |-|-|-|
 | **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can manage infrastructure requirements |
-| **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | Manual configuration |
+| **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | AKS |
-| **Logs and monitoring** | [Azure Logs](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics), [Azure Monitoring](how-to-monitor-online-endpoints.md), & AppInsights integration | AppInsights integration, manual setup for other monitoring and logging |
+| **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
+| **Out-of-box logging** | [Azure Logs and Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) at endpoint level | Manual setup at the cluster level |
+| **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
 | **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints
 
-Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits:
+Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over AKS online endpoints:
 
 - Managed infrastructure
-    - Automatically provisioning the compute and hosting the model (you just need to specify the VM type and scale settings) 
-    - Automatically perform updates and patches to the underlying host OS image
-    - Automatic node recovery in case of system failure.
+    - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
+    - Automatically performs updates and patches to the underlying host OS image
+    - Automatic node recovery in case of system failure
+
+:::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
 
 - Monitoring and logs
     - Monitor model availability, performance, and SLA using [native integration with Azure Monitor](how-to-monitor-online-endpoints.md).
     - Debug deployments using the logs and [native integration with Azure Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics).
-    - [View costs at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
 - Managed identity
     -  Use managed identities to access secured resources from scoring script
+
+:::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
+
+- View costs 
+    - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
 ## What are batch endpoints (preview)?
 
@@ -162,14 +170,7 @@ Use the following data locations when submitting a batch job:
 
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
-### Multiple developer interfaces
 
-Create and manage your batch endpoints with multiple developer tools:
-- CLI
-- ARM/REST API
-- Azure Machine Learning studio web portal
-- Azure portal (IT/Admin)
-- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
 
 ### Security
 
