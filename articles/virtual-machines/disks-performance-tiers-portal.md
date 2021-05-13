@@ -71,7 +71,7 @@ You must enable the feature for your subscription before you can change the perf
 
 ### Change performance tier
 
-Now that the feature has been registered, you can use change your performance tier without downtime.
+Now that the feature has been registered, you can change applicable disk's performance tiers without downtime.
 
 1. Sign in to the Azure portal from the following link: [https://aka.ms/diskPerfTiersPreview](https://aka.ms/diskPerfTiersPreview).
 1. Navigate to the VM containing the disk you'd like to change.
