@@ -56,10 +56,8 @@
         href: containers/translator-how-to-install-container.md
       - name: Configure containers
         href: containers/translator-container-configuration.md
-      - name: Reference
-        items:
-        - name: "Container: Translate"
-          href: containers/translator-container-supported-parameters.md
+      - name: "Container: Translate"
+        href: containers/translator-container-supported-parameters.md
   - name: Concepts
     items:
     - name: How the API counts characters

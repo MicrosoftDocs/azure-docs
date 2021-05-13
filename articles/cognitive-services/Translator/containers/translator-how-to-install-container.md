@@ -22,7 +22,7 @@ Translator container enables you to build a translator application architecture 
 
 > [!IMPORTANT]
 >
-> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See the [**Request approval to the run the container**] (#Request approval to the run the container) section below for more information.
+> * Translator container is in gated preview and to use it you must submit an online request, and have it approved. See [Request approval to run container](#request-approval-to-run-container) below for more information.
 > * Translator container supports limited features compared to the cloud offerings.  Please refer to **Container: Translate** for more details.
 
 <!-- markdownlint-disable MD033 -->
@@ -78,7 +78,7 @@ For every language pair, it's recommended to have 2 GB of memory. By default, th
 >
 > * The minimum and recommended specifications are based on Docker limits, not host machine resources.
 
-## Request approval to the run the container
+## Request approval to run container
 
 Complete and submit the [**Azure Cognitive Services
 Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
@@ -125,7 +125,7 @@ You can have this container and a different Azure Cognitive Services container r
  The container provides a REST-based Translator endpoint API. Here is an example request:
 
 ```curl
-curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-CN"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS"
     -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
