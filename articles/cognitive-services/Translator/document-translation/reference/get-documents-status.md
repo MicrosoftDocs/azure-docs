@@ -47,7 +47,7 @@ Learn how to find your [custom domain name](../get-started-with-document-transla
 Request parameters passed on the query string are:
 
 |Query parameter|In|Required|Type|Description|
-|--- |--- |--- |---|
+|--- |--- |--- |---|---|
 |id|path|True|string|The operation ID.|
 |endpoint|path|True|string|Supported Cognitive Services endpoints (protocol and hostname, for example: https://westus.api.cognitive.microsoft.com).|
 |$maxpagesize|query|False|integer int32|$maxpagesize is the maximum items returned in a page. If more items are requested via $top (or $top is not specified and there are more items to be returned), @nextLink will contain the link to the next page.Clients MAY request server-driven paging with a specific page size by specifying a $maxpagesize preference. The server SHOULD honor this preference if the specified page size is smaller than the server's default page size.\
