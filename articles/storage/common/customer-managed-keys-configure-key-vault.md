@@ -158,6 +158,8 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
+For more information, see [Assign a Key Vault access policy using Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md)).
+
 #### Option 2: Use a user-assigned managed identity
 
 First, find the object ID of the user-assigned managed identity. You can find that ID in the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the object ID. To use this script, you'll need the resource ID of the user-assigned managed identity.
@@ -175,6 +177,8 @@ Set-AzKeyVaultAccessPolicy `
     -ObjectId <object-id> `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
+
+For more information, see [Assign a Key Vault access policy using Azure PowerShell](../../key-vault/general/assign-access-policy-powershell.md)).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -376,13 +380,13 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 > [!TIP]
 > This parameter is also available with the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
-To use a user-assigned managed identity, call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `UserAssigned`. Then, set the `UserAssignedIdentities` and `-KeyVaultUserAssignedIdentity` parameters to the object ID of the user-assigned managed identity: 
+To use a user-assigned managed identity, call the  [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-IdentityType` parameter to `UserAssigned`. Then, set the `UserAssignedIdentityId` and `-KeyVaultUserAssignedIdentity` parameters to the object ID of the user-assigned managed identity: 
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -AccountName $storageAccount.StorageAccountName `
     -IdentityType UserAssigned ` 
-    -UserAssignedIdentities @($UserAssignedIdentity) `  
+    -UserAssignedIdentityId @($UserAssignedIdentity) `  
     -KeyVaultUserAssignedIdentity $UserAssignedIdentity 
 ```
 
