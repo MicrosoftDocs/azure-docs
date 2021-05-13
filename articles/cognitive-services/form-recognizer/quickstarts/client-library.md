@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library or REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Use the Form Recognizer client library or REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan

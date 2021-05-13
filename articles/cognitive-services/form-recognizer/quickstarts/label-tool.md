@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
