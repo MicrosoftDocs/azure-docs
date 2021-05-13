@@ -108,7 +108,7 @@ The private link resource owner can perform the following actions over a private
 
 ### RBAC permissions
 
-The following are specific RBAC permissions the user needs to be able to create a Private Endpoint. To find more information on custom roles, please review [Steps to create a custom role](../azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+The following are specific RBAC permissions the user needs to be able to create a Private Endpoint. To find more information on custom roles, please review [Steps to create a custom role](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
 
 Microsoft.Resources/deployments/*
 Microsoft.Resources/subscriptions/resourcegroups/resources/read
