@@ -48,10 +48,7 @@ There are some limitations of ledger tables that you should be aware of. For det
 
 ### Updatable ledger tables
 
-[Updatable ledger tables](ledger-updatable-ledger-tables.md) are ideal for application patterns that expect to issue updates and deletes to tables in your database, such as System of Record (SOR) applications. This means that existing data patterns for your application don't need to change to enable ledger functionality.  You can [create updatable ledger tables](ledger-how-to-updatable-ledger-tables.md) by either:
-
-- Enabling it at the database-level, which ensures all future tables created in your database are updatable ledger tables
-- When creating specific tables when you don't want all tables to be updatable ledger tables by default.
+[Updatable ledger tables](ledger-updatable-ledger-tables.md) are ideal for application patterns that expect to issue updates and deletes to tables in your database, such as System of Record (SOR) applications. This means that existing data patterns for your application don't need to change to enable ledger functionality.  
 
 [Updatable ledger tables](ledger-updatable-ledger-tables.md) track the history of changes to any rows in your database when transactions that perform updates or deletes occur. An updatable ledger table is a system-versioned table that contains a reference to another table with a mirrored schema. The system uses this table to automatically store the previous version of the row each time a row in the ledger table gets updated or deleted. This other table is referred to as the history table. The history table is automatically created when you create an updatable ledger table. The values contained in the updatable ledger table and its corresponding history table provide a chronicle of the values of your database over time. In order to easily query this chronicle of your database, a system-generated ledger view is created, which joins the updatable ledger table and the history table.
 

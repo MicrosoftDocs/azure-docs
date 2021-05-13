@@ -24,13 +24,13 @@ Both updatable ledger tables and [temporal tables](/sql/relational-databases/tab
 You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
 
-1. Enabling ledger at the database-level, which automatically makes all new tables created in the database updatable ledger tables.
+1. When creating a new database in the Azure Portal by selecting "Enable ledger on all future tables in this database" during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This enables ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
 1. When creating a new table on a database where ledger isn't enabled at the database-level, by specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement.
 
 For details on options available when specifying the `LEDGER` argument in your T-SQL statement, see [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql).
 
 > [!IMPORTANT]
-> Enabling ledger, either at the database-level or for specific tables, cannot be disabled later. This is to ensure an attacker cannot temporarily remove ledger capabilities on a ledger table, make changes, and then re-enable ledger functionality. 
+> Enabling database ledger, or for specific tables, cannot be disabled later. This is to ensure an attacker cannot temporarily remove ledger capabilities on a ledger table, make changes, and then re-enable ledger functionality. 
 
 ### Updatable ledger table schema
 
