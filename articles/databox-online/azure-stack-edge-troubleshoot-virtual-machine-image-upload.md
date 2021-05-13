@@ -24,7 +24,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 **Suggested solution:** Make sure you have the required contributor permissions to add files to the resource group or storage account. For more information, see [Prerequisites for the Azure Stack Edge resource](azure-stack-edge-deploy-prep.md#prerequisites).
 
 
-## Invalid blob type for the source blob uri
+## Invalid blob type for the source blob URI
 
 **Error Description:** A VHD stored as a block blob cannot be downloaded. To be downloaded, a VHD must be stored as a page blob.
 
@@ -39,7 +39,7 @@ This article describes how to troubleshoot issues that occur when downloading an
 
 - Follow the steps in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) to create a fixed-size VHD for a Generation 1 virtual machine from your source VHD or VHDX.
 
-- If you prefer to use Powershell:
+- If you prefer to use PowerShell:
 
    - You can use [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=windowsserver2019-ps&preserve-view=true) in the Windows PowerShell module for Hyper-V. You can't use Convert-VHD to convert a VM image from a Generation 2 VM to Generation 1; instead, use the portal procedures in [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
   
