@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Anomaly Detector API Documentation 
-summary: Learn how to use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+summary: Learn how to use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
