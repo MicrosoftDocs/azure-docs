@@ -21,7 +21,7 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
 
 ## Prequisites
 
-* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md) within [the supported Azure Arc regions](../azure-arc/kubernetes/overview.md#supported-regions).
+* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md) within [a supported Azure Arc regions](../azure-arc/kubernetes/overview.md#supported-regions).
 * [Create an Azure API Management instance](./get-started-create-service-instance.md).
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
@@ -81,7 +81,7 @@ The following extension configurations are **required**.
 
 ### Log Analytics settings
 
-If you have enabled Log Analytics, specify **all** of the following settings.
+To enable monitoring of the self-hosted gateway, configure the following Log Analytics settings:
 
 | Setting | Description |
 | ------- | ----------- | 
