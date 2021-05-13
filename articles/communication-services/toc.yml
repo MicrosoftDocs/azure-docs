@@ -98,11 +98,11 @@
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
-  - name: UI Framework
+  - name: UI Library
     items:
-      - name: UI Framework overview
+      - name: UI Library overview
         href: concepts/ui-framework/ui-sdk-overview.md
-      - name: UI Framework capabilities
+      - name: UI Library use cases
         href: concepts/ui-framework/ui-sdk-features.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md 
