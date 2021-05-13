@@ -46,9 +46,9 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 1. The following command will **Disable** server side retry for all collections in your database account by removing `DisableRateLimitingResponses` from the capabilities list. It may take up to 15min for this change to take effect.
 
-```azurecli-interactive
-az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo
-```
+   ```azurecli-interactive
+   az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo
+   ```
 
 ## Frequently asked questions
 
