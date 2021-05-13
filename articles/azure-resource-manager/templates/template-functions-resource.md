@@ -672,19 +672,7 @@ When referencing a resource that is deployed in the same template, provide the n
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-value: myStorageAccount
-```
-
-In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
-
----
-
 When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
-
-# [JSON](#tab/json)
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -693,7 +681,19 @@ When referencing a resource that isn't deployed in the same template, provide th
 # [Bicep](#tab/bicep)
 
 ```bicep
-value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
+value: myStorageAccount
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+When referencing a resource that isn't deployed in the same template using Bicep, use the `existing` keyword. For example:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
 ```
 
 ---
@@ -882,10 +882,9 @@ resource myStorageAccount 'Microsoft.Storage/storageAccounts@2016-12-01' = {
 }
 
 output referenceOutput object = myStorageAccount
-output fullReferenceOutput object = myStorageAccount
 ```
 
-The preceding example returns the two objects. Both objects are in the following format:
+The preceding example returns the an object that is the same as using Full for JSON:
 
 ```json
 {
@@ -1120,7 +1119,7 @@ The preceding example returns an object in the following format:
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
-In Bicep, you can often use the id property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
+In Bicep, you can often use the `id` property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
 
 ```bicep
 myStorageAccount.id
@@ -1299,6 +1298,7 @@ Often, you need to use this function when using a storage account or virtual net
   ]
 }
 ```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
