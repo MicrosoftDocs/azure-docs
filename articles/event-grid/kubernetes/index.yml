@@ -13,20 +13,23 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/26/2021 #Required; mm/dd/yyyy format.
+  ms.date: 05/13/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+
   # Card
   - title: About Event Grid on Kubernetes
     linkLists:
       - linkListType: overview
         links:
           - text: What's Event Grid on Kubernetes?
-            url: overview.md            
+            url: overview.md       
+          - text: Features
+            url: features.md            
 
   # Card
   - title: Concepts
@@ -35,24 +38,19 @@ landingContent:
         links:
           - text: Event Grid on Kubernetes concepts
             url: concepts.md            
-          - text: Features
-            url: features.md            
-          - text: Event schemas
-            url: event-schemas.md        
           - text: Event handlers
             url: event-handlers.md            
+          - text: Event schemas
+            url: event-schemas.md        
           - text: Event schemas
             url: event-schemas.md
           - text: Batch event delivery
             url: batch-event-delivery.md            
+          - text: Batch event delivery
+            url: delivery-retry.md            
           - text: Filter events
             url: filter-events.md                        
-#          - text: Output batching
-#            url: delivery-output-batching.md
-#          - text: Advanced filtering
-#            url: advanced-filtering.md
-#          - text: Delivery and retry
-#            url: delivery-retry.md
+
   # Card
   - title: Quickstart and how-to
     linkLists:
@@ -64,8 +62,3 @@ landingContent:
             url: install-k8s-extension.md     
           - text: Get support
             url: get-support.md
-#            url: pub-sub-events-webhook-local.md
-#          - text: Publish and subscribe to events in the cloud
-#            url: pub-sub-events-webhook-cloud.md            
-#          - text: Forward events to Azure Event Grid
-#            url: forward-events-event-grid-cloud.md
