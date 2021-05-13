@@ -109,7 +109,15 @@ ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 
 The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, and deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
 
-In our code, we will first create a ledger using `begin_create`. The `begin_create` function requires three parameters: your resource group, a name for the ledger, and a "properties" object.  
+In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable (set above), and your subscription id.  
+
+```python
+confidential_ledger_mgmt = ConfidentialLedgerAPI(
+    credential, "<subscription-id>"
+)
+```
+
+We can now create a ledger using `begin_create`. The `begin_create` function requires three parameters: your resource group, a name for the ledger, and a "properties" object.  
 
 Create a `properties` dictionary with the following keys and values, and assign it to a variable.
 
@@ -205,9 +213,9 @@ from azure.confidentialledger.identity_service import ConfidentialLedgerIdentity
 # Set variables
 
 rg = "myResourceGroup"
-ledger_name = "mytestledger8"
+ledger_name = "<unique-ledger-name>"
 
-identity_url = "https://eastus.identity.confidential-ledger.core.azure.com"
+identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 
 # Authentication
@@ -221,10 +229,10 @@ credential = DefaultAzureCredential(exclude_managed_identity_credential=True, ex
 # initialize endpoint with credential and subscription
 
 confidential_ledger_mgmt = ConfidentialLedgerAPI(
-    credential, "60d1af23-8f73-401c-b411-b4c581ea61c2"
+    credential, "<subscription-id>"
 )
 
-# Create properities dictionary for begin_create call 
+# Create properties dictionary for begin_create call 
 
 properties = {
     "location": "eastus",
