@@ -23,12 +23,12 @@ The key differences between Hadoop and native external tables are presented in t
 
 | External table type | Hadoop | Native |
 | --- | --- | --- |
-| Dedicated SQL pool | Available | **Preview** |
+| Dedicated SQL pool | Available | Parquet tables are available in **gated preview** - contact your Microsoft Technical Account Manager or Cloud Solution Architect to check is your dedicated pool able to join preview. |
 | Serverless SQL pool | Not available | Available |
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless pool: Delimited/CSV, Parquet, and Delta Lake(preview)<br/>Dedicated pool: Parquet |
 | Folder partition elimination | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
-| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
-| Recursive folder scan | Always | Only in serverless SQL pools when specified `/**` at the end of the location path |
+| Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
+| Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
 | Storage filter pushdown | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns. |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
