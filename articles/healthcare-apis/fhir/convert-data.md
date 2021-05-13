@@ -123,7 +123,7 @@ Change the status to **On** to enable managed identity in Azure API for FHIR.
     
     | Setting | Value |
     | --- | --- |
-    | Role | [role-name](../role-based-access-control/built-in-roles.md#role-name) |
+    | Role | [role-name](../role-based-access-control/built-in-roles.md#acrpull) |
     | Assign access to | [User, group, or service principal OR Managed identity] |
     | Members | [members] |
 
