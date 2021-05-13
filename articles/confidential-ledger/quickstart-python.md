@@ -100,6 +100,7 @@ We'll finish setup by setting some variables for use in your application: the re
 ```python
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
+subscription_id "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
@@ -109,11 +110,11 @@ ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 
 The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, and deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
 
-In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable (set above), and your subscription id.  
+In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable and your Azure subscription id (both of which are set above).  
 
 ```python
 confidential_ledger_mgmt = ConfidentialLedgerAPI(
-    credential, "<subscription-id>"
+    credential, subscription_id
 )
 ```
 
@@ -214,6 +215,7 @@ from azure.confidentialledger.identity_service import ConfidentialLedgerIdentity
 
 rg = "myResourceGroup"
 ledger_name = "<unique-ledger-name>"
+subscription_id "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
@@ -222,7 +224,7 @@ ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 
 # Need to do az login to get default credential to work
 
-credential = DefaultAzureCredential(exclude_managed_identity_credential=True, exclude_environment_credential=True, exclude_visual_studio_code_credential=True, exclude_shared_token_cache_credential=True, exclude_interactive_browser_credential=True)
+credential = DefaultAzureCredential()
 
 # Control plane (azure.mgmt.confidentialledger)
 # 
