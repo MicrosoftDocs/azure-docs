@@ -158,6 +158,17 @@ When developing for Android, your logs are stored in `.blog` files. Note that yo
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
+## Enable and access call logs (Windows)
+
+When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
+
+These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
+1. Open a Windows Command Prompt (Windows Key + R)
+2. Type `cmd.exe`
+3. Type `where /r %USERPROFILE%\AppData acs*.blog`
+4. Please check if the app ID of your application matches with the one returned by the previous command.
+5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
 ---
 
