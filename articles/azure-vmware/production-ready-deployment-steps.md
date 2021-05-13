@@ -15,7 +15,9 @@ The steps outlined give you a production-ready environment for creating virtual 
 >[!TIP]
 >To track the data you'll be collecting, use the [VMware HCX planning checklist](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/).
 
-:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram of the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png":::
+The diagram shows the deployment workflow of Azure VMware Solution. 
+
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram of the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 
 ## Request a host quota 
