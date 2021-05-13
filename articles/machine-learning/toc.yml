@@ -476,6 +476,14 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
+      - name: Deploy & serve with endpoints
+        items: 
+          - name: Batch
+            items:
+            - name: Batch scoring with batch endpoints
+              href: how-to-use-batch-endpoint.md
+            - name: Troubleshooting batch endpoints
+              href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
         items:
         - name: Local
@@ -552,7 +560,7 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: (Preview) No code deployment
+      - name: No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
       - name: Package models
