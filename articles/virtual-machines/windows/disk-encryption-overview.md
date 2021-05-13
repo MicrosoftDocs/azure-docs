@@ -64,7 +64,6 @@ BitLocker policy on domain joined virtual machines with custom group policy must
 
 Azure Disk Encryption does not store recovery keys. If the [Interactive logon: Machine account lockout threshold](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) security setting is enabled, machines can only be recovered by providing a recovery key via the serial console. Instructions for ensuring the appropriate recovery policies are enabled can be found in the [Bitlocker recovery guide plan](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
 
-https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan
 Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by BitLocker.
 
 ## Encryption key storage requirements  
