@@ -12,18 +12,22 @@
     href: quickstart-template.md 
 - name: Tutorials
   items:
-  - name: Create a client certificate
-    href: create-client-certificate.md 
-  - name: Register a Ledger service principal
-    href: register-ledger-service-principal.md
-- name: Concepts
-  items:
   - name: Workflows
     href: workflows.md
+- name: Concepts
+  items:
   - name: Architecture
     href: architecture.md
   - name: Authenticating Ledger nodes
     href: authenticate-ledger-nodes.md
+- name: How To Guides
+  items:
+  - name: Create a client certificate
+    href: create-client-certificate.md 
+  - name: Register a Ledger service principal
+    href: register-ledger-service-principal.md
+  - name: Register the Confidential Ledger resource provider
+    href: register-ledger-rp.md
 - name: References
   items:
   - name: FAQ
