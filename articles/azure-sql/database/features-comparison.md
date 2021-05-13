@@ -31,6 +31,12 @@ If you need more details about the differences, you can find them in the separat
 - [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
 - [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
+To learn more, see the following video of Microsoft program managers discussing the differences: 
+
+> [!VIDEO https://azure.microsoft.com/en-in/resources/videos/ignite-2018-azure-sql-database-managed-instance-comparison-to-azure-sql-database/]
+
+
+
 ## Features of SQL Database and SQL Managed Instance
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported in Azure SQL Database and Azure SQL Managed Instance, with a link to more information about the feature.
@@ -148,6 +154,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
 | VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
+| [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](/database/private-endpoint-overview.md) | No | 
 
 ## Tools
 

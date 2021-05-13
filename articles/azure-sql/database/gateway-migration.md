@@ -87,14 +87,14 @@ New SQL Gateways are being added to the following regions:
 - Brazil South: 191.234.144.16 ,191.234.152.3 
 - Canada East: 40.69.105.9 ,40.69.105.10
 - India Central: 104.211.86.30 , 104.211.86.31 
+- India West: 104.211.144.4
 - East Asia: 13.75.32.14 
 - France Central: 40.79.137.8, 40.79.145.12 
 - France South: 40.79.177.10 ,40.79.177.12
 - Korea Central: 52.231.17.22 ,52.231.17.23
-- India West: 104.211.144.4
+
 
 These SQL Gateways shall start accepting customer traffic on 31 January 2021.
-
 
 
 ### October 2020
