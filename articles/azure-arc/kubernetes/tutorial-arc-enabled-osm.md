@@ -358,7 +358,8 @@ The OSM extension cannot be upgraded to a new version if that version contains C
 
 Please refer to the [OSM CRD Upgrades documentation](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) to prepare your cluster for such an upgrade. Make sure to back up your Custom Resources prior to deleting the CRDs so that they can be easily recreated after ugprading. Afterwards, follow the upgrade instructions using az k8s-extension in this guide instead of using Helm or the OSM CLI.
 
->[!NOTE] Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
+>[!NOTE] 
+>Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
 
 ### Upgrade Instructions
 1. [Delete outdated CRDs and install udpated CRDs](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) if necessary
@@ -388,11 +389,8 @@ This should output a list of extensions without OSM. If you don't have any other
 
 When you use the az k8s-extension command to delete the OSM extension, the arc-osm-system namespace is not removed, and the actual resources within the namespace (mutating webhook configuration, osm-controller pod, etc) will take around ~10 minutes to delete.
 
->[!Note] Please use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
+>[!NOTE] 
+>Please use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
 
-<!-- LINKS - internal -->
-
-[kubernetes-service]: concepts-network.md#services
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
+## Troubleshooting
+Refer to the troubleshooting guide [available here](troubleshooting.md#arc-enabled-open-service-mesh).
