@@ -332,7 +332,7 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 # [C\#](#tab/csharp)
 
 ```
-func start --build
+func start
 ```
 
 # [Java](#tab/java)
