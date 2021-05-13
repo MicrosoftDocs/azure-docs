@@ -200,7 +200,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: App Service, Functions, and Logic Apps on Azure Are (preview)
+          - text: App Service, Functions, and Logic Apps on Azure Arc (preview)
             url: overview-arc-integration.md
       - linkListType: tutorial
         links:            

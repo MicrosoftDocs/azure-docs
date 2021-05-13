@@ -57,48 +57,39 @@ The following example creates a Node.js app. Replace `<app-name>` with a name th
 > [!NOTE]
 > `az webapp up` is not supported during the public preview.
 
-Get a simple Node.js app using Git and deploy it using [ZIP deploy](deploy-zip.md).
+Get a sample Node.js app using Git and deploy it using [ZIP deploy](deploy-zip.md). Replace `<app-name>` with your web app name.
 
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 cd nodejs-docs-hello-world
 zip -r package.zip .
-az webapp deployment source config-zip --resource-group myResourceGroup --name myAppServicePlan --src package.zip
+az webapp deployment source config-zip --resource-group myResourceGroup --name <app-name> --src package.zip
 ```
 
-<!-- ## 5. Get diagnostic logs using Log Analytics
-
-`TODO: Still need to validate this scenario`
+## 5. Get diagnostic logs using Log Analytics
 
 > [!NOTE]
-> To use Log Analytics, you should have previously enabled it when [installing the App Service extension](manage-create-arc-environment.md#install-the-app-service-extension). If you installed the extension without Log Analytics, skip this step.
+> To use Log Analytics, you should've previously enabled it when [installing the App Service extension](manage-create-arc-environment.md#install-the-app-service-extension). If you installed the extension without Log Analytics, skip this step.
 
-The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace, in the custom log table named `AppServiceConsoleLogs_CL`.
+Navigate to the [Log Analytics workspace that's configured with your App Service extension](manage-create-arc-environment.md#install-the-app-service-extension), then click Logs in the left navigation. Run the following sample query to show logs over the past 72 hours. Replace `<app-name>` with your web app name. 
 
-You can view the logs by [starting a new empty query in Log Analytics](../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics), and querying against the AppServiceConsoleLogs_CL table.
-
-The **Log_s** field contains an application log for a given App Service, and **AppName_s** field contains the App Service name.
-In addition to the logs that you write via your application code, the Log_s field also contains container startup and shutdown logs, and Function App host logs.
-
-Here is a sample query that extracts Function App-related fields from the Log_s field, so that you can work with the Function App logs in a structured manner. Further info about parsing data with Kusto can be found [here](../azure-monitor/logs/parse-text.md).
-
-```
-let ST = ago(72h);
-let ET = now();
+```kusto
+let StartTime = ago(72h);
+let EndTime = now();
 AppServiceConsoleLogs_CL
-| where TimeGenerated between (ST .. ET)
-| where AppName_s =~ "fakedotnetfuncapp1"
-| where Log_s contains "FunctionAppLogs"
-| extend logJson = strcat(split(split(Log_s, 'Microsoft.Web/sites/functions/log,FunctionAppLogs,,"')[1], '}"')[0], '}') | extend logJson = replace(@"'", @'"', logJson)
-| extend parsedProp = parse_json(logJson)
-| project TimeGenerated, AppName_s, parsedProp.category, parsedProp.eventName, parsedProp.functionName, parsedProp.message, parsedProp.category, parsedProp.functionInvocationId, parsedProp.hostInstanceId, parsedProp.level, parsedProp.LevelId
+| where TimeGenerated between (StartTime .. EndTime)
+| where AppName_s =~ "<app-name>"
 ```
 
-Further info about working with Kusto queries can be found [here](../azure-monitor/logs/get-started-queries.md). -->
+The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `AppServiceConsoleLogs_CL`. 
+
+**Log_s** contains application logs for a given App Service and **AppName_s** contains the App Service app name. In addition to logs you write via your application code, the Log_s column also contains logs on container startup, shutdown, and Function Apps.
+
+You can learn more about log queries in [getting started with Kusto](../azure-monitor/logs/get-started-queries.md).
 
 ## (Optional) Deploy a custom container
 
-To create a custom container app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository add `--docker-registry-server-user` and `--docker-registry-server-password`.
+To create a custom container app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
 
 For example, try:
 
