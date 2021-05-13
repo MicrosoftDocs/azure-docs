@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/12/2021
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -253,6 +253,32 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
+## Configure two VMs with the same hostname to access an Azure NetApp Files NFSv4.1 volume 
+
+This section explains how you can configure two VMs that have the same hostname to access an Azure NetApp Files NFSv4.1 volume within the same VNet. This procedure can be useful when you conduct a disaster recovery (DR) test and require a test system with the same hostname as the primary DR system. This procedure is only required when you have the same hostname on two VMs that are accessing the same Azure NetApp Files volumes in a VNet.
+
+1. Display the settings on the VM clients by using the following command:   
+    
+    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `    nfs4_unique_id      = ""`
+
+2. On the test DR system, create a unique `nfs4_unique_id`.  This step allows Azure NetApp Files to distinguish between the two VMs with the same hostname and permit mounting NFSv4.1 volumes on both VMs.   
+
+    You need to perform this step only on the test DR system.
+
+    `echo options nfs nfs4_unique_id=uniquenfs4-1 > /etc/modprobe.d/nfsclient.conf`   
+    `uniquenfs4-1 can be any alphanumeric string`   
+    `Reboot VM`   
+
+3. On the test DR system, verify the `nfs4_unique_id` has been set after VM reboot:       
+
+    `systool -v -m nfs | grep -i nfs4_unique`
+
+    The result should show `uniquenfs4-1` from Step 2.
+
+4. Mount the NFSv4.1 volume on both VMs.
+
+Both VMs can now access the NFSv4.1 volume that is mounted in the same VNet.  
 
 ## Next steps  
 
