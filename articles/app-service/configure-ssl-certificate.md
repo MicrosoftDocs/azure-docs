@@ -61,10 +61,11 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
-- Does not support usage as a client certificate by certificate thumbprint (Removal of certificate thumbprint is planned).
+- Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
 - Is not exportable.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.
+- If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
