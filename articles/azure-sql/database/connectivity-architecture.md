@@ -64,7 +64,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 ## Gateway IP addresses
 
-The table below lists the individual Gateway IP addresses and also  Gateway IP address ranges per region.
+The table below lists the individual Gateway IP addresses and also Gateway IP address ranges per region.
 
 Periodically we shall retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at  [Azure SQL Database traffic migration to newer Gateways](gateway-migration.md). We strongly encourage customers to use the **Gateway IP address ranges** so as to be not impacted by this activity in a region.
 
