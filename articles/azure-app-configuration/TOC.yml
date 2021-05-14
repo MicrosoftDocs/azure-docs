@@ -90,6 +90,12 @@
           href: howto-feature-filters-aspnet-core.md
         - name: Enable a feature for specified users/groups
           href: howto-targetingfilter-aspnet-core.md
+    - name: Enable Azure monitoring
+      items:
+        - name: Monitor App Configuration
+          href: monitor-app-configuration.md
+        - name: Monitor data reference
+          href: monitor-app-configuration-reference.md
 - name: Samples
   items:
     - name: Azure CLI
