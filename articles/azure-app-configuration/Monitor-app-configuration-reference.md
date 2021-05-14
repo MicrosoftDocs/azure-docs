@@ -11,7 +11,8 @@ ms.date: 05/05/2021
 
 
 # Monitoring App Configuration data reference
-See [Monitoring App Configuration](monitor-app-configuration.md) for details on collecting and analyzing monitoring data for App Configuration.
+
+This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for a walk through on to collect and analyze monitoring data for App Configuration.
 
 ## Metrics 
 Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores)
@@ -28,7 +29,7 @@ For more information, see a list of [all platform metrics supported i
 ## Metric Dimensions
 App Configuration has the following dimensions associated with its metrics.
 
-| Metric Name | Dimension Description |
+| Metric Name | Dimension description |
 |-------|-----|
 | Http Incoming Request Count | The count of total Http requests. The supported dimensions are the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication.   |
 | Http Incoming Request Duration | The server side duration of each request. The supported dimensions are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
@@ -39,7 +40,7 @@ App Configuration has the following dimensions associated with its metr
 ## Resource logs
 This section lists the category types of resource log collected for App Configuration. 
 
-| Resource Log Type | Further Information|
+| Resource log type | Further information|
 |-------|-----|
 | HttpRequest | [App Configuration Resource Log Category Information](/azure/azure-monitor/platform/resource-logs-categories) |
 
@@ -49,7 +50,7 @@ For more information, see a list of [all resource logs category types�
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to App Configuration and available for query by Log Analytics.
 
-|Resource Type | Notes |
+|Resource type | Notes |
 |-------|-----|
 | [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
 | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
@@ -85,6 +86,6 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 
 ## See Also
 
-- See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
+See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
 
