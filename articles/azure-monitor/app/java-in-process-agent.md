@@ -10,6 +10,9 @@ ms.author: jgol
 
 # Java codeless application monitoring Azure Monitor Application Insights
 
+> [!NOTE]
+> If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).
+
 Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
 
  The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
