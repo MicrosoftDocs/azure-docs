@@ -49,7 +49,7 @@ To get started, visit the Docker Hub and install [Docker Desktop for macOS](http
 
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-## Install the certificate
+## <a id="install-certificate"></a>Install the certificate
 
 1. After the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
 
@@ -78,7 +78,7 @@ To get started, visit the Docker Hub and install [Docker Desktop for macOS](http
 
 For Java-based applications, the certificate must be imported in the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
-## Consume the endpoint via UI
+## <a id="consume-endpoint-ui"></a>Consume the endpoint via UI
 
 The emulator is using a self-signed certificate to secure the connectivity to its endpoint and needs to be manually trusted. Use the following steps to consume the endpoint via the UI using your desired web browser:
 
@@ -134,7 +134,7 @@ Use the following steps to run the emulator on Linux:
     java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
     ```
 
-## Configuration options
+## <a id="config-options"></a>Configuration options
 
 |Name  |Default  |Description  |
 |---------|---------|---------|
@@ -144,7 +144,7 @@ Use the following steps to run the emulator on Linux:
 | Cores:   `--cpus`  |         |   Make sure to provision enough memory and CPU cores; while the emulator might run with as little as 0.5 cores (very slow though) at least 2 cores are recommended.      |
 |`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  | false  | This setting used by itself will help persist the data between container restarts.  |
 
-## Troubleshoot issues
+## <a id="troubleshoot-issues"></a>Troubleshoot issues
 
 This section provides tips to troubleshoot errors when using the Linux emulator.
 
@@ -170,7 +170,7 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 
 - Try to access the endpoint and port for the emulator using the Docker container's IP address instead of "localhost".
 
-- Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consuming-endpoint-via-ui).
+- Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consume-endpoint-ui).
 
 - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
   - .NET: See the [certificates section](#run-on-linux)
@@ -191,7 +191,7 @@ This error is likely because the current Docker Host processor type is incompati
 
 #### My app received too many connectivity-related timeouts
 
-- The Docker container is not provisioned with enough resources [(cores or memory)](#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
+- The Docker container is not provisioned with enough resources [(cores or memory)](#config-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
 
 - Ensure the number of TCP connections does not exceed your current OS settings.
 
@@ -199,7 +199,7 @@ This error is likely because the current Docker Host processor type is incompati
     
 #### My app could not provision databases/containers
 
-The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](#configuration-options).
+The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](#config-options).
 
 ### Reliability and crashes
 
@@ -241,9 +241,9 @@ The number of physical partitions provisioned on the emulator is too low. Either
 
 Number of requests per second is low, latency of the requests is high:
 
-- The Docker container is not provisioned with enough resources [(cores or memory)](#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
+- The Docker container is not provisioned with enough resources [(cores or memory)](#config-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon startup.
 
-## Refresh Linux container
+## <a id="refresh-linux-container"></a>Refresh Linux container
 
 Use the following steps to refresh the Linux container:
 
@@ -294,7 +294,7 @@ When reporting an issue with the Linux emulator, provide as much information as 
 - Description of the workload
 - Sample of the database/collection and item used
 - Include the console output from starting the Docker container for the emulator in attached mode
-- Send all of the above to cdbportalfeedback@microsoft.com.
+- Send all of the above to [Azure Cosmos DB team](mailto:cdbportalfeedback@microsoft.com).
 
 ## Next steps
 
