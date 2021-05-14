@@ -59,13 +59,15 @@ As you progress, you'll complete these high-level tasks:
 
 ### Storage requirements
 
-Whether you use Linux, Windows, or macOS, you can locally build and run your logic app project in Visual Studio Code by using Azurite as your backend storage for your workflows. The **Logic App (Standard)** resource type is powered by a redesigned Azure Logic Apps runtime that uses Azure Functions extensibility and has [storage requirements similar to function apps](../azure-functions/storage-considerations.md). [Stateful workflows](single-tenant-overview-compare.md#stateful-stateless) perform storage transactions, such as using queues for scheduling and storing workflow states in tables and blobs. These transactions incur [storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about how stateful workflows store data in external storage, review [Stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
+Whether you use Linux, Windows, or macOS for local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use when they run. If you plan to deploy to Docker containers, you can also run Azurite in your container to use as your local data store.
 
-To set up and use Azurite, follow these steps:
+1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
 
-1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite). For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
+1. Before you run your logic app, make sure you start the emulator.
 
-1. Before you run your logic app, make sure that you start Azurite.
+1. For Docker deployment, download and use the [Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
+
+For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
   
 ### Tools
 
@@ -1196,6 +1198,8 @@ After Application Insights opens, you can review various metrics for your logic 
 
 You can deploy your logic app to a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the hosting environment by using the [.NET CLI](/dotnet/core/tools/). With these commands, you can build and publish your logic app's project. You can then build and run your Docker container as the destination for deploying your logic app.
 
+You can run Azurite in your container and use as a data store when running your logic apps. For a Docker image that you can use with Azurite and more information, download this [Docker image with Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
+
 If you're not familiar with Docker, review these topics:
 
 * [What is Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
@@ -1203,6 +1207,7 @@ If you're not familiar with Docker, review these topics:
 * [Introduction to .NET and Docker](/dotnet/core/docker/introduction)
 * [Docker containers, images, and registries](/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
 * [Tutorial: Get started with Docker (Visual Studio Code)](/visualstudio/docker/tutorials/docker-tutorial)
+* []
 
 ### Requirements
 
