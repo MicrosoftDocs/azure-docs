@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Azure Static Web Apps plans
 
-Azure Static Web Apps is available through two different plans, free and standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/).
+Azure Static Web Apps is available through two different plans, Free and Standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/).
 
 ## Features
 
@@ -27,14 +27,14 @@ Azure Static Web Apps is available through two different plans, free and standar
 | Custom domains | 2 per app | 5 per app |
 | APIs via Azure Functions | Managed | Managed or<br>[Bring your own Functions app](functions-bring-your-own.md) |
 | Authentication provider integration | [Pre-configured](authentication-authorization.md)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
-| Service Level Agreement (SLA) | None  | ✔ |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | None  | ✔ |
 
 ## Selecting a plan
 
 The following scenarios can help you decide if the Standard plan best fits your needs.
 
-- Expected traffic volumes exceed 100 GB per month.
-- The existing Azure Functions app you want to use either has triggers and bindings beyond just HTTP endpoints, or can't otherwise be converted to a managed Functions app.
+- Expected traffic volumes exceed 100 GB per subscription, per month.
+- The existing Azure Functions app you want to use either has triggers and bindings beyond HTTP endpoints, or can't be converted to a managed Functions app.
 - Security requirements that require a [custom provider registration](authentication-custom.md).
 - The site's web assets total file size exceed the storage maximums.
 - You require formal customer support.
