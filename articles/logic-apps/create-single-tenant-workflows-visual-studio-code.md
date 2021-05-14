@@ -122,7 +122,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
-1. Confirm that Visual Studio Code automatically finds and installs extension updates so that all your extensions extension get the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
+1. Confirm that Visual Studio Code automatically finds and installs extension updates so that all your extensions get the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
 
    1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
@@ -181,7 +181,7 @@ Before you can create your logic app, create a local project so that you can man
 
 1. On your computer, create an *empty* local folder to use for the project that you'll later create in Visual Studio Code.
 
-1. In Visual Studio Code, close any and all open folders.
+1. In Visual Studio Code, close all open folders.
 
 1. In the Azure pane, next to **Azure: Logic Apps (Standard)**, select **Create New Project** (icon that shows a folder and lightning bolt).
 

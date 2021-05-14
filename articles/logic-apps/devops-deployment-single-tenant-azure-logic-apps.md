@@ -93,7 +93,7 @@ At your project's root level, you can find the following files and folders, alon
 | .funcignore | File | Review [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md) |
 | connections.json | File | Contains the metadata, endpoints, and keys for any managed connections and Azure functions that your workflows use. <p><p>**Important**: To use different connections and functions for each environment, make sure that you parameterize this **connections.json** file and update the endpoints. |
 | host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Azure Logic Apps platform, logic apps, workflows, triggers, and actions. |
-| local.settings.json | File | Contains the local environment variables that provides the `appSettings` values to use for your logic app when running locally.  |
+| local.settings.json | File | Contains the local environment variables that provide the `appSettings` values to use for your logic app when running locally.  |
 | Dockerfile | Folder | Contains one or more Dockerfiles to use for deploying the logic app as a container. |
 ||||
 
