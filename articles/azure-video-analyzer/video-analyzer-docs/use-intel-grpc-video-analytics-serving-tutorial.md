@@ -3,7 +3,7 @@ title:  Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI E
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feeds from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.service: azure-video-analyzer
-ms.date: 04/29/2021
+ms.date: 05/18/2021
 
 ---
 # Tutorial: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
@@ -27,31 +27,31 @@ This tutorial uses an Azure VM as an simulated IoT Edge device, and it uses a si
 
 ## Review the sample video
 
-When you set up the Azure resources, a short video of a parking lot is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+When you set up the Azure resources, a short video of a parking lot is copied to the Linux VM in Azure that you're using as the IoT Edge device. This tutorial uses the video file to simulate a live stream.
 
 Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
-In this quickstart, you'll use Azure Video Analyzer on IoT Edge along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
+In this tutorial, you'll use Video Analyzer along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, to classify vehicles them or track vehicles, person or bikes. You'll publish the resulting inference events to IoT Edge Hub.
 
 ## Overview
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.svg" alt-text="Overview of Video Analyzer pipeline":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.png" alt-text="Overview of Azure Video Analyzer pipeline with Intel DL Streamer Edge AI module.":::
 
-This diagram shows how the signals flow in this quickstart. An [Edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](pipeline.md#grpc-extension-processor) node. 
+This diagram shows how the signals flow in this tutorial. An [Edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](pipeline.md#grpc-extension-processor) node. 
 
 The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](pipeline.md#grpc-extension-processor).
 
 ## About Intel OpenVINO™ DL Streamer – Edge AI Extension Module
 
 
-The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Azure Video Analyzer on IoT Edge from Microsoft.
+The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Azure Video Analyzer from Microsoft.
 
-In order to build complex, high-performance live video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Azure Video Analyzer on IoT Edge.
+In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Azure Video Analyzer.
 
-In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
+In the initial release of this inference server, you have access to the following [models](https://aka.ms/intel-dlstreamer-docs):
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
@@ -70,7 +70,7 @@ It uses Pre-loaded Object Detection, Object Classification and Object Tracking p
 
 You can use the flexibility of the different pipelines for your specific use case by simply changing the pipeline environment variables in your deployment template. This enables you to quickly change the pipeline model and when combined with Azure Video Analyzer it is a matter of seconds to change the media pipeline and inference model.
 
-In this quickstart, you will:
+In this tutorial, you will:
 
 1. Setup your development environment.
 1. Deploy the required edge modules.
@@ -102,54 +102,8 @@ In this quickstart, you will:
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "OpenVINO object detection model":::
 
-
-1. Edit the *operations.json* file:
-    * Change the link to the live pipeline topology:
-
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
-
-    * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
-
-      `"topologyName" : "InferencingWithOpenVINOgRPC"`
-
-    * Under `pipelineTopologyDelete`, edit the name:
-
-      `"name": "InferencingWithOpenVINOgRPC"`
-
-### Generate and deploy the IoT Edge deployment manifest
-
-1. Right-click the *src/edge/deployment.openvino.grpc.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
-
-    ![Generate IoT Edge Deployment Manifest](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
-
-    The *deployment.openvino.grpc.amd64.json* manifest file is created in the *src/edge/config* folder.
-
 > [!NOTE]
 > We also included a *deployment.openvino.grpc.xpu.template.json* template that enables CPU, VPU and GPU, support, when available in your device, for the Intel OpenVINO DL Streamer - Edge AI Extension module. These templates point to Intel's Docker hub image.
-
-
-1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step. 
-
-    Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
-    
-    ![Set IoT Hub Connection String](./media/quickstarts/set-iot-connection-string.png)
-
-   > [!NOTE]
-   > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in  endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
-
-1. Right-click *src/edge/config/deployment.openvino.grpc.cpu.template.json* and select **Create Deployment for Single Device**. 
-
-    ![Create Deployment for Single Device](./media/use-intel-openvino-tutorial/deploy-manifest.png)
-
-1. When you're prompted to select an IoT Hub device, select **avasample-iot-edge-device**.
-1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
-
-    * The Azure Video Analyzer module, named **avaedge**
-    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed
-    * The **avaExtension** module, which is the Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
 ### Prepare to monitor events
 
@@ -158,18 +112,152 @@ Right-click the Azure Video Analyzer device and select **Start Monitoring Built-
 ![Start monitoring](./media/quickstarts/start-monitoring-iot-hub-events.png) 
 
 ### Run the sample program to detect vehicles, persons or bike
-If you open the [pipeline topology]() for this tutorial in a browser, you will see that the value of `grpcExtensionAddress` has been set to `tcp://avaExtension:5001`, compared to the *httpExtensionOpenVINO* sample you do not need to change the url to the gRPC Server. Instead you instruct the module to run a specific pipeline by the `extensionConfiguration` in the operations file. When not provided it defaults to "object_detection" for "person_vehicle_bike_detection". You can experiment with other supported pipelines.
-A sample operations file is located here:
-`https://raw.githubusercontent.com/fvneerden/ava-intel-dlstreamer/main/multipipeline/operations/operations_detect_classify.json`
+If you open the [pipeline topology](https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json) for this tutorial in a browser, you will see that the value of `grpcExtensionAddress` has been set to `tcp://avaExtension:5001`, compared to the *httpExtensionOpenVINO* tutorial you do not need to change the url to the gRPC Server. Instead you instruct the module to run a specific pipeline by the `extensionConfiguration` in the operations file. When not provided it defaults to "object_detection" for "person_vehicle_bike_detection". You can experiment with other supported pipelines.
 
-Pay attention to:
+1. Edit the *operations.json* file:
+    * Change the link to the live pipeline topology:
+
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+
+    * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
+
+      `"topologyName" : "InferencingWithOpenVINOgRPC"`
+
+    * Under `pipelineTopologyDelete`, edit the name:
+
+      `"name": "InferencingWithOpenVINOgRPC"`
+    
+    * Under `rtspUrl`, edit the url to:
+      `"value": "rtsp://rtspsim:554/media/lots_015.mkv"`
+
+Add the following extensionConfiguration after the rtsp params:
+
 ```
 {
-   "name": "extensionConfiguration",
-   "value": "{\"pipeline\":{\"name\":\"object_detection\",\"version\":\"person_vehicle_bike_detection\"}}"
+    "name": "extensionConfiguration",
+    "value": "{\"pipeline\":{\"name\":\"object_detection\",\"version\":\"person_vehicle_bike_detection\"}}"
 }
 ```
-This is how you can pass through the model for each pipeline.
+
+
+Your `operations.json` should look like this:
+```
+{
+  "apiVersion": "1.0",
+  "operations": [
+      {
+          "opName": "pipelineTopologyList",
+          "opParams": {}
+      },
+      {
+          "opName": "WaitForInput",
+          "opParams": {
+              "message": "Press Enter to continue."
+          }
+      },
+      {
+          "opName": "livePipelineList",
+          "opParams": {}
+      },
+      {
+          "opName": "WaitForInput",
+          "opParams": {
+              "message": "Press Enter to continue. This is start the activating steps."
+          }
+      },
+      {
+          "opName": "pipelineTopologySet",
+          "opParams": {
+              "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"
+          }
+      },
+      {
+          "opName": "livePipelineSet",
+          "opParams": {
+              "name": "Sample-Pipeline-1",
+              "properties": {
+                  "topologyName": "InferencingWithOpenVINOgRPC",
+                  "description": "Sample pipeline description",
+                  "parameters": [
+                      {
+                          "name": "rtspUrl",
+                          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+                      },
+                      {
+                          "name": "rtspUserName",
+                          "value": "testuser"
+                      },
+                      {
+                          "name": "rtspPassword",
+                          "value": "testpassword"
+                      },
+                      {
+                        "name": "extensionConfiguration",
+                        "value": "{\"pipeline\":{\"name\":\"object_detection\",\"version\":\"person_vehicle_bike_detection\"}}"
+                      }
+                  ]
+              }
+          }
+      },
+      {
+          "opName": "livePipelineActivate",
+          "opParams": {
+              "name": "Sample-Pipeline-1"
+          }
+      },
+      {
+          "opName": "WaitForInput",
+          "opParams": {
+              "message": "Press Enter to continue. This is start the deactivating steps."
+          }
+      },
+      {
+          "opName": "livePipelineDeactivate",
+          "opParams": {
+              "name": "Sample-Pipeline-1"
+          }
+      },
+      {
+          "opName": "livePipelineDelete",
+          "opParams": {
+              "name": "Sample-Pipeline-1"
+          }
+      },
+      {
+          "opName": "livePipelineList",
+          "opParams": {}
+      },
+      {
+          "opName": "pipelineTopologyDelete",
+          "opParams": {
+              "name": "InferencingWithOpenVINOgRPC"
+          }
+      },
+      {
+          "opName": "pipelineTopologyList",
+          "opParams": {}
+      }
+  ]
+}
+```
+
+By using the `extensionConfiguration` allows you to pass through a string of data to the Intel DL Streamer - Edge AI Module. With the correct data you can instruct the Edge AI module to use a specific model for each pipeline. For instance you can replace the "object_detection" model used above with other supported models like classification or tracking. To do so use below examples:
+
+Classification:
+```
+{
+    "name": "extensionConfiguration",
+    "value": "{\"pipeline\":{\"name\":\"object_classification\",\"version\":\"vehicle_attributes_recognition\"}}"
+}
+```
+
+Tracking:
+```
+{
+    "name": "extensionConfiguration",
+    "value": "{\"pipeline\":{\"name\":\"object_tracking\",\"version\":\"person_vehicle_bike_tracking\"}}"
+}
+```
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
 1. Right click and select **Extension Settings**.
@@ -181,7 +269,7 @@ This is how you can pass through the model for each pipeline.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
-1. The *operations.json* code starts off with calls to the direct methods `PipelineTopologyList` and `PipelineInstanceList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
+1. The *operations.json* code starts off with calls to the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts/tutorials, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     The **TERMINAL** window shows the next set of direct method calls:
 
@@ -191,14 +279,14 @@ This is how you can pass through the model for each pipeline.
          ```
          {
            "@apiVersion": "1.0",
-           "name": "Sample-Pipeline-Detection",
+           "name": "Sample-Pipeline-1",
            "properties": {
              "topologyName": "InferencingWithGrpcExtension",
              "description": "Sample pipeline description",
              "parameters": [
                {
                  "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
                },
                {
                  "name": "rtspUserName",
@@ -223,7 +311,7 @@ This is how you can pass through the model for each pipeline.
 
      * A call to `livePipelineActivate` that starts the pipeline and the flow of video
 1. The output in the **TERMINAL** window pauses at a `Press Enter to continue` prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 1. The live pipeline continues to run and print results. The RTSP simulator keeps looping the source video. To stop the live pipeline, return to the **TERMINAL** window and select Enter. 
 
     The next series of calls cleans up resources:
@@ -234,7 +322,7 @@ This is how you can pass through the model for each pipeline.
 
 ## Interpret results
 
-When you run the live pipeline the results from the HTTP extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the live pipeline the results from the gRPC extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the the content of the body. 
 

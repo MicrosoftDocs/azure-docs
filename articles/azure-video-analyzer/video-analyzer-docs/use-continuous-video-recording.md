@@ -142,6 +142,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Do not select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Video Analyzer edge module.
 
+
    These messages are discussed in the following section.
 1. The live pipeline continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
@@ -155,6 +156,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 When you run the live pipeline, the Video Analyzer edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a `body` section and an `applicationProperties` section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the application properties and the content of the body are defined by the Video Analyzer edge module.
+
 
 ## Diagnostics events 
 

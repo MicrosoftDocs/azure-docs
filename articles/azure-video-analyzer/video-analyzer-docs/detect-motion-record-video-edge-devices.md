@@ -1,6 +1,6 @@
 ---
 title: Detect motion and record video on edge devices - Azure
-description: Use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
+description: Use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 ms.topic: quickstart
 ms.date: 04/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
@@ -28,7 +28,7 @@ Open an application like [VLC media player](https://www.videolan.org/vlc/), sele
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
-Complete the following steps to use Live Video Analytics on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
+Complete the following steps to use Video Analyzer to detect the motion of the car and record a video clip starting around the 5-second mark.
 
 ## Examine and edit the sample files
 
@@ -123,7 +123,7 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
 The next series of calls cleans up the resources:
 
 - A call to `livePipelineDeactivate` deactivates the live pipeline.
-- A call to `livePipelineDelete` deletes the instance.
+- A call to `livePipelineDelete` deletes the live pipeline.
 - A call to `pipelineTopologyDelete` deletes the topology.
 - A final call to `pipelineTopologyList` shows that the list is now empty.
 

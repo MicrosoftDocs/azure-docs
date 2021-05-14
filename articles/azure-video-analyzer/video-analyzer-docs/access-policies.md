@@ -17,67 +17,67 @@ Access policies define the permissions and duration of access to a given Video A
 
 ```json
 "name": "accesspolicyname1", 
-                "properties": { 
-                    "role": "Reader", 
-                    "authentication": { 
-                        "@type": "#Microsoft.VideoAnalyzer.JwtAuthentication", 
-                        "issuers": [ 
-                            "issuer1", 
-                            "issuer2" 
-                        ], 
-                        "audiences": [ 
-                            "audience1" 
-                        ], 
-                        "claims": [ 
-                            { 
-                                "name":"claimname1", 
-                                "value":"claimvalue1" 
-                            }, 
-                            { 
-                                "name":"claimname2", 
-                                "value":"claimvalue2" 
-                            } 
-                        ], 
-                        "keys": [ 
-                            { 
-                                "@type": "#Microsoft.VideoAnalyzer.RsaTokenKey", 
-                                "alg": "RS256", 
-                                "kid": "123", 
-                                "n": "YmFzZTY0IQ==", 
-                                "e": "ZLFzZTY0IQ==" 
-                            }, 
-                            { 
-                                "@type": "#Microsoft.VideoAnalyzer.EccTokenKey", 
-                                "alg": "ES256", 
-                                "kid": "124", 
-                                "x": "XX==", 
-                                "y": "YY==" 
-                            } 
-                        ] 
-                    } 
-                } 
+"properties": { 
+    "role": "Reader", 
+    "authentication": { 
+        "@type": "#Microsoft.VideoAnalyzer.JwtAuthentication", 
+        "issuers": [ 
+            "issuer1", 
+            "issuer2" 
+        ], 
+        "audiences": [ 
+            "audience1" 
+        ], 
+        "claims": [ 
+            { 
+                "name":"claimname1", 
+                "value":"claimvalue1" 
+            }, 
+            { 
+                "name":"claimname2", 
+                "value":"claimvalue2" 
+            } 
+        ], 
+        "keys": [ 
+            { 
+                "@type": "#Microsoft.VideoAnalyzer.RsaTokenKey", 
+                "alg": "RS256", 
+                "kid": "123", 
+                "n": "YmFzZTY0IQ==", 
+                "e": "ZLFzZTY0IQ==" 
+            }, 
+            { 
+                "@type": "#Microsoft.VideoAnalyzer.EccTokenKey", 
+                "alg": "ES256", 
+                "kid": "124", 
+                "x": "XX==", 
+                "y": "YY==" 
+            } 
+        ] 
+    } 
+} 
 ```
 
 > [!NOTE] 
 > Only one key type is required. 
 
-##### Roles
+### Roles
 
 Currently only reader role is supported.
 
-##### Issuer Matching Rules
+### Issuer Matching Rules
 
 Multiple issues can be specified in the policy, single issuer can be specified in the token.  Issuer matches if the token issuer is among the issuers specified in the policy.
 
-##### Audience Matching Rules
+### Audience Matching Rules
 
 If the audience value is ${System.Runtime.BaseResourceUrlPattern} for the video resource, then the audience that is provided in the JWT token must match the base resource URL. If not, then the token audience must match the audience from the access policy.
 
-##### Claims Matching Rules
+### Claims Matching Rules
 
 Multiple claims can be specified in the access policy and in the JWT token.  All the claims form an access policy must be provided in the token to pass validation, however, the JWT token can have additional claims that are not listed in the access policy.
 
-##### Keys
+### Keys
 
 Two types of keys are supported these are the RSA and the ECC types.
 
@@ -97,7 +97,7 @@ Two types of keys are supported these are the RSA and the ECC types.
 * x - Coordinate value.
 * y - Coordinate value.
 
-##### Token validation Process
+### Token validation Process
 
 Customers must create their own JWT tokens and will be validated using the following method:
 
@@ -108,7 +108,7 @@ Customers must create their own JWT tokens and will be validated using the follo
   - Audience
   - Additional claims
 
-##### Policy Audience and Token Matching Examples:
+### Policy Audience and Token Matching Examples:
 
 | **Policy Audience**                      | Requested URL                         | Token URL                            | Result |
 | ---------------------------------------- | ------------------------------------- | ------------------------------------ | ------ |
@@ -126,11 +126,11 @@ Customers must create their own JWT tokens and will be validated using the follo
 > [!NOTE]  
 > Video Analyzer supports a maximum of 20 policies.  ${System.Runtime.BaseResourceUrlPattern} allows for greater flexibility to access specific resources by using one access policy and multiple tokens.  These tokens then allow access to different Video Analyzer resources based on the audience. 
 
-### Creating an Access Policy
+## Creating an Access Policy
 
 There are two ways to create an access policy.
 
-##### In the Azure portal
+### In the Azure portal
 
 1. Log into the Azure portal and navigate to your Resource Group where your Video Analyzer account is located.
 2. Select the Video Analyzer resource.
@@ -149,9 +149,9 @@ There are two ways to create an access policy.
    - E / Y Value 
 
    :::image type="content" source="./media/access-policies/access-policies-portal.png" alt-text="Access Policy in Azure portal":::
-5. click `save`.
+5. Click `Save`.
 
-##### Create Access Policy via API
+### Create Access Policy via API
 
 See Azure Resource Manager (ARM) API 
 
