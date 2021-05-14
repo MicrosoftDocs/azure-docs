@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/7/2021
+ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: document processing
@@ -24,7 +24,7 @@ Get started with the Form Recognizer using the Form Recognizer Sample Tool. Azur
 Use Form Recognizer to:
 
 * Analyze Layout
-* Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
+* Analyze using a Prebuilt model (invoices, receipts, ID documents)
 * Train & Analyze a custom Form
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
@@ -73,7 +73,7 @@ The Form Recognizer sample labeling tool will call the Analyze Layout API and an
 
 ## Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
 
-Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty Cards or Busingess Cards using a Form Recognizer Prebuilt model.
+Extract text, tables and key value pairs from invoices, sales receipts, identity documents, or business cards using a Form Recognizer Prebuilt model.
 
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use prebuilt model to get data"
@@ -88,7 +88,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
     * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg) for this quickstart.
     * A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
     * A URL for an image of a business card. You can use a [sample buisness card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
-    
+
 5. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
 6. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
@@ -101,7 +101,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
 9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
-    :::image type="content" source="../media/label-tool/prebuilt2.jpg" alt-text="Analyze Results of Form Recognizer Prebuilt Invoice":::
+    :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer Prebuilt Invoice":::
 
 10. Download the JSON output file to view the detailed results.
 

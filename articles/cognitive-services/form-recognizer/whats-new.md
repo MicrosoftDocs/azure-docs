@@ -21,19 +21,18 @@ Form Recognizer service is updated on an ongoing basis. Use this article to stay
 
 ### Form Recognizer 2.1 (GA)
 
-Form Recognizer 2.1 is available to the general public. This release enables you to detect and extract information and data from the following document types:
+Form Recognizer 2.1 is generally available. This release enables you to detect and extract information and data from the following:
 
-* [Forms](concept-layout.md)
+* [Documents](concept-layout.md)
 * [Receipts](concept-receipts.md)
-* [Business Cards](concept-business-cards.md)
+* [Business cards](concept-business-cards.md)
 * [Invoices](concept-invoices.md)
 * [Identity documents](concept-identification-cards.md)
-* [Custom models](concept-custom.md)
+* [Custom forms](concept-custom.md)
 
 ### Layout adds table headers
 
 The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This can be used to identify which rows make up the table header.
-
 
 ## April 2021
 <!-- markdownlint-disable MD029 -->

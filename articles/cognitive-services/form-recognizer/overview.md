@@ -72,19 +72,19 @@ Form Recognizer uses the [Layout](#layout) API to learn the expected sizes and p
 
 ### [Receipts](concept-receipts.md)
 
-The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt. 
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
 ### [Business cards](concept-business-cards.md)
 
-The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. 
+The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English.
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
 ### [Invoices](concept-invoices.md)
 
-The Prebuilt Invoice model extracts data from invoices in various formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. 
+The Prebuilt Invoice model extracts data from invoices in various formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
@@ -103,7 +103,7 @@ Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and trai
 >
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://aka.ms/fott-2.1-ga/)
-> 
+>
 
 ### [v2.0](#tab/v2-0)
 
