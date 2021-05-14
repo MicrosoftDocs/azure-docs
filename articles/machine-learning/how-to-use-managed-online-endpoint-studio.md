@@ -15,7 +15,7 @@ ms.date: 05/25/2021
 
 # Create and use managed online endpoints (preview) in the studio
 
-Learn how to use the studio to create and manage your managed online endpoints (preview) in Azure Machine Learning. Use managed online endpoints to streamline production-scale deployments. For more information on managed online endpoints, see What are managed online endpoints.
+Learn how to use the studio to create and manage your managed online endpoints (preview) in Azure Machine Learning. Use managed online endpoints to streamline production-scale deployments. For more information on managed online endpoints, see [What are endpoints](concept-endpoints.md).
 
 In this article, you learn how to:
 
@@ -160,4 +160,6 @@ Use the following steps to delete an individual deployment from a managed online
 
 In this article, you learned how to use Azure Machine Learning managed online endpoints. See these next steps:
 
+- [What are endpoints?](concept-endpoints.md)
+- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
