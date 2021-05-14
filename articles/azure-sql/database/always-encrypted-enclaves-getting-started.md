@@ -137,7 +137,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    ```
 
-1. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
+1. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server. 
 
    ```powershell
    $serverName = "<your server name>" 
