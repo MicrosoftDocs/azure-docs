@@ -193,7 +193,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     f. Enable the **Just-in-time provisioning** and in the **First name** and **Last name** fields, give the names of the attributes you have set up in **User Attributes & Claims** section, like `First name` and `Last name`.
 
-    f. Click **Apply changes**.
+    g. Click **Apply changes**.
 
 ### Create Deputy test user
 
