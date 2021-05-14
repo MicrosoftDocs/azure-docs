@@ -281,6 +281,7 @@
     - name: Configure Conditional Access
       href: conditional-access-user-flow.md
     - name: Mitigate credential attacks
+      displayName: smart lockout, account lockout, password attack
       href: threat-management.md
     - name: Fraud protection partners
       items: 

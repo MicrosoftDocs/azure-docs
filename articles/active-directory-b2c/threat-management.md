@@ -1,7 +1,7 @@
 ---
-title: Manage threats to resources and data
+title: Mitigate credential attacks - Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C.
+description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C, including smart account lockout features.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,14 +9,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Mitigate credential attacks in Azure AD B2C
 
-Credential attacks lead to unauthorized access to resources. Passwords that are set by users are required to be reasonably complex. Azure AD B2C has mitigation techniques in place for credential attacks. Mitigation includes detection of brute-force credential attacks and dictionary credential attacks. By using various signals, Azure AD B2C analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets.
+Credential attacks lead to unauthorized access to resources. Passwords that are set by users are required to be reasonably complex. Azure AD B2C has mitigation techniques in place for credential attacks. Mitigation includes detection of brute-force credential attacks and dictionary credential attacks. By using various signals, Azure Active Directory B2C (Azure AD B2C) analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets.
 
 Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are locked based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After a password is tried 10 times unsuccessfully (the default attempt threshold), a one-minute lockout occurs. The next time a login is unsuccessful after the account is unlocked (that is, after the account has been automatically unlocked by the service once the lockout period expires), another one-minute lockout occurs and continues for each unsuccessful login. Entering the same password repeatedly doesn't count as multiple unsuccessful logins.
 
@@ -46,7 +46,7 @@ To manage password protection settings, including the lockout threshold:
 
 The smart lockout feature uses many factors to determine when an account should be locked, but the primary factor is the password pattern. The smart lockout feature considers slight variations of a password as a set, and they’re counted as a single try. For example:
 
-- Password such as 12456! and 1234567! (or newAccount1234 and newaccount1234) are so similar that the algorithm interprets them as human error and counts them as a single try.
+- Passwords such as 12456! and 1234567! (or newAccount1234 and newaccount1234) are so similar that the algorithm interprets them as human error and counts them as a single try.
 - Larger variations in pattern, such as 12456! and ABCD2!, are counted as separate tries.
 
 When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).

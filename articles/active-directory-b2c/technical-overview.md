@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -229,7 +229,7 @@ To prevent brute-force password guessing attempts, Azure AD B2C uses a sophistic
 
 ![Account smart lockout](media/technical-overview/smart-lockout1.png)
 
-For more information about managing password protection settings, see [Manage threats to resources and data in Azure Active Directory B2C](threat-management.md).
+For more information about managing password protection settings, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
 
 ### Password complexity
 
