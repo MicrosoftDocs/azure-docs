@@ -1,17 +1,17 @@
 ---
-title: Deploy resources with Azure CLI and template (Bicep)
-description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file. (Bicep)
+title: Deploy resources with Azure CLI and Bicep files
+description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/14/2021
 ---
 
-# Deploy resources with ARM templates and Azure CLI (Bicep)
+# Deploy resources with Bicep and Azure CLI
 
-This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
+This article explains how to use Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](./overview.md).
 
-The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later. To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
+To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -24,13 +24,13 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-bicep>
   ```
 
 * To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment sub create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
@@ -38,7 +38,7 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment mg create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
@@ -46,14 +46,14 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment tenant create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
-For every scope, the user deploying the template or the Bicep file must have the required permissions to create resources.
+For every scope, the user deploying the Bicep file must have the required permissions to create resources.
 
-## Deploy local template or Bicep file
+## Deploy local Bicep file
 
 You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
 
@@ -69,7 +69,7 @@ To deploy a local template or Bicep file, use the `--template-file` parameter in
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -191,7 +191,7 @@ To pass inline parameters, provide the values in `parameters`. For example, to p
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -202,7 +202,7 @@ You can also get the contents of file and provide that content as an inline para
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
