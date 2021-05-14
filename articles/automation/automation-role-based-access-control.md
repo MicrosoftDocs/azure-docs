@@ -269,7 +269,7 @@ Update management reaches across multiple services to provide its service. The f
 |[Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader |Automation account |
 |**Actions on virtual machine** |**Permission** ||
 |[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
-|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.||
+|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
 
 ## Configure Azure RBAC for your Automation account
 
