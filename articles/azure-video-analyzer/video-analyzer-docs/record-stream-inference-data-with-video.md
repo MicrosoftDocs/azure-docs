@@ -38,9 +38,9 @@ Prerequisites for this tutorial are:
 > :::image type="content" source="./media/record-stream-inference-data-with-video/overview.svg" alt-text="Pipeline":::
 
 The diagram is a pictorial representation of a [pipeline](pipeline.md) and additional modules that accomplish the desired scenario. Three IoT Edge modules are involved:
-* Video Analyzer on an IoT Edge module.
-* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects.
-* An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
+* Video Analyzer module.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects.
+* An [RTSP simulator module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) to simulate an RTSP camera.
 
 As the diagram shows, you'll use an [RTSP source](pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
@@ -65,7 +65,7 @@ In this tutorial, you will:
 
 In Visual Studio Code, browse to src/edge. You'll see the .env file that you created and a few deployment template files. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). The .env file contains values for the variables used in these templates, such as Video Analyzer credentials.
 
-Open src/edge/deployment.yolov3.template.json. There are three entries under the **modules** section that correspond to the items listed in the previous "Concepts" section
+Open src/edge/deployment.yolov3.template.json. There are three entries under the **modules** section that correspond to the items listed in the previous "Overview" section
 
 * **avaedge**: This is the Video Analyzer on IoT Edge module.
 * **yolov3**: This is the AI module built by using the YOLO v3 model.
@@ -91,20 +91,8 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/generate-deployment-manifest.png" alt-text="Screenshot of Generate IoT Edge Deployment Manifest":::
 
-1. The _deployment.yolov3.amd64.json_ manifest file is created in the _src/edge/config_ folder.
-1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step.
-
-   Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the _appsettings.json_ file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
-
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Screenshot of Set IoT Hub Connection String":::
-
-   > [!NOTE]
-   > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this: <br/>
-   >
-   > `Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>.`
-
-   Right-click _src/edge/config/deployment.yolov3.amd64.json_ and select **Create Deployment for Single Device**.
+    * The _deployment.yolov3.amd64.json_ manifest file is created in the _src/edge/config_ folder.
+1. Right-click _src/edge/config/deployment.yolov3.amd64.json_ and select **Create Deployment for Single Device**.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
@@ -112,7 +100,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 1. When you're prompted to select an IoT Hub device, select **ava-sample-iot-edge-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-   - The Video Analyzer module, named **avaedge**.
+   - The **avaedge** module, which is the Video Analyzer module.
    - The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
    - The **yolov3** module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
 
@@ -226,7 +214,7 @@ In the following messages, the Video Analyzer module defines the application pro
 When a live pipeline is activated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is Microsoft.VideoAnalyzer.Diagnostics.MediaSessionEstablished.
 
 ```
-[IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
+[IoTHubMonitor] [9:42:18 AM] Message received from [avasample-iot-edge-device/avaedge]:
 {  "body": {
     "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
   },
@@ -384,15 +372,15 @@ You can examine the Video Analyzer video resource that was created by the live p
 
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
-1. Select **Videos** in the **Video Analyzers** list. <!--    ![Video Analyzers videos]() ./media/continuous-video-recording-tutorial/assets.png-->
+1. Select **Videos** in the **Video Analyzers** list.
 1. You'll find a video listed with the name `sample-http-extension`. This is the name chosen in your pipeline topology file.
 1. Select the video.
-1. On the video details page, click the **Play** icon <!-- TODO:  ![Video playback]() new screenshot is needed here -->
+1. On the video details page, click the **Play** icon
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Screenshot of video playback":::
    
-1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon <!-- TODO:  ![Bounding box icon]() new screenshot is needed here -->
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
