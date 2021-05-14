@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Configure identification and authentication controls to meet FedRAMP High Impact level
 
-The following list of controls and control enhancements in the identification and authentication (IA) family might require configuration in your Azure Active Directory (Azure AD) tenant.
+Identification and authentication are key to achieving a [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) High Impact level.
 
-Each row in the following table provides prescriptive guidance to help you develop your organization's response to any shared responsibilities for the control or control enhancement.
+The following list of controls and control enhancements in the identification and authentication (IA) family might require configuration in your Azure Active Directory (Azure AD) tenant.
 
 |Control family|Description|
 | - | - |
@@ -30,6 +30,8 @@ Each row in the following table provides prescriptive guidance to help you devel
 | IA-06| Authenticator feedback |
 | IA-07| Cryptographic module authentication |
 | IA-08| Identification and authentication (non-organizational users) |
+
+Each row in the following table provides prescriptive guidance to help you develop your organization's response to any shared responsibilities for the control or control enhancement.
 
 ## Configurations
 

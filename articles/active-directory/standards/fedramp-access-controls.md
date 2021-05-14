@@ -1,6 +1,6 @@
 ---
-title: Configure identity access controls to meet the FedRAMP High Impact level with Azure Active Directory
-description: Detailed guidance on how to configure Azure Active Directory access controls to meet the FedRAMP High Impact level.
+title: Configure identity access controls to meet FedRAMP High Impact level with Azure Active Directory
+description: Detailed guidance on how to configure Azure Active Directory access controls to meet FedRAMP High Impact level.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -15,12 +15,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure identity access controls to meet the FedRAMP High Impact level
+# Configure identity access controls to meet FedRAMP High Impact level
 
 Access control is a major part of achieving a [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP) High Impact level to operate.
 
 The following list of controls and control enhancements in the access control (AC) family might require configuration in your Azure Active Directory (Azure AD) tenant.
-
 
 |Control family|Description|
 | - | - |
@@ -33,11 +32,9 @@ The following list of controls and control enhancements in the access control (A
 | AC-12| Session termination |
 | AC-20| Use of external information systems |
 
-
 Each row in the following table provides prescriptive guidance to help you develop your organization's response to any shared responsibilities for the control or control enhancement.
  
 ## Configurations
-
 
 | Control ID   | Customer responsibilities and guidance |
 | - | - |
