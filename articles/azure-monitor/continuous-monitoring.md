@@ -32,7 +32,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 
 - You automatically get [platform metrics, activity logs and diagnostics logs](agents/data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [VM insights](vm/vminsights-overview.md).
--  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](containers/container-insights-overview.md).
+-  Enable deeper monitoring for AKS clusters with [Container insights](containers/container-insights-overview.md).
 - Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.
 
 
@@ -45,7 +45,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](./insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Resource Group insights](./insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.

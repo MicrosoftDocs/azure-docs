@@ -7,7 +7,7 @@ ms.date: 03/03/2021
 
 # Configure PV monitoring with Container insights
 
-Starting with agent version *ciprod10052020*, Azure Monitor for containers integrated agent now supports monitoring PV (persistent volume) usage. With agent version *ciprod01112021*, the agent supports monitoring PV inventory, including information about the status, storage class, type, access modes, and other details.
+Starting with agent version *ciprod10052020*, Container insights integrated agent now supports monitoring PV (persistent volume) usage. With agent version *ciprod01112021*, the agent supports monitoring PV inventory, including information about the status, storage class, type, access modes, and other details.
 ## PV metrics
 
 Container insights automatically starts monitoring PV usage by collecting the following metrics at 60 -sec intervals and storing them in the **InsightMetrics** table.
@@ -20,7 +20,7 @@ Learn more about configuring collected PV metrics [here](./container-insights-ag
 
 ## PV inventory
 
-Azure Monitor for containers automatically starts monitoring PVs by collecting the following information at 60-sec intervals and storing them in the **KubePVInventory** table.
+Container insights automatically starts monitoring PVs by collecting the following information at 60-sec intervals and storing them in the **KubePVInventory** table.
 
 |Data |Data Source| Data Type| Fields|
 |-----|-----------|----------|-------|
@@ -28,7 +28,7 @@ Azure Monitor for containers automatically starts monitoring PVs by collecting t
 
 ## Monitor Persistent Volumes
 
-Azure Monitor for containers includes pre-configured charts for this usage metric and inventory information in workbook templates for every cluster. You can also enable a recommended alert for PV usage, and query these metrics in Log Analytics.  
+Container insights includes pre-configured charts for this usage metric and inventory information in workbook templates for every cluster. You can also enable a recommended alert for PV usage, and query these metrics in Log Analytics.  
 
 ### Workload Details Workbook
 
