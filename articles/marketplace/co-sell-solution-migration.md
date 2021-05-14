@@ -45,8 +45,8 @@ Follow these steps before importing your solutions from OCP GTM:
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
     1. If you have a solution in OCP GTM that you want to migrate to Partner Center - to retain referral pipeline, collateral, co-sell status and incentives - there are two scenarios for you to choose from:
-        - If there is no similar offer in commercial marketplace, you will first create an offer and publish it in the commercial marketplace, and then you will merge the solution in OCP GTM with this new offer. See [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM).
-        - Merge this solution with a similar offer in the commercial marketplace. [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM)
+        - If there is no similar offer in commercial marketplace, you will first create an offer and publish it in the commercial marketplace, and then you will merge the solution in OCP GTM with this new offer. See [Migrate this solution from OCP GTM](#migrate-this-solution-from-ocp-gtm).
+        - Merge this solution with a similar offer in the commercial marketplace. [Migrate this solution from OCP GTM](#migrate-this-solution-from-ocp-gtm)
     1. Migrate this solution from OCP GTM to the commercial marketplace.
     1. Discard this solution.
 
@@ -103,7 +103,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
     
      :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
     
-    2. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="":::
+    2. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
     
     :::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Shows Review and Publish page with the Publish button highlighted.":::
     
