@@ -44,7 +44,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
 
-Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Azure Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Azure Virtual Desktop host pool](#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

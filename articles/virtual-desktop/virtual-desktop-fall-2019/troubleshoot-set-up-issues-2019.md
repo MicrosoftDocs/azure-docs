@@ -43,7 +43,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Cause:** Consent not granted to Azure Virtual Desktop in the Azure Active directory instance.
 
-**Fix:** [Follow this guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to grant consent.
+**Fix:** [Follow this guide](./tenant-setup-azure-active-directory.md#grant-permissions-to-azure-virtual-desktop) to grant consent.
 
 ### Error: The user isn't authorized to query the management service
 
@@ -74,7 +74,7 @@ Example of raw error:
 
 ## Creating Azure Virtual Desktop session host VMs
 
-Session host VMs can be created in several ways, but the Azure Virtual Desktop team only supports VM provisioning issues related to the [Azure Marketplace](https://azuremarketplace.microsoft.com/) offering. For more information, see [Issues using Azure Virtual Desktop - Provision a host pool Azure Marketplace offering](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
+Session host VMs can be created in several ways, but the Azure Virtual Desktop team only supports VM provisioning issues related to the [Azure Marketplace](https://azuremarketplace.microsoft.com/) offering. For more information, see [Issues using Azure Virtual Desktop - Provision a host pool Azure Marketplace offering](#issues-using-azure-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## Issues using Azure Virtual Desktop – Provision a host pool Azure Marketplace offering
 

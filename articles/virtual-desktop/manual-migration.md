@@ -65,7 +65,7 @@ Now that you've prepared for the migration process, it's time to actually migrat
 To migrate manually from Azure Virtual Desktop (classic) to Azure Virtual Desktop:
 
 1. Follow the instructions in [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md) to create all high-level objects with the Azure portal.
-2. If you want to bring over the virtual machines you're already using, follow the instructions in [Register the virtual machines to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
+2. If you want to bring over the virtual machines you're already using, follow the instructions in [Register the virtual machines to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to manually register them to the new host pool you created in step 1.
 3. Create new RemoteApp app groups.
 4. Publish users or user groups to the new desktop and RemoteApp app groups.
 5. Update your Conditional Access policy to allow the new objects by following the instructions in [Set up multi-factor authentication](set-up-mfa.md).
