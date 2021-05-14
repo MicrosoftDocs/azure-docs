@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Authentication and authorization for Azure Static Web Apps
 
-Azure Static Web Apps provides a streamlined authentication experience. By default, you have access to a series of pre-configured providers , or the option to [register a custom provider](./authentication-custom.md).
+Azure Static Web Apps provides a streamlined authentication experience. By default, you have access to a series of pre-configured providers, or the option to [register a custom provider](./authentication-custom.md).
 
 - Any user can authenticate with an enabled provider.
 - Once logged in, users belong to the `anonymous` and `authenticated` roles by default.
