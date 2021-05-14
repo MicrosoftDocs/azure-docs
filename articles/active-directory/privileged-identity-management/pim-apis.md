@@ -21,7 +21,7 @@ You can perform Privileged Identity Management (PIM) tasks using the Microsoft G
 
 For requests and other details about PIM APIs, check out:
 
-- [PIM for Azure AD roles API reference](/graph/api/resources/unifiedroleeligibilityschedulerequest?view=graph-rest-beta)
+- [PIM for Azure AD roles API reference](/graph/api/resources/unifiedroleeligibilityschedulerequest?view=graph-rest-beta&preserve-view=true)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 
 > [!IMPORTANT]
@@ -127,4 +127,4 @@ The only link between the PIM entity and the role assignment entity for persiste
 
 ## Next steps
 
-- [Azure AD Privileged Identity Management API reference](https://docs.microsoft.com/en-us/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)
+- [Azure AD Privileged Identity Management API reference](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)
