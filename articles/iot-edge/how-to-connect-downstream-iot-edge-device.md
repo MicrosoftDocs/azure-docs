@@ -414,7 +414,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
 1. Enter the following command to create a deployment to an IoT Edge device:
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
    ```
 
