@@ -19,7 +19,7 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with Form Recognizer
 
-Get started with the Form Recognizer using the Form Recognizer Sample Tool. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents—the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the sample tool or REST API or SDK. Follow these steps to try out Form Recgonizer via the sample tool. 
+Get started with the Form Recognizer using the Form Recognizer Sample Tool. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents—the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the sample tool or REST API or SDK. Follow these steps to try out Form Recgonizer via the sample tool.
 
 Use Form Recognizer to:
 
@@ -44,9 +44,9 @@ To complete this quickstart, you must have:
 
 ## Analyze Layout
 
-Extract text, tables, selection marks and structure from a document. 
+Extract text, tables, selection marks and structure from a document.
 
-1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) 
+1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use layout to get text, tables and selection marks"
 
 </br>
@@ -77,9 +77,9 @@ The Form Recognizer sample labeling tool will call the Analyze Layout API and an
 
 ## Analyze using a Prebuilt model (Invoices, Receipts, IDs ..)
 
-Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty Cards or Busingess Cards using a Form Recognizer Prebuilt model. 
+Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty Cards or Busingess Cards using a Form Recognizer Prebuilt model.
 
-1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) 
+1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 2. At the sample tool home page select "use prebuilt model to get data"
 </br>
 </br>
@@ -87,7 +87,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 
 3. Select source url
 
-4. Choose the file you would like to analyze from the below options: 
+4. Choose the file you would like to analyze from the below options:
 
 * A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
 * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/ID-US-Driver-License.jpg) for this quickstart.
@@ -106,7 +106,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 
 8. Click "Run analysis"
 The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
-9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected. 
+9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
 </br>
 </br>
@@ -140,7 +140,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 ## Train a custom form model
 
-1. Go to the [Form Recgonizer Sample Tool](https://fott-2-1.azurewebsites.net/) 
+1. Go to the [Form Recgonizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 
 1. At the sample tool home page select "use custom form to train a model with labels and get key value pairs"
 </br>
@@ -156,10 +156,10 @@ Enable CORS on your storage account. Select your storage account in the Azure po
     * **Display Name** - the project display name
     * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
-    * **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values: 
+    * **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
         * **Display Name** - The connection display name.
         * **Description** - Your project description.
-        * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. 
+        * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
 
 [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
@@ -200,7 +200,7 @@ The labeling tool will also show which tables have been automatically extracted.
 
 ##### Apply labels to text
 
-Next, you will create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes labeled fields already we will add another field. 
+Next, you will create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes labeled fields already we will add another field.
 
 1. First, use the tags editor pane to create a new tagt you'd like to identify.
    1. Select **+** to create a new tag.
@@ -249,5 +249,5 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer sample tool to try out Layout, Pre-built and train a custom model and analyze a custom form with manually labeled data. Now you can try the client libray SDK or REST API to use Form Recognizer. 
+In this quickstart, you've learned how to use the Form Recognizer sample tool to try out Layout, Pre-built and train a custom model and analyze a custom form with manually labeled data. Now you can try the client libray SDK or REST API to use Form Recognizer.
 * [Form Recognizer client librabry SDK and REST API quickstart](client-library.md)
