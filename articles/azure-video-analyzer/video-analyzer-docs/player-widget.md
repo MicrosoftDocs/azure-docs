@@ -131,7 +131,7 @@ Now that we have a client API endpoint URL, a token and a video name, we can add
 
 1. Include the player module itself by adding the package directly to your page.  You can either include the NPM package direction in your application, or have it embed dynamically at run time as we have here:
    ```html
-   <script async type="module" src="https://unpkg.com/video-analyzer-widgets"></script>
+   <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets"></script>
    ```
 1. Add an AVA-Player element to the document:
    ```html
@@ -163,7 +163,7 @@ If we combine the web elements above, we get the following static HTML page that
 <head>
 <title>Video Analyzer Player Widget Demo</title>
 </head>
-<script async type="module" src="https://unpkg.com/video-analyzer-widgets"></script>
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets"></script>
 <body>
 <script>
     function getVideos()
