@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you'll assign your account to GitHub Enterprise Managed User in order to complete SSO set up.
+In this section, you'll assign your account to GitHub Enterprise Managed User in order to complete SSO setup.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **GitHub Enterprise Managed User**.
@@ -114,7 +114,7 @@ To configure single sign-on on **GitHub Enterprise Managed User** side, you will
 In this section, you'll take the information provided from AAD above and enter them into your Enterprise settings to enable SSO support.
 
 1. Go to https://github.com
-1. Click on Sign In at the top right corner
+1. Click on Sign In at the top-right corner
 1. Enter the credentials for the first administrator user account. The login handle should be in the format: `<your enterprise short code>_admin`
 1. Navigate to https://github.com/enterprises/ `<your enterprise name>`. This information should be provided by your Solutions Engineering contact.
 1. On the navigation menu on the left, select **Settings**, then **Security**.
@@ -122,7 +122,7 @@ In this section, you'll take the information provided from AAD above and enter t
 1. Enter the Sign on URL. This URL is the Login URL that you copied from AAD above.
 1. Enter the Issuer. This URL is the Azure AD Identifier that you copied from AAD above.
 1. Enter the Public Certificate. Please open the base64 certificate that you downloaded above and paste the text contents of that file into this dialog.
-1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Please login with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
+1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Please log in with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
 1. Click **Save** to persist these settings.
 1. Please save (download, print, or copy) the recovery codes in a secure place.
 1. Click on **Enable SAML authentication**.
