@@ -8,50 +8,69 @@ ms.topic: how-to
 ms.date: 05/13/2021
 ---
 
-# LUIS resources
+# How to create and manage LUIS resources
 
-LUIS allows three types of Azure resources and one non-Azure resource:
+You can use three types of Azure resources with LUIS:
 
-|Resource|Purpose|Cognitive service `kind`|Cognitive service `type`|
-|--|--|--|--|
-|Authoring resource|Allows you to create, manage, train, test, and publish your applications.<br>One tier is available for the LUIS authoring resource:<ul> <li>**Free F0 authoring resource**, which gives you 1 million free authoring transactions and 1,000 free testing prediction endpoint requests monthly.</li></ul> You can use [LUIS Programmatic APIs v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) to manage Authoring resources |`LUIS.Authoring`|`Cognitive Services`|
-|Prediction resource| Allows you to query prediction endpoint beyond the 1,000 requests provided by the authoring resource.<br> <br> Two tiers are available for the prediction resource:<ul><li> **Free F0 prediction resource**, which gives you 10,000 free prediction endpoint requests monthly.</li> <li>**Standard S0 prediction resource**, which is the paid tier. [Learn more about pricing.](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) </li> </ul> You can use [LUIS Endpoint API v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5f68f4d40a511ce5a7440859) to manage Prediction resources|`LUIS`|`Cognitive Services`| 
-|[Cognitive Services multiservice resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported cognitive services.|`CognitiveServices`|`Cognitive Services`|
+There are two main resource types for LUIS: 
+
+## Authoring Resource
+
+An authoring resource lets you to create, manage, train, test, and publish your applications. One [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) is available for the LUIS authoring resource - the free (F0) tier which gives you:
+
+* 1 million authoring transactions 
+* 1,000 testing prediction endpoint requests per month.
+
+You can use the [v3.0-preview LUIS Programmatic APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) to manage authoring resources. 
+
+## Prediction resource
+
+A prediction resource lets you query your prediction endpoint beyond the 1,000 requests provided by the authoring resource. Two [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) are available for the prediction resource:
+
+* The free (F0) prediction resource, which gives you 10,000 prediction endpoint requests monthly.
+* Standard (S0) prediction resource, which is the paid tier. 
+
+You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5f68f4d40a511ce5a7440859) to manage prediction resources.
 
 > [!Note]
+> * You can also use a [multi-service resource](../cognitive-services-apis-create-account-cli.md?tabs=multiservice) to get a single endpoint you can use for multiple Cognitive Services.
 > * LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource, which gives you a 10,000 free transactions monthly, and not the authoring resource, which gives you 1,000 prediction transactions monthly.
 > * You should author LUIS apps in the [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
 [!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-## Create a LUIS authoring resource using the LUIS portal
+## Create LUIS resources
 
-1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you can skip the next step.
+# [LUIS portal](#tab/portal)
+
+### Create a LUIS authoring resource using the LUIS portal
+
+1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see the **My Apps** section in the portal, a LUIS resource already exists and you can skip the next step.
 
 2. In the **Choose an authoring** window that appears, find your Azure subscription, and LUIS authoring resource. If you don't have a resource, you can create a new one.
 
     :::image type="content" source="./media/luis-how-to-azure-subscription/choose-authoring-resource.png" alt-text="Choose a type of Language Understanding authoring resource.":::
     
     When you create a new authoring resource, provide the following information:
-    * **Tenant name** - the tenant your Azure subscription is associated with.
-    * **Azure subscription name** - the subscription that will be billed for the resource.
-    * **Azure resource group name** - a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management.
-    * **Azure resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
-    * **Pricing tier** - the pricing tier determines the maximum transaction per second and month.
+    * **Tenant name**: the tenant your Azure subscription is associated with.
+    * **Azure subscription name**: the subscription that will be billed for the resource.
+    * **Azure resource group name**: a custom resource group name you choose or create. Resource groups allow you to group Azure resources for access and management.
+    * **Azure resource name**: a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
+    * **Pricing tier**: the pricing tier determines the maximum transaction per second and month.
 
-## Create a LUIS Prediction resource using the LUIS portal
+### Create a LUIS Prediction resource using the LUIS portal
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
+# [Azure CLI](#tab/cli)
 
-## Create LUIS resources in the Azure CLI
+### Create LUIS resources in the Azure CLI
 
 Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
-Resource `kind`:
-
-* Authoring: `LUIS.Authoring`
-* Prediction: `LUIS`
+> [!TIP]
+> * The authoring resource `kind` is `LUIS.Authoring`  
+> * The prediction resource `kind` is `LUIS` 
 
 1. Sign in to the Azure CLI:
 
@@ -61,28 +80,34 @@ Resource `kind`:
 
     This command opens a browser so you can select the correct account and provide authentication.
 
-1. Create a LUIS authoring resource of kind `LUIS.Authoring`, named `my-luis-authoring-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region.
+2. Create a LUIS authoring resource of kind `LUIS.Authoring`, named `my-luis-authoring-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Create a LUIS prediction endpoint resource of kind `LUIS`, named `my-luis-prediction-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want higher throughput than the free tier provides, change `F0` to `S0`. [Learn more about pricing tiers and throughput.](luis-limits.md#key-limits)
+3. Create a LUIS prediction endpoint resource of kind `LUIS`, named `my-luis-prediction-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want higher throughput than the free tier provides, change `F0` to `S0`. [Learn more about pricing tiers and throughput.](luis-limits.md#key-limits)
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
-    > [!Note]
-    > These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
+---
+
+> [!Note]
+> These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
 ## Assign LUIS resources
-Creating a resource doesn't necessarily mean that it is put to use, you need to assign it to your apps.
 
-## Assign resources using LUIS portal
+Creating a resource doesn't necessarily mean that it is put to use, you need to assign it to your apps. You can assign an authoring resource for a single app or for all apps in LUIS.
+
+# [LUIS portal](#tab/portal)
+
+### Assign resources using the LUIS portal
+
 **Assign an authoring resource to all your apps** 
 
-You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns the authoring resource to all apps.
+ The following procedure assigns the authoring resource to all apps.
 
 1. Sign in to the [LUIS portal](https://www.luis.ai).
 1. In the upper-right corner, select your user account, and then select **Settings**.
@@ -100,19 +125,19 @@ The following procedure assigns a resource to a specific app.
 1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
 1. Use the fields in the form to find the correct resource, and then select **Save**.
 
-## Assign prediction resource programatically 
+# [Azure CLI](#tab/cli)
 
-For automated processes like CI/CD pipelines, you might want to automate the assignment of a LUIS resource to a LUIS app. To do so, complete these steps:
+## Assign prediction resource programmatically 
 
-1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
+For automated processes like CI/CD pipelines, you can automate the assignment of a LUIS resource to a LUIS app with the following steps:
+
+1. Get an [Azure Resource Manager token](https://resources.azure.com/api/token?plaintext=true) which is an alphanumeric string of characters. This token does expire, so use it right away. You can also use the following Azure CLI command.
 
     ```azurecli
     az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
     ```
     
-    ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
-
-1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
+1. Use the token to request the LUIS runtime resources across subscriptions. Use the API to [get the LUIS Azure account](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c) that your user account has access to.
 
     This POST API requires the following values:
 
@@ -137,9 +162,13 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
 
     When this API is successful, it returns `201 - created status`.
 
+---
+
 ## Unassign a resource
 
 When you unassign a resource, it's not deleted from Azure. It's only unlinked from LUIS.
+
+# [LUIS portal](#tab/portal)
 
 ## Unassign resources using LUIS portal
 
@@ -147,17 +176,16 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 1. Go to **Manage** > **Azure Resources**.
 1. Select the **Unassign resource** button for the resource.
 
+# [Azure CLI](#tab/cli)
 
-## Unassign prediction resource programatically
+## Unassign prediction resource programmatically
 
-1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
+1. Get an [Azure Resource Manager token](https://resources.azure.com/api/token?plaintext=true) which is an alphanumeric string of characters. This token does expire, so use it right away. You can also use the following Azure CLI command.
 
     ```azurecli
     az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
     ```
-    
-    ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
-
+ 
 1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
 
     This POST API requires the following values:
@@ -182,6 +210,8 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
     |Body||{`AzureSubscriptionId`: Your Subscription ID,<br>`ResourceGroup`: Resource Group name that has your prediction resource,<br>`AccountName`: Name of your prediction resource}|
 
     When this API is successful, it returns `200 - OK status`.
+
+---
 
 ## Resource ownership
 
