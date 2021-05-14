@@ -48,14 +48,6 @@
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-  - name: UI Framework
-    items:
-    - name: Getting started with composite components
-      href: quickstarts/ui-framework/get-started-with-composites.md
-    - name: Getting started with base components
-      href: quickstarts/ui-framework/get-started-with-components.md
-    - name: Create your own UI Framework component
-      href: quickstarts/ui-framework/create-your-own-components.md
 - name: Tutorials
   expanded: false
   items:
@@ -124,7 +116,7 @@
     href: concepts/privacy.md  
   - name: Pricing
     href: concepts/pricing.md  
-  - name: Push Notifications
+  - name: Push notifications
     href: concepts/notifications.md
   - name: Teams interoperability
     href: concepts/teams-interop.md
@@ -173,6 +165,8 @@
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
     - name: Chat (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
+    - name: Chat (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
   - name: SMS libraries
     items:
     - name: SMS (JavaScript)
