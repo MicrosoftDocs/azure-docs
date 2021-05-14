@@ -305,3 +305,4 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 
 * Follow the **Prepare to monitor events** steps mentioned in the Analyze live video with your model quickstart to run the sample and interpret the results.
 * Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json), and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
+
