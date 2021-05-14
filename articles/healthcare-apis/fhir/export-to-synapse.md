@@ -12,7 +12,7 @@ ms.author: ginle
 
 Azure API for FHIR stores and manages large amounts of healthcare data in FHIR format using REST APIs. However, FHIR data is usually in nested JSON structures that cannot be instantly used for data analytics such as tabular projections, aggregations, and data slicing across the database.
 
-To allow such data analytics, you can export your FHIR data into [Azure Synapse Analytics](../../synapse-analytics/overview-what-is), a specialized analytical service for data warehousing and big data workloads. Along with various SQL technologies, it allows deep integration with other Azure analytical services such as Power BI, Cosmos DB, and Azure Machine Learning.
+To allow such data analytics, you can export your FHIR data into [Azure Synapse Analytics](../../synapse-analytics/overview-what-is.md), a specialized analytical service for data warehousing and big data workloads. Along with various SQL technologies, it allows deep integration with other Azure analytical services such as Power BI, Cosmos DB, and Azure Machine Learning.
 
 To export data into Synapse, you will first use `$export` to export FHIR resources in `NDJSON` format to Azure blob storage, create a linked service between Azure storage and Synapse, then use T-SQL from Synapse pools to query against those `NDJSON` files.
 
@@ -64,7 +64,7 @@ Azure Synapse Analytics offers two different SQL pools, serverless SQL pool and 
 
 Since it is serverless, there's no infrastructure to setup or clusters to maintain. You can start querying data from Synapse Studio as soon as the workspace is created. You can start a T-SQL session either from the 'Develop' tab, or by navigating to the Linked server under the Data tab and right-clicking on an exported `NDJSON` file. You must have Storage Blob Data Reader role on the Azure Storage account to navigate and execute SQL against it.
 
-For example, the following query can be used to transform selected fields from `Patient.ndjson` into a tabular structure. You can also create a [SQL View](../../synapse-analytics/sql/create-use-views) within the serverless pool to wrap this query and make it easily consumable from tools like Power BI.
+For example, the following query can be used to transform selected fields from `Patient.ndjson` into a tabular structure. You can also create a [SQL View](../../synapse-analytics/sql/create-use-views.md) within the serverless pool to wrap this query and make it easily consumable from tools like Power BI.
 
 ```sql
 SELECT * FROM  
