@@ -1,6 +1,6 @@
 ---
 title: Monitor Key Vault with Key Vault insights | Microsoft Docs
-description: This article describes the Key Vault insightss. 
+description: This article describes the Key Vault insights. 
 services: azure-monitor 
 ms.topic: conceptual
 author: lgayhardt
