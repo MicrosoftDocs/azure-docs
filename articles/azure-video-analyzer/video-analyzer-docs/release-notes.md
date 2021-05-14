@@ -23,10 +23,10 @@ This article provides you with information about:
 This release is the first public preview release of Azure Video Analyzer. The release tag is
 
 ```
-     mcr.microsoft.com/media/azure-video-analyzer:1.0.0
+     mcr.microsoft.com/media/video-analyzer:1.0.0
 ```
 > [!NOTE]
-> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (azure-video-analyzer:1). So simply redeploying such manifests should update the module on your edge > devices when newer tags are released.
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (video-analyzer:1). So simply redeploying such manifests should update the module on your edge  devices when newer tags are released.
 
 ### Supported functionalities
 
