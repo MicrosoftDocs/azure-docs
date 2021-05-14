@@ -245,7 +245,7 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 
 </br>
 </br>
- <img src="../media/label-tool/custom3.jpg" alt="Training view." width="500px" height="500px">
+ <img src="../media/label-tool/custom3.jpg" alt="Training view tool." width="500px" height="500px">
 
 ## Next steps
 
