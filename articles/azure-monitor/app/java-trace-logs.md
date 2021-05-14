@@ -198,5 +198,5 @@ Exceptions submitted via loggers will be displayed on the portal as Exception Te
 <!--Link references-->
 
 [diagnostic]: ./diagnostic-search.md
-[java]: java-get-started.md
+[java]: java-2x-get-started.md
 

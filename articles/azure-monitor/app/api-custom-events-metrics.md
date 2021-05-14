@@ -35,7 +35,7 @@ If you don't have a reference on Application Insights SDK yet:
 
   * [ASP.NET project](./asp-net.md)
   * [ASP.NET Core project](./asp-net-core.md)
-  * [Java project](./java-get-started.md)
+  * [Java project](./java-in-process-agent.md)
   * [Node.js project](./nodejs.md)
   * [JavaScript in each webpage](./javascript.md)
 * In your device or web server code, include:
@@ -414,7 +414,7 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
 * ASP.NET: [Write code to catch exceptions](./asp-net-exceptions.md).
-* Java EE: [Exceptions are caught automatically](./java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Exceptions are caught automatically](./java-in-process-agent.md).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
 ```javascript

@@ -196,7 +196,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 [availability]: ./monitor-web-app-availability.md
 [data]: ./data-retention-privacy.md
-[java]: java-get-started.md
+[java]: java-2x-get-started.md
 [javalogs]: java-trace-logs.md
 [platforms]: ./platforms.md
 [track]: ./api-custom-events-metrics.md

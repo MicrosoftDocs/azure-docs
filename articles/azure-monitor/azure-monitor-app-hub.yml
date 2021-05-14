@@ -50,7 +50,7 @@ conceptualContent:
         - url: ./app/worker-service.md
           itemType: how-to-guide
           text: .NET Core Worker Service
-        - url: ./app/java-get-started.md
+        - url: ./app/java-2x-get-started.md
           itemType: how-to-guide
           text: Java
         - url: ./app/opencensus-python.md

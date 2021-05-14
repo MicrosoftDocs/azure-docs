@@ -10,7 +10,7 @@ ms.reviewer: olegan
 # Supported languages
 
 * [C#|VB (.NET)](./asp-net.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [JavaScript](./javascript.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
@@ -28,7 +28,7 @@ ms.reviewer: olegan
 * [ASP.NET Core](./asp-net-core.md)
 * [Android](../app/mobile-center-quickstart.md) (App Center)
 * [iOS](../app/mobile-center-quickstart.md) (App Center)
-* [Java EE](./java-get-started.md)
+* [Java EE](./java-in-process-agent.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](./opencensus-python.md)
 * [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)

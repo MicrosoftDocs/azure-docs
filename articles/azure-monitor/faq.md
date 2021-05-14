@@ -244,7 +244,7 @@ View Designer is only available for users assigned with Contributor permissions 
 
 * [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
 * [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
-* [Java web apps](app/java-get-started.md)
+* [Java web apps](app/java-in-process-agent.md)
 * [Node.js apps](app/nodejs.md)
 * [Web apps on Azure](app/azure-web-apps.md)
 * [Cloud Services on Azure](app/cloudservices.md)

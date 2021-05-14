@@ -133,7 +133,7 @@ To search for individual instances of dependency, exception, and method reports,
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: java-get-started.md
+[java]: java-in-process-agent.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 

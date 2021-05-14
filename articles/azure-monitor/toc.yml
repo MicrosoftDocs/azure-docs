@@ -647,15 +647,15 @@
         items:
           - name: Web apps
             displayname: java
-            href: app/java-get-started.md
+            href: app/java-2x-get-started.md
           - name: Log traces
-            href: app/java-trace-logs.md
+            href: app/java-2x-trace-logs.md
           - name: Dependencies
-            href: app/java-agent.md
+            href: app/java-2x-agent.md
           - name: Filter telemetry
-            href: app/java-filter-telemetry.md
+            href: app/java-2x-filter-telemetry.md
           - name: Troubleshoot
-            href: app/java-troubleshoot.md
+            href: app/java-2x-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
