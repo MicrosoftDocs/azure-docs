@@ -681,6 +681,8 @@
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
     - name: Service limits
       href: resource-limits-quotas-capacity.md      
+    - name: Conda licensing
+      href: /legal/machine-learning/conda-licensing  
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: User forum
