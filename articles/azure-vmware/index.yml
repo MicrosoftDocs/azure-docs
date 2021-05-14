@@ -122,8 +122,8 @@ landingContent:
             url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
       - linkListType: how-to-guide
         links:
-          - text: Manage DHCP
-            url: manage-dhcp.md
+          - text: Configure on-premises DHCP to use on HCX networks
+            url: configure-dhcp-azure-vmware-solution.md
           - text: Configure NSX network components
             url: configure-nsx-network-components-azure-portal.md
           - text: Configure GitHub Enterprise Server
