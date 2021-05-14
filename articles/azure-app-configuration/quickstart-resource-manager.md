@@ -62,6 +62,9 @@ Two Azure resources are defined in the template:
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
 
+> [!NOTE]
+> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [preventing access key authentication](./howto-prevent-access-key-authentication.md) for more details.
+
 ## Deploy the template
 
 Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with two key-values inside.

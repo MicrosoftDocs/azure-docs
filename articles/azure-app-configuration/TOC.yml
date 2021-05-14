@@ -138,6 +138,8 @@
       href: howto-import-export-data.md
     - name: Use JSON content-type for key-values
       href: howto-leverage-json-content-type.md
+    - name: Prevent access key authentication (preview)
+      href: howto-prevent-access-key-authentication.md
     - name: Use Event Grid for data change notifications
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
