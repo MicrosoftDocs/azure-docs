@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 05/11/2021
 ms.author: jeedes
 ---
 
@@ -20,7 +20,6 @@ In this tutorial, you'll learn how to integrate Creatio with Azure Active Direct
 * Control in Azure AD who has access to Creatio.
 * Enable your users to be automatically signed-in to Creatio with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
 
 ## Prerequisites
 
@@ -35,7 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Creatio supports **SP and IDP** initiated SSO.
 
-## Adding Creatio from the gallery
+## Add Creatio from the gallery
 
 To configure the integration of Creatio into Azure AD, you need to add Creatio from the gallery to your list of managed SaaS apps.
 
@@ -46,7 +45,6 @@ To configure the integration of Creatio into Azure AD, you need to add Creatio f
 1. In the **Add from the gallery** section, type **Creatio** in the search box.
 1. Select **Creatio** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Creatio
 
 Configure and test Azure AD SSO with Creatio using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Creatio.
@@ -54,10 +52,10 @@ Configure and test Azure AD SSO with Creatio using a test user called **B.Simon*
 To configure and test Azure AD SSO with Creatio, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Creatio SSO](#configure-creatio-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Creatio test user](#create-creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
+    1. **[Create Creatio test user](#create-creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -156,10 +154,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Creatio for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Creatio for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Creatio tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Creatio for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure the Creatio you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Creatio you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
