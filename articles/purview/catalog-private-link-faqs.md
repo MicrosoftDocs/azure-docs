@@ -112,18 +112,18 @@ If you are connecting from a VM behind a hybrid network or using a jump machine 
 
 1. Validate if you can resolve the following addresses through your Azure Purview account's private IP addresses:
 
-- `Web.Purview.Azure.com`
-- `<YourPurviewAccountName>.Purview.Azure.com`
+   - `Web.Purview.Azure.com`
+   - `<YourPurviewAccountName>.Purview.Azure.com`
 
 2. Verify network connectivity to your Azure Purview Account using the following PowerShell command:
 
-```powershell
-Test-NetConnection -ComputerName <YourPurviewAccountName>.Purview.Azure.com -Port 443
-```
+   ```powershell
+   Test-NetConnection -ComputerName <YourPurviewAccountName>.Purview.Azure.com -Port 443
+   ```
 
 3. Verify your cross-premises DNS configuration if your use your own DNS resolution infrastructure. 
 
-For more information about DNS settings for Private Endpoints, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+   For more information about DNS settings for Private Endpoints, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ## Next steps
 
