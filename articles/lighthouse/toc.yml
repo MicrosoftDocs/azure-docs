@@ -61,6 +61,9 @@
     - name: Publish Managed Service offers to Azure Marketplace 
       displayName: managed services, azure marketplace, publish, marketplace
       href: ./how-to/publish-managed-services-offers.md
+    - name: Create eligible authorizations
+      displayName: jit, pim, elevate, elevation, just-in-time
+      href: ./how-to/create-eligible-authorizations.md
     - name: Update delegations
       displayName: upgrade
       href: ./how-to/update-delegation.md
