@@ -53,7 +53,7 @@ The following table lists the format of the endpoint for each of the Azure Stora
 | Storage service | Endpoint |
 |--|--|
 | Blob storage | `https://<storage-account>.blob.core.windows.net` |
-| Data Lake Storage Gen2 (built on Blob storage) | `https://<storage-account>.dfs.core.windows.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue storage | `https://<storage-account>.queue.core.windows.net` |
 | Table storage | `https://<storage-account>.table.core.windows.net` |
@@ -107,7 +107,7 @@ The following table describes the legacy storage account types. These account ty
 | Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
 | Standard general-purpose v1 | Blob, Queue, and Table storage, Azure Files | LRS/GRS/RA-GRS | Resource Manager, Classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and you can't upgrade your application.</li></ul> |
-| Standard Blob storage | Blob (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
+| Standard Blob storage | Blob storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
 
 ## Next steps
 
