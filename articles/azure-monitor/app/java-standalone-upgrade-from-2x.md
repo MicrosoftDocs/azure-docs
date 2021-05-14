@@ -36,67 +36,39 @@ using different connection strings or different role names yet.
 
 ## Operation names
 
-Operation names in 3.0 have changed to generally provide a better aggregated view
-in the Application Insights Portal U/X.
+In the 2.x SDK, in some cases, the operation names contained the full path, e.g.
 
-:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-3-0.png" alt-text="Operation names in 3.0":::
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Screenshot showing operation names with full path":::
+
+Operation names in 3.0 have changed to generally provide a better aggregated view
+in the Application Insights Portal U/X, e.g.
+
+:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-parameterized.png" alt-text="Screenshot showing operation names parameterized":::
 
 However, for some applications, you may still prefer the aggregated view in the U/X
 that was provided by the previous operation names, in which case you can use the
 [telemetry processors](./java-standalone-telemetry-processors.md) (preview) feature in 3.0
 to replicate the previous behavior.
 
-### Prefix the operation name with the http method (`GET`, `POST`, etc.)
-
-In the 2.x SDK, the operation names were prefixed by the http method (`GET`, `POST`, etc.), e.g
-
-:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Operation names prefixed by http method":::
-
-Starting in 3.0.3, you can bring back this 2.x behavior using
-
-```json
-{
-  "preview": {
-    "httpMethodInOperationName": true
-  }
-}
-```
-
-### Set the operation name to the full path
-
-Also, in the 2.x SDK, in some cases, the operation names contained the full path, e.g.
-
-:::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-with-full-path.png" alt-text="Operation names with full path":::
-
-The snippet below configures 4 telemetry processors that combine to replicate the previous behavior.
+The snippet below configures 3 telemetry processors that combine to replicate the previous behavior.
 The telemetry processors perform the following actions (in order):
 
-1. The first telemetry processor is a span processor (has type `span`),
+1. The first telemetry processor is an attribute processor (has type `attribute`),
+   which means it applies to all telemetry which has attributes
+   (currently `requests` and `dependencies`, but soon also `traces`).
+
+   It will match any telemetry that has attributes named `http.method` and `http.url`.
+
+   Then it will extract the path portion of the `http.url` attribute into a new attribute named `tempName`.
+
+2. The second telemetry processor is a span processor (has type `span`),
    which means it applies to `requests` and `dependencies`.
-
-   It will match any span that has an attribute named `http.url`.
-
-   Then it will update the span name with the `http.url` attribute value.
-
-   This would be the end of it, except that `http.url` looks something like `http://host:port/path`,
-   and it's likely that you only want the `/path` part.
-
-2. The second telemetry processor is also a span processor.
-
-   It will match any span that has an attribute named `http.url`
-   (in other words, any span that the first processor matched).
-
-   Then it will extract the path portion of the span name into an attribute named `tempName`.
-
-3. The third telemetry processor is also a span processor.
 
    It will match any span that has an attribute named `tempPath`.
 
    Then it will update the span name from the attribute `tempPath`.
 
-4. The last telemetry processor is an attribute processor (has type `attribute`),
-   which means it applies to all telemetry which has attributes
-   (currently `requests`, `dependencies` and `traces`).
+3. The last telemetry processor is an attribute processor, same type as the first telemetry processor.
 
    It will match any telemetry that has an attribute named `tempPath`.
 
@@ -107,30 +79,21 @@ The telemetry processors perform the following actions (in order):
   "preview": {
     "processors": [
       {
-        "type": "span",
+        "type": "attribute",
         "include": {
           "matchType": "strict",
           "attributes": [
+            { "key": "http.method" },
             { "key": "http.url" }
           ]
         },
-        "name": {
-          "fromAttributes": [ "http.url" ]
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "http.url" }
-          ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "https?://[^/]+(?<tempPath>/[^?]*)" ]
+        "actions": [
+          {
+            "key": "http.url",
+            "pattern": "https?://[^/]+(?<tempPath>/[^?]*)",
+            "action": "extract"
           }
-        }
+        ]
       },
       {
         "type": "span",
@@ -141,7 +104,8 @@ The telemetry processors perform the following actions (in order):
           ]
         },
         "name": {
-          "fromAttributes": [ "tempPath" ]
+          "fromAttributes": [ "http.method", "tempPath" ],
+          "separator": " "
         }
       },
       {
