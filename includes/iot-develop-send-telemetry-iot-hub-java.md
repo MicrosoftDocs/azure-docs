@@ -76,21 +76,13 @@ In this section, you use the Java SDK to send messages from your simulated devic
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-pnp/overview-iot-plug-and-play.md).
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the CLI starts to output the telemetry for the temperature controller.
+    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the console starts to output the telemetry for the temperature controller.
     
     ```output
-    Starting event monitor, use ctrl-c to stop...
-    event:
-      component: ''
-      interface: dtmi:com:example:TemperatureController;1
-      module: ''
-      origin: myDevice
-      payload: '{"workingSet":1251}'
-    
-    event:
-      component: thermostat1
-      interface: dtmi:com:example:TemperatureController;1
-      module: ''
-      origin: myDevice
-      payload: '{"temperature":22.00}'
+    2021-05-13 22:11:05.639 DEBUG TemperatureController:518 - Telemetry - Response from IoT Hub: message Id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, status=OK_EMPTY
+    2021-05-13 22:11:10.229 INFO  IotHubTransport:540 - Message was queued to be sent later ( Message details: Correlation Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] Message Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] )
+    2021-05-13 22:11:10.229 INFO  IotHubTransport:1473 - Sending message ( Message details: Correlation Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] Message Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] )
+    2021-05-13 22:11:10.231 DEBUG TemperatureController:465 - Telemetry: Sent - {"temperature": 22.8░C} with message Id xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+    2021-05-13 22:11:10.234 INFO  IotHubTransport:540 - Message was queued to be sent later ( Message details: Correlation Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] Message Id [xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] )
+    2021-05-13 22:11:10.236 DEBUG TemperatureController:465 - Telemetry: Sent - {"temperature": 35.3░C} with message Id xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
     ```
