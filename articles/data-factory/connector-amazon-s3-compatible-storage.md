@@ -27,7 +27,7 @@ This Amazon S3 Compatible Storage connector is supported for the following activ
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
 
-Specifically, this Amazon S3 Compatible Storage connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). You can also choose to [preserve file metadata during copy](#preserve-metadata-during-copy). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3. You can use this Amazon S3 Compatible Storage connector to copy data from any S3-compatible storage provider. Specify the corresponding service URL in the linked service configuration.
+Specifically, this Amazon S3 Compatible Storage connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3. You can use this Amazon S3 Compatible Storage connector to copy data from any S3-compatible storage provider. Specify the corresponding service URL in the linked service configuration.
 
 
 
