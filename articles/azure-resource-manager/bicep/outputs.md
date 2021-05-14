@@ -13,8 +13,6 @@ This article describes how to define output values in your Azure Resource Manage
 
 The format of each output value must resolve to one of the [data types](data-types.md).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Define output values
 
 The following example shows how to use the `output` keyword to return a property from a deployed resource.

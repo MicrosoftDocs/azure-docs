@@ -11,8 +11,6 @@ ms.date: 05/05/2021
 
 To deploy a resource through a Bicep file, you add a resource declaration by using the `resource` keyword.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Set resource type and version
 
 When adding a resource to your Bicep file, start by setting the resource type and API version. These values determine the other properties that are available for the resource.
