@@ -135,7 +135,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 1. Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **pipelineTopologySet** node, edit the following
  
-    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json" `
+    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json" `
     
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
