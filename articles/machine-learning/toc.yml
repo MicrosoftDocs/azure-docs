@@ -235,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Data protection
           items:
-            - name: Increase resiliency
-              displayName: high availability, disaster recovery
+            - name: Failover & disaster recovery
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
@@ -500,6 +500,9 @@
       - name: Advanced entry script authoring
         displayName: swagger inference schema binary cors
         href: how-to-deploy-advanced-entry-script.md
+      - name: Inference HTTP server
+        href: how-to-inference-server-http.md
+        displayName: local debug
       - name: Monitor web services
         items:
         - name: Collect & evaluate model data

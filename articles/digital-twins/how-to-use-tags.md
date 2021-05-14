@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Add tags to digital twins 
 
-You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/TagModel), within their Azure Digital Twins instances. 
+You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/appendix/tags), within their Azure Digital Twins instances. 
 
 This document describes patterns that can be used to implement tags on digital twins.
 
