@@ -11,8 +11,10 @@ ms.author: jgol
 
 # collectd: Linux performance metrics in Application Insights [Deprecated]
 
-> [!IMPORTANT]
-> The **recommended approach** to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**.
+> [!CAUTION]
+> This document applies to Application Insights Java 2.x which is no longer recommended.
+>
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
 To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
@@ -127,7 +129,7 @@ Workaround: Exclude data collected by the problem Write plugins.
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: java-get-started.md
-[javalogs]: java-trace-logs.md
+[java]: java-2x-get-started.md
+[javalogs]: java-2x-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 

@@ -1,12 +1,12 @@
 ---
-title: Configure on-premises DHCP to use on HCX networks
+title: Configure and manage DHCP in Azure VMware Solution
 description: Learn how to create and manage DHCP for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q2
 ms.date: 05/14/2021
 ---
 
-# Configure on-premises DHCP to use on HCX networks
+# Configure and manage DHCP in Azure VMware Solution
 
 Applications and workloads running in a private cloud environment require DHCP services for IP address assignments.  This article shows you how to create and manage DHCP in Azure VMware Solution in two ways:
 
@@ -15,7 +15,7 @@ Applications and workloads running in a private cloud environment require DHCP s
 - If you're using a third-party external DHCP server in your network, you'll need to [create DHCP relay service](#create-dhcp-relay-service). When you create a relay to a DHCP server, whether using NSX-T or a third-party to host your DHCP server, you'll need to specify the DHCP IP address range.
 
 >[!IMPORTANT]
->DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Send DHCP requests to a non-NSX-T based DHCP server](#send-dhcp-requests-to-a-non-nsx-t-based-dhcp-server) procedure.
+>DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](#configure-dhcp-on-l2-stretched-vmware-hcx-networks) procedure.
 
 
 ## Create a DHCP server
@@ -90,7 +90,7 @@ If you want to use a third-party external DHCP server, you'll need to create a D
       
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP server pool assigned to segment" border="true":::
 
-## Send DHCP requests to a non-NSX-T based DHCP server
+## Configure DHCP on L2 stretched VMware HCX networks
 If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll create a new security segment profile.
 
 >[!IMPORTANT]
