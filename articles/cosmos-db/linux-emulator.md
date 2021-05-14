@@ -102,24 +102,21 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     sudo apt-get update
     sudo apt-get install docker-ce docker-ce-cli containerd.io
     ```
-
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-1. Next, download the certificate for the emulator.
+1. Next, download the certificate for the emulator. Alternatively, the endpoint below which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
-
-2. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+1. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
    ```
 
-3. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+1. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
