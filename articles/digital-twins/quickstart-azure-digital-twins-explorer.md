@@ -60,7 +60,7 @@ The rest of this section walks you through these steps.
 
 ### Set up local Azure credentials
 
-The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
+The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [Write app authentication code](how-to-authenticate-client.md).
 
 With this type of authentication, Azure Digital Twins Explorer will search for credentials within your local environment, such as an Azure sign-in in a local [Azure CLI](/cli/azure/install-azure-cli) or in Visual Studio or Visual Studio Code. For this reason, you should **sign in to Azure locally** through one of these mechanisms to set up credentials for the Azure Digital Twins Explorer app.
 
