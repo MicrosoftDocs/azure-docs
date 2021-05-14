@@ -29,8 +29,6 @@ Azure Static Web Apps is available through two different plans, free and standar
 | Authentication provider integration | [Pre-configured](authentication-authorization.md)<br>(Service defined) | [Custom registrations](authentication-custom.md) |
 | Service Level Agreement (SLA) | None  | ✔ |
 
-See the [quotas guide](quotas.md) for limitation details.
-
 ## Selecting a plan
 
 The following scenarios can help you decide if the Standard plan best fits your needs.
@@ -41,6 +39,8 @@ The following scenarios can help you decide if the Standard plan best fits your 
 - The site's web assets total file size exceed the storage maximums.
 - You require formal customer support.
 - You require more than three [staging environments](review-publish-pull-requests.md).
+
+See the [quotas guide](quotas.md) for limitation details.
 
 ## Changing plans
 
