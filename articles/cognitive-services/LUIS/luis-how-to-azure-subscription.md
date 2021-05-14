@@ -16,7 +16,7 @@ There are two main resource types for LUIS:
 
 ## Authoring Resource
 
-An authoring resource lets you to create, manage, train, test, and publish your applications. One [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) is available for the LUIS authoring resource - the free (F0) tier which gives you:
+An authoring resource lets you create, manage, train, test, and publish your applications. One [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) is available for the LUIS authoring resource - the free (F0) tier, which gives you:
 
 * 1 million authoring transactions 
 * 1,000 testing prediction endpoint requests per month.
@@ -39,11 +39,11 @@ You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.mi
 
 ## Create LUIS resources
 
+To create LUIS resources, you can use the LUIS portal, [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
+
 # [LUIS portal](#tab/portal)
 
 ### Create a LUIS authoring resource using the LUIS portal
-> [!TIP]
-> You can also create LUIS resources using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see the **My Apps** section in the portal, a LUIS resource already exists and you can skip the next step.
 
@@ -94,8 +94,6 @@ Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource indivi
 
 ---
 
-> [!Note]
-> These keys aren't used by the LUIS portal until they're assigned on the **Manage** > **Azure Resources** page in the LUIS portal.
 
 ## Assign LUIS resources
 
@@ -240,9 +238,8 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 1.  In [the Azure portal](https://portal.azure.com), Go to **All resources** and select your resource
 
     ![Screenshot that shows a LUIS subscription in the Azure portal.](./media/luis-usage-tiers/find.png)
-1.  From the left side menu select **Pricing tier** to see the available pricing tiers
-1.  Select the pricing tier you want, and click **Select** to save your change<br>
-    When the pricing change is complete, a notification appears in the top right verifying  the pricing tier update.
+1.  From the left side menu, select **Pricing tier** to see the available pricing tiers
+1.  Select the pricing tier you want, and click **Select** to save your change. When the pricing change is complete, a notification will appear in the top right with the pricing tier update.
 
 ## View Azure resource metrics
 
