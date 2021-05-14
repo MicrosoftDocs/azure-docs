@@ -1,14 +1,17 @@
 ---
-title: Deploy Azure Video Analyzer on an IoT Edge device - Azure
-description: This article lists the steps that will help you deploy Azure Video Analyzer on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
+title: Deploy Azure Video Analyzer to an IoT Edge device - Azure
+description: This article lists the steps that will help you deploy Azure Video Analyzer to your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
 ms.topic: how-to
 ms.date: 04/07/2021
 
 ---
-# Deploy Azure Video Analyzer on an IoT Edge device
+# Deploy Azure Video Analyzer to an IoT Edge device
 
-This article describes how you can deploy the Azure Video Analyzer edge module on your IoT Edge device.
-When you finish the steps in this article you will have a Video Analyzer account and the Video Analyzer module deployed to your IoT Edge device.
+This article describes how you can deploy the Azure Video Analyzer edge module on an IoT Edge device which has no other modules previously installed. When you finish the steps in this article you will have a Video Analyzer account created and the Video Analyzer module deployed to your IoT Edge device.
+
+> [!NOTE]
+> The process outlined in this article will uninstall edge modules, if any, that are installed on your IoT Edge device.  
+
 
 ## Prerequisites
 
@@ -21,24 +24,23 @@ When you finish the steps in this article you will have a Video Analyzer account
 
 ## Create resources on IoT Edge device
 
-The following script will prepare your device to be able to be used with our Quickstarts and Tutorials.
+Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data. For this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. The following script will prepare your device to be able to be used with our Quickstarts and Tutorials.
 
 https://aka.ms/ava/prepare-device
 
 `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
-Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
-
-The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
+The prep-device script used above automates the task of creating input and configuration folders, downloading video input files, and creating user accounts with correct privileges. Once the command finishes successfully, you should see the following folders created on your edge device. 
 
 * `/home/localedgeuser/samples`
 * `/home/localedgeuser/samples/input`
 * `/var/lib/videoanalyzer`
 * `/var/media`
 
-    Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
+    Note the video files ("*.mkv") in the /home/localedgeuser/samples/input folder, which are used to simulate live video. 
 
-## Configuring Azure resources and deploying edge modules
+## Creating Azure resources and deploying edge modules
+The next step is to create the required Azure resources (Video Analyzer account, storage account, user-assigned managed identity), registering a Video Analyzer edge module with the Video Analyzer account, and deploying the Video Analyzer edge module and the RTSP simulator module to the IoT Edge device.
 
 Click the **Deploy to Azure** button
 
@@ -49,12 +51,12 @@ Click the **Deploy to Azure** button
 
 1. Select your **subscription**
 2. Select your preferred **region**
-3. Select the **resource group** that your edge device is in 
+3. Select the **resource group** to which your IoT Hub and IoT Edge device belong
 4. In the dropdown menu for **Do you need an edge device?**, select the ***Use an existing edge device*** option
 5. Click **Next**
 ![Screenshot of initial deployment form](./media/deploy-iot-edge-device/project-details.png)
 
-1. Select the **Existing IoT Hub Name** that your edge device is connected to
+1. Select the **Existing IoT Hub Name** that your IoT Edge device is connected to
 1. Click **Next**
 ![Screenshot of second deployment form](./media/deploy-iot-edge-device/iot-hub-name.png)
 
@@ -64,7 +66,7 @@ It may take a few moments for the Azure resources to be created and the edge mod
 
 ### Verify your deployment
 
-After creating the deployment, in the azure portal navigate to the IoT Edge page of your IoT hub.
+After creating the deployment, in the Azure portal navigate to the IoT Edge device page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 2. In the device details, verify that the modules are listed as both **Specified in deployment and Reported by device**.
