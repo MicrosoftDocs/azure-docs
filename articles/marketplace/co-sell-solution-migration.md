@@ -17,7 +17,7 @@ ms.date: 5/13/2021
 
 ## Table of Contents
 
-- [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-Microsoft)
+- [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Begin the Migration of your solutions from OCP GTM](#beginmigration)
