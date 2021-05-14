@@ -52,7 +52,7 @@ While Availability Zones may provide better availability than Availability Sets 
 
 You can configure a virtual network name, or a distributed network name for an availability group. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md) and then deploy either a [distributed network name (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) or a [virtual network name (VNN)](availability-group-vnn-azure-load-balancer-configure.md) for your availability group. 
 
-Most SQL Server features work transparently availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
+Most SQL Server features work transparently with availability groups when using the DNN, but there are certain features that may require special consideration. See [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
 Additionally, there are some behavior differences between the functionality of the VNN listener and DNN listener that are important to note: 
 
@@ -60,7 +60,7 @@ Additionally, there are some behavior differences between the functionality of t
 - **Existing connections**: Connections made to a *specific database* within a failing-over availability group will close, but other connections to the primary replica will remain open since the DNN stays online during the failover process. This is different than a traditional VNN environment where all connections to the primary replica typically close when the availability group fails over, the listener goes offline, and the primary replica transitions to the secondary role. When using a DNN listener, you may need to adjust application connection strings to ensure that connections are redirected to the new primary replica upon failover.
 - **Open transactions**: Open transactions against a database in a failing-over availability group will close and roll back, and you need to *manually* reconnect. For example, in SQL Server Management Studio, close the query window and open a new one. 
 
-There are two main options for setting up your VNN listener: external (public) or internal. The external (public) listener uses an internet-facing load balancer and is associated with a public virtual IP that's accessible over the internet. An internal listener uses an internal load balancer and supports only clients within the same virtual network. For either load balancer type, you must enable Direct Server Return. 
+Setting up a VNN listener in Azure requires a load balancer. There are two main options for load balancers in Azure: external (public) or internal. The external (public) load balancer is internet-facing and is associated with a public virtual IP that's accessible over the internet. An internal load balancer supports only clients within the same virtual network. For either load balancer type, you must enable [Direct Server Return](../../../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip). 
 
 You can still connect to each availability replica separately by connecting directly to the service instance. Also, because availability groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similarly to database mirroring:
 
@@ -87,7 +87,7 @@ For SQL Server, the AG resource DLL determines the health of the AG based on the
 
 The AG resource DLL monitors the status of internal SQL Server components. Sp_server_diagnostics reports the health of these components to SQL Server on an interval controlled by **HealthCheckTimeout**.
 
-Unlike other failover mechanisms, the SQL Server instance plays an active role in the lease mechanism. The lease mechanism is used as a Looks-Alive validation between the Cluster resource host and the SQL Server process. The mechanism is used to ensure that the two sides (the Cluster Service and SQL Server service) are in frequent contact, checking each other's state and ultimately preventing a split-brain scenario.
+Unlike other failover mechanisms, the SQL Server instance plays an active role in the lease mechanism. The lease mechanism is used as a *LooksAlive* validation between the Cluster resource host and the SQL Server process. The mechanism is used to ensure that the two sides (the Cluster Service and SQL Server service) are in frequent contact, checking each other's state and ultimately preventing a split-brain scenario.
 
 When configuring an AG in Azure VMs, there is often a need to configure these thresholds differently than they would be configured in an on-premises environment. To configure threshold settings according to best practices for Azure VMs, see the [cluster best practices](hadr-cluster-best-practices.md). 
 
