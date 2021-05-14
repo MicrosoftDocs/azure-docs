@@ -7096,11 +7096,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
-      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/application-insights/app-insights-monitor-performance-live-website-now.md",
       "redirect_url": "/azure/azure-monitor/app/monitor-performance-live-website-now",
       "redirect_document_id": true
