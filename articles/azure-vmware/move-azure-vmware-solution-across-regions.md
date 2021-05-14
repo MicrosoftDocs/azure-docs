@@ -53,21 +53,17 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Export the source configuration
 
-1. From the source, export the extended segments or segments to extend. [still need a link for this, but it might be https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-FCE6567E-1174-49CC-90F1-BA7B695B28F0.html -- IDK]
-
-1. From the source, [export the firewall rules, port details, and route tables](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-FCE6567E-1174-49CC-90F1-BA7B695B28F0.html).
+1. From the source, [export the extended segments, firewall rules, port details, and route tables](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-FCE6567E-1174-49CC-90F1-BA7B695B28F0.html).
 
 1. [Export the contents of an inventory list view to a CSV file](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-C0E8DD52-677E-464F-A3EA-044EE20B7B92.html).
 
 1. [Sort workloads into migration groups (migration wave)](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#sec4-sub1).
 
-1. Gather the NSX-T port communication between the source and target Azure VMware Solution environments. [Still need this information, but it might be https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-FCE6567E-1174-49CC-90F1-BA7B695B28F0.html -- IDK]
-
-   :::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions1.png" alt-text="Diagram showing port communication between the source and target Azure VMware Solution environments." border="false":::
 
 ### Deploy the target environment
 
 Before you can move the source configuration, you'll need to [deploy the target environment](production-ready-deployment-steps.md).
+
 
 ### Back up the source configuration
 
