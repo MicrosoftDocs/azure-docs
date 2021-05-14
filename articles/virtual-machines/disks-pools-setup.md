@@ -9,57 +9,37 @@ ms.date: #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+# Getting started
 
-<!--
-This template provides the basic structure of a concept article.
-See the [concept guidance](contribute-how-write-concept.md) in the contributor guide.
+## Register the feature
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+Register your subscription to the Microsoft.StoragePool provider in order to use the feature.
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
+1. Sign in to the Azure portal
+1. On the Azure portal menu, search for and select Subscriptions.
+1. Select the subscription you want to use for disk pools.
+1. On the left menu, under Settings, select Resource providers.
+1. Find the resource provider Microsoft.StoragePool and select Register.
 
-# [H1 heading here]
+## Delete subnet permission
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+Once your subscription has been registered, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the Microsoft.StoragePool/diskPools resource provider.
 
-[add your introductory paragraph]
+1. Go to the virtual networks blade in the Azure portal and select the virtual network you will use for the disk pool.
+1. Select Subnets from the virtual network blade and select +Subnet.
+1. Create a new subnet by completing the following required fields in the Add Subnet page:
+    - Name: Specify name.
+    - Address range: Specify IP address range.
+    - Subnet delegation: Select Microsoft.StoragePool/diskPools
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+## Provide StoragePool resource provider permission to the disks that will be in the disk pool.
 
-## [Section 1 heading]
-<!-- add your content here -->
+You need to provide the StoragePool resource provider Read & Write permissions to any managed disk that is going to be in a disk pool, in order for the disk pool to work correctly.
 
-## [Section 2 heading]
-<!-- add your content here -->
+1. Sign in to the Azure portal.
+1. Search for and select either the resource group that contains the disks or each disk themselves.
+1. Select Access control (IAM).
+1. Select Add > Add role assignment, and select Azure Disk Contributor in the Role list.
+1. Select User, group, or service principal in the Assign access to list.
+1. In the Select section, search for StoragePool Resource Provider, select it, and save.
 
-## [Section n heading]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
-
-## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->

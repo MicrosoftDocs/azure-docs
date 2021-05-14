@@ -1,0 +1,124 @@
+---
+title: #Required; page title is displayed in search results. Include the brand.
+description: #Required; article description that is displayed in search results. 
+author: #Required; your GitHub user alias, with correct capitalization.
+ms.author: #Required; microsoft alias of author; optional team alias.
+ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.date: #Required; mm/dd/yyyy format.
+ms.custom: template-concept #Required; leave this attribute/value as-is.
+---
+
+# Deploy a disk pool
+
+This article covers how to deploy and configure a disk pool. In order to successfully complete the steps in this article and deploy a disk pool, you must have completed the following previous articles:
+
+## Get started
+
+1. Sign in to the Azure portal.
+1. Search for and select Disk pool.
+1. Select +Add to create a new disk pool.
+1. Fill in the details requested, make sure to select the same region and availability zone as the clients that will use the disk pool.
+1. For the virtual network and subnet
+
+At this point, you have successfully deployed a disk pool. Now, you must add disks to the pool.
+
+## Add a disk
+
+### Prerequisites
+
+In order to add a disk, it must meet the following requirements:
+
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+    - For ultra disks, it must have a disk sector size of 512 bytes.
+- Must be a shared disk with a maxShares value of two or greater.
+- You must have granted RBAC permissions to your disk pool resource provider.
+
+If your disk meets all these pre-requisites, you can add it to the disk pool by selecting _Add disk in the disk pool blade.
+
+### Enable iSCSI
+
+1. Select the iSCSI tab
+1. Select **Enable iSCSI**
+1. Enter the name of the iSCSI target, the iSCSI target IQN will generate based on this name.
+
+#### Enable iSCSI targets for disks
+
+In the disks enablement section you can choose to enable or disable individual iSCSI targets.
+
+In the Access Control List options section, set the ACL mode to dynamic.
+
+Select Review + create.
+
+## PowerShell
+
+```azurepowershell
+#upgrade PSH module 
+
+$subnetConfig = Get-AzVirtualNetworkSubnetConfig -Name $diskpoolSubnetName -VirtualNetwork $virtualNetwork 
+
+ 
+
+$subnetConfig = ((Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName).Subnets |? { $_.Name -eq $diskpoolSubnetName }) 
+
+  
+
+ 
+
+ 
+
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetConfig.Id -AvailabilityZone $AvZoneNo #We only support zonal deployment of Disk Pool 
+
+$diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName 
+
+ 
+
+#5. Add AVS Cloud as iSCSI initiators to the Disk Pool 
+
+#5.1 Initialize an iSCSI Target endpoint and expose the attached Disk 
+
+$targetIqn = "<target-iqn>" # Specify the IQN of the iSCSI target representing your Disk Pool. For example: iqn.2005-03.org.iscsi:server 
+
+$iscsiInitiatorIqn = "<avs-iqn>"# Specify the IQN of your AVS Cloud. For example: iqn.2005-03.org.iscsi:client 
+
+$username = "<user-name>" # Minimum length: 7, Maximum length: 511 
+
+$pwd = "<pwd>" # Minimum length: 12; Maximum length: 255; known invalid characters: () @ # $ % ^ & and * 
+
+$lunName = "<lun-name>" # Lun name will be surfaced as the indicator for the disk from iSCSI target 
+
+$iscsiTargetName = "<iscsi-target-name>"  
+
+ 
+#Expose the Disk that is added as the storage target under this Disk Pool as a Lun on the iSCSI target. Each added Storage Target can only be mapped against one iSCSI LUN 
+
+$lun= New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunName 
+
+ 
+
+# A target portal group is a set of one or more storage system network interfaces that can be used for an iSCSI session between an initiator and a target. A target portal group composes these properties below.  
+
+#ACLs: defines the iSCSI initiators that can be connected to this iSCSI target including the credentials to be used for authentication if enabled, and the iSCSI LUN allowed. You can add multiple ACLs per each iSCSI initiator. 
+
+#AttributeAuthentication: defines whether authentication is enabled on the ACL (Challenge Handshake Authentication Protocol). If you enable authentication, you must use and specify credentials for the connection  
+
+#AttributeProdModeWriteProtect: defines whether write protect is enabled on the Luns 
+
+ 
+
+$acls = New-AzDiskPoolAclObject -CredentialsUsername $username -CredentialsPassword $pwd -InitiatorIqn $iscsiInitiatorIqn -MappedLun @($lunName) 
+
+ 
+
+$tpgs = New-AzDiskPoolTargetPortalGroupObject -Lun $lun -AttributeAuthentication $true -AttributeProdModeWriteProtect $false -Acls $acls 
+
+ 
+
+New-AzIscsiTarget -ResourceGroupName $resourceGroupName -TargetIqn $targetIqn -DiskPoolName $diskPoolName -Name $iscsiTargetName -Tpg $tpgs   
+
+ 
+
+#5.2 Retrieve the iSCSI target properties of the Disk Pool 
+
+Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName - 
+```
