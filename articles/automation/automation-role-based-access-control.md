@@ -258,16 +258,18 @@ Update management reaches across multiple services to provide its service. The f
 
 |**Resource** |**Role** |**Scope** |
 |-------------|---------|---------|
-|Automation account | Log Analytics Contributor | Automation account |
-|Automation account | Virtual Machine Contributor  | Resource Group for the account  |
-|Log Analytics workspace | Log Analytics Contributor| Log Analytics workspace |
-|Log Analytics workspace |Log Analytics Reader| Subscription|
-|Solution |Log Analytics Contributor | Solution|
-|Virtual Machine | Virtual Machine Contributor | Virtual Machine |
-|**Actions on virtual machine** |||
-|[Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
-|[Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
-|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) | Permissions -<br> * Microsoft.Compute/virtualMachines/write – For static VM list and resource groups, subscriptions when using dynamic lists.<br> * Microsoft.OperationalInsights/workspaces/analytics/query/action – For workspace resource ID when using non-Azure dynamic list.||
+|Automation account |Log Analytics Contributor |Automation account |
+|Automation account |Virtual Machine Contributor  |Resource Group for the account  |
+|Log Analytics workspace  Log Analytics Contributor|Log Analytics workspace |
+|Log Analytics workspace |Log Analytics Reader|Subscription|
+|Solution |Log Analytics Contributor |Solution|
+|Virtual Machine |Virtual Machine Contributor |Virtual Machine |
+|**Actions on Virtual Machine** |||
+|[Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader |Automation account |
+|[Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader |Automation account |
+|**Actions on virtual machine** |**Permission** ||
+|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
+|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.||
 
 
 ## Configure Azure RBAC for your Automation account
