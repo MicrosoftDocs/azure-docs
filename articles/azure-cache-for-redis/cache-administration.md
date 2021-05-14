@@ -84,7 +84,7 @@ The default, and minimum, maintenance window for updates is five hours. This val
 * [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [Can an update that is covered and managed by the "Scheduled Updates" feature happen outside of the "Scheduled Updates" window?](#can-an-update-that-is-covered-and-managed-by-the-scheduled-updates-feature-happen-outside-of-the-scheduled-updates-window)
+* [Can an update that is covered and managed by the "Scheduled Updates" feature happen outside of the "Scheduled Updates" window?](#can-an-update-that-is-covered-and-managed-by-the-scheduled-updates-feature-happen-outside-the-scheduled-updates-window)
 
 ### When do updates occur if I don't use the schedule updates feature?
 If you don't specify a maintenance window, updates can be made at any time.
@@ -95,13 +95,13 @@ Only Redis server updates are made during the scheduled maintenance window. The 
 ### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
 Yes, you can manage your scheduled updates using the following PowerShell cmdlets:
 
-### Can an update that is covered and managed by the "Scheduled Updates" feature happen outside of the "Scheduled Updates" window?
-Yes, while in general updates are not applied outside of the configured "Scheduled Updates" window, rare critical security updates can be applied outside of the patching schedule as part of our security policy.
-
 * [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
 * [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
+
+### Can an update that is covered and managed by the Scheduled Updates feature happen outside the Scheduled Updates window?
+Yes. Although in general, updates aren't applied outside the configured Scheduled Updates window, rare critical security updates can be applied outside the patching schedule as part of our security policy.
 
 ## Next steps
 Learn more about Azure Cache for Redis features.
