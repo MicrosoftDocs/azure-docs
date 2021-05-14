@@ -426,16 +426,6 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
-When referencing a resource that is deployed in the same template in Bicep, directly use the symbolic name of the resource to get the properties from the resource. For example:
-
-```bicep
-output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
-```
-
-In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
-
-For more information, see [Reference resources](./compare-template-syntax.md#reference-resources).
-
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -654,64 +644,6 @@ The full object is in the following format:
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param storageAccountName string
-
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2016-12-01' = {
-  name: storageAccountName
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  tags: {}
-  properties: {}
-}
-
-output referenceOutput object = myStorageAccount
-```
-
-The preceding example returns the an object that is the same as using Full for JSON:
-
-```json
-{
-  "apiVersion":"2016-12-01",
-  "location":"southcentralus",
-  "sku": {
-    "name":"Standard_LRS",
-    "tier":"Standard"
-  },
-  "tags":{},
-  "kind":"Storage",
-  "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
-    "primaryEndpoints": {
-      "blob":"https://examplestorage.blob.core.windows.net/",
-      "file":"https://examplestorage.file.core.windows.net/",
-      "queue":"https://examplestorage.queue.core.windows.net/",
-      "table":"https://examplestorage.table.core.windows.net/"
-    },
-    "primaryLocation":"southcentralus",
-    "provisioningState":"Succeeded",
-    "statusOfPrimary":"available",
-    "supportsHttpsTrafficOnly":false
-  },
-  "subscriptionId":"<subscription-id>",
-  "resourceGroupName":"functionexamplegroup",
-  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
-  "condition":true,
-  "isConditionTrue":true,
-  "isTemplateResource":false,
-  "isAction":false,
-  "provisioningOperation":"Read"
-}
-```
-
----
-
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 ```json
@@ -819,24 +751,6 @@ The preceding example returns an object in the following format:
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
-
-In Bicep, you can often use the `id` property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
-
-```bicep
-myStorageAccount.id
-```
-
-In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
-
-To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
-
-```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
-    name: storageAccountName
-}
-
-stg.id
-```
 
 ### Parameters
 
