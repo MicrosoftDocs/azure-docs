@@ -109,30 +109,10 @@ Video Analyzer built on top of IoT Edge emits events, or telemetry data, accordi
         
 The events emitted by the module are sent to the [IoT Edge hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub). From there, they can be routed to other destinations. 
 
-### Timestamps in events
+### Events and video playback
 
-As indicated previously, events generated as part of video analysis have timestamps associated with them. If you [recorded the live video](video-recording.md) as part of your pipeline topology, these timestamps help you locate where in the recorded video the particular event occurred. Following are guidelines on how to map the timestamp in an analytic event to the timeline of the video that has been recorded.
+As indicated above, events generated as part of video analysis have an `eventTime` associated with them. If you [recorded the live video](video-recording.md) as part of your pipeline topology, these help you locate where in the recorded video the particular event occurred. You can load the video recording in the [Video Analyzer player widget](player-widget.md), and use its controls to seek to the date and time of interest. If your pipeline involved the use of an AI model to generate inference results, then you should be recording the inference data along with the video. This will enable you to play back the inference metadata along with the video as shown in this [tutorial](record-stream-inference-data-with-video.md).
 
-First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you might want to retrieve video that starts 30 seconds before `eventTime` and ends 30 seconds after it. For the previous example, where `eventTime` is `2020-05-12T23:33:09.381Z`, a request for an HLS manifest for the 30 seconds before and after `eventTime` could be made to the following URL:
-
-> [!NOTE]
-> The examples below omit details about the token header needed for authentication.
-
-```
-https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
-```
-
-The preceding URL would return a [master playlist](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming) that contains URLs for media playlists. The media playlist would contain entries like this one:
-
-```
-...
-#EXTINF:3.103011,no-desc
-Fragments(video=143039375031270,format=m3u8-aapl)
-...
-```
-The preceding entry reports that a video fragment is available that starts at a `timestamp` value of `143039375031270`. The `timestamp` value in the analytic event uses the same timescale as the media playlist. It can be used to identify the relevant video fragment and seek to the correct frame.
-
-For more information, see these [articles on frame-accurate seeking](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) in HLS.
 
 ## Routing events
 
