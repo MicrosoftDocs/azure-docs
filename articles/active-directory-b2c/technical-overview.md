@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/27/2021
+ms.date: 05/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -189,7 +189,7 @@ You can add a REST API call at any step in the user journey defined by a custom 
 
 To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](api-connectors-overview.md).
 
-## Protect customer identities
+## Protect resources and customer identities
 
 Azure AD B2C complies with the security, privacy, and other commitments described in the [Microsoft Azure Trust Center](https://www.microsoft.com/trustcenter/cloudservices/azure).
 
@@ -219,13 +219,17 @@ Your users may or may not be challenged for MFA based on configuration decisions
 
 See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
+### Identity Protection and Conditional Access
+
+Azure AD Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected and displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine remediation actions and enforce organizational policies. See [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
+
 ### Smart account lockout
 
 To prevent brute-force password guessing attempts, Azure AD B2C uses a sophisticated strategy to lock accounts based on the IP of the request, the passwords entered, and several other factors. The duration of the lockout is automatically increased based on risk and the number of attempts.
 
 ![Account smart lockout](media/technical-overview/smart-lockout1.png)
 
-For more information about managing password protection settings, see [Manage threats to resources and data in Azure Active Directory B2C](threat-management.md).
+For more information about managing password protection settings, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
 
 ### Password complexity
 
