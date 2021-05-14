@@ -589,7 +589,10 @@ Business and product brand names detected in the speech to text transcript and/o
 |---|---|
 |id|The audio effect ID|
 |type|The audio effect type|
+|name| The audio effect type in the language in which the JSON was indexed. |
 |instances|A list of time ranges where this audio effect appeared. Each instance has a confidence field.|
+|start + end| Time range in the time original video.|
+|adjustedStart + adjustedEnd|[time range vs adjusted time range](concepts-overview.md#time-range-vs-adjusted-time-range)|
 
 ```json
 audioEffects: [{
