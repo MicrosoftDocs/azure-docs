@@ -1,6 +1,6 @@
 ---
-title: Azure Static Web Apps plans
-description: Compare and contrast the different Azure Static Web Apps plans.
+title: Azure Static Web Apps hosting plans
+description: Compare and contrast the different Azure Static Web Apps hosting plans.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,7 +9,7 @@ ms.date: 05/14/2021
 ms.author: cshoe
 ---
 
-# Azure Static Web Apps plans
+# Azure Static Web Apps hosting plans
 
 Azure Static Web Apps is available through two different plans, Free and Standard. See the [pricing page for Standard plan costs](https://azure.microsoft.com/pricing/details/app-service/static/).
 
