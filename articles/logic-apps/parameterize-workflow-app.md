@@ -149,6 +149,10 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
 
+For more information about setting up your logic apps for DevOps deployments, see:
+* [Overview of DevOps deployment for single-tenant logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
+* [Setup guide for DevOps deployment for single-tenant logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
