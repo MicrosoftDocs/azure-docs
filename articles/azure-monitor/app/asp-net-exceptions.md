@@ -27,13 +27,14 @@ Exceptions in your live web app are reported by [Application Insights](./app-ins
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
-  This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. Refer to the [.NET Core SDK documentation](./asp-net-core.md) if you have a .NET Core app.
+> [!TIP]
+> This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. Refer to the [.NET Core SDK documentation](./asp-net-core.md) if you have a .NET Core app.
 
 ## Diagnosing exceptions using Visual Studio
 
 Open the app solution in Visual Studio to help with debugging.
 
-Run the app, either on your server or on your development machine by using F5.
+Run the app, either on your server or on your development machine by using <kbd>F5</kbd>.
 
 Open the Application Insights Search window in Visual Studio, and set it to display events from your app. While you're debugging, you can do this just by clicking the Application Insights button.
 
@@ -102,34 +103,41 @@ You can:
 
 ## Reporting exceptions explicitly
 
-The simplest way is to insert a call to TrackException() in an exception handler.
+The simplest way is to insert a call to `trackException()` in an exception handler.
 
 ```javascript
 try
-{ ...
+{
+    // ...
 }
 catch (ex)
 {
     appInsights.trackException(ex, "handler loc",
-    {Game: currentGame.Name,
-        State: currentGame.State.ToString()});
+    {
+        Game: currentGame.Name,
+        State: currentGame.State.ToString()
+    });
 }
 ```
 
 ```csharp
 var telemetry = new TelemetryClient();
-...
+
 try
-{ ...
+{
+    // ...
 }
 catch (Exception ex)
 {
-    // Set up some properties:
-    var properties = new Dictionary <string, string>
-        {{"Game", currentGame.Name}};
+    var properties = new Dictionary<string, string>
+    {
+        ["Game"] = currentGame.Name
+    };
 
-    var measurements = new Dictionary <string, double>
-        {{"Users", currentGame.Users.Count}};
+    var measurements = new Dictionary<string, double>
+    {
+        ["Users"] = currentGame.Users.Count
+    };
 
     // Send the exception telemetry:
     telemetry.TrackException(ex, properties, measurements);
@@ -138,9 +146,9 @@ catch (Exception ex)
 
 ```VB
 Dim telemetry = New TelemetryClient
-...
+
 Try
-    ...
+    ' ...
 Catch ex as Exception
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -160,59 +168,56 @@ The properties and measurements parameters are optional, but are useful for [fil
 
 Most browser exceptions are reported.
 
-If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](https://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
+If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute `crossorigin="anonymous"`, and that the server sends [CORS headers](https://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
 
 ## Reuse your telemetry client
 
 > [!NOTE]
-> TelemetryClient is recommended to be instantiated once and re-used throughout the life of an application.
+> `TelemetryClient` is recommended to be instantiated once and re-used throughout the life of an application.
 
-Below is an example using TelemetryClient correctly.
+Below is an example using `TelemetryClient` correctly.
 
 ```csharp
 public class ExampleController : ApiController
 {
-    // OK
-    private static readonly TelemetryClient _telemetryClient;
+    private readonly TelemetryClient _telemetryClient;
 
-    static ExampleController()
+    public ExampleController(TelemetryClient telemetryClient)
     {
-        _telemetryClient = new TelemetryClient();
+        _telemetryClient = telemetryClient;
     }
 }
 ```
 
-
 ## Web forms
 
-For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
-
-But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs. (Add a Global.asax file if you don't already have one.)
+For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with `CustomErrors`. However, when you have active redirects, add the following lines to the `Application_Error` function in *Global.asax.cs*.
 
 ```csharp
 void Application_Error(object sender, EventArgs e)
 {
-    if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
+    if (HttpContext.Current.IsCustomErrorEnabled &&
+        Server.GetLastError () != null)
     {
-        var ai = new TelemetryClient(); // or re-use an existing instance
-
-        ai.TrackException(Server.GetLastError());
+        _telemetryClient.TrackException(Server.GetLastError());
     }
 }
 ```
 
+In the preceding example, the `_telemetryClient` is a class-scoped variable of type <xref:Microsoft.ApplicationInsights.TelemetryClient>.
+
 ## MVC
 
-Starting with Application Insights Web SDK version 2.6 (beta3 and later), Application Insights collects unhandled exceptions thrown in the MVC 5+ controllers methods automatically. If you have previously added a custom handler to track such exceptions (as described in following examples), you may remove it to prevent double tracking of exceptions.
+Starting with Application Insights Web SDK version 2.6 (beta3 and later), Application Insights collects unhandled exceptions thrown in the MVC 5+ controllers methods automatically. If you have previously added a custom handler to track such exceptions, you may remove it to prevent double tracking of exceptions.
 
-There are a number of cases that the exception filters cannot handle. For example:
+There are a number of scenarios when an exception filter cannot correctly handle errors, when exceptions are thrown:
 
-* Exceptions thrown from controller constructors.
-* Exceptions thrown from message handlers.
-* Exceptions thrown during routing.
-* Exceptions thrown during response content serialization.
-* Exception thrown during application start-up.
-* Exception thrown in background tasks.
+* From controller constructors.
+* From message handlers.
+* During routing.
+* During response content serialization.
+* During application start-up.
+* In background tasks.
 
 All exceptions *handled* by application still need to be tracked manually.
 Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
