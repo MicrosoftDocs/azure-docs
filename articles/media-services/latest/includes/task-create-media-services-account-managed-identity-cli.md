@@ -9,17 +9,16 @@ ms.custom: CLI, devx-track-azurecli
 
 <!--Create a media services account -->
 
-The following Azure CLI command creates a new Media Services account. You can replace the following values: `your-media-services-account-name`  `your-storage-account-name`, and `your-resource-group-name`. The command assumes that you have already created a resource group and a Storage account. The command gives the Media Services account a system assigned managed identity.
+The following Azure CLI command creates a new Media Services account. Replace the following values: `your-media-services-account-name`  `your-storage-account-name`, and `your-resource-group-name` with the names you want to use. The command assumes that you have already created a resource group and a Storage account. 
 
-<!--<Command>-->
+It gives the Media Services account a system assigned managed identity with the `--mi` flag.
+
 ```azurecli-interactive
 
 az ams account create --name your-media-services-account-name --resource-group your-resource-group-name --mi-system-assigned --storage-account your-storage-account-name
 
 ```
-<!--</Command>-->
 
-<!--<Return>-->
 The command returns:
 
 ```json
@@ -28,34 +27,33 @@ The command returns:
     "keyVaultProperties": null,
     "type": "SystemKey"
   },
-  "id": "/subscriptions/2b461b25-f7b4-4a22-90cc-d640a14b5471/resourceGroups/mediatest1rg/providers/Microsoft.Media/mediaservices/mediatest1acc",
+  "id": "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/your-resource-group/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
   "identity": {
-    "principalId": "f3af19d6-9e0f-47ea-98ae-34906266369c",
-    "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "principalId": "00000000-0000-0000-0000-00000000",
+    "tenantId": "00000000-0000-0000-0000-00000000",
     "type": "SystemAssigned"
   },
-  "location": "West US 2",
-  "mediaServiceId": "fe043372-1929-4325-b76f-aa910e81537b",
-  "name": "mediatest1acc",
-  "resourceGroup": "mediatest1rg",
+  "location": "your-region",
+  "mediaServiceId": "00000000-0000-0000-0000-00000000",
+  "name": "your-media-services-account-name",
+  "resourceGroup": "your-resource-group",
   "storageAccounts": [
     {
-      "id": "/subscriptions/2b461b25-f7b4-4a22-90cc-d640a14b5471/resourceGroups/mediatest1rg/providers/Microsoft.Storage/storageAccounts/mediatest1stor",
-      "resourceGroup": "mediatest1rg",
+      "id": "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/mediatest1rg/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+      "resourceGroup": "your-resource-group",
       "type": "Primary"
     }
   ],
   "storageAuthentication": "System",
   "systemData": {
     "createdAt": "2021-05-14T21:25:12.3492071Z",
-    "createdBy": "inhenkel@microsoft.com",
+    "createdBy": "you@example.com",
     "createdByType": "User",
     "lastModifiedAt": "2021-05-14T21:25:12.3492071Z",
-    "lastModifiedBy": "inhenkel@microsoft.com",
+    "lastModifiedBy": "you@example.com",
     "lastModifiedByType": "User"
   },
   "tags": null,
   "type": "Microsoft.Media/mediaservices"
 }
 ```
-<!--</Return>-->

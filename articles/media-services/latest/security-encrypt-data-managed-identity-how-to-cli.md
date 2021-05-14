@@ -43,7 +43,6 @@ You'll see these names referenced in the commands below.  The names of resources
 - your-key-name
 - your-region
 
-
 ### List Azure regions
 
 If you're not sure of what the region name is for the API, use this command to get a listing.
@@ -58,13 +57,9 @@ If you're not sure of what the region name is for the API, use this command to g
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
 
-## Create a Media Services account
+## Create a Media Services account with a Service Principal (Managed Identity)
 
-:::code language="azurecli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Command":::
-:::code language="json" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Return" highlight="8":::
-
-
-<!--[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]-->
+[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]
 
 ## Create a Key Vault
 

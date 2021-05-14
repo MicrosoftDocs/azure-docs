@@ -49,7 +49,7 @@ The command returns:
   },
   "failoverInProgress": null,
   "geoReplicationStats": null,
-  "id": "/subscriptions/your-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
   "identity": null,
   "isHnsEnabled": null,
   "kind": "StorageV2",

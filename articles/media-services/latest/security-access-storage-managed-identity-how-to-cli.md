@@ -67,7 +67,7 @@ This command gives the Media Services account the *Storage Blog Contributor* rol
 az role assignment create \
   --assignee the-media-service-id \
   --role "Storage Blob Data Contributor" \
-  --scope "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
+  --scope "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
 ```
 
 The command returns:
@@ -82,7 +82,7 @@ This command gives the Media Services account the role of *Reader* and also uses
 az role assignment create \
   --assignee the-media-service-id \
   --role "Reader" \
-  --scope "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
+  --scope "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
 ```
 The command returns:
 

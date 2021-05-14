@@ -9,6 +9,8 @@ ms.custom: CLI, devx-track-azurecli
 
 <!--Show Media Services Managed Identity CLI-->
 
+This command shows all of the properties of a Media Services account.
+
 ```azurecli-interactive
 az ams account show --name your-media-services-account-name --resource-group your-resource-group
 ```
@@ -21,7 +23,7 @@ The command returns:
     "keyVaultProperties": null,
     "type": "SystemKey"
   },
-  "id": "/subscriptions/the-subscription-id/resourceGroups/mediatest1rg/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/mediatest1rg/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
   "identity": {
     "principalId": "00000000-0000-0000-0000-000000000000",
     "tenantId": "the-tenant-id",
@@ -33,7 +35,7 @@ The command returns:
   "resourceGroup": "your-resource-group-name",
   "storageAccounts": [
     {
-      "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+      "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
       "resourceGroup": "your-resource-group-name",
       "type": "Primary"
     }

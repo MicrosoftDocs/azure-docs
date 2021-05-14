@@ -21,7 +21,7 @@ The command returns:
 
 ```json
 {
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name",
   "location": "your-region",
   "managedBy": null,
   "name": "your-resource-group-name",

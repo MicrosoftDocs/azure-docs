@@ -23,7 +23,7 @@ The command returns:
 
 ```json
 {
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.KeyVault/vaults/your-keyvault-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.KeyVault/vaults/your-keyvault-name",
   "location": "your-region",
   "name": "your-keyvault-name",
   "properties": {

@@ -19,14 +19,14 @@ The command returns:
 
 ```json
 {
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
   "location": "your-region",
   "mediaServiceId": "the-media-services-account-id",
   "name": "your-media-services-account-name",
   "resourceGroup": "your-resource-group-name",
   "storageAccounts": [
     {
-      "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+      "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
       "resourceGroup": "your-resource-group-name",
       "type": "Primary"
     }

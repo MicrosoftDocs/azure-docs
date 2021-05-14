@@ -22,14 +22,14 @@ The command returns:
 
 ```json
 {
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.KeyVault/vaults/your-keyvault-name",
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.KeyVault/vaults/your-keyvault-name",
   "location": "your-region",
   "name": "your-keyvault-name",
   "properties": {
     "accessPolicies": [
       {
         "applicationId": null,
-        "objectId": "the-media-services-account-id",
+        "objectId": "00000000-0000-0000-000000000000",
         "permissions": {
           "certificates": [
             "get",
@@ -79,11 +79,11 @@ The command returns:
             "deletesas"
           ]
         },
-        "tenantId": "the-tenant-id"
+        "tenantId": "00000000-0000-0000-000000000000"
       },
       {
         "applicationId": null,
-        "objectId": "the-media-services-account-id",
+        "objectId": "00000000-0000-0000-000000000000",
         "permissions": {
           "certificates": null,
           "keys": [
@@ -97,7 +97,7 @@ The command returns:
           "secrets": null,
           "storage": null
         },
-        "tenantId": "the-tenant-id"
+        "tenantId": "00000000-0000-0000-000000000000"
       }
     ],
     "createMode": null,
@@ -114,7 +114,7 @@ The command returns:
       "name": "standard"
     },
     "softDeleteRetentionInDays": 90,
-    "tenantId": "the-tenant-id",
+    "tenantId": "00000000-0000-0000-000000000000",
     "vaultUri": "https://your-keyvault-name.vault.azure.net/"
   },
   "resourceGroup": "your-resource-group-name",
