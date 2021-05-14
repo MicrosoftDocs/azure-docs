@@ -40,7 +40,7 @@ In this tutorial, you'll use Video Analyzer along with the Intel OpenVINO™ DL 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/grpc-vas-extension-with-vino.png" alt-text="Overview of Azure Video Analyzer pipeline with Intel DL Streamer Edge AI module.":::
 
-This diagram shows how the signals flow in this tutorial. An [Edge module]() simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](pipeline.md#grpc-extension-processor) node. 
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](pipeline.md#grpc-extension-processor) node. 
 
 The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](pipeline.md#grpc-extension-processor).
 
@@ -49,7 +49,7 @@ The gRPC extension processor node takes decoded video frames as the input, and r
 
 The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based on Intel’s Video Analytics Serving (VA Serving) that serves video analytics pipelines built with OpenVINO™ DL Streamer. Developers can send decoded video frames to the AI extension module which performs detection, classification, or tracking and returns the results. The AI extension module exposes gRPC APIs that are compatible with video analytics platforms like Azure Video Analyzer from Microsoft.
 
-In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Azure Video Analyzer.
+In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the Intel OpenVINO™ DL Streamer – Edge AI Extension, an Edge module that has been designed to work with Azure Video Analyzer.
 
 In the initial release of this inference server, you have access to the following [models](https://aka.ms/intel-dlstreamer-docs):
 
@@ -117,7 +117,7 @@ If you open the [pipeline topology](https://raw.githubusercontent.com/Azure/azur
 1. Edit the *operations.json* file:
     * Change the link to the live pipeline topology:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"`
 
     * Under `pipelineTopologySet`, edit the name of the live pipeline topology to match the value in the preceding link:
 
@@ -168,7 +168,7 @@ Your `operations.json` should look like this:
       {
           "opName": "pipelineTopologySet",
           "opParams": {
-              "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"
+              "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json"
           }
       },
       {
@@ -298,7 +298,7 @@ Tracking:
                },
                {
                  "name": "grpcExtensionAddress",
-                 "value": "tcp://avaExtension:5001"
+                 "value": "tcp://avaextension:5001"
                },
                {
                  "name": "extensionConfiguration",
