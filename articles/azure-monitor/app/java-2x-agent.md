@@ -10,7 +10,7 @@ ms.author: jgol
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
-> [!IMPORTANT]
+> [!CAUTION]
 > The approach described in this document is no longer recommended.
 >
 > The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
@@ -124,7 +124,7 @@ To search for individual instances of dependency, exception, and method reports,
 
 ## Questions? Problems?
 * No data? [Set firewall exceptions](./ip-addresses.md)
-* [Troubleshooting Java](java-troubleshoot.md)
+* [Troubleshooting Java](java-2x-troubleshoot.md)
 
 <!--Link references-->
 
@@ -133,7 +133,7 @@ To search for individual instances of dependency, exception, and method reports,
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: java-get-started.md
-[javalogs]: java-trace-logs.md
+[java]: java-in-process-agent.md
+[javalogs]: java-2x-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 
