@@ -1,3 +1,11 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 03/10/2021
+ms.author: mikben
+---
+
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
 
 ## Prerequisites
@@ -19,7 +27,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Microsoft.IC3.Azure.Communication.Calling.UAP`. 
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. 
 
 ### Request access
 
