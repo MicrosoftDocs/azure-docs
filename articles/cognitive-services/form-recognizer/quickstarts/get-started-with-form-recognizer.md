@@ -48,23 +48,27 @@ Extract text, tables, selection marks and structure from a document.
 
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) 
 2. At the sample tool home page select "use layout to get text, tables and selection marks"
-:::image type="content" source="../media/label-tool/Layout0.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
+
+</br>
+</br>
+<img src="../media/label-tool/layout1.jpg" alt="Connection settings for Layout Form Recognizer tool." width="350px" height="350px">
 
 3. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
-4. Replace {need apikey} with the subscription key you obtained from your Form Recognizer resource.
-
-<img src="../media/label-tool/layout1.jpg" alt-text="Connection settings of Layout Form Recognizer tool." width="350px" height="350px">
+4. Replace {need apiKey} with the subscription key you obtained from your Form Recognizer resource.
+</br>
+</br>
+<img src="../media/label-tool/layout2.jpg" alt="Connection settings of Layout Form Recognizer tool." width="350px" height="350px">
 
 5. Select source url, paste the following url of the sample document https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout.pdf click the Fetch button.
 
 1. Click "Run Layout"
-The Form REcognizer sample labeling tool will call the Analyze Layout API and analyze the document.
+The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
 
-1. View the results - see the hightlied text extracted, selection marks detected and tables detected.
+1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
 </br>
 </br>
-<img src="../media/label-tool/layout3.jpg" alt-text="Connection settings for Form Recognizer tool." width="350px" height="350px">
+<img src="../media/label-tool/layout3.jpg" alt="Connection settings for Form Recognizer tool." width="350px" height="350px">
 
 1. Download the JSON output file to view the detailed Layout Results.
      * The "readResults" node contains every line of text with its respective bounding box placement on the page.
@@ -79,7 +83,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 2. At the sample tool home page select "use prebuilt model to get data"
 </br>
 </br>
-<img src="../media/label-tool/prebuilt1.jpg" alt-text="Analyze results of Form Recognizer Layout" width="350px" height="350px">
+<img src="../media/label-tool/prebuilt1.jpg" alt="Analyze results of Form Recognizer Layout" width="350px" height="350px">
 
 3. Select source url
 
@@ -96,7 +100,7 @@ Extract text, tables and key value pais from Invoices, Sales Receipts, Idetitnty
 
 </br>
 </br>
-<img src="../media/label-tool/prebuilt3.jpg" alt-text="Connection settings of Prebuilt Form Recognizer tool" width="350px" height="350px">
+<img src="../media/label-tool/prebuilt3.jpg" alt="Connection settings of Prebuilt Form Recognizer tool" width="350px" height="350px">
 
 7. Select the Form Type you would like to analyze - invoice, receipt, business cards or ID based on the type of document you want to analyze and selected.
 
@@ -106,7 +110,7 @@ The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and 
 
 </br>
 </br>
-<img src="../media/label-tool/prebuilt2.jpg" alt-text="Analyze Results of Form Recognizer Prebuilt Invoice" width="350px" height="350px">
+<img src="../media/label-tool/prebuilt2.jpg" alt="Analyze Results of Form Recognizer Prebuilt Invoice" width="350px" height="350px">
 
 10. Download the JSON output file to view the detailed results.
 
@@ -117,7 +121,7 @@ The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and 
 
 ## Train & Analyze a custom Form
 
-Train a custom form model tailored to your documents. Extract text, tables, selection marks and key value pairs from your documents usign Form Recognizer Custom.
+Train a custom form model tailored to your documents. Extract text, tables, selection marks and key value pairs from your documents with Form Recognizer Custom.
 
 ### Prerequisites for training a custom form model
 
@@ -141,7 +145,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 1. At the sample tool home page select "use custom form to train a model with labels and get key value pairs"
 </br>
 </br>
- <img src="../media/label-tool/custom1.jpg" alt-text="Train a custom model." width="350px" height="350px">
+ <img src="../media/label-tool/custom1.jpg" alt="Train a custom model." width="350px" height="350px">
 
 2. Select "New Project"
 
@@ -161,7 +165,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 </br>
 </br>
- <img src="../media/quickstarts/get-sas-url.png" alt-text="SAS location." width="500px" height="500px">
+ <img src="../media/quickstarts/get-sas-url.png" alt="SAS location." width="500px" height="500px">
 
 * **Folder Path** -- Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
@@ -170,13 +174,13 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 </br>
 </br>
- <img src="../media/label-tool/connections.png" alt-text="Connection settings" width="500px" height="500px">
+ <img src="../media/label-tool/connections.png" alt="Connection settings" width="500px" height="500px">
 
 #### Label your forms
 
 </br>
 </br>
- <img src="../media/label-tool/new-project.png" alt-text="New project page" width="500px" height="500px">
+ <img src="../media/label-tool/new-project.png" alt="New project page" width="500px" height="500px">
 
 When you create or open a project, the main tag editor window opens. The tag editor consists of three parts:
 
@@ -192,7 +196,7 @@ The labeling tool will also show which tables have been automatically extracted.
 
 </br>
 </br>
- <img src="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool." width="500px" height="500px">
+ <img src="../media/label-tool/table-extraction.png" alt="Table visualization in sample labeling tool." width="500px" height="500px">
 
 ##### Apply labels to text
 
@@ -221,7 +225,7 @@ Follow the steps above to label for the five forms in the sample dataset.
 
 </br>
 </br>
- <img src="../media/label-tool/custom1.jpg" alt-text="Label the samples." width="500px" height="500px">
+ <img src="../media/label-tool/custom1.jpg" alt="Label the samples." width="500px" height="500px">
 
 #### Train a custom model
 
@@ -233,7 +237,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 </br>
 </br>
- <img src="../media/label-tool/custom2.jpg" alt-text="Training view." width="500px" height="500px">
+ <img src="../media/label-tool/custom2.jpg" alt="Training view." width="500px" height="500px">
 
 #### Analyze a custom form
 
@@ -241,7 +245,7 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 
 </br>
 </br>
- <img src="../media/label-tool/custom3.jpg" alt-text="Training view." width="500px" height="500px">
+ <img src="../media/label-tool/custom3.jpg" alt="Training view." width="500px" height="500px">
 
 ## Next steps
 
