@@ -36,7 +36,7 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.0.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.0.jar`.
 
 You can specify your own configuration file path using either
 
