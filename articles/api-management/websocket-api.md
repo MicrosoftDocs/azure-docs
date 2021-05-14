@@ -23,8 +23,6 @@ In this article, you will:
 > [!div class="checklist"]
 > * Understand Websocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
-> * Test a WebSocket API using test consoles in Azure portal or developer portal.
-> * View metrics and logs of WebSocket API.
 > * Learn the limitations of WebSocket API.
 
 ## Prerequisites
@@ -54,13 +52,36 @@ During the WebSocket passthrough the client application establishes a WebSocket 
 > [!NOTE]
 > The client-side and backend-side connections consist of one-to-one mapping. 
 
-### Limitations
+## Limitations
 
 WebSocket APIs are available and supported in public preview through Azure portal, Management API, and Azure Resource Manager. Below are the current restrictions of WebSocket support in API Management:
 
 * WebSocket APIs are not supported in the Consumption tier.
 * WebSocket APIs are not supported in the [self-hosted gateway](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 * Azure CLI, PowerShell, and SDK do not support management operations of WebSocket APIs.
+
+### Unsupported policies
+
+The following policies are not supported by and cannot be applied to the onHandshake operation:
+* Mock response
+* Get from cache
+* Store to cache
+* Allow cross-domain calls
+* CORS
+* JSONP
+* Set request method
+* Set body
+* Convert XML to JSON
+* Convert JSON to XML
+* Transform XML using XSLT
+* Validate content
+* Validate parameters
+* Validate headers
+* Validate status code
+
+> [!NOTE]
+> If you applied the policies at higher scopes (i.e., global or product) and they were inherited by a WebSocket API through the policy, they will be skipped at run time.
+
 
 ## onHandshake operation
 
@@ -90,28 +111,6 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 
 ## View WebSocket API metrics and logs
 -->
-
-## Unsupported policies
-
-The following policies are not supported by and cannot be applied to the onHandshake operation:
-* Mock response
-* Get from cache
-* Store to cache
-* Allow cross-domain calls
-* CORS
-* JSONP
-* Set request method
-* Set body
-* Convert XML to JSON
-* Convert JSON to XML
-* Transform XML using XSLT
-* Validate content
-* Validate parameters
-* Validate headers
-* Validate status code
-
-> [!NOTE]
-> If you applied the policies at higher scopes (i.e., global or product) and they were inherited by a WebSocket API through the policy, they will be skipped at run time.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
