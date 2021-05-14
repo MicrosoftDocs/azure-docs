@@ -11,9 +11,9 @@ ms.author: jgol
 # Quickstart: Get started with Application Insights in a Java web project
 
 > [!CAUTION]
-> The approach described in this document is no longer recommended.
+> This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Micrometer telemetry is auto-collected with the Application Insights Java 3.0 agent - follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
