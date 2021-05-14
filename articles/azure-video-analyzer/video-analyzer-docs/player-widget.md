@@ -43,7 +43,7 @@ In this section we will create a JWT token that we will use later in the documen
 1. Download the JWTTokenIssuer application located [here]().
 
    > [!NOTE] 
-   > For more information about configuring your audience values see this [article](./access-policy.md)
+   > For more information about configuring your audience values see this [article](./access-policies.md)
 
 2. Launch Visual Studio Code and open folder that contains the *.sln file.
 3. In the explorer pane navigate to the program.cs file
@@ -91,7 +91,7 @@ Access policies define the permissions and duration of access to a given Video A
 
    - Issuer - must match the JWT Token Issuer 
 
-   - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default.  To learn more about Audience and ${System.Runtime.BaseResourceUrlPattern} see this [article](./access-policy.md)
+   - Audience - Audience for the JWT Token -- ${System.Runtime.BaseResourceUrlPattern} is the default.  To learn more about Audience and ${System.Runtime.BaseResourceUrlPattern} see this [article](./access-policies.md)
 
    - Key Type - kty -- RSA 
 
