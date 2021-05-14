@@ -60,7 +60,7 @@ If you're not sure of what the region name is for the API, use this command to g
 ## Create a Media Services account
 
 :::code language="cli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Command":::
-:::code language="cli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Return" highlight="19,25":::
+:::code language="cli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" range="13-46" highlight="19,25":::
 
 
 <!--[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]-->
