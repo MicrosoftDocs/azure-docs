@@ -67,6 +67,11 @@ To add AKS in a virtual network to your workspace, use the following steps:
 
 1. From the __Configure Settings__ section, enter a __Compute name__, select the __Cluster Purpose__, __Number of nodes__, and then select __Advanced__ to display the network settings. In the __Configure virtual network__ area, set the following values:
 
+    * Set the __Virtual network__ to use.
+
+        > [!TIP]
+        > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
+
     * Set the __Subnet__ to create the cluster in.
     * In the __Kubernetes Service address range__ field, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
     * In the __Kubernetes DNS service IP address__ field, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
