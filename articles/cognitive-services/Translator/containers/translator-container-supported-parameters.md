@@ -1,5 +1,5 @@
 ---
-title: "Container: Translator Translate Method"
+title: "Container: Translator translate method"
 titleSuffix: Azure Cognitive Services
 description: Understand the parameters, headers, and body messages for the container Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
@@ -234,9 +234,9 @@ This feature works the same way with `textType=text` or with `textType=html`. Th
 
 Each translate request is limited to 10,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
-The following table lists array element and character limits for the Translatro **translation** operation.
+The following table lists array element and character limits for the Translator **translation** operation.
 
-| Operation | Maximum Size of Array Element |    Maximum Number of Array Elements |    Maximum Request Size (characters) |
+| Operation | Maximum size of array element | Maximum number of array elements | Maximum request size (characters) |
 |:----|:----|:----|:----|
-| Translate | 10,000| 100| 10,000 |
+| translate | 10,000 | 100 | 10,000 |
 
