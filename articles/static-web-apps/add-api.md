@@ -83,7 +83,7 @@ You create an Azure Functions project for your static web app's API. By default,
     ```
 
 > [!TIP]
-> You can add more API functions by running the **Azure Static Web Apps: Create HTTP Function...** again.
+> You can add more API functions by running the **Azure Static Web Apps: Create HTTP Function...** command again.
 
 ## Update the frontend app to call the API
 
