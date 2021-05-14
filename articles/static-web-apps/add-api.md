@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 You can add serverless APIs to Azure Static Web Apps that are powered by Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
 > [!NOTE]
-> The capabilities of functions provided by Static Web Apps are focused to a specific set of features that enable you to create an API for a web app and allow the web app to connect to API securely. See [API support with Azure Functions](apis.md) for information on how they differ from standalone Azure Functions apps.
+> The functions provided by default in Static Web Apps are pre-configured to provide secure API endpoints. See [API support with Azure Functions](apis.md) for information on how they differ from standalone Azure Functions apps.
 
 ## Prerequisites
 
@@ -29,18 +29,18 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you have already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
 
-In VS Code, open the root of your app's repository. It should contain the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_.
+In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
 
 ```Files
 ├── .github
-│   ├── workflows
-│   │   ├── azure-static-web-apps-<default-hostname>.yml
-├── (folders and files from your static web app)
+│   └── workflows
+│       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
+└── (folders and files from your static web app)
 ```
 
 ## Create the API
 
-You create an Azure Functions project for your static web app's API. By default, the Static Web Apps VS Code extension creates the project in a folder named _api_ at the root of your repository.
+You create an Azure Functions project for your static web app's API. By default, the Static Web Apps Visual Studio Code extension creates the project in a folder named _api_ at the root of your repository.
 
 1. Press <kbd>F1</kbd> to open the Command Palette.
 
@@ -50,23 +50,25 @@ You create an Azure Functions project for your static web app's API. By default,
 
     | Prompt | Value |
     | --- | --- |
-    | Select a language | JavaScript |
-    | Provide a function name | message |
+    | Select a language | **JavaScript** |
+    | Provide a function name | **message** |
 
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
     ```Files
     ├── .github
-    │   ├── workflows
-    │   │   ├── azure-static-web-apps-<default-hostname>.yml
+    │   └── workflows
+    │       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
+    │
     ├── api
     │   ├── message
     │   │   ├── function.json
     │   │   ├── index.js
     │   ├── host.json
     │   ├── local.settings.json
-    │   ├── package.json
-    ├── (folders and files from your static web app)
+    │   └── package.json
+    │
+    └── (folders and files from your static web app)
     ```
 
 1. Next, change the `message` function to return a message to the frontend. Update the function in _api/message/index.js_ with the following code.
@@ -81,13 +83,13 @@ You create an Azure Functions project for your static web app's API. By default,
 
 ## Update the frontend app to call the API
 
-Because the function you created is called `message`, it will be accessible at `/api/message`. Update your frontend app to call this API and display the response message.
+Update your frontend app to call the API at `/api/message` and display the response message.
 
 If you used the quickstarts to create the app, use the following instructions to apply the updates.
 
 # [No Framework](#tab/vanilla-javascript)
 
-Update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
+Update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen.
 
 ```html
 <!DOCTYPE html>
@@ -119,7 +121,7 @@ Update the content of the _index.html_ file with the following code to fetch the
 
 # [Angular](#tab/angular)
 
-1. Update the content of _src/app/app.module.ts_ with the following code to enable `HttpClient` in your app:
+1. Update the content of _src/app/app.module.ts_ with the following code to enable `HttpClient` in your app.
 
     ```typescript
     import { BrowserModule } from "@angular/platform-browser";
@@ -136,7 +138,7 @@ Update the content of the _index.html_ file with the following code to fetch the
     export class AppModule {}
     ```
 
-1. Update the content of _src/app/app.component.ts_ with the following code to fetch the text from the API function and display it on the screen:
+1. Update the content of _src/app/app.component.ts_ with the following code to fetch the text from the API function and display it on the screen.
 
     ```typescript
     import { HttpClient } from '@angular/common/http';
@@ -158,7 +160,7 @@ Update the content of the _index.html_ file with the following code to fetch the
 
 # [React](#tab/react)
 
-Update the content of _src/App.js_ with the following code to fetch the text from the API function and display it on the screen:
+Update the content of _src/App.js_ with the following code to fetch the text from the API function and display it on the screen.
 
 ```javascript
 import React, { useState, useEffect } from 'react';
@@ -181,7 +183,7 @@ export default App;
 
 # [Vue](#tab/vue)
 
-Update the content of _src/App.vue_ with the following code to fetch the text from the API function and display it on the screen:
+Update the content of _src/App.vue_ with the following code to fetch the text from the API function and display it on the screen.
 
 ```javascript
 <template>
@@ -258,11 +260,11 @@ npm run build
 
 ---
 
-### Start the emulator
+### Start the CLI
 
-Test the frontend app and API together by starting an emulator using the Static Web Apps CLI. The emulator serves your frontend's build output from a folder.
+Run the frontend app and API together by starting the app with the Static Web Apps CLI. Running the two parts of your application this way allows the CLI to serve your frontend's build output from a folder, and makes the API accessible to the running app.
 
-1. In root of your repository, start the emulator using the Static Web Apps CLI's `start` command.
+1. In root of your repository, start the Static Web Apps CLI with the `start` command.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -298,19 +300,20 @@ Test the frontend app and API together by starting an emulator using the Static 
 
     ---
 
-1. When the emulator starts, access your app at `http://localhost:4280/`. The page calls the API and displays its output, `Hello from the API`.
+1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
-1. To stop the emulator, type <kbd>Ctrl-C</kbd>.
+1. To stop the CLI, type <kbd>Ctrl-C</kbd>.
 
 ## Add API location to workflow
 
 Before you can deploy your app to Azure, update your repository's GitHub Actions workflow with the correct location of your API folder.
 
-1. Open your workflow at _.github/workflows/azure-static-web-apps-\<default-hostname>.yml_.
+1. Open your workflow at _.github/workflows/azure-static-web-apps-\<DEFAULT-HOSTNAME>.yml_.
 
-1. Update the _Azure/static-web-apps-deploy_ action's `api_location` property to `api` and save the file.
+1. Search for the property `api_location` and set the value to `api`.
+1. Save the file.
 
-## Deploy changes to Static Web Apps
+## Deploy changes
 
 To publish changes to your static web app in Azure, commit and push your code to the remote GitHub repository.
 
@@ -318,7 +321,7 @@ To publish changes to your static web app in Azure, commit and push your code to
 
 1. Select the **Git: Commit All** command.
 
-1. When prompted for a commit message, enter `add API` to commit all changes to your local Git repository.
+1. When prompted for a commit message, enter **add API** and commit all changes to your local git repository.
 
 1. Press <kbd>F1</kbd> to open the Command Palette.
 

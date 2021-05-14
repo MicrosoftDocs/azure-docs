@@ -34,7 +34,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 - Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
 - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Input and output [bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are supported.
-- Managed Identity and Key Vault References are not supported.
+- Managed identity and Azure Key Vault references are not supported.
 - Some application settings are managed by the service. Therefore, you can't configure app settings that start with the following prefixes:
 	- `APPSETTING_`
 	- `AZUREBLOBSTORAGE_`
@@ -55,7 +55,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 	- `WEBSOCKET_`
 	- `AzureWeb`
 
-To build Functions apps with more languages and triggers or to use features like Managed Identity, configure your static web app to [use a separate Functions app](functions-bring-your-own.md) that you deploy and manage yourself.
+To build Functions apps with more languages and triggers or to use features like managed identity, configure your static web app to [use a separate Functions app](functions-bring-your-own.md) that you deploy and manage yourself.
 
 ## Next steps
 
