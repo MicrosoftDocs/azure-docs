@@ -43,7 +43,9 @@ For information about ports required for the Hybrid Runbook Worker, see [Update 
 
 If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
-## Step 5 - 
+## Step 5 - Permissions
+
+
 
 ## Enable Update Management
 
