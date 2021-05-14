@@ -245,15 +245,13 @@ For the **Logic App (Preview)** resource, these capabilities have changed, or th
       > in the portal, the function action no longer works due to the invalid key. To fix this problem, you need 
       > to recreate the connection to the function that you want to call or update your app's settings with the new key.
 
-    * The built-in action, [Inline Code - Execute JavaScript Code](logic-apps-add-run-inline-code.md) is now **Inline Code Operations - Run in-line JavaScript**.
+    * The built-in [Inline Code action](logic-apps-add-run-inline-code.md) is renamed **Inline Code Operations** and is different in the following ways:
 
-      * Inline Code Operations actions no longer require an integration account.
+      * [Updated limits](logic-apps-limits-and-config.md)
 
-      * For macOS and Linux, **Inline Code Operations** is now supported when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+      * No longer requires an integration account
 
-      * You no longer have to restart your logic app if you make changes in an **Inline Code Operations** action.
-
-      * **Inline Code Operations** actions have [updated limits](logic-apps-limits-and-config.md).
+      * No longer requires restarting your logic app or workflow if you make changes to the action.
 
     * Some [built-in B2B triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
