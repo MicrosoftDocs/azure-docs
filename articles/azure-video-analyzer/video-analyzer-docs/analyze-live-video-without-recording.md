@@ -26,7 +26,7 @@ The pipeline topology shown below consists of an [RTSP source](pipeline.md#rtsp-
 
 ### Analyzing video using a custom vision model 
 
-The pipeline topology shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. You can see the settings used in its [JSON representation](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json). There are other[examples](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions) available for wrapping models into IoT Edge modules that run as an inference service.
+The pipeline topology shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. You can see the settings used in its [JSON representation](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json). There are other [examples](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions) available for wrapping models into IoT Edge modules that run as an inference service.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video-without-recording/motion-detected-frames.svg" alt-text="Analyzing live video using a custom vision module":::
