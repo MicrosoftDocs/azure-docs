@@ -1,8 +1,8 @@
 ---
 title: Azure service cloud feature availability for US government customers
 description: Lists feature availability for Azure security services, such as Azure Sentinel for US government customers
-author: batami
-ms.author: bagol
+author: TerryLanfear
+ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021
@@ -58,7 +58,7 @@ The following tables display the current Azure Sentinel feature availability in 
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
 | - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
-| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | Not Available |
+| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
 | - [Hunting](/azure/sentinel/hunting) | GA | GA |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
 |- [SOC incident audit metrics](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
@@ -220,7 +220,7 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 
 ## Next steps
 
-- Understand the [shared responsibility](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) model and which security tasks are handled by the cloud provider and which tasks are handled by you.
-- Understand the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
-- Understand the [Office 365 Government plan](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
+- Understand the [shared responsibility](shared-responsibility.md) model and which security tasks are handled by the cloud provider and which tasks are handled by you.
+- Understand the [Azure Government Cloud](/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
+- Understand the [Office 365 Government plan](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
 - Understand [compliance in Azure](/azure/compliance/) for legal and regulatory standards.

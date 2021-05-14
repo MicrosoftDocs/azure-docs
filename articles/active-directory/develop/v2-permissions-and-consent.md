@@ -47,7 +47,7 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 The Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated permission to act as the signed-in user when it makes calls to the target resource. 
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. 
 
     Some delegated permissions can be consented to by nonadministrators. But some high-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure Active Directory (Azure AD)](../roles/permissions-reference.md).
 

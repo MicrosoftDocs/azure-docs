@@ -3,7 +3,7 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 04/29/2021
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -88,9 +88,8 @@ There are two ways to stop protecting Files and Folders backup:
   - You'll be able to restore the backed-up data for unexpired recovery points.
   - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data will be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
-  - This option will stop all future backup jobs from protecting your data and delete all the recovery points.
-  - You'll receive a delete Backup data alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and recommended action *Reprotect the Backup item within 14 days to recover your data.*
-  - To resume protection, reprotect within 14 days from delete operation.
+  - This option will stop all future backup jobs from protecting your data. If the vault security features are not enabled, all recovery points are immediately deleted.<br>If the security features are enabled, the deletion is delayed by 14 days, and you'll receive an alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and a recommended action *Reprotect the Backup item within 14 days to recover your data.*<br>In this state, the retention policy continues to apply, and the backup data remains billable. [Learn more](backup-azure-security-feature.md#enable-security-features) on how to enable vault security features.
+  - To resume protection, reprotect the server within 14 days from the delete operation. In this duration, you can also restore the data to an alternate server.
 
 ### Stop protection and retain backup data
 
