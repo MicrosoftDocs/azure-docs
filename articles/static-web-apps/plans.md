@@ -25,7 +25,7 @@ See the [pricing page for Standard plan costs](https://azure.microsoft.com/prici
 | Globally distributed static content | ✔ | ✔ |
 | Free, automatically renewing SSL certificates | ✔ | ✔ |
 | Staging environments | 3 per app | 10 per app |
-| Max app size | 250MB per app | 500MB per app |
+| Max app size | 250 MB per app | 500 MB per app |
 | Custom domains | 2 per app | 5 per app |
 | APIs via Azure Functions | Managed | Managed or<br>Bring your own Functions app |
 | Authentication provider integration | Pre-configured<br>(service defined) | Custom registrations |
@@ -35,7 +35,7 @@ See the [pricing page for Standard plan costs](https://azure.microsoft.com/prici
 
 The following scenarios can help you decide if the Standard plan best fits your needs.
 
-- Expected traffic volumes exceed 100GB per month.
+- Expected traffic volumes exceed 100 GB per month.
 - The existing Azure Functions app you want to use either has triggers and bindings beyond just HTTP endpoints, or can't be converted to a managed Functions app.
 - Security requirements that require a custom provider registration.
 - The site's web assets total file size exceed the storage maximums.
