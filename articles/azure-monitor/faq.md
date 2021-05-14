@@ -250,7 +250,7 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | Sentinel | Private preview on AMA for Windows Events: [sign up link](https://aka.ms/AMAgent) |
 | Change Tracking | Supported as File Integrity Monitoring (FIM) in ASC on AMA private preview : [Sign up link](https://aka.ms/AMAgent) |
 | Update Management | New version that doesn’t need any agent is in private preview: [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
-| VM Insights with metrics support | Private preview on AMA: [Sign up link]() |
+| VM Insights with metrics support | Private preview on AMA: [Sign up link](https://forms.office.com/r/jmyE821tTy) |
 | VM Insights guest health (new) | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
 | SQL Monitoring (new) | Public preview excusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
 
