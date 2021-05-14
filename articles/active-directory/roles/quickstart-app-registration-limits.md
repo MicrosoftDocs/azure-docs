@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
@@ -23,7 +23,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- AzureADPreview module
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -31,7 +33,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Create a custom role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/quickstart-app-registration-limits/new-custom-role.png)
@@ -48,7 +50,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ### Assign the role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in your Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Azure Active Directory** and then select **Roles and administrators**.
 1. Select the Application Registration Creator role and select **Add assignment**.
 1. Select the desired user and click **Select** to add the user to the role.

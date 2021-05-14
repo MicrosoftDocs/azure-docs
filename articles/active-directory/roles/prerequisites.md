@@ -69,7 +69,7 @@ Install-Module -Name AzureAD
 
 To use AzureAD, follow these steps to make sure it is imported into the current session.
 
-1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if the installed AzureAD module is loaded into memory.
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if AzureAD is loaded into memory.
 
     ```powershell
     Get-Module -Name AzureAD
@@ -100,8 +100,8 @@ To use AzureAD, follow these steps to make sure it is imported into the current 
 To use PowerShell commands to do the following:
 
 - Assign roles to users or groups
-- Make a group eligible for a role using Privileged Identity Management
 - Remove a role assignment
+- Make a group eligible for a role using Privileged Identity Management
 - Create custom roles
 
 You must have the following module installed:
@@ -127,7 +127,7 @@ Version    Name                                Repository           Description
 
 #### Install AzureADPreview
 
-If you don't have AzureADPreview installed, se [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview.
+If you don't have AzureADPreview installed, use [Install-Module](/powershell/module/powershellget/install-module) to install AzureADPreview.
 
 ```powershell
 Install-Module -Name AzureADPreview
@@ -145,7 +145,7 @@ Install-Module -Name AzureADPreview
 
 To use AzureADPreview, follow these steps to make sure it is imported into the current session.
 
-1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if the installed AzureADPreview module is loaded into memory.
+1. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) to check if AzureADPreview is loaded into memory.
 
     ```powershell
     Get-Module -Name AzureADPreview

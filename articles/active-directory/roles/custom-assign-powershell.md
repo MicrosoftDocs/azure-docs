@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,13 +22,10 @@ For more information about Azure AD admin roles, see [Assigning administrator r
 
 ## Prerequisites
 
-- AzureADPreview module
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
-
-## Required permissions
-
-Connect to your Azure AD organization using a global administrator account to assign or remove roles.
 
 ## Assign a directory role to a user or service principal with resource scope
 

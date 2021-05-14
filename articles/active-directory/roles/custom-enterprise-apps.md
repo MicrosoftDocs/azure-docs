@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -21,7 +21,9 @@ This article explains how to create a custom role with permissions to manage ent
 
 ## Prerequisites
 
-- AzureADPreview module
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -46,7 +48,7 @@ Granting the update permission is done in two steps:
 >[!NOTE]
 > Custom roles are created and managed at an organization-wide level and are available only from the organization's Overview page.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role Administrator or Global Administrator permissions in your organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
 
     ![Add a new custom role from the roles list in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
@@ -65,7 +67,7 @@ Granting the update permission is done in two steps:
 
 ### Assign the role to a user using the Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator role permissions.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Azure Active Directory** and then select **Roles and administrators**.
 1. Select the **Grant permissions to manage user and group assignments** role.
 

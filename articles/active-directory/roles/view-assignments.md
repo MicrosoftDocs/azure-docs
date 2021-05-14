@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,7 +23,9 @@ This article describes how to list roles you have assigned in Azure Active Direc
 
 ## Prerequisites
 
-- AzureADPreview module
+- Directory Readers, Privileged Role Administrator, or Global Administrator
+- AzureADPreview module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
@@ -31,7 +33,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 This procedure describes how to list role assignments with organization-wide scope.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
 1. Select **Assignments** to list the role assignments.
 
@@ -92,7 +94,7 @@ HTTP/1.1 200 OK
 
 This section describes how to list role assignments with single-application scope. This feature is currently in public preview.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
     ![Create or edit app registrations from the App registrations page](./media/view-assignments/app-reg-all-apps.png)

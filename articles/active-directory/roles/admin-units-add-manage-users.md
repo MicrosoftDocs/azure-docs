@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -22,10 +22,11 @@ In Azure Active Directory (Azure AD), you can add users to an administrative uni
 
 ## Prerequisites
 
-- AzureAD module
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
-
 
 ## Add users to an administrative unit
 
@@ -35,7 +36,7 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign individual users from a user profile:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
 
    1. Select **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
    
@@ -47,7 +48,7 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign individual users from an administrative unit:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
    1. Select **Administrative units**, and then select the administrative unit where the user is to be assigned.
    1. Select **All users**, select **Add member** and then, on the **Add member** pane, select one or more users that you want to assign to the administrative unit.
 
@@ -55,7 +56,7 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign users as a bulk operation:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com).
 
    1. Select **Administrative units**.
 

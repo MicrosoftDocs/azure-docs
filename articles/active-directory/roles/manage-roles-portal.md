@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -19,9 +19,13 @@ ms.collection: M365-identity-device-management
 
 You can now see and manage all the members of the administrator roles in the Azure AD admin center. If you frequently manage role assignments, you will probably prefer this experience. This article describes how to assign Azure AD roles using the Azure AD admin center.
 
+## Prerequisites
+
+- Privileged Role Administrator or Global Administrator
+
 ## Assign a role
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global Administrator or Privileged Role Administrator permissions.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
