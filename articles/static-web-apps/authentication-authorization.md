@@ -17,7 +17,6 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Once logged in, users belong to the `anonymous` and `authenticated` roles by default.
 - Authorized users gain access to restricted [routes](configuration.md#routes) by rules defined in the [staticwebapp.config.json file](./configuration.md).
 - Users join custom roles via provider-specific [invitations](#invitations), or through a [custom Azure Active Directory provider registration](./authentication-custom.md).
-- Users get added to custom roles via provider-specific , or through [a custom Azure Active Directory provider registration](./authentication-custom.md).
 - All authentication providers are enabled by default.
   - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
 - Pre-configured providers include:
