@@ -15,6 +15,6 @@ ms.author: juliako
    - operations.json: This file lists the different operations that you want the program to run.
    - Program.cs: This sample program code:
      - Loads the app settings.
-     - Invokes the Azure Video analyzer on IoT Edge module's direct methods to create topology, instantiate the pipeline and activate it.
+     - Invokes the Azure Video Analyzer module's direct methods to create topology, instantiate the pipeline and activate it.
      - Pauses for you to examine the pipeline output in the **TERMINAL** window and the events sent to the IoT hub in the **OUTPUT** window.
-     - Deactivates the pipeline instance, deletes the pipeline instance, and deletes the topology.
+     - Deactivates the live pipeline, deletes the live pipeline, and deletes the topology.

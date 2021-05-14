@@ -9,7 +9,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
-In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](add-valid-link.md) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
+In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Video Analyzer and how to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
@@ -66,7 +66,7 @@ In this tutorial, you'll use Video Analyzer on IoT Edge to detect such toy truck
 
 ![Diagram that shows a Custom Vision overview.](./media/custom-vision/topology-custom-vision.svg)
 
-This diagram shows how the signals flow in this tutorial. An [edge module](add-valid-link.md) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [HTTP extension processor](pipeline.md#http-extension-processor) node.
 
 The HTTP extension node plays the role of a proxy. It samples the incoming video frames set by you using the `samplingOptions` field and also converts the video frames to the specified image type. Then it relays the image to the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub message sink](pipeline.md#iot-hub-message-sink) node, which sends those events to the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
@@ -83,6 +83,7 @@ Additional notes:
 
 - For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
+- Ensure to select General(compact) as the option for Domains when creating the Custom Vision project
 
 After you're finished, you can export the model to a Docker container by using the **Export** button on the **Performance** tab. Ensure you choose Linux as the container platform type. This is the platform on which the container will run. The machine you download the container on could be either Windows or Linux. The instructions that follow were based on the container file downloaded onto a Windows machine.
 
@@ -94,7 +95,7 @@ After you're finished, you can export the model to a Docker container by using t
 
    Run the following commands:
 
-   1. `docker build -t cvtruck`
+   1. `docker build -t cvtruck .`
 
       This command downloads many packages, builds the Docker image, and tags it as `cvtruck:latest`.
 
@@ -172,7 +173,7 @@ After you're finished, you can export the model to a Docker container by using t
 9. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
    ![Screenshot that shows Create Deployment for Single Device.](./media/custom-vision/deployment-amd64-json.png)
-10. You'll then be asked to select an IoT Hub device. Select **ava-sample-device** from the drop-down list.
+10. You'll then be asked to select an IoT Hub device. Select **ava-sample-iot-edge-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
     - The Video Analyzer on IoT Edge module named `avaedge`.

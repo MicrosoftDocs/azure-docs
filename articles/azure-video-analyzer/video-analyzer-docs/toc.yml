@@ -81,8 +81,6 @@
       href: create-video-analyzer-account.md
     - name: Managed identity
       href: managed-identity.md
-    - name: Network Security
-      href: network-security.md
     - name: Customer managed keys
       href: customer-managed-keys.md
   - name: Deploy
@@ -141,6 +139,8 @@
     href: production-readiness.md
   - name: Visual Studio Code extension
     href: visual-studio-code-extension.md
+  - name: Access policies
+    href: access-policies.md
 - name: Resources
   items:
   - name: Azure roadmap

@@ -9,7 +9,7 @@ ms.author: juliako
 As part of the prerequisites, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample files.
 
 1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
-1. The *deployment.grpcyolov3icpu.template.json* refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
+The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see your *appsettings.json* file and a few other files:
     
     * c2d-console-app.csproj - The project file for Visual Studio Code.

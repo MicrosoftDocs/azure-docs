@@ -55,7 +55,7 @@ Use Cognitive Services extension processor node when:
 
 ## Use your inferencing model
 
-Pipeline extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Video Analyzer  edge module for best performance and will then be invoked via the HTTP extension processor, the gRPC extension processor, or the Cognitive Services extension processor included in your graph topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](pipeline.md#motion-detection-processor) upstream to the pipeline extension processor.
+Pipeline extensions allow you to run inference models of your choice on any available inference runtime, such as ONNX, TensorFlow, PyTorch, or others in your own docker container. The inferencing custom extension should be deployed alongside Video Analyzer  edge module for best performance and will then be invoked via the HTTP extension processor, the gRPC extension processor, or the Cognitive Services extension processor included in your pipeline topology. Additionally, the frequency of the calls into your custom extension can be throttled by optionally adding a [motion detector processor](pipeline.md#motion-detection-processor) upstream to the pipeline extension processor.
 
 The diagram below depicts the high-level data flow:
 

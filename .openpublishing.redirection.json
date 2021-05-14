@@ -13641,6 +13641,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/hybrid-cloud-extension-installation.md",
       "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
       "redirect_document_id": false
@@ -26743,6 +26748,21 @@
     {
       "source_path_from_root": "/articles/logic-apps/create-logic-apps-visual-studio-code.md",
       "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-overview-preview.md",
+      "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-azure-portal.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-azure-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-visual-studio-code.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-visual-studio-code",
       "redirect_document_id": true
     },
     {
