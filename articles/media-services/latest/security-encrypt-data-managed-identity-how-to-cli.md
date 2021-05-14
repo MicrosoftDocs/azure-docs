@@ -61,7 +61,7 @@ If you're not sure of what the region name is for the API, use this command to g
 ## Create a Media Services account
 
 :::code language="azurecli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Command":::
-:::code language="json" source="./includes/task-create-media-services-account-managed-identity-cli.sh" range="13-46" highlight="8":::
+:::code language="json" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Return" highlight="8":::
 
 
 <!--[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]-->
