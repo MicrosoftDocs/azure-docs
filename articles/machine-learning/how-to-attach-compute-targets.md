@@ -344,6 +344,9 @@ Azure Machine Learning provides you with the following options to attach your ow
 
 To attach your Kubernetes cluster use the Azure Machine Learning Python SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+> [!IMPORTANT]
+> To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+
 The following code shows how to attach an Azure Kubernetes cluster to your Azure Machine Learning workspace.
 
 ```python
@@ -353,7 +356,7 @@ from azureml.core.compute import KubernetesCompute
 k8s_config = {
     "namespace": "<KUBERNETES-NAMESPACE>",
     "nodeSelector": {
-        "VMSizes": "<VM-SIZE>"
+        "<NODE-SELECTOR-NAME": "<VM-SIZE>"
     },
     "resources": {
         "requests": {
@@ -374,8 +377,8 @@ compute_target.wait_for_completion(show_output=True)
 
 Attach configuration is optional. In your attach configuration you can define the following settings:
 
-- **namespace**: Set to your default namespace is undefined. Training runs are dispatched to pods to the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
-- **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node clusters. 
+- **namespace**: Set to your default namespace if undefined. Training runs are dispatched to pods using the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
+- **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node selectors. 
 - **resources**: Set requests and limits such as CPU and memory for your compute.
 
 To detach a cluster from your workspace, use the following method:

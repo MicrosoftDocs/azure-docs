@@ -155,13 +155,13 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-    For Kubernetes compute targets, you can provide a configuration file to define your namespace, node types, and resources to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
+    For Kubernetes compute targets, you can provide a configuration file to define your namespace, node selectors, and resources to deploy training jobs to. Below is a sample of a config file.
 
     ```json
     {
         "namespace": "<KUBERNETES-NAMESPACE>",
         "nodeSelector": {
-            "VMSizes": "<VM-SIZE>"
+            "<NODE-SELECTOR-NAME": "<VM-SIZE>"
         },
         "resources": {
             "requests": {
@@ -174,8 +174,8 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
     In your attach configuration you can define the following settings:
 
-    - **namespace**: Set to your default namespace is undefined. Training runs are dispatched to pods to the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
-    - **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node clusters. 
+    - **namespace**: Set to your default namespace if undefined. Training runs are dispatched to pods using the specified namespace. Note that the namespace must already exist in the cluster. Namespace creation requires cluster administrative privilege.
+    - **nodeSelector**: Defaults to null. In scenarios where you have nodes of different SKUs or compute types (CPU or GPU), use this setting to target a specific subset of nodes. Cluster administrative privileges are required to create node selectors. 
    - **resources**: Set requests and limits such as CPU and memory for your compute.
 
     > [!IMPORTANT]
@@ -185,7 +185,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
 To detach your compute use the following steps:
 
-1. In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove. 
+1. In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove.
 1. Use the __Detach__ link to detach your compute.
 
 ## Next steps
