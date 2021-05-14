@@ -248,11 +248,17 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 <a name="firewall-setup"></a>
 
-##  Find domain names for firewall access
+## Find domain names for firewall access
 
 Before you deploy your logic app and run your workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up network or firewall permissions for any trigger or action connections in the workflows that exist in your logic app.
 
-To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+To find the inbound and outbound IP addresses used by your logic app and workflows, follow these steps:
+
+1. On your logic app menu, under **Settings**, select **Networking (preview)**.
+
+1. On the networking page, find and review the **Inbound Traffic** and **Outbound Traffic** sections.
+
+To find the fully qualified domain names (FQDNs) for connections, follow these steps:
 
 1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
 
