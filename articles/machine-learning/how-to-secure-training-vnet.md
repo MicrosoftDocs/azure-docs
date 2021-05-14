@@ -205,14 +205,14 @@ To create a Machine Learning Compute cluster, use the following steps:
 
 1. In the __Create compute cluster__ dialog, select the VM size and configuration you need and then select __Next__.
 
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Setting VM config":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-vm.png" alt-text="Screenshot of setting VM config":::
 
 1. From the __Configure Settings__ section, set the __Compute name__, __Virtual network__, and __Subnet__.
 
     > [!TIP]
     > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
 
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Virtual network settings":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
 
 1. Select __Create__ to create the compute cluster.
 

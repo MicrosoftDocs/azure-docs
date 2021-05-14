@@ -59,11 +59,11 @@ To add AKS in a virtual network to your workspace, use the following steps:
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 1. Select __Compute__ on the left, __Inference clusters__ from the center, and then select __+ New__.
 
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference.png" alt-text="Create inference cluster":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference.png" alt-text="Screenshot of create inference cluster dialog":::
 
 1. From the __Create inference cluster__ dialog, select __Create new__ and the VM size to use for the cluster. Finally, select __Next__.
 
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-vm.png" alt-text="VM settings":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-vm.png" alt-text="Screenshot of VM settings":::
 
 1. From the __Configure Settings__ section, enter a __Compute name__, select the __Cluster Purpose__, __Number of nodes__, and then select __Advanced__ to display the network settings. In the __Configure virtual network__ area, set the following values:
 
@@ -77,7 +77,7 @@ To add AKS in a virtual network to your workspace, use the following steps:
     * In the __Kubernetes DNS service IP address__ field, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
     * In the __Docker bridge address__ field, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.18.0.1/16).
 
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-settings.png" alt-text="Configure network settings":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/create-inference-settings.png" alt-text="Screenshot of configure network settings":::
 
 1. When you deploy a model as a web service to AKS, a scoring endpoint is created to handle inferencing requests. Make sure that the network security group (NSG) that controls the virtual network has an inbound security rule enabled for the IP address of the scoring endpoint if you want to call it from outside the virtual network.
 
