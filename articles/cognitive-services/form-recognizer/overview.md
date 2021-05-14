@@ -113,9 +113,7 @@ Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and trai
 
 ---
 
-
 Follow the [client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
 
 ### [v2.1](#tab/v2-1)
 
@@ -145,7 +143,7 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 
 * As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
-* Form Recognizer doesn't store/process customer data outside the region the customer deploys the service instance in.
+* Form Recognizer doesn't store or process customer data outside the region where the customer deploys the service instance.
 
 ## Next steps
 
