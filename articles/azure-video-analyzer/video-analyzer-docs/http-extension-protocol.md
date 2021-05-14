@@ -89,7 +89,7 @@ It is highly recommended that responses are returned using valid JSON documents 
 
 If your module returns a response where the content type is not “application/json”, Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
-If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Refer [to this page](add-valid-link.md) for detailed and up-to-date information regarding the inference metadata schema.
+If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Refer [Inference metadata schema](inference-metadata-schema.md) for detailed and up-to-date information regarding the inference metadata schema.
 
 > [!NOTE]
 > If your module doesn’t produce any result, it should return HTTP 204 Status Code (No Content) with an empty response body. Video Analyzer will understand this as an empty result and won’t forward the event throughout the pipeline.
