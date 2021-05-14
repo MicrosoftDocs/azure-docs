@@ -857,7 +857,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-You can also use the batch analyze operation to detect PII and perform key phrase extraction. See the [batch analyze sample](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) on GitHub.
+You can also use the batch analyze operation to detect PII and perform key phrase extraction. See the [batch analyze sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
