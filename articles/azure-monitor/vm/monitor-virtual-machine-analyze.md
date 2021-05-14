@@ -9,7 +9,7 @@ ms.date: 05/05/2020
 
 ---
 
-# Monitoring virtual machines with Azure Monitor - Analysis
+# Monitoring virtual machines with Azure Monitor - Analyze monitoring data
 Once you’ve deployed agents to your virtual machines and configured data collection, data will be available for analysis. You can leverage existing views and workbooks that visualize the collected data and allow you to drill in for more analysis. Or you can perform ad hoc analysis by writing your own log queries. You can even create your own workbooks if you have custom requirements.
 This section describes the different ways you can view and analyze data collected from your virtual machines.
 
@@ -26,7 +26,7 @@ The basic types of data collected from virtual machines include the following:
 
 
 
-## Monitoring menu
+## Virtual machine monitoring menu
 Once you configure collection of monitoring data for a virtual machine, you have multiple options for accessing it in the Azure portal:
 
 - Use the **Azure Monitor** menu to access data from all monitored resources. 

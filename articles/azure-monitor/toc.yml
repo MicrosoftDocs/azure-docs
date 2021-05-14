@@ -157,7 +157,17 @@
     - name: Monitor Azure resource
       href: essentials/monitor-azure-resource.md
     - name: Monitor Azure virtual machines
-      href: vm/monitor-vm-azure.md
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Enable and configure
+        href: vm/monitor-virtual-machine-onboard.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Alert
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Migrate from Operations Manager
+        href: vm/monitor-virtual-machine-scom.md
       displayname: VM
   - name: Deploy
     items:

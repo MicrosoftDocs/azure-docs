@@ -15,7 +15,7 @@ This article describes how to use Azure Monitor to collect and analyze monitorin
 
 
 
-
+## Layers of monitoring
 
 
 ### Virtual machine host
@@ -34,49 +34,8 @@ To collect data from the guest operating system of a virtual machine, you requir
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) - Collect performance data from Linux VMs into Azure Monitor Metrics.
 
 
-## Configuration requirements
-To enable all features of Azure Monitor for monitoring a virtual machine, you need to collect monitoring data from the virtual machine host and guest operating system to both [Azure Monitor Metrics](../logs/data-platform-logs.md) and [Azure Monitor Logs](../logs/data-platform-logs.md). The following table lists the configuration that must be performed to enable this collection. You may choose to not perform all of these steps depending on your particular requirements.
+## Features of Azure Monitor
 
-| Configuration step | Actions completed | Features enabled |
-|:---|:---|:---|
-| No configuration | - Host platform metrics collected to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
-| [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
-| [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
-| [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
-| [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
-
-Each of these configuration steps is described in the following sections.
-
-### Enable VM insights
-[VM insights](../vm/vminsights-overview.md) is an [insight](../monitor-reference.md) in Azure Monitor that is the primary tool for monitoring virtual machines in Azure Monitor. It provides the following additional value over standard Azure Monitor features.
-
-- Simplified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
-- Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
-- Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
-
-![VM insights performance view](media/monitor-vm-azure/vminsights-01.png)
-
-![VM insights maps view](media/monitor-vm-azure/vminsights-02.png)
-
-
-Enable VM insights from the **Insights** option in the virtual machine menu of the Azure portal. See [Enable VM insights overview](vminsights-enable-overview.md) for details and other configuration methods.
-
-![Enable VM insights](media/monitor-vm-azure/enable-vminsights.png)
-
-### Configure Log Analytics workspace
-The Log Analytics agent used by VM insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md). You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It only needs to be configured once, since any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
-
-You can access the configuration for the workspace directly from VM insights by selecting **Workspace configuration** from the **Get Started**. Click on the workspace name to open its menu.
-
-![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
-
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
-
-![Configure events](media/monitor-vm-azure/configure-events.png)
-
-
-> [!NOTE]
-> You can configure performance counters to be collected from the workspace configuration, but this may be redundant with the performance counters collected by VM insights. VM insights collects the most common set of counters at a frequency of once per minute. Only configure performance counters to be collected by the workspace if you want to collect counters not already collected by VM insights or if you have existing queries using performance data.
 
 
 ### Enable diagnostics extension and Telegraf agent
