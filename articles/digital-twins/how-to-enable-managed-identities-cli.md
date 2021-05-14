@@ -100,7 +100,7 @@ az dt create --dt-name {instance_name} --resource-group {resource_group} --assig
 
 For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
 
-Alternatively, you can also use the [az role assignment](/cli/azure/role/assignment) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
+Alternatively, you can also use the [az role assignment](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
 
 ## Create an endpoint with identity-based authentication
 
@@ -109,7 +109,7 @@ After setting up a system-managed identity for your Azure Digital Twins instance
 >[!NOTE]
 > You cannot edit an endpoint that has already been created with key-based identity to change to identity-based authentication. You must choose the authentication type when the endpoint is first created.
 
-This is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+This is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 To create an endpoint that uses identity-based authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this for an Event Hubs endpoint.
 
