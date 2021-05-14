@@ -204,5 +204,5 @@ Create the job and open in the studio:
 
 ## Next steps
 
-- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 
