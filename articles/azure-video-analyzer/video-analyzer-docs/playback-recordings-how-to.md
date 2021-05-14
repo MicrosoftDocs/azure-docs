@@ -48,7 +48,7 @@ Alternatively you can embed an existing pre-build script by adding type="module"
 
 ## Recording and playback latencies
 
-When using Video Analyzer to record to a video resource, you will specify a `segmentLength` [property](add-valid-link.md) which tells the module to aggregate a minimum duration of video (in seconds) before it is written to the cloud. For example, if `segmentLength` is set to 300, then the module will accumulate 5 minutes worth of video before uploading one 5 minutes “chunk”, then go into accumulation mode for the next 5 minutes, and upload again. Increasing the `segmentLength` has the benefit of lowering your Azure Storage transaction costs, as the number of reads and writes will be no more frequent than once every `segmentLength` seconds.
+When using Video Analyzer to record to a video resource, you will specify a [`segmentLength` property](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzer.json) which tells the module to aggregate a minimum duration of video (in seconds) before it is written to the cloud. For example, if `segmentLength` is set to 300, then the module will accumulate 5 minutes worth of video before uploading one 5 minutes “chunk”, then go into accumulation mode for the next 5 minutes, and upload again. Increasing the `segmentLength` has the benefit of lowering your Azure Storage transaction costs, as the number of reads and writes will be no more frequent than once every `segmentLength` seconds.
 
 Consequently, streaming of the video from your Video Analyzer account will be delayed by at least that much time. 
 
