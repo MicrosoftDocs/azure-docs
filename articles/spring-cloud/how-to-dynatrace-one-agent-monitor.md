@@ -13,13 +13,13 @@ ms.custom: devx-track-java
 
 Ths document explains how to use Dynatrace OneAgent to monitor Azure Spring Cloud applications.
 
-* Consume the `Dynatrace` oneagent.
-* Configure the `Dynatrace`oneagent by `Environment Variables`.
-* Check all monitoring data from `Dynatrace` dashboard.
+* Consume the **Dynatrace OneAgent**.
+* Configure the **Dynatrace OneAgent** by **Environment Variables**.
+* Check all monitoring data from **Dynatrace** dashboard.
 
 ## Prerequisite
 You will need the following to use these features:
-* `Dynatrace` account.
+* **Dynatrace** account.
 * Azure CLI.
 
 ## Leverage Dynatrace OneAgent
@@ -30,7 +30,7 @@ Create an instance of Azure Spring Cloud. The create an application.
       -s "resourceName" -g "resourceGroupName"
   ```
 
-Create a deployment with `Dynatrace` agent and configure `Environment Variables`.
+Create a deployment with **Dynatrace** agent and configure **Environment Variables**.
 
   ```shell
   az spring-cloud app deploy --name "appName" --jar-path app.jar \
@@ -39,14 +39,14 @@ Create a deployment with `Dynatrace` agent and configure `Environment Variables`
            DT_CONNECTION_POINT=DynatraceConnectionPoint
   ```
 
-  Azure Spring Cloud pre-install the `Dynatrace` OneAgent to contain the base image. Customers can leverage environment variables like `DT_TENANT`, `DT_TENANTTOKEN` and `DT_CONNECTION_POINT` to configure the OneAgent from applications.  For more details see [Dynatrace OneAgent environment variables](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/other-deployments-and-configurations/deploy-oneagent-on-kubernetes-for-application-only-monitoring/#expand-container-build-time-injection-3578).
+  Azure Spring Cloud pre-install the **Dynatrace OneAgent** to contain the base image. Customers can leverage environment variables like `DT_TENANT`, `DT_TENANTTOKEN` and `DT_CONNECTION_POINT` to configure the OneAgent from applications.  For more details see [Dynatrace OneAgent environment variables](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/other-deployments-and-configurations/deploy-oneagent-on-kubernetes-for-application-only-monitoring/#expand-container-build-time-injection-3578).
 
 
 ## Portal
 
 * You can also configure OneAgent from the Azure portal with existing applications.
 
-  ![Existing applications](media/dynatrace-oneagent/existing-applications.png)
+  ![Existing applications view](media/dynatrace-oneagent/existing-applications.png)
 
 * Click one of the applications to jump to the **Overview** page of this application.
 
@@ -58,15 +58,15 @@ Create a deployment with `Dynatrace` agent and configure `Environment Variables`
 
 * View the **Host** page from the **Dynatrace** dashboard.
 
-  ![Host](media/dynatrace-oneagent/hosts.png)
+  ![Host view](media/dynatrace-oneagent/hosts.png)
 
 * View application **Host** details from the **Dynatrace** dashboard.
 
-  ![Dashboard](media/dynatrace-oneagent/dashboard.png)
+  ![Dashboard view](media/dynatrace-oneagent/dashboard.png)
 
 * View the **Metrics** page of the application from the **Dynatrace** dashboard.
 
-  ![Metrics](media/dynatrace-oneagent/metrics.png)
+  ![Metrics view](media/dynatrace-oneagent/metrics.png)
 
 ## `Dynatrace` OneAgent Logging
 
