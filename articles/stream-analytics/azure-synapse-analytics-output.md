@@ -16,7 +16,8 @@ Azure Stream Analytics jobs can output to a dedicated SQL pool table in Azure Sy
 
 The dedicated SQL pool table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output. 
 
-To use Azure Synapse as output, you need to ensure that you have the storage account configured. Navigate to Storage account settings to configure the storage account. Only the storage account types that support tables are permitted: General-purpose V2 and General-purpose V1. Select Standard Tier only. Premium tier is not supported.
+> [!NOTE] 
+> To use Azure Synapse Analytics as output, you need to ensure that you have the storage account configured at the job level (not the output level). For that, navigate to **Storage account settings** in the **Configure** menu of the Stream Analytics job. Only the storage account types that support tables are permitted: General-purpose V2 and General-purpose V1. Select Standard Tier only. Premium tier is not supported.
 
 ## Output configuration
 
