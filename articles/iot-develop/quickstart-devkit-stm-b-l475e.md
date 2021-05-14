@@ -1,6 +1,6 @@
 ---
-title: Connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 to Azure IoT Central quickstart
-description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 device to Azure IoT and send telemetry.
+title: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 to Azure IoT Central quickstart
+description: Use Azure RTOS embedded software to connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 device to Azure IoT and send telemetry.
 author: JimacoMS4
 ms.author: v-jbrannian
 ms.service: iot-develop
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/13/2021
 ---
 
-# Quickstart: Connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 devkit to IoT Central
+# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 devkit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
 
-In this tutorial, you use Azure RTOS to connect either the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit (hereafter, the STM DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this tutorial, you use Azure RTOS to connect either the ST Microelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit (hereafter, the STM DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
 
 You will complete the following tasks:
 
