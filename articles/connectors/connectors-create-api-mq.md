@@ -29,7 +29,7 @@ The IBM MQ connector provides actions but no triggers.
 
 * Multi-tenant Azure Logic Apps: When you create a consumption-based logic app workflow, you can connect to an MQ server by using the *managed* MQ connector.
 
-* Single-tenant Azure Logic Apps (preview): When you create a preview logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the *built-in* MQ operations (preview).
+* Single-tenant Azure Logic Apps: When you create a single-tenant based logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the *built-in* MQ operations.
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -44,7 +44,7 @@ The following list describes only some of the managed operations available for M
 
 For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
-#### [Built-in (preview)](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 The following list describes only some of the built-in operations available for MQ:
 
@@ -121,7 +121,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in (preview)](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 1. Provide the connection information for your MQ server.
 

@@ -1,6 +1,6 @@
 ---
-title: Set up DevOps for single-tenant Azure Logic Apps (preview)
-description: How to set up DevOps deployment for workflows in single-tenant Azure Logic Apps (preview).
+title: Set up DevOps for single-tenant Azure Logic Apps
+description: How to set up DevOps deployment for workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -10,19 +10,19 @@ ms.date: 05/10/2021
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
-# Set up DevOps deployment for single-tenant Azure Logic Apps (preview) 
+# Set up DevOps deployment for single-tenant Azure Logic Apps
 
-This article shows how to deploy a single-tenant based logic app project from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment for single-tenant Azure Logic Apps (preview)](devops-deployment-single-tenant-azure-logic-apps.md).
+This article shows how to deploy a single-tenant based logic app project from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A single-tenant based logic app project created with [Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md#prerequisites).
+- A single-tenant based logic app project created with [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-stateful-stateless-workflows-visual-studio-code.md#prerequisites).
 
   If you don't already have a logic app project or infrastructure set up, you can use the included sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use. For more information about these sample projects and the resources included to run the example logic app, review [Deploy your infrastructure](#deploy-infrastructure).
 
-- If you want to deploy to Azure, you need an existing **Logic App (Preview)** resource created in Azure. To quickly create an empty logic app resource, review [Create single-tenant based logic app workflows - Portal](create-stateful-stateless-workflows-azure-portal.md).
+- If you want to deploy to Azure, you need an existing **Logic App (Standard)** resource created in Azure. To quickly create an empty logic app resource, review [Create single-tenant based logic app workflows - Portal](create-stateful-stateless-workflows-azure-portal.md).
 
 <a name="deploy-infrastructure"></a>
 
@@ -42,7 +42,7 @@ Both samples include the following resources that a logic app uses to run.
 
 | Resource name | Required | Description |
 |---------------|----------|-------------|
-| Logic App (Preview) | Yes | This Azure resource contains the workflows that run in single-tenant Azure Logic Apps. |
+| Logic App (Standard) | Yes | This Azure resource contains the workflows that run in single-tenant Azure Logic Apps. |
 | Premium or App Service hosting plan | Yes | This Azure resource specifies the hosting resources to use for running your logic app, such as compute, processing, storage, networking, and so on. |
 | Azure storage account | Yes, for stateless workflows | This Azure resource stores the metadata, state, inputs, outputs, run history, and other information about your workflows. |
 | Application Insights | Optional | This Azure resource provides monitoring capabilities for your workflows. |
@@ -185,9 +185,9 @@ For examples that show how to implement an end-to-end container build and deploy
 
 ## Next steps
 
-* [DevOps deployment for single-tenant Azure Logic Apps (preview)](devops-deployment-single-tenant-azure-logic-apps.md)
+* [DevOps deployment for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md)
 
-We'd like to hear about your experiences with the preview logic app resource type and preview single-tenant model!
+We'd like to hear about your experiences with the single-tenant Azure Logic Apps!
 
 - For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
 - For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/logicappsdevops).

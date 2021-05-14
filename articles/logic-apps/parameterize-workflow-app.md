@@ -156,4 +156,4 @@ For more information about setting up your logic apps for DevOps deployments, se
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Single-tenant (preview) vs. multi-tenant and integration service environment for Logic Apps](single-tenant-overview-compare.md)
+> [Single-tenant vs. multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
