@@ -13,19 +13,20 @@ ms.author: juliako
 
 #  Audio effects detection (preview)
 
-"Audio Effects Detection" Is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
-
+**Audio Effects Detection** is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
+ 
 Audio Events Detection can be used in many domains. Two examples are:
 
-* Using Audio Effects Detection is the domain of Public Safety & Justice. Audio Effects Detection can detect and classify Gunshots, Explosion and Glass-Shattering. Therefore, it can be implemented in a smart-city system or in other public environments that include cameras and microphones. Offering a fast and accurate detection of violence incidents. 
+* Using Audio Effects Detection is the domain of **Public Safety & Justice**. Audio Effects Detection can detect and classify Gunshots, Explosion and Glass-Shattering. Therefore, it can be implemented in a smart-city system or in other public environments that include cameras and microphones. Offering a fast and accurate detection of violence incidents. 
 * In the **Media & Entertainment** domain, companies with a large set of video archives can easily improve their accessibility scenarios, by enhancing their video transcription with non-speech effects to provide more context for people who are hard of hearing.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/audio-effects.jpg" alt-text="Audio Effects image":::
+<br/>*Example of the Video Analyzer for Media Audio Effects Detection output*
 
 ## Supported audio categories  
 
-**Audio Effect Detection** can detect and classify 13 different categories. In the next table, you can find the different categories split in to the different VI presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+**Audio Effect Detection** can detect and classify 8 different categories. In the next table, you can find the different categories split in to the different VI presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
@@ -90,7 +91,7 @@ audioEffects: [{
 
 ## How to index Audio Effects
 
-In order to set the index process to include the detection of Audio Effects, the user should chose the Advanced preset. Through the video + Audio or Audio only.
+In order to set the index process to include the detection of Audio Effects, the user should chose one of the Advanced presets under “Video + audio indexing” menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="Index Audio Effects image":::
