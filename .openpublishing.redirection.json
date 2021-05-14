@@ -65955,6 +65955,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
