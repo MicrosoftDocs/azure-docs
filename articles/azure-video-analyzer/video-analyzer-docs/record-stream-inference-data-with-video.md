@@ -39,12 +39,12 @@ Prerequisites for this tutorial are:
 
 The diagram is a pictorial representation of a [pipeline](pipeline.md) and additional modules that accomplish the desired scenario. Three IoT Edge modules are involved:
 * Video Analyzer on an IoT Edge module.
-* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) model, which can detect many types of objects.
+* An edge module running an AI model behind an HTTP endpoint. This AI module uses the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects.
 * An [RTSP simulator module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera.
 
 As the diagram shows, you'll use an [RTSP source](pipeline.md#rtsp-source) node in the pipeline to capture the simulated live video of traffic on a highway and send that video to two paths:
 
-* The first path is to a HTTP extension node. The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/azure-video-analyzer/tree/master/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the video sink node and the IoT Hub sink node. The [video sink](pipeline.md#video-sink) node will use the inference metadata from the object tracker node to be played back with the recorded video. The [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-fundamentals/iot-glossary?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
+* The first path is to a HTTP extension node. The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the YOLOv3 model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the video sink node and the IoT Hub sink node. The [video sink](pipeline.md#video-sink) node will use the inference metadata from the object tracker node to be played back with the recorded video. The [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 * The second path is directly from the RTSP source to the video sink node to accomplish continuous video recording. The video that will be used in this tutorial is [a highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
 
@@ -216,7 +216,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
 
 ## Interpret results
 
-When you run the live pipeline, the results from the HTTP extension processor node pass through the object tracker node to the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the live pipeline, the results from the HTTP extension processor node pass through the object tracker node to the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
