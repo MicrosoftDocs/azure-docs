@@ -87,7 +87,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
     * A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
     * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg) for this quickstart.
     * A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
-    * A URL for an image of a business card. You can use a [sample buisness card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
+    * A URL for an image of a business card. You can use a [sample business card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 
 5. Replace {need Endpoint} with the endpoint that you obtained with your Form Recognizer subscription.
 
@@ -97,18 +97,17 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
 
 7. Select the Form Type you would like to analyze - invoice, receipt, business cards or ID based on the type of document you want to analyze and selected.
 
-8. Click "Run analysis"
-The Form REcognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
+8. Click "Run analysis". The Form Recognizer sample labeling tool will call the Analyze Prebuilt API and analyze the document.
 9. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
 
     :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer Prebuilt Invoice":::
 
 10. Download the JSON output file to view the detailed results.
 
-* The "readResults" node contains every line of text with its respective bounding box placement on the page.
-* The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-* The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
-* The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+   * The "readResults" node contains every line of text with its respective bounding box placement on the page.
+   * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+   * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+   * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
 ## Train & Analyze a custom Form
 
@@ -226,7 +225,7 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer sample tool to try out Layout, Pre-built and train a custom model and analyze a custom form with manually labeled data. Now you can try the client libray SDK or REST API to use Form Recognizer.
+In this quickstart, you've learned how to use the Form Recognizer sample tool to try out Layout, Pre-built and train a custom model and analyze a custom form with manually labeled data. Now you can try the client library SDK or REST API to use Form Recognizer.
 
 > [!div class="nextstepaction"]
 > [Explore Form Recognizer client library SDK and REST API quickstart](client-library.md)
