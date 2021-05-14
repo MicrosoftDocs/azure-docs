@@ -86,7 +86,7 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
 1. **Memory limit**. Default is 1 GiB. 
 1. **Memory request**. Default is 200 MiB. This field is not editable.
 
-    :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page" border="false":::
+    :::image type="content" source="./media/install-k8s-extension/basics-page.png" alt-text="Install Event Grid extension - Basics page":::
 1. Select **Next: Configuration** at the bottom of the page.
 1. **Enable HTTP (not secure) communication**. Check this box if you want to use a non-secured channel when clients communicate with the Event Grid broker.
 
@@ -94,18 +94,18 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
     > Enabling this option will make all communication with the Event Grid broker use HTTP as transport. Hence, any publishing client and the Event Grid operator won't communicate with the Event Grid broker securely. You should use this option only during early stages of development.
 1. If you didn't enable HTTP communication, select each of the PKI certificate files that you procured and meet the [PKI certificate requirements](#pki-certificate-requirements).
 
-    :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page" border="false":::
+    :::image type="content" source="./media/install-k8s-extension/configuration-page.png" alt-text="Install Event Grid extension - Configuration page":::
 1. Select the **Next: Monitoring** at the bottom of the page.
 1. **Enable metrics** by checking this option. Event Grid on Kubernetes exposes metrics for topics and event subscriptions using the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 
-    :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page" border="false":::    
+    :::image type="content" source="./media/install-k8s-extension/monitoring-page.png" alt-text="Install Event Grid extension - Monitoring page":::    
 1. Select **Next: Tags** to navigate to the **Tags** page. Define [tags](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging), if necessary.
 
-    :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page" border="false":::
+    :::image type="content" source="./media/install-k8s-extension/tags-page.png" alt-text="Install Event Grid extension - Tags page":::
 1. Select **Review + create** at the bottom of the page.
 1. On the **Review + create** tab, select **Create**.
     
-    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page" border="false":::   
+    :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page":::   
     
     > [!IMPORTANT]
     > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure Portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
