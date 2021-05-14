@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
-zone_pivot_groups: iot-develop-set1
+zone_pivot_groups: iot-develop-set2
 
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Central, and send telemetry.
 ---
@@ -27,6 +27,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 :::zone pivot="programming-language-csharp"
 
 [!INCLUDE [iot-develop-send-telemetry-central-csharp](../../includes/iot-develop-send-telemetry-central-csharp.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-central-java](../../includes/iot-develop-send-telemetry-central-java.md)]
 
 :::zone-end
 
