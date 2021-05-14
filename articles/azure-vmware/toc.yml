@@ -147,7 +147,7 @@
   - name: FAQ
     items:
     - name: General
-      href: /azure/azure-vmware/faq#general
+      href: faq.yml
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 
