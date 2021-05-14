@@ -10,6 +10,19 @@ ms.reviewer: stmummer
 ms.date: 5/13/2021
 ---
 
+- LATEST UPDATE 05/17/2021
+
+## Table of Contents
+
+- [Prerequisites to continue co-selling with Microsoft](#Prerequisites-to-continue-co-selling-with-Microsoft)
+- [Publishing updates for attaining co-sell-ready status](#Publishing-updates-for-attaining-co-sell-ready-status)
+- [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
+- [Begin the Migration of your solutions from OCP GTM](#beginmigration)
+- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace)
+- [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
+- [Discard this solution](#discard-this-solution)
+
+
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
 Microsoft is moving the publishing experience. The [commercial marketplace](overview.md) provides simplified offer publishing to co-sell through Microsoft's three channels by centralizing offer creation and management in Partner Center, where you are already managing your relationship with Microsoft.
@@ -44,11 +57,14 @@ Follow these steps before importing your solutions from OCP GTM:
 2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
-    1. If you have a solution in OCP GTM that you want to migrate to Partner Center - to retain referral pipeline, collateral, co-sell status and incentives - there are two scenarios for you to choose from:
-        - If there is no similar offer in commercial marketplace, you will first create an offer and publish it in the commercial marketplace, and then you will merge the solution in OCP GTM with this new offer. See [Migrate this solution from OCP GTM](#migrate-this-solution-from-ocp-gtm).
-        - Merge this solution with a similar offer in the commercial marketplace. [Migrate this solution from OCP GTM](#migrate-this-solution-from-ocp-gtm)
-    1. Migrate this solution from OCP GTM to the commercial marketplace.
-    1. Discard this solution.
+    1. If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:
+        - If there is no similar offer in commercial marketplace
+            - Step 1. [Create an offer](#step-1---create-a-draft-offer-in-commercial-marketplace)
+            - Step 2. [Publish it in the commercial marketplace](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
+            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#migrate-this-solution-from-ocp-gtm).
+        - If there is already a similar offer in Commercial marketplace
+            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#migrate-this-solution-from-ocp-gtm)
+    1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution
 
 ## Migrate your solutions from OCP GTM
 
@@ -72,50 +88,56 @@ Follow these steps before importing your solutions from OCP GTM:
 
 ### Merge solution
 
-If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:
+If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:What is the value of merging your OCP GTM solution into an existing published and live offer in the commercial marketplace?
+    - Partners currently co-selling with offers in OCP GTM are encouraged to migrate their solutions to the commercial marketplace to take advantage of its capabilities and simplify the publishing experience.
+
+If you have a solution in OCP GTM that you want to migrate to Partner Center there are two scenarios for you to choose from. At the end of this merge process your offer will retain referral pipeline, collateral, co-sell status and incentives.
 
 #### Scenario 1: Similar offer does not exist in commercial marketplace
 
-If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.)
+If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.) 
 
-##### Step 1 - Create a draft offer in commercial marketplace
+1. Create a draft offer in commercial marketplace
 
    1. Select +New Offer
 
         :::image type="content" source="media/co-sell-migrate/New_Offer.png" alt-text="New Offer display":::
 
-   2. Complete the required information in each tab. 
+   2. Complete the required information in each tab.
          • The **Learn more** links and tooltips will guide you through the requirements and details.
          • Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
         :::image type="content" source="media/co-sell-migrate/Offer_setup_nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
-    3. Select **Save Draft**.
+   3. Select **Save Draft**.
         - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type). 
         - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
         - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
         - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
 
-#### Step 2
+2. After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see Configure co-sell for a commercial marketplace offer.
+
+> [!TIP]
+> We recommend that you *do not fill out* the data in the **Co-sell with Microsoft** tab. To save you time we will take care of populating this data for you with your existing collateral in OCP GTM during the merge process.
 
 **OPTIONAL** - It is not necessary to complete the Co-sell with Microsoft tab during the merge. All of the co-sell information associated to the solution in OCP GTM will be migrated over to the offer in the commercial marketplace during the merge process. For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
 
-1. When complete, select **Review and publish**.
-    
-     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
-    
-    2. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
-    
-    :::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Shows Review and Publish page with the Publish button highlighted.":::
-    
-    3. Track the status of your submission on the Overview tab.
+When complete, select **Review and publish**.
 
-    :::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
+ :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
 
-    4. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
+1. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
 
-    5. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
+:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Shows Review and Publish page with the Publish button highlighted.":::
 
-    6.**Continue to Scenario 2 below to complete the merge process.**
+1. Track the status of your submission on the Overview tab.
+
+:::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
+
+1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
+
+1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
+
+1. **Continue to Scenario 2 below to complete the merge process.**
 
 #### Scenario 2: Similar offer exists in commercial marketplace please follow these steps
 
@@ -136,22 +158,6 @@ Select this option if the solution is already published and live in the commerci
             [![The Action 2 tab of the merge process.](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
     1. Select **Submit**. The partner support team will contact you within two business days.
     1. Partner support will work with you to ensure a successful merge of this offer so it published as a live offer.
-
-### Migrate this solution from OCP GTM
-
-Select this option when you may have an OCP GTM solution that does not yet have a corresponding offer published in the commercial marketplace. You will need to publish this solution to the commercial marketplace to continue co-selling with Microsoft and migrating this solution will save you time by retaining the information and bill of materials from OCP GTM. This option requires you to select an offer type.
-
-1. Select **I want to migrate this solution from OCP GTM to the commercial marketplace** (see **Action required** image [above](#beginmigration)), then **Continue**.
-1. On the **Action 1** tab, select the [offer type](publisher-guide-by-offer-type.md), then **Continue**.
-
-    [![The Action 1 tab of the migrate process.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
-
-1. On the **Action 2** tab, select the [publisher profile](create-account.md) from the list provided. If you do not have a publisher account, create one at [Partner Center](https://partner.microsoft.com/solutions/migration), select it here.
-
-    [![The Action 2 tab of the migrate process.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
-
-1. Select **Create a draft offer** to migrate your solution to the commercial marketplace as a draft. It will not be live yet.
-1. Continue the publishing process in Partner Center. For assistance with publishing in Partner Center, see [Make your offer live in the commercial marketplace](#make-your-offer-live-in-the-marketplace) below.
 
 ### Discard this solution
 
