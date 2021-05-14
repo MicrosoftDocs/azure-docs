@@ -45,6 +45,8 @@ Read through the following articles before you begin:
 
 ## Prerequisites
 
+* [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/analyze-live-video-custom-vision/csharp/prerequisites.md)]
 ::: zone-end
