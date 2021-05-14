@@ -79,7 +79,7 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Translator containers do not use this value.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. Here is where you'll find the location of the logs, including container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about Cognitive Services Containers](../../cognitive-services-container-support.md)
