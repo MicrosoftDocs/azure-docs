@@ -64,7 +64,7 @@
     href: reserved-instance.md
   - name: Create an Azure VMware Solution assessment
     href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-  - name: Configure DHCP on L2 stretched VMware HCX networks
+  - name: Configure on-premises DHCP to use on HCX networks
     href: configure-dhcp-l2-stretched-vmware-hcx-networks.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md

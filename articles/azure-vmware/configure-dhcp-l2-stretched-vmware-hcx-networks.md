@@ -1,12 +1,12 @@
 ---
-title: Configure DHCP on Layer-2 stretched VMware HCX networks
+title: Configure on-premises DHCP to use on HCX networks
 description: Learn how to create and manage DHCP for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q2
 ms.date: 05/14/2021
 ---
 
-# Configure DHCP on Layer-2 stretched VMware HCX networks
+# Configure on-premises DHCP to use on HCX networks
 
 Applications and workloads running in a private cloud environment require DHCP services for IP address assignments.  This article shows you how to create and manage DHCP in Azure VMware Solution in two ways:
 
