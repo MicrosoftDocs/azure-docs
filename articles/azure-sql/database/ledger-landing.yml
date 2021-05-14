@@ -38,9 +38,9 @@ landingContent:
         links:
           - text: What is the database ledger?
             url: ledger-database-ledger.md
-          - text: Ledger append-only tables
+          - text: Append-only ledger tables
             url: ledger-append-only-ledger-tables.md
-          - text: Ledger updatable tables
+          - text: Updatable ledger tables
             url: ledger-updatable-ledger-tables.md
 
 

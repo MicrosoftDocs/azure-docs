@@ -17,7 +17,7 @@ ms.author: janders
 
 Updatable ledger tables are system-versioned tables that users can perform updates and deletes on while also providing tamper-evidence capabilities. When updates or deletes occur, all earlier versions of a row are preserved in a secondary table, known as the history table. The history table mirrors the schema of the updatable ledger table. When a row is updated, the latest version of the row remains in the ledger table, while its earlier version is inserted into the history table by the system, transparently to the application. 
 
-:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
+:::image type="content" source="media/ledger/ledger-table-architecture1.png" alt-text="ledger table architecture":::
 
 ## Updatable ledger tables vs. temporal tables
 

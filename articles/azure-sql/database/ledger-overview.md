@@ -19,7 +19,7 @@ Establishing trust around the integrity of data stored in database systems has b
 
 Ledger helps protect data from any attacker or high privileged user, including Database Administrators (DBAs), and system and cloud administrators. Just like a traditional ledger, historical data is preserved such that if a row is updated in the database, its previous value is maintained and protected in a history table. The ledger provides a chronicle of all changes made to the database over time. The ledger and the historical data are managed transparently, offering protection without any application changes. Historical data is maintained in a relational form to support SQL queries for auditing, forensics, and other purposes. Ledger provides cryptographic data integrity guarantees while maintaining the power, flexibility, and performance of Azure SQL Database.
 
-:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
+:::image type="content" source="media/ledger/ledger-table-architecture1.png" alt-text="ledger table architecture":::
 
 ## Use case for Azure SQL Database ledger 
 
