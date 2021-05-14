@@ -2,12 +2,12 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 05/05/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
 ---
 
-There are **51** recommendations in this category.
+There are **50** recommendations in this category.
 
 |Recommendation |Description |Severity |
 |---|---|---|
@@ -43,7 +43,6 @@ There are **51** recommendations in this category.
 |Management ports of virtual machines should be protected with just-in-time network access control |Azure Security Center has identified some overly-permissive inbound rules for management ports in your Network Security Group. Enable just-in-time access control to protect your VM from internet-based brute-force attacks. <a href="https://docs.microsoft.com/azure/security-center/security-center-just-in-time">Learn more.</a><br />(Related policy: [Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)) |High |
 |Network traffic data collection agent should be installed on Linux virtual machines |Security Center uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations and specific network threats.<br />(Related policy: [Network traffic data collection agent should be installed on Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f04c4380f-3fae-46e8-96c9-30193528f602)) |Medium |
 |Network traffic data collection agent should be installed on Windows virtual machines |Security Center uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations, and specific network threats.<br />(Related policy: [Network traffic data collection agent should be installed on Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2f2ee1de-44aa-4762-b6bd-0893fc3f306d)) |Medium |
-|OS version should be updated for your cloud service roles |Update the operating system (OS) version for your cloud service roles to the most recent version available for your OS family.<br />(Related policy: [Operating system version should be the most current version for your cloud service roles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5a913c68-0590-402c-a531-e57e19379da3)) |High |
 |Pod Security Policies should be defined on Kubernetes Services (Deprecated) |(Deprecated) Define Pod Security Policies to reduce the attack vector by removing unnecessary application privileges. It is recommended to configure Pod Security Policies to ensure that Pods that request resources you don't allow can't run in the AKS cluster.<br />(No related policy) |High |
 |Secure Boot should be enabled on your Linux virtual machine |Enabling Secure Boot on your virtual machine helps mitigate against malicious and unauthorized changes to the boot chain. Once enabled, only signed code will be allowed to run on your VM or server.<br />(No related policy) |Low |
 |Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign |Service Fabric provides three levels of protection (None, Sign and EncryptAndSign) for node-to-node communication using a primary cluster certificate. Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed.<br />(Related policy: [Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f617c02be-7f02-4efd-8836-3180d47b6c68)) |High |

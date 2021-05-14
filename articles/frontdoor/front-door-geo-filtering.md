@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
-ms.reviewer: tyao
+ms.reviewer: amsriva
 
 ---
 # Geo-filtering on a domain for Azure Front Door
