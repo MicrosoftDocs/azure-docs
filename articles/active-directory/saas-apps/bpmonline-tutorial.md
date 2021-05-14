@@ -70,16 +70,34 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<client site name>.bpmonline.com/`
+    a. In the **Identifier** text box, type a URL using one of the following patterns:
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    | Identifier |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/` |
+    |
+
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+    | Reply URL |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/ServiceModel/AuthService.svc/SsoLogin` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/ServiceModel/AuthService.svc/SsoLogin` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/ServiceModel/AuthService.svc/SsoLogin` |
+    |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<client site name>.bpmonline.com/`
+    In the **Sign-on URL** text box, type a URL using one of the following patterns:
+
+    | Sign-on URL |
+    |-------------|
+    | `https://<SUBDOMAIN>.creatio.com/` |
+    | `https://<SUBDOMAIN>.terrasoft.ru/` |
+    | `https://<SUBDOMAIN>.terrasoft.ua/` |
+    |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Creatio Client support team](mailto:support@creatio.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
