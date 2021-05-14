@@ -462,6 +462,8 @@
           href: database/dns-alias-overview.md
         - name: Ledger
           items:
+          - name: Ledger
+            href: database/ledger-landing.yml
           - name: Ledger overview
             href: database/ledger-overview.md
           - name: Updatable ledger tables
