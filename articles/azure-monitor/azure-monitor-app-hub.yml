@@ -176,9 +176,6 @@ conceptualContent:
         - url: ./app/asp-net-trace-logs.md
           itemType: how-to-guide
           text:  System diagnostic trace logs
-        - url: ./app/micrometer-java.md
-          itemType: how-to-guide
-          text:  Micrometer metrics
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
           text:  Search

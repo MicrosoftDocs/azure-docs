@@ -1443,7 +1443,7 @@
       href: app/java-2x-collectd.md
     - name: Micrometer Metrics
       displayname: java
-      href: app/micrometer-java.md
+      href: app/java-2x-micrometer.md
     - name: Views
       items:
       - name: View Designer
