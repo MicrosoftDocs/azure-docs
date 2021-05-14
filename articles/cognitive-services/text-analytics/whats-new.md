@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## April 2021
+## May 2021
 
 ### General API updates
 
