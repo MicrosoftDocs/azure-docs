@@ -53,7 +53,7 @@ You can call Text Analytics synchronously (for low latency scenarios). You have 
 
 ## Using the API asynchronously
 
-Starting in v3.1-preview.3, the Text Analytics API provides two asynchronous endpoints: 
+The Text Analytics v3.1-preview.5 API provides two asynchronous endpoints: 
 
 * The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature.
 
@@ -66,8 +66,8 @@ See the table below to see which features can be used asynchronously. Note that 
 | Feature | Synchronous | Asynchronous |
 |--|--|--|
 | Language detection | ✔ |  |
-| Sentiment analysis | ✔ | ✔ |
-| Opinion mining | ✔ | ✔ |
+| Sentiment analysis | ✔ | ✔* |
+| Opinion mining | ✔ | ✔* |
 | Key phrase extraction | ✔ | ✔* |
 | Named Entity Recognition (including PII and PHI) | ✔ | ✔* |
 | Entity linking | ✔ | ✔* |
