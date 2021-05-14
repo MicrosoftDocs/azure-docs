@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Database ledger Overview"
+title: "Azure SQL Database ledger overview"
 description: Overview of Azure SQL Database ledger
 ms.custom: ""
 ms.date: "05/25/2021"
