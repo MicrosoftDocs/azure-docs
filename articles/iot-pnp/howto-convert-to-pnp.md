@@ -1,9 +1,9 @@
 ---
 title: Convert an existing device to use IoT Plug and Play | Microsoft Docs
-description: How to enable IoT Plug and Play for your existing devices.
-author: ericmitt
-ms.author: ericmitt
-ms.date: 3/16/2021
+description: This article describes how to convert your existing device code to work with IoT Plug and Play by creating a device model and then sending the model ID when the device connects.
+author: dominicbetts
+ms.author: dobett
+ms.date: 05/14/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,292 +11,257 @@ services: iot-pnp
 
 # How to convert an existing device to be an IoT Plug and Play device
 
-This article outlines the steps a device developer should follow to convert an existing device to an IoT Plug and Play device. It describes how the developer can create the model that every IoT Plug and Play device requires, and the code changes that are necessary to enable the device to function as an IoT Plug and Play device.
+This article outlines the steps you should follow to convert an existing device to an IoT Plug and Play device. It describes how to create the model that every IoT Plug and Play device requires, and the necessary code changes to enable the device to function as an IoT Plug and Play device.
 
-## Design the model for your device
+To convert your existing device to be an IoT Plug and Play device:
 
-Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
+1. Review your device code to understand the telemetry, properties, and commands it implements.
+1. Create a model that describes the telemetry, properties, and commands your device implements.
+1. Modify the device code to announce the model ID when it connects to your service.
 
-IoT Plug and Play use the following DTDL elements to describe devices: *Interface*, *Telemetry*, *Property*, *Command*, *Relationship*, and *Component*. DTDL provides a data description language that's compatible with common serialization formats such as JSON and binary serialization formats.
+## Review your device code
 
-The core element in an IoT Plug and Play model is the interface. The interface describes the content of any digital twin and contains definitions for properties, telemetry, commands, relationships, and components. Interfaces are reusable as the schema for components in another interface.
+Before you create a model for your device, you need to understand the existing capabilities of your device:
 
-```json
+- The telemetry the device sends on regular basis.
+- The read-only and writable properties the device synchronizes with your service.
+- The commands invoked from the service that the device responds to.
+
+For example, review the following device code snippets that implement various device capabilities. These examples are based in the [IoT MQTT Samples](https://docs.microsoft.com/samples/azure-samples/iotmqttsample/iotmqttsample/):
+
+The following snippet shows the device sending temperature telemetry:
+
+```c
+#define TOPIC "devices/" DEVICEID "/messages/events/"
+
+// ...
+
+void Thermostat_SendCurrentTemperature()
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
-  "@type": "Interface",
-  "displayName": "Thermostat",
-  "contents": [
-      {
-          "@type": "Telemetry",
-          "name": "temp",
-          "schema": "double"
-      },
-```
-
-IoT Plug and Play interfaces typically contain definitions for:
-
-- [Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry): data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
-- [Properties](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property): represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.  
-- [Commands](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#command): describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
-
-To create an IoT Plug and Play model, you need to know for a given device:
-
-- The data the device sends on regular basis.
-- The read-only and writable properties the device should expose.
-- The commands the device should respond to.
-
-To learn more, see [IoT Plug and Play conventions](concepts-convention.md).
-
-## No component models
-
-When the device is created without a IoT Plug and Play model, the properties, telemetry, and commands aren't grouped or organized in any way.
-
-The simplest way to model this device is to use a model with a single interface that contains all the capability definitions. IoT Plug and Play refers to such a model as a _no component_ model.
-
-To learn more, see [No components](concepts-modeling-guide.md#no-components).
-
-The following snippet shows an example of an interface that defines a no component model. This model defines the capabilities of a thermostat device:
-
-```json
-{
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
-  "@type": "Interface",
-  "displayName": "Thermostat",
-  "contents": [
-    {
-      "@type": "Telemetry",
-      "name": "temp",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "setPointTemp",
-      "writable": true,
-      "schema": "double"
-    },
-    {
-      "@type": "Command",
-      "name": "reboot",
-      "request": {
-        "name": "rebootTime",
-        "displayName": "Reboot Time",
-        "description": "Requested time to reboot the device.",
-        "schema": "dateTime"
-      },
-      "response": {
-        "name": "scheduledTime",
-        "schema": "dateTime"
-      }
-    }
-  ]   
+  char msg[] = "{\"temperature\":25.6}";
+  int msgId = rand();
+  int rc = mosquitto_publish(mosq, &msgId, TOPIC, sizeof(msg) - 1, msg, 1, true);
+  if (rc != MOSQ_ERR_SUCCESS)
+  {
+    printf("Error: %s\r\n", mosquitto_strerror(rc));
+  }
 }
 ```
 
-In the interface definition:
+The name of the telemetry field is `temperature` and its type is float or a double.
 
-- `@context` defines the DTDL version.
-- `@id` is the unique model ID. To learn how an IoT solution uses this model, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md)
-- `@type` identifies this model as an interface.
+The following snippet shows the device reporting a property value:
 
-The device telemetry, properties, and command definitions are contained in the `contents` array.
+```c
+#define DEVICETWIN_MESSAGE_PATCH "$iothub/twin/PATCH/properties/reported/?$rid=patch_temp"
 
-The following table shows the mapping between the DTDL elements and types in the IoT device SDKs:
+static void SendMaxTemperatureSinceReboot()
+{
+  char msg[] = "{\"maxTempSinceLastReboot\": 42.500}";
+  int msgId = rand();
+  int rc = mosquitto_publish(mosq, &msgId, DEVICETWIN_MESSAGE_PATCH, sizeof(msg) - 1, msg, 1, true);
+  if (rc != MOSQ_ERR_SUCCESS)
+  {
+    printf("Error: %s\r\n", mosquitto_strerror(rc));
+  }
+}
+```
 
-| IoT device SDK | DTDL |
-| -------------- | ---- |
-| Direct method  |   Command |
-| Device twin properties | Properties (read-only or writable) |
-| Telemetry      | Telemetry |
+The name of the property is `maxTempSinceLastReboot` and its type is float or double. This property is reported by the device, the device never receives an update for this value from the service.
 
-No component models are useful for simple devices with a single sensor such as a thermostat with a temperature sensor.
+The following snippet shows the device responding to messages from the service:
 
-No component models are useful for devices that send small quantities of data, or have a few sensors with data that's easy to aggregate.
+```c
+void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_message* message)
+{
+  printf("Message received: %s payload: %s \r\n", message->topic, (char*)message->payload);
+  
+  if (strncmp(message->topic, "$iothub/methods/POST/getMaxMinReport/?$rid=1",37) == 0)
+  {
+    char* pch;
+    char* context;
+    int msgId = 0;
+    pch = strtok_s((char*)message->topic, "=",&context);
+    while (pch != NULL)
+    {
+      pch = strtok_s(NULL, "=", &context);
+      if (pch != NULL) {
+        char * pEnd;
+        msgId = strtol(pch,&pEnd,16 );
+      }
+    }
+    char topic[64];
+    sprintf_s(topic, "$iothub/methods/res/200/?$rid=%d", msgId);
+    char msg[] = "{\"maxTemp\":83.51,\"minTemp\":77.68}";
+    int rc = mosquitto_publish(mosq, &msgId, topic, sizeof(msg) - 1, msg, 1, true);
+    if (rc != MOSQ_ERR_SUCCESS)
+    {
+      printf("Error: %s\r\n", mosquitto_strerror(rc));
+    }
+    delete pch;
+  }
 
-## Component models
+  if (strncmp(message->topic, "$iothub/twin/PATCH/properties/desired/?$version=1", 38) == 0)
+  {
+    char* pch;
+    char* context;
+    int version = 0; 
+    pch = strtok_s((char*)message->topic, "=", &context);
+    while (pch != NULL)
+    {
+      pch = strtok_s(NULL, "=", &context);
+      if (pch != NULL) {
+        char* pEnd;
+        version = strtol(pch, &pEnd, 10);
+      }
+    }
+    // To do: Parse payload and extract target value
+    char msg[128];
+    int value = 46;
+    sprintf_s(msg, "{\"targetTemperature\":{\"value\":%d,\"ac\":200,\"av\":%d,\"ad\":\"success\"}}", value, version);
+    int rc = mosquitto_publish(mosq, &version, DEVICETWIN_MESSAGE_PATCH, strlen(msg), msg, 1, true);
+    if (rc != MOSQ_ERR_SUCCESS)
+    {
+      printf("Error: %s\r\n", mosquitto_strerror(rc));
+    }
+    delete pch;
+  }
+}
+```
 
-Components let you compose interfaces from other interfaces. Components describe contents that are directly part of the interface.
+The `$iothub/methods/POST/getMaxMinReport/` topic receives a command called `getMaxMinReport` from the service and responds with a payload that includes `maxTemp` and `minTemp` values.
 
-In DTDL v2, a component cannot contain another component.
+The `$iothub/twin/PATCH/properties/desired/` topic receives property updates from the service. This example assumes the property update is for the `targetTemperature` property. It responds with an acknowledgment that looks like `{\"targetTemperature\":{\"value\":46,\"ac\":200,\"av\":12,\"ad\":\"success\"}}`.
 
-The following example shows a model that uses components. The temperature controller is composed of two thermostat components and a device information component. There are separate interface definitions for the thermostat and device information models:
+In summary, the sample implements the following capabilities:
+
+| Name                   | Capability type   | Details |
+| ---------------------- | ----------------- | ------- |
+| temperature            | Telemetry         | Assume the data type is double |
+| maxTempSinceLastReboot | Property          | Assume the data type is double |
+| targetTemperature      | Writable property | Data type is integer |
+| getMaxMinReport        | Command           | Returns JSON with `maxTemp` and `minTemp` fields of type double |
+
+## Design a model
+
+Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
+
+IoT Plug and Play uses the following DTDL elements to describe devices: *Interface*, *Telemetry*, *Property*, *Command*, *Relationship*, and *Component*. For a simple model that maps the existing capabilities of your device, use *Interface*, *Telemetry*, *Property*, and *Command*.
+
+A DTDL model for the sample described in the previous section looks like the following example:
 
 ```json
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:TemperatureController;1",
+  "@id": "dtmi:com:example:ConvertSample;1",
   "@type": "Interface",
-  "displayName": "Temperature Controller",
-  "description": "Device with two thermostats and remote reboot.",
+  "displayName": "Simple device",
+  "description": "Example that shows model for simple device converted to act as an IoT Plug and Play device.",
   "contents": [
-...
     {
-      "@type" : "Component",
-      "schema": "dtmi:com:example:Thermostat;1",
-      "name": "thermostat1",
-      "displayName": "Thermostat One",
-      "description": "Thermostat One of Two."
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName": "Temperature",
+      "description": "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
     },
     {
-      "@type" : "Component",
-      "schema": "dtmi:com:example:Thermostat;1",
-      "name": "thermostat2",
-      "displayName": "Thermostat Two",
-      "description": "Thermostat Two of Two."
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit": "degreeCelsius",
+      "writable": true
     },
     {
-      "@type": "Component",
-      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
-      "name": "deviceInformation",
-      "displayName": "Device Information interface",
-      "description": "Optional interface with basic device hardware information."
-    }
-...
-```
-
-This component approach is useful for devices with multiple sensors. You can use one component for each sensor or group related sensors that make up a feature into a component. Using components in the model helps to clarify the design of the device to someone using the model.
-
-A component definition referenced by a model could be:
-
-- Retrieved from a catalog
-- Created using a tool such as the IoT Central device template builder.
-- Translated from another descriptive language such as OPC.
-
-## Inheritance
-
-DTDL lets you extend interface capabilities using inheritance. The following example shows how the `ConferenceRoom` interface inherits from the `Room` interface. Because of inheritance, `ConferenceRoom` has both the `occupied` and `capacity` properties:
-
-```json
-[
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit": "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
     {
-        "@id": "dtmi:com:example:Room;1",
-        "@type": "Interface",
-        "contents": [
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max and min temperature.",
+      "request": {
+      },
+      "response": {
+        "name": "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
             {
-                "@type": "Property",
-                "name": "occupied",
-                "schema": "boolean"
-            }
-        ],
-        "@context": "dtmi:dtdl:context;2"
-    },
-    {
-        "@id": "dtmi:com:example:ConferenceRoom;1",
-        "@type": "Interface",
-        "extends": "dtmi:com:example:Room;1",
-        "contents": [
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
             {
-                "@type": "Property",
-                "name": "capacity",
-                "schema": "integer"
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
             }
-        ],
-        "@context": "dtmi:dtdl:context;2"
-    }
-]
-```
-
-## Impact on the code
-
-The [IoT Plug and Play conventions](concepts-convention.md) describe how an IoT Plug and Play device should exchange messages with an IoT hub. The [IoT Plug and Play device developer guide](concepts-developer-guide-device.md) provides detailed guidance on how to implement telemetry, properties, and commands in different programming languages.
-
-For example, when you update a property value in a component, it's important to include a marker identifying it as component:
-
-```csharp
-TwinCollection reportedProperties = new TwinCollection();
-TwinCollection component = new TwinCollection();
-component["maxTemperature"] = 38.7;
-component["__t"] = "c"; // marker to identify a component
-reportedProperties["thermostat1"] = component;
-await client.UpdateReportedPropertiesAsync(reportedProperties);
-```  
-
-For writable properties, the convention defines how to acknowledge a property update. The following example shows how to acknowledge a property update in a component:
-
-```csharp
-await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
-{
-  JObject thermostatComponent = desired["thermostat1"];
-  JToken targetTempProp = thermostatComponent["targetTemperature"];
-  double targetTemperature = targetTempProp.Value<double>();
-
-  TwinCollection reportedProperties = new TwinCollection();
-  TwinCollection component = new TwinCollection();
-  TwinCollection ackProps = new TwinCollection();
-  component["__t"] = "c"; // marker to identify a component
-  ackProps["value"] = targetTemperature;
-  ackProps["ac"] = 200; // using HTTP status codes
-  ackProps["av"] = desired.Version; // not readed from a desired property
-  ackProps["ad"] = "desired property received";
-  component["targetTemperature"] = ackProps;
-  reportedProperties["thermostat1"] = component;
-
-  await client.UpdateReportedPropertiesAsync(reportedProperties);
-}, null);
-```
-
-## Design discussion
-
-The design of a new model can come from:
-
-- Migrating an existing device. The starting point for this type of design would be a no component model as described previously.
-- An existing device network. You could translate an OPC mapping into an IoT Plug and Play model. You can approach the design using components or by the required data flow.
-- A service or feature. For example, the GPS position of a truck or the wind speed at the top of a pylon.
-- Sensor semantics. For example, a thermostat and temperature sensor, or a  pressure sensor.
-- The functional specification. For example, the device battery should last for five years and emit a signal once a month, or the device should report telemetry every 10 seconds.
-
-Consider the following design issues:
-
-- There's a risk associated with the complexity of the design if you have too many components.
-- DTDL v2 doesn't allow the array data type in properties.
-- Message explosion, that can lead to more network and energy usage, and higher costs. Grouping telemetry into complex objects can help control this. For example, the following telemetry definition from a telescope model combines data from sensor and motors with a global status value. In this approach, the telescope provides an aggregated view instead of the detailed temperature sensor data and motor steps:
-
-```json
-"contents": [
-  {"@type": "Telemetry",
-  "name": "overallStatus",
-  "displayName": "Overall Status",
-  "description": "Overall status",
-  "schema": {
-    "@type":"Object",
-    "@id"  :"dtmi:com:example:Telescope:TelescopeStatus;1", 
-    "fields": 
-      [
-        {
-          "name": "status",
-          "schema": {
-            "@type": "Enum",
-            "valueSchema": "integer",
-            "enumValues": [
-                ... ommited for concision ...
-            ]
-          }
-        },
-        {
-          "name": "pointingAt",
-          "schema": "dtmi:com:example:Telescope:CelestialCoordinate;1"
-        },
-        {
-          "name": "AtmosphericPressure",
-          "schema": "double",
-          "description": "High atmospheric pressure give better quality image"
-        },
-        {
-          "name": "TemperatureDelta",
-          "schema": "double",
-          "description": "Exterior temperature compared to interior Temperature, has an impact on the image quality"
+          ]
         }
-      ]
-  }
+      }
+    }
+  ]
+}
 ```
 
-## Model design and tooling
+In this model:
 
-To build a model, you need to create a valid DTDL file. The following tools can help you:
+- The `name` and `schema` values map to the data the device sends and receives.
+- All the capabilities are grouped in a single interface.
+- The `@type` fields identify the DTDL types such as **Property** and **Command**.
+- Fields such as `unit`, `displayName`, and `description` provide extra information for the service to use. For example, IoT Central uses these values when it displays data on device dashboards.
 
-- [VSCode extension](link) to edit DTDL file.
-- [IoT Explorer](link) to look at your model, interfaces, telemetry, commands, and properties by IoT Plug and Play component.
-- [DTDL Model validation](link) to validate on your dev box model validity.
-- [IoT Central Model design](link) and import/export feature, allow you to build and edit model with a UI.
+To learn more, see [IoT Plug and Play conventions](concepts-convention.md) and [IoT Plug and Play modeling guide](concepts-modeling-guide.md).
+
+## Update the code
+
+If your device is already working with IoT Hub or IoT Central, you don't need to make any changes to the implementation of its telemetry, property, and command capabilities. You do need to modify the way that the device connects to your service so that it announces the ID of the model you created. The service can then use the model to understand the device capabilities. For example, IoT Central can use the model ID to automatically retrieve the model from a repository and generate a device template for your device.
+
+IoT devices connect to your IoT service either through the Device Provisioning Service (DPS) or directly with a connection string.
+
+If your device uses DPS to connect, include the model ID in the payload you send when you register the device. For the example model shown previously, the payload looks like:
+
+```json
+{
+  "modelId" : "dtmi:com:example:ConvertSample;1"
+}
+```
+
+To learn more, see [Runtime Registration - Register Device](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice).
+
+If your device uses DPS to connect or connects directly with a connection string, include the model ID when your code connects to IoT Hub. For example:
+
+```c
+#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-05-31-preview&model-id=dtmi:com:example:ConvertSample;1"
+
+// ...
+
+mosquitto_username_pw_set(mosq, USERNAME, PWD);
+
+// ...
+
+rc = mosquitto_connect(mosq, HOST, PORT, 10);
+```
+
+## Next steps
+
+Now that you know how to convert an existing device to be an IoT Plug and Play device, a suggested next step is to [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md) to help you build a DTDL model.
