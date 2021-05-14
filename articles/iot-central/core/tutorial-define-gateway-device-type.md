@@ -33,7 +33,9 @@ As well as enabling downstream devices to communicate with your IoT Central appl
 
 ## Prerequisites
 
-To complete this tutorial, you need to [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+To complete the steps in this tutorial, you need:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## Create downstream device templates
 
