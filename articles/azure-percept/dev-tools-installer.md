@@ -17,29 +17,29 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python 3.6 or later](https://www.python.org/)
-* [Docker 19.03](https://www.docker.com/)
-* [PIP3](https://pip.pypa.io/en/stable/user_guide/)
-* [TensorFlow 1.13](https://www.tensorflow.org/)
-* [Azure Machine Learning SDK 1.1](/python/api/overview/azure/ml/)
+* [Docker 20.10](https://www.docker.com/)
+* [PIP3 21.1](https://pip.pypa.io/en/stable/user_guide/)
+* [TensorFlow 2.0](https://www.tensorflow.org/)
+* [Azure Machine Learning SDK 1.2](/python/api/overview/azure/ml/)
 
 ## Optional tools
 
 * [Nvidia DeepStream SDK 5](https://developer.nvidia.com/deepstream-sdk) (toolkit for developing solutions for Nvidia Accelerators)
-* [Intel OpenVino Toolkit 2020.2](https://docs.openvinotoolkit.org/) (toolkit for developing solutions for Intel Accelerators)
-* [Lobe.ai](https://lobe.ai/)  
-* [Streamlit](https://www.streamlit.io/)
+* [Intel OpenVino Toolkit 2021.3](https://docs.openvinotoolkit.org/) (toolkit for developing solutions for Intel Accelerators)
+* [Lobe.ai 0.9](https://lobe.ai/)  
+* [Streamlit 0.8](https://www.streamlit.io/)
 * [Pytorch 1.4.0 (Windows) or 1.2.0 (Linux)](https://pytorch.org/)
-* [Miniconda3](https://docs.conda.io/en/latest/miniconda.html)
-* [Chainer 5.2](https://chainer.org/)
-* [Caffe](https://caffe.berkeleyvision.org/)
-* [CUDA Toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit)
+* [Miniconda 4.5](https://docs.conda.io/en/latest/miniconda.html)
+* [Chainer 7.7](https://chainer.org/)
+* [Caffe 1.0](https://caffe.berkeleyvision.org/)
+* [CUDA Toolkit 11.2](https://developer.nvidia.com/cuda-toolkit)
 * [Microsoft Cognitive Toolkit 2.5.1](https://www.microsoft.com/research/product/cognitive-toolkit/?lang=fr_ca)
 
 ## Known issues
 
-- Optional Caffe install may fail if Docker is not running properly. If you would like to install Caffe, make sure Docker is installed and running before attempting the Caffe installation through the Dev Tools Pack Installer.
+- Optional Caffe, Nvidia DeepStream SDK and Intel OpenVino Toolkit install may fail if Docker is not running properly. If you would like to install these, make sure Docker is installed and running before attempting the these installation through the Dev Tools Pack Installer.
 
-- Optional CUDA install fails on incompatible systems. Before attempting to install the [CUDA Toolkit 10.0.130](https://developer.nvidia.com/cuda-toolkit) through the Dev Tools Pack Installer, verify your system compatibility.
+- Optional CUDA Toolkit installed on the Mac version is 10.0.130. Because CUDA Toolkit 11 no longer supports development or running applications on macOSity.
 
 ## Docker minimum requirements
 
