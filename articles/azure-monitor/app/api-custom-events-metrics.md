@@ -455,7 +455,7 @@ Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Appl
 
 In .NET [Log adapters](./asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
-In Java for [Standard loggers like Log4J, Logback](./java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
+In Java for [Standard loggers like Log4J, Logback](java-2x-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
 
 *C#*
 
@@ -599,7 +599,7 @@ finally
 
 Remember that the server SDKs include a [dependency module](./asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work.
 
-In Java, certain dependency calls can be automatically tracked using [Java Agent](./java-agent.md).
+In Java, certain dependency calls can be automatically tracked using [Java Agent](java-2x-agent.md).
 
 You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 

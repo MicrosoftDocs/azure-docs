@@ -168,7 +168,7 @@ Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.m
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-2x-trace-logs.md)).
 
 ```XML
 

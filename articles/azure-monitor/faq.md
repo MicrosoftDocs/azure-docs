@@ -228,13 +228,13 @@ View Designer is only available for users assigned with Contributor permissions 
 * [.NET app](app/asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
-* [Java web app](app/java-troubleshoot.md)
+* [Java web app](app/java-2x-troubleshoot.md)
 
 *I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
-* [Set up a Java server](app/java-agent.md)
+* [Set up a Java server](app/java-2x-agent.md)
 
 *How many Application Insights resources should I deploy:*
 
@@ -317,7 +317,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
 * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-collectd.md).
+* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
 * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
 * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -343,7 +343,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-filter-telemetry.md).
+Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-2x-filter-telemetry.md).
 
 ### How are city, country/region, and other geo location data calculated?
 

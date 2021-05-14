@@ -184,7 +184,7 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](./asp-net-dependencies.md) and [exception telemetry](asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](./java-collectd.md), [Windows desktop apps](./windows-desktop.md), [IIS web apps and services if you install status monitor](./monitor-performance-live-website-now.md), and [Azure Cloud Services](./app-insights-overview.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](java-2x-collectd.md), [Windows desktop apps](./windows-desktop.md), [IIS web apps and services if you install status monitor](./monitor-performance-live-website-now.md), and [Azure Cloud Services](./app-insights-overview.md). you'll find it under Settings, Servers.
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

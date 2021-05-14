@@ -124,7 +124,7 @@ To search for individual instances of dependency, exception, and method reports,
 
 ## Questions? Problems?
 * No data? [Set firewall exceptions](./ip-addresses.md)
-* [Troubleshooting Java](java-troubleshoot.md)
+* [Troubleshooting Java](java-2x-troubleshoot.md)
 
 <!--Link references-->
 
@@ -134,6 +134,6 @@ To search for individual instances of dependency, exception, and method reports,
 [diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-in-process-agent.md
-[javalogs]: java-trace-logs.md
+[javalogs]: java-2x-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 

@@ -46,7 +46,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
 
 ### Java Agent cannot capture dependency data
-* Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
+* Have you configured Java agent by following [Configure Java Agent](java-2x-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
 
@@ -126,7 +126,7 @@ azure.application-insights.logger.level=trace
 
 ### Java Agent
 
-To enable JVM Agent Logging update the [AI-Agent.xml file](java-agent.md):
+To enable JVM Agent Logging update the [AI-Agent.xml file](java-2x-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -197,7 +197,7 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 [availability]: ./monitor-web-app-availability.md
 [data]: ./data-retention-privacy.md
 [java]: java-2x-get-started.md
-[javalogs]: java-trace-logs.md
+[javalogs]: java-2x-trace-logs.md
 [platforms]: ./platforms.md
 [track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
