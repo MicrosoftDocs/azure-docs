@@ -6978,32 +6978,32 @@
     {
       "source_path_from_root": "/articles/application-insights/java-agent.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/java-collectd.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/java-filter-telemetry.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/java-get-started.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/java-trace-logs.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/java-troubleshoot.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-agent.md",
