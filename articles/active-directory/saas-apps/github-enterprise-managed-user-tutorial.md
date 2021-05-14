@@ -52,8 +52,8 @@ To configure the integration of GitHub Enterprise Managed User into Azure AD, yo
 
 To configure and test Azure AD SSO with GitHub Enterprise Managed User, perform the following steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-1. **[Configure GitHub Enterprise Managed User SSO](#configure-github-enterprise-managed-user-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable SAML Single Sign On in your AAD tenant.
+1. **[Configure GitHub Enterprise Managed User SSO](#configure-github-enterprise-managed-user-sso)** - to configure the single sign-on settings in your GitHub Enterprise.
 
 ## Configure Azure AD SSO
 
@@ -99,7 +99,7 @@ In this section, you'll assign your account to GitHub Enterprise Managed User in
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select your account from the Users list, then click the **Select** button at the bottom of the screen.
-1. In the **Select a role** dialog, select the **Enterprise Owner** role, then click the **Select** button at the bottom of the screen. This will assign your account as an Enterprise Owner for your GitHub instance.
+1. In the **Select a role** dialog, select the **Enterprise Owner** role, then click the **Select** button at the bottom of the screen. This will assign your account as an Enterprise Owner for your GitHub instance when you provision your account in the next tutorial. 
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure GitHub Enterprise Managed User SSO
