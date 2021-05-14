@@ -5,7 +5,7 @@ services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 05/12/2021
+ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
 ---
@@ -35,6 +35,7 @@ In Visual Studio Code, open the root of your app's repository. The folder struct
 ├── .github
 │   └── workflows
 │       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
+│
 └── (folders and files from your static web app)
 ```
 
@@ -63,7 +64,7 @@ You create an Azure Functions project for your static web app's API. By default,
     ├── api
     │   ├── message
     │   │   ├── function.json
-    │   │   ├── index.js
+    │   │   └── index.js
     │   ├── host.json
     │   ├── local.settings.json
     │   └── package.json
@@ -80,6 +81,9 @@ You create an Azure Functions project for your static web app's API. By default,
         });
     };
     ```
+
+> [!TIP]
+> You can add more API functions by running the **Azure Static Web Apps: Create HTTP Function...** again.
 
 ## Update the frontend app to call the API
 
@@ -228,7 +232,7 @@ Ensure you have the necessary command line tools installed.
 
 ### Build frontend app
 
-If your app uses a framework, build the app to generate the output before running the Static Web Apps emulator.
+If your app uses a framework, build the app to generate the output before running the Static Web Apps CLI.
 
 # [No Framework](#tab/vanilla-javascript)
 
@@ -264,7 +268,7 @@ npm run build
 
 Run the frontend app and API together by starting the app with the Static Web Apps CLI. Running the two parts of your application this way allows the CLI to serve your frontend's build output from a folder, and makes the API accessible to the running app.
 
-1. In root of your repository, start the Static Web Apps CLI with the `start` command.
+1. In root of your repository, start the Static Web Apps CLI with the `start` command. Adjust the arguments if your app has a different folder structure.
 
     # [No Framework](#tab/vanilla-javascript)
 
