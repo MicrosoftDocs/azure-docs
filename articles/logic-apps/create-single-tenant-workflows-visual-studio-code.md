@@ -85,12 +85,11 @@ To set up and use Azurite, follow these steps:
 
   * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
 
-    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
-
     > [!IMPORTANT]
-    > Projects created with earlier extensions no longer work. To continue, uninstall any previous versions, and create new logic app projects.
+    > Projects created with earlier preview extensions no longer work. To continue, 
+    > uninstall any preview versions, and create new logic app projects.
 
-    **To install the **Azure Logic Apps (Standard)** extension, follow these steps:**
+    To install the **Azure Logic Apps (Standard)** extension, follow these steps:
 
     1. In Visual Studio Code, on the left toolbar, select **Extensions**.
 
@@ -100,6 +99,8 @@ To set up and use Azurite, follow these steps:
 
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
+
+    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
 
 * To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
 
@@ -119,7 +120,7 @@ To set up and use Azurite, follow these steps:
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
-1. Confirm that Visual Studio Code automatically finds and installs extension updates so that your Preview extension gets the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
+1. Confirm that Visual Studio Code automatically finds and installs extension updates so that all your extensions extension get the latest updates. Otherwise, you have to manually uninstall the outdated version and install the latest version.
 
    1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
@@ -127,7 +128,7 @@ To set up and use Azurite, follow these steps:
 
    1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
 
-Also, by default, the following settings are enabled and set for the Logic Apps preview extension:
+By default, the following settings are enabled and set for the Azure Logic Apps (Standard) extension:
 
 * **Azure Logic Apps V2: Project Runtime**, which is set to version **~3**
 
@@ -144,7 +145,7 @@ To find and confirm these settings, follow these steps:
 
    For example, you can find the **Azure Logic Apps V2: Project Runtime** setting here or use the search box to find other settings:
 
-   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Preview)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-preview-settings.png)
+   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
 
 <a name="connect-azure-account"></a>
 
