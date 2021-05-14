@@ -31,15 +31,7 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the [Az PowerShell module](https://www.powershellgallery.com/packages/Az), version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
-
-To find your current version, run the following command:
-
-```powershell
-Get-InstalledModule -Name "Az"
-```
-
-To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -60,7 +52,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. The examples in this article require Azure CLI version 2.0.4 or later. Run `az --version` to find your installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 # [Template](#tab/template)
 
