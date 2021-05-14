@@ -37,13 +37,13 @@ You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.mi
 > * LUIS provides two types of F0 (free tier) resources: one for authoring transactions and one for prediction transactions. If you're running out of free quota for prediction transactions, make sure you're using the F0 prediction resource, which gives you a 10,000 free transactions monthly, and not the authoring resource, which gives you 1,000 prediction transactions monthly.
 > * You should author LUIS apps in the [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
-[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
-
 ## Create LUIS resources
 
 # [LUIS portal](#tab/portal)
 
 ### Create a LUIS authoring resource using the LUIS portal
+> [!TIP]
+> You can also create LUIS resources using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see the **My Apps** section in the portal, a LUIS resource already exists and you can skip the next step.
 
