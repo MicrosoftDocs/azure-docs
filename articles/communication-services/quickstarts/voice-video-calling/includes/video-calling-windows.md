@@ -26,7 +26,7 @@ Right click your project and go to `Manage Nuget Packages` to install `Azure.Com
 Go to `Package.appxmanifest` and click `Capabilities`.
 Check `Internet (Client & Server)` to gain inbound and outbound access to the Internet. 
 Check `Microphone` to access the audio feed of the microphone. 
-Check `WebCam` to access the camera of the divice. 
+Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest`. 
 ```
