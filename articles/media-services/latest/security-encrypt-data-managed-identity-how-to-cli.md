@@ -12,13 +12,11 @@ ms.author: inhenkel
 
 # Tutorial: Encrypt data into a Media Services account using a key in Key Vault
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
 
 This tutorial uses the 2020-05-01 Media Services API.
-
-<!-- testing link -->
-<a href="samples-overview"  target="_blank">Samples overview</a>
-<!-- end testing link -->
 
 ## Sign in to Azure
 
@@ -61,7 +59,11 @@ If you're not sure of what the region name is for the API, use this command to g
 
 ## Create a Media Services account
 
-[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-cli.md)]
+:::code language="cli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Command":::
+:::code language="cli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Return" highlight="2,5":::
+
+
+<!--[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]-->
 
 ## Create a Key Vault
 

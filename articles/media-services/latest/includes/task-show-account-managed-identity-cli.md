@@ -17,9 +17,18 @@ The command returns:
 
 ```json
 {
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
+  "encryption": {
+    "keyVaultProperties": null,
+    "type": "SystemKey"
+  },
+  "id": "/subscriptions/the-subscription-id/resourceGroups/mediatest1rg/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
+  "identity": {
+    "principalId": "00000000-0000-0000-0000-000000000000",
+    "tenantId": "the-tenant-id",
+    "type": "SystemAssigned"
+  },
   "location": "West US 2",
-  "mediaServiceId": "00000000-000-0000-0000-000000000000",
+  "mediaServiceId": "the-media-service-id",
   "name": "your-media-services-account-name",
   "resourceGroup": "your-resource-group-name",
   "storageAccounts": [
@@ -29,6 +38,15 @@ The command returns:
       "type": "Primary"
     }
   ],
+  "storageAuthentication": "System",
+  "systemData": {
+    "createdAt": "2021-05-14T21:25:12.3492071Z",
+    "createdBy": "your@email.address",
+    "createdByType": "User",
+    "lastModifiedAt": "2021-05-14T21:25:12.3492071Z",
+    "lastModifiedBy": "your@email.address",
+    "lastModifiedByType": "User"
+  },
   "tags": null,
   "type": "Microsoft.Media/mediaservices"
 }
