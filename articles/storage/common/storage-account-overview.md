@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -24,12 +24,12 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 The following table describes the types of storage accounts recommended by Microsoft for most scenarios. All of these use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model.
 
-| Type of storage account | Supported services | Redundancy options | Usage |
+| Type of storage account | Supported storage services | Redundancy options | Usage |
 |--|--|--|--|
 | Standard general-purpose v2 | Blob (including Data Lake Storage<sup>1</sup>), Queue, and Table storage, Azure Files  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Azure Storage. Note that if you want support for NFS file shares in Azure Files, use the premium file shares account type. |
 | Premium block blobs<sup>3</sup> | Blob storage (including Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency. [Learn more about example workloads.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
 | Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both SMB and NFS file shares. |
-| Premium page blobs<sup>3</sup> | Mostly used for disk storage/VHDs | LRS | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
+| Premium page blobs<sup>3</sup> | Page blobs only | LRS | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
 <sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](/blobs/create-data-lake-storage-account.md).
 
@@ -104,7 +104,7 @@ The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/sto
 
 The following table describes the legacy storage account types. These account types are not recommended by Microsoft, but may be used in certain scenarios:
 
-| Type of legacy storage account | Supported services | Redundancy options | Deployment model | Usage |
+| Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
 | Standard general-purpose v1 | Blob, Queue, and Table storage, Azure Files | LRS/GRS/RA-GRS | Resource Manager, Classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and you can't upgrade your application.</li></ul> |
 | Standard Blob storage | Blob (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
