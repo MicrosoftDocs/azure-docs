@@ -44,7 +44,7 @@ Make sure the following PowerShell modules are installed on your machine.
     Get-InstalledModule -Name Az
     ```
 
-1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](https://docs.microsoft.com/azure/attestation/quickstart-powershell#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
+1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../attestation/quickstart-powershell#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az.Attestation
@@ -168,16 +168,6 @@ In this step, you will create a new Azure SQL Database logical server and a new 
     -Vcore $vCore `
     -ComputeGeneration $generation
    ```
-
-1. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
-
-   ```powershell
-   Write-Host 
-   Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
-   Write-Host "Database name: $databaseName"
-   ```
-
----
 
 ## Step 2: Configure an attestation provider
 
