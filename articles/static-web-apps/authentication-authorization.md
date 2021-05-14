@@ -17,7 +17,7 @@ Azure Static Web Apps streamlines the authentication experience by managing auth
 - GitHub
 - Twitter
 
-Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file.
+Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file. Alternatively, you may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations.
 
 All authentication providers are enabled by default. To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
 
@@ -36,7 +36,10 @@ Beyond the built-in roles, you can create new roles, assign them to users via in
 
 ### Add a user to a role
 
-To add users to your web site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+To add a user to a role, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+
+> [!NOTE]
+> You may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations for group management.
 
 <a name="invitations" id="invitations"></a>
 
