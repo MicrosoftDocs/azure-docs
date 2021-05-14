@@ -4,7 +4,7 @@ description: Use Visual Studio Code and the Bicep extension to Bicep files for d
 author: mumian
 ms.date: 04/12/2021
 ms.topic: quickstart
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -14,8 +14,6 @@ ms.custom: devx-track-azurepowershell
 # Quickstart: Create Bicep files with Visual Studio Code
 
 The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
@@ -129,4 +127,4 @@ Remove-AzResourceGroup -Name arm-vscode
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Beginner Bicep tutorials](./tutorial-create-first-bicep.md)
+> [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/)

@@ -14,8 +14,6 @@ Bicep supports a function called `any()` to resolve type errors in the Bicep typ
 
 This function doesn't exist in the Azure Resource Manager template runtime. It's only used by Bicep and isn't emitted in the JSON for the built template.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## any
 
 `any(value)`
@@ -59,7 +57,7 @@ resource wpAci 'microsoft.containerInstance/containerGroups@2019-12-01' = {
 }
 ```
 
-The function works on any assigned value in Bicep. The following example uses `any()` with a ternary expression as an argument.  
+The function works on any assigned value in Bicep. The following example uses `any()` with a ternary expression as an argument.
 
 ```bicep
 publicIPAddress: any((pipId == '') ? null : {

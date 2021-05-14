@@ -45,10 +45,6 @@ landingContent:
         links:
           - text: Create Bicep templates - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
-      - linkListType: tutorial
-        links:
-          - text: Beginner Bicep tutorials
-            url: tutorial-create-first-bicep.md
       - linkListType: learn
         links:
           - text: Deploy with ARM templates
@@ -69,7 +65,7 @@ landingContent:
           - text: Define parameters
             url: parameters.md
           - text: Define variables
-            url: template-variables.md
+            url: variables.md
           - text: Define resources
             url: ../templates/template-syntax.md#resources
           - text: Define outputs
@@ -152,8 +148,6 @@ landingContent:
         links:
           - text: Test toolkit
             url: test-toolkit.md
-          - text: Export templates
-            url: export-template-portal.md
           - text: CI/CD
             url: add-template-to-azure-pipelines.md
           - text: View deployment history
