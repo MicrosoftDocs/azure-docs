@@ -11,17 +11,20 @@ ms.author: cshoe
 
 # Authentication and authorization for Azure Static Web Apps
 
-Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
+Azure Static Web Apps provides a streamlined authentication experience. By default, you have access to a series of pre-configured providers, or the option to [register a custom provider](./authentication-custom.md).
 
-- Azure Active Directory
-- GitHub
-- Twitter
+- Any user can authenticate with an enabled provider.
+- Once logged in, users belong to the `anonymous` and `authenticated` roles by default.
+- Authorized users gain access to restricted [routes](configuration.md#routes) by rules defined in the [staticwebapp.config.json file](./configuration.md).
+- Users join custom roles via provider-specific [invitations](#invitations), or through a [custom Azure Active Directory provider registration](./authentication-custom.md).
+- All authentication providers are enabled by default.
+  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+- Pre-configured providers include:
+  - Azure Active Directory
+  - GitHub
+  - Twitter
 
-Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](configuration.md#routes) by rules defined in the _staticwebapp.config.json_ file. Alternatively, you may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations.
-
-All authentication providers are enabled by default. To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
-
-The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [configuration guide](configuration.md#routes) along with this article.
+The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
 
 ## Roles
 
