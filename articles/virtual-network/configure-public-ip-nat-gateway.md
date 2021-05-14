@@ -15,14 +15,14 @@ ms.custom: template-how-to
 
 A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 
-Azure Virtual Network NAT is deployed to enable scalable outbound connectivity in a virtual network. Azure Virtual Network NAT supports standard SKU public IP addresses and public IP prefixes.  Resources deployed in a virtual network, such as load balancers, must also be the standard SKU. Deployment of a NAT gateway to a virtual network with basic SKU resources is unsupported.
+Azure Virtual Network NAT is deployed to enable scalable outbound connectivity in a virtual network. Azure Virtual Network NAT supports standard SKU public IP addresses and public IP prefixes.  Resources deployed in the nat gateway virtual network, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network with basic SKU resources is unsupported.
 
 Examples of resources that support standard SKU public IPs exclusively:
 
 * Cross-region load balancer
 * Azure Bastion
 
-A NAT gateway requires a public IP address or public IP prefix for it's configuration. A combination of public IP and prefix is also supported.
+A NAT gateway requires a public IP address or public IP prefix for it's configuration. A combination of public IPs and prefixes is also supported.
 
 The addition of IP addresses or an IP prefix scales the Source Network Address Translation (SNAT) connections from resources using the NAT gateway.
 
