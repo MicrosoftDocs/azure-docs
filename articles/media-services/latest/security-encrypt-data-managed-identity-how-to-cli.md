@@ -5,20 +5,34 @@ services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/12/2021
 ms.author: inhenkel
 ---
 
-# Encrypt data into a Media Services account using a key in Key Vault
+# Tutorial: Encrypt data into a Media Services account using a key in Key Vault
 
 If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
+
+This tutorial uses the 2020-05-01 Media Services API.
+
+<!-- testing button -->
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json" target="_blank">
+  <img src="https://aka.ms/deploytoazurebutton"/>
+</a>
+<!-- end testing button -->
 
 ## Sign in to Azure
 
 To use any of the commands in this article you first have to be logged in to the subscription that you want to use.
 
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
+
+## Set subscription
+
+Use this command to set the subscription that you want to work with.
+
+[!INCLUDE [Sign in to Azure with the CLI](./includes/task-set-azure-subscription-cli.md)]
 
 ## Resource names
 
@@ -65,158 +79,19 @@ Grant the Media Services Managed Identity access to the Key Vault. There are two
 
 The first command below shows the Managed Identity of the Media Services account which is the `mediaServiceId`.
 
-```azurecli-interactive
-az ams account show --name your-media-services-account-name --resource-group your-resource-group
-```
-
-The command returns:
-
-```json
-{
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
-  "location": "West US 2",
-  "mediaServiceId": "00000000-000-0000-0000-000000000000",
-  "name": "your-media-services-account-name",
-  "resourceGroup": "your-resource-group-name",
-  "storageAccounts": [
-    {
-      "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
-      "resourceGroup": "your-resource-group-name",
-      "type": "Primary"
-    }
-  ],
-  "tags": null,
-  "type": "Microsoft.Media/mediaservices"
-}
-```
+[!INCLUDE [Show the Managed Identity of a Media Services account with the CLI](./includes/task-show-account-managed-identity-cli.md)]
 
 ### Set the Key Vault policy
 
 The second command grants the Principal ID access to the Key Vault. Set `object-id` to the value of `principalId`.
 
-```azurecli-interactive
-az keyvault set-policy \
-  --name your-keyvault-name \
-  --object-id mediaServiceId-from-show \
-  --key-permissions decrypt encrypt get list unwrapKey wrapKey
-```
-
-The command returns:
-
-```json
-{
-  "id": "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.KeyVault/vaults/your-keyvault-name",
-  "location": "your-region",
-  "name": "your-keyvault-name",
-  "properties": {
-    "accessPolicies": [
-      {
-        "applicationId": null,
-        "objectId": "the-media-services-account-id",
-        "permissions": {
-          "certificates": [
-            "get",
-            "list",
-            "delete",
-            "create",
-            "import",
-            "update",
-            "managecontacts",
-            "getissuers",
-            "listissuers",
-            "setissuers",
-            "deleteissuers",
-            "manageissuers",
-            "recover"
-          ],
-          "keys": [
-            "get",
-            "create",
-            "delete",
-            "list",
-            "update",
-            "import",
-            "backup",
-            "restore",
-            "recover"
-          ],
-          "secrets": [
-            "get",
-            "list",
-            "set",
-            "delete",
-            "backup",
-            "restore",
-            "recover"
-          ],
-          "storage": [
-            "get",
-            "list",
-            "delete",
-            "set",
-            "update",
-            "regeneratekey",
-            "setsas",
-            "listsas",
-            "getsas",
-            "deletesas"
-          ]
-        },
-        "tenantId": "the-tenant-id"
-      },
-      {
-        "applicationId": null,
-        "objectId": "the-media-services-account-id",
-        "permissions": {
-          "certificates": null,
-          "keys": [
-            "encrypt",
-            "get",
-            "list",
-            "wrapKey",
-            "decrypt",
-            "unwrapKey"
-          ],
-          "secrets": null,
-          "storage": null
-        },
-        "tenantId": "the-tenant-id"
-      }
-    ],
-    "createMode": null,
-    "enablePurgeProtection": true,
-    "enableRbacAuthorization": null,
-    "enableSoftDelete": true,
-    "enabledForDeployment": false,
-    "enabledForDiskEncryption": null,
-    "enabledForTemplateDeployment": null,
-    "networkAcls": null,
-    "privateEndpointConnections": null,
-    "provisioningState": "Succeeded",
-    "sku": {
-      "name": "standard"
-    },
-    "softDeleteRetentionInDays": 90,
-    "tenantId": "the-tenant-id",
-    "vaultUri": "https://your-keyvault-name.vault.azure.net/"
-  },
-  "resourceGroup": "your-resource-group-name",
-  "tags": {},
-  "type": "Microsoft.KeyVault/vaults"
-}
-```
+[!INCLUDE [Set the Key Vault policy with the CLI](./includes/task-key-vault-policy-cli.md)]
 
 ### Set Media Services to use the key from Key Vault
 
 Set Media Services to use the key you've created. The value of the `key-identifier` property comes from the output when the key was created. This command may fail because of the time it takes to propagate access control changes. If this happens, retry after a few minutes.
 
-```azurecli
-az ams account encryption set \
-  --account-name your-media-services-account-name \
-  --resource-group your-resource-group \
-  --key-type CustomerKey \
-  --key-identifier https://your-keyvault-name.vault.azure.net/keys/mediakey/abc
-```
+[!INCLUDE [Set Media Services to use the key from Key Vault](./includes/task-set-encryption-cli.md)]
 
 ## Validation
 
@@ -224,6 +99,11 @@ To verify the account is encrypted using a Customer Managed Key, view the accoun
 
 ```azurecli
 az ams account encryption show --account-name your-media-services-account-name --resource-group your-resource-group-name
+```
+The command returns:
+
+```json
+jason goes here
 ```
 
 The `type` property should show `CustomerKey` and the `currentKeyIdentifier` should be set to the path of a key in the customer’s Key Vault.

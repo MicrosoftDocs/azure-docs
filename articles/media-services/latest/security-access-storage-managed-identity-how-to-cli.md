@@ -14,24 +14,36 @@ ms.author: inhenkel
 
 If you want Media Services to access a storage account that has blocked requests from the internet, configure Media Services to use a Managed Identity. When this access is used, storage allows Media Services to bypass the normal network ACL restrictions. You'll want to do this especially if you are planning to use Private Link.
 
+## Sign in to Azure
+
+To use any of the commands in this article you first have to be logged in to the subscription that you want to use.
+
+ [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
+
 ## Resource names
 
-Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. For example, "myMediaTestRG" for your resource group and "myMediaTestStorageAccount".  The names of resources you'll need are:
+Before you get started, decide on the names of the resources you'll create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "media-test1-rg" for your resource group name and "media-test1-stor" for your storage account name. It isn't required to use hyphens.  However, use the same names for each step in this article.
+
+You'll see these names referenced in the commands below.  The names of resources you'll need are:
 
 - your-resource-group-name
 - your-storage-account-name
 - your-media-services-account-name
 - your-region
 
-You'll see these names referenced in the commands below. Use the same names for each step.
+### List Azure regions
 
-## Create a resource group
+If you're not sure of what the region name is for the API, use this command to get a listing.
 
-[!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
+[!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
 ## Create a Storage account
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
+
+## Create a resource group
+
+[!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
 ## Create a Media Services account
 
@@ -43,40 +55,53 @@ Grant the Media Services Managed Identity access to the Storage account. There a
 
 ### Get (show) the Managed Identity of the Media Services account
 
-The first command below shows the Managed Identity of the Media Services account which is the `principalId`. 
+The first command below shows the Managed Identity of the Media Services account which is the `mediaServiceId`.
+
+[!INCLUDE [Show the Managed Identity of a Media Services account with the CLI](./includes/task-show-account-managed-identity-cli.md)]
+
+### Assign the Managed Identity the Storage Blog Contributor role
+
+This command gives the Media Services account the *Storage Blog Contributor* role and uses the `mediaServiceId` value for the `assignee` value.
 
 ```azurecli-interactive
-az ams account show --name your-media-services-account-name --resource-group your-resource-group
+az role assignment create \
+  --assignee the-media-service-id \
+  --role "Storage Blob Data Contributor" \
+  --scope "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
 ```
 
 The command returns:
 
-The `principalId` will be used in the next step as the `assignee`. The `scope` is the ID from the storage account creation request.
+```json
+jason goes here
+```
 
-### Set the Key Vault policy
-
-The second command grants the Principal ID access to the Key Vault. Set `object-id` to the value of `principalId`.
+This command gives the Media Services account the role of *Reader* and also uses the `mediaServiceId` value for the `assignee` value.
 
 ```azurecli-interactive
-az keyvault set-policy \
-  --name your-keyvault-name \
-  --object-id the-prinicpal-id-of-the-Media-Services-account \
-  --key-permissions decrypt encrypt get list unwrapKey wrapKey
+az role assignment create \
+  --assignee the-media-service-id \
+  --role "Reader" \
+  --scope "/subscriptions/the-subscription-id/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
+```
+The command returns:
+
+```json
+json goes here
 ```
 
-### Set Media Services to use the key from Key Vault
+## Configure the Media Services account to access the Storage account using the Managed Identity
 
-Set Media Services to use the key you've created. The value of the `key-identifier` property comes from the output when the key was created. This command may fail due to the time it takes to propagate access control changes. If this happens, retry after a few minutes.
+This command give access to the Storage account using the Managed Identity
 
-```azurecli
-az ams account encryption set \
-  --account-name your-media-services-account-name \
-  --resource-group your-resource-group \
-  --key-type CustomerKey \
-  --key-identifier https://your-keyvault-name.vault.azure.net/keys/mediakey/abc
-```
+az ams account storage set-authentication \
+  --storage-auth ManagedIdentity \
+  --resource-group your-resource-group-name \
+  --account-name your-media-services-account-name
 
-## Test
+The command returns:
+
+## Validation
 
 **MISSING: STEPS FOR TESTING GO HERE.**
 
