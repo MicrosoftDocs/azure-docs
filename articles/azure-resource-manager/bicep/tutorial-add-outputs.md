@@ -12,8 +12,6 @@ ms.custom:
 
 In this tutorial, you learn how to return a value from your deployment. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Prerequisites
 
 We recommend that you complete the [tutorial about variables](./tutorial-add-variables.md), but it's not required.

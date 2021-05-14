@@ -4,15 +4,13 @@ description: Use parameter files that contain the values to use for deploying yo
 author: mumian
 ms.date: 04/27/2021
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use parameter files to deploy Azure Resource Manager Bicep file
 
 In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Bicep file, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. You use the same JSON parameter file as you deploy a JSON template. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## Prerequisites
 

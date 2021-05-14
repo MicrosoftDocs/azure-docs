@@ -11,8 +11,6 @@ ms.date: 03/02/2021
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array for JSON template, or the `resource` keyword for Bicep.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Set resource type and version
 
 When adding a resource to your template, start by setting the resource type and API version. These values determine the other properties that are available for the resource.

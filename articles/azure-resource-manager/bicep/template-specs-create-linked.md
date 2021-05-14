@@ -8,7 +8,7 @@ ms.date: 01/05/2021
 
 ---
 
-# Tutorial: Create a template spec with linked templates (Preview) (Bicep)
+# Tutorial: Create a template spec with linked templates (Bicep)
 
 Learn how to create a [template spec](template-specs.md) with a main template and a [linked template](../templates/linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
 
@@ -17,7 +17,7 @@ Learn how to create a [template spec](template-specs.md) with a main template an
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template specs with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create linked templates
 

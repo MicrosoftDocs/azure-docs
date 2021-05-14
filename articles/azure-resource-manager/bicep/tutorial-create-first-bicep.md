@@ -21,8 +21,6 @@ If you want to learn about the benefits of using Bicep and why you should automa
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Get tools
 
 Let's start by making sure you have the tools you need to create and deploy Bicep files. Install these tools on your local machine.

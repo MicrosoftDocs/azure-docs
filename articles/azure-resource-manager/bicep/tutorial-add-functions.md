@@ -12,8 +12,6 @@ ms.custom: references_regions
 
 In this tutorial, you learn how to add [template functions](template-functions.md) to your Bicep file. You use functions to dynamically construct values. Currently, Bicep doesn't support user-defined functions. This tutorial takes **7 minutes** to complete.
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Prerequisites
 
 We recommend that you complete the [tutorial about parameters](./tutorial-add-parameters.md), but it's not required.

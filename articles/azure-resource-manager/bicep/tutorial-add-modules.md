@@ -4,15 +4,13 @@ description: Use modules to encapsulate complex details of the raw resource decl
 author: mumian
 ms.date: 03/25/2021
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Add modules to Azure Resource Manager Bicep file
 
 In the [previous tutorial](./tutorial-use-parameter-file.md), you learned how to use a parameter file to deploy your Bicep file. In this tutorial, you learn how to use Bicep modules to encapsulate complex details of the raw resource declaration. The modules can be shared and reused within your solution.  It takes about **12 minutes** to complete.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## Prerequisites
 
