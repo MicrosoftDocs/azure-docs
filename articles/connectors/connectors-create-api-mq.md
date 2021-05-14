@@ -44,7 +44,7 @@ The following list describes only some of the managed operations available for M
 
 For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
-#### [Built-in)](#tab/built-in)
+#### [Built-in](#tab/built-in)
 
 The following list describes only some of the built-in operations available for MQ:
 
