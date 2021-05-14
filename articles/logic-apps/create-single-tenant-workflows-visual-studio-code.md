@@ -89,7 +89,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
     > [!IMPORTANT]
     > Projects created with earlier preview extensions no longer work. To continue, 
-    > uninstall any preview versions, and create new logic app projects.
+    > uninstall any earlier versions, and recreate your logic app projects.
 
     To install the **Azure Logic Apps (Standard)** extension, follow these steps:
 
@@ -143,7 +143,7 @@ To find and confirm these settings, follow these steps:
 
 1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
-1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
+1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Standard)**.
 
    For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
 
@@ -157,11 +157,11 @@ To find and confirm these settings, follow these steps:
 
    ![Screenshot that shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. In the Azure pane, under **Azure: Logic Apps (Preview)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
+1. In the Azure pane, under **Azure: Logic Apps (Standard)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Preview)** section.
+   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Standard)** section.
    
    If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
@@ -183,7 +183,7 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close any and all open folders.
 
-1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create New Project** (icon that shows a folder and lightning bolt).
+1. In the Azure pane, next to **Azure: Logic Apps (Standard)**, select **Create New Project** (icon that shows a folder and lightning bolt).
 
    ![Screenshot that shows Azure pane toolbar with "Create New Project" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
@@ -255,7 +255,7 @@ Before you can create your logic app, create a local project so that you can man
 
 ## Enable built-in connector authoring
 
-You can create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
 
 The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
 
@@ -397,9 +397,9 @@ The workflow in this example uses this trigger and these actions:
    > If too much time passes before you complete the prompts, the authentication process times out and fails. 
    > In this case, return to the designer and retry signing in to create the connection.
 
-1. When the Azure Logic Apps (Preview) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
+1. When the Azure Logic Apps (Standard) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
 
-   ![Screenshot that shows the Preview extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
+   ![Screenshot that shows the extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
@@ -422,8 +422,7 @@ The workflow in this example uses this trigger and these actions:
    > [!NOTE]
    > If you want to make any changes in the details pane on the **Settings**, **Static Result**, or **Run After** tab, 
    > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
-   > Otherwise, Visual Studio Code won't keep your changes. For more information, review the 
-   > [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+   > Otherwise, Visual Studio Code won't keep your changes.
 
 1. On the designer, select **Save**.
 
@@ -777,38 +776,38 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 ## Deploy to Azure
 
-From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the new **Logic App (Preview)** resource type. Similar to the function app resource in Azure Functions, deployment for this new resource type requires that you select a [hosting plan and pricing tier](../app-service/overview-hosting-plans.md), which you can set up during deployment. For more information about hosting plans and pricing, review these topics:
+From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the new **Logic App (Standard)** resource type. Similar to the function app resource in Azure Functions, deployment for this new resource type requires that you select a [hosting plan and pricing tier](../app-service/overview-hosting-plans.md), which you can set up during deployment. For more information about hosting plans and pricing, review these topics:
 
 * [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
 * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
 
-You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Preview)** resource, which overwrites that logic app.
+You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
-### Publish to a new Logic App (Preview) resource
+### Publish to a new Logic App (Standard) resource
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. On the **Azure: Logic Apps (Preview)** pane toolbar, select **Deploy to Logic App**.
+1. On the **Azure: Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
 1. From the list that Visual Studio Code opens, select from these options:
 
-   * **Create new Logic App (Preview) in Azure** (quick)
-   * **Create new Logic App (Preview) in Azure Advanced**
-   * A previously deployed **Logic App (Preview)** resource, if any exist
+   * **Create new Logic App (Standard) in Azure** (quick)
+   * **Create new Logic App (Standard) in Azure Advanced**
+   * A previously deployed **Logic App (Standard)** resource, if any exist
 
-   This example continues with **Create new Logic App (Preview) in Azure Advanced**.
+   This example continues with **Create new Logic App (Standard) in Azure Advanced**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane with a list with "Create new Logic App (Preview) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane with a list with "Create new Logic App (Standard) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
 
-1. To create your new **Logic App (Preview)** resource, follow these steps:
+1. To create your new **Logic App (Standard)** resource, follow these steps:
 
-   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Preview)** resource. This example uses `Fabrikam-Workflows-App`.
+   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
    1. Select a [hosting plan](../app-service/overview-hosting-plans.md) for your new logic app, either [**App Service Plan** (Dedicated)](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md).
 
@@ -824,19 +823,19 @@ You can publish your logic app as a new resource, which automatically creates an
       > For more information, review these topics:
       > 
       > * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-      > * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+      > * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
       This example uses the **App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-single-tenant-workflows-visual-studio-code/select-hosting-plan.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-single-tenant-workflows-visual-studio-code/select-hosting-plan.png)
 
    1. Create a new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
    1. Provide a name for your App Service plan, and then select a [pricing tier](../app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to select a pricing tier.](./media/create-single-tenant-workflows-visual-studio-code/select-pricing-tier.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to select a pricing tier.](./media/create-single-tenant-workflows-visual-studio-code/select-pricing-tier.png)
 
    1. For optimal performance, find and select the same resource group as your project for the deployment.
 
@@ -847,7 +846,7 @@ You can publish your logic app as a new resource, which automatically creates an
 
    1. For stateful workflows, select **Create new storage account** or an existing storage account.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Preview)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
+      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
 
    1. If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
 
@@ -975,7 +974,7 @@ You can have multiple workflows in your logic app project. To add a blank workfl
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. In the Azure pane, next to **Azure: Logic Apps (Preview)**, select **Create Workflow** (icon for Azure Logic Apps).
+1. In the Azure pane, next to **Azure: Logic Apps (Standard)**, select **Create Workflow** (icon for Azure Logic Apps).
 
 1. Select the workflow type that you want to add: **Stateful** or **Stateless**
 
@@ -987,9 +986,9 @@ When you're done, a new workflow folder appears in your project along with a **w
 
 ## Manage deployed logic apps in Visual Studio Code
 
-In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Preview)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Preview)** extensions for Visual Studio Code.
+In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Standard)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Standard)** extensions for Visual Studio Code.
 
-1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
@@ -1000,7 +999,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
    > For more information, review [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
    > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
-   ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Preview)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
+   ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
 1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
@@ -1037,7 +1036,7 @@ Stopping a logic app affects workflow instances in the following ways:
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
   1. In Visual Studio Code, on the left toolbar, select the Azure icon. 
-  1. In the **Azure: Logic Apps (Preview)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+  1. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
   1. Expand your logic app, and then expand the **Workflows** node.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
@@ -1060,15 +1059,15 @@ Deleting a logic app affects workflow instances in the following ways:
 
 ## Manage deployed logic apps in the portal
 
-After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Standard)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Standard)** resource type, follow these steps:
 
-1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
+1. In the Azure portal search box, enter `logic apps`. When the results list appears, under **Services**, select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic app preview" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
+   ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
-1. On the **Logic App (Preview)** pane, find and select the logic app that you deployed from Visual Studio Code.
+1. On the **Logic App (Standard)** pane, find and select the logic app that you deployed from Visual Studio Code.
 
-   ![Screenshot that shows the Azure portal and the Logic App (Preview) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
+   ![Screenshot that shows the Azure portal and the Logic App (Standard) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
 
    The Azure portal opens the individual resource page for the selected logic app.
 
@@ -1078,7 +1077,7 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
    The **Workflows** pane shows all the workflows in the current logic app. This example shows the workflow that you created in Visual Studio Code.
 
-   ![Screenshot that shows a "Logic App (Preview)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-single-tenant-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
+   ![Screenshot that shows a "Logic App (Standard)" resource page with the "Workflows" pane open and the deployed workflow](./media/create-single-tenant-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
 1. To view a workflow, on the **Workflows** pane, select that workflow.
 
@@ -1096,9 +1095,9 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
 ## Add another workflow in the portal
 
-Through the Azure portal, you can add blank workflows to a **Logic App (Preview)** resource that you deployed from Visual Studio Code and build those workflows in the Azure portal.
+Through the Azure portal, you can add blank workflows to a **Logic App (Standard)** resource that you deployed from Visual Studio Code and build those workflows in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com), find and select your deployed **Logic App (Preview)** resource.
+1. In the [Azure portal](https://portal.azure.com), find and select your deployed **Logic App (Standard)** resource.
 
 1. On the logic app menu, select **Workflows**. On the **Workflows** pane, select **Add**.
 
@@ -1157,9 +1156,9 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 ## Enable monitoring view in the Azure portal
 
-After you deploy a **Logic App (Preview)** resource from Visual Studio Code to Azure, you can review any available run history and details for a workflow in that resource by using the Azure portal and the **Monitor** experience for that workflow. However, you first have to enable the **Monitor** view capability on that logic app resource.
+After you deploy a **Logic App (Standard)** resource from Visual Studio Code to Azure, you can review any available run history and details for a workflow in that resource by using the Azure portal and the **Monitor** experience for that workflow. However, you first have to enable the **Monitor** view capability on that logic app resource.
 
-1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Preview)** resource.
+1. In the [Azure portal](https://portal.azure.com), find and select the deployed **Logic App (Standard)** resource.
 
 1. On that resource's menu, under **API**, select **CORS**.
 
@@ -1167,7 +1166,7 @@ After you deploy a **Logic App (Preview)** resource from Visual Studio Code to A
 
 1. When you're done, on the **CORS** toolbar, select **Save**.
 
-   ![Screenshot that shows the Azure portal with a deployed Logic App (Preview) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-single-tenant-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+   ![Screenshot that shows the Azure portal with a deployed Logic App (Standard) resource. On the resource menu, "CORS" is selected with a new entry for "Allowed Origins" set to the wildcard "*" character.](./media/create-single-tenant-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
 <a name="enable-open-application-insights"></a>
 
@@ -1335,7 +1334,7 @@ When you try to open the designer, you get this error, **"Workflow design time c
 
   1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
 
-  1. From the list in the Output window's title bar, select **Azure Logic Apps (Preview)** so that you can review output from the extension, for example:
+  1. From the list in the Output window's title bar, select **Azure Logic Apps (Standard)** so that you can review output from the extension, for example:
 
      ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-single-tenant-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
 
@@ -1367,7 +1366,7 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 
 > [!NOTE]
 > This solution applies only to logic apps that you create and deploy using Visual Studio Code with 
-> the Azure Logic Apps (Preview) extension, not the logic apps that you created using the Azure portal. 
+> the Azure Logic Apps (Standard) extension, not the logic apps that you created using the Azure portal. 
 > See [Supported triggers and actions are missing from the designer in the Azure portal](create-single-tenant-workflows-azure-portal.md#missing-triggers-actions).
 
 1. Save any work that you don't want to lose, and close Visual Studio.
@@ -1382,7 +1381,7 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 
    `...\Users\{your-username}\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
 
-1. Delete the version folder for the earlier package, for example, if you have a folder for version 1.0.0.8-preview, delete that folder.
+1. Delete the version folder for the earlier package.
 
 1. Reopen Visual Studio Code, your project, and the **workflow.json** file in the designer.
 
@@ -1461,7 +1460,7 @@ When you try to start a debugging session, you get the error, **"Error exists af
 
 ## Next steps
 
-We'd like to hear from you about your experiences with the Azure Logic Apps (Preview) extension!
+We'd like to hear from you about your experiences with the Azure Logic Apps (Standard) extension!
 
 * For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
