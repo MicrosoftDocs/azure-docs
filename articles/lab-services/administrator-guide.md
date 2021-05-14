@@ -211,12 +211,27 @@ When you're assigning roles, it helps to follow these tips:
    - To give educators the ability to create new labs and manage the labs that they create, you need only assign them the Lab Creator role.
    - To give educators the ability to manage specific labs, but *not* the ability to create new labs, assign them either the Owner or Contributor role for each lab that they'll manage. For example, you might want to allow a professor and a teaching assistant to co-own a lab. For more information, see [Add Owners to a lab](./how-to-add-user-lab-owner.md).
 
+## Content filtering
+
+Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services doesn't offer built-in support for content filtering.
+
+There are two approaches that schools typically consider for content filtering:
+- Configure a firewall to filter content at the network level.
+- Install 3rd party software directly on each computer that performs content filtering.
+
+The first approach isn't currently supported by Lab Services.  Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  As a result, you don't have access to the underlying virtual network to do content filtering at the network level.  For more information on Lab Services' architecture, read the article [Architecture Fundamentals](./classroom-labs-fundamentals.md).
+
+Instead, we recommend the second approach which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+- If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you will need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
+- You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  By default, Lab Services creates an admin account that each student uses to sign into their VM.  It is possible to add a non-admin account using a specialized image, but there are some known limitations.
+
+If your school needs to do content filtering, contact us via the [Azure Lab Services' forums](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) for more information.
+
 ## Pricing
 
 ### Azure Lab Services
 
 To learn about pricing, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).
-
 
 ### Shared Image Gallery
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
+# This article applies to device developers.
 ---
 
 # IoT Central device development guide
-
-*This article applies to device developers.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 

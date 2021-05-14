@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NIST SP 800-53 R4
 description: Details of the NIST SP 800-53 R4 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -21,7 +21,7 @@ initiative definition, open **Policy** in the Azure portal and select the **Defi
 Then, find and select the **NIST SP 800-53 R4** Regulatory Compliance built-in
 initiative definition.
 
-This built-in initiative is deployed as part of the 
+This built-in initiative is deployed as part of the
 [NIST SP 800-53 R4 blueprint sample](../../blueprints/samples/nist-sp-800-53-r4.md).
 
 > [!IMPORTANT]

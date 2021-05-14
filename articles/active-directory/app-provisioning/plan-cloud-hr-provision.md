@@ -80,7 +80,7 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 - Azure AD [application administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app in the Azure portal
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
-- For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the Azure AD Connect provisioning agent
+- For user provisioning to Active Directory, a server running Windows Server 2016 or greater is required to host the Azure AD Connect provisioning agent. This server should be a tier 0 server based on the Active Directory administrative tier model.
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) for synchronizing users between Active Directory and Azure AD.
 
 ### Training resources

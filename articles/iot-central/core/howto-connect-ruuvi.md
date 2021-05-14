@@ -8,13 +8,13 @@ ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
+
+# This article applies to solution builders.
 ---
 
 # Connect a RuuviTag sensor to your Azure IoT Central application
 
-*This article applies to solution builders.*
-
-This article describes how, as a solution builder, you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
+This article describes how you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
 
 What is a Ruuvi tag?
 
@@ -72,7 +72,7 @@ To create a simulated RuuviTag:
 
 ## Next Steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)

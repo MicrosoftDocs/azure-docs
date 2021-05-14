@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
-ms.date: 7/13/2019
+ms.date: 05/05/2021
 ms.author: rohink
 ---
 

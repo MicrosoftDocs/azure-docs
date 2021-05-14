@@ -4,7 +4,7 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/21/2021
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -61,7 +61,7 @@ No.
 
 ### What edition of Azure AD do I need to access the property?
 
-You can access this property in all editions of Azure AD.
+To access this property, you need an Azure Active Directory Premium edition.
 
 ### What permission do I need to read the property?
 

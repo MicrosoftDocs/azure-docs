@@ -7,11 +7,11 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This topic applies to solution builders.
 ---
 
 # Transform data for IoT Central
-
-*This topic applies to solution builders.*
 
 IoT devices send data in various formats. To use the device data with your IoT Central application, you may need to use a transformation to:
 

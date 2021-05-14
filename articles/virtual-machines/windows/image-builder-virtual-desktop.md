@@ -6,9 +6,9 @@ ms.author: danis
 ms.reviewer: cynthn
 ms.date: 01/27/2021
 ms.topic: article
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: imaging
+ms.subservice: image-builder
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell

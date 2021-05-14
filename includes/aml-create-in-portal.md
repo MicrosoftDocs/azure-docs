@@ -31,9 +31,9 @@ ms.date: 11/04/2019
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources to create your workspace.
-   Workspace edition | Select **Basic** as the workspace type for this tutorial. The workspace type determines the features to which you'll have access and pricing. Everything in this tutorial can be performed with either a Basic or Enterprise workspace.
 
 1. After you're finished configuring the workspace, select **Review + Create**.
+1. Select **Create** to create the workspace.
 
    > [!Warning]
    > It can take several minutes to create your workspace in the cloud.
@@ -41,4 +41,5 @@ ms.date: 11/04/2019
    When the process is finished, a deployment success message appears.
  
  1. To view the new workspace, select **Go to resource**.
+ 1. From the portal view of your workspace, select **Launch studio** to go to the Azure Machine Learning studio. 
 

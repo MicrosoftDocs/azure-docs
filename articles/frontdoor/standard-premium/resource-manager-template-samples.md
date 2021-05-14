@@ -27,7 +27,6 @@ The following table includes links to Azure Resource Manager templates for Azure
 |**App Service origins**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Creates an App Service app with a public endpoint, and a Front Door profile.  |
 | [App Service with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Creates an App Service app with a private endpoint, and a Front Door profile.  |
-| [App Service environment with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Creates an App Service environment, an app with a private endpoint, and a Front Door profile.  |
 |**Azure Functions origins**| **Description** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Creates an Azure Functions app with a public endpoint, and a Front Door profile.  |
 | [Azure Functions with Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Creates an Azure Functions app with a private endpoint, and a Front Door profile.  |

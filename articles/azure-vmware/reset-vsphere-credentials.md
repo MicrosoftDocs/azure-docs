@@ -22,15 +22,15 @@ In addition to this how-to, you can also view the video for [resetting the vCent
 
 2. Run the following command to update your vCenter CloudAdmin password.  You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the CloudAdmin account belongs to.
 
-```
-az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
-```
+   ```azurecli-interactive
+   az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
+   ```
           
-3. Run the following command to update your NSX-T admin password. You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the NSX-T admin account belongs to.
+3. Run the following command to update your NSX-T admin password. You will need to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with the actual values of the private cloud that the NSX-T admin account belongs to.
 
-```
-az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
-```
+   ```azurecli-interactive
+   az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
+   ```
 
 ## Ensure the HCX connector has your latest vCenter Server credentials
 
@@ -40,7 +40,7 @@ Now that you've reset your credentials, follow these steps to ensure the HCX con
 
 2. On the VMware HCX Dashboard, select **Site Pairing**.
     
-    :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
+   :::image type="content" source="media/reset-vsphere-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
  
 3. Select the correct connection to Azure VMware Solution (if there is more than one) and select **Edit Connection**.
  
@@ -51,5 +51,5 @@ Now that you've reset your credentials, follow these steps to ensure the HCX con
 Now that you've covered resetting vCenter Server and NSX-T Manager credentials for Azure VMware Solution, you may want to learn about:
 
 - [Configuring NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
 - [Deploying disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md).

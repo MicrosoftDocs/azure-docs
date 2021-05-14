@@ -13,7 +13,7 @@ manager: philmea
 
 # Export your application
 
-This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
+This article describes how to export an IoT Central application to be able to reuse it.
 
 You have two options:
 
