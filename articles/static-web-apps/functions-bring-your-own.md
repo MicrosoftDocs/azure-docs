@@ -51,7 +51,7 @@ https://red-sea-123.azurestaticapps.net/api/getProducts
 
 Before you associate an existing Functions app, you first need to adjust to configuration of your static web app.
 
-1. Blank out the `api_location` value in the [workflow configuration](./github-actions-workflow.md) file.
+1. Set `api_location` value to an empty string (`""`) in the [workflow configuration](./github-actions-workflow.md) file.
 
 1. Open your Static Web Apps instance in the [Azure portal](https://portal.azure.com).
 
@@ -70,7 +70,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
     :::image type="content" source="media/functions-bring-your-own/azure-static-web-apps-link-existing-functions-app.png" alt-text="Link an existing Functions app":::
 
 > [!IMPORTANT]
-> Make sure you blank out the `api_location` value in the [workflow configuration](./github-actions-workflow.md) file before you link an existing Functions application.
+> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./github-actions-workflow.md) file before you link an existing Functions application.
 
 ## Deployment
 
@@ -92,7 +92,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 ## Restrictions
 
 - Only one Azure Functions app is available to a single static web app.
-- The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
+- The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be set to an empty string.
 - Only supported in the Static Web Apps production environment.
 - While your Azure Functions app may respond to various triggers, the static web app can only access functions via Http endpoints.
 
