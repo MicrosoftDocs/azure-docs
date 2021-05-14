@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 05/14/2021
 ---
 
 # Prepare data with data wrangling
@@ -32,13 +32,13 @@ The other method is in the activities pane of the pipeline canvas. Open the **Po
 
 ## Author a Power Query data wrangling activity
 
-Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. You can also select a sink dataset. You can choose one or more source datasets, but only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
+Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. After you have saved your mash-up, you can then add the Power Query data wrangling activity to your pipeline and select a sink dataset to tell ADF where to land your data. While you can choose one or more source datasets, only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
 
 ![Wrangling](media/wrangling-data-flow/tutorial4.png)
 
 Click **Create** to open the Power Query Online mashup editor.
 
-![Screenshot that shows the Create button that opens the Power Query Online mashup editor.](media/wrangling-data-flow/tutorial5.png)
+![Screenshot that shows the Create button that opens the Power Query Online mashup editor.](media/wrangling-data-flow/pq-activity-001.png)
 
 Author your wrangling Power Query using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md). ADF translates the M script into a data flow script so that you can execute your Power Query at scale using the Azure Data Factory data flow Spark environment.
 
