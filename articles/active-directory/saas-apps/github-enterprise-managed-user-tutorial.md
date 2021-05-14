@@ -65,7 +65,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. Please ensure that you have your Enterprise URL before you begin. The ENTITY field mentioned below is the Enterprise name of your EMU-enabled Enterprise URL. For example, https://github.com/enterprises/contoso - **contoso** is the ENTITY. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. Ensure that you have your Enterprise URL before you begin. The ENTITY field mentioned below is the Enterprise name of your EMU-enabled Enterprise URL. For example, https://github.com/enterprises/contoso - **contoso** is the ENTITY. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://github.com/enterprises/<ENTITY>`
@@ -99,12 +99,12 @@ In this section, you'll assign your account to GitHub Enterprise Managed User in
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select your account from the Users list, then click the **Select** button at the bottom of the screen.
-1. In the **Select a role** dialog, select the **Enterprise Owner** role, then click the **Select** button at the bottom of the screen. This will assign your account as an Enterprise Owner for your GitHub instance when you provision your account in the next tutorial. 
+1. In the **Select a role** dialog, select the **Enterprise Owner** role, then click the **Select** button at the bottom of the screen. Your account is assigned as an Enterprise Owner for your GitHub instance when you provision your account in the next tutorial. 
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure GitHub Enterprise Managed User SSO
 
-To configure single sign-on on **GitHub Enterprise Managed User** side, you will require the following:
+To configure single sign-on on **GitHub Enterprise Managed User** side, you will require the following items:
 
 1. The URLs from your AAD Enterprise Managed User Application above: Login URL; Azure AD Identifier; and Logout URL
 1. The account name and password for the first administrator user of your GitHub Enterprise. The credentials are provided by a password reset email from your GitHub Solutions Engineering contact. 
@@ -122,11 +122,11 @@ In this section, you'll take the information provided from AAD above and enter t
 1. Enter the Sign on URL. This URL is the Login URL that you copied from AAD above.
 1. Enter the Issuer. This URL is the Azure AD Identifier that you copied from AAD above.
 1. Enter the Public Certificate. Please open the base64 certificate that you downloaded above and paste the text contents of that file into this dialog.
-1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Please log in with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
+1. Click on **Test SAML configuration**. This will open up a dialog for you to log in with your Azure AD credentials to validate that SAML SSO is configured correctly. Log in with your AAD credentials. you will receive a message **Passed: Successfully authenticated your SAML SSO identity** upon successful validation.
 1. Click **Save** to persist these settings.
 1. Please save (download, print, or copy) the recovery codes in a secure place.
 1. Click on **Enable SAML authentication**.
-1. At this point, only accounts with SSO are able to log into your Enterprise. Please follow the instructions in the document below on provisioning in order to provision accounts backed by SSO.
+1. At this point, only accounts with SSO are able to log into your Enterprise. Follow the instructions in the document below on provisioning in order to provision accounts backed by SSO.
 
 ## Next steps
 
