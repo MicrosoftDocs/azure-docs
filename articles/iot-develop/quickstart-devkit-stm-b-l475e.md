@@ -1,7 +1,7 @@
 ---
 title: Connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 to Azure IoT Central quickstart
 description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 device to Azure IoT and send telemetry.
-author: v-jbrannian
+author: JimacoMS4
 ms.author: v-jbrannian
 ms.service: iot-develop
 ms.devlang: c
