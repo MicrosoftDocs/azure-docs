@@ -104,10 +104,10 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
 
 10. Download the JSON output file to view the detailed results.
 
-   * The "readResults" node contains every line of text with its respective bounding box placement on the page.
-   * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
-   * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
-   * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
+    * The "readResults" node contains every line of text with its respective bounding box placement on the page.
+    * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+    * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
+    * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
 ## Train & Analyze a custom Form
 
@@ -140,19 +140,19 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 
 #### Create a new project
 
-4. Configure the project settings fill in the fields with the following values:
+Configure the project settings fill in the fields with the following values:
 
-    * **Display Name** - the project display name
-    * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+* **Display Name** - the project display name
+* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
-    * **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
-        * **Display Name** - The connection display name.
-        * **Description** - Your project description.
-        * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
+* **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
+   * **Display Name** - The connection display name.
+   * **Description** - Your project description.
+   * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
 
-[!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
-  :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
 * **Folder Path** -- Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
