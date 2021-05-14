@@ -93,7 +93,9 @@ After you're finished, you can export the model to a Docker container by using t
 
 1. You should have a zip file downloaded onto your local machine named `<projectname>.DockerFile.Linux.zip`.
 2. Check if you have Docker installed. If not, install [Docker](https://docs.docker.com/get-docker/) for your Windows desktop.
-3. Unzip the downloaded file in a location of your choice. Use the command line to go to the unzipped folder directory.
+3. Unzip the downloaded file in a location of your choice. Use the command line to go to the unzipped folder directory. You should see the following two files - app\labels.txt and app\model.pb
+4. Clone the [Video Analyzer repository](https://github.com/Azure/video-analyzer) and use the command line to go to the edge-modules\extensions\customvision\avaextension folder
+5. Copy the labels.txt and model.pb files from Step 3 into the  edge-modules\extensions\customvision\avaextension folder. In the same folder -
 
    Run the following commands:
 
@@ -117,7 +119,7 @@ After you're finished, you can export the model to a Docker container by using t
       CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
       8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
       ```
-   5. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
+   5. `curl -X POST http://127.0.0.1:80/score -F imageData=@<path to any image file that has the toy delivery truck in it>`
 
       This command tests the container on the local machine. If the image has the same delivery truck as we trained the model on, the output should be something like the following example. It suggests the delivery truck was detected with 90.12% probability.
 
@@ -143,7 +145,7 @@ After you're finished, you can export the model to a Docker container by using t
 3. Under `livePipelineSet`, ensure:
 
    1. `"topologyName" : "InferencingWithHttpExtension"`
-   2. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv/image"},`
+   2. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv/score"},`
    3. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
 4. Under `livePipelineDelete`, ensure `"name": "InferencingWithHttpExtension"`.
 5. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
@@ -291,36 +293,73 @@ The HTTP extension processor node receives inference results from the Custom Vis
 ```
 {
   "body": {
-    "timestamp": 145712841267300,
+    "timestamp": 145892470449324,
     "inferences": [
       {
-        "type": "other",
-        "other": {
-          "contentType": "application/json",
-          "contentBytes": "eyJjcmVhdGVkIjoiMjAyMS0wNC0yMVQxODo1OTozMy4xNjQ0NzUiLCJpZCI6IiIsIml0ZXJhdGlvbiI6IiIsInByZWRpY3Rpb25zIjpbeyJib3VuZGluZ0JveCI6eyJoZWlnaHQiOjAuNTU2OTEyMjEsImxlZnQiOjAuMzMzOTM0MDcsInRvcCI6MC4wMzA4NTg1MSwid2lkdGgiOjAuMTgyMTA3Mzd9LCJwcm9iYWJpbGl0eSI6MC4yODM4MjU3MywidGFnSWQiOjAsInRhZ05hbWUiOiJkZWxpdmVyeSB0cnVjayJ9LHsiYm91bmRpbmdCb3giOnsiaGVpZ2h0IjowLjY0MTIyMjkzLCJsZWZ0IjotMC4wMDI3Mjg4OSwidG9wIjowLjA0Njg0MTU1LCJ3aWR0aCI6MC4xMjg5NjQ1OX0sInByb2JhYmlsaXR5IjowLjEzMDA4NzAzLCJ0YWdJZCI6MCwidGFnTmFtZSI6ImRlbGl2ZXJ5IHRydWNrIn1dLCJwcm9qZWN0IjoiIn0K"
+        "type": "entity",
+        "entity": {
+          "tag": {
+            "value": "delivery truck",
+            "confidence": 0.20541823
+          },
+          "box": {
+            "l": 0.6826309,
+            "t": -0.01415127,
+            "w": 0.3135161,
+            "h": 0.94683206
+          }
+        }
+      },
+      {
+        "type": "entity",
+        "entity": {
+          "tag": {
+            "value": "delivery truck",
+            "confidence": 0.14967085
+          },
+          "box": {
+            "l": 0.33310884,
+            "t": 0.03174839,
+            "w": 0.13532706,
+            "h": 0.54967254
+          }
+        }
+      },
+      {
+        "type": "entity",
+        "entity": {
+          "tag": {
+            "value": "delivery truck",
+            "confidence": 0.1352181
+          },
+          "box": {
+            "l": 0.48884687,
+            "t": 0.44746214,
+            "w": 0.025887,
+            "h": 0.05414263
+          }
         }
       }
     ]
   },
   "properties": {
-    "topic": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/resourceGroups/avaAvi0407/providers/Microsoft.Media/videoAnalyzers/avaavi0407/edgeModules/aviavi0407",
-    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/processors/inferenceClient",
+    "topic": "/subscriptions/...",
+    "subject": "/edgeModules/avaedge/livePipelines/Sample-Pipeline-1/processors/httpExtension",
     "eventType": "Microsoft.VideoAnalyzer.Analytics.Inference",
-    "eventTime": "2021-04-21T18:59:29.636Z",
+    "eventTime": "2021-05-14T21:24:09.436Z",
     "dataVersion": "1.0"
   },
   "systemProperties": {
-    "iothub-connection-device-id": "ava-sample-device",
+    "iothub-connection-device-id": "avasample-iot-edge-device",
     "iothub-connection-module-id": "avaedge",
     "iothub-connection-auth-method": "{\"scope\":\"module\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-    "iothub-connection-auth-generation-id": "637544595384806067",
-    "iothub-enqueuedtime": 1619031573164,
+    "iothub-connection-auth-generation-id": "637563926153483223",
+    "iothub-enqueuedtime": 1621027452077,
     "iothub-message-source": "Telemetry",
-    "messageId": "6193ddbe-8961-4d80-9904-0235b883bc45",
+    "messageId": "96f7f0b5-728d-4e3e-a7bb-4e3198c58726",
     "contentType": "application/json",
     "contentEncoding": "utf-8"
   }
-}
 ```
 
 Note the following information in the preceding messages:
@@ -329,7 +368,7 @@ Note the following information in the preceding messages:
 - The event type in `properties` indicates that this is an analytics inference event.
 - The event time indicates the time when the event occurred.
 - The body contains data about the analytics event. In this case, the event is an inference event, so the body contains an array of inferences called predictions.
-- The predictions section contains a list of predictions where a toy delivery truck (tag is "delivery truck") is found in the frame. As you recall, "delivery truck" is the custom tag that you provided to your custom trained model for the toy truck. The model inferences and identifies the toy truck in the input video with different probability confidence scores.
+- The inferences section contains a list of predictions where a toy delivery truck (tag is "delivery truck") is found in the frame. As you recall, "delivery truck" is the custom tag that you provided to your custom trained model for the toy truck. The model inferences and identifies the toy truck in the input video with different probability confidence scores.
 
 ## Clean up resources
 
