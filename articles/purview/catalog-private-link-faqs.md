@@ -12,7 +12,7 @@ ms.date: 05/11/2021
 
 # Frequently asked questions (FAQ) about Azure Purview Private Endpoints
 
-This article answers common questions that customers and field teams often ask about Azure Purview network configurations using [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). It is intended to clarify questions about Azure Purview Firewall settings, Private Endpoints, DNS configuration and related configurations.
+This article answers common questions that customers and field teams often ask about Azure Purview network configurations using [Azure Private Link](../private-link/private-link-overview.md). It is intended to clarify questions about Azure Purview Firewall settings, Private Endpoints, DNS configuration and related configurations.
 
 To setup Azure Purview using Private Link, see [Use private endpoints for your Purview account](./catalog-private-link.md).
 
@@ -58,7 +58,7 @@ You cannot modify the Private Endpoint ingestion manually for the managed Storag
 
 No, As protected resources, access to Azure Purview managed Storage Account and Event Hub namespace is restricted to Azure Purview only. These resources are deployed with a deny assignment to all principals which prevents any applications, users or groups gaining access to them.
 
-To read more about Azure Deny Assignment see, [Understand Azure deny assignments](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).
+To read more about Azure Deny Assignment see, [Understand Azure deny assignments](../role-based-access-control/deny-assignments.md).
     
 ### What are the supported authentication type when using Private Endpoint?
 
@@ -79,15 +79,13 @@ Azure Key Vault or Service Principal.
 No, however _PrivateEndpointNetworkPolicies_ must be disabled in the destination subnet before deploying the Private Endpoints.
 Consider deploying Azure Purview into a Virtual Network that has network connectivity to data sources VNets through VNet Peering and access to on-premises network if you are planning to scan data sources cross premises.
     
-Read more about [Disable network policies for private endpoints](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy).
-    
-Read more about [Network topology and connectivity overview](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity).
+Read more about [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
 
 ### Can I deploy Azure Purview Private Endpoints and use existing Private DNS Zones in my subscription to register the A records?
 
 Yes, Your Private Endpoints DNS zones can be centralized in a hub or data management subscription for all internal DNS zones required for Azure Purview and all data sources records. This is the recommended method to allow Azure Purview resolve data sources using their Private Endpoint internal IP addresses.
 
-Additionally, it is required to setup a [virtual network link](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links) for VNet for the existing private DNS zone.
+Additionally, it is required to setup a [virtual network link](../dns/private-dns-virtual-network-links.md) for VNet for the existing private DNS zone.
     
 ### Can I use Azure integration runtime to scan data sources through Private Endpoint? 
 
