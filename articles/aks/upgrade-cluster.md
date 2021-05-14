@@ -163,6 +163,10 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## Using Cluster Auto-Upgrade with Planned Maintenance
+
+Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically.
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.
