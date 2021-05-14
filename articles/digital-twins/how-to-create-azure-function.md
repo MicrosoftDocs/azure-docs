@@ -53,7 +53,7 @@ After your function app is created, Visual Studio generates a code sample in a *
 
 ## Write a function that has an Event Grid trigger
 
-You can write a function by adding an SDK to your function app. The function app interacts with Azure Digital Twins by using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
+You can write a function by adding an SDK to your function app. The function app interacts with Azure Digital Twins by using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 To use the SDK, you'll need to include the following packages in your project. Install the packages by using the Visual Studio NuGet package manager. Or add the packages by using `dotnet` in a command-line tool.
 
