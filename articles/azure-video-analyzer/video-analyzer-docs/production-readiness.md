@@ -76,36 +76,48 @@ sudo chown -R localedgeuser:localedgegroup /var/lib/videoanalyzer
 Next, in the create options for the edge module in the deployment manifest, you can add a `binds` setting mapping the directory ("/var/lib/videoanalyzer") above to a directory in the module (such as "/var/lib/videoanalyzer"). And you would use the latter directory as the value for `applicationDataDirectory`.
 
 ```
-"avaedge": {
-    "version": "1.0",
-    "type": "docker",
-    "status": "running",
-    "restartPolicy": "always",
-    "settings": {
-        "image": "mcr.microsoft.com/media/azure-video-analyzer:1.0",
-    "createOptions": "{\"HostConfig\":{\"LogConfig\":{\"Type\":\"\",\"Config\":{\"max-size\":\"10m\",\"max-file\":\"10\"}},\"Binds\":[\"/var/media:/var/media/\",\"/var/lib/videoanalyzer:/var/lib/videoanalyzer/\"]}}",
-    
-    "env": {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
+        "modules": {
+          "avaedge": {
+            "version": "1.1",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/media/video-analyzer:1",
+              "createOptions": "{ \"HostConfig\": { \"LogConfig\": { \"Type\": \"\", \"Config\": { \"max-size\": \"10m\", \"max-file\": \"10\" } }, \"Binds\": [ \"/var/media/:/var/media/\", \"/var/lib/videoanalyzer/:/var/lib/videoanalyzer\" ], \"IpcMode\": \"host\", \"ShmSize\": 1536870912 } }"
+            },
+            "env": {
+              "LOCAL_USER_ID": {
+                "value": "1010"
+              },
+              "LOCAL_GROUP_ID": {
+                "value": "1010"
+              }
+            }
+          },
+          …
         },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-    },
+        
     …
     
     "avaedge": {
        "properties.desired": {
-       "applicationDataDirectory": "/var/lib/videoanalyzer",
-    …
+          "applicationDataDirectory": "/var/lib/videoanalyzer",
+          "ProvisioningToken": "{your-token}",
+          "diagnosticsEventsOutputName": "diagnostics",
+          "operationalEventsOutputName": "operational",
+          "logLevel": "information",
+          "LogCategories": "Application,Events",
+          "allowUnsecuredEndpoints": true,
+          "telemetryOptOut": false
+          "allowUnsecuredEndpoints": false
     }
 }
 ```
 
 If you look at the sample pipelines for the quickstart, and tutorials such as [continuous video recording](use-continuous-video-recording.md), you will note that the media cache directory (`localMediaCachePath`) uses a subdirectory under `applicationDataDirectory`. This is the recommended approach, since the cache contains transient data.
+
+Also note that `allowedUnsecuredEndpoints` is set to `true`, as recommended for production environments where you will use TLS encryption to secure traffic.
 
 ### Naming video or files
 
