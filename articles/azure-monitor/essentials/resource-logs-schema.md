@@ -65,7 +65,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Digital Twins | [Set up Azure Digital Twins Diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
-| Azure Firewall | Schema not available. |
+| Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
 | Front Door | [Logging for Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
