@@ -39,7 +39,7 @@ Beyond the built-in roles, you can create new roles, assign them to users via in
 
 ### Add a user to a role
 
-To add a user to a role, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+To add a user to a role, you generate invitations that allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
 
 > [!NOTE]
 > You may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations for group management.
@@ -102,9 +102,9 @@ As you remove a user, keep in mind the following items:
 
 ## Remove personal identifying information
 
-When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
+When you grant consent to an application as an end user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 
-End-users need to contact administrators of individual web apps to revoke this information from their systems.
+End users need to contact administrators of individual web apps to revoke this information from their systems.
 
 To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
 
@@ -124,7 +124,7 @@ Azure Static Web Apps uses the `/.auth` system folder to provide access to autho
 
 ## Login
 
-Use the following table to find the provider-specific login route.
+Use the following table to find the provider-specific route.
 
 | Authorization provider | Login route             |
 | ---------------------- | ----------------------- |
@@ -132,7 +132,7 @@ Use the following table to find the provider-specific login route.
 | GitHub                 | `/.auth/login/github`   |
 | Twitter                | `/.auth/login/twitter`  |
 
-For example, to login with GitHub you could include a login link like the following snippet:
+For example, to log in with GitHub you could include a link like the following snippet:
 
 ```html
 <a href="/.auth/login/github">Login</a>
