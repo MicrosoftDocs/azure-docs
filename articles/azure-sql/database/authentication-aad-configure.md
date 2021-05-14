@@ -47,8 +47,8 @@ For more information, see:
 - [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Add your own domain name to Azure AD](../../active-directory/active-directory-domains-add-azure-portal.md)
 - [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
-- [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-administer.md)
-- [Manage Azure AD using Windows PowerShell](/powershell/azure/overview)
+- [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Manage Azure AD using Windows PowerShell](/powershell/module/azuread)
 - [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
