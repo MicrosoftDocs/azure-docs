@@ -65,7 +65,7 @@ In this quickstart, you will:
     * The **yolov3** module, which uses the YOLOV3 model to detect a variety of objects
 
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
+        > :::image type="content" source="./media/track-objects-live-video/object-tracker-modules.png" alt-text= "List of deployed IoT Edge modules":::
 
 
 ## Create and deploy the live pipeline
