@@ -52,17 +52,15 @@ The following properties are supported for an Amazon S3 Compatible linked servic
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AmazonS3Compatible**. | Yes |
-| authenticationType | Specify the authentication type used to connect to Amazon S3 Compatible. You can choose to use access keys for an AWS Identity and Access Management (IAM) account, or [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Allowed values are: `AccessKey` (default) and `TemporarySecurityCredentials`. |No |
 | accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | forcePathStyle | Indicates whether to use S3 [path-style access](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) instead of virtual hosted-style access. Allowed values are: **false** (default), **true**.<br> Check each data store’s documentation on if path-style access is needed or not. |No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 
 
-**Example: using access key authentication**
+**Example:**
 
 ```json
 {
@@ -84,32 +82,7 @@ The following properties are supported for an Amazon S3 Compatible linked servic
 }
 ```
 
-**Example: using temporary security credential authentication**
 
-```json
-{
-    "name": "AmazonS3CompatibleLinkedService",
-    "properties": {
-        "type": "AmazonS3Compatible",
-        "typeProperties": {
-            "authenticationType": "TemporarySecurityCredentials",
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "sessionToken": {
-                "type": "SecureString",
-                "value": "<session token>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
 
 ## Dataset properties
 
