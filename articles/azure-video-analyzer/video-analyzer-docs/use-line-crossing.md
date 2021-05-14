@@ -110,11 +110,9 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
 
 Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2. This will effectively be 15 frames/sec.
 
-Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).
+Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 
-> [!NOTE]
-> If you had closed Visual Studio Code after completing the prerequisite, and have re-launched the application, then please re-do step 4 to [monitor events](analyze-live-video-use-your-model-http.md?pivots=programming-language-csharp#prepare-to-monitor-events)
-    
+ 
 ## Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
