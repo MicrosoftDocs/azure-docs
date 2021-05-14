@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.topic: subject-monitoring
+ms.topic: reference
 ms.date: 05/05/2021
 ---
 
