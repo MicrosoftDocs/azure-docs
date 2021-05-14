@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     a. Click **Enable Single Sign-On with SAML**.  
  
-    b. In the **Identity Provider URL** textbox, enter the value like `https://YourAccountName.samanage.com` .
+    b. In the **Identity Provider URL** textbox, enter the value like `https://YourAccountName.samanage.com`.
  
     c. Confirm the **Login URL** matches the **Sign On URL** of **Basic SAML Configuration** section in Azure portal.
  
