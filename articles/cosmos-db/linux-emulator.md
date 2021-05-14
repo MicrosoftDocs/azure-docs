@@ -41,17 +41,21 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - The Linux emulator supports a maximum ID property size of 254 characters.
 
-## Run Cosmos DB Linux Emulator on macOS
+## Run Azure Cosmos DB Linux Emulator on macOS
+
 > [!NOTE]
 > The emulator only supports MacBooks with Intel processors. 
 
-1. To get started, visit Docker Hub and install Docker Desktop for macOS. More details here: https://hub.docker.com/editions/community/docker-ce-desktop-mac/ 
+To get started, visit the Docker Hub and install Docker Desktop for macOS.
+For more details, see the [Docker site](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
+
+Follow these steps to run the emulator on macOS:
 
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
 ## Install the certificate
  
-1. Once the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
+1. After the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
 
     ```bash
     ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
@@ -64,13 +68,13 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
     ```
     Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
-2. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+1. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp YourCTR.crt /usr/local/share/ca-certificates/
    ```
 
-3. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+1. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
@@ -84,24 +88,30 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 
 In order to consume the endpoint via the UI using your desired web browser, follow the below steps:
 
--   Make sure you've downloaded the emulator self-signed certificate
+1. Make sure you've downloaded the emulator self-signed certificate
+
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
--	Open up the Keychain Access app on your Mac to import the emulator certificate.
--	Select File and Import Items and import the emulatorcert.crt.
--	Once the emulatorcert.crt is loaded into KeyChain, double-click on the name i.e. "localhost" and change the trust settings to "Always Trust". 
+1. Open up the Keychain Access app on your Mac to import the emulator certificate.
+
+1. Select File and Import Items and import the emulatorcert.crt.
+
+1. After the emulatorcert.crt is loaded into KeyChain, double-click on the name i.e. "localhost" and change the trust settings to "Always Trust". 
 
 You can now browse https://localhost:8081/_explorer/index.html or https://{your_local_ip}:8081/_explorer/index.html and retrieve the connection string to your Cosmos DB emulator.
 
-## Run the Cosmos DB Linux Emulator on Linux
+## Run the Azure Cosmos DB Linux Emulator on Linux
 
-1. To get started, use `apt` package and install the latest version of Docker. 
+To get started, use the `apt` package and install the latest version of Docker. 
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install docker-ce docker-ce-cli containerd.io
-    ```
+```bash
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Follow these steps to run the emulator on Linux:
+
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
 5. Next, download the certificate for the emulator. Alternatively, the endpoint below which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
@@ -141,8 +151,11 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
 ## Troubleshooting
 
+This section provides tips to troubleshoot errors.
+
 ### Connectivity
-1. My app can't connect to emulator endpoint ("The SSL connection could not be established") or I can't start the Data Explorer.
+
+- My app can't connect to emulator endpoint ("The SSL connection could not be established") or I can't start the Data Explorer.
     - Ensure the emulator is running, execute: 
         ```bash
         docker ps --all
@@ -159,7 +172,8 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
     - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
         - .NET: See the [certificates section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
         - Java: See the [Java Certificates Store section](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux)
-2. The Docker container failed to start:
+        
+- The Docker container failed to start.
     - The emulator errors out with the following message:
         
         ```
@@ -171,16 +185,19 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
         This error is likely because the current Docker Host processor type is incompatible with our Docker image; i.e. the computer is a MacBook with a M1 chipset.
 
-3. My app received too many connectivity-related timeouts.
+- My app received too many connectivity-related timeouts.
+
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
     - Ensure the number of TCP connections does not exceed your current OS settings.
     - Try reducing the size of the documents in your application. 
-4. My app could not provision databases/containers.
+    
+- My app could not provision databases/containers.
     - The number of physical partitions provisioned on the emulator is too low. Either delete your unused databases/collections or start the emulator with a [larger number of physical partitions](linux-emulator.md#configuration-options).
 
 
-### Reliability/Crashes
-1. The emulator fails to start.
+### Reliability and crashes
+
+- The emulator fails to start.
     - Please make sure you are [running the latest image of the Cosmos DB emulator for Linux](linux-emulator.md#refresh-linux-container). Otherwise, see the section above regarding connectivity-related issues.
     - If the Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
     - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the additional settings passed via the respective Docker command upon starting the container.
@@ -192,23 +209,27 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
     This can be the case even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case, as long as you still have the permission to add the self-signed emulator SSL certificate into your host machine context (this is required by Java and .NET Cosmos SDK client application).
     
-2. The emulator is crashing.
+- The emulator is crashing.
     - Confirm that creating a container with the [recommended settings](linux-emulator.md#run-the-cosmos-db-linux-emulator-on-linux) works. If yes, most likely the cause of failure is the additional settings passed via the respective Docker command upon starting the container.
     - Please start the emulator's Docker container in an attached mode (see `docker start -it`).
     - Collect the crash related dump/data and follow the [steps outlined](linux-emulator.md#report-an-emulator-issue) to report the issue.  
    
 ### Data explorer errors
-1. I can't view my data.
+
+- I can't view my data.
     - See section regarding connectivity-related issues above.
     - Make sure that the self-signed emulator certificate is properly imported and manually trusted in order for your browser to access the data explorer page.
     - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](linux-emulator.md#report-an-emulator-issue).
 
 ### Performance
-1. Number of requests per second is low, latency of the requests is high. 
+
+- Number of requests per second is low, latency of the requests is high. 
     - The Docker container is not provisioned with enough resources [(cores or memory)](linux-emulator.md#configuration-options). We recommend increasing the number of cores and alternatively, reduce the number of physical partitions provisioned upon start up.
 
 
-## Refresh Linux Container
+## Refresh Linux container
+
+Follow these steps to refresh the Linux container:
 
 1. Run the following command to view all Docker containers.
  
@@ -243,7 +264,9 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
    ```
 
 ## Report an emulator issue 
-Provide as much information as possible detailing your issue:
+
+Provide as much information as possible about your issue:
+
 - Description of the error/issue encountered
 - Environment (OS, host configuration)
 - Computer and processor type
