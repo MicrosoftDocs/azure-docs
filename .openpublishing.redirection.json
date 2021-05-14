@@ -13646,6 +13646,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/hybrid-cloud-extension-installation.md",
       "redirect_url": "/azure/azure-vmware/tutorial-deploy-vmware-hcx",
       "redirect_document_id": false
