@@ -381,7 +381,7 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
-        - name: Train with the CLI 2.0
+        - name: Train with the 2.0 CLI
           href: how-to-train-cli.md
         - name: Configure & submit training run 
           displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
