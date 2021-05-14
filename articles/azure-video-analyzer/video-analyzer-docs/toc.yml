@@ -81,8 +81,6 @@
       href: create-video-analyzer-account.md
     - name: Managed identity
       href: managed-identity.md
-    - name: Network Security
-      href: network-security.md
     - name: Customer managed keys
       href: customer-managed-keys.md
   - name: Deploy
