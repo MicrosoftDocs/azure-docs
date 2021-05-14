@@ -19,7 +19,13 @@ Update Management depends on a Log Analytics workspace to store the collected as
 
 ## Step 3 - Log Analytics agent
 
-The Log Analytics agent for Windows and Linux is required to support Update Management. On Azure VMs, if it isn't already installed, when you enable Update Management for the VM, it is automatically installed and configured. 
+The Log Analytics agent for Windows and Linux is required to support Update Management for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
+
+On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM, it is automatically installed and configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
+
+Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the workspace linked to the Automation account Update Management is enabled in. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with [VM insights](../../azure-monitor/vm/vminsights-overview.md), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+
+If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration when you connect the management group to the Log Analytics workspace.
 
 ## <a name="ports"></a> Step 4 - Network planning
 
