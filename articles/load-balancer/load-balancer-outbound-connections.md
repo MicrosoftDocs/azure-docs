@@ -1,6 +1,7 @@
 ---
-title: SNAT for outbound connections
-description: Describes how Azure Load Balancer is used to perform SNAT for outbound internet connectivity
+title: Source Network Address Translation (SNAT) for outbound connections
+titleSuffix: Azure Load Balancer
+description: Learn how Azure Load Balancer is used for outbound internet connectivity (SNAT).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -10,7 +11,7 @@ ms.date: 05/05/2021
 ms.author: allensu
 ---
 
-# Using SNAT for outbound connections
+# Using Source Network Address Translation (SNAT) for outbound connections
 
 Certain scenarios require virtual machines or compute instances to have outbound connectivity to the internet. The frontend IPs of an Azure public Load Balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)** as the **source** or virtual machine's IP is translated to a Public IP address. SNAT maps the IP address of the backend to the public IP address of your load balancer. This prevents outside sources from having a direct address to the backend instances.
 
@@ -52,15 +53,13 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 ##  Assigning a Public IP to the Virtual Machine
 
-
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
+ | Public IP on VM's NIC | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
- | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
-
-
+ All traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
  
-
+ Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
 
  A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
@@ -88,17 +87,16 @@ When a VM creates an outbound flow, Azure translates the source IP address to th
 
 If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
  
+When using a Standard Internal load balancer, there isn't use of ephemeral IP addresses for SNAT. This feature supports security by default. This feature ensures all IP addresses used by resources are configurable and can be reserved. 
+To achieve outbound connectivity to the internet when using a Standard internal load balancer, configure:
+- an instance level public IP address 
+- VNet NAT
+-  backend instances to a Standard public load balancer with an outbound rule configured.  
 
-When using a Standard internal load balancer there is no use of ephemeral IP addresses for SNAT. This is to support security by default and ensure that all IP addresses used by resource are configurable and can be reserved. In order to achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in (scenario 1)[#scenario1] or add the backend instances to a Standard public load balancer with an outbound rule configured in additon to the internal load balancer to follow the behavior in (scenario 2)[#scenario2]. 
- |None </br> Basic load balancer | [SNAT](#snat) with instance-level dynamic IP address| TCP </br> UDP | 
-
-
-
- When the VM creates an outbound flow, Azure translates the source IP address to a dynamically allocated public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
+### What is the IP for default SNAT?
 When the VM creates an outbound flow, Azure translates the source IP address to a dynamically given public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
 
 The public IP address will be released and a new public IP requested if you redeploy the: 
-
  * Virtual Machine
  * Availability set
  * Virtual machine scale set 
