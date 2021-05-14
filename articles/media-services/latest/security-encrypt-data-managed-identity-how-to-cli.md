@@ -16,11 +16,9 @@ If you'd like Media Services to encrypt data using a key from your Key Vault, th
 
 This tutorial uses the 2020-05-01 Media Services API.
 
-<!-- testing button -->
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json"  target="_blank">
-  <img src="https://aka.ms/deploytoazurebutton" alt="Azure deploy button"/>
-</a>
-<!-- end testing button -->
+<!-- testing link -->
+<a href="samples-overview"  target="_blank">Samples overview</a>
+<!-- end testing link -->
 
 ## Sign in to Azure
 
