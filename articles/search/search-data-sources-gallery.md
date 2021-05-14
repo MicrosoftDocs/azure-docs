@@ -12,9 +12,9 @@ ms.date: 05/17/2021
 
 ---
 
-# Data sources gallery
+# Azure Cognitive Search data source gallery
 
-## Data sources by Cognitive Search
+## Data sources by the Cognitive Search team
 
 :::row:::
 :::column span="":::
@@ -25,14 +25,63 @@ ms.date: 05/17/2021
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Extract blob metadata and content, serialized into JSON documents and indexed.
+Extract blob metadata and content, serialized into JSON documents, and imported into a search index as search documents. Set properties in both data source and indexer definitions to optimize for various blob content types. Change detection is supported automatically.
 
 [More details](search-howto-indexing-azure-blob-storage.md)
 
-:::image type="icon" source="media/AzureDevOps_Medium.png":::
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
+:::column span="":::
 
+---
+
+### Azure SQL Database
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Extract field values from a single table or view, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+
+[More details](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azuresqlconnectorlogo_medium.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Cosmos DB
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Cosmos DB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+
+SQL API is generally available. MongoDB and Cassandra are in previw.
+
+[More details](search-howto-index-cosmosdb.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
+
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+---
+
+### Azure Table Storage
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Extract rows from Azure Tables, serialized into JSON documents, and imported into a search index as search documents. Set properties in both data source and indexer definitions to optimize for various blob content types. Change detection is supported automatically.
+
+[More details](search-howto-indexing-azure-tables.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
 :::column span="":::
 
 ---
@@ -45,86 +94,77 @@ Enables your organization to search for content stored in Azure Blob containers.
 
 [More details](azure-data-lake-connector.md)
 
-:::image type="icon" source="media/Azure_Data_Lake_Small.png":::
+:::image type="icon" source="media/search-data-sources-gallery/azure_data_lake_small.png":::
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### Cosmos DB SQL API
+### Cosmos DB (Gremlin)
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Allows your organization to search any non-SharePoint enterprise website.
+TBD
 
-[More details](enterprise-web-connector.md)
-
-:::image type="icon" source="media/IntranetSites_Small.png":::
-
-:::column-end:::
-
-:::column span="":::
-
----
-
-### Azure SQL
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Enables your organization to search for data from your Azure SQL.
-
-[More details](MSSQL-connector.md)
-
-:::image type="icon" source="media//AzureSqlConnectorLogo_Medium.png":::
-
-:::column-end:::
-
-:::row-end:::
-
-:::row:::
-
-:::column span="":::
-
----
-
-### Azure Table Storage
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Enables your organization to search knowledge-based articles on sites it creates with MediaWiki.
-
-[More details](mediawiki-connector.md)
-
-:::image type="icon" source="media/MediaWiki_Small.png":::
-
-:::column-end:::
-
-:::column span="":::
-
----
-
-### Microsoft SQL
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Allows your organization to search on-premises Microsoft SQL server databases.
-
-[More details](MSSQL-connector.md)
+[More details](search-howto-index-cosmosdb-gremlin.md)
 
 :::image type="icon" source="media/SqlConnectorLogo_Small.png":::
 
 :::column-end:::
-
 :::row-end:::
-
 :::row:::
+:::column span="":::
 
+---
+
+### SharePoint Online
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+TBD
+
+[More details](search-howto-indexing-azure-blob-storage.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Power Query Connectors
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+TBD
+
+[More details](search-howto-indexing-azure-blob-storage.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Azure SQL Managed Instance
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+TBD
+
+[More details](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azuresqlconnectorlogo_medium.png":::
+
+:::column-end:::
+:::row-end:::
+:::row:::
 :::column span="":::
 
    :::column-end:::
    :::column span="":::
-
    :::column-end:::
 
 :::row-end:::
@@ -133,12 +173,10 @@ Allows your organization to search on-premises Microsoft SQL server databases.
 <!--- --->
 <!--- --->
 <!--- --->
-## Connectors by our Partners
+## Data sources from our Partners
 
 :::row:::
 :::column span="":::
-
-<!--- ROW --->
 
 ---
 
@@ -146,9 +184,22 @@ Allows your organization to search on-premises Microsoft SQL server databases.
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Aderant connector honors the security of the source system and provides both full and incremental crawls, so the users have the latest information available to them all the time.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](https://www.bainsight.com/connectors/aderant-connector-sharepoint-azure-elasticsearch/)
+[More details](https://www.bainsight.com/)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### TBD-2
+
+by [BA Insight](https://www.bainsight.com/)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+[More details](https://www.bainsight.com/)
 
 :::column-end:::
 :::column span="":::
@@ -159,19 +210,20 @@ The Aderant connector honors the security of the source system and provides both
 
 by [Raytion](https://www.raytion.com/)
 
-Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Microsoft Graph. It robustly indexes pages, attachments, and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM's permission model, its built-in user and group management, and AEM installations based on Active Directory or other directory services.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..
 
-[More details](https://www.raytion.com/connectors/adobe-experience-manager-aem)
+[More details](https://www.raytion.com/)
 
 :::column-end:::
-
+:::row-end:::
+:::row:::
 :::column span="":::
 
    :::column-end:::
-:::row-end:::
-
-:::row:::
    :::column span="":::
+   :::column-end:::
+
+:::row-end:::
 
 <!--- --->
 <!--- ROW --->

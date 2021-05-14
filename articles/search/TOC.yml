@@ -258,22 +258,20 @@
       items:
       - name: Managed identities overview
         href: search-howto-managed-identities-data-sources.md
-    - name: Troubleshoot indexer issues
-      href: search-indexer-troubleshooting.md
-    - name: Troubleshoot indexer errors and warnings
-      href: cognitive-search-common-errors-warnings.md
-  - name: Data sources
-    items:
-      - name: Data sources gallery
-        href: search-data-sources-gallery.md
       - name: Azure Storage
         href: search-howto-managed-identities-storage.md
       - name: Azure Cosmos DB
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-      - name: SharePoint Online
-        href: search-howto-index-sharepoint-online.md
+    - name: Troubleshoot indexer issues
+      href: search-indexer-troubleshooting.md
+    - name: Troubleshoot indexer errors and warnings
+      href: cognitive-search-common-errors-warnings.md
+  - name: Data sources (indexers)
+    items:
+      - name: Data sources gallery
+        href: search-data-sources-gallery.md
       - name: Azure Blobs
         items:      
         - name: Search over blobs
@@ -304,13 +302,17 @@
           href: search-howto-index-cosmosdb-gremlin.md
       - name: Azure Data Lake Storage Gen2
         href: search-howto-index-azure-data-lake-storage.md
-      - name: Azure SQL Databases
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Azure SQL Managed Instances
-        href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-      - name: Azure SQL Server VMs
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-  - name: Skillsets
+      - name: Azure SQL
+        items:
+        - name: Azure SQL Databases
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Azure SQL Managed Instances
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: Azure SQL Server VMs
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+      - name: SharePoint Online
+        href: search-howto-index-sharepoint-online.md
+  - name: Skillsets (indexers)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md

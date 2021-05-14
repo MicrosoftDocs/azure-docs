@@ -55,13 +55,9 @@ landingContent:
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
           - text: Index from Cosmos DB
             url: search-howto-index-cosmosdb.md
-      - linkListType: tutorial
-        links:
-          - text: Index semi-structured blob data
-            url: search-semi-structured-data.md
 
   # Card
-  - title: 10-minute quickstarts
+  - title: Day-1 quickstarts
     linkLists:
       - linkListType: quickstart
         links:
@@ -69,7 +65,7 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create demo app
+          - text: Create a demo app
             url: search-create-app-portal.md
           - text: Extract text from images and app files
             url: cognitive-search-quickstart-blob.md
