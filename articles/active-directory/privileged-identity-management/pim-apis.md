@@ -48,30 +48,33 @@ Now in beta, Microsoft has the final iteration of the PIM API before we release 
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-In the current iteration, there is *no API support* for PIM alerts and privileged access groups. They are on the roadmap for future development.
+In the current iteration, there is no API support for PIM alerts and privileged access groups. They are on the roadmap for future development.
 
 ## Current permissions required
 
-- Azure AD roles
+### Azure AD roles
 
   To call the PIM Graph API for Azure AD roles, you will need at least one of the following permissions:
 
-  - RoleManagement.ReadWrite.Directory
-  - RoleManagement.Read.Directory
+- RoleManagement.ReadWrite.Directory
+- RoleManagement.Read.Directory
 
   The easiest way to specify the required permissions is to use the Azure AD consent framework.
 
-- Azure resource roles
+### Azure resource roles
 
-  The PIM API for Azure resource roles is developed on top of the Azure Resource Manager framework. You will need to give consent to Azure Resource Management but won’t need any graph permission. You will also need to make sure the user or the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
+  The PIM API for Azure resource roles is developed on top of the Azure Resource Manager framework. You will need to give consent to Azure Resource Management but won’t need any Graph API permission. You will also need to make sure the user or the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
 
 ## Calling PIM API with an app-only token
 
-- Azure AD roles
+### Azure AD roles
 
-  PIM API now supports app-only permissions on top of delegated permissions. For app-only permissions, you must call the API with an application that's already been consented to the above permissions. For delegated permission, you must call the PIM API with both a user and an application token. The user must be assigned to either the Global Administrator role or Privileged Role Administrator role, and ensure that the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
+  PIM API now supports app-only permissions on top of delegated permissions.
 
-- Azure resource roles
+- For app-only permissions, you must call the API with an application that's already been consented with either the required Azure AD or Azure role permissions.
+- For delegated permission, you must call the PIM API with both a user and an application token. The user must be assigned to either the Global Administrator role or Privileged Role Administrator role, and ensure that the service principal calling the API has at least the Owner or User Access Administrator role on the resource you are trying to administer.
+
+### Azure resource roles
 
   PIM API for Azure resources supports both user only and application only calls. Simply make sure the service principal has either the owner or user access administrator role on the resource.
 
