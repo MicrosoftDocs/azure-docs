@@ -112,9 +112,7 @@ Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension nod
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 
-> [!Note]
-> If you had closed Visual Studio Code after completing the prerequisite, and have re-launched the application, then please re-do step 4 to [monitor events](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md#prepare-to-monitor-the-modules#prepare-to-monitor-the-modules)
-    
+ 
 ## Run the sample program
 
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
