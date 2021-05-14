@@ -16,6 +16,19 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## May 2021
+
+### Spatial Analysis container update
+
+A new version of the [Spatial Analysis container](spatial-analysis-container.md) has been released with a new feature set. This Docker container lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
+
+* [Spatial Analysis operations](spatial-analysis-operations.md) can be now configured to detect the orientation that a person is facing. 
+    * An orientation classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `enable_orientation` parameter.
+
+* [Spatial Analysis operations](spatial-analysis-operations.md) now also offers configuration to detect a person's speed while walking/running
+     * Speed is automatically detected for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations and is reflected in the 'speed', 'avgSpeed', and 'minSpeed' outputs.
+
+
 ## April 2021
 
 ### Computer Vision v3.2 GA
