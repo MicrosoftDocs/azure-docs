@@ -28,7 +28,15 @@ Read these articles before you begin:
 ## Prerequisites
 
 Prerequisites for this tutorial are:
-[!INCLUDE [prerequisites](./includes/common-includes/csharp-prerequisites.md)]
+* An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
+
+    > [!NOTE]    
+    > You will need an Azure subscription where you have access to both [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If you do not have the right permissions, please reach out to your account administrator to grant you those permissions.
+* [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
+* [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 ## Set up Azure resources
 
@@ -77,7 +85,7 @@ In this tutorial, you will:
 
 In Visual Studio Code, browse to src/edge. You'll see the .env file that you created and a few deployment template files. This template defines which edge modules you'll deploy to the edge device (the Azure Linux VM). The .env file contains values for the variables used in these templates, such as Video Analyzer credentials.
 
-Open src/edge/deployment.objectCounter.template.json. There are four entries under the **modules** section that correspond to the items listed in the previous "Concepts" section
+Open src/edge/deployment.objectCounter.template.json. There are four entries under the **modules** section that correspond to the items listed in the previous "Overview" section
 
 * **avaedge**: This is the Video Analyzer module.
 * **yolov3**: This is the AI module built by using the YOLO v3 model.
@@ -119,7 +127,7 @@ This action builds the objectCounter module for object counting and pushes the i
 This step creates the IoT Edge deployment manifest at src/edge/config/deployment.objectCounter.amd64.json. Right-click that file, and select **Create Deployment for Single Device**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Create deployment for single device":::
+> :::image type="content" source="./media/event-based-video-recording/create-deployment-single-device.png" alt-text="Create deployment for single device":::
 
 If this is your first tutorial with Video Analyzer, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
 
@@ -132,7 +140,7 @@ If this is your first tutorial with Video Analyzer, Visual Studio Code prompts y
 Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be avasample-iot-edge-device.
 
 At this stage, the deployment of edge modules to your IoT Edge device has started.
-In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are four modules deployed named avaedge, rtspsim, yolov3, and objectCounter.
+In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that there are six modules deployed named $edgeAgent, $edgeHub avaedge, rtspsim, yolov3, and objectCounter.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/modules.png" alt-text="Four modules deployed":::
@@ -152,7 +160,7 @@ In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual S
 1. Under the **pipelineTopologySet** node, edit the following:
 
 
-    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-videos/topology.json" `
+    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-video-sink/topology.json" `
     
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
