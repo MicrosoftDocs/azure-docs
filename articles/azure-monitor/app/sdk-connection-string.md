@@ -81,7 +81,7 @@ Here's a list of valid suffixes
 - applicationinsights.us
 
 
-See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+See also: [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification)
 
 
 ##### Valid prefixes
@@ -293,7 +293,7 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 

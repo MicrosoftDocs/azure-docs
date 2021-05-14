@@ -1206,7 +1206,6 @@ If you're not familiar with Docker, review these topics:
 * [Introduction to .NET and Docker](/dotnet/core/docker/introduction)
 * [Docker containers, images, and registries](/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
 * [Tutorial: Get started with Docker (Visual Studio Code)](/visualstudio/docker/tutorials/docker-tutorial)
-* []
 
 ### Requirements
 
