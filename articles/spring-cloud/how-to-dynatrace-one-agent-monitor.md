@@ -91,8 +91,8 @@ You can also leverage some environment variables provided by **Dynatrace** to co
 The **Dynatrace OneAgent** will update/upgrade regularly with JDK (quarterly). Agent update/upgrade may impact below scenarios.
 
 * Existing applications using **Dynatrace OneAgent** before update/upgrade will be unchanged.
+* Existing applications that use **Dynatrace OneAgent** before update/upgrade require restart or redeploy to engage new version of **Dynatrace OneAgent**.
 * Applications created after update/upgrade will use the new version of **Dynatrace OneAgent**.
-* Existing applications that did not use **Dynatrace OneAgent** before update/upgrade require restart or redeploy to engage new version of **Dynatrace OneAgent**.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
