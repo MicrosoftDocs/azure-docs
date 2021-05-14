@@ -46,7 +46,7 @@ Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic ‎mo
 
 ## Man-in-the-middle (MitM) resistance 
 
-All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to MitM attacks. This satisfies the MitM resistance requirements for AAL1, AAL2 and AAL3.
+All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to MitM attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
 ## Next steps 
 
@@ -58,8 +58,8 @@ All communications between the claimant and Azure AD are performed over an authe
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieve NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 

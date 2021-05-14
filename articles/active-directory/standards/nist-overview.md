@@ -52,8 +52,8 @@ Each area has mapped out assurance levels. This article set provides guidance fo
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieving NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieve NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
 
-[Achieving NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieving NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 

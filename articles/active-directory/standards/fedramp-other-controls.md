@@ -1,6 +1,6 @@
 ---
-title: Configure additional controls to meet FedRAMP high impact
-description: Detailed guidance on how to configure additional controls to meet FedRAMP high impact levels.
+title: Configure additional controls to meet FedRAMP High Impact
+description: Detailed guidance on how to configure additional controls to meet FedRAMP High Impact levels.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure additional controls to achieve FedRAMP high impact level
+# Configure additional controls to achieve FedRAMP High Impact level
 
 The following list of controls (and control enhancements) might require configuration in your Azure Active Directory (Azure AD) tenant.
 
@@ -32,7 +32,7 @@ The guidance in the following table pertains to:
 | Control ID and subpart| Customer responsibilities and guidance |
 | - | - |
 | AU-02 <br>AU-03 <br>AU-03(1)<br>AU-03(2)| Ensure the system is capable of auditing events defined in AU-02 Part a. Coordinate with other entities within the organization's subset of auditable events to support after-the-fact investigations. Implement centralized management of audit records.<p>All account lifecycle operations (account creation, modification, enabling, disabling, and removal actions) are audited within the Azure AD audit logs. All authentication and authorization events are audited within Azure AD sign-in logs, and any detected risks are audited in the Identity Protection logs. You can stream each of these logs directly into a security information and event management (SIEM) solution such as Azure Sentinel. Alternatively, use Azure Event Hubs to integrate logs with third-party SIEM solutions.<p>Audit events<li> [Audit activity reports in the Azure Active Directory portal](../reports-monitoring/concept-audit-logs.md)<li> [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md)<li>[How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)<p>SIEM integrations<li> [Azure Sentinel : Connect data from Azure Active Directory (Azure AD)](../../sentinel/connect-azure-active-directory.md)<li>[Stream to Azure event hub and other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
-| AU-06<br>AU-06(1)<br>AU-06(3)<br>AU-06(4)<br>AU-06(5)<br>AU-06(6)<br>AU-06(7)<br>AU-06(10)<br>| Review and analyze audit records at least once each week to identify inappropriate or unusual activity, and report findings to appropriate personnel. <p>Guidance provided above for AU-02 and AU-03 allows for weekly review of audit records and reporting to appropriate personnel. You can't meet these requirements by using only Azure AD. You must also use a SIEM solution such as Azure Sentinel. For more information, see [What is Azure Sentinel?](../../sentinel/overview.md). |
+| AU-06<br>AU-06(1)<br>AU-06(3)<br>AU-06(4)<br>AU-06(5)<br>AU-06(6)<br>AU-06(7)<br>AU-06(10)<br>| Review and analyze audit records at least once each week to identify inappropriate or unusual activity, and report findings to appropriate personnel. <p>The preceding guidance provided for AU-02 and AU-03 allows for weekly review of audit records and reporting to appropriate personnel. You can't meet these requirements by using only Azure AD. You must also use a SIEM solution such as Azure Sentinel. For more information, see [What is Azure Sentinel?](../../sentinel/overview.md). |
 
 ## Incident response
 
