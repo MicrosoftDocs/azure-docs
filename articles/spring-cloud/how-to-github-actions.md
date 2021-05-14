@@ -198,7 +198,7 @@ az spring-cloud app create --name account-service
 ### Deploy with Azure CLI directly
 Create the `.github/workflow/main.yml` file in the repository:
 
-```yml
+```yaml
 name: AzureSpringCloud
 on: push
 
