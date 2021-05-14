@@ -10,20 +10,20 @@ ms.reviewer: stmummer
 ms.date: 5/13/2021
 ---
 
+
+# Migration of co-sell solutions from OCP GTM to the commercial marketplace
+
 - LATEST UPDATE 05/17/2021
 
 ## Table of Contents
 
-- [Prerequisites to continue co-selling with Microsoft](#Prerequisites-to-continue-co-selling-with-Microsoft)
-- [Publishing updates for attaining co-sell-ready status](#Publishing-updates-for-attaining-co-sell-ready-status)
+- [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-Microsoft)
+- [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Begin the Migration of your solutions from OCP GTM](#beginmigration)
 - [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace)
 - [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
 - [Discard this solution](#discard-this-solution)
-
-
-# Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
 Microsoft is moving the publishing experience. The [commercial marketplace](overview.md) provides simplified offer publishing to co-sell through Microsoft's three channels by centralizing offer creation and management in Partner Center, where you are already managing your relationship with Microsoft.
 
@@ -59,11 +59,11 @@ Follow these steps before importing your solutions from OCP GTM:
 4. Decide which of the following you want to do:
     1. If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:
         - If there is no similar offer in commercial marketplace
-            - Step 1. [Create an offer](#step-1---create-a-draft-offer-in-commercial-marketplace)
+            - Step 1. [Create an offer](# Scenario 1: Similar offer does not exist in commercial marketplace)
             - Step 2. [Publish it in the commercial marketplace](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
-            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#migrate-this-solution-from-ocp-gtm).
+            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#migrate-your-solutions-from-ocp-gtm).
         - If there is already a similar offer in Commercial marketplace
-            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#migrate-this-solution-from-ocp-gtm)
+            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#migrate-your-solutions-from-ocp-gtm)
     1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution
 
 ## Migrate your solutions from OCP GTM
