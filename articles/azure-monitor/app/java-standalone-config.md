@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.3.jar`.
+By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.0.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.3.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.1.0.jar` is located.
 
 ## Connection string
 
@@ -342,7 +342,7 @@ You can also suppress these instrumentations by setting these environment variab
 
 (which will then take precedence over enabled specified in the json configuration).
 
-> NOTE
+> [!NOTE]
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
 
@@ -446,7 +446,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.3.jar` is located.
+`applicationinsights-agent-3.1.0.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 

@@ -65,8 +65,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## App Service limits
 
-The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## Automation limits
@@ -76,6 +74,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ## Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Cache for Redis limits
 

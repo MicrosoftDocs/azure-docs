@@ -43,7 +43,7 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 
 ### Azure Digital Twins
 
-Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build knowledge graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
+Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
 
 ### Azure Digital Twins instance
 
