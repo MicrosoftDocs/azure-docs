@@ -10,10 +10,7 @@ ms.date: 05/11/2021
 ---
 
 # Copy data from Amazon S3 Compatible Storage by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
->
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
-> * [Current version](connector-amazon-simple-storage-service.md)
+
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -46,7 +43,7 @@ For the full list of Amazon S3 permissions, see [Specifying Permissions in a Pol
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
+The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3 Compatible Storage.
 
 ## Linked service properties
 
@@ -159,7 +156,7 @@ The following properties are supported for Amazon S3 Compatible under `location`
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties that the Amazon S3 source supports.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties that the Amazon S3 Compatible Storage source supports.
 
 ### Amazon S3 Compatible Storage as a source type
 
