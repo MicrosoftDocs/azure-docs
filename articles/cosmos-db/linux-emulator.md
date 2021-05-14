@@ -105,14 +105,13 @@ You can now browse https://localhost:8081/_explorer/index.html or https://{your_
 
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
-
 1. Next, download the certificate for the emulator.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
+    Alternatively, the endpoint above which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
 2. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
