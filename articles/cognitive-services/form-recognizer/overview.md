@@ -143,7 +143,9 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 
 ## Data privacy and security
 
-As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+* As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
+* Form Recognizer doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 
