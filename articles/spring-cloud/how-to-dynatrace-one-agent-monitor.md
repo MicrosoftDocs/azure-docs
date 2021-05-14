@@ -46,27 +46,27 @@ Create a deployment with `Dynatrace` agent and configure `Environment Variables`
 
 * You can also configure OneAgent from the Azure portal with existing applications.
 
-  ![Existing applications](media/dyanatrace-oneagent/existing-applications.png)
+  ![Existing applications](media/dynatrace-oneagent/existing-applications.png)
 
 * Click one of the applications to jump to the **Overview** page of this application.
 
-  ![Overview](media/dyanatrace-oneagent/overview-application.png)
+  ![Overview](media/dynatrace-oneagent/overview-application.png)
 
 * Click **Configurations** to add/update/delete the **Environment Variables** of the application.
 
-  ![Configuration](media/dyanatrace-oneagent/configuration-application.png)
+  ![Configuration](media/dynatrace-oneagent/configuration-application.png)
 
 * View the **Host** page from the **Dynatrace** dashboard.
 
-  ![Host](media/dyanatrace-oneagent/hosts.png)
+  ![Host](media/dynatrace-oneagent/hosts.png)
 
 * View application **Host** details from the **Dynatrace** dashboard.
 
-  ![Dashboard](media/dyanatrace-oneagent/dashboard.png)
+  ![Dashboard](media/dynatrace-oneagent/dashboard.png)
 
 * View the **Metrics** page of the application from the **Dynatrace** dashboard.
 
-  ![Metrics](media/dyanatrace-oneagent/metrics.png)
+  ![Metrics](media/dynatrace-oneagent/metrics.png)
 
 ## `Dynatrace` OneAgent Logging
 
@@ -92,7 +92,7 @@ The **Dynatrace OneAgent** will update/upgrade regularly with JDK (quarterly). A
 
 * Existing applications using **Dynatrace OneAgent** before update/upgrade will be unchanged.
 * Applications created after update/upgrade will use the new version of **Dynatrace OneAgent**.
-* Existing applications need to restart or redeploy to engage the new version of **Dynatrace OneAgent**.
+* Existing applications that did not use **Dynatrace OneAgent** before update/upgrade require restart or redeploy to engage new version of **Dynatrace OneAgent**.
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
