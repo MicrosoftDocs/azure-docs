@@ -127,7 +127,7 @@ Workaround: Exclude data collected by the problem Write plugins.
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
-[java]: java-get-started.md
-[javalogs]: java-trace-logs.md
+[java]: java-2x-get-started.md
+[javalogs]: java-2x-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 
