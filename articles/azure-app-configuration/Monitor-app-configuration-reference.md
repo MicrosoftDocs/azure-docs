@@ -16,12 +16,11 @@ See [Monitoring App Configuration](monitor-app-configuration.md) for details
 ## Metrics 
 Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores)
 
-| Metric | Unit| Description |
-|--- | ----| ------|      
-| Http Incoming Request Count | Count | Total number of incoming http requests.|
-| Http Incoming Request Duration | Count |Latency of an Http Request|
-| Throttled Http Request Count |Count| Throttled requests are Http Requests that return a 429 Status Code (too many requests)| 
- 
+| Metric | Unit | Description |
+|-------|-----| ----- |
+| Http Incoming Request Count	| Count	| Total number of incoming Http Request |
+|Http Incoming Request Duration | Count | Server side duration of an Http Request |
+| Throttled Http Request Count | Count |	Throttled requests are Http Requests that return a 429 Status Code (too many requests) |
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
