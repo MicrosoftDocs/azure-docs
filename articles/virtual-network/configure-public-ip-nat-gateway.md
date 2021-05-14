@@ -15,14 +15,14 @@ ms.custom: template-how-to
 
 A public IP address in Azure is available in standard and basic SKUs. The selection of SKU determines the features of the IP address. The SKU determines the resources that the IP address can be associated with. 
 
-Azure Virtual Network NAT is deployed to enable scalable outbound connectivity in a virtual network. Azure Virtual Network NAT supports standard SKU public IP addresses and public IP prefixes.  Resources deployed in the nat gateway virtual network, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network with basic SKU resources is unsupported.
+Azure Virtual Network NAT is deployed to enable scalable outbound connectivity in a virtual network. Azure Virtual Network NAT supports standard SKU public IP addresses and public IP prefixes. Resources deployed in the nat gateway virtual network, such as load balancers, must be the standard SKU. Deployment of a NAT gateway to a virtual network with basic SKU resources is unsupported.
 
 Examples of resources that support standard SKU public IPs exclusively:
 
 * Cross-region load balancer
 * Azure Bastion
 
-A NAT gateway requires a public IP address or public IP prefix for it's configuration. A combination of public IPs and prefixes is also supported.
+A NAT gateway requires a public IP address or public IP prefix for it's configuration. A combination of public IPs and prefixes is also supported. The number of IPs allocated can't exceed 16.
 
 The addition of IP addresses or an IP prefix scales the Source Network Address Translation (SNAT) connections from resources using the NAT gateway.
 
@@ -83,7 +83,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 
 In this section, you'll sign in to the Azure portal and change the IP address of the NAT gateway. 
 
-To change the IP, you'll associate a new public IP address previously with the NAT gateway.
+To change the IP, you'll associate a new public IP address created previously with the NAT gateway.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -107,30 +107,30 @@ To change the IP, you'll associate a new public IP address previously with the N
 
 ## Add public IP prefix
 
-In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
+In this section, you'll change the outbound IP configuration to use a public IP prefix you created previously.
 
-> [!IMPORTANT]
-> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see **[Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)**.
+> [!NOTE]
+> You can choose to remove the single IP address associated with the NAT gateway and reuse, or leave it associated to the NAT gateway to increase the outbound SNAT ports. NAT gateway supports a combination of public IPs and prefixes in the outbound IP configuration. If you created a public IP prefix with 16 addresses, remove the single public IP and save the configuration before adding the prefix. The number of allocated IPs can't exceed 16.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Load balancer**.
+2. In the search box at the top of the portal, enter **NAT gateway**.
 
-3. In the search results, select **Load balancers**.
+3. In the search results, select **NAT gateways**.
 
-4. In **Load Balancers**, select **myLoadBalancer** or the load balancer you wish to change.
+4. In **NAT gateways**, select **myNATgateway** or the NAT gateway you wish to change.
 
-5. In settings of **myLoadBalancer**, select **Frontend IP configuration**.
+5. In settings of **myNATgateway**, select **Outbound IP**.
 
-6. In **Frontend IP configuration**, select **LoadBalancerFrontendOutbound** or your load balancer outbound frontend.
+6. Select **Change** next to **Public IP prefixes** in **Outbound IP**.
 
-7. For **IP type**, select **Public IP prefix**.
+7. Select **myPublicIPPrefixNAT** or your prefix.
 
-8. In **Public IP prefix**, select the public IP prefix you created previously **myPublicIPPrefixOutbound**.
+8. Select **OK**.
 
-9. Select **Save**.
+9. Verify **myPublicIPPrefixNAT** was added to the public IP prefixes.
 
-10. In **Frontend IP configuration**, confirm the IP prefix was added to the outbound frontend configuration.
+10. Select **Save**.
 
 ## Delete public IP address
 
@@ -148,7 +148,7 @@ In this section, you'll delete the IP address you replaced in the previous secti
 
 ## Next steps
 
-In this article, you learned how to create a load balancer and use an existing public IP. You replaced the IP address in a load balancer frontend configuration. Finally, you changed an outbound frontend configuration to use a public IP prefix and learned how to clean up an IP address no longer needed.
+In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix and learned how to clean up an IP address no longer needed.
 
-- For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
+- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
