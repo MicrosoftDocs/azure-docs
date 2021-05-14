@@ -274,6 +274,8 @@
           href: how-to/region-mappings.md
         - name: Enable
           items:
+            - name: System prerequisites
+              href: operating-system-requirements.md
             - name: Enable using Azure Resource Manager template
               href: update-management/enable-from-template.md
             - name: Enable from the Azure portal
