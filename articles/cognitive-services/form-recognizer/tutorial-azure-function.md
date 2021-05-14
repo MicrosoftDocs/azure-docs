@@ -119,7 +119,7 @@ def main(myblob: func.InputStream):
     f"Blob Size: {myblob.length} bytes")
 ```
 
-The following code block calls the Form Recognizer [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
+The following code block calls the Form Recognizer [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API on the uploaded document. Fill in your endpoint and key values. 
 
 
 # [version 2.0](#tab/2-0)
@@ -140,13 +140,13 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
     text1=os.path.basename(myblob.name)
 ```
 
-# [version 2.1 preview](#tab/2-1)
+# [version 2.1](#tab/2-1)
 
 ```Python
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1/Layout/analyze"
     source = myblob.read()
 
     headers = {
