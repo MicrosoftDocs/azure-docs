@@ -19,17 +19,17 @@ You can use a pipeline topology to analyze live video, without recording any por
 
 ### Motion detection
 
-The pipeline topology shown below consists of an [RTSP source](pipeline.md#rtsp-source) node, a [motion detection processor](pipeline.md#motion-detection-processor) node, and an [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node. The JSON representation of the pipeline topology of such a [pipeline topology can be found here](add-valid-link.md)<!--https://github.com/Azure/video-analyzer/tree/main/pipeline-topologies/live/motion-detection/topology.json)-->. This topology enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.
+The pipeline topology shown below consists of an [RTSP source](pipeline.md#rtsp-source) node, a [motion detection processor](pipeline.md#motion-detection-processor) node, and an [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node - you can see the settings used in its [JSON representation](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/motion-detection/topology.json). This topology enables you to detect motion in the incoming live video stream and relay the motion events to other apps and services via the IoT Hub message sink node. The external apps or services can trigger an alert or send a notification to appropriate personnel.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detection.svg" alt-text="Live video analysis using motion detection":::
+> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detection.svg" alt-text="Detecting motion in live video":::
 
 ### Analyzing video using a custom vision model 
 
-The pipeline topology shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. The JSON representation of the pipeline topology of such a [pipeline topology can be found here](https://github.com/Azure/video-analyzer/tree/main/pipeline-topologies/live/httpExtension/topology.json). You can see some [examples here](https://github.com/Azure/video-analyzer/tree/main/utilities/video-analysis) on wrapping models into IoT Edge modules that run as an inference service.
+The pipeline topology shown below enables you to analyze a live video stream using a custom vision model packaged in a separate module. You can see the settings used in its [JSON representation](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/httpExtension/topology.json). There are other [examples](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions) available for wrapping models into IoT Edge modules that run as an inference service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detected-frames.svg" alt-text="Live video analysis using an external inferencing module":::
+> :::image type="content" source="./media/analyze-live-video-without-recording/motion-detected-frames.svg" alt-text="Analyzing live video using a custom vision module":::
 
 In this pipeline topology, the video input from the RTSP source is sent to an [HTTP extension processor](pipeline.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of pipeline topology can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
 
@@ -39,7 +39,7 @@ In this pipeline topology, the video input from the RTSP source is sent to an [H
 An enhancement to this example is to use a motion detector processor ahead of the HTTP extension processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video-without-recording/custom-model.svg" alt-text="Live video analysis using external inferencing module on frames with motion":::
+> :::image type="content" source="./media/analyze-live-video-without-recording/custom-model.svg" alt-text="Analyzing live video using a custom vision module on frames with motion":::
 
 ## Next steps
 
