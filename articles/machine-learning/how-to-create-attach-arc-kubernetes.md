@@ -79,7 +79,7 @@ To delete the extension in the cluster, use the following command:
 az k8s-extension delete --sub <sub_id> -g <rg_name> -c <arc_cluster_name> --cluster-type connectedclusters -n azureml-kubernetes-connector
 ```
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Deleting the extension won't delete your cluster or created resources like Azure Service Bus and Azure Relay. Delete any unused resources to prevent incurring unwanted costs.
 
 ## Next steps
