@@ -10,7 +10,7 @@ ms.date: 04/07/2021
 ms.custom: devx-track-java
 ---
 
-# How to monitor with New Relic in-process agent (Preview)
+# How to monitor with New Relic Java in-process agent (Preview)
 
 This feature enables monitoring of Azure Spring Cloud apps with the **New Relic** Java in-process agent.
 
@@ -97,7 +97,7 @@ You can also get the logs of the `New Relic` agent from:
 You can leverage some environment variables provided by `New Relic` to configure the logging of the `New Agent`, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 > [!CAUTION]
-> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Cloud for `New Relic`. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to you applications.
+> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Cloud for `New Relic`. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to you applications. Log file(s) may be lost after restart or redeployment of application(s).
 >
 > * NEW_RELIC_LOG
 > * NEW_RELIC_LOG_FILE_PATH
