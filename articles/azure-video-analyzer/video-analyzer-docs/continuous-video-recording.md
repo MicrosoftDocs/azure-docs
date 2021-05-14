@@ -39,8 +39,6 @@ If your edge module loses connectivity for a long time and the content stored in
 
 When network connectivity is restored, the video sink will begin uploading from the cache, again starting from the oldest data. In the above example, suppose 5 minutes worth of video had to be discarded from cache by the time connectivity was restored (say at 6:02PM), then the video sink will start uploading from the 10:05AM mark.
 
-If you later examine the video resource using [these APIs](playback-recordings-how-to.md#query-api) you will see that there is a gap in the video resource from approximately 10AM to 10:05AM.
-
 Gaps in recordings can also occur, for example, if you restart pipelines for whatever reason. You can also stop a pipeline and restart at a later time - as long as the camera settings do not change, you can continue to record to the same Video Analyzer video resource.
 
 ## Segmented recording  
