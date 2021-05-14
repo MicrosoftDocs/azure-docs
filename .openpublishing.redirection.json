@@ -6976,54 +6976,89 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/application-insights/java-agent.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/java-collectd.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/java-filter-telemetry.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/java-get-started.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/java-trace-logs.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/java-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-java-agent.md",
-      "redirect_url": "/azure/azure-monitor/app/java-agent",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-agent-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-agent",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-collectd.md",
-      "redirect_url": "/azure/azure-monitor/app/java-collectd",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-filter-telemetry.md",
-      "redirect_url": "/azure/azure-monitor/app/java-filter-telemetry",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-get-started.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-track-http-requests.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-get-started-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-live.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/learn/java-quick-start.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-live.md",
-      "redirect_url": "/azure/azure-monitor/app/java-live",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-javascript.md",
@@ -7037,18 +7072,18 @@
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-trace-logs.md",
-      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-troubleshoot.md",
-      "redirect_url": "/azure/azure-monitor/app/java-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-live-stream.md",
@@ -7057,13 +7092,8 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/micrometer-java-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
-      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-monitor-performance-live-website-now.md",
@@ -13643,6 +13673,11 @@
     {
       "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
       "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
       "redirect_document_id": false
     },
     {
