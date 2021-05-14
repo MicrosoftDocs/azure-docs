@@ -18,7 +18,7 @@
     href: pim-resource-roles-overview-dashboards.md
   - name: Email notifications
     href: pim-email-notifications.md
-  - name: PIM Graph API concepts
+  - name: PIM API concepts
     href: pim-apis.md  
 
 - name: How-to guides
