@@ -1,6 +1,6 @@
 ---
 title: Detect motion and emit events from the edge - Azure
-description: This quickstart shows you how to use Azure Video Analyzer on IoT Edge to detect motion and emit events, by programmatically calling direct methods.
+description: This quickstart shows you how to use Azure Video Analyzer to detect motion and emit events, by programmatically calling direct methods.
 ms.topic: quickstart
 ms.date: 03/17/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
@@ -8,7 +8,10 @@ zone_pivot_groups: ams-lva-edge-programming-languages
 
 # Quickstart: Detect motion and emit events
 
-This quickstart walks you through the steps to get started with Azure Video Analyzer on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
+This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Detect motion":::
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]
@@ -37,7 +40,7 @@ This quickstart walks you through the steps to get started with Azure Video Anal
 
 ![Azure Video Analyzer based on motion detection](./media/analyze-live-video/detect-motion.png)
 
-This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/azure-video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event.
+This diagram shows you how the signal flows in this quickstart. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [motion detection processor](pipeline.md#motion-detection-processor) node. The motion detection processor node enables you to detect motion in live video. It examines incoming video frames and determines if there is movement in the video. If motion is detected, it passes on the video frame to the next node in the pipeline, and emits an event. Finally, any emitted events are sent to the IoT hub message sink where they are published to IoT Hub.
 
 ## Set up your development environment
 
@@ -119,4 +122,4 @@ If you intend to try the other quickstarts, then you should keep the resources y
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
-  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.
+  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.

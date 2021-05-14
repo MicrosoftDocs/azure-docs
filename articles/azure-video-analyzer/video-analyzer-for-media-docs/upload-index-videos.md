@@ -2,13 +2,13 @@
 title: Upload and index videos with Azure Video Analyzer for Media (formerly Video Indexer)
 titleSuffix: Azure Media Services
 description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
-services: media-services
 author: Juliako
 manager: femila
+
+ms.service: azure-video-analyzer
 ms.topic: article
-ms.date: 03/04/2021
+ms.date: 05/12/2021
 ms.author: juliako
-ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -85,10 +85,14 @@ Use this parameter to define the AI bundle you would like to apply on your audio
 
     The `DefaultWithNoiseReduction` value is now mapped to default preset (deprecated).
 - `BasicAudio` - Index and extract insights using audio only (ignoring video), including only basic audio features (transcription, translation, format output captions and subtitles).
- - `AdvancedAudio` - Index and extract insights using audio only (ignoring video), including advanced audio features (audio event detection) in addition to the standard audio analysis.
+- `AdvancedAudio` - Index and extract insights using audio only (ignoring video), including advanced audio features (audio event detection) in addition to the standard audio analysis.
+- `AdvancedVideo` - Index and extract insights using video only (ignoring audio), including advanced video features (Observed People Tracing) in addition to the standard video analysis.
+- `AdvancedVideoAndAudio` - Index and extract insights using both advanced audio and advanced video analysis. 
 
 > [!NOTE]
-> Video Analyzer for Media covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
+> Advanced presets (listed above) include models that are in public preview. Once these models go GA, there could be implications on the price. 
+
+Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
 If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
 
 Price depends on the selected indexing option. For more information refer to [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).

@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 
 ---
-# Terminology
+# Video Analyze terminology
 
 This article provides an overview of terminology related to [Azure Video Analyzer](overview.md).
 
@@ -18,7 +18,7 @@ You can use Video Analyzer to create video resources and add data to existing vi
 
 ## Pipeline topology
 
-A [pipeline topology](pipeline.md) lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a graph consisting of sources, processors, and sink nodes and hence provides the ability for you to build live video analytics applications. 
+A [pipeline topology](pipeline.md) lets you define where media should be captured from, how it should be processed, and where the results should be delivered. It enables you to define a pipeline consisting of sources, processors, and sink nodes and hence provides the ability for you to build video analytics applications. 
 
 ## Recording
 

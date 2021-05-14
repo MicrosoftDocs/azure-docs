@@ -31,5 +31,5 @@ Follow these steps to generate the manifest from the template file and then depl
 1.  When you're prompted to select an IoT Hub device, choose **avasample-iot-edge-device** from the drop-down menu.
 1.  After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    - Azure Video Analyzer on IoT Edge (module name `avaedge`)
+    - Video Analyzer edge module (module name `avaedge`)
     - Real-Time Streaming Protocol (RTSP) simulator (module name `rtspsim`)

@@ -151,8 +151,8 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
      }
      ```
 
-   - A call to livePipelineActivate that starts the pipeline instance and the flow of video.
-   - A second call to `livePipelineList` that shows that the pipeline instance is in the running state.
+   - A call to livePipelineActivate that starts the live pipeline and the flow of video.
+   - A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 
 1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
@@ -160,8 +160,8 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
    The next series of calls cleans up resources:
 
-   - A call to `livePipelineDeactivate` deactivates the pipeline instance.
-   - A call to `livePipelineDelete` deletes the instance.
+   - A call to `livePipelineDeactivate` deactivates the live pipeline.
+   - A call to `livePipelineDelete` deletes the live pipeline.
    - A call to `pipelineTopologyDelete` deletes the topology.
    - A final call to `pipelineTopologyList` shows that the list is empty.
 
@@ -306,4 +306,4 @@ In the messages, notice the following details:
 Review additional challenges for advanced users:
 
 - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06&preserve-view=true).
+- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).

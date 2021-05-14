@@ -1,12 +1,12 @@
 ---
-title: gRPC extension protocol - Azure
-description: In this article, you will learn about using gRPC extension protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
+title: gRPC extension protocol in Live Video Analytics - Azure
+description: In this article, you will learn about using gRPC extension protocol to send messages between Azure Live Video Analytics module and your AI or CV custom extension.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# gRPC extension protocol
+# gRPC extension protocol in Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

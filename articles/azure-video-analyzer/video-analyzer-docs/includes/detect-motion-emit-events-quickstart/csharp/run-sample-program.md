@@ -20,10 +20,10 @@ Follow these steps to run the sample code:
    > :::image type="content" source="../../../media/vscode-common-screenshots/verbose-message.png" alt-text="Show Verbose Message":::
 
 1. In Visual Studio Code, go to _src/cloud-to-device-console-app/operations.json_.
-1. On the **livePipelineSet** node, make sure you see the following value:
+1. On the **pipelineTopologySet** node, make sure you see the following value:
 
    ```
-   "topologyUrl" : "https://raw.githubusercontent.com/lvateam/azure-video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. On the `livePipelineSet` and `livePipelineDelete` nodes, ensure that the value of **topologyName** matches the value of the **name** property in the pipeline topology:
@@ -55,7 +55,7 @@ Follow these steps to run the sample code:
    - A call to `pipelineTopologySet` that uses the preceding pipelineTopologyUrl
    - A call to `livePipelineSet` that uses the following body:
 
-   ```
+   ```json
    {
      "@apiVersion": "1.0",
      "name": "Sample-Pipeline-1",
@@ -80,8 +80,8 @@ Follow these steps to run the sample code:
    }
    ```
 
-   - A call to `livePipelineActivate` that starts the pipeline instance and the flow of video.
-   - A second call to `livePipelineList` that shows that the pipeline instance is in the running state.
+   - A call to `livePipelineActivate` that starts the live pipeline and the flow of video.
+   - A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 
 1. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Video Analyzer edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.

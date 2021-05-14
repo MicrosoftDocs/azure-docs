@@ -1,12 +1,12 @@
 ---
-title: Create custom Azure Resource Manager role and assign to service principal - Azure
-description: This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Live Video Analytics on IoT Edge using Azure CLI.
+title: Create custom Azure Resource Manager role and assign to service principal with Azure Live Video Analytics
+description: This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Azure Live Video Analytics on IoT Edge using Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
 
 ---
 
-# Create custom Azure Resource Manager role and assign to service principal
+# Create custom Azure Resource Manager role and assign to service principal with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

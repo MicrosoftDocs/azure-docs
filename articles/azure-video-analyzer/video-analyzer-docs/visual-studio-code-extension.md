@@ -1,13 +1,14 @@
 ---
-title: Azure Video Analyzer Visual Studio Code extension
-description: This reference doc explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
+title: Use Azure Video Analyzer Visual Studio Code extension
+description: This reference article explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 05/01/2021
 
 ---
 
-# Azure Video Analyzer Visual Studio Code extension
+# Use Azure Video Analyzer Visual Studio Code extension
+
 Azure Video Analyzer is a platform to make building video analysis programs easier, and the associated Visual Studio Code extension is a tool to make learning that platform easier.  This article is a reference to the various pieces of functionality offered by the extension.  It covers the basics of:
 
 * Pipelines – creation, editing, deletion, viewing the JSON
@@ -30,7 +31,7 @@ If you want to view the underlying JSON behind an existing pipeline, on the left
 
 ## Instances
 
-To create an instance of a pipeline, along the left under pipelines right-click on the name of the pipeline and select **Create instance**.  You will then need to fill in an instance name, and any required parameters before continuing.  In the top right you can then either click **Save** which will save it in an inactive state, or **Save and activate** which will start the instance immediately.
+To create an instance of a pipeline, along the left under pipelines right-click on the name of the pipeline and select **Create instance**.  You will then need to fill in an instance name, and any required parameters before continuing.  In the top right you can then either click **Save** which will save it in an inactive state, or **Save and activate** which will start the instance immediately. 
 
 To activate an existing instance, along the left under pipelines right-click on the name of the pipeline instance and select **Active pipeline instance**.
 

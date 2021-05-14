@@ -76,4 +76,4 @@ This gets a starting topology deployed and a live pipeline up and running on you
 
 ## Next steps
 
-* Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](./vs-code-extension.md).
+* Learn more about the various functions of the [Azure Video Analytics Visual Studio Code extension](./visual-studio-code-extension.md).

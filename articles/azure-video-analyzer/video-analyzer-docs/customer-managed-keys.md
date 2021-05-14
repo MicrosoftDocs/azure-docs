@@ -36,4 +36,5 @@ Video Analyzer protects your sensitive data using double encryption as per Azure
 
 
 ## Next steps
-[Review network security options](network-security.md)
+
+Review [Managed identity](managed-identity.md)

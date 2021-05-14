@@ -133,7 +133,7 @@ The above response is expected, as no pipeline topologies have been created.
 
 ### Set a pipeline topology
 
-Using the same steps as those outlined for invoking `pipelineTopologyList`, you can invoke `pipelineTopologySet` to set a pipeline topology using the following JSON as the payload. You will be creating a pipeline topology named "EVRtoVideoSinkOnMotionDetection".
+Using the same steps as above, you can invoke `pipelineTopologySet` to set a pipeline topology using the following JSON as the payload. You will be creating a pipeline topology named "EVRtoVideoSinkOnMotionDetection".
 
 > [!NOTE]
 > In the payload below, the `videoName` property is set to "sample-motion-video-camera001", which will be the name of the video resource that is created in your Video Analyzer account. This resource name must be unique for each live video source you record. You should edit the `videoName` property below as needed to ensure uniqueness.
@@ -428,7 +428,7 @@ The status returned is 201, indicating that a new pipeline topology was created.
 
 * Invoke `pipelineTopologySet` again and check that the status code returned is 200. Status code 200 indicates that an existing pipeline topology was successfully updated.
 * Invoke `pipelineTopologySet` again but change the description string. Check that the status code in the response is 200 and the description is updated to the new value.
-* Invoke `pipelineTopologyList` as outlined in the previous step and check that now you can see the "EVRtoVideoSinkOnMotionDetection" listed in the returned payload.
+* Invoke `pipelineTopologyList` as outlined in the previous step and check that now you can see the "EVRtoVideoSinkOnMotionDetection" topology listed in the returned payload.
 
 ### Read the pipeline topology
 
@@ -592,7 +592,7 @@ Within a few seconds, you should see the following response in the Output window
 Note the following properties in the response payload:
 
 * Status code is 200, indicating success.
-* The payload has the "created" and the "lastModified" timestamp.
+* The payload includes the `createdAt` time stamp and the `lastModifiedAt` time stamp.
 
 ### Create a live pipeline using the topology
 
@@ -988,7 +988,7 @@ Status code of 200 indicates that the  pipeline topology was successfully delete
 
 ## Clean up resources
 
-If you are not going to continue to use this application, delete the resources created in this quickstart.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 

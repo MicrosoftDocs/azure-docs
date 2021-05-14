@@ -1,6 +1,6 @@
 ---
 title: Detect motion and record video on edge devices - Azure
-description: Use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
+description: Use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 ms.topic: quickstart
 ms.date: 04/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Quickstart: Detect motion and record video on edge devices
 
-This quickstart shows you how to use Azure Video Analyzer on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
+This quickstart shows you how to use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Open an application like [VLC media player](https://www.videolan.org/vlc/), sele
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
-Complete the following steps to use Live Video Analytics on IoT Edge to detect the motion of the car and record a video clip starting around the 5-second mark.
+Complete the following steps to use Video Analyzer to detect the motion of the car and record a video clip starting around the 5-second mark.
 
 ## Examine and edit the sample files
 
@@ -117,21 +117,21 @@ Complete the following steps to use Live Video Analytics on IoT Edge to detect t
    - A second call to `livePipelineList` that shows that the live pipeline is in the running state.
 
 1. The output in the TERMINAL window pauses at Press Enter to continue. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see the messages that the Azure Video Analyzer on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. Switch to the OUTPUT window in Visual Studio Code. You see the messages that the Video Analyzer edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 1. The pipeline topology continues to run and print results. The RTSP simulator keeps looping the source video. To stop the pipeline topology, return to the TERMINAL window and select Enter.
 
 The next series of calls cleans up the resources:
 
 - A call to `livePipelineDeactivate` deactivates the live pipeline.
-- A call to `livePipelineDelete` deletes the instance.
+- A call to `livePipelineDelete` deletes the live pipeline.
 - A call to `pipelineTopologyDelete` deletes the topology.
 - A final call to `pipelineTopologyList` shows that the list is now empty.
 
 ## Interpret results
 
-When you run the pipeline topology, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window of Visual Studio Code contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the pipeline topology, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window of Visual Studio Code contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-In the following messages, the Azure Video Analyzer module defines the application properties and the content of the body.
+In the following messages, the Video Analyzer edge module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
@@ -216,7 +216,7 @@ To play the MP4 clip:
 1. Sign in by using the credentials that were generated when you set up your Azure resources.
 1. At the command prompt, go to the relevant directory. The default location is /var/media. You should see the MP4 files in the directory.
 
-1. Use [Secure Copy (SCP)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) to copy the files to your local machine.
+1. Use [Secure Copy (SCP)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) to copy the files to your local machine.
 1. Play the files by using [VLC media player](https://www.videolan.org/vlc/) or any other MP4 player.
 
 ## Clean up resources
@@ -229,4 +229,4 @@ If you intend to try the other quickstarts, then keep the resources you created.
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
-  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.
+  - Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?view=iotedge-2020-11&preserve-view=true) register the device with Azure IoT Hub.

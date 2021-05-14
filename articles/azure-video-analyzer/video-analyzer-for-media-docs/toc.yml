@@ -37,6 +37,8 @@
     href: live-stream-analysis.md
   - name: Observed people 
     href: observed-people-tracing.md
+  - name: Audio effects detection
+    href: audio-effects-detection.md
   - name: Customizing content models
     items:
     - name: Overview

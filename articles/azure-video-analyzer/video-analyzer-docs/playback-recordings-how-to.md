@@ -1,6 +1,6 @@
 ---
 title: Playback of video recordings - Azure Video Analyzer
-description: You can use Azure Video Analyzer on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback such recordings.
+description: You can use Azure Video Analyzer for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback such recordings.
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 04/26/2021
@@ -24,7 +24,7 @@ If you are building an application or service using Video Analyzer APIs, then yo
 
 Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag]()<!-- add link to swagger--> that will be set to `true` for the video resource.
 
-Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [widgets](widgets.md) that are JavaScript plugins built on top of the Client APIs.
+Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use Video Analyzer [Client APIs]()<!--add link --> to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video & audio. Alternatively, you can use [the player widget](./player-widget.md) that is JavaScript plugins built on top of the Client APIs.
  
 ### Live vs. VoD  
 

@@ -1,11 +1,11 @@
 ---
-title: Manage recording policy - Azure
-description: This topic explains how to manage recording policy.
+title: Manage recording policy with Live Video Analytics - Azure
+description: This topic explains how to manage recording policy with Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
 
 ---
-# Manage recording policy
+# Manage recording policy with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

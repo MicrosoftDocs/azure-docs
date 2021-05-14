@@ -69,6 +69,8 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 > [!NOTE] 
 > The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
+> 
+> Currently, no option is available to configure a reboot or scheduled updates for an Enterprise tier cache.
 >
 
 

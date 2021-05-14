@@ -172,7 +172,11 @@
       - name: Configure Multi-Factor Authentication (MFA)
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
-        href: openvpn-azure-ad-client.md
+        items:
+        - name: Windows
+          href: openvpn-azure-ad-client.md
+        - name: macOS - Preview
+          href: openvpn-azure-ad-client-mac.md
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile

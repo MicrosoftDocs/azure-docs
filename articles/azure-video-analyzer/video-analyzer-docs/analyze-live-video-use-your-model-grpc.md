@@ -53,14 +53,6 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
    > :::image type="content" source="./media/analyze-live-video-use-your-model-grpc/generate-deployment-manifest.png" alt-text="Generate IoT Edge Deployment Manifest":::
 
 1. The _deployment.grpcyolov3icpu.amd64.json_ manifest file is created in the src/edge/config folder.
-1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step.
-1. Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the _appsettings.json_ file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
-
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/set-connection-string.png" alt-text="Connection string":::
-
-   > [!NOTE]
-   > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:<br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
 
 1. Right-click src/edge/config/ **deployment.grpcyolov3icpu.amd64.json** and select **Create Deployment for Single Device**.
 
@@ -76,25 +68,6 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 
      > [!div class="mx-imgBorder"]
      > :::image type="content" source="./media/vscode-common-screenshots/avaextension.png" alt-text= "YoloV3 object detection model":::
-
-## Prepare to monitor events
-
-1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select Extension Settings.
-
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/extension-settings.png" alt-text="Extensions":::
-
-1. Search and enable “Show Verbose Message”.
-1. > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
-1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the OUTPUT window of Visual Studio Code.
-
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/vscode-common-screenshots/start-monitoring.png" alt-text= "Start Monitoring Built-in Event Endpoint":::
-
-> [!NOTE]
-> You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for Built-in endpoints option in the left navigation pane. Click there and look for the Event Hub-compatible endpoint under Event Hub compatible endpoint section. Copy and use the text in the box. The endpoint will look something like this:<br/>`Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>`
 
 ## Run the sample program
 
@@ -152,8 +125,8 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
    }
    ```
 
-   - A call to livePipelineActivate that starts the pipeline instance and the flow of video.
-   - A second call to livePipelineList that shows that the pipeline instance is in the running state.
+   - A call to livePipelineActivate that starts the live pipeline and the flow of video.
+   - A second call to livePipelineList that shows that the live pipeline is in the running state.
 
 1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Video Analyzer module is sending to the IoT hub. The following section of this quickstart discusses these messages.
@@ -161,14 +134,14 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 
    The next series of calls cleans up resources:
 
-   - A call to `livePipelineDeactivate` deactivates the pipeline instance.
-   - A call to `livePipelineDelete` deletes the instance.
+   - A call to `livePipelineDeactivate` deactivates the live pipeline 
+   - A call to `livePipelineDelete` deletes the live pipeline.
    - A call to `pipelineTopologyDelete` deletes the topology.
    - A final call to `pipelineTopologyList` shows that the list is empty.
 
 ## Interpret results
 
-When you run the pipeline topology, the results from the gRPC extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the pipeline topology, the results from the gRPC extension processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer module defines the application properties and the content of the body.
 
@@ -202,7 +175,7 @@ In this message, notice these details:
 
 ### Inference event
 
-The gRPC extension processor node receives inference results from the avaextension module. It then emits the results through the IoT Hub sink node as inference events. In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the
+The gRPC extension processor node receives inference results from the avaextension module. It then emits the results through the IoT Hub message sink node as inference events. In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the
 UTC time when the object was detected. In the following example, three cars were detected in the same video frame, with varying levels of confidence.
 
 ```json
@@ -305,4 +278,4 @@ In the messages, notice the following details:
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-  - Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux?view=iotedge-2018-06&preserve-view=true).
+  - Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).

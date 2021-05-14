@@ -160,5 +160,5 @@ Now that you've covered setting up a WSFC in Azure VMware Solution, you may want
 
 - Setting up your new WSFC by adding more applications that require the WSFC capability. For instance, SQL Server and SAP ASCS.
 - Setting up a backup solution.
-  - [Setting up Azure Backup Server for Azure VMware Solution](./set-up-backup-server-for-azure-vmware-solution.md)
-  - [Backup solutions for Azure VMware Solution virtual machines](./ecosystem-back-up-vms.md)
+  - [Setting up Azure Backup Server for Azure VMware Solution](/azure/backup/backup-azure-microsoft-azure-backup?context=/azure/azure-vmware/context/context)
+  - [Backup solutions for Azure VMware Solution virtual machines](/azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context)

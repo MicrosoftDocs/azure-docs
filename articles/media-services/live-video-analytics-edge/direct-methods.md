@@ -1,11 +1,11 @@
 ---
-title: Use direct methods in Live Video Analytics on IoT Edge - Azure  
-description: Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
+title: Use direct methods in Azure Live Video Analytics on IoT Edge
+description: Azure Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Direct methods
+# Direct methods with Live Video Analytics
 
 [!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 

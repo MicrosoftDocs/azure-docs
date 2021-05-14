@@ -12,40 +12,44 @@ This article describes Azure Video Analyzer quotas and limitations.
 
 ## Quotas and limitations - Edge module
 
-This section enumerates the quotas and limitations of the Video Analyzer on IoT Edge module.
+This section enumerates the quotas and limitations of the Video Analyzer edge module.
 
 ### Maximum period of disconnected use
 
 The edge module can sustain temporary loss of internet connectivity. If the module remains disconnected for more than 36 hours, it will deactivate any live pipelines that were running. All further direct method calls will be blocked.
 
-To resume the edge module to an operational state, you will have to restore the internet connectivity so that the module is able to successfully communicate with the Azure Video Analyzer account.
+To restore the edge module to an operational state, you will have to re-establish the internet connectivity so that the module is able to successfully communicate with the Azure Video Analyzer account.
 
 ### Maximum number of live pipelines
 
-At most 1000 live pipelines per module (created via livePipelineSet) are supported.
+At most 1000 live pipelines per module (created via `livePipelineSet`) are supported.
 
 ### Maximum number of pipeline topologies
 
-At most 50 pipeline topologies per module (created via pipelineTopologySet) are supported.
+At most 50 pipeline topologies per module (created via `pipelineTopologySet`) are supported.
 
-### Limitations on pipeline topologies at preview
+### Limitations on pipeline topologies
 
-With the preview release, there are limitations on different nodes can be connected together in a pipeline topology.
+Following are the limitations on how different nodes can be connected together in a pipeline topology.
 
 * RTSP source
    * Only one RTSP source is allowed per pipeline topology.
 * Motion detection processor
    * Must be immediately downstream from RTSP source.
-   * Cannot be used downstream of an HTTP or a gRPC extension processor.
+   * Cannot be used downstream from an HTTP or a gRPC extension processor.
 * Signal gate processor
    * Must be immediately downstream from RTSP source.
+* Object tracker processor
+   * Must be immediately downstream from an HTTP or a gRPC extension processor. The extension processor should not be applying an AI model on every frame of the live video.
+* Line crossing processor
+   * Must be immediately downstream from an object tracker processor.
 * Video sink 
    * Must be immediately downstream from RTSP source or signal gate processor.
 * File sink
    * Must be immediately downstream from signal gate processor.
-   * Cannot be immediately downstream of an HTTP or a gRPC extension processor or motion detection processor.
+   * Cannot be immediately downstream from an HTTP or a gRPC extension processor or motion detection processor.
 * IoT Hub Sink
-   * Cannot be immediately downstream of an IoT Hub Source.
+   * Cannot be immediately downstream from an IoT Hub Source.
 
 ### Supported cameras
 You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
@@ -53,7 +57,7 @@ You can only use IP Cameras that support RTSP protocol. You can find IP cameras 
 Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
 
 ### Support for video AI
-The extension nodes (HTTP or gRPC extension processors) only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See [this topology as an example](add-valid-link.md)<!-- https://github.com/Azure/video-analyzer/blob/master/topologies/live/evr-grpcExtension-assets/2.0/topology.json --> .
+The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
 ## Quotas and limitations - Service
 
@@ -65,6 +69,7 @@ At the time of the preview release, the Video Analyzer service does not support 
 
 * The ability to migrate the account from one subscription to another without an interruption.
 * The ability to use more than one Storage account with the account.
+* The ability to use a Storage account in a different region than the Video Analyzer account.
 
 ### Limits on video resources
 At the time of the preview release, each Video Analyzer account can have at most 10,000 video resources. If you have a business need for a higher limit, open a support ticket in the Azure portal.
