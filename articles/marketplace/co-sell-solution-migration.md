@@ -44,9 +44,9 @@ Follow these steps before importing your solutions from OCP GTM:
 2. Ask one of the listed contacts to [add users](https://partner.microsoft.com/dashboard/account/usermanagement) to the commercial marketplace as *managers* or *developers*, since only these roles can edit and publish solutions.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 4. Decide which of the following you want to do:
-    1.If you have a solution in OCP GTM that you want to migrate to Partner Center - to retain referral pipeline, collateral, co-sell status and incentives - there are two scenarios for you to choose from:
-         • If there is no similar offer in commercial marketplace, you will first create an offer and publish it in the commercial marketplace, and then you will merge the solution in OCP GTM with this new offer. See [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM).
-         • Merge this solution with a similar offer in the commercial marketplace. [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM)
+    1. If you have a solution in OCP GTM that you want to migrate to Partner Center - to retain referral pipeline, collateral, co-sell status and incentives - there are two scenarios for you to choose from:
+        - If there is no similar offer in commercial marketplace, you will first create an offer and publish it in the commercial marketplace, and then you will merge the solution in OCP GTM with this new offer. See [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM).
+        - Merge this solution with a similar offer in the commercial marketplace. [Migrate this solution from OCP GTM](#Migrate_this_solution_from_OCP_GTM)
     1. Migrate this solution from OCP GTM to the commercial marketplace.
     1. Discard this solution.
 
@@ -89,21 +89,19 @@ If you do not have an offer already in the commercial marketplace to merge a sol
          • Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
         :::image type="content" source="media/co-sell-migrate/Offer_setup_nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
-    
     3. Select **Save Draft**.
-
-    - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type). 
-    - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
-    - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
-    - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
+        - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type). 
+        - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
+        - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
+        - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
 
 #### Step 2
 
 **OPTIONAL** - It is not necessary to complete the Co-sell with Microsoft tab during the merge. All of the co-sell information associated to the solution in OCP GTM will be migrated over to the offer in the commercial marketplace during the merge process. For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
 
-    1. When complete, select **Review and publish**.
+1. When complete, select **Review and publish**.
     
-    :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
+     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
     
     2. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="":::
     
@@ -123,11 +121,11 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
 Select this option if the solution is already published and live in the commercial marketplace and the solution in OCP GTM and the offer in the commercial marketplace should be merged into a single offer. This will avoid creating duplicate offers.
 
-1. Identify the existing offer.
-    1. Select **This is similar to an existing offer in commercial marketplace** (see **Begin your migration** image [above](#beginmigration)).
-    1. The **Action 1** tab shows live commercial marketplace offers that your OCP GTM solution can be associated with. Select the live offer from the list if you have one. If there is no list of offers to choose from, enter the customer-facing address (URL) from Microsoft AppSource or Azure Marketplace.
+   1. Identify the existing offer.
+   1. Select **This is similar to an existing offer in commercial marketplace** (see **Begin your migration** image [above](#beginmigration)).
+   1. The **Action 1** tab shows live commercial marketplace offers that your OCP GTM solution can be associated with. Select the live offer from the list if you have one. If there is no list of offers to choose from, enter the customer-facing address (URL) from Microsoft AppSource or Azure Marketplace.
         [![The Action 1 tab of the merge process.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
-    1. Select **Continue**.
+   1. Select **Continue**.
 1. Request the merge.
     1. The **Action 2** tab shows directions to request the merge of your OCP GTM solution with the one you identified. To request the merge, select **Save & Contact support**, which opens a partner support page in a browser.
     1. Select **Provide Issue Details** and enter the following:
