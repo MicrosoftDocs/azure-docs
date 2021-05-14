@@ -7,7 +7,7 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python-swift-android
+zone_pivot_groups: acs-web-ios
 
 ---
 
@@ -20,11 +20,11 @@ zone_pivot_groups: acs-js-csharp-java-python-swift-android
 
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="platform-web"
 [!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-swift"
+::: zone pivot="platform-ios"
 [!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
 ::: zone-end
 
