@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
-This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
+This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli).
 
 ## Using Azure AD app registrations
 
@@ -34,36 +34,39 @@ This app registration is where you configure access permissions to the [Azure Di
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Set up Cloud Shell session
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
-
 ## Create manifest
+
+First, create a file containing certain service information that your app registration will need to access the Azure Digital Twins APIs. Later, you'll pass in this file when creating the app registration, to set up the Azure Digital Twins permissions.
 
 Create a new .json file on your computer called **manifest.json**. Copy this text into the file:
 
 ```json
 [
-		{
-			"resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-			"resourceAccess": [
-				{
-					"id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-					"type": "Scope"
-				}
-			]
-		}
-	]
+	{
+		"resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
+		"resourceAccess": [
+			{
+				"id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
+				"type": "Scope"
+			}
+		]
+	}
+]
 ```
 
-Save the file.
+The static value `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` is the resource ID for the Azure Digital Twins service endpoint, which your app registration will need to access the Azure Digital Twins APIs.
+ 
+Save the finished file.
 
 ### Upload to Cloud Shell
 
-Go to the Cloud Shell window in your browser. Select the "Upload/Download files" icon and choose "Upload".
+Next, upload the manifest file you just created to the Cloud Shell, so that you can access it in Cloud Shell commands when configuring the app registration.
+
+To upload the file, go to the Cloud Shell window in your browser. Select the "Upload/Download files" icon and choose "Upload".
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
 
-Navigate to the **manifest.json** file on your machine and select "Open." This will upload the file to Cloud Shell so that you can access it in Cloud Shell commands.
+Navigate to the **manifest.json** file on your machine and select "Open." This will upload the file to the root of your Cloud Shell storage.
 
 ## Create the registration
 
@@ -73,10 +76,10 @@ In this section, you'll run a Cloud Shell command to create an app registration 
 * A web reply URL of `http://localhost`
 * Read/write permissions to the Azure Digital Twins APIs
 
-Here is the command:
+Run the following command to create the registration:
 
 ```azurecli-interactive
-az ad app create --display-name <name> --available-to-other-tenants false --reply-urls http://localhost --required-resource-accesses "@manifest.json"
+az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --required-resource-accesses "@manifest.json"
 ```
 
 <adds reply url as web-type. not sure if theres a way to add as another type? Does it NEED to be public client/native?>
@@ -89,11 +92,11 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 :::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The items under 'requiredResourceAccess' are highlighted: there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8.":::
 
-You can also verify the app registration was successfully created using the Azure portal. For instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
+You can also verify the app registration was successfully created using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
 
 ## Collect client and tenant ID
 
-To use the app registration for authentication, you will often need to provide its **Application (client) ID** and **Directory (tenant) ID**. 
+To use the app registration for authentication, you may need to provide its **Application (client) ID** and **Directory (tenant) ID**. In this section, you'll collect these values so you can save them and use them whenever they're needed.
 
 You can find both of these values in the output from the `az ad app create` command.
 
@@ -114,8 +117,8 @@ Here are some common potential activities that an Owner/administrator on the sub
     - <Is this a valid CLI version of the portal step? Does it do the same thing?>
 * Activate public client access 
     - <Can you do this with the CLI?>
-* Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on adding this parameter to `az ad` commands, see [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
-* Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on adding this parameter to `az ad` commands, see [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
+* Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
+* Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
 
 For more information about app registration and its different setup options, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2).
 
