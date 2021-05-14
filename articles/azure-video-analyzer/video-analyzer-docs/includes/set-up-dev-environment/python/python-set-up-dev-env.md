@@ -20,7 +20,7 @@ ms.author: juliako
     ```
     The IoT Hub connection string lets you use Visual Studio Code to send commands to the edge modules via Azure IoT Hub. Copy the above JSON into the **src/cloud-to-device-console-app/appsettings.json** file.
 1. Next, browse to the src/edge folder and create a file named **.env**. This file contains properties that Visual Studio Code uses to deploy modules to an edge device.
-1. Browse to the file share in the storage account created in the setup step above, and locate the **env** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
+1. Browse to the file share in the storage account created in the setup step above, and locate the **env.txt** file under the "deployment-output" file share. Click on the file, and then hit the "Download" button. The contents should open in a new browser tab, which should look like:
    ```
         SUBSCRIPTION_ID="<Subscription ID>"  
         RESOURCE_GROUP="<Resource Group>" 
