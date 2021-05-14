@@ -33,7 +33,7 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 
 The following scenarios can help you decide if the Standard plan best fits your needs.
 
-- Expected traffic volumes exceed 100 GB per subscription, per month.
+- Expected traffic volumes exceed bandwidth maximums.
 - The existing Azure Functions app you want to use either has triggers and bindings beyond HTTP endpoints, or can't be converted to a managed Functions app.
 - Security requirements that require a [custom provider registration](authentication-custom.md).
 - The site's web assets total file size exceed the storage maximums.
