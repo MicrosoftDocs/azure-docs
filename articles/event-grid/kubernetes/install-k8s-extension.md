@@ -8,7 +8,7 @@ ms.date: 05/11/2021
 ms.topic: how-to
 ---
 
-# Install Event Grid on Azure Arc enabled Kubernetes cluster
+# Install Event Grid extension on Azure Arc enabled Kubernetes cluster
 This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) cluster.
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
@@ -42,22 +42,27 @@ Before proceeding with the installation of Event Grid, make sure the following p
 If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how-to-create-a-support-request).
 
 ## PKI Certificate requirements
-The Event Grid broker (server) serves two kinds of clients. 
+The Event Grid broker (server) serves two kinds of clients. Server authentication is done using Certificates. Client authentication is done using either certificates or SAS keys based on the client type.
 
-- Event Grid publishers, which are data plane clients that send events to event grid topic endpoints hosted on the broker. 
-- Event Grid operators are the other kind of clients that makes control plane requests to the Event Grid broker.
+- Event Grid operators that make control plane requests to the Event Grid broker are authenticated using certificates.
+- Event Grid publishers that publisher events to an event grid topic are authenticated with the topic's SAS keys.
 
-For clients and server (Event Grid broker) to establish a TLS session to start a secure HTTPS communication, Public Key Infrastructure (PKI) certificates and keys for clients and server are required. Here are the general requirements for these PKI certificates:
+In order to establish a secure HTTPS communication with the Event Grid broker and Event Grid operator we use PKI Certificates during the installation of Event Grid extension. Here are the general requirements for these PKI certificates:
 
-1. The certificates and keys must be [X.509](https://en.wikipedia.org/wiki/X.509) certificates and [Privacy-Enhanced Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) (PEM) encoded.
-1. There are six files in total that need to be provided when installing the Event Grid extension. Following are the PKI certificates and keys needed for the client (3) and the server (3) components:
-    1. A CA certificate.
-    1. A public certificate.
-    1. A key.
-1. In addition to the above certificates, you will need the same set of certificates for each of the event publishing clients that you intend to use in your solution. These certificates are not requested during the installation of Event Grid.
+1. The certificates and keys must be [X.509](https://en.wikipedia.org/wiki/X.509) certificates and [Privacy-Enhanced Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) PEM encoded.
+1. To configure the Event Grid broker (server) certificate during installation you'll need to provide:
+    1. A CA certificate
+    1. A public certificate
+    1. A private key
+1. To configure the Event Grid operator (client) certificate you'll need to provide:
+    1. A CA certificate
+    1. A public certificate
+    1. A private key
+
+    Publishing clients can use the Event Grid broker CA certificate to validate the server when publishing events to a topic.
 
     > [!IMPORTANT]
-    > While a domain associated to a publisher client, for example, might have more than one public certificate issued by different certificate authorities, Event Grid on Kubernetes only allows uploading a single CA certificate for clients when installing Event Grid. As a consequence, the certificates for clients publishing events to Event Grid and the certificate for the Event Grid operator should be issued (signed) by the same CA in order for the certificate chain validation to succeed and a TLS session to be successfully established.
+    > While a domain associated to client might have more than one public certificate issued by different certificate authorities, Event Grid on Kubernetes only allows uploading a single CA certificate for clients when installing Event Grid. As a consequence, the certificates for the Event Grid operator should be issued (signed) by the same CA in order for the certificate chain validation to succeed and a TLS session to be successfully established.
 1. When configuring the Common Name (CN) for server and client certificates, make sure they are different to the CN provided for the Certificate Authority certificate.
 
     > [!IMPORTANT] 
@@ -128,8 +133,6 @@ For clients and server (Event Grid broker) to establish a TLS session to start a
 **Explanation**: You already have Event Grid installed. The preview version of Event Grid only supports one Event Grid extension instance deployed to a cluster.
 
 
-## Resources
-
-1. [Deploy and manage Kubernetes cluster extensions](../../azure-arc/kubernetes/conceptual-extensions.md).
-
+## Next steps
+See the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).
 

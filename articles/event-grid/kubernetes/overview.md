@@ -24,7 +24,7 @@ Regardless of the edition of Event Grid you use, there is an **event publisher**
 
 
 ## Event Grid on Kubernetes with Azure Arc
-Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md#install-event-grid-on-azure-arc-enabled-kubernetes-cluster) on it. 
+Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md#install-event-grid-on-kubernetes-extension) on it. 
 
 ### Use case
 Event Grid on Kubernetes supports various event-driven integration scenarios. However, the main encompassing scenario supported and expressed as a user story is:
@@ -89,7 +89,7 @@ Follow these steps in the order to start routing events using Event Grid on Kube
 
 Here are more resources that you can use:
 
-* [Client SDKs](../sdk-overview.md#data-plane-sdks).
-* [Publish events examples using the client SDKs](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/).
+* [Data plane SDKs](../sdk-overview.md#data-plane-sdks).
+* [Publish events examples using the Data plane SDKs](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/).
 * [Event Grid CLI](/cli/azure/eventgrid).
 * [Management SDKs](../sdk-overview.md#management-sdks).

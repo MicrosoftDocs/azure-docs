@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid on Kubernetes - create topics and subscriptions
+title: Azure Event Grid on Kubernetes - Webhook as event handler
 description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
 author: jfggdl
 ms.subservice: kubernetes
@@ -8,7 +8,7 @@ ms.date: 05/25/2021
 ms.topic: quickstart
 ---
 
-# Azure Event Grid on kubernetes - Create a topic and subscriptions
+# Route cloud events to Webhooks with Azure Event Grid on Kubernetes
 In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
@@ -75,11 +75,11 @@ az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> \
 Specify values for the place holders before running the command:
 - Name of the event subscription to be created. 
 
-- In the resource ID of the custom location, specify the following values:
+- In the **resource ID of the topic**, specify the following values:
     - ID of the Azure subscription in which you want the subscription to be created. 
     - Name of the resource group that contains the topic.
     - Name of the topic. 
-    - Name of the web site for Event Grid Viewer.
+- For the endpoint, specify the name of the Event Grid Viewer web site.
     
 For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
