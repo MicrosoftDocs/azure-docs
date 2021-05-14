@@ -16,7 +16,7 @@
   - name: Client libraries and REST API
     href: quickstarts/client-library.md
   - name: Get started with Form Recognizer
-    href: quickstarts/get-started-with-form-recognizer-.md  
+    href: quickstarts/get-started-with-form-recognizer.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -43,12 +43,6 @@
   items:
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
-  - name: Build a training data set
-    href: build-training-data-set.md
-  - name: Use table tags to train your custom model
-    href: supervised-table-tags.md
-  - name: Deploy the sample labeling tool
-    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers
