@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
+ms.date: 05/14/2021
 ---
 # Migration guide: IBM Db2 to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
