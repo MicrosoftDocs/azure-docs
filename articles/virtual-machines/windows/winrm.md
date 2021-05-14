@@ -123,7 +123,7 @@ While creating a VM through templates, the certificate gets referenced in the se
     },
 ```
 
-A sample template for the above can be found here at [vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/demos/vm-winrm-keyvault-windows)
+A sample template for the above can be found here at [vm-winrm-keyvault-windows](https://azure.microsoft.com/resources/templates/vm-winrm-keyvault-windows/)
 
 Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)
 
