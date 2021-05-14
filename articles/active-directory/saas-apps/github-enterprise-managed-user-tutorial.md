@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64download.png)
+	![The Certificate download link](common/certificate-base64-download.png)
 
 1. On the **Set up GitHub Enterprise Managed User** section, copy the URLs below and save it for configuring GitHub below.
 
