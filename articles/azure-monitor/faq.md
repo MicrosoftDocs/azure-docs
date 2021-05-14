@@ -228,7 +228,8 @@ Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
 - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
 
-[!NOTE] You can run both scenarios above with MMA and AMA side-by-side without any impact*
+> [!NOTE] 
+> You can run both scenarios above with MMA and AMA side-by-side without any impact*
 
 
 ### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
@@ -287,7 +288,7 @@ For syslog on Linux, you can choose Facilities and log level for each facility t
 
 
 ### Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
-Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
+Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
 
 
 
