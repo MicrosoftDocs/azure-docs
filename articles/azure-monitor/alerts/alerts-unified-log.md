@@ -175,11 +175,11 @@ For example, if your rule [**Aggregation granularity**](#aggregation-granularity
 
 ## State and resolving alerts
 
-Log alerts can either be stateless or stateful (currently in preview when using the API).
+Log alerts can either be stateless or stateful (currently in preview).
 
 Stateless alerts fire each time the condition is met, even if fired previously. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md) once the alert instance is resolved. You can also mute actions to prevent them from triggering for a period after an alert rule fired. In Log Analytics Workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
-See this alert evaluation example:
+See this alert stateless evaluation example:
 
 | Time    | Log condition evaluation | Result 
 | ------- | ----------| ----------| ------- 
@@ -188,7 +188,7 @@ See this alert evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. When creating new or updating existing log alert rules, add the `autoMitigate` flag with value `true` of type `Boolean`, under the `properties` section. You can use this feature in these API versions: `2018-04-16` and `2020-05-01-preview`.
+Stateful alerts fire once per incident and resolve. This feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 

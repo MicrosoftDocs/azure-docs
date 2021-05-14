@@ -28,7 +28,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
     | **Subscription** | The Azure subscription under which this new Web PubSub service instance is created. | 
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  Name for the new or existing resource group in which to create your Web PubSub service instance. | 
     | **Location** | Choose a [region](https://azure.microsoft.com/regions/) near you. |
-    | **Pricing tier** | Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-[pubsub]). |
+    | **Pricing tier** | Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-pubsub/). |
     | **Unit count** |  Unit count specifies how many connections your Web PubSub service instance can accept. Each unit supports 1,000 concurrent connections at most. It is only configurable in the Standard tier. |
 
 1. Select **Create** to start deploying the Web PubSub service instance.
