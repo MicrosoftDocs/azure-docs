@@ -130,12 +130,12 @@ To set up and use Azurite, follow these steps:
 
 By default, the following settings are enabled and set for the Azure Logic Apps (Standard) extension:
 
-* **Azure Logic Apps V2: Project Runtime**, which is set to version **~3**
+* **Azure Logic Apps Standard: Project Runtime**, which is set to version **~3**
 
   > [!NOTE]
   > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
 
-* **Azure Logic Apps V2: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
+* **Azure Logic Apps Standard: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
 
 To find and confirm these settings, follow these steps:
 
@@ -143,7 +143,7 @@ To find and confirm these settings, follow these steps:
 
 1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Preview)**.
 
-   For example, you can find the **Azure Logic Apps V2: Project Runtime** setting here or use the search box to find other settings:
+   For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
 
    ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
 
