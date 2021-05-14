@@ -36,7 +36,7 @@ Beyond the built-in roles, you can create new roles, assign them to users via in
 
 ### Add a user to a role
 
-To add users to your web site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
+To add a user to a role, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
 
 > [!NOTE]
 > You may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations for group management.
