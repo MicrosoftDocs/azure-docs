@@ -79,7 +79,22 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
    You can utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
 
-1. [Set up the host computer](../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
+   1. Connect to your VM and in the terminal type in the following command:
+
+        `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
+    
+        Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    
+        The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
+    
+        * `/home/localedgeuser/samples`
+        * `/home/localedgeuser/samples/input`
+        * `/var/lib/videoanalyzer`
+        * `/var/media`
+    
+        Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
+
+1. [Set up the edge device](../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
 
 1. Next, deploy the other Azure resources.
 
@@ -96,7 +111,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/overview.png" alt-text="Spatial Analysis overview":::
 
-This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
+This diagram shows how the signals flow in this tutorial. An [edge module](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](pipeline.md#rtsp-source) node pulls the video feed from this server and sends video frames to the `CognitiveServicesVisionProcessor` node.
 
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
@@ -113,7 +128,9 @@ There are three primary parameters for all Cognitive Services' containers that a
 
 ### Keys and endpoint URI
 
-A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.
+A key is used to start the spatial-analysis container, and is available on the Azure portal's `Keys and Endpoint` page of the corresponding Cognitive Service resource. Navigate to that page, and find the keys and the endpoint URI.  
+
+You will need this key and endpoint URI in your deployment manifest files to deploy the spatialanalysis container.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis/keys-endpoint.png" alt-text="Endpoint URI":::
@@ -122,7 +139,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 
 1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
-1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it _appsettings.json_. This file will contain the settings needed to run the program.
+1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
 1. Get the `IotHubConnectionString` from the edge device by following these steps:
 
    - go to your IoT Hub in Azure portal and click on `Shared access policies` in the left navigation pane.
@@ -142,7 +159,7 @@ A key is used to start the spatial-analysis container, and is available on the A
    ```
 
 1. Go to the src/edge folder and create a file named .env.
-1. Copy the contents of the .env file from Azure portal. The text should look like the following code.
+1. Copy the contents of the env file from Azure portal. The text should look like the following code.
 
    ```env
    SUBSCRIPTION_ID="<Subscription ID>"
@@ -151,6 +168,8 @@ A key is used to start the spatial-analysis container, and is available on the A
    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"
    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
    APPDATA_FOLDER_ON_DEVICE="/var/lib/videoanalyzer"
+   CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+   CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
    ```
 
 ## Set up deployment template
@@ -159,7 +178,7 @@ Look for the deployment file in /src/edge/deployment.spatialAnalysis.template.js
 
 There are a few things you need to pay attention to in the deployment template file:
 
-1. Set the port binding.
+1. Set the port binding in the `spatialanalysis` module.
 
    ```
    "PortBindings": {
@@ -168,7 +187,7 @@ There are a few things you need to pay attention to in the deployment template f
                "HostPort": "50051"
            }
        ]
-   },
+   }
    ```
 
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
@@ -199,7 +218,6 @@ There are a few things you need to pay attention to in the deployment template f
                           }
                         }
       ```
-
 ## Generate and deploy the deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.
