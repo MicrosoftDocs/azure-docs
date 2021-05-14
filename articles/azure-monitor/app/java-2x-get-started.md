@@ -10,9 +10,10 @@ ms.author: jgol
 
 # Quickstart: Get started with Application Insights in a Java web project
 
-
 > [!CAUTION]
-> As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights Java 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+> This document applies to Application Insights Java 2.x which is no longer recommended.
+>
+> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
@@ -141,7 +142,7 @@ You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
 ## Add agent
 
-[Install the Java Agent](java-agent.md) to capture outgoing HTTP calls, JDBC queries, application logging,
+[Install the Java Agent](java-2x-agent.md) to capture outgoing HTTP calls, JDBC queries, application logging,
 and better operation naming.
 
 ## Run your application
@@ -197,7 +198,7 @@ Unhandled exceptions and request failures are automatically collected by the App
 To collect data on other exceptions, you can [insert calls to trackException() in your code][apiexceptions].
 
 ## Monitor method calls and external dependencies
-[Install the Java Agent](java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
+[Install the Java Agent](java-2x-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
 And for automatic operation naming.
 
@@ -207,7 +208,7 @@ The Application Insights Java SDK now supports [W3C distributed tracing](https:/
 
 The incoming SDK configuration is explained further in our article on [correlation](correlation.md).
 
-Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
+Outgoing SDK configuration is defined in the [AI-Agent.xml](java-2x-agent.md) file.
 
 ## Performance counters
 Open **Investigate**, **Metrics**, to see a range of performance counters.
@@ -263,7 +264,7 @@ Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-
 * instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 ### Unix performance counters
-* [Install collectd with the Application Insights plugin](java-collectd.md) to get a wide variety of system and network data.
+* [Install collectd with the Application Insights plugin](java-2x-collectd.md) to get a wide variety of system and network data.
 
 ## Get user and session data
 OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
@@ -283,11 +284,11 @@ Application Insights can test your website at regular intervals to check that it
 [Learn more about how to set up availability web tests.][availability]
 
 ## Questions? Problems?
-[Troubleshooting Java](java-troubleshoot.md)
+[Troubleshooting Java](java-2x-troubleshoot.md)
 
 ## Next steps
-* [Monitor dependency calls](java-agent.md)
-* [Monitor Unix performance counters](java-collectd.md)
+* [Monitor dependency calls](java-2x-agent.md)
+* [Monitor Unix performance counters](java-2x-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Use  [Analytics](../logs/log-query-overview.md) for powerful queries over telemetry from your app
@@ -299,6 +300,6 @@ Application Insights can test your website at regular intervals to check that it
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
-[javalogs]: java-trace-logs.md
+[javalogs]: java-2x-trace-logs.md
 [metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md
