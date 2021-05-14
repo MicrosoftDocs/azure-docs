@@ -10,12 +10,12 @@ ms.author: jgol
 
 # Filter telemetry in your Java web app
 
-> [!IMPORTANT]
-> The approach described in this document is no longer recommended.
+> [!CAUTION]
+> This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
 
-Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
+Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-2x-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
 
 The out-of-the-box filters include:
 
@@ -168,7 +168,7 @@ Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.m
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-2x-trace-logs.md)).
 
 ```XML
 
