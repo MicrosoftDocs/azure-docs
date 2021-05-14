@@ -271,7 +271,6 @@ Update management reaches across multiple services to provide its service. The f
 |[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
 |[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.||
 
-
 ## Configure Azure RBAC for your Automation account
 
 The following section shows you how to configure Azure RBAC on your Automation account through the [Azure portal](#configure-azure-rbac-using-the-azure-portal) and [PowerShell](#configure-azure-rbac-using-powershell).
