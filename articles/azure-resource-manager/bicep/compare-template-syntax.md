@@ -261,7 +261,7 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 
 To separate a solution into multiple files:
 
-* For Bicep, use [modules](tutorial-add-modules.md).
+* For Bicep, use [modules](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 * For JSON, use [linked templates](../templates/linked-templates.md).
 
 ## Recommendations
@@ -273,5 +273,5 @@ To separate a solution into multiple files:
 
 ## Next steps
 
-* For information about the Bicep, see [Bicep tutorial](./tutorial-create-first-bicep.md).
+* For information about the Bicep, see [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
 * To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](decompile.md).

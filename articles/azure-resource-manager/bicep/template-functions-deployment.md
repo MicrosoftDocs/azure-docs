@@ -593,7 +593,7 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in ARM template](template-variables.md).
+For more information about using variables, see [Variables in Bicep](./variables.md).
 
 ## Next steps
 

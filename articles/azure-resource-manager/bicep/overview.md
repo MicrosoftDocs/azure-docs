@@ -23,7 +23,7 @@ To learn about Bicep, see the following video.
 
 To start with Bicep, [install the tools](./install.md).
 
-After installing the tools, try the [Bicep tutorial](./tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
@@ -103,4 +103,4 @@ When you're ready, you can [convert the JSON files to Bicep](./decompile.md).
 
 ## Next steps
 
-Get started with the [Bicep tutorial](./tutorial-create-first-bicep.md).
+Get started with the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
