@@ -8,7 +8,7 @@ ms.date: 03/30/2021
 
 # Use the gRPC extension protocol 
 
-Azure Video Analyzer allows you to extend the pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). If you use the gRPC extension processor as the extension node, then the communication between Azure Video Analyzer module and your AI or CV module is over gRPC based, highly performant structured protocol.
+Azure Video Analyzer allows you to extend the pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). If you use the gRPC extension processor as the extension node, then the communication between Azure Video Analyzer module and your AI or CV module is over gRPC based, high performing structured protocol.
 
 In this article, you will learn about using gRPC extension protocol to send messages between Azure Video Analyzer module and your AI or CV custom extension.
 gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:
@@ -17,7 +17,7 @@ gRPC is a modern, open-source, high-performance RPC framework that runs in any e
 * the gRPC server (your custom extension).
 
 A gRPC session is a single connection from the gRPC client to the gRPC server over the TCP/TLS port.
-In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
+In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
 It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Azure Video Analyzer module.
 
@@ -130,12 +130,12 @@ The receiver then reads the data from this location in the file.
 For the Azure Video Analyzer container to communicate over shared memory, the IPC mode of the container must be configured correctly. This can be done in many ways, but here are some recommended configurations.
 
 * When communicating with a gRPC inferencing engine running on the host device, the IPC mode should be set to host.
-* When communicating with a gRPC server running in another IoT Edge module, the IPC mode should be set to shareable for the Azure Video Analyzer module and container:liveVideoAnalytics for the custom extension, where liveVideoAnalytics is the name of the Azure Video Analyzer module.
+* When communicating with a gRPC server running in another IoT Edge module, the IPC mode should be set to `shareable` for the Video Analyzer module and container:avaedge for the custom extension, where avaedge is the name of the Video Analyzer module.
 
 Here's what this might look like in the device twin using the first option from above.
 
 ```
-"liveVideoAnalytics": 
+"avaedge": 
 {
   "version": "1.0",
   "type": "docker",
@@ -143,17 +143,17 @@ Here's what this might look like in the device twin using the first option from 
   "restartPolicy": "always",
   "settings": 
   {
-    "image": "mcr.microsoft.com/media/live-video-analytics:1",
+    "image": "mcr.microsoft.com/media/video-analyzer:1",
     "createOptions": 
       "HostConfig": 
       {
-        "IpcMode": "host"
+        "IpcMode": "shareable"
       }
   }
 }
 ```
 
-For more information on IPC modes, see [https://docs.docker.com/engine/reference/run/#ipc-settings---ipc](add-valid-link.md).
+For more information on IPC modes, see [IPC settings (--ipc)](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc).
 
 ## Video Analyzer gRPC extension contract definitions
 
@@ -216,7 +216,7 @@ When configuring your inference server, you do not need to expose expose a node 
   "dataTransfer": 
   {
     "mode": "sharedMemory",
-    "SharedMemorySizeMiB": "5"
+    "SharedMemorySizeMiB": "75"
   }
     //Other fields omitted
 }
@@ -226,9 +226,8 @@ When configuring your inference server, you do not need to expose expose a node 
 
 A gRPC connection used for inferencing may be secured over TLS. This is useful in situations where the security of the network between Azure Video Analyzer and the inferencing engine cannot be guaranteed. TLS will encrypt any content embedded into the gRPC messages, causing additional CPU overhead when transmitting frames at a high rate.
 
-The IgnoreHostname and IgnoreSignature verification options are not supported by gRPC, so the server certificate, which the inferencing engine presents must contain a CN that matches exactly with the IP address/hostname in the gRPC extension node’s endpoint URL.
+The `IgnoreHostname` and `IgnoreSignature` verification options are not supported by gRPC, so the server certificate, which the inferencing engine presents must contain a Common Name (CN) that matches exactly with the IP address/hostname in the gRPC extension node’s endpoint URL.
 
 ## Next steps
 
 Learn about the [Inference metadata schema](inference-metadata-schema.md)
-

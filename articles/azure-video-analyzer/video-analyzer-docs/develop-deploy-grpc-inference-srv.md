@@ -36,9 +36,9 @@ Perform the necessary steps to have Video Analyzer module deployed and working o
 ### High level Implementation Steps
 
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
-1. Implement a gRPC Server that will communicate with Video Analyzer using [the proto3 files](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
+1. Implement a gRPC server that will communicate with Video Analyzer using [the proto3 files](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="gRPC Server that will communicate with Video Analyzer using the proto3 files":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="gRPC server that will communicate with Video Analyzer using the proto3 files":::
 
     Within this service:
     1. Handle session description message exchange between the server and the client.
@@ -73,7 +73,7 @@ This gRPC inference server is a .NET Core console application built handle the [
 1. Video Analyzer sends a media stream descriptor (see [extension.proto](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc/extension.proto)) which defines the media stream information that will be sent followed by video frames to the server as a [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) message over the gRPC stream session.
 1. The server validates and acknowledges the stream descriptor and sets up the desired data transfer method.
 1. Video Analyzer then starts sending the MediaSample files which contain the video frames.
-1. The server analyses the video frames as it receives and starts processing them using an Image Processor defined by you.
+1. The server analyses the video frames as it receives and starts processing them using an image processor defined by you.
 1. The server then returns inference results as [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) messages as soon as they are available.
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv/grpc-external-srv.png" alt-text="Create a gRPC inference server":::
@@ -143,7 +143,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
 1. Launch VSCode and navigate to the /src/edge/modules/grpcExtension folder.
 1. Let's do a quick walkthrough of the files:
 
-    1. **Program.cs**: this is the entry point of the application. It is responsible for initializing and managing the gRPC server, which will act as a host. In our sample, the port to listen for incoming gRPC messages from a gRPC client (such as Azure Video Analyzer) on is specified by the grpcBindings configuration element in the AppConfig.json.
+    1. **Program.cs**: this is the entry point of the application. It is responsible for initializing and managing the gRPC server, which will act as a host. In our sample, the port to listen for incoming gRPC messages from a gRPC client (such as Azure Video Analyzer) on is specified by the grpcBindings configuration element in the appConfig.json.
 
         ```json
         {
@@ -237,7 +237,7 @@ Now that you have created your gRPC extension module, we will now create and dep
         * Under `livePipelineSet`, edit the name of the pipeline topology to match the value in the preceding link:<br/>`"topologyName": "EVRtoVideoSinkByGrpcExtension"`
         * Under `pipelineTopologyDelete`, edit the name:<br/>`"name": "EVRtoVideoSinkByGrpcExtension"`
 
-            The topology must define an extension address:
+    The topology must define an extension address. As an example you can create a parameter and use it within the GrpcExtension node:
     * Extension address Parameter
 
         ```
@@ -296,7 +296,7 @@ The deployment manifest defines what modules are deployed to an edge device and 
 
     :::image type="content" source="./media/develop-deploy-grpc-inference-srv/create-deployment-single-device.png" alt-text="Generate and deploy the IoT Edge deployment manifest":::
 
-1. Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Hub device, which should be `avasample-iot-edge-device`.
+1. Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Hub device, which would be `avasample-iot-edge-device`.
 At this stage, the deployment of edge modules to your IoT Edge device has started. In about 30 seconds, refresh Azure IoT Hub in the lower-left section in Visual Studio Code. You should see that a new module got deployed named avaextension.
 
 :::image type="content" source="./media/develop-deploy-grpc-inference-srv/devices.png" alt-text="A new module got deployed named avaextension":::
