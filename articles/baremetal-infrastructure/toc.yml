@@ -73,8 +73,8 @@
       items:
       - name: HA Setup with STONITH
         href: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-      - name: OS Backup for Type II SKUs
-        href: ../virtual-machines/workloads/sap/os-backup-type-ii-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+      - name: OS Backup
+        href: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Enable Kdump for HANA Large Instances
         href: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: OS Upgrade for HANA Large Instances

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/30/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -53,7 +53,8 @@ The following components required are for this scenario:
 * A SAML **identity provider** with the ability to receive, decode, and respond to SAML requests from Azure AD B2C.
 * A publicly available SAML **metadata endpoint** for your identity provider.
 * An [Azure AD B2C tenant](tutorial-create-tenant.md).
- 
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Create a policy key
 

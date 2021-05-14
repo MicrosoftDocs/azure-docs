@@ -22,19 +22,19 @@ To get a quick estimate for your workload using the basic mode, navigate to the 
 
 |**Input**  |**Description**  |
 |---------|---------|
-| API |Choose SQL(Core) API |
+| API |Choose SQL (Core) API |
 |Number of regions|Azure Cosmos DB is available in all Azure regions. Select the number of regions required for your workload. You can associate any number of regions with your Cosmos account. See [global distribution](distribute-data-globally.md) in Azure Cosmos DB for more details.|
 |Multi-region writes|If you enable [multi-region writes](distribute-data-globally.md#key-benefits-of-global-distribution), your application can read and write to any Azure region. If you disable multi-region writes, your application can write data to a single region. <br/><br/> Enable multi-region writes if you expect to have an active-active workload that requires low latency writes in different regions. For example, an IOT workload that writes data to the database at high volumes in different regions. <br/><br/> Multi-region writes guarantees 99.999% read and write availability. Multi-region writes require more throughput when compared to the single write regions. To learn more, see [how RUs are different for single and multiple-write regions](optimize-cost-regions.md) article.|
 |Total data stored in transactional store |Total estimated data stored(GB) in the transactional store in a single region.|
-|Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored(GB) in the analytical store in a single region.  |
+|Use analytical store| Choose **On** if you want to use analytical store. Enter the **Total data stored in analytical store**, it represents the estimated data stored (GB) in the analytical store in a single region.  |
 |Item size|The estimated size of the data item (for example, document), ranging from 1 KB to 2 MB. |
 |Queries/sec |Number of queries expected per second per region. The average RU charge to run a query is estimated at 10 RUs. |
 |Point reads/sec |Number of point read operations expected per second per region. Point reads are the key/value lookup on a single item ID and a partition key. To learn more about point reads, see the [options to read data](optimize-cost-reads-writes.md#reading-data-point-reads-and-queries) article. |
 |Creates/sec |Number of create operations expected per second per region. |
-|Updates/sec |Number of update operations expected per second per region. |
+|Updates/sec |Number of update operations expected per second per region. When you choose automatic indexing, the estimated RU/s for the update operation is calculated as one property being changed per an update. |
 |Deletes/sec |Number of delete operations expected per second per region. |
 
-After filling the required details, select **Calculate**. The **Cost Estimate** tab shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link in this tab to get the breakdown of the throughput required for different CRUD requests. Each time you change the value of any field, select **Calculate** to recalculate the estimated cost.
+After filling the required details, select **Calculate**. The **Cost Estimate** tab shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link in this tab to get the breakdown of the throughput required for different CRUD and query requests. Each time you change the value of any field, select **Calculate** to recalculate the estimated cost.
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png" alt-text="Capacity planner basic mode" border="true":::
 
@@ -68,12 +68,6 @@ You can also use the **Save Estimate** button to download a CSV file containing 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode-sql-api.png" alt-text="Capacity planner advanced mode" border="true":::
 
 The prices shown in the Azure Cosmos DB capacity planner are estimates based on the public pricing rates for throughput and storage. All prices are shown in US dollars. Refer to the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to see all rates by region.  
-
-## Estimating throughput for queries
-
-The Azure Cosmos capacity calculator assumes point reads (a read of a single item, for example, document, by ID and partition key value) and writes for the workload. To estimate the throughput needed for queries, run your query on a representative data set in a Cosmos container and [obtain the RU charge](find-request-unit-charge.md). Multiply the RU charge by the number of queries that you anticipate to run per second to get the total RU/s required. 
-
-For example, if your workload requires a query, ``SELECT * FROM c WHERE c.id = 'Alice'`` that is run 100 times per second, and the RU charge of the query is 10 RUs, you will need 100 query / sec * 10 RU / query = 1000 RU/s in total to serve these requests. Add these RU/s to the RU/s required for any reads or writes happening in your workload.
 
 ## Next steps
 

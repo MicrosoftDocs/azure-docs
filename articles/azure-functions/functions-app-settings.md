@@ -309,6 +309,10 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 |---|------------|
 |WEBSITE\_DNS\_SERVER|168.63.129.16|
 
+## WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+
+Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used. 
+
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
 The maximum number of instances that the app can scale out to. Default is no limit.

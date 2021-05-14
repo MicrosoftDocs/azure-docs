@@ -31,7 +31,7 @@ A portion of the hierarchy looks like the diagram below.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office."::: 
 
-For more information about the RealEstateCore ontology, see [*Concepts: Adopting industry-standard ontologies*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+For more information about the RealEstateCore ontology, see [Concepts: Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## Extending the RealEstateCore space hierarchy 
 
@@ -64,7 +64,7 @@ In this section, you'll see two examples:
 
 Both examples can be implemented with new properties: a `drawingId` property that associates the 3D drawing with the digital twin and an "online" property that indicates whether the conference room is online or not. 
 
-Typically, you don't want to modify the industry ontology directly because you'd like to be able to incorporate updates to it in your solution in the future (which would overwrite your additions). Instead, these kinds of additions can be made in your own interface hierarchy that extends from the DTDL-based RealEstateCore ontology. Each interface you create uses multiple interface inheritance to extend its parent RealEstateCore interface and its parent interface from your extended interface hierarchy. This approach enables you to make use of the industry ontology and your additions together. 
+Typically, you don't want to modify the industry ontology directly because you want to be able to incorporate updates to it in your solution in the future (which would overwrite your additions). Instead, these kinds of additions can be made in your own interface hierarchy that extends from the DTDL-based RealEstateCore ontology. Each interface you create uses multiple interface inheritance to extend its parent RealEstateCore interface and its parent interface from your extended interface hierarchy. This approach enables you to make use of the industry ontology and your additions together. 
 
 To extend the industry ontology, you create your own interfaces that extend from the interfaces in the industry ontology and add the new capabilities to your extended interfaces. For each interface that you want to extend, you create a new interface. The extended interfaces are written in DTDL (see the DTDL for Extended Interfaces section later in this document). 
 
@@ -163,4 +163,4 @@ The DTDL for the extended interfaces, limited to the portion discussed above, wo
 
 ## Next steps
 
-Continue on the path for developing models based on ontologies: [*Using ontology strategies in a model development path*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

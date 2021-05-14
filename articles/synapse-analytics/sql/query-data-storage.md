@@ -93,9 +93,6 @@ For samples, refer to [Read CSV files without specifying all columns](query-sing
 
 By omitting the WITH clause from the `OPENROWSET` statement, you can instruct the service to auto detect (infer) the schema from underlying files.
 
-> [!NOTE]
-> This currently works only for PARQUET file format.
-
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 

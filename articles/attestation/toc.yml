@@ -5,6 +5,7 @@
   - name: About Microsoft Azure Attestation
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: ARM template
     displayName: Resource Manager

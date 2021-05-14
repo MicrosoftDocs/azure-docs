@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/23/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -71,6 +71,10 @@ The allocation rule starts processing. When the rule is active, all the selected
 > [!NOTE] 
 > New rule processing can take up to two hours before it completes and is active.
 
+Here's a video that demonstrates how to create a cost allocation rule.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 ## Verify the cost allocation rule
 
 When the cost allocation rule is active, costs from the selected sources are distributed to the specified allocation targets. Use the following information to verify that cost is properly allocated to targets.
@@ -91,10 +95,17 @@ In the Azure portal, navigate to **Cost Management + Billing** > **Cost Manageme
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Example showing costs for tagged items" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
-Here's a video that demonstrates how to create a cost allocation rule.
+### View cost allocation in the downloaded Usage Details and in Exports CSV files
 
->[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+Cost allocation rules are also available in the downloaded Usage Details file and in the exported data. The data files have the column name `costAllocationRuleName`. If a Cost allocation rule is applicable to an entry in Usage Details or Exports file, the row is populated with the Cost allocation rule name. The following example image shows a negative charge with an entry for the source subscription. That's the charge getting allocated cost from. There's also a positive charge for the Cost allocation rule's target.
 
+:::image type="content" source="./media/allocate-costs/rule-costs-allocated.png" alt-text="Screenshot showing allocated costs in usage details file." lightbox="./media/allocate-costs/rule-costs-allocated.png" :::
+
+#### Azure invoice reconciliation 
+
+The Usage Details file is also used for Azure invoice reconciliation. Showing any internal allocated costs during reconciliation could be confusing. To reduce any potential confusion and to align to the data shown on the invoice, you can filter out any Cost allocation rules. After you remove the cost allocation rules, your Usage Details file should match the cost shown by the billed subscription invoice.
+
+:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="Screenshot showing allocated costs with rule name filtered out" lightbox="./media/allocate-costs/rule-name-filtered.png" :::
 
 ## Edit an existing cost allocation rule
 
@@ -106,7 +117,6 @@ Currently, cost allocation is supported in Cost Management by Cost analysis, bud
 
 The following items are currently unsupported by the cost allocation public preview:
 
-- Scheduled [Exports](tutorial-export-acm-data.md)
 - Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
 - Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

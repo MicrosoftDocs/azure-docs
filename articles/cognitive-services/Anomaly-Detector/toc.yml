@@ -24,7 +24,7 @@
     - name: Jupyter Notebook (multivariate)
       href: https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb
     - name: Azure samples
-      href: https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector
+      href: /samples/browse/?products=azure&terms=anomaly-detector
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
@@ -60,8 +60,6 @@
       href: concepts/anomaly-detection-best-practices.md
     - name: Predictive maintenance architecture (multivariate)
       href: concepts/multivariate-architecture.md
-    - name: Troubleshooting multivariate
-      href: concepts/troubleshoot.md
     - name: Spectral Residual (SR) and Convolutional Neural Net (CNN) anomaly detection
       href: https://arxiv.org/abs/1906.03821
     - name: Multivariate time-series anomaly detection via graph attention network
@@ -95,7 +93,7 @@
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Microsoft Learn modules
-      href: https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/
+      href: /learn/modules/intro-to-anomaly-detector/
     - name: User-generated content
       href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
@@ -104,7 +102,9 @@
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
     - name: Azure updates
       href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
-    - name: Technical blogs
+    - name: Troubleshooting multivariate
+      href: concepts/troubleshoot.md
+    - name: Technical articles
       items:
         - name: Introducing Azure Anomaly Detector API
           href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162

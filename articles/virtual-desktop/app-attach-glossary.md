@@ -105,7 +105,7 @@ Destaging notifies the OS that an MSIX package or application that currently isn
 
 .CIM is a new file extension associated with Composite Image Files System (CimFS). Mounting and unmounting CIM files is faster that VHD files. CIM also consumes less CPU and memory than VHD.
 
-A CIM file is a file with a .CIM extension that contains metadata and at least six additional files that contain actual data. The files within the CIM file don't have extensions. The following table is a list of example files you'd find inside a CIM:
+A CIM file is a file with a .CIM extension that contains metadata and at least two additional files that contain actual data. The files within the CIM file don't have extensions. The following table is a list of example files you'd find inside a CIM:
 
 | File name | Extension | Size |
 |-----------|-----------|------|

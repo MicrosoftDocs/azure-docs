@@ -116,6 +116,7 @@ Identity-based connections are supported by the following trigger and binding ex
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
 | Azure Queue    | [Version 5.0.0-beta1 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
 | Azure Event Hubs    | [Version 5.0.0-beta1 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | No                                    |
+| Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | No                                    |
 
 > [!NOTE]
 > Support for identity-based connections is not yet available for storage connections used by the Functions runtime for core behaviors. This means that the `AzureWebJobsStorage` setting must be a connection string.
@@ -127,7 +128,7 @@ An identity-based connection for an Azure service accepts the following properti
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
 | Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` |  The data plane URI of the service to which you are connecting. |
-| Fully Qualified Namespace | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hub namespace. |
+| Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
@@ -173,6 +174,15 @@ Example of `local.settings.json` properties required for identity-based connecti
 #### Grant permission to the identity
 
 Whatever identity is being used must have permissions to perform the intended actions. This is typically done by assigning a role in Azure RBAC or specifying the identity in an access policy, depending on the service to which you are connecting. Refer to the documentation for each service on what permissions are needed and how they can be set.
+
+The following roles cover the primary permissions needed for each extension in normal operation:
+
+| Service     | Example built-in roles |
+|-------------|------------------------|
+| Azure Blobs  | [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Azure Queues | [Storage Queue Data Reader](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage Queue Data Message Processor](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage Queue Data Message Sender](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage Queue Data Contributor](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 > [!IMPORTANT]
 > Some permissions might be exposed by the service that are not necessary for all contexts. Where possible, adhere to the **principle of least privilege**, granting the identity only required privileges. For example, if the app just needs to read from a blob, use the [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role as the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) includes excessive permissions for a read operation.

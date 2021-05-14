@@ -162,6 +162,8 @@ items:
       href: how-to-link-azure-data-share.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
+    - name: Spark lineage
+      href: how-to-lineage-spark-atlas-connector.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
