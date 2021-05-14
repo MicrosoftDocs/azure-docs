@@ -12,7 +12,7 @@ ms.author: inhenkel
 
 # Encrypt data into a Media Services account using a key in Key Vault
 
-If you would like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
+If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
 
 ## Sign in to Azure
 
@@ -22,7 +22,9 @@ To use any of the commands in this article you first have to be logged in to the
 
 ## Resource names
 
-Before you get started, decide on the names of the resources you will create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "media-test1-rg" for your resource group and "media-test1-stor".  The names of resources you'll need are:
+Before you get started, decide on the names of the resources you'll create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "media-test1-rg" for your resource group name and "media-test1-stor" for your storage account name. It isn't required to use hyphens.  However, use the same names for each step in this article.
+
+You'll see these names referenced in the commands below.  The names of resources you'll need are:
 
 - your-resource-group-name
 - your-storage-account-name
@@ -31,11 +33,9 @@ Before you get started, decide on the names of the resources you will create.  T
 - your-key-name
 - your-region
 
-You'll see these names referenced in the commands below. It is not required to use hyphens.  However, use the same names for each step in this article.
-
 ### List Azure regions
 
-If you are not sure of what the region name is for the API, use this command to get a listing.
+If you're not sure of what the region name is for the API, use this command to get a listing.
 
 [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
@@ -208,7 +208,7 @@ The command returns:
 
 ### Set Media Services to use the key from Key Vault
 
-Set Media Services to use the key you've created. The value of the `key-identifier` property comes from the output when the key was created. This command may fail due to the time it takes to propagate access control changes. If this happens, retry after a few minutes.
+Set Media Services to use the key you've created. The value of the `key-identifier` property comes from the output when the key was created. This command may fail because of the time it takes to propagate access control changes. If this happens, retry after a few minutes.
 
 ```azurecli
 az ams account encryption set \
@@ -218,9 +218,15 @@ az ams account encryption set \
   --key-identifier https://your-keyvault-name.vault.azure.net/keys/mediakey/abc
 ```
 
-## Test
+## Validation
 
-**MISSING: STEPS FOR TESTING GO HERE.**
+To verify the account is encrypted using a Customer Managed Key, view the account encryption properties.
+
+```azurecli
+az ams account encryption show --account-name your-media-services-account-name --resource-group your-resource-group-name
+```
+
+The `type` property should show `CustomerKey` and the `currentKeyIdentifier` should be set to the path of a key in the customer’s Key Vault.
 
 ## Clean up resources
 
