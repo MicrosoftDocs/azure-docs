@@ -2,7 +2,7 @@
 title: Private Availability Testing - Azure Monitor Application Insights
 description: Learn how to use availability tests on internal servers that run behind a firewall with private testing.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 05/14/2021
 
 ---
 
@@ -13,7 +13,7 @@ If you want to use availability tests on internal servers that run behind a fire
 ## Public ping test enablement
 
 > [!NOTE]
-> If you don’t want to allow any ingress to your environment, then use the method in the in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios).
+> If you don’t want to allow any ingress to your environment, then use the method in the [Disconnected or no ingress scenarios](#disconnected-or-no-ingress-scenarios) section.
 
  Ensure you have a public DNS record for your internal website. The test will fail if the DNS cannot be resolved. [Create a custom domain name for internal application.](../../cloud-services/cloud-services-custom-domain-name-portal.md#add-an-a-record-for-your-custom-domain)
 
