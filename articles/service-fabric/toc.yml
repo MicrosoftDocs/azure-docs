@@ -835,8 +835,6 @@
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
     - name: Modernize your application
       href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
-- name: Support options
-  href: service-fabric-support.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -943,6 +941,8 @@
     href: faq-managed-cluster.md
   - name: Common questions
     href: service-fabric-common-questions.md
+  - name: Support options
+    href: service-fabric-support.md 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
