@@ -47,6 +47,8 @@ A **Deployment** is a set of compute resources hosting the model that performs t
 
 A single endpoint can contain multiple deployments. Endpoints and deployments are independent ARM resources that will appear in the Azure portal.
 
+Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [**online endpoints**](#what-are-online-endpoints-preview) and [**batch endpoints**](#what-are-batch-endpoints-preview).
+
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
@@ -55,8 +57,6 @@ Create and manage batch and online endpoints with multiple developer tools:
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
 - Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
-
-Azure Machine Learning uses the concept of endpoints and deployments to implement different types of endpoints: [**online endpoints**](#what-are-online-endpoints-preview) and [**batch endpoints**](#what-are-batch-endpoints-preview).
 
 ## What are online endpoints (preview)?
 
@@ -70,7 +70,7 @@ To create an online endpoint, you need to specify the following:
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
 - Compute instance & scale settings 
 
-Learn how to deploy online endpoints from the CLI, ARM/REST, and the studio web portal.
+Learn how to deploy online endpoints from the [CLI](how-to-deploy-managed-online-endpoints.md) and the [studio web portal](how-to-use-managed-online-endpoint-studio.md).
 
 ### Test and deploy locally for faster debugging
 
@@ -83,6 +83,8 @@ Recall, that a single endpoint can have multiple deployments. The online endpoin
 Traffic allocation can be used to perform safe rollout blue/green deployments by balancing requests between different instances.
 
 :::image type="content" source="media/concept-endpoints/traffic-allocation.png" alt-text="Screenshot showing slider interface to set traffic allocation between deployments":::
+
+Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-endpoints.md).
 
 ### Application Insights integration
 
@@ -107,7 +109,7 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | AKS |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | Azure Logs and Log Analytics at endpoint level | Manual setup at the cluster level |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
 | **Application Insights** | Supported | Supported |
 | **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
 | **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
@@ -129,16 +131,20 @@ Managed online endpoints can help streamline your deployment process. Managed on
     - Debug deployments using the logs and native integration with Azure Log Analytics.
 
 - Managed identity
-    -  Use managed identities to access secured resources from scoring script
+    -  Use [managed identities to access secured resources from scoring script](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 
 :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 - View costs 
     - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
+For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+
 ## What are batch endpoints (preview)?
 
 **Batch endpoints** (preview) are endpoints that are used to perform batch inferencing on large volumes of data over a period of time.  **Batch endpoints** receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
+
+Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md).
 
 ### No-code MLflow model deployments
 
@@ -157,13 +163,13 @@ However, if you are **not** deploying an MLflow model, you need to provide addit
 
 Invoking a batch endpoint triggers an asynchronous batch inference job. Compute resources are automatically provisioned when the job starts, and automatically de-allocated as the job completes. So you only pay for compute when you use it.
 
-You can override compute resource settings (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution as well as reduce cost.
+You can [override compute resource settings](how-to-use-batch-endpoint.md#overwrite-settings) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution as well as reduce cost.
 
 ### Flexible data sources and storage
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets]()
+- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md)
 - Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
 - Data stored locally
 
@@ -176,8 +182,8 @@ Specify the storage output location to any datastore and path. By default, batch
 
 ## Next steps
 
-- [How to deploy managed online endpoints with the Azure CLI]()
-- [How to deploy batch endpoints with the Azure CLI]()
+- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
 - [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)

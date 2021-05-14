@@ -54,5 +54,7 @@ Create a tag filter to show your managed online endpoint and/or managed online d
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
 ## Next steps
-
-* Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
+- [What are endpoints?](concept-endpoints.md)
+- Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
+- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)

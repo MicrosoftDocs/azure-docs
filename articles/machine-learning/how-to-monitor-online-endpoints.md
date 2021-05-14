@@ -16,7 +16,7 @@ ms.custom: how-to
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how to monitor Azure Machine Learning managed online endpoints (preview). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor[ Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
 
 In this article you learn how to:
 
