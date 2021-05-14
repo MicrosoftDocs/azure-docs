@@ -14,8 +14,6 @@ ms.date: 05/10/2021
 
 You can use private endpoints for your Purview accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over a Private Link. The private endpoint uses an IP address from the VNet address space for your Purview account. Network traffic between the clients on the VNet and the Purview account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-    :::image type="content" source="media/catalog-private-link/purview-pe-architecture.png" alt-text="Azure Purview Private Endpoint Architecture":::
-
 Review [Azure Purview Private Link Frequently asked questions (FAQ)](./catalog-private-link-faqs.md).
 
 ## Create Purview account with a Private Endpoint
