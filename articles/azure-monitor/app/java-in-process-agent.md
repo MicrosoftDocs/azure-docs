@@ -30,11 +30,19 @@ The 3.0 agent supports Java 8 and above.
 > Please review all the [configuration options](./java-standalone-config.md) carefully,
 > as the json structure has completely changed, in addition to the file name itself which went all lowercase.
 
-Download [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
+> [!WARNING]
+> **If you are upgrading from 3.0.x**
+>
+> The operation names and request telemetry names are now prefixed by the http method (`GET`, `POST`, etc.).
+> This can affect custom dashboards or alerts if they relied on the previous unprefixed values.
+> See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
+> for more details.
+
+Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
@@ -50,7 +58,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.3.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.0.jar`, with the following content:
 
 ```json
 {
@@ -136,7 +144,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 * [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
 * [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
 * [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
@@ -369,7 +377,7 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get the request telemetry id and the operation id using the 2.x SDK
+### Get the request telemetry Id and the operation Id using the 2.x SDK
 
 > [!NOTE]
 > This feature is only in 3.0.3 and later
@@ -384,7 +392,7 @@ Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions ar
 </dependency>
 ```
 
-and get the request telemetry id and the operation id in your code:
+and get the request telemetry Id and the operation Id in your code:
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
