@@ -61,7 +61,7 @@ private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsyn
 }
 ```
 
-After retrieving the ActivationSignalDetector object, call its `ActivationSignalDetector.CreateConfigurationAsync` method with the signal ID, model ID, and display name to register your keyword and retrieve your application's `ActivationSignalDetectionConfiguration`. The signal and model IDs should be guids decided on by the developer and stay consistent for the same keyword.
+After retrieving the ActivationSignalDetector object, call its `ActivationSignalDetector.CreateConfigurationAsync` method with the signal ID, model ID, and display name to register your keyword and retrieve your application's `ActivationSignalDetectionConfiguration`. The signal and model IDs should be GUIDs decided on by the developer and stay consistent for the same keyword.
 
 ### Verify that the voice activation setting is enabled
 
