@@ -32,7 +32,7 @@ Use this command to set the subscription that you want to work with.
 
 ## Resource names
 
-Before you get started, decide on the names of the resources you'll create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "media-test1-rg" for your resource group name and "media-test1-stor" for your storage account name. It isn't required to use hyphens.  However, use the same names for each step in this article.
+Before you get started, decide on the names of the resources you'll create.  They should be easily identifiable as a set, especially if you are not planning to use them after you are done testing. Naming rules are different for many resource types so it's best to stick with all lower case. For example, "mediatest1rg" for your resource group name and "mediatest1stor" for your storage account name. Use the same names for each step in this article.
 
 You'll see these names referenced in the commands below.  The names of resources you'll need are:
 
@@ -42,6 +42,7 @@ You'll see these names referenced in the commands below.  The names of resources
 - your-keyvault-name
 - your-key-name
 - your-region
+
 
 ### List Azure regions
 
@@ -60,7 +61,7 @@ If you're not sure of what the region name is for the API, use this command to g
 ## Create a Media Services account
 
 :::code language="azurecli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" id="Command":::
-:::code language="azurecli" source="./includes/task-create-media-services-account-managed-identity-cli.sh" range="13-46" highlight="2,5":::
+:::code language="json" source="./includes/task-create-media-services-account-managed-identity-cli.sh" range="13-46" highlight="8":::
 
 
 <!--[!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]-->
