@@ -264,9 +264,9 @@ Update management reaches across multiple services to provide its service. The f
 |Log Analytics workspace |Log Analytics Reader| Subscription|
 |Solution     |Log Analytics Contributor         | Solution|
 |Virtual Machine     | Virtual Machine Contributor        | Virtual Machine        |
-|Virtual Machine<br> [Software Update Configuration Machine Runs](rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
-|Virtual Machine<br> [Software Update Configuration Runs](rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
-|Virtual Machine<br> [Software Update Configurations](rest/api/automation/softwareupdateconfigurations) | * Microsoft.Compute/virtualMachines/write – For static VM list and resource groups, subscriptions when using dynamic lists.<br> * Microsoft.OperationalInsights/workspaces/analytics/query/action – For workspace resource ID when using non-Azure dynamic list.||
+|Virtual Machine<br> [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
+|Virtual Machine<br> [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader | Automation account |
+|Virtual Machine<br> [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) | * Microsoft.Compute/virtualMachines/write – For static VM list and resource groups, subscriptions when using dynamic lists.<br> * Microsoft.OperationalInsights/workspaces/analytics/query/action – For workspace resource ID when using non-Azure dynamic list.||
 
 
 ## Configure Azure RBAC for your Automation account
