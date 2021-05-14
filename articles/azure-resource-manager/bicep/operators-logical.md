@@ -9,7 +9,7 @@ ms.date: 04/07/2021
 
 # Bicep logical operators
 
-The logical operators evaluate boolean values, return non-null values, or evaluate a conditional expression. To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./tutorial-create-first-bicep.md#deploy-bicep-file).
+The logical operators evaluate boolean values, return non-null values, or evaluate a conditional expression. To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 
 | Operator | Name |
 | ---- | ---- |
@@ -204,7 +204,7 @@ Output from the example:
 
 ## Next steps
 
-- To create a Bicep file, see [Tutorial: Create and deploy first Azure Resource Manager Bicep file](./tutorial-create-first-bicep.md).
+- To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](template-functions-any.md).
 - To compare syntax for Bicep and JSON, see [Comparing JSON and Bicep for templates](compare-template-syntax.md).
 - For examples of Bicep and ARM template functions, see [ARM template functions](template-functions.md).

@@ -68,7 +68,7 @@ After you create a resource group, you can deploy resources to the group from th
 
    ![Add resource](./media/deploy-portal/add-resource.png)
 
-Although you didn't see it, the portal used an ARM template to deploy the resources you selected. You can find the template from the deployment history. For more information, see [Export template after deployment](export-template-portal.md#export-template-after-deployment).
+Although you didn't see it, the portal used an ARM template to deploy the resources you selected. You can find the template from the deployment history. For more information, see [Export template after deployment](../templates/export-template-portal.md#export-template-after-deployment).
 
 ## Deploy resources from custom template
 
@@ -125,4 +125,4 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 - To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](../templates/deployment-history.md).
-- To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).
+- To export a template from a deployment or resource group, see [Export ARM templates](../templates/export-template-portal.md).

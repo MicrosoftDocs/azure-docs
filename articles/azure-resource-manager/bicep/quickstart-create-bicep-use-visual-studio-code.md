@@ -127,4 +127,4 @@ Remove-AzResourceGroup -Name arm-vscode
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Beginner Bicep tutorials](./tutorial-create-first-bicep.md)
+> [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/)
