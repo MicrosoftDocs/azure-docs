@@ -228,7 +228,7 @@ Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
 - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
 
-*Note: You can run both scenarios above with MMA and AMA side-by-side without any impact*
+[!NOTE] You can run both scenarios above with MMA and AMA side-by-side without any impact*
 
 
 ### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
@@ -238,21 +238,21 @@ The solution specific VM extensions exist to collect scenario specific data or p
 
 Here’s a diagram explaining the **new extensibility architecture**:
 
-![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch.png)
+![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-diag.png)
 
 
-### Which Log Analytics solutions are supported or planned to be supported on the new Azure Monitor Agent?
+### Which Log Analytics solutions are supported on the new Azure Monitor Agent?
 Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
 
-| Solution (VM extension) | Availability on Azure Monitor Agent (AMA) |
+| **Solution (VM extension)** | **Availability on Azure Monitor Agent (AMA)** |
 |:---|:---|
-| **Azure Security Centre** | Private preview on AMA: [Sign up link](https://aka.ms/AMAgent) |
-| Sentinel | Private preview on AMA for Windows Events: [sign up link](https://aka.ms/AMAgent) |
-| Change Tracking | Supported as File Integrity Monitoring (FIM) in ASC on AMA private preview : [Sign up link](https://aka.ms/AMAgent) |
-| Update Management | New version that doesn’t need any agent is in private preview: [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
-| VM Insights with metrics support | Private preview on AMA: [Sign up link](https://forms.office.com/r/jmyE821tTy) |
-| VM Insights guest health (new) | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
-| SQL Monitoring (new) | Public preview excusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+| **Azure Security Center** | Private preview on AMA |
+| **Sentinel** | Private preview on AMA |
+| **Change Tracking** | Supported as File Integrity Monitoring (FIM) in ASC private preview on AMA |
+| **Update Management** | You can use the Update Management v2 (private preview) that doesn’t need any agent |
+| **VM Insights with metrics support** | Private preview on AMA |
+| **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
+| **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
 
 
 ### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
@@ -263,7 +263,7 @@ It does not have full parity yet with existing agents. Here are some high-level 
 
 - **Comparison with Log Analytics Agents (MMA/OMS)**
 	-	Not all Log Analytics Solutions are supported today. See table above
-	-	No support for Private Links - This will be available as part of GA launch
+	-	No support for Private Links 
 	-	No support for proxy servers or Log Analytics (OMS) gateway
 	-	No support for collecting custom logs or IIS logs
 	-	No support for Hybrid Runbook workers
@@ -272,22 +272,22 @@ It does not have full parity yet with existing agents. Here are some high-level 
 	-	No support for Event Hubs and Storage accounts as destinations
 
 
-### Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-prem)?
-Both on-prem machines and machines connected to other clouds are supported for servers today, once you have the Azure ARC agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
+### Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
+Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure ARC agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
 
 
 ### What types of machines does the new Azure Monitor Agent support?
 You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and ARC enabled Servers only. 
 
 
-### Can we filter events using event Id, i.e. more granular event filtering using the new Azure Monitor Agent?
+### Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
 Yes. You can use **Xpath queries** for filtering events on Windows machines. [Learn more](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)  
 For performance counters, you can specify specific counters you wish to collect, and exclude ones you don’t need.
 For syslog on Linux, you can choose Facilities and log level for each facility to collect.
 
 
 ### Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
-Not today, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
+Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
 
 
 
