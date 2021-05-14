@@ -1,5 +1,6 @@
 ---
 title: Running the emulator on Docker for Windows
+itleSuffix: Running the Azure Cosmos DB emulator on Docker for Windows
 description: Learn how to run and use the Azure Cosmos DB Emulator on Docker for Windows. Using the emulator you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
 ms.topic: how-to
@@ -87,7 +88,7 @@ You can run the Azure Cosmos DB Emulator on a Windows Docker container. See the 
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos DB Emulator on a host machine, use the instructions in the next section to import the certificate into the Linux docker container.
 
-## Regenerate the emulator certificates when running on a Docker container
+## Regenerate the emulator certificates
 
 When running the emulator in a Docker container, the certificates associated with the emulator are regenerated every time you stop and restart the respective container. Because of that you have to re-import the certificates after each container start. To work around this limitation, you can use a Docker compose file to bind the Docker container to a particular IP address and a container image.
 
