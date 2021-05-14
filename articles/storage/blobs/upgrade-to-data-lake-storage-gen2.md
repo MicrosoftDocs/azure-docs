@@ -15,9 +15,11 @@ This article helps you unlock capabilities such as file and directory-level secu
 
 This article explains the types of capabilities you can unlock when you upgrade your account, and helps you evaluate the impact on applications, costs, and existing storage account features. 
 
+When you are ready to upgrade your account, see this step-by-step guide: [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+
 ## Data Lake storage Gen2 capabilities
 
-These are the most popular Data Lake storage features.
+These are the most popular Data Lake Storage Gen2 capabilities.
 
 - Higher throughput, input/output operations per second (IOPS), and storage capacity limits.
 
@@ -49,7 +51,7 @@ Use these pages to compare data storage costs, data transfer costs, and transact
 
 You can also use the **Storage Accounts** option in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the impact of costs after an upgrade. 
 
-Aside from pricing changes, consider the costs savings associated with Data Lake storage capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations. Query acceleration reduces egress by retrieving only the data that you require to perform a given operation. These capabilities lead to lower data transfer and compute costs. 
+Aside from pricing changes, consider the costs savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations. Query acceleration reduces egress by retrieving only the data that you require to perform a given operation. These capabilities lead to lower data transfer and compute costs. 
 
 ## Impact to storage account features
 
@@ -64,7 +66,7 @@ Your new account will have a Data Lake storage endpoint. You can find the URL of
 
 You don't have to modify your existing applications and workloads to use that endpoint. [Multiprotocol access in Data Lake Storage](data-lake-storage-multi-protocol-access.md) makes it possible for you to use either the Blob service endpoint or the Data Lake storage endpoint to interact with your data. 
 
-Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the [Data Lake storage SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
+Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the [Data Lake Storage Gen2 SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell commands](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
 
 ### Directories
 
@@ -105,12 +107,12 @@ The following buttons don't yet appear in the Ribbon of Azure Storage Explorer.
 |--|--|
 |Copy URL|Not yet implemented|
 |Manage snapshots|Not yet implemented|
-|Undelete|Depends on Blob storage features not yet supported in Data Lake storage accounts|
+|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage Gen2 |
 
 
 The following buttons behave differently in your new account.
 
-|Button|Blob storage behavior|Data Lake storage behavior|
+|Button|Blob storage behavior|Data Lake Storage Gen2 behavior|
 |---|---|---|
 |Folder|Folder is virtual and disappears if you don't add files to it. |Folder exists even with no files added to it.| 
 |Rename|Results in a copy and then a delete of the source blob|Renames the same blob. Far more efficient.|
@@ -147,6 +149,8 @@ Nothing has changed with respect to where you find the guidance for all of the e
 
 As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the Data Lake Storage Gen2 content might use the term *file* and *file system* instead of *blob* and *container*. The terms *file* and *file system* are deeply rooted in the world of big data analytics where Data Lake storage has had a long history. The content contains these terms to keep it relatable to these audiences. These terms don't describe separate *things*.
 
-## See also
+## Next steps
 
-[Introduction to Azure Data Lake storage Gen2](data-lake-storage-introduction.md)
+When you are ready to upgrade your storage account to include Data Lake Storage Gen2 capabilities, see this step-by-step guide. 
+> [!div class="nextstepaction"]
+> [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)
