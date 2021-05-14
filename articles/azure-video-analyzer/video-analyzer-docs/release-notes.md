@@ -25,24 +25,17 @@ This release is the first public preview release of Azure Video Analyzer. The re
 ```
      mcr.microsoft.com/media/azure-video-analyzer:1.0.0
 ```
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (azure-video-analyzer:1). So simply redeploying such manifests should update the module on your edge > devices when newer tags are released.
 
 ### Supported functionalities
 
 * Analyze live video streams using AI modules of your choice and optionally record video on the edge device or in the cloud
 * Trigger events when objects cross a line using your own object detection model
 * Track objects detected by your own detection model 
-* Use Widgets to configure zones of interest and lines in your video along with recorded video playback with bounding boxes overlay
+* Use Widgets to play back recorded video and inference metadata
 * Deploy and configure the module via the IoT Hub using Azure portal or Visual Studio Code
-* Manage [pipeline topologies](pipeline.md#pipeline-topologies) remotely or locally through the following direct method calls
-
-    *	pipelineTopologyGet
-    *	pipelineTopologySet
-    *	pipelineTopologyDelete
-    *	pipelineTopologyList
-    *	livePipelineGet
-    *	livePipelineSet
-    *	livePipelineDelete
-    *	livePipelineList
+* Manage [pipeline topologies](pipeline.md#pipeline-topologies) remotely or locally using [direct method](direct-methods.md) calls
 
 ## Next steps
 
