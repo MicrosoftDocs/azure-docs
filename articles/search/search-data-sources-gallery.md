@@ -14,7 +14,7 @@ ms.date: 05/17/2021
 
 # Azure Cognitive Search data source gallery
 
-## Data sources by the Cognitive Search team
+## Indexer data sources in Cognitive Search
 
 :::row:::
 :::column span="":::
@@ -51,22 +51,58 @@ Extract field values from a single table or view, serialized into JSON documents
 
 ---
 
+### Azure SQL Managed Instance
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+[More details](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_sql_managed_instance_logo_small.png":::
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
 ### Cosmos DB
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
 Connect to Cosmos DB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
-SQL API is generally available. MongoDB and Cassandra are in previw.
+SQL API is generally available. MongoDB API and Cassandra API are in preview.
 
 [More details](search-howto-index-cosmosdb.md)
 
 :::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
 
+:::column-end:::
+:::column span="":::
+
+---
+
+### Cosmos DB (Gremlin)
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+[More details](search-howto-index-cosmosdb-gremlin.md)
 
 :::column-end:::
-:::row-end:::
-:::row:::
 :::column span="":::
 
 ---
@@ -82,37 +118,16 @@ Extract rows from Azure Tables, serialized into JSON documents, and imported int
 :::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
-:::column span="":::
-
----
-
-### Azure Data Lake Storage Gen2
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Enables your organization to search for content stored in Azure Blob containers. Indexes hierarchy-enabled folders in specified Azure Data Lake Storage Gen2 accounts.
-
-[More details](azure-data-lake-connector.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_data_lake_small.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Cosmos DB (Gremlin)
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-TBD
-
-[More details](search-howto-index-cosmosdb-gremlin.md)
-
-:::image type="icon" source="media/SqlConnectorLogo_Small.png":::
-
-:::column-end:::
 :::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
 :::row:::
 :::column span="":::
 
@@ -122,11 +137,11 @@ TBD
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-TBD
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](search-howto-indexing-azure-blob-storage.md)
+[More details](search-howto-index-sharepoint-online.md)
 
-:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+:::image type="icon" source="media/search-data-sources-gallery/sharepoint_online_logo.png":::
 
 :::column-end:::
 :::column span="":::
@@ -137,26 +152,11 @@ TBD
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-TBD
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](search-howto-indexing-azure-blob-storage.md)
+[More details](TBD.md)
 
-:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Azure SQL Managed Instance
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-TBD
-
-[More details](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azuresqlconnectorlogo_medium.png":::
+:::image type="icon" source="media/search-data-sources-gallery/power_query_logo.png":::
 
 :::column-end:::
 :::row-end:::
@@ -169,11 +169,7 @@ TBD
 
 :::row-end:::
 
----
-<!--- --->
-<!--- --->
-<!--- --->
-## Data sources from our Partners
+## Indexer data sources from our Partners
 
 :::row:::
 :::column span="":::
@@ -210,7 +206,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 by [Raytion](https://www.raytion.com/)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 [More details](https://www.raytion.com/)
 
@@ -224,6 +220,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
    :::column-end:::
 
 :::row-end:::
-
-<!--- --->
-<!--- ROW --->
