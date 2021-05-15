@@ -47,10 +47,6 @@ As you progress, you'll complete these high-level tasks:
   > [storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
   > how stateful workflows store data in external storage, review [Stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
-* To deploy to a Docker container, you need an existing Docker container image.
-
-  For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). 
-
 * To create the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose a [different email connector](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Outlook.com, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
@@ -78,7 +74,7 @@ As you progress, you'll complete these high-level tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. <p><p>- **Workflow**: Deploy to single-tenant Azure Logic Apps in the portal. <p><p>- **Docker Container**: Deploy to an existing Docker container. If you don't have a container, first create your Docker container image. That way, when you select **Docker Container**, you can [specify the container that you want to use when you create your logic app](#set-docker-container). For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). <p><p>This example continues with the **Workflow** option. |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. <p><p>- **Workflow**: Deploy to single-tenant Azure Logic Apps in the portal. <p><p>**Note**: Azure creates an empty logic app resource where you have to add your first workflow. |
    | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
    |||||
 
@@ -113,27 +109,17 @@ As you progress, you'll complete these high-level tasks:
    > For example, if your selected region reaches a quota for resources that you're trying to create, 
    > you might have to try a different region.
 
-   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and no workflows exist yet.
+   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 
-1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow. If you selected **Docker Container** for deploying your logic app, continue with the [steps to provide information about that Docker container](#set-docker-container).
+1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
    ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
-
-<a name="set-docker-container"></a>
-
-## Specify Docker container for deployment
-
-Before you start these steps, you need a Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). You can then provide information about your Docker container after you create your logic app.
-
-1. In the Azure portal, go to your logic app resource.
-
-1. On the logic app menu, under **Settings**, select **Deployment Center**.
-
-1. On the **Deployment Center** pane, follow the instructions for providing and managing the details for your Docker container.
 
 <a name="add-workflow"></a>
 
 ## Add a blank workflow
+
+After you create your empty logic app resource, you have to add your first workflow.
 
 1. After Azure opens the resource, on your logic app's menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
 
