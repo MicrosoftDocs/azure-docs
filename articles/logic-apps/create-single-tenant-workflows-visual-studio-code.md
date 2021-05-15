@@ -45,13 +45,12 @@ As you progress, you'll complete these high-level tasks:
 * Manage your deployed logic app in Visual Studio Code and the Azure portal.
 * Enable run history for stateless workflows.
 * Enable or open the Application Insights after deployment.
-* Deploy to a Docker container that you can run anywhere.
 
 ## Prerequisites
 
 ### Access and connectivity
 
-* Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure, a Docker container, or other environment.
+* Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -67,8 +66,6 @@ For local development in Visual Studio Code, you need to set up a local data sto
 
 1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
 1. Before you run your logic app, make sure to start the emulator.
-
-To deploy and run logic app workflows locally in a Docker container, you can [download and use the Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
 
 For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
 
@@ -1171,88 +1168,6 @@ After Application Insights opens, you can review various metrics for your logic 
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
-<a name="deploy-docker"></a>
-
-## Deploy to Docker
-
-You can deploy and locally run your logic app workflows in a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) by using a [Docker image that can run Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite) and the [.NET CLI](/dotnet/core/tools/). With these commands, you can build and publish your logic app's project. You can then build and run your Docker container as the local destination for deploying your logic app.
-
-You can run Azurite in your container and use as a data store when running your logic apps. For a Docker image that you can use with Azurite and more information, download this [Docker image with Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
-
-If you're not familiar with Docker, review these topics:
-
-* [What is Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
-* [Introduction to Containers and Docker](/dotnet/architecture/microservices/container-docker-introduction/)
-* [Introduction to .NET and Docker](/dotnet/core/docker/introduction)
-* [Docker containers, images, and registries](/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
-* [Tutorial: Get started with Docker (Visual Studio Code)](/visualstudio/docker/tutorials/docker-tutorial)
-
-### Requirements
-
-* A Docker file for the workflow that you use when building your Docker container, for example:
-
-   ```text
-   FROM mcr.microsoft.com/azure-functions/node:3.0
-
-   ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-       AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
-       FUNCTIONS_V2_COMPATIBILITY_MODE=true
-
-   COPY . /home/site/wwwroot
-
-   RUN cd /home/site/wwwroot
-   ```
-
-<a name="build-run-docker-container-image"></a>
-
-### Build and run your Docker container image
-
-1. Build your Docker container image by using your Docker file and running this command:
-
-   `docker build --tag local/workflowcontainer .`
-
-   For more information, see [docker build](https://docs.docker.com/engine/reference/commandline/build/).
-
-1. Run the container locally by using this command:
-
-   `docker run -e WEBSITE_HOSTNAME=localhost -p 8080:80 local/workflowcontainer`
-
-   For more information, see [docker run](https://docs.docker.com/engine/reference/commandline/run/).
-
-<a name="get-callback-url-request-trigger"></a>
-
-### Get callback URL for Request trigger
-
-For a workflow that uses the Request trigger, get the trigger's callback URL by sending this request:
-
-`POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2020-05-01-preview&code={master-key}`
-
-The `{trigger-name}` value is the name for the Request trigger that appears in the workflow's JSON definition. The `{master-key}` value is defined in the Azure Storage account that you set for the `AzureWebJobsStorage` property within the file, **azure-webjobs-secrets/{deployment-name}/host.json**. For more information, see [Find storage account master key](#find-storage-account-master-key).
-
-<a name="find-storage-account-master-key"></a>
-
-### Find master key for storage account
-
-When your workflow contains a Request trigger, you need to get the trigger's callback URL after you build and run your Docker container. For this task, you also need to specify the master key value for the storage account that you use for deployment.
-
-1. In your logic app project, open the azure-webjobs-secrets/{deployment-name}/host.json file.
-
-1. Find the `AzureWebJobsStorage` property, and copy the key value from this section:
-
-```json
-
-{
-   <...>
-   "masterKey": {
-      "name": "master",
-      "value": "<master-key>",
-      "encrypted": false
-   },
-   <...>
-}
-```
-
-1. Save this key value somewhere safe for you to use later.
 
 <a name="delete-from-designer"></a>
 
