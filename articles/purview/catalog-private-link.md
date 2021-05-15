@@ -60,7 +60,7 @@ Review [Azure Purview Private Link Frequently asked questions (FAQ)](./catalog-p
 
 1. Select the virtual network and Private DNS Zone in the Configuration tab. Navigate to the summary page, and click **Create** to create the portal private endpoint.
 
-## Private DNS Zone requirements for Private Endpoints
+## Private DNS zone requirements for Private Endpoints
 When you create a private endpoint, the DNS CNAME resource record for Purview is updated to an alias in a subdomain with the prefix `privatelink`. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
  
 When you resolve the Purview endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the Azure Purview. When resolved from the VNet hosting the private endpoint, the Purview endpoint URL resolves to the private endpoint's IP address.
