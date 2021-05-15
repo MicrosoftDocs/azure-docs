@@ -27,7 +27,7 @@ ms.author: v-doeris
 
 When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should also consider switching to **Azure AD v2.0 endpoint**.
 
-1. Review the [differences between v1 and v2 endpoints](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison)
+1. Review the [differences between v1 and v2 endpoints](../azuread-dev/azure-ad-endpoint-comparison.md)
 1. Update, if necessary, your existing app registrations accordingly.
 
 > [!NOTE]
@@ -238,9 +238,9 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 | ADAL                              | MSAL                            | Notes                             |
 |-----------------------------------|---------------------------------|-----------------------------------|
 | `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
-| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) |
+| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](./v2-oauth2-on-behalf-of-flow.md) |
 | `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
-| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols#endpoints) URL construction |
+| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./active-directory-v2-protocols.md#endpoints) URL construction |
 
 ## Use promises instead of callbacks
 
@@ -342,7 +342,7 @@ const cachePlugin = {
 };
 ```
 
-If you are developing [public client applications](https://docs.microsoft.com/azure/active-directory/develop/msal-client-applications) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
+If you are developing [public client applications](./msal-client-applications.md) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
 
 > [!NOTE]
 > [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) is **not** recommended for web applications, as it may lead to scale and performance issues. Instead, web apps are recommended to persist the cache in session.
@@ -370,7 +370,7 @@ The snippet below demonstrates a confidential client web app in the Express.js f
 
 
 <table>
-<tr><td>**Using ADAL Node**</td><td>**Using MSAL Node**</td></tr>
+<tr><td> Using ADAL Node </td><td> Using MSAL Node </td></tr>
 <tr>
 <td>
 
@@ -432,7 +432,8 @@ app.get('/redirect', function(req, res) {
     }
 
     // Initialize an AuthenticationContext object
-    var authenticationContext = new adal.AuthenticationContext(authorityUrl);
+    var authenticationContext = 
+        new adal.AuthenticationContext(authorityUrl);
     
     // Exchange auth code for tokens
     authenticationContext.acquireTokenWithAuthorizationCode(
