@@ -65,7 +65,7 @@
   - name: Create an Azure VMware Solution assessment
     href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - name: Configure on-premises DHCP to use on HCX networks
-    href: configure-dhcp-l2-stretched-vmware-hcx-networks.md
+    href: configure-dhcp-azure-vmware-solution.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server
