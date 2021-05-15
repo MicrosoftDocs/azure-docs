@@ -345,7 +345,7 @@ from each array member. Example:
 ```
 
 This condition is true if the values of all `property` properties in `objectArray` are equal to
-`"value"`. For more examples, see [additional \[\*\] alias
+`"value"`. For more examples, see [Additional \[\*\] alias
 examples](#additional--alias-examples).
 
 When using the `field()` function to reference an array alias, the returned value is an array of all

@@ -79,7 +79,7 @@ For examples of useful Logstash plugins, see:
 
 ## Connect with Logic Apps
 
-Use an [Azure Logic App](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
+Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
 
 > [!NOTE]
 > While creating serverless connectors using Logic Apps may be convenient, using Logic Apps for your connectors may be costly for large volumes of data.

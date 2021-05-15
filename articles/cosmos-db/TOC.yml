@@ -41,7 +41,7 @@
             - name: Autoscale introduction
               href: provision-throughput-autoscale.md
             - name: Autoscale FAQ
-              href: autoscale-faq.md
+              href: autoscale-faq.yml
         - name: Serverless
           href: serverless.md
         - name: Choose between autoscale and standard (manual) throughput
@@ -87,7 +87,7 @@
           - name: Continuous backup - Introduction
             href: continuous-backup-restore-introduction.md
           - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
+            href: continuous-backup-restore-frequently-asked-questions.yml
           - name: Continuous backup - Resource model
             href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
@@ -116,6 +116,8 @@
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
+        - name: Optimize using rate limiting
+          href: rate-limiting-requests.md
     - name: Change feed overview
       href: change-feed.md
     - name: Built-in Jupyter notebooks
@@ -637,21 +639,6 @@
           href: sql-sdk-connection-modes.md
     - name: How-to guides
       items:
-        - name: Manage Azure Cosmos DB resources
-          items:
-            - name: Manage an Azure Cosmos account
-              href: how-to-manage-database-account.md
-            - name: Using PowerShell
-              href: manage-with-powershell.md
-            - name: Using Azure CLI
-              href: manage-with-cli.md
-            - name: Using Resource Manager templates
-              href: manage-with-templates.md
-              displayName: ARM
-            - name: Move between regions
-              href: how-to-move-regions.md
-            - name: Prevent changes or deletion
-              href: resource-locks.md
         - name: Global distribution
           items:
             - name: Configure multi-region writes
@@ -979,7 +966,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Partitioning
@@ -1110,7 +1097,7 @@
         - name: API version 3.2
           href: mongodb-feature-support.md
         - name: FAQ
-          href: mongodb-api-faq.md
+          href: mongodb-api-faq.yml
         - name: Mapping consistency levels
           href: mongodb-consistency.md
     - name: How-to guides
@@ -1217,7 +1204,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: gremlin-api-faq.md
+          href: gremlin-api-faq.yml
         - name: Response headers
           href: gremlin-headers.md
         - name: Limits
@@ -1316,7 +1303,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: table-api-faq.md
+          href: table-api-faq.yml
     - name: How-to guides
       items:
         - name: Build apps with Table API
@@ -1353,6 +1340,21 @@
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
   items:
+    - name: Manage Azure Cosmos DB resources
+      items:
+        - name: Manage an Azure Cosmos account
+          href: how-to-manage-database-account.md
+        - name: Using PowerShell
+          href: manage-with-powershell.md
+        - name: Using Azure CLI
+          href: manage-with-cli.md
+        - name: Using Resource Manager templates
+          href: manage-with-templates.md
+          displayName: ARM
+        - name: Move between regions
+          href: how-to-move-regions.md
+        - name: Prevent changes or deletion
+          href: resource-locks.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
@@ -1471,7 +1473,7 @@
     - name: SQL playground
       href: https://www.documentdb.com/sql/demo
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: Whitepapers
       href: whitepapers.md
     - name: Partners

@@ -14,7 +14,7 @@ services: iot-central
 
 This article shows you how to use location data in an IoT Central application. A device connected to IoT Central can send location data as telemetry stream or use a device property to report location data.
 
-A solution builder can use the location data to:
+You can use the location data to:
 
 * Plot the reported location on a map.
 * Plot the telemetry location history om a map.

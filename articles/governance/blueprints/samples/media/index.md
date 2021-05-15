@@ -6,8 +6,8 @@ ms.topic: sample
 ---
 # Overview of the Media blueprint sample
 
-Media blueprint sample provides a
-set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
+Media blueprint sample provides a set of governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help toward
 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
 attestation.
 

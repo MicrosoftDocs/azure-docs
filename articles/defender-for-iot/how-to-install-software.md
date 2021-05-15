@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.topic: how-to
 ---
 
@@ -901,8 +901,8 @@ The on-premises management console VM supports the following architectures:
 | Architecture | Specifications | Usage | 
 |--|--|--|
 | Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
-| Enterprise | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-| Enterprise | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
+| Small | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| Office | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
    
 ### Prerequisites
 
@@ -1431,7 +1431,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 To enable tunneling:
 
-1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

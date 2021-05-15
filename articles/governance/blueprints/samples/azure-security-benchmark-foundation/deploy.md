@@ -152,7 +152,7 @@ The following table provides a list of the blueprint parameters:
 |Hub resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Firewall template|Resource Manager template|Azure Firewall private IP address||
 |Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace is created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
-|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional)|Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional) |Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
 |Azure Network Security Group template|Resource Manager template|Enable NSG flow logs|Enter 'true' or 'false' to enable or disable NSG flow logs|
 |Azure Virtual Network hub template|Resource Manager template|Virtual network address prefix|Virtual network address prefix for hub virtual network|
 |Azure Virtual Network hub template|Resource Manager template|Firewall subnet address prefix|Firewall subnet address prefix for hub virtual network|

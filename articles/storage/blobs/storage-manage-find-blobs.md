@@ -110,6 +110,7 @@ The following criteria applies to blob index filtering:
 - Filters are applied with lexicographic sorting on strings
 - Same sided range operations on the same key are invalid (for example, `"Rank" > '10' AND "Rank" >= '15'`)
 - When using REST to create a filter expression, characters should be URI encoded
+- Tag queries are optimized for equality match using a single tag (e.g. StoreID = "100").  Range queries using a single tag involving >, >=, <, <= are also efficient. Any query using AND with more than one tag will not be as efficient.  For example, Cost > "01" AND Cost <= "100" is efficient. Cost > "01 AND StoreID = "2" is not as efficient.
 
 The below table shows all the valid operators for `Find Blobs by Tags`:
 
@@ -277,7 +278,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to `Set Blob Tags`, `Get Blob Tags`, and `Find Blobs by Tags` are charged in accordance to their respective operation types. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability and storage account support
 

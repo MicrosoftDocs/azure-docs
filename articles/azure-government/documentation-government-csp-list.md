@@ -43,7 +43,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
 |[Amalgama Technologies Inc](http://amalgamatetech.com/)|
-|[Ambonare](https://www.redriver.com/ambonare)|
+|[Ambonare](https://redriver.com/press-release/austinacquisition)|
 |[American Technology Services](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
@@ -420,7 +420,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Viscon Networking Innovations Inc.](https://www.visconni.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
-|[Vistronix, LLC](http://www.vistronix.com/)|
+|Vistronix, LLC|
 |[Vology Inc.](https://www.vology.com/)|
 |vSolvIT|
 |[Warren Averett Technology Group](https://warrenaverett.com/warren-averett-technology-group/)|
