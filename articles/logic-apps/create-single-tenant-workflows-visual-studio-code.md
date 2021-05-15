@@ -59,7 +59,7 @@ As you progress, you'll complete these high-level tasks:
 
 ### Storage requirements
 
-Whether you use Linux, Windows, or macOS for local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
+For local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
 
 1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
 1. Before you run your logic app, make sure to start the emulator.
