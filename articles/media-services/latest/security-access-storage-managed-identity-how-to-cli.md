@@ -70,7 +70,7 @@ az role assignment create \
   --scope "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
 ```
 
-Sample JSON response
+Example JSON response:
 
 ```json
 jason goes here
@@ -84,7 +84,7 @@ az role assignment create \
   --role "Reader" \
   --scope "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name"
 ```
-Sample JSON response
+Example JSON response:
 
 ```json
 json goes here
@@ -99,7 +99,7 @@ az ams account storage set-authentication \
   --resource-group your-resource-group-name \
   --account-name your-media-services-account-name
 
-Sample JSON response
+Example JSON response:
 
 ## Validation
 

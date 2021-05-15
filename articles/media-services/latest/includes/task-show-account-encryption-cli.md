@@ -13,7 +13,7 @@ ms.custom: CLI, devx-track-azurecli
 az ams account encryption show --account-name <your-media-services-account-name> --resource-group <your-resource-group-name>
 ```
 
-Sample JSON response
+Example JSON response:
 
 ```json
 

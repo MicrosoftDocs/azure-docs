@@ -15,7 +15,7 @@ To use this command, you must include the Media Services `principalId` as the `o
 az keyvault set-policy --name <your-keyvault-name> --object-id <principalId> --key-permissions decrypt encrypt get list unwrapKey wrapKey
 ```
 
-Sample JSON response
+Example JSON response:
 
 ```json
 {
