@@ -1,5 +1,5 @@
 ---
-title: Azure private endpoints Frequently asked questions (FAQ)
+title: Azure Purview private endpoints frequently asked questions (FAQ)
 description: This article answers frequently asked questions about Azure Purview Private Endpoints
 author: zeinam
 ms.author: zeinam
