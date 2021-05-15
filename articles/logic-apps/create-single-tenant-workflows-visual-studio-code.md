@@ -369,7 +369,7 @@ The workflow in this example uses this trigger and these actions:
 
 ### Add the Office 365 Outlook action
 
-1. On the designer, under the trigger that you added, select **New step**.
+1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
    The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
 
@@ -399,7 +399,7 @@ The workflow in this example uses this trigger and these actions:
 
 1. When the Azure Logic Apps (Standard) extension prompts you for consent to access your email account, select **Open**. Follow the subsequent prompt to allow access.
 
-   ![Screenshot that shows the extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
+   ![Screenshot that shows the extension prompt to permit access.](./media/create-single-tenant-workflows-visual-studio-code/allow-extension-open-uri.png)
 
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
@@ -675,9 +675,9 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
 To return a response to the caller that sent a request to your logic app, you can use the built-in [Response action](../connectors/connectors-native-reqres.md) for a workflow that starts with the Request trigger.
 
-1. On the workflow designer, under the **Send an email** action, select **New step**.
+1. On the workflow designer, under the **Send an email** action, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action pane** reopens so that you can select the next action.
+   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
 
 1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `response`, and select the **Response** action.
 
@@ -1063,11 +1063,11 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
 1. In the Azure portal search box, enter `logic apps`. When the results list appears, under **Services**, select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
+   ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
 1. On the **Logic App (Standard)** pane, find and select the logic app that you deployed from Visual Studio Code.
 
-   ![Screenshot that shows the Azure portal and the Logic App (Standard) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-preview-resources-pane.png)
+   ![Screenshot that shows the Azure portal and the Logic App (Standard) resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
 
    The Azure portal opens the individual resource page for the selected logic app.
 
