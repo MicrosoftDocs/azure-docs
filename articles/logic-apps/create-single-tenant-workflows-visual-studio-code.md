@@ -781,15 +781,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
-Similar to the function app resource in Azure Functions, deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information about hosting plans and pricing, review these topics:
-
-* [Azure App Service plan overview](../app-service/overview-hosting-plans.md)
-* [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
-* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
-* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
-
-> [!IMPORTANT]
-> Consumption plans aren't supported nor available for the **Logic App (Standard)** resource type. Your selected plan affects the capabilities and pricing tiers that are later available to you.
+Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
 ### Publish to a new Logic App (Standard) resource
 
@@ -817,15 +809,13 @@ Similar to the function app resource in Azure Functions, deployment for the **Lo
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a [hosting plan](../app-service/overview-hosting-plans.md) for your new logic app.
-
-      This example continues with a [Logic Apps hosting plan](logic-apps-pricing.md#hosting-plans).
-
-   1. For your selected hosting plan, create a name for your new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
+   1. Select a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan. This example selects **Create new App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
-   1. Provide a name for your App Service plan, and then select a pricing tier for your selected plan.
+   1. Provide a name for your hosting plan plan, and then select a pricing tier for your selected plan.
+
+      For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
    1. For optimal performance, find and select the same resource group as your project for the deployment.
 

@@ -69,9 +69,9 @@ When you create the **Logic App (Standard)** resource in the Azure portal or dep
 
 ### Hosting plans and pricing tiers
 
-The following list shows the available hosting plans and pricing tiers that you can use:
+For single-tenant based logic apps, use the **Workflow Standard** hosting plan. The following list shows the available pricing tiers that you can select:
 
-| Hosting plan | Cores | Memory | Storage |
+| Pricing tier | Cores | Memory | Storage |
 |--------------|-------|--------|---------|
 | **WS1** | 1 | 3.5 GB | 250 GB |
 | **WS2** | 2 | 7 GB | 250 GB |
