@@ -11,5 +11,5 @@ ms.custom: portal
 
 
 ```azurecli
-az group delete --name amsResourceGroup
+az group delete --name <your-resource-group>
 ```

@@ -15,7 +15,7 @@ The following Azure CLI command creates a new Media Services account. You can re
 az ams account create --name <your-media-services-account-name> -g <your-resource-group-name> --storage-account <your-storage-account-name> -l <your-region>
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {

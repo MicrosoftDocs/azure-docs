@@ -17,7 +17,7 @@ Change `your-storage-account-name` to a unique name with a length of less than 2
 az storage account create --name <your-storage-account-name> --kind StorageV2 --sku Standard_LRS -l <your-region> -g <your-resource-group-name>
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {

@@ -15,7 +15,7 @@ To use this command, you must already have created a Key Vault and a key.
 az ams account encryption set --account-name <your-media-services-account-name> --resource-group <your-resource-group> --key-type CustomerKey --key-identifier https://<your-keyvault-name>.vault.azure.net/keys/<your-key-name>
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {
@@ -26,7 +26,7 @@ The command returns:
     "accessPolicies": [
       {
         "applicationId": null,
-        "objectId": "the-media-services-account-id",
+        "objectId": "00000000-0000-0000-000000000000",
         "permissions": {
           "certificates": [
             "get",

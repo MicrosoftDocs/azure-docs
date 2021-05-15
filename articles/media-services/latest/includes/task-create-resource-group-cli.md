@@ -17,7 +17,7 @@ Change `your-region` to the geographic region that will be used to store the med
 az group create --name <your-resource-group-name> --location <your-region>
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {

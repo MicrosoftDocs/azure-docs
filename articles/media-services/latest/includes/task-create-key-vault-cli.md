@@ -23,7 +23,7 @@ az keyvault create --resource-group <your-resource-group-name> --bypass AzureSer
 
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {
@@ -117,7 +117,7 @@ az keyvault key create --kty RSA --name your-key-name --vault-name your-keyvault
 
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 

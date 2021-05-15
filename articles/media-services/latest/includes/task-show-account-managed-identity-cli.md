@@ -15,7 +15,7 @@ This command shows all of the properties of a Media Services account.
 az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {

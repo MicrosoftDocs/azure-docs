@@ -19,7 +19,7 @@ az ams account create --name <your-media-services-account-name> --resource-group
 
 ```
 
-The command returns:
+Sample JSON response
 
 ```json
 {
