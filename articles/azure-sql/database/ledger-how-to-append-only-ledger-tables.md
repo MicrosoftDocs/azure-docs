@@ -6,7 +6,7 @@ ms.date: "05/25/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
-ms.topic: conceptual
+ms.topic: how-to
 author: JasonMAnderson
 ms.author: janders
 ---
