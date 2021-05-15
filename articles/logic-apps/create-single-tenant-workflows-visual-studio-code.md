@@ -10,13 +10,17 @@ ms.date: 05/25/2021
 
 # Create an integration workflow using single-tenant Azure Logic Apps and Visual Studio Code
 
-This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment. When you're ready, you can deploy to the *single-tenant Azure Logic Apps environment*, or elsewhere, for example, Docker containers. If you're new to the new single-tenant model and logic app resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment.
 
-Compared to Consumption (multi-tenant) extension, the Standard (single-tenant) extension provides the capability for you to create logic apps with the following attributes:
+When you're ready, you can deploy to the *single-tenant Azure Logic Apps environment* or anywhere that Azure Functions can run, due to the redesigned Azure Logic Apps runtime. Compared to the multi-tenant **Azure Logic Apps (Consumption)** extension, which works for the multi-tenant Azure Logic Apps environment, the single-tenant **Azure Logic Apps (Standard)** extension provides the capability for you to create logic apps with the following attributes:
 
-* Host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that can run locally, in the single-tenant Azure Logic Apps environment, or anywhere that Azure Functions can run, such as Docker containers. This attribute provides flexibility and portability for your workflows.
-* Share the same resources, providing better performance.
-* Deploy directly to Azure or to Docker containers.
+* The **Logic App (Standard)** resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run locally in your development environment, in the single-tenant Azure Logic Apps environment, or anywhere that Azure Functions can run, such as containers. This attribute provides flexibility and portability for your workflows.
+
+* In a **Logic App (Standard)** resource, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance.
+
+* You can deploy a **Logic App (Standard)** resource directly to Azure or anywhere that Azure Functions can run, including containers.
+
+For more information about the **Logic App (Standard)** resource type and single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -1234,6 +1238,31 @@ For a workflow that uses the Request trigger, get the trigger's callback URL by 
 `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2020-05-01-preview&code={master-key}`
 
 The `{trigger-name}` value is the name for the Request trigger that appears in the workflow's JSON definition. The `{master-key}` value is defined in the Azure Storage account that you set for the `AzureWebJobsStorage` property within the file, **azure-webjobs-secrets/{deployment-name}/host.json**. For more information, see [Find storage account master key](#find-storage-account-master-key).
+
+<a name="master-key"></a>
+
+### Find master key for storage account
+
+When your workflow contains a Request trigger, you need to get the trigger's callback URL after you build and run your Docker container. For this task, you also need to specify the master key value for the storage account that you use for deployment.
+
+1. In your logic app project, open the azure-webjobs-secrets/{deployment-name}/host.json file.
+
+1. Find the `AzureWebJobsStorage` property, and copy the key value from this section:
+
+```json
+
+{
+   <...>
+   "masterKey": {
+      "name": "master",
+      "value": "<master-key>",
+      "encrypted": false
+   },
+   <...>
+}
+```
+
+1. Save this key value somewhere safe for you to use later.
 
 <a name="delete-from-designer"></a>
 
