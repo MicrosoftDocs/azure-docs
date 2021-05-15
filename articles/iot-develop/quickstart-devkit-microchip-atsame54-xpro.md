@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 05/14/2021
 ---
 
-# Quickstart: Connect a Microchip ATSAME54-XPro devkit to IoT Central
+# Quickstart: Connect a Microchip ATSAME54-XPro evaluation kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  45 minutes
@@ -20,8 +20,8 @@ In this tutorial, you use Azure RTOS to connect the Microchip ATSAME54-XPro (her
 
 You will complete the following tasks:
 
-* Install a set of embedded development tools for programming a Microchip E54 DevKit in C
-* Build an image and flash it onto the Microchip E54 DevKit
+* Install a set of embedded development tools for programming a Microchip E54 in C
+* Build an image and flash it onto the Microchip E54
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
 ## Prerequisites
@@ -122,7 +122,7 @@ To create a device:
 
 ## Prepare the device
 
-To connect the Microchip E54 DevKit to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the Microchip E54 to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -144,7 +144,7 @@ To connect the Microchip E54 DevKit to Azure, you'll modify a configuration file
 
 1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png" alt-text="Locate key components on the Microchip E54 devkit board":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png" alt-text="Locate key components on the Microchip E54 evaluation kit board":::
 
 1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
     > [!NOTE]
@@ -158,7 +158,7 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
 
-    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mkcroBUS Xplained Pro adapter on Microchip ES4 DevKit":::
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mkcroBUS Xplained Pro adapter on the Microchip ES4":::
 
 1. Reopen the configuration file you edited previously:
 
@@ -212,7 +212,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
-    * **Port**: The port that your Microchip E54 DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
+    * **Port**: The port that your Microchip E54 is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
     * **Flow control**: DTR/DSR
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Confirm settings in the Termite app":::
@@ -317,7 +317,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 DevKit device. You also used the IoT Central portal to create Azure resources, connect the Microchip E54 DevKit securely to Azure, view telemetry, and send messages.
+In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 device device. You also used the IoT Central portal to create Azure resources, connect the Microchip E54 securely to Azure, view telemetry, and send messages.
 
 * For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
