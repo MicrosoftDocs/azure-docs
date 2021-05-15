@@ -1,5 +1,5 @@
 ---
-title: Smart Detection - performance anomalies | Microsoft Docs
+title: Smart detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 ms.topic: conceptual
 ms.date: 05/04/2017
@@ -8,11 +8,11 @@ ms.reviewer: antonfr
 ---
 
 >[!NOTE]
->You can migrate Smart Detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different Smart Detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>You can migrate smart detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
-> See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of Smart Detection after the migration.
+> See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 
-# Smart Detection - Performance Anomalies
+# Smart detection - Performance Anomalies
 
 [Application Insights](./app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
@@ -26,7 +26,7 @@ Application Insights has detected that the performance of your application has d
 * **Dependency duration degradation** - Your app makes calls to a REST API, database, or other dependency. The dependency is responding more slowly than it used to.
 * **Slow performance pattern** - Your app appears to have a performance issue that is affecting only some requests. For example, pages are loading more slowly on one type of browser than others; or requests are being served more slowly from one particular server. Currently, our algorithms look at page load times, request response times, and dependency response times.  
 
-Smart Detection requires at least 8 days of telemetry at a workable volume in order to establish a baseline of normal performance. So, after your application has been running for that period, any significant issue will result in a notification.
+Smart detection requires at least 8 days of telemetry at a workable volume in order to establish a baseline of normal performance. So, after your application has been running for that period, any significant issue will result in a notification.
 
 
 ## Does my app definitely have a problem?
@@ -48,13 +48,13 @@ The notifications include diagnostic information. Here's an example:
 
 ## Configure Email Notifications
 
-Smart Detection notifications are enabled by default and sent to those who have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+Smart detection notifications are enabled by default and sent to those who have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change this, either click **Configure** in the email notification, or open **Smart detection settings** in Application Insights. 
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
-  * You can use the **unsubscribe** link in the Smart Detection email to stop receiving the email notifications.
+  * You can use the **unsubscribe** link in the smart detection email to stop receiving the email notifications.
 
-Emails about Smart Detections performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
+Emails about smart detection performance anomalies are limited to one email per day per Application Insights resource. The email will be sent only if there is at least one new issue that was detected on that day. You won't get repeats of any message. 
 
 ## FAQ
 
@@ -64,7 +64,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
 
 * What types of application does this work for?
-  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](./api-custom-events-metrics.md#trackrequest) or [TrackDependency](./api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
+  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](./api-custom-events-metrics.md#trackrequest) or [TrackDependency](./api-custom-events-metrics.md#trackdependency), then smart etection will work in the same way.
 
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
@@ -79,9 +79,9 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
 
 * *If I don't do anything in response to a notification, will I get a reminder?*
-  * No, you get a message about each issue only once. If the issue persists it will be updated in the Smart Detection feed blade.
+  * No, you get a message about each issue only once. If the issue persists it will be updated in the smart detection feed blade.
 * *I lost the email. Where can I find the notifications in the portal?*
-  * In the Application Insights overview of your app, click the **Smart Detection** tile. There you'll be able to find all notifications up to 90 days back.
+  * In the Application Insights overview of your app, click the **Smart detection** tile. There you'll be able to find all notifications up to 90 days back.
 
 ## How can I improve performance?
 Slow and failed responses are one of the biggest frustrations for web site users, as you know from your own experience. So, it's important to address the issues.
@@ -146,7 +146,7 @@ Notice that it tells you:
   * Failure reports - If count > 1 this means that there were failed dependency calls during the detection period that might have contributed to duration degradation. 
   * Open Analytics with queries that calculate this dependency duration and count  
 
-## Smart Detection of slow performing patterns 
+## Smart detection of slow performing patterns 
 
 Application Insights finds performance issues that might only affect some portion of your users, or only affect users in some cases. For example, notification about pages load is slower on one type of browser than on other types of browsers, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area for clients using particular operating system.  
 
@@ -177,7 +177,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Analytics](../logs/log-analytics-tutorial.md)
 * [Analytics smart diagnostics](../logs/log-query-overview.md)
 
-Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
+Smart detection is  completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](../alerts/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
