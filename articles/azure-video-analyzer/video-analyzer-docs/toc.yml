@@ -121,8 +121,6 @@
     href: troubleshoot.md
 - name: Reference 
   items:
-  - name: Cookies
-    href: auth-session-cookies.md #404
   - name: Developer SDKs
     href: sdk.md
   - name: Direct methods
