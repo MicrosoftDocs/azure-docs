@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 05/13/2021
 ---
 
-# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 devkit to IoT Central
+# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 Discovery kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
@@ -161,7 +161,7 @@ After the build completes, confirm that two binary files were created. There's a
 
 1. On the STM DevKit MCU, locate the **Reset** button, the Micro USB port, which is labeled **USB STLink**, and the board part number. You will refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board.png" alt-text="Locate key components on the STM devkit board":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
