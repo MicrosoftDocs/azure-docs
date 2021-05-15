@@ -28,10 +28,12 @@ Disabling access key authentication will delete all access keys. If any running 
 To disallow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
-1. Locate the **Access keys** setting under **Settings**.
-1. Set the **Enable access keys** toggle to **Disabled**.
+2. Locate the **Access keys** setting under **Settings**.
 
     :::image type="content" border="true" source="./media/access-keys-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade":::
+
+3. Set the **Enable access keys** toggle to **Disabled**.
+
     :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing how to disable access key authentication for Azure App Configuration":::
 
 # [Azure CLI](#tab/azure-cli)
@@ -49,10 +51,12 @@ To verify that access key authentication is no longer permitted, a request can b
 To verify access key authentication is disabled for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
-1. Locate the **Access keys** setting under **Settings**.
-1. Verify there are no access keys displayed and **Enable access keys** is toggled to **Disabled**.
+2. Locate the **Access keys** setting under **Settings**.
 
     :::image type="content" border="true" source="./media/access-keys-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade":::
+
+3. Verify there are no access keys displayed and **Enable access keys** is toggled to **Disabled**.
+
     :::image type="content" border="true" source="./media/access-keys-disabled-portal.png" alt-text="Screenshot showing access keys being disabled for an Azure App Configuration resource":::
 
 # [Azure CLI](#tab/azure-cli)
