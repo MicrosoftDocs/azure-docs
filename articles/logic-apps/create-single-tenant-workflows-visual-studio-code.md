@@ -64,10 +64,10 @@ Whether you use Linux, Windows, or macOS for local development in Visual Studio 
 1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
 1. Before you run your logic app, make sure to start the emulator.
 
-If you want to deploy and run logic app workflows locally in a Docker container, you can [download and use the Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
+To deploy and run logic app workflows locally in a Docker container, you can [download and use the Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
 
 For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
-  
+
 ### Tools
 
 * [Visual Studio Code](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
@@ -637,17 +637,17 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    Here are the possible statuses that each step in the workflow can have:
 
-   | Action status | Icon | Description |
-   |---------------|------|-------------|
-   | **Aborted** | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a request to cancel. |
-   | **Failed** | ![Icon for "Failed" action status][failed-icon] | The action failed. |
-   | **Running** | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | **Skipped** | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
-   | **Succeeded** | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | **Succeeded with retries** | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
-   | **Waiting** | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
+   | Action status | Description |
+   |---------------|-------------|
+   | **Aborted** | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | The action was running but received a request to cancel. |
+   | **Failed** | The action failed. |
+   | **Running** | The action is currently running. |
+   | **Skipped** | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | **Succeeded** | The action succeeded. |
+   | **Succeeded with retries** | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
+   | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
+   | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-visual-studio-code/aborted.png
@@ -775,12 +775,17 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 ## Deploy to Azure
 
-From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the new **Logic App (Standard)** resource type. Similar to the function app resource in Azure Functions, deployment for this new resource type requires that you select a [hosting plan and pricing tier](../app-service/overview-hosting-plans.md), which you can set up during deployment. For more information about hosting plans and pricing, review these topics:
+From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
+Similar to the function app resource in Azure Functions, deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information about hosting plans and pricing, review these topics:
+
+* [Azure App Service plan overview](../app-service/overview-hosting-plans.md)
 * [Scale up an in Azure App Service](../app-service/manage-scale-up.md)
 * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
 
-You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
+> [!IMPORTANT]
+> Consumption plans aren't supported nor available for the **Logic App (Standard)** resource type. Your selected plan affects the capabilities and pricing tiers that are later available to you.
 
 ### Publish to a new Logic App (Standard) resource
 
@@ -808,33 +813,15 @@ You can publish your logic app as a new resource, which automatically creates an
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Select a [hosting plan](../app-service/overview-hosting-plans.md) for your new logic app, either [**App Service Plan** (Dedicated)](../azure-functions/dedicated-plan.md) or [**Premium**](../azure-functions/functions-premium-plan.md).
+   1. Select a [hosting plan](../app-service/overview-hosting-plans.md) for your new logic app.
 
-      > [!IMPORTANT]
-      > Consumption plans aren't supported nor available for this resource type. Your selected plan affects the 
-      > capabilities and pricing tiers that are later available to you. For more information, review these topics: 
-      >
-      > * [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
-      > * [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
-      >
-      > For example, the Premium plan provides access to networking capabilities, such as connect and integrate 
-      > privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps. 
-      > For more information, review these topics:
-      > 
-      > * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-      > * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+      This example continues with a [Logic Apps hosting plan](logic-apps-pricing.md#hosting-plans).
 
-      This example uses the **App Service Plan**.
-
-      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to select "App Service Plan" or "Premium".](./media/create-single-tenant-workflows-visual-studio-code/select-hosting-plan.png)
-
-   1. Create a new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
+   1. For your selected hosting plan, create a name for your new App Service plan or select an existing plan. This example selects **Create new App Service Plan**.
 
       ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
-   1. Provide a name for your App Service plan, and then select a [pricing tier](../app-service/overview-hosting-plans.md) for the plan. This example selects the **F1 Free** plan.
-
-      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to select a pricing tier.](./media/create-single-tenant-workflows-visual-studio-code/select-pricing-tier.png)
+   1. Provide a name for your App Service plan, and then select a pricing tier for your selected plan.
 
    1. For optimal performance, find and select the same resource group as your project for the deployment.
 
@@ -1194,7 +1181,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ## Deploy to Docker
 
-You can deploy your logic app to a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) as the hosting environment by using the [.NET CLI](/dotnet/core/tools/). With these commands, you can build and publish your logic app's project. You can then build and run your Docker container as the destination for deploying your logic app.
+You can deploy and locally run your logic app workflows in a [Docker container](/visualstudio/docker/tutorials/docker-tutorial#what-is-a-container) by using a [Docker image that can run Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite) and the [.NET CLI](/dotnet/core/tools/). With these commands, you can build and publish your logic app's project. You can then build and run your Docker container as the local destination for deploying your logic app.
 
 You can run Azurite in your container and use as a data store when running your logic apps. For a Docker image that you can use with Azurite and more information, download this [Docker image with Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
 
