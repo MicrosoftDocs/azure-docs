@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 05/25/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -63,13 +63,28 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard pricing (single-tenant)
 
-When you create the **Logic App (Standard)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Functions Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing that applies when running your workflows in single-tenant Azure Logic Apps.
+When you create the **Logic App (Standard)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan and pricing tier for your logic app. These choices determine the pricing that applies when running your workflows in single-tenant Azure Logic Apps.
+
+<a name="hosting-plans"></a>
+
+### Hosting plans and pricing tiers
+
+The following list shows the available hosting plans and pricing tiers that you can use:
+
+| Hosting plan | Cores | Memory | Storage |
+|--------------|-------|--------|---------|
+| **WS1** | 1 | 3.5 GB | 250 GB |
+| **WS2** | 2 | 7 GB | 250 GB |
+| **WS3** | 2 | 14 GB | 250 GB |
+|||||
+
+### Storage transactions
 
 Azure Logic Apps uses [Azure Storage](/storage) for any storage operations. With single-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
 
 When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
 
-### Estimate storage needs and costs
+### Tips for estimating storage needs and costs
 
 To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of operations. You can then use these numbers to estimate costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
