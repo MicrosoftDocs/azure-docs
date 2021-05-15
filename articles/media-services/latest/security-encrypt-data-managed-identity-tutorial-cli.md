@@ -6,7 +6,7 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 05/12/2021
+ms.date: 05/14/2021
 ms.author: inhenkel
 ---
 
@@ -20,7 +20,7 @@ This tutorial uses the 2020-05-01 Media Services API.
 
 ## Sign in to Azure
 
-To use any of the commands in this article you first have to be logged in to the subscription that you want to use.
+To use any of the commands in this article, you first have to be logged in to the subscription that you want to use.
 
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
@@ -42,6 +42,9 @@ You'll see these names referenced in the commands below.  The names of resources
 - your-keyvault-name
 - your-key-name
 - your-region
+
+> [!NOTE]
+> The hyphens above are only used to separate guidance words. Because of the inconsistency of naming resources in Azure services, don't use hyphens when you name your resources.
 
 ### List Azure regions
 
@@ -73,13 +76,13 @@ Grant the Media Services Managed Identity access to the Key Vault. There are two
 
 ### Get (show) the Managed Identity of the Media Services account
 
-The first command below shows the Managed Identity of the Media Services account which is the `mediaServiceId`.
+The first command below shows the Managed Identity of the Media Services account which is the `principalId` listed in the JSON returned by the command.
 
 [!INCLUDE [Show the Managed Identity of a Media Services account with the CLI](./includes/task-show-account-managed-identity-cli.md)]
 
 ### Set the Key Vault policy
 
-The second command grants the Principal ID access to the Key Vault. Set `object-id` to the value of `principalId`.
+The second command grants the Principal ID access to the Key Vault. Set `object-id` to the value of `principalId` which you got from the previous step.
 
 [!INCLUDE [Set the Key Vault policy with the CLI](./includes/task-set-key-vault-policy-cli.md)]
 
@@ -93,14 +96,7 @@ Set Media Services to use the key you've created. The value of the `key-identifi
 
 To verify the account is encrypted using a Customer Managed Key, view the account encryption properties.
 
-```azurecli
-az ams account encryption show --account-name your-media-services-account-name --resource-group your-resource-group-name
-```
-The command returns:
-
-```json
-jason goes here
-```
+[!INCLUDE [Set Media Services to use the key from Key Vault](./includes/task-show-account-encryption-cli.md)]
 
 The `type` property should show `CustomerKey` and the `currentKeyIdentifier` should be set to the path of a key in the customer’s Key Vault.
 

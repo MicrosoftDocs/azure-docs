@@ -12,7 +12,7 @@ ms.custom: CLI, devx-track-azurecli
 This command shows all of the properties of a Media Services account.
 
 ```azurecli-interactive
-az ams account show --name your-media-services-account-name --resource-group your-resource-group
+az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>
 ```
 
 The command returns:
@@ -23,19 +23,19 @@ The command returns:
     "keyVaultProperties": null,
     "type": "SystemKey"
   },
-  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/mediatest1rg/providers/Microsoft.Media/mediaservices/your-media-services-account-name",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Media/mediaservices/your-media-services-account",
   "identity": {
     "principalId": "00000000-0000-0000-0000-000000000000",
-    "tenantId": "the-tenant-id",
+    "tenantId": "00000000-0000-0000-0000-000000000000",
     "type": "SystemAssigned"
   },
-  "location": "West US 2",
-  "mediaServiceId": "the-media-service-id",
-  "name": "your-media-services-account-name",
+  "location": "your-region",
+  "mediaServiceId": "00000000-0000-0000-0000-000000000000",
+  "name": "your-media-services-account",
   "resourceGroup": "your-resource-group-name",
   "storageAccounts": [
     {
-      "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
       "resourceGroup": "your-resource-group-name",
       "type": "Primary"
     }
@@ -43,10 +43,10 @@ The command returns:
   "storageAuthentication": "System",
   "systemData": {
     "createdAt": "2021-05-14T21:25:12.3492071Z",
-    "createdBy": "your@email.address",
+    "createdBy": "you@example.com",
     "createdByType": "User",
     "lastModifiedAt": "2021-05-14T21:25:12.3492071Z",
-    "lastModifiedBy": "your@email.address",
+    "lastModifiedBy": "you@example.com",
     "lastModifiedByType": "User"
   },
   "tags": null,

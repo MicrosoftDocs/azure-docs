@@ -15,7 +15,7 @@ It gives the Media Services account a system assigned managed identity with the 
 
 ```azurecli-interactive
 
-az ams account create --name your-media-services-account-name --resource-group your-resource-group-name --mi-system-assigned --storage-account your-storage-account-name
+az ams account create --name <your-media-services-account-name> --resource-group <your-resource-group-name> --mi-system-assigned --storage-account <your-storage-account-name>
 
 ```
 

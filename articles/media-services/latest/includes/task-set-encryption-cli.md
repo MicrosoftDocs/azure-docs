@@ -11,12 +11,8 @@ ms.custom: CLI
 
 To use this command, you must already have created a Key Vault and a key.
 
-```azurecli
-az ams account encryption set \
-  --account-name your-media-services-account-name \
-  --resource-group your-resource-group \
-  --key-type CustomerKey \
-  --key-identifier https://your-keyvault-name.vault.azure.net/keys/your-key-name
+```azurecli-interactive
+az ams account encryption set --account-name <your-media-services-account-name> --resource-group <your-resource-group> --key-type CustomerKey --key-identifier https://<your-keyvault-name>.vault.azure.net/keys/<your-key-name>
 ```
 
 The command returns:

@@ -14,7 +14,7 @@ Use the following command to create a resource group. Change `your-resource-grou
 Change `your-region` to the geographic region that will be used to store the media and metadata records for your Media Services account. This region will be used to process and stream your media.
 
 ```azurecli-interactive
-az group create --name your-resource-group-name --location your-region
+az group create --name <your-resource-group-name> --location <your-region>
 ```
 
 The command returns:

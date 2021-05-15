@@ -12,17 +12,14 @@ ms.custom: CLI
 Use the following commands to create a Key Vault and key. Change `your-resource-group-name`, `your-keyvault-name` and `your-key-name`  to the values you want to use. The command assumes that you have already created a resource group.
 
 > [!NOTE]
-> The `--bypass AzureServices` value is for using a Managed Identity with the Key Vault, which is required for this use case. The  `--enable-purge-protection` value is optional and is to keep your data from accidental deletion.
+> The `--bypass AzureServices` value is for using a Managed Identity with the Key Vault, which is required for this use case.
+> The  `--enable-purge-protection` value is optional. However, if it is not set, you will not be able to use your key.
 
-### Create the keyvault
+### Create the Key Vault
 
 ```azurecli-interactive
 
-az keyvault create \
-  --resource-group your-resource-group-name \
-  --bypass AzureServices \
-  --enable-purge-protection \
-  --name your-keyvault-name
+az keyvault create --resource-group <your-resource-group-name> --bypass AzureServices --enable-purge-protection --name <your-keyvault-name>
 
 ```
 
@@ -150,7 +147,7 @@ The command returns:
     ],
     "kid": "https://your-keyvault-name.vault.azure.net/keys/your-key-name/your-subsription-id",
     "kty": "RSA",
-    "n": "thisisthekey51V9thvU7KsBUo/q1mEOcuxqt0qUcnx0IRO9YCL32fPjD/nnS8hKS5qkgUKfe2NRAtzVQ+elQAha65l7OsHu+TXmH/n/RPCgstpqSdCfiUR1JTmFYFRWdxCPwoKJMYaqlCEhn2Dkon3StTN0Id0sjRSA/YOLjgWU7YnVbntg5/048HgcTKn3PCWCuJc+P8hI/8Os5EAIpun62PffYwPX0/NIA1PY8wIB+sYEY0zxVGwWrCu7VgCo9xeqbMQEq5OenYmYpc+cjLozU/ohGhfWTpQU8d7fFypTHQrNzp1rR8NRE8kKEVoQ==",
+    "n": "THISISTHEKEY51V9thvU7KsBUo/q1mEOcuxqt0qUcnx0IRO9YCL32fPjD/nnS8hKS5qkgUKfe2NRAtzVQ+elQAha65l7OsHu+TXmH/n/RPCgstpqSdCfiUR1JTmFYFRWdxCPwoKJMYaqlCEhn2Dkon3StTN0Id0sjRSA/YOLjgWU7YnVbntg5/048HgcTKn3PCWCuJc+P8hI/8Os5EAIpun62PffYwPX0/NIA1PY8wIB+sYEY0zxVGwWrCu7VgCo9xeqbMQEq5OenYmYpc+cjLozU/ohGhfWTpQU8d7fFypTHQraENDOFKEY",
     "p": null,
     "q": null,
     "qi": null,

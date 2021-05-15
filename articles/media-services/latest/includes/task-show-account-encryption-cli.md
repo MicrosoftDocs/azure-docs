@@ -10,7 +10,7 @@ ms.custom: CLI, devx-track-azurecli
 <!--Show Media Services Managed Identity CLI-->
 
 ```azurecli-interactive
-az ams account encryption show --account-name your-media-services-account-name --resource-group your-resource-group-name
+az ams account encryption show --account-name <your-media-services-account-name> --resource-group <your-resource-group-name>
 ```
 
 The command returns:
@@ -20,9 +20,8 @@ The command returns:
 {
   "keyVaultProperties": {
     "currentKeyIdentifier": "https://your-key-vault-name.vault.azure.net/keys/your-key-name/523c33b607b644fc88e1640ac408caf9",
-    "keyIdentifier": "https://mediatest1kv4.vault.azure.net/keys/your-key-name"
+    "keyIdentifier": "https://your-key-vault-name.vault.azure.net/keys/your-key-name"
   },
   "type": "CustomerKey"
 }
-
 ```

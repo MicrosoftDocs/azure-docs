@@ -9,13 +9,10 @@ ms.custom: CLI
 
 <!-- ### Set the the Key Vault policy -->
 
-To use this command, you must include the Media Services account id as the object-id.
+To use this command, you must include the Media Services `principalId` as the `object-id`. if you haven't already, use `az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>` to get this ID.
 
 ```azurecli-interactive
-az keyvault set-policy \
-  --name your-keyvault-name \
-  --object-id mediaServiceId-from-show \
-  --key-permissions decrypt encrypt get list unwrapKey wrapKey
+az keyvault set-policy --name <your-keyvault-name> --object-id <principalId> --key-permissions decrypt encrypt get list unwrapKey wrapKey
 ```
 
 The command returns:
