@@ -648,7 +648,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    | **Succeeded with retries** | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
-   ||||
+   |||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-visual-studio-code/aborted.png
    [cancelled-icon]: ./media/create-single-tenant-workflows-visual-studio-code/cancelled.png
@@ -1267,7 +1267,7 @@ When you try to open the designer, you get this error, **"Workflow design time c
 
   1. From the list in the Output window's title bar, select **Azure Logic Apps (Standard)** so that you can review output from the extension, for example:
 
-     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-single-tenant-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
+     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-single-tenant-workflows-visual-studio-code/check-output-window-azure-logic-apps.png)
 
   1. Review the output and check whether this error message appears:
 
