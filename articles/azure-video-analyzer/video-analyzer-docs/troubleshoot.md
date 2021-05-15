@@ -329,4 +329,4 @@ To use your gRPC server with Video Analyzer, shared memory can be used for best 
 
 ## Next steps
 
-[Tutorial: Event-based video recording to cloud and playback from cloud](add-valid-link.md)
+[Tutorial: Event-based video recording to cloud and playback from cloud](record-event-based-live-video.md)
