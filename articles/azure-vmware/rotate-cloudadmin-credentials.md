@@ -58,6 +58,9 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
 
       :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credentials.":::
 
+
+<!-- 5/15/2021: Shawn is suggesting that we remove this section since there are so many products that used stored credentials. -->
+
 ## Verify HCX Connector has the latest credentials
 
 In this step, you'll verify that the HCX Connector has the updated credentials.
