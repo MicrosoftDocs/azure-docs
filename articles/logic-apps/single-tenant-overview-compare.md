@@ -50,7 +50,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 When you create logic apps using the **Logic App (Standard)** resource type, you can run your workflows anywhere that you can run Azure function apps and their functions, not just in the single-tenant service environment.
 
-For example, when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can containerize your logic apps and deploy as Docker containers.
+For example, when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can containerize and deploy logic apps as containers.
 
 These capabilities provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. Also, the multi-tenant model for automating **Logic App (Consumption)** resource deployment is completely based on Azure Resource Manager (ARM) templates, which combine and handle resource provisioning for both apps and infrastructure.
 
@@ -196,7 +196,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and [Docker containers](/dotnet/core/docker/introduction).
+* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and containers.
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
@@ -246,7 +246,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
 * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) aren't currently supported.
 
-* **Hosting plan availability**: Whether you create the single-tenant **Logic App (Standard)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. The Standard resource type doesn't support Consumption hosting plans. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Hosting plan availability**: Whether you create the single-tenant **Logic App (Standard)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. The Standard resource type doesn't support Consumption hosting plans. You can deploy from Visual Studio Code to a container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

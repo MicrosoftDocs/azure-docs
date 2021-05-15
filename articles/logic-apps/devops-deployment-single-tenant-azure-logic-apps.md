@@ -40,7 +40,7 @@ Single-tenant Azure Logic Apps inherits many capabilities and benefits from the 
 
 ### Local development and testing
 
-When you use Visual Studio Code with the Azure Logic Apps (Standard) extension, you can locally develop, build, and run single-tenant based logic app workflows in your development environment without having to deploy to Azure. You can also run your workflows anywhere that Azure Functions can run. For example, if your scenario requires containers, you can containerize your logic apps and deploy as Docker containers.
+When you use Visual Studio Code with the Azure Logic Apps (Standard) extension, you can locally develop, build, and run single-tenant based logic app workflows in your development environment without having to deploy to Azure. You can also run your workflows anywhere that Azure Functions can run. For example, if your scenario requires containers, you can containerize your logic apps and deploy as containers.
 
 This capability is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
 
@@ -79,7 +79,6 @@ MyLogicAppProjectName
 | connections.json
 | host.json
 | local.settings.json
-| Dockerfile
 ```
 
 At your project's root level, you can find the following files and folders, along with other items depending on your project is extension bundle-based (Node.js), which is the default, or is NuGet package-based (.NET).
@@ -94,7 +93,6 @@ At your project's root level, you can find the following files and folders, alon
 | connections.json | File | Contains the metadata, endpoints, and keys for any managed connections and Azure functions that your workflows use. <p><p>**Important**: To use different connections and functions for each environment, make sure that you parameterize this **connections.json** file and update the endpoints. |
 | host.json | File | Contains runtime-specific configuration settings and values, for example, the default limits for the single-tenant Azure Logic Apps platform, logic apps, workflows, triggers, and actions. |
 | local.settings.json | File | Contains the local environment variables that provide the `appSettings` values to use for your logic app when running locally.  |
-| Dockerfile | Folder | Contains one or more Dockerfiles to use for deploying the logic app as a container. |
 ||||
 
 For example, to create custom built-in operations, you must have a NuGet based project, not an extension bundle-based project. A NuGet-based project includes a .bin folder that contains packages and other library files that your app needs, while a bundle-based project doesn't include this folder and files. For more information about converting your project to use NuGet, review [Enable built-connector authoring](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
@@ -107,7 +105,7 @@ For more information and best practices about how to best organize workflows in 
 
 Single-tenant Azure Logic Apps supports deployment to containers, which means that you can containerize your logic app workflows and run them anywhere that containers can run. After you containerize your app, deployment works mostly the same as any other container you deploy and manage.
 
-For examples that include Azure DevOps, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/). For more information about containerizing logic apps and deploying to Docker, review [Deploy your logic app to a Docker container from Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#deploy-to-docker).
+For examples that include Azure DevOps, review [CI/CD for Containers](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/).
 
 <a name="app-settings-parameters"></a>
 
