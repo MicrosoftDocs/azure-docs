@@ -91,7 +91,7 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Software requirements
 
-* NET Framework 4.6 or later is required. [Download the .NET Framework](https://docs.microsoft.com/dotnet/framework/install/guide-for-developers).
+* NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
 * Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### Required permissions
