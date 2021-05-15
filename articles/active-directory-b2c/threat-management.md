@@ -52,7 +52,7 @@ The smart lockout feature uses many factors to determine when an account should 
 
 When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
-When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-page-elements).
+When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
 ## Viewing locked-out accounts
 
