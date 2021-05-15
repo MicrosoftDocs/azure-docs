@@ -306,7 +306,9 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 > [!IMPORTANT]
 > The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN
 >
-> It is highly recommended to not use the Phrase List feature with custom endpoints. Instead, train a [custom model](../../../custom-speech-overview.md) with these phrases to get the best accuracy.
+> For other locales and if you have a large number of phrases, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+>
+> It is highly recommended to not use the Phrase List feature with custom endpoints. For best accuracy train a custom model also in this case.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase).
 
