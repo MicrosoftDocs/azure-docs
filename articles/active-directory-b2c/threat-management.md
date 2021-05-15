@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/14/2021
+ms.date: 05/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,7 +25,7 @@ Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are lo
 
 The first 10 lockout periods are one minute long. The next 10 lockout periods are slightly longer and increase in duration after every 10 lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. Lockout periods can last up to five hours.
 
-### Manage password protection settings
+## Manage password protection settings
 
 To manage password protection settings, including the lockout threshold:
 
@@ -42,7 +42,8 @@ To manage password protection settings, including the lockout threshold:
     <br />*Setting the lockout threshold to 5 in **Password protection** settings*.
 
 1. Select **Save**.
-### Testing the password protection settings
+
+## Testing the password protection settings
 
 The smart lockout feature uses many factors to determine when an account should be locked, but the primary factor is the password pattern. The smart lockout feature considers slight variations of a password as a set, and they’re counted as a single try. For example:
 
@@ -51,14 +52,16 @@ The smart lockout feature uses many factors to determine when an account should 
 
 When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
-When the smart lockout threshold is reached, you'll see the following message while the account is locked:
+When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
-   **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
-
-### Viewing locked-out accounts
+## Viewing locked-out accounts
 
 To obtain information about locked-out accounts, you can check the Active Directory [sign-in activity report](../active-directory/reports-monitoring/concept-sign-ins.md). Under **Status**, select **Failure**. Failed sign-in attempts with a **Sign-in error code** of `50053` indicate a locked account:
 
 ![Section of Azure AD sign-in report showing locked-out account](./media/threat-management/portal-01-locked-account.png)
 
 To learn about viewing the sign-in activity report in Azure Active Directory, see [Sign-in activity report error codes](../active-directory/reports-monitoring/concept-sign-ins.md).
+
+## Unlock accounts
+
+Users must wait for the lockout duration to expire. However, the user can unlock by using self-service [password user flow](add-password-reset-policy.md).
