@@ -59,13 +59,12 @@ As you progress, you'll complete these high-level tasks:
 
 ### Storage requirements
 
-Whether you use Linux, Windows, or macOS for local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use when they run. If you plan to deploy to Docker containers, you can also run Azurite in your container to use as your local data store.
+Whether you use Linux, Windows, or macOS for local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
 
 1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite).
+1. Before you run your logic app, make sure to start the emulator.
 
-1. Before you run your logic app, make sure you start the emulator.
-
-1. For Docker deployment, download and use the [Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
+If you want to deploy and run logic app workflows locally in a Docker container, you can [download and use the Docker image for Azurite](https://hub.docker.com/_/microsoft-azure-storage-azurite).
 
 For more information, review the [Azurite documentation](https://github.com/Azure/Azurite#azurite-v3).
   
@@ -332,7 +331,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
    After the designer appears, the **Choose an operation** prompt appears on the designer and is selected by default, which shows the **Add an action** pane.
 
-   ![Screenshot that shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-designer.png)
+   ![Screenshot that shows the workflow designer.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
 
@@ -1209,21 +1208,11 @@ If you're not familiar with Docker, review these topics:
 
 ### Requirements
 
-* The Azure Storage account that your logic app uses for deployment
-
-* A Docker file for the workflow that you use when building your Docker container
-
-  For example, this sample Docker file deploys a logic app and specifies the connection string that contains the access key for the Azure Storage account that was used for publishing the logic app to the Azure portal. To find this string, see [Get storage account connection string](#find-storage-account-connection-string). For more information, review [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
-  
-  > [!IMPORTANT]
-  > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. 
-  > For Docker files specifically, review [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) 
-  > and [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/).
+* A Docker file for the workflow that you use when building your Docker container, for example:
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
 
-   ENV AzureWebJobsStorage <storage-account-connection-string>
    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
        AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
        FUNCTIONS_V2_COMPATIBILITY_MODE=true
@@ -1232,50 +1221,6 @@ If you're not familiar with Docker, review these topics:
 
    RUN cd /home/site/wwwroot
    ```
-
-<a name="find-storage-account-connection-string"></a>
-
-### Get storage account connection string
-
-Before you can build and run your Docker container image, you need to get the connection string that contains the access key to your storage account. Earlier, you created this storage account either as to use the extension on macOS or Linux, or when you deployed your logic app to the Azure portal.
-
-To find and copy this connection string, follow these steps:
-
-1. In the Azure portal, on the storage account menu, under **Settings**, select **Access keys**. 
-
-1. On the **Access keys** pane, find and copy the storage account's connection string, which looks similar to this example:
-
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
-
-   ![Screenshot that shows the Azure portal with storage account access keys and connection string copied.](./media/create-single-tenant-workflows-visual-studio-code/find-storage-account-connection-string.png)
-
-   For more information, review [Manage storage account keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
-
-1. Save the connection string somewhere safe so that you can add this string to the Docker file that you use for deployment. 
-
-<a name="find-storage-account-master-key"></a>
-
-### Find master key for storage account
-
-When your workflow contains a Request trigger, you need to [get the trigger's callback URL](#get-callback-url-request-trigger) after you build and run your Docker container image. For this task, you also need to specify the master key value for the storage account that you use for deployment.
-
-1. To find this master key, in your project, open the **azure-webjobs-secrets/{deployment-name}/host.json** file.
-
-1. Find the `AzureWebJobsStorage` property, and copy the key value from this section:
-
-   ```json
-   {
-      <...>
-      "masterKey": {
-         "name": "master",
-         "value": "<master-key>",
-         "encrypted": false
-      },
-      <...>
-   }
-   ```
-
-1. Save this key value somewhere safe for you to use later.
 
 <a name="build-run-docker-container-image"></a>
 
