@@ -368,161 +368,163 @@ npm start
 
 The snippet below demonstrates a confidential client web app in the Express.js framework. It performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
 
-:::row:::
-   :::column span="2":::
-    **Using ADAL Node**
 
-    ```javascript
-    // Import dependencies
-    var express = require('express');
-    var crypto = require('crypto');
-    var adal = require('adal-node');
-    
-    // Authentication parameters
-    var clientId = 'Enter_the_Application_Id_Here';
-    var clientSecret = 'Enter_the_Client_Secret_Here';
-    var tenant = 'common';
-    var authorityUrl = 'https://login.microsoftonline.com/' + tenant;
-    var redirectUri = 'http://localhost:3000/redirect';
-    var resource = 'https://graph.microsoft.com';
-    
-    // Configure logging
-    adal.Logging.setLoggingOptions({
-        log: function (level, message, error) {
-            console.log(message);
-        },
-        level: adal.Logging.LOGGING_LEVEL.VERBOSE,
-        loggingWithPII: false
-    });
-    
-    // Auth code request URL template
-    var templateAuthzUrl = 'https://login.microsoftonline.com/' 
-        + tenant + '/oauth2/authorize?response_type=code&client_id=' 
-        + clientId + '&redirect_uri=' + redirectUri 
-        + '&state=<state>&resource=' + resource;
-    
-    // Initialize express
-    var app = express();
-    
-    // State variable persists throughout the app lifetime
-    app.locals.state = "";
-    
-    app.get('/auth', function(req, res) {
-    
-        // Create a random string to use against XSRF
-        crypto.randomBytes(48, function(ex, buf) {
-            app.locals.state = buf.toString('base64')
-                .replace(/\//g, '_')
-                .replace(/\+/g, '-');
-            
-            // Construct auth code request URL
-            var authorizationUrl = templateAuthzUrl
-                .replace('<state>', app.locals.state);
+<table>
+<tr><td>**Using ADAL Node**</td><td>**Using MSAL Node**</td></tr>
+<tr>
+<td>
 
-            res.redirect(authorizationUrl);
-        });
-    });
-    
-    app.get('/redirect', function(req, res) {
-        // Compare state parameter against XSRF
-        if (app.locals.state !== req.query.state) {
-            res.send('error: state does not match');
-        }
-    
-        // Initialize an AuthenticationContext object
-        var authenticationContext = new adal.AuthenticationContext(authorityUrl);
+```javascript
+// Import dependencies
+var express = require('express');
+var crypto = require('crypto');
+var adal = require('adal-node');
+
+// Authentication parameters
+var clientId = 'Enter_the_Application_Id_Here';
+var clientSecret = 'Enter_the_Client_Secret_Here';
+var tenant = 'common';
+var authorityUrl = 'https://login.microsoftonline.com/' + tenant;
+var redirectUri = 'http://localhost:3000/redirect';
+var resource = 'https://graph.microsoft.com';
+
+// Configure logging
+adal.Logging.setLoggingOptions({
+    log: function (level, message, error) {
+        console.log(message);
+    },
+    level: adal.Logging.LOGGING_LEVEL.VERBOSE,
+    loggingWithPII: false
+});
+
+// Auth code request URL template
+var templateAuthzUrl = 'https://login.microsoftonline.com/' 
+    + tenant + '/oauth2/authorize?response_type=code&client_id=' 
+    + clientId + '&redirect_uri=' + redirectUri 
+    + '&state=<state>&resource=' + resource;
+
+// Initialize express
+var app = express();
+
+// State variable persists throughout the app lifetime
+app.locals.state = "";
+
+app.get('/auth', function(req, res) {
+
+    // Create a random string to use against XSRF
+    crypto.randomBytes(48, function(ex, buf) {
+        app.locals.state = buf.toString('base64')
+            .replace(/\//g, '_')
+            .replace(/\+/g, '-');
         
-        // Exchange auth code for tokens
-        authenticationContext.acquireTokenWithAuthorizationCode(
-            req.query.code, 
-            redirectUri, 
-            resource, 
-            clientId, 
-            clientSecret,
-            function(err, response) {
-                res.send(response);
-            }
-        );
-    });
-    
-    app.listen(3000, function() { 
-        console.log(`listening on port 3000!`); 
-    });
-    ```
+        // Construct auth code request URL
+        var authorizationUrl = templateAuthzUrl
+            .replace('<state>', app.locals.state);
 
-   :::column-end:::
-   :::column span="2":::
-    **Using MSAL Node**
+        res.redirect(authorizationUrl);
+    });
+});
 
-    ```javascript
-    // Import dependencies
-    const express = require("express");
-    const msal = require('@azure/msal-node');
+app.get('/redirect', function(req, res) {
+    // Compare state parameter against XSRF
+    if (app.locals.state !== req.query.state) {
+        res.send('error: state does not match');
+    }
+
+    // Initialize an AuthenticationContext object
+    var authenticationContext = new adal.AuthenticationContext(authorityUrl);
     
-    // Authentication parameters
-    const config = {
-        auth: {
-            clientId: "Enter_the_Application_Id_Here",
-            authority: "https://login.microsoftonline.com/common",
-            clientSecret: "Enter_the_Client_Secret_Here"
-        },
-        system: {
-            loggerOptions: {
-                loggerCallback(loglevel, message, containsPii) {
-                    console.log(message);
-                },
-                piiLoggingEnabled: false,
-                logLevel: msal.LogLevel.Verbose,
-            }
+    // Exchange auth code for tokens
+    authenticationContext.acquireTokenWithAuthorizationCode(
+        req.query.code, 
+        redirectUri, 
+        resource, 
+        clientId, 
+        clientSecret,
+        function(err, response) {
+            res.send(response);
         }
+    );
+});
+
+app.listen(3000, function() { 
+    console.log(`listening on port 3000!`); 
+});
+```
+
+</td>
+<td>
+
+```javascript
+// Import dependencies
+const express = require("express");
+const msal = require('@azure/msal-node');
+
+// Authentication parameters
+const config = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/common",
+        clientSecret: "Enter_the_Client_Secret_Here"
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+};
+
+const REDIRECT_URI = "http://localhost:3000/redirect";
+
+// Initialize MSAL Node object using authentication parameters
+const cca = new msal.ConfidentialClientApplication(config);
+
+// Initialize express
+const app = express();
+
+app.get('/auth', (req, res) => {
+    
+    // Construct a request object for auth code
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
     };
-    
-    const REDIRECT_URI = "http://localhost:3000/redirect";
-    
-    // Initialize MSAL Node object using authentication parameters
-    const cca = new msal.ConfidentialClientApplication(config);
-    
-    // Initialize express
-    const app = express();
-    
-    app.get('/auth', (req, res) => {
-        
-        // Construct a request object for auth code
-        const authCodeUrlParameters = {
-            scopes: ["user.read"],
-            redirectUri: REDIRECT_URI,
-        };
-    
-        // Request auth code, then redirect
-        cca.getAuthCodeUrl(authCodeUrlParameters)
-            .then((response) => {
-                res.redirect(response);
-            }).catch((error) => res.send(error));
-    });
-    
-    app.get('/redirect', (req, res) => {
-        
-        // Use the auth code in redirect request to construct
-        // a token request object
-        const tokenRequest = {
-            code: req.query.code,
-            scopes: ["user.read"],
-            redirectUri: REDIRECT_URI,
-        };
-    
-        // Exchange the auth code for tokens
-        cca.acquireTokenByCode(tokenRequest)
-            .then((response) => {
-                res.send(response);
-            }).catch((error) => res.status(500).send(error));
-    });
-    
-    app.listen(3000, () => 
-        console.log(`listening on port 3000!`));
-    ```    
 
-   :::column-end:::
-:::row-end:::
+    // Request auth code, then redirect
+    cca.getAuthCodeUrl(authCodeUrlParameters)
+        .then((response) => {
+            res.redirect(response);
+        }).catch((error) => res.send(error));
+});
+
+app.get('/redirect', (req, res) => {
+    
+    // Use the auth code in redirect request to construct
+    // a token request object
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // Exchange the auth code for tokens
+    cca.acquireTokenByCode(tokenRequest)
+        .then((response) => {
+            res.send(response);
+        }).catch((error) => res.status(500).send(error));
+});
+
+app.listen(3000, () => 
+    console.log(`listening on port 3000!`));
+```
+
+</td>
+</tr>
+</table>
 
 ## Next steps
 
