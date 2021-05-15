@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Enable SMB Multichannel on a FileStorage account (preview) 
 
-Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connections to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see SMB Multichannel performance.
+Azure FileStorage accounts support SMB Multichannel (preview), which increases the performance from an SMB 3.x client by establishing multiple network connections to your premium file shares. This article provides step-by-step guidance to enable SMB Multichannel on an existing storage account. For detailed information on Azure Files SMB Multichannel, see [SMB Multichannel performance](storage-files-smb-multichannel-performance.md).
 
 ## Limitations
 
@@ -90,4 +90,4 @@ Azure CLI does not yet support configuring SMB Multichannel. See the portal inst
 - [Remount your file share](storage-how-to-use-files-windows.md) to take advantage of SMB Multichannel.
 - [Troubleshoot any issues you have related to SMB Multichannel](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings).
 - To learn more about the improvements, see [SMB Multichannel performance](storage-files-smb-multichannel-performance.md)
- - To learn more about the Windows SMB Multichannel feature, see [Manage SMB Mulitchannel](/azure-stack/hci/manage/manage-smb-multichannel).
+- To learn more about the Windows SMB Multichannel feature, see [Manage SMB Mulitchannel](/azure-stack/hci/manage/manage-smb-multichannel).
