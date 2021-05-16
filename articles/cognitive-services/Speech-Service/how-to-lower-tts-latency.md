@@ -303,7 +303,7 @@ SPXConnection* connection = [[SPXConnection alloc]initFromSpeechSynthesizer:synt
 ::: zone-end
 
 > [!NOTE]
-> If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio, the SDK will handle the connection.
+> If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio. The SDK will handle the connection.
 
 ### Reuse SpeechSynthesizer
 
