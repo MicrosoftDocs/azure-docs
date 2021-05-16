@@ -1,7 +1,7 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 05/11/2021
+ms.date: 05/16/2021
 ms.topic: article
 ---
 
@@ -192,60 +192,9 @@ If you are creating Active Directory groups for on-premises management console u
 
 2. To add a trusted server, select **Add Server** and configure another server.
 
-## Change the default password
+## Change a users password
 
-**To change the default password for users, for either the sensor, or the on-premises management console**:
-
-1. Select the Users tab :::image type="icon" source="media/resources-agent-frequently-asked-questions/users-tab.png" border="false"::: from the left side toolbar.
-
-1. Select the edit icon :::image type="icon" source="media/resources-agent-frequently-asked-questions/pencil-icon.png" border="false"::: for the user whose password you want to change.
-
-1. In the change password fields enter a new password, and confirm the new password.
-
-> [!NOTE]
-> Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
-
-1. Select **Update**.
-
-## Resetting passwords
-
-### CyberX or Support user
-
-Only the CyberX and Support user have access to the **Password recovery** feature. If the CyberX or Support user forgot their password, they can be reset the password via the **Password recovery** option on the Defender for IoT sign-in page.
-
-**To reset the password for a CyberX or Support user**:
-
-1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
-
-1. Select either **CyberX** or **Support**, and copy the unique identifier.
-
-1. Navigate to the Azure portal, and select **Sites and Sensors**.  
-
-1. Select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  from the top toolbar, and select the subscription your sensor is connected to.
-
-1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**.
-
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::   
-
-1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
-
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
-
-    > [!NOTE]
-    > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
-
-1. On the **Password recovery** screen select **Upload**. **The Upload Password Recovery File** window will open.
-
-1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
-
-    > [!NOTE]
-    > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.  
-
-1. Select **Next**, and your user, and system-generated password for your management console will then appear.
-
-### Administrator, Security analyst and Read only user
-
-Read only and Security analysts can‘t reset their own password and need to contact a user with either the Administrator, Support, or CyberX roles, in order to reset their password. An Administrator user must contact the **CyberX** or **Support** user to reset their password.
+The CyberX role can change the password for all other user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role. The Administrator role can't change their own password and must contact a higher level role. The Administrator can change the password for a Security Analyst, and Read Only role. Read only, and Security analyst roles can‘t reset their, or any other role's password, and need to contact a user with a higher role level.
 
 **To reset a user's password on the sensor**:
 
@@ -261,6 +210,9 @@ Read only and Security analysts can‘t reset their own password and need to con
 
 1. Enter the new password in the **New Password**, and **Confirm New Password** fields.
 
+    > [!NOTE]
+    > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+
 1. Select **Update**.
 
 **To reset a user's password on the on-premises management console**:
@@ -275,7 +227,48 @@ Read only and Security analysts can‘t reset their own password and need to con
 
 1. Enter the new password in the **New Password**, and **Confirm New Password** fields.
 
+    > [!NOTE]
+    > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+
 1. Select **Update**.
+
+## Recover the password for the on-premises management console, or the sensor
+
+You can recover the password for the on-premises management console, or the sensor with the Password recovery feature. Only the CyberX, and Support user have access to the Password recovery feature.
+
+**To recover the password for the on-premises management console, or the sensor**:
+
+1. On the sign in screen of either the on-premises management console, or the sensor select **Password recovery**. The **Password recovery** screen opens.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
+
+1. Select either **CyberX**, or **Support** from the drop down menu, and copy the unique identifier code.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Select either the CyberX user or the Support user from the drop down menu.":::
+
+1. Navigate to the Azure portal, and select **Sites and Sensors**.  
+
+1. Select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  from the top toolbar, and select the subscription your sensor is connected to.
+
+1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::   
+
+1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
+
+    > [!NOTE]
+    > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
+
+1. On the **Password recovery** screen select **Upload**. **The Upload Password Recovery File** window will open.
+
+1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+
+    > [!NOTE]
+    > An error message may appear indicating the file is invalid. To fix this error message, ensure you selected the right subscription before downloading the `password_recovery.zip` and download it again.  
+
+1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Defender for IoT frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT features and service.
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/16/2021
 ---
 
 # Azure Defender for IoT frequently asked questions
@@ -58,12 +58,14 @@ Yes, you can create custom alerts based on multiple parameters including IP/MAC 
 
 The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
-## How can I change the default password
+## How can I change passwords
 
-To [change the default password](how-to-create-and-manage-users.md#change-the-default-password) for users, for either the sensor or the on-premises management console.
+Learn how to [Change a users password](how-to-create-and-manage-users.md#change-a-users-password)[change the default password](how-to-create-and-manage-users., for either the sensor or the on-premises management console.
 
 > [!NOTE]
 > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+
+You can also [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ## How do I activate the sensor and on-premises management console
 
