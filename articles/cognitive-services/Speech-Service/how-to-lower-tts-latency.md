@@ -241,7 +241,7 @@ The Speech SDK uses websocket to communicate with the service.
 Ideally, the network latency should be one route trip time (RTT).
 If the connection is newly established, the network latency will contain extra connection establishment time.
 The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduce time delay.
-To avoid the connection latency, we recommend pre-connection and reusing the `SpeechSynthesizer`.
+To avoid the connection latency, we recommend pre-connecting and reusing the `SpeechSynthesizer`.
 
 ### Pre-connect
 
