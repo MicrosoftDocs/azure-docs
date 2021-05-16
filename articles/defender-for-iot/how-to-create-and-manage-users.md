@@ -99,7 +99,7 @@ This section describes how to define users. Cyberx, support, and administrator u
 
 If users are not active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
 
-When users have not worked with their console mouse or keyboard for a period of 30 minutes, a session sign-out is forced.
+When users have not worked with their console mouse or keyboard for 30 minutes, a session sign-out is forced.
 
 This feature is enabled by default and on upgrade but can be disabled. In addition, session counting times can be updated. Session times are defined in seconds. Definitions are applied per sensor and on-premises management console.
 
@@ -192,9 +192,9 @@ If you are creating Active Directory groups for on-premises management console u
 
 2. To add a trusted server, select **Add Server** and configure another server.
 
-## Change a users password
+## Change a user's password
 
-The CyberX role can change the password for all other user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role. The Administrator role can't change their own password and must contact a higher level role. The Administrator can change the password for a Security Analyst, and Read Only role. Read only, and Security analyst roles can‘t reset their, or any other role's password, and need to contact a user with a higher role level.
+The CyberX role can change the password for all other user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role. The Administrator role can't change their own password and must contact a higher-level role. The Administrator can change the password for a Security Analyst, and Read Only role. Read only, and Security analyst roles can‘t reset their, or any other role's password, and need to contact a user with a higher role level.
 
 **To reset a user's password on the sensor**:
 
@@ -242,9 +242,9 @@ You can recover the password for the on-premises management console, or the sens
 
     :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
 
-1. Select either **CyberX**, or **Support** from the drop down menu, and copy the unique identifier code.
+1. Select either **CyberX**, or **Support** from the drop-down menu, and copy the unique identifier code.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Select either the CyberX user or the Support user from the drop down menu.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Select either the CyberX user or the Support user from the drop-down menu.":::
 
 1. Navigate to the Azure portal, and select **Sites and Sensors**.  
 
@@ -261,7 +261,7 @@ You can recover the password for the on-premises management console, or the sens
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
 
-1. On the **Password recovery** screen select **Upload**. **The Upload Password Recovery File** window will open.
+1. On the Password recovery screen, select **Upload**. **The Upload Password Recovery File** window will open.
 
 1. Select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
 
