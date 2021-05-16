@@ -258,7 +258,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, continue to the next tutorial.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault.
+To learn how to automatically reload secrets from Key Vault, continue to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Automatically reload secrets from Key Vault](./howto-reload-key-vault-secrets.md)
+
+ To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, refer to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

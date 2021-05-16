@@ -138,6 +138,8 @@
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Automatically reload secrets from Key Vault
+      href: howto-reload-key-vault-secrets.md
 - name: Reference
   items:
     - name: Client libraries
