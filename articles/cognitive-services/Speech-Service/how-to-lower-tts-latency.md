@@ -120,7 +120,7 @@ NSString *resultId = result.resultId;
 ::: zone-end
 
 The `first byte latency` is much lower than `finish latency` in most cases.
-And the `first byte latency` is almost independent with the text length, while `finish latency` increases with the text length.
+And the first byte latency is almost independent with the text length, while finish latency increases with the text length.
 
 Ideally, we want to minimum the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
 
