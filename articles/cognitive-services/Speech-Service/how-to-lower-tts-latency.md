@@ -25,7 +25,7 @@ Normally, we measure the latency by _`first byte latency`_ and _`finish latency`
 
 ::: zone pivot="programming-language-csharp"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
