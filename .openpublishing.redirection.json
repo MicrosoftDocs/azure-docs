@@ -6976,37 +6976,37 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-agent.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-agent.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-collectd.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-collectd.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-filter-telemetry.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-filter-telemetry.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-get-started.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-get-started.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-trace-logs.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-troubleshoot.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-troubleshoot.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
+      "source_path_from_root": "/articles/azure-monitor/app/micrometer-java.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
@@ -13678,6 +13678,11 @@
     {
       "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
       "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
       "redirect_document_id": false
     },
     {
