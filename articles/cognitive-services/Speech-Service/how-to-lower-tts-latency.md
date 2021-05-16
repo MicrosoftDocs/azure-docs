@@ -245,7 +245,7 @@ To avoid the connection latency, we recommend pre-connection and reusing the `Sp
 
 ### Pre-connect
 
-For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
+To pre-connect, establish a connection to the Speech service when you know the connection will be needed soon. For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
 ::: zone pivot="programming-language-csharp"
 
