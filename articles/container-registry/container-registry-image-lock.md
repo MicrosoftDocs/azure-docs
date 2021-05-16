@@ -1,13 +1,13 @@
 ---
 title: Lock images
-description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
+description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
 ---
 
-# Lock a container image in an Azure container registry
+# Lock a container image in an Azure Container Registry
 
-In an Azure container registry, you can lock an image version or a repository so that it can't be deleted or updated. To lock an image or a repository, update its attributes using the Azure CLI command [az acr repository update][az-acr-repository-update]. 
+In an Azure Container Registry, you can lock an image version or a repository so that it can't be deleted or updated. To lock an image or a repository, update its attributes using the Azure CLI command [az acr repository update][az-acr-repository-update]. 
 
 This article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
