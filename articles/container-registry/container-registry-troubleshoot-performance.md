@@ -7,7 +7,7 @@ ms.date: 08/11/2020
 
 # Troubleshoot registry performance
 
-This article helps you troubleshoot problems you might encounter with the performance of an Azure container registry. 
+This article helps you troubleshoot problems you might encounter with the performance of an Azure Container Registry. 
 
 ## Symptoms
 
@@ -46,7 +46,7 @@ Related links:
 
 ### Check client hardware
 
-The disk type and CPU on the docker client can affect the speed of extracting or compressing image layers on the client as part of pull or push operations. For example, layer extraction on a hard disk drive will take longer than on a solid-state disk. Compare pull operations for comparable images from your Azure container registry and a public registry such as Docker Hub.
+The disk type and CPU on the docker client can affect the speed of extracting or compressing image layers on the client as part of pull or push operations. For example, layer extraction on a hard disk drive will take longer than on a solid-state disk. Compare pull operations for comparable images from your Azure Container Registry and a public registry such as Docker Hub.
 
 ### Review configured limits
 
