@@ -8,12 +8,78 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/15/2021
 ms.author: oliversc
 ms.custom: seodec18
 ---
 
 # Speech Service release notes
+
+## Speech SDK 1.17.0: 2021-May release
+
+**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Highlights summary**
+
+- Smaller footprint - we continue to decrease the memory and disk footprint of the Speech SDK and its components.
+- A new stand alone language recognizer allows you to recognize what language is being spoken.
+- Develop speech enabled mixed reality and gaming applications using Unity on MacOS.
+- You can now use text-to-speech in addition to speech recognition from the Go programming language.
+- Simple language understanding patterns make it easier to create simple command sets.
+
+#### New features
+
+- **C++/C#**: Speech Recognition and Translation Recognition now support stand-alone Single-Shot and Continuous Language ID via the `SourceLanguageRecognizer` API . See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
+- **C#**:  Added support Unity support to MacOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
+- **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
+- **C++**: We added simple language understanding for patterns. The simple language patterns work offline in combination with online speech recognition. This is great for simple command sets like telling an elevator what floor to go to. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-simple-language-pattern-matching).
+- **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency).
+- **C++/C#/Java/Python/Objective-C/Go**: We now expose the latency and underrun time in `SpeechSynthesisResult` to help you monitor and diagnose speech synthesis latency issues. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency). 
+- **C++/C#/Java/Python/Objective-C/Go**: We added a Gender property to the synthesis voice info to make it easier to select voices based on gender. This addresses [GitHub issue #1055](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1055).
+- **C++, C#, Java, JavaScript**: We now support `getAllProfilesAsync()` in Speaker Recognition to allow user management of all voice profiles for a given account. See documentation for [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/voiceprofileclient), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.voiceprofileclient?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.voiceprofileclient?view=azure-java-stable), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/voiceprofileclient?view=azure-node-latest).
+- **JavaScript**: We added retry for connection failures that will make your JavaScript based speech applications more robust.
+
+#### Improvements
+
+- Linux and Android Speech SDK binaries have been updated to use the latest version of OpenSSL (1.1.1k)
+- Code Size improvements:
+	- Language Understanding is now split into a separate "lu" library
+
+#### Bug fixes
+
+- **All**: Fixed [GitHub issue #842](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/842) for ServiceTimeout. You can now transcribe very long audio files using the Speech SDK without the connection to the service terminating with this error. However, we still recommend you use [batch transcription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription) for long files.
+- **C#**: Fixed [GitHub issue #947](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/947) where no speech input could leave your app in a bad state. 
+- **Java**: Fixed [GitHub Issue #997](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/997) where the Java Speech SDK 1.16 crashes when using DialogServiceConnector without a network connection or an invalid subscription key.
+- Fixed a crash when abruptly stopping speech recognition (e.g. using CTRL+C on console app).
+- **Java**: Added a fix to delete temporary files on Windows when using Java Speech SDK.
+- **Java**: Fixed [GitHub issue #994](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/994) where calling `DialogServiceConnector.stopListeningAsync` could result in an error. 
+- **Java**: Fixed a customer issue in the [virtual assistant quickstart](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre/virtual-assistant).
+- **JavaScript**: Fixed [GitHub issue #366](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/366) where `ConversationTranslator` threw an error 'this.cancelSpeech is not a function'. 
+- **JavaScript**: Fixed [GitHub issue #298](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/298) where 'Get result as an in-memory stream' sample played sound out loud.
+- **JavaScript**: Fixed [GitHub issue #350](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/350) where calling `AudioConfig` could result in a 'ReferenceError: MediaStream is not defined'. 
+- **JavaScript**: Fixed an UnhandledPromiseRejection warning in Node.js for long-running sessions.
+
+#### Samples
+
+- Updated Unity samples documentation for MacOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+- A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/glharper/cognitive-js-sdk-react-native).
+
+## Speech CLI (also known as SPX): 2021-May release
+
+**Note**: Get started with the Azure Speech service command line interface (CLI) [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). The CLI enables you to use the Azure Speech service without writing any code.
+
+#### New features
+
+- SPX now supports Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the SPX command line.
+- We also added Dialog support - Try `spx dialog` from the SPX command line.
+- SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
+- We've decreased the size of the SPX .net tool install .
+
+**COVID-19 abridged testing**:
+
+As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
+
 
 ## Text-to-speech 2021-April release
 
