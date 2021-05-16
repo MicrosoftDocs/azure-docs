@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Data sources gallery
+          - text: Data source gallery
             url: search-data-sources-gallery.md
           - text: Creating indexes
             url: search-what-is-an-index.md

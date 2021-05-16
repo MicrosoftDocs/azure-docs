@@ -270,7 +270,7 @@
       href: cognitive-search-common-errors-warnings.md
   - name: Data sources (indexers)
     items:
-      - name: Data sources gallery
+      - name: Data source gallery
         href: search-data-sources-gallery.md
       - name: Azure Blobs
         items:      
