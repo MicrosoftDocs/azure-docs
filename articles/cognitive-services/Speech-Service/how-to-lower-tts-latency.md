@@ -126,7 +126,7 @@ Ideally, we want to minimum the user-experienced latency (the latency before use
 
 ## Streaming
 
-Streaming is critical to lower the latency,
+Streaming is critical to lowering latency,
 Client code can start playback when the first audio chunk is received.
 In service scenario, you can forward the audio chunks immediately to your clients instead of waiting for the whole audio.
 
