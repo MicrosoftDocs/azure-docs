@@ -240,7 +240,7 @@ while ([stream readData:data length:16000] > 0) {
 The Speech SDK uses websocket to communicate with the service.
 Ideally, the network latency should be one route trip time (RTT).
 If the connection is newly established, the network latency will contain extra connection establishment time.
-The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduce time delay.
+The establishment of a websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduces time delay.
 To avoid the connection latency, we recommend pre-connecting and reusing the `SpeechSynthesizer`.
 
 ### Pre-connect
