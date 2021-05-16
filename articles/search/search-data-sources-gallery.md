@@ -1,5 +1,5 @@
 ---
-title: Data sources gallery
+title: Data source gallery
 titleSuffix: Azure Cognitive Search
 description: Lists all of the supported data sources for importing into an Azure Cognitive Search index.
 author: vkurpad
@@ -12,7 +12,7 @@ ms.date: 05/17/2021
 
 ---
 
-# Azure Cognitive Search data source gallery
+# Data source gallery
 
 ## Indexer data sources in Cognitive Search
 
