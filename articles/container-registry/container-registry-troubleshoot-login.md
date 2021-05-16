@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot login to registry
-description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
+description: Symptoms, causes, and resolution of common problems when logging into an Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
 ---
 
 # Troubleshoot registry login
 
-This article helps you troubleshoot problems you might encounter when logging into an Azure container registry. 
+This article helps you troubleshoot problems you might encounter when logging into an Azure Container Registry. 
 
 ## Symptoms
 
@@ -33,7 +33,7 @@ May include one or more of the following:
 
 Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
 
-See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
+See [Check the health of an Azure Container Registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
 If you're experiencing problems using the registry wih Azure Kubernetes Service, run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
 
