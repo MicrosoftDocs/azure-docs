@@ -46,7 +46,7 @@ To recover your password:
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting passwords](how-to-create-and-manage-users.md#resetting-passwords).
+    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
