@@ -107,7 +107,7 @@ The value for `--name  -n` parameter, `my_triton_models` in the example, will be
 # [Python](#tab/python)
 
 
-[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/1.bidaf-ncd-local.ipynb?name=register-model)]
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=register-model)]
 
 For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
@@ -125,7 +125,7 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 
 # [Python](#tab/python)
 
-[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/1.bidaf-ncd-local.ipynb?name=deploy-webservice)]
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=deploy-webservice)]
 
 ---
 
@@ -142,7 +142,7 @@ az ml service show --name=triton-webservice
 ```
 # [Python](#tab/python)
 
-[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/1.bidaf-ncd-local.ipynb?name=get-keys)]
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=get-keys)]
 
 ---
 
@@ -171,7 +171,7 @@ HTTP/1.1 200 OK
 ```
 # [Python](#tab/python)
 
-[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/1.bidaf-ncd-local.ipynb?name=query-service)]
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=query-service)]
 
 ---
 
@@ -190,7 +190,7 @@ az ml service delete -n triton-densenet-onnx
 ```
 # [Python](#tab/python)
 
-[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/1.bidaf-ncd-local.ipynb?name=delete-service)]
+[!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
 ## Troubleshoot
