@@ -30,7 +30,7 @@ Normally, we measure the latency by _`first byte latency`_ and _`finish latency`
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). The following sample code shows these values.
 
 ```csharp
 var result = await synthesizer.SpeakTextAsync(text);
