@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 05/17/2021
 ms.author: alkohli
 ---
 
@@ -35,7 +35,7 @@ The API profile uses three naming conventions:
 |Microsoft.Resources (Azure Resource Manager itself) |2020-06-01  |
 |Microsoft.Authorization (policy operations)         |2016-09-01  |
 
-For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions.md?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
+For a list of the versions for each resource type for the providers in the API profile, see [Details for the 2019-03-01-hybrid profile](/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions?view=azs-2008&preserve-view=true#details-for-the-2019-03-01-hybrid-profile).
 
 ## Details for the 2019-03-01-hybrid profile
 
