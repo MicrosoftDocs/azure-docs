@@ -58,7 +58,7 @@ In this example, we will NAT site1 to 127.30.0.0.0/24. The Virtual WAN spoke Vir
 
 The following diagram shows the projected end result:
 
-:::image type="content" source="./media/nat-rules-vpn-gateway/diagram-bgp.png" alt-text="Diagram showing Ingress mode NAT.":::
+:::image type="content" source="./media/nat-rules-vpn-gateway/diagram-bgp.png" alt-text="Diagram showing Ingress mode NAT for Sites that are BGP-enabled.":::
 
 1. Specify a NAT rule.
 
@@ -82,7 +82,7 @@ The following diagram shows the projected end result:
 
       In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 127.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (127.30.0.132). 
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing edit rules.":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
 
  
 
@@ -100,7 +100,7 @@ Ingress SNAT rules are applied on packets that are entering Azure through the Vi
 
 In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the VPN Site is not connected to the Site-to-site VPN Gateway via BGP, the configuration steps are slightly different than the BGP-enabled example. 
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/diagram-static.png" alt-text="Screenshot showing edit rules.":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/diagram-static.png" alt-text="Screenshot showing diagram configurations for VPN sites that use static routing.":::
 
 
 1. Specify a NAT rule.
@@ -122,7 +122,7 @@ In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the
 
    * Select the VPN site that is connected to the Virtual WAN hub via Link A. Select Edit Site and input 172.30.0.0/24 as the private address space for the VPN site. 
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/vpnsite-static.png" alt-text="Screenshot showing edit rules.":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/vpnsite-static.png" alt-text="Screenshot showing how to edit the Private Address space of a VPN site.":::
 
 ### <a name="considerations2"></a>Considerations if VPN Sites are statically configured (not connected via BGP)
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
@@ -137,11 +137,11 @@ In the preceding examples an on-premises device wants to reach a resource in a S
    * Source IP Address: **10.30.0.4**
    * Destination IP Address: 10.200.0.4
 1. Traffic enters Site-to-site gateway and is translated using the NAT rule and then sent to the Spoke.
-   * Source IP Address: **127.30.0.4**
+   * Source IP Address: **172.30.0.4**
    * Destination IP Address: 10.200.0.4
 1. Reply from Spoke is initiated.
    * Source IP Address: 10.200.0.4
-   * Destination IP Address: **127.30.0.4**
+   * Destination IP Address: **172.30.0.4**
 1. Traffic enters the Site-to-site VPN gateway and the translation is reversed and sent to on-premises.
    * Source IP Address: 10.200.0.4
    * Destination IP Address: **10.30.0.4**
