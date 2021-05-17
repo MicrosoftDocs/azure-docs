@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 05/17/2021 
+ms.date: 05/17/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -99,7 +99,7 @@ For more information about creating key vaults and adding secrets, see:
 
 ## Grant deployment access to the secrets
 
-The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. By checking this access, Azure Resource Manager prevents an unapproved user from accessing the secret by passing in the resource ID for the key vault. You can grant deployment access to users without granting write access to the secrets. 
+The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. By checking this access, Azure Resource Manager prevents an unapproved user from accessing the secret by passing in the resource ID for the key vault. You can grant deployment access to users without granting write access to the secrets.
 
 The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
@@ -402,7 +402,7 @@ The following template dynamically creates the key vault ID and passes it as a p
 ```
 
 > [!NOTE]
-> As of Bicep version 0.3.255, a parameter file is needed to retrieve a key vault secret because the `reference` keyword isn't supported. There's work in progress to add support and for more information, see [GitHub issue 1028](https://github.com/Azure/bicep/issues/1028).
+> As of Bicep version 0.3.539, you can use an **existing** key vault secret. The key vault and secret must exist before a deployment begins. For more information, see the [Bicep spec](https://github.com/Azure/bicep/blob/main/docs/spec/modules.md#using-existing-key-vaults-secret-as-input-for-secure-string-module-parameter).
 
 ## Next steps
 
