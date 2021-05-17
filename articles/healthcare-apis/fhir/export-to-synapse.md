@@ -14,7 +14,7 @@ In this article you will learn a couple of ways to move data from Azure API for 
 
 Moving data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while moving them into Synapse.
 
-**1. Load exported data to Synapse using T-SQL:** Use `$export` operation to move FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](https://docs.microsoft.com/azure/synapse-analytics/get-started-pipelines).
+**1. Load exported data to Synapse using T-SQL:** Use `$export` operation to move FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](../../synapse-analytics/get-started-pipelines.md).
 
 **2. Use the tools from the FHIR Analytics Pipelines OSS repo:** The [FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) repo contains tools that can create an **Azure Data Factory (ADF) pipeline** to move FHIR data into a **Common Data Model (CDM) folder**, and from the CDM folder to Synapse. 
 
@@ -22,7 +22,7 @@ Moving data from the FHIR server to Synapse involves exporting the data using th
 
 ### `$export` for moving FHIR data into Azure Data Lake Gen 2 storage
 
-:::image type="content" source="media/export-data/synapse-from-azurestorage.png" alt-text="Azure storage to Synapse":::
+:::image type="content" source="media/export-data/synapse-from-azurestorage.png" alt-text="Azure storage to Synapse using $export":::
 
 #### Configure your FHIR server to support `$export`
 
@@ -34,7 +34,7 @@ You can configure the server to export the data to any kind of Azure storage acc
 
 #### Using `$export` command
 
-After configuring your FHIR server, you can follow the [documentation](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#using-export-command) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
+After configuring your FHIR server, you can follow the [documentation](./export-data.md#using-export-command) to export your FHIR resources at System, Patient, or Group level. For example, you can export all of your FHIR data related to the patients in a `Group` with the following `$export` command, in which you specify your ADL Gen 2 blob storage name in the field `{{BlobContainer}}`:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
@@ -166,14 +166,14 @@ GO
 
 ## Use FHIR Analytics Pipelines OSS tools
 
-:::image type="content" source="media/export-data/adf-cdm-synapse.png" alt-text="Azure storage to Synapse":::
+:::image type="content" source="media/export-data/adf-cdm-synapse.png" alt-text="Using ADF pipeline to move data into CDM folder then into Synapse":::
 
 > [!Note]
 > [FHIR Analytics pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
 ### ADF pipeline for moving FHIR data into CDM folder
 
-[CDM folder](https://docs.microsoft.com/common-data-model/data-lake) is a folder in a data lake that conforms to well-defined and standardized metadata structures and self-describing data. These folders facilitate metadata interoperability between data producers and data consumers. Before you move FHIR data into CDM folder, you can transform your data into a table configuration.
+Common Data Model (CDM) folder is a folder in a data lake that conforms to well-defined and standardized metadata structures and self-describing data. These folders facilitate metadata interoperability between data producers and data consumers. Before you move FHIR data into CDM folder, you can transform your data into a table configuration.
 
 ### Generating table configuration
 
