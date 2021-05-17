@@ -28,9 +28,9 @@ For more reference, see this article about [Azure Percept Audio button and LED b
 - **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
 - **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
     - Make sure that your USB-A and micro usb connections are secured 
-    - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module#checking-runtime-status-of-the-speech-module)
+    - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
     - Restart the device
-    - [Collect logs](./troubleshoot-audio-accessory-speech-module#collecting-speech-module-logs) and attach them to a support request
+    - [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
     - Check to see if your dev kit is running the latest software and apply an update if available.
 
 ## Checking runtime status of the speech module
