@@ -1,10 +1,10 @@
 ---
 title: "Tutorial: Language Understanding Bot Node.js v4"
-description: Using Node.js, build a chat bot integrated with language understanding (LUIS) in this tutorial. This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
+description: Use this tutorial to build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 11/30/2020
 ms.custom: devx-track-js
 ---
 

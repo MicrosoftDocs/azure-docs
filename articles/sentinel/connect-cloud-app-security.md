@@ -44,7 +44,7 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 
 1. Click **Apply Changes**.
 
-1. You can select whether you want the Azure Defender alerts from Azure Security Center to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the  **Active rules** tab.
+1. You can select whether you want the alerts from Cloud App Security to automatically generate incidents in Azure Sentinel. Under **Create incidents - Recommended!**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
 1. To use the relevant schema in Log Analytics for Cloud App Security alerts, type `SecurityAlert` in the query window. For the Cloud Discovery logs schema, type `McasShadowItReporting`.
 

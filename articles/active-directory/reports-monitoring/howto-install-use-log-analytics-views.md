@@ -32,7 +32,7 @@ The Azure Active Directory log analytics views helps you analyze and search the 
 
 To use the log analytics views, you need:
 
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
+* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
 * Download the views from the [GitHub repository](https://aka.ms/AADLogAnalyticsviews) to your local computer.
 
@@ -64,11 +64,11 @@ To use the log analytics views, you need:
 
     ![Create rule](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Select the action group to alert. In general, this can be either a team you want to notify via email or text message, or it can be an automated task using webhooks, runbooks, functions, logic apps or external ITSM solutions. Learn how to [create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md).
+6. Select the action group to alert. In general, this can be either a team you want to notify via email or text message, or it can be an automated task using webhooks, runbooks, functions, logic apps or external ITSM solutions. Learn how to [create and manage action groups in the Azure portal](../../azure-monitor/alerts/action-groups.md).
 
 7. Select **Create alert rule** to create the alert. Now you will be alerted every time there's a sign-in error.
 
 ## Next steps
 
 * [How to analyze activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
-* [Get started with Azure Monitor logs in the Azure portal](../../azure-monitor/log-query/get-started-portal.md)
+* [Get started with Azure Monitor logs in the Azure portal](../../azure-monitor/logs/log-analytics-tutorial.md)

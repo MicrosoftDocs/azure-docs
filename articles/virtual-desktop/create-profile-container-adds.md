@@ -3,9 +3,9 @@ title: Create FSLogix profile container Azure Files Active Directory Domain Serv
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Create a profile container with Azure Files and Azure AD DS
@@ -94,7 +94,7 @@ To get the Storage Account access key:
 7. Run the following command:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
@@ -105,7 +105,7 @@ To get the Storage Account access key:
     For example:
 
      ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
 8. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.

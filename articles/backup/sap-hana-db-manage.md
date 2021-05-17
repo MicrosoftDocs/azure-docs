@@ -81,20 +81,39 @@ These on-demand backups will also show up in the list of restore points for rest
 
 Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
 
-### Run SAP HANA native client backup on a database with Azure Backup enabled
+### Run SAP HANA native client backup to local disk on a database with Azure Backup enabled
 
 If you want to take a local backup (using HANA Studio / Cockpit) of a database that's being backed up with Azure Backup, do the following:
 
 1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio/ Cockpit.
-2. Disable log backups, and set the backup catalog to the file system for relevant database.
-3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-4. Set **enable_auto_log_backup** to **No**.
-5. Set **log_backup_using_backint** to **False**.
-6. Take an on-demand full backup of the database.
-7. Wait for the full backup and catalog backup to finish.
-8. Revert the previous settings back to those for Azure:
-   * Set **enable_auto_log_backup** to **Yes**.
-   * Set **log_backup_using_backint** to **True**.
+2. for the relevant DB
+    1. Unset the backint parameters. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
+        * enable_auto_log_backup: No
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. Take an on-demand full backup of the database
+4. Then reverse the steps. For the same relevant DB mentioned above,
+    1. re-enable the backint parameters
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Yes
+
+### Manage or clean-up the HANA catalog for a database with Azure Backup enabled
+
+If you want to edit or clean-up the backup catalog, do the following:
+
+1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio/ Cockpit.
+2. for the relevant DB
+    1. Unset the backint parameters. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
+        * enable_auto_log_backup: No
+        * log_backup_using_backint: False
+        * catalog_backup_using_backint:False
+3. Edit the catalog and remove the older entries
+4. Then reverse the steps. For the same relevant DB mentioned above,
+    1. re-enable the backint parameters
+        1. catalog_backup_using_backint:True
+        1. log_backup_using_backint: True
+        1. enable_auto_log_backup: Yes
 
 ### Change policy
 
@@ -125,8 +144,6 @@ You can change the underlying policy for an SAP HANA backup item.
 
 >[!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
->
-> Incremental backup policies can't be used for SAP HANA databases. Incremental backup isn't currently supported for these databases.
 
 ### Modify Policy
 
@@ -212,6 +229,10 @@ Learn how to continue backup for an SAP HANA database [after upgrading from SDC 
 ### Upgrading from SDC to MDC without a SID change
 
 Learn how to continue backup of an SAP HANA database whose [SID hasn't changed after upgrade from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+
+### Upgrading to a new version in either SDC or MDC
+
+Learn how to continue backup of an SAP HANA database [whose version is being upgraded](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
 
 ### Unregister an SAP HANA instance
 

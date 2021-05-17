@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Azure Synapse Analytics - dedicated SQL pool Videos
+# Azure Synapse Analytics - dedicated SQL pool  (formerly SQL DW) Videos
 
-Watch the latest dedicated SQL pool videos to learn about new capabilities and performance improvements. 
+Watch the latest dedicated SQL pool (formerly SQL DW) videos to learn about new capabilities and performance improvements. 
 
 To get started, select the overview video below to learn about the new updates to dedicated SQL pool. Also, learn how modern data warehouse patterns can be used to tackle real world scenarios such as cybercrime.
 </br>

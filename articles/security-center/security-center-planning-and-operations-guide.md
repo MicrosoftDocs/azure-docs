@@ -131,7 +131,7 @@ Azure Security Center uses the Log Analytics agent – this is the same agent us
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/platform/agent-windows.md) or [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/agents/agent-windows.md) or [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Log Analytics agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 
@@ -228,7 +228,6 @@ In the [How to Leverage the Azure Security Center & Microsoft Operations Managem
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.

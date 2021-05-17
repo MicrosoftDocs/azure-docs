@@ -1,9 +1,9 @@
 ---
 title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
 description: Learn how to store unstructured data (blobs) in the cloud with Azure Blob (object) storage using C++.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
@@ -47,7 +47,7 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). This example shows how you can declare a static field to hold the connection string:
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This example shows how you can declare a static field to hold the connection string:
 
 ```cpp
 // Define the connection-string with your values.

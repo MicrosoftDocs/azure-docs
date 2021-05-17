@@ -289,7 +289,7 @@ It isn't possible to pass multiple parameters to an activity function directly. 
 
 # [C#](#tab/csharp)
 
-In .NET you can also use [ValueTuples](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuples](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
+In .NET you can also use [ValueTuple](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuple](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

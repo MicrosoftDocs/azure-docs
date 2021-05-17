@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
 # Upload billing data to Azure and view it in the Azure portal
 
 > [!IMPORTANT] 
->  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **microsoft.AzureData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
+>  There is no cost to use Azure Arc enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -106,14 +106,15 @@ azdata arc dc upload -p usage.json
 
 Follow these steps to view billing data in the Azure portal:
 
-1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
+1. Open the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
+1. Under **Cost Management Overview**, click on the **Cost Management** tab.
 1. Click on the **Cost analysis** tab on the left.
 1. Click the **Cost by resource** button on the top of the view.
 1. Make sure that your Scope is set to the subscription in which your data service resources were created.
 1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
 1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when you created your data service resources.
-1. Click **Add filter** to add a filter by **Resource type** = `microsoft.azuredata/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
+1. Click **Add filter** to add a filter by **Resource type** = `Microsoft.AzureArcData/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
 1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
 
 ## Download billing data
@@ -153,5 +154,5 @@ You can validate the billing data files in the Azure portal.
 7. Drill down into the generated folders and files and click on one of the generated .csv files.
 8. Click the **Download** button which will save the file to your local Downloads folder.
 9. Open the file using a .csv file viewer such as Excel.
-10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureData/<data service resource type`.
+10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureArcData/<data service resource type`.
 11. You will see the number of hours the instance was used in the current 24 hour period in the UsageQuantity column.

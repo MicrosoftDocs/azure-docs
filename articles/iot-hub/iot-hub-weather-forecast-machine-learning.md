@@ -18,30 +18,16 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning Studio (classic) is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
+Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning Studio (classic) is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. In this article, you learn how to use Azure Machine Learning Studio (classic) to do weather forecasting (chance of rain) using the temperature and humidity data from your Azure IoT hub. The chance of rain is the output of a prepared weather prediction model. The model is built upon historic data to forecast chance of rain based on temperature and humidity.
 
-## What you learn
+## Prerequisites
 
-You learn how to use Azure Machine Learning Studio (classic) to do weather forecast (chance of rain) using the temperature and humidity data from your Azure IoT hub. The chance of rain is the output of a prepared weather prediction model. The model is built upon historic data to forecast chance of rain based on temperature and humidity.
-
-## What you do
-
-- Deploy the weather prediction model as a web service.
-- Get your IoT hub ready for data access by adding a consumer group.
-- Create a Stream Analytics job and configure the job to:
-  - Read temperature and humidity data from your IoT hub.
-  - Call the web service to get the rain chance.
-  - Save the result to an Azure blob storage.
-- Use Microsoft Azure Storage Explorer to view the weather forecast.
-
-## What you need
-
-- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
+- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - An [Azure Machine Learning Studio (classic)](https://studio.azureml.net/) account.
-- An [Azure Storage account](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
+- An [Azure Storage account](../storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-storage-accounts), A **General-purpose v2** account is preferred, but any Azure Storage account that supports Azure Blob storage will also work.
 
 > [!Note]
 > This article uses Azure Stream Analytics and several other paid services. Extra charges are incurred in Azure Stream Analytics when data must be transferred across Azure regions. For this reason, it would be good to ensure that your Resource Group, IoT Hub, and Azure Storage account -- as well as the Machine Learning Studio (classic) workspace and Azure Stream Analytics Job added later in this tutorial -- are all located in the same Azure region. You can check regional support for Azure Machine Learning Studio (classic) and other Azure services on the [Azure product availability by region page](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).

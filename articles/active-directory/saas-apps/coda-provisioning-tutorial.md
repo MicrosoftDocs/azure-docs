@@ -34,7 +34,7 @@ This tutorial describes the steps you need to perform in both Coda and Azure Act
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A [Coda Enterprise](https://help.coda.io/en/articles/3520174-getting-started-with-sso) administrator account.
 
 ## Step 1. Plan your provisioning deployment
@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Open your Organization Admin Console by selecting Organization Settings under the ... menu below your workspace.
 
-	![Coda Enterprise Organization SCIM Settings](media/coda-provisioning-tutorial/coda-scim-enable.png)
+    ![Coda Enterprise Organization SCIM Settings](media/coda-provisioning-tutorial/coda-scim-enable.png)
 
 2. Ensure Provision with SCIM is enabled.
 3. Note the SCIM Base URL and SCIM Bearer Token. If there is no Bearer Token, click Generate New Token.
@@ -72,27 +72,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Coda**.
 
-	![The Coda link in the Applications list](common/all-applications.png)
+    ![The Coda link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
+    ![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
+    ![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your Coda Tenant URL and Secret Token retrieved earlier in Step 2. Click **Test Connection** to ensure Azure AD can connect to Coda. If the connection fails, ensure your Coda account has Admin permissions and try again.
 
- 	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/coda-provisioning-tutorial/provisioning.png)
+     ![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+    ![Notification Email](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
@@ -112,15 +112,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. To enable the Azure AD provisioning service for Coda, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 12. Define the users that you would like to provision to Coda by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+    ![Provisioning Scope](common/provisioning-scope.png)
 
 13. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 

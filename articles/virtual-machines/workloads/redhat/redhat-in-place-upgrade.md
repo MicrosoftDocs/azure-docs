@@ -2,12 +2,12 @@
 title: In-place upgrade of Red Hat Enterprise Linux images on Azure
 description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x images to the latest 8.x version.
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
 
 ---
 
@@ -31,7 +31,7 @@ Before you start the upgrade, keep in mind the following considerations.
 >[!Important] 
 > Take a snapshot of the image before you start the upgrade.
 
-* Make sure you're using the latest RHEL 7 version. Currently, the latest version is RHEL 7.9. If you use a locked version and can't upgrade to RHEL 7.9, then follow [these steps to switch to a non-EUS (extended update support) repository](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
+* Make sure you're using the latest RHEL 7 version. Currently, the latest version is RHEL 7.9. If you use a locked version and can't upgrade to RHEL 7.9, then follow [these steps to switch to a non-EUS (extended update support) repository](./redhat-rhui.md#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
 * Run the following command to check on your upgrade and see whether it will finish successfully. The command should generate */var/log/leapp/leapp-report.txt* file. This file explains the process, what's happening, and whether the upgrade is possible.
 

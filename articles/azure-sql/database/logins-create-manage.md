@@ -19,7 +19,7 @@ ms.date: 03/23/2020
 
 In this article, you learn about:
 
-- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse) to enable users to perform administrative tasks and to access the data stored in these databases.
+- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics to enable users to perform administrative tasks and to access the data stored in these databases.
 - The access and authorization configuration after initially creating a new server.
 - How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions.
 - How to add user accounts in user databases, either associated with logins or as contained user accounts.
@@ -79,7 +79,7 @@ At this point, your server or managed instance is only configured for access usi
 
   - Create an additional SQL login in the master database.
   - Add the login to the [sysadmin fixed server role](/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
+  - Alternatively, create an [Azure AD login](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax.
 
 - **In SQL Database, create SQL logins with limited administrative permissions**
 
@@ -116,9 +116,9 @@ You can create accounts for non-administrative users using one of two methods:
 
 For examples showing how to create logins and users, see:
 
-- [Create login for Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Create login for Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Create login for Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Create login for Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Create login for Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Create login for Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Create user](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creating Azure AD contained users](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
@@ -136,7 +136,7 @@ After creating a user account in a database, either based on a login or as a con
   - To add a user to a fixed database role:
 
     - In Azure SQL Database, use the [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) statement. For examples, see [ALTER ROLE examples](/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse, use the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](/sql/t-sql/statements/alter-role-transact-sql).
+    - Azure Synapse, use the [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples).
 
 - **Custom database role**
 

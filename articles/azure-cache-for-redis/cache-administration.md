@@ -6,7 +6,8 @@ author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to administer Azure Cache for Redis
@@ -53,6 +54,8 @@ Yes, if you reboot the cache all client connections are cleared. Rebooting can b
 > 
 > 
 
+
+
 ### Will I lose data from my cache if I do a reboot?
 If you reboot both the **Master** and **Replica** nodes, all data in the cache (or in that shard if you are using a premium cache with clustering enabled) may be lost, but this is not guaranteed either. If you have configured [data persistence](cache-how-to-premium-persistence.md), the most recent backup will be restored when the cache comes back online, but any cache writes that have occurred after the backup was made are lost.
 
@@ -65,8 +68,11 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
 
 > [!NOTE] 
-> The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
+> The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
+> 
+> Currently, no option is available to configure a reboot or scheduled updates for an Enterprise tier cache.
 >
+
 
 ![Schedule updates](./media/cache-administration/redis-schedule-updates.png)
 
@@ -77,7 +83,8 @@ The default, and minimum, maintenance window for updates is five hours. This val
 ## Schedule updates FAQ
 * [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
-* [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+* [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+* [Can an update that is covered and managed by the "Scheduled Updates" feature happen outside of the "Scheduled Updates" window?](#can-an-update-that-is-covered-and-managed-by-the-scheduled-updates-feature-happen-outside-the-scheduled-updates-window)
 
 ### When do updates occur if I don't use the schedule updates feature?
 If you don't specify a maintenance window, updates can be made at any time.
@@ -85,13 +92,16 @@ If you don't specify a maintenance window, updates can be made at any time.
 ### What type of updates are made during the scheduled maintenance window?
 Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 
-### Can I managed scheduled updates using PowerShell, CLI, or other management tools?
+### Can I manage scheduled updates using PowerShell, CLI, or other management tools?
 Yes, you can manage your scheduled updates using the following PowerShell cmdlets:
 
 * [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
 * [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
+
+### Can an update that is covered and managed by the Scheduled Updates feature happen outside the Scheduled Updates window?
+Yes. Although in general, updates aren't applied outside the configured Scheduled Updates window, rare critical security updates can be applied outside the patching schedule as part of our security policy.
 
 ## Next steps
 Learn more about Azure Cache for Redis features.

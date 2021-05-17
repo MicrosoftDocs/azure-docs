@@ -9,12 +9,11 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 04/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -29,6 +28,9 @@ Remark about the units used throughout this article. The public cloud vendors mo
 Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica in case of a storage node failure is transparent. As a result of this redundancy, it is **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
+
+Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+
 
 ### Azure managed disks
 
@@ -64,6 +66,10 @@ For SAP HANA certified and supported Azure storage types read the article [SAP H
 
 The sections describing the different Azure storage types will give you more background about the restrictions and possibilities using the SAP supported storage. 
 
+### Storage choices when using DBMS replication
+Our reference architectures foresee the usage of DBMS functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you are using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. That means if the storage chose for the redo log volume of a DBMS system is Azure premium storage on one VM, the same volume is required to be based on Azure premium storage with all the other VMs that are in the same high availability synchronization configuration. The same is true for the data volumes used for the database files.
+  
+
 ## Storage recommendations for SAP storage scenarios
 Before going into the details, we are presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. Summarizing the storage recommendations for the SAP storage scenarios in a table, it looks like:
 
@@ -76,9 +82,9 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
 | DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | not supported |
-| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
-| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
+| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux |
+| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux |
+| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -129,7 +135,6 @@ Cost basis in the case of Azure premium storage is not the actual data volume st
 - The I/O throughput for this storage is not linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780KB/GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28KB/GiB
 - The IOPS and throughput SLAs cannot be changed without changing the capacity of the disk
 
-Azure has a single instance VM SLA of 99.9% that is tied to the usage of Azure premium storage or Azure Ultra disk storage. The SLA is documented in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). In order to comply with this single VM SLA, the base VHD disk as well as **all** attached disk need to be either Azure premium storage or Azure Ultra disk storage.
 
 The capability matrix for SAP workload looks like:
 
@@ -161,7 +166,7 @@ Azure premium storage does not fulfill SAP HANA storage latency KPIs with the co
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../linux/disk-bursting.md). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You are going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../disk-bursting.md). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You are going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -234,6 +239,7 @@ ANF storage is currently supported for several SAP workload scenarios:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md)
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 - SAP HANA deployments using NFS v4.1 shares for /hana/data and /hana/log volumes and/or NFS v4.1 or NFS v3 volumes for /hana/shared volumes as documented in the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- Oracle deployments in Oracle Linux guest OS using [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA) for Oracle data and redo log volumes. Some more details can be found in the article [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 
 > [!NOTE]
 > No other DBMS workload is supported for Azure NetApp Files based NFS or SMB shares. Updates and changes will be provided if this is going to change.
@@ -373,4 +379,3 @@ Read the articles:
 
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md)
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
- 

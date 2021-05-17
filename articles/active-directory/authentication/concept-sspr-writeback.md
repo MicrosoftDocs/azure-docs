@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Password writeback is a highly secure service. To ensure your information is pro
 * **Tenant-specific service-bus relay**
    * When you set up the service, a tenant-specific service bus relay is set up that's protected by a randomly generated strong password that Microsoft never has access to.
 * **Locked down, cryptographically strong, password encryption key**
-   * After the service bus relay is created, a strong symmetric key is created that'is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
+   * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
 * **Industry standard Transport Layer Security (TLS)**
    1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
    1. The encrypted password is placed into an HTTPS message that's sent over an encrypted channel by using Microsoft TLS/SSL certs to your service bus relay.
@@ -136,7 +136,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## Unsupported writeback operations
 
@@ -145,7 +145,7 @@ Passwords aren't written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API.
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API (the [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) is supported).
+   * Any administrator-initiated end-user password reset from PowerShell version 1, or version 2.
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com).
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 

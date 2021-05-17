@@ -88,9 +88,11 @@ landingContent:
       - linkListType: architecture
         links:
             - text: Baseline architecture for an AKS cluster
-              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
             - text: AKS solutions
-              url: /azure/architecture/reference-architectures/containers/aks-start-here
+              url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+            - text: Day-2 operations guide
+              url: /azure/architecture/operator-guides/aks/aks-triage-practices?WT.mc_id=AKSDOCSPAGE
             - text: Best practices for cluster operators and developers
               url: best-practices.md
             - text: Checking for best practices

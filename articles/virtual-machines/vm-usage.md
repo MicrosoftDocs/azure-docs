@@ -5,7 +5,7 @@ services: virtual-machines
 documentationcenter: ''
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -32,7 +32,7 @@ To begin, [download your usage details](../cost-management-billing/manage/downlo
 | Consumed Service | The Azure platform service that you used.| `Microsoft.Compute`|
 | Resource Group | The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview.](../azure-resource-manager/management/overview.md)|`MyRG`|
 | Instance ID | The identifier for the resource. The identifier contains the name you specify for the resource when it was created. For VMs, the Instance ID will contain the SubscriptionId, ResourceGroupName, and VMName (or scale set name for scale set usage).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
-| Tags| Tag you assign to the resource. Use tags to group billing records. Learn how to tag your Virtual Machines using the [CLI](./linux/tag.md) or [PowerShell](./windows/tag.md) This is available for Resource Manager VMs only.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Tags| Tag you assign to the resource. Use tags to group billing records. Learn how to tag your Virtual Machines using the [CLI](./tag-cli.md) or [PowerShell](./tag-portal.md) This is available for Resource Manager VMs only.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Additional Info | Service-specific metadata. For VMs, we populate the following data in the additional info field: <br><br> Image Type- specific image that you ran. Find the full list of supported strings below under Image Types.<br><br> Service Type: the size that you deployed.<br><br> VMName: name of your VM. This field is only populated for scale set VMs. If you need your VM Name for scale set VMs, you can find that in the Instance ID string above.<br><br> UsageType: This specifies the type of usage this represents.<br><br> ComputeHR is the Compute Hour usage for the underlying VM, like Standard_D1_v2.<br><br> ComputeHR_SW is the premium software charge if the VM is using premium software, like Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Premium Software<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## Image Type

@@ -3,10 +3,10 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
+ms.date: 12/18/2020
 ---
 # Using reference data for lookups in Stream Analytics
 
@@ -27,7 +27,7 @@ Stream Analytics supports Azure Blob storage and Azure SQL Database as the stora
 
 ## Azure Blob storage
 
-Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence.
+Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence. For more information, see [Use reference data from a Blob Storage for an Azure Stream Analytics job](data-protection.md).
 
 ### Configure blob reference data
 
@@ -105,13 +105,13 @@ You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-manag
 
 ## Size limitation
 
-It is recommended to use reference datasets which are less than 300 MB for best performance. Usage of reference data greater than 300 MB is supported in jobs with 6 SUs or more. This functionality is in preview and must not be used in production. Using a very large reference data may impact performance of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
+It is recommended to use reference datasets which are less than 300 MB for best performance. Reference datasets 5 GB or lower is supported in jobs with 6 SUs or more. Using a very large reference data may impact end-to-end latency of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
 |**Number of Streaming Units**  |**Recommended Size**  |
 |---------|---------|
 |1   |50 MB or lower   |
 |3   |150 MB or lower   |
-|6 and beyond   |300 MB or lower. Using reference data greater than 300 MB is supported in preview and could impact performance of your job.    |
+|6 and beyond   |5 GB or lower.    |
 
 Support for compression is not available for reference data.
 
@@ -131,6 +131,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## IoT Edge jobs
+
+Only local reference data is supported for Stream Analytics edge jobs. When a job is deployed to IoT Edge device, it loads reference data from the user defined file path. Have a reference data file ready on the device. For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
+
+Reference data on IoT Edge update is triggered by a deployment. Once triggered, the Stream Analytics module picks the updated data without stopping the running job.
+
+There are two ways to update the reference data:
+
+* Update reference data path in your Stream Analytics job from Azure portal.
+
+* Update the IoT Edge deployment.
 
 ## Next steps
 > [!div class="nextstepaction"]

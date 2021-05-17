@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Red Hat OpenShift 4 cluster application restore using Velero
 description: Learn how to create a restore of your Azure Red Hat OpenShift cluster applications using Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application restore
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -84,5 +84,3 @@ In this article, an Azure Red Hat OpenShift 4 cluster application was restored. 
 Advance to the next article to learn about Azure Red Hat OpenShift 4 supported resources.
 
 * [Azure Red Hat OpenShift v4 supported resources](supported-resources.md)
-
-

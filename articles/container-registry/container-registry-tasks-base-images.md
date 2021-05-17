@@ -52,7 +52,7 @@ The time between when a base image is updated and when the dependent task is tri
 * **Enabled by default** - When you create an ACR task with the [az acr task create][az-acr-task-create] command, by default the task is *enabled* for trigger by a base image update. That is, the `base-image-trigger-enabled` property is set to True. If you want to disable this behavior in a task, update the property to False. For example, run the following [az acr task update][az-acr-task-update] command:
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Trigger to track dependencies** - To enable an ACR task to determine and track a container image's dependencies -- which include its base image -- you must first trigger the task to build the image **at least once**. For example, trigger the task manually using the [az acr task run][az-acr-task-run] command.
@@ -80,13 +80,13 @@ See the following tutorials for scenarios to automate application image builds a
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

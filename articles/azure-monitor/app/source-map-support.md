@@ -2,8 +2,8 @@
 title: Source map support for JavaScript applications - Azure Monitor Application Insights
 description: Learn how to upload source maps to your own storage account Blob container using Application Insights.
 ms.topic: conceptual
-author: markwolff
-ms.author: marwolff
+author: DavidCBerry13
+ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ---
@@ -78,7 +78,7 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 
 ## Next Steps
 
-* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Azure File Copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 
 <!-- Remote URLs -->

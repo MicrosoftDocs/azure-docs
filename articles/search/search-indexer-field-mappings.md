@@ -4,13 +4,12 @@ titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
 manager: nitinme
-author: mattmsft 
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
+
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
+ms.date: 01/28/2021
 ---
 
 # Field mappings and transformations using Azure Cognitive Search indexers
@@ -40,16 +39,15 @@ A field mapping consists of three parts:
 Field mappings are added to the `fieldMappings` array of the indexer definition.
 
 > [!NOTE]
-> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as [the blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
+> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
 
-## Map fields using the REST API
+## Map fields using REST
 
 You can add field mappings when creating a new indexer using the [Create Indexer](/rest/api/searchservice/create-Indexer) API request. You can manage the field mappings of an existing indexer using the [Update Indexer](/rest/api/searchservice/update-indexer) API request.
 
 For example, here's how to map a source field to a target field with a different name:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -73,9 +71,8 @@ A source field can be referenced in multiple field mappings. The following examp
 > [!NOTE]
 > Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
 >
->
 
-## Map fields using the .NET SDK
+## Map fields using .NET
 
 You define field mappings in the .NET SDK using the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class, which has the properties `SourceFieldName` and `TargetFieldName`, and an optional `MappingFunction` reference.
 

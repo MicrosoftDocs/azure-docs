@@ -53,6 +53,11 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 
     For information, see [ThreatConnect Integrations](https://threatconnect.com/integrations/) and look for Microsoft Graph Security API on the page.
 
+- [EclecticIQ Platform](https://www.eclecticiq.com/solutions)
+
+- [ThreatQ Threat Intelligence Platform](https://www.threatq.com/)
+
+    For information and guided instructions, see [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=Overview).
 
 ## Connect Azure Sentinel to your threat intelligence platform
 

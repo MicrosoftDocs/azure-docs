@@ -35,20 +35,17 @@ The following screenshot shows details for the Azure Resource Manager outbound r
 
 When you're creating the other three rules, replace the value of **Destination service tag** with **AzureFrontDoor.Frontend**, **AzureActiveDirectory**, or **AzureMonitor** from the list.
 
-For more information, see [Service tags overview](/azure/virtual-network/service-tags-overview).
+For more information, see [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ## Step 2: Create private link hubs
 
 Next, create private link hubs from the Azure portal. To find this in the portal, search for *Azure Synapse Analytics (private link hubs)*, and then fill in the required information to create it. 
 
-> [!Note]
-> Ensure that the **Region** value is the same as the one where your Azure Synapse Analytics workspace is.
-
 ![Screenshot of Create Synapse private link hub.](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## Step 3: Create a private endpoint for your gateway
+## Step 3: Create a private endpoint for your Synapse Studio
 
-To access the Azure Synapse Analytics Studio gateway, you must create a private endpoint from the Azure portal. To find this in the portal, search for *Private Link*. In the **Private Link Center**, select **Create private endpoint**, and then fill in the required information to create it. 
+To access the Azure Synapse Analytics Studio, you must create a private endpoint from the Azure portal. To find this in the portal, search for *Private Link*. In the **Private Link Center**, select **Create private endpoint**, and then fill in the required information to create it. 
 
 > [!Note]
 > Ensure that the **Region** value is the same as the one where your Azure Synapse Analytics workspace is.
@@ -72,7 +69,7 @@ After the private link endpoint is created, you can access the sign-in page of t
 
 To access the resources inside your Azure Synapse Analytics Studio workspace resource, you need to create the following:
 
-- At least one private link endpoint with a **Dev** type of **Target sub-resource**.
+- At least one private link endpoint with a **Target sub-resource** type of **Dev**.
 - Two other optional private link endpoints with types of **Sql** or **SqlOnDemand**, depending on what resources in the workspace you want to access.
 
 Creating these is similar to how you create the endpoint in the previous step.  
@@ -113,6 +110,44 @@ If you want your notebook to access the linked storage resources under a certain
 After you create this endpoint, the approval state shows a status of **Pending**. Request approval from the owner of this storage account, in the **Private endpoint connections** tab of this storage account in the Azure portal. After it's approved, your notebook can access the linked storage resources under this storage account.
 
 Now, all set. You can access your Azure Synapse Analytics Studio workspace resource.
+
+## Appendix: DNS registration for private endpoint
+
+If the "Integrate with private DNS zone" is not enabled during the private endpoint creation as screenshot below, you must create the "**Private DNS zone**" for each of your private endpoints.
+![Screenshot of Create Synapse private DNS zone 1.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+To find the **Private DNS zone** in the portal, search for *Private DNS zone*. In the **Private DNS zone**, fill in the required information below to create it.
+
+* For **Name**, input the private DNS zone dedicated name for specific private endpoint as below:
+  * **`privatelink.azuresynapse.net`** is for the private endpoint of accessing Azure Synapse Analytics Studio gateway. See this type of private endpoint creation in step 3.
+  * **`privatelink.sql.azuresynapse.net`** is for this type of private endpoint of sql query execution in SQL pool and built-in pool. See the endpoint creation in step 4.
+  * **`privatelink.dev.azuresynapse.net`** is for this type of private endpoint of accessing everything else inside Azure Synapse Analytics Studio workspaces. See this type of private endpoint creation in step 4.
+  * **`privatelink.dfs.core.windows.net`** is for the private endpoint of accessing workspace linked Azure Data Lake Storage Gen2. See this type of private endpoint creation in step 5.
+  * **`privatelink.blob.core.windows.net`** is for the private endpoint of accessing workspace linked Azure Blob Storage. See this type of private endpoint creation in step 5.
+
+![Screenshot of Create Synapse private DNS zone 2.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+After the **Private DNS zone** created, enter the created private DNS zone and select the **Virtual network links** to add the link to your virtual network. 
+
+![Screenshot of Create Synapse private DNS zone 3.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+Fill in the mandatory fields as below:
+* For **Link name**, input the link name.
+* For **Virtual network**, select your virtual network.
+
+![Screenshot of Create Synapse private DNS zone 4.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+After the virtual network link is added, you need to add the DNS record set in the **Private DNS zone** you created before.
+
+* For **Name**, input the dedicated name strings for different private endpoint: 
+  * **web** is for the private endpoint of accessing Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName***" is for the private endpoint of sql query execution in SQL pool and also for the private endpoint of accessing everything else inside Azure Synapse Analytics Studio workspaces.
+  * "***YourWorkSpaceName*-ondemand**" is for the private endpoint of sql query execution in built-in pool.
+* For **Type**, select DNS record type **A** only. 
+* For **IP address**, input the corresponding IP address of each private endpoint. You can get the IP address in **Network interface** from your private endpoint overview.
+
+![Screenshot of Create Synapse private DNS zone 5.](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## Next steps
 

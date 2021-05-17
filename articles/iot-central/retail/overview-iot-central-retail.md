@@ -1,5 +1,5 @@
 ---
-title: Building retail solutions with Azure IoT Central | Microsoft Docs
+title: What are the Azure IoT Central retail solutions | Microsoft Docs
 description: Learn about using Azure IoT Central application templates to build connected logistics, digital distribution center, in-store analytics, condition monitoring, checkout, smart inventory management, and retail solutions.
 author: avneet723
 ms.author: avneets 
@@ -10,11 +10,11 @@ ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Building retail solutions with Azure IoT Central
+# What are the IoT Central retail solutions?
 
 Azure IoT Central is an IoT app platform that reduces the burden and cost associated with developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with Azure IoT Central gives you the opportunity to focus your time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
-This article, describes several retail-specific IoT Central application templates. As a solution builder, you can use these templates to build IoT solutions that optimize supply chains, improve in-store experiences for customers, and track inventory more efficiently.
+This article, describes several retail-specific IoT Central application templates. You can use these templates to build IoT solutions that optimize supply chains, improve in-store experiences for customers, and track inventory more efficiently.
 
 :::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Azure IoT Retail Overview":::
 
@@ -67,7 +67,7 @@ To learn more, see the [Deploy and walk through a digital distribution center ap
 
 For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
 
-As a solution builder, you can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights helping the retailer to reduce operating costs and create a great experience for their customers.
+You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights helping the retailer to reduce operating costs and create a great experience for their customers.
 
 Use the application template to:
 
@@ -89,7 +89,7 @@ To learn more, see the [Create an in-store analytics application in Azure IoT Ce
 
 For some retailers, the checkout experience within their stores is a key differentiator from their competitors. Retailers want to deliver a smooth checkout experience within their stores to encourage customers to return.  
 
-As a solution builder, you can use the IoT Central in-store analytics checkout application template to build a solution that delivers insights from around the checkout zone of a store to retail staff. For example, sensors can provide information about queue lengths and average wait times for each checkout lane.
+You can use the IoT Central in-store analytics checkout application template to build a solution that delivers insights from around the checkout zone of a store to retail staff. For example, sensors can provide information about queue lengths and average wait times for each checkout lane.
 
 Use the application template to:
 
@@ -131,7 +131,7 @@ To learn more, see the [Deploy and walk through a smart inventory management app
 
 In the increasingly competitive retail landscape, retailers constantly face pressure to close the gap between demand and fulfillment. A new trend that has emerged to address the growing consumer demand is to house inventory near the end customers and the stores they visit.
 
-The IoT Central micro-fulfillment center application template enables solution builders to monitor and manage all aspects of their fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
+The IoT Central micro-fulfillment center application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
 
 The application template enables you to: 
 
@@ -175,9 +175,5 @@ To learn how to deploy the solution, see the [Create a video analytics applicati
 To get started building a retail solution:
 
 * Get started with the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial that walks you through how to build a solution with one of the in-store analytics application templates.
-* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).
-* [Deploy and walk through a digital distribution center application template](./tutorial-iot-central-digital-distribution-center.md).
-* [Deploy and walk through a smart inventory management application template](./tutorial-iot-central-smart-inventory-management.md).
-* [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md).
 * [Deploy and walk through the video analytics application template](./tutorial-video-analytics-deploy.md).
-* Learn more about IoT Central in the [IoT Central overview](../core/overview-iot-central.md).
+* [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md).

@@ -746,11 +746,11 @@ In this article. you used ACR tasks to create an automated gating workflow to in
 
 [install-cli]:                  /cli/azure/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -761,11 +761,7 @@ In this article. you used ACR tasks to create an automated gating workflow to in
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.io
-
-
-
-

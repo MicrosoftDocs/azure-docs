@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -22,7 +22,7 @@ If you are looking for conceptual information on managed disks that have shared 
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](windows/disks-shared.md#windows) and [Linux](linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](./disks-shared.md#windows) and [Linux](./disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 

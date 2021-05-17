@@ -12,6 +12,17 @@ Azure Backup provides multiple backup solutions based on the backup requirement 
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
+## Backup Items in Recovery Services vault
+
+You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Items** section in the vault opens up a view that provides the number of backup items of each workload type associated with the vault. Clicking on any row opens up a detailed view listing all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
+
+![RS vault backup items](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> For items backed up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
+>
+> The DPM version must be DPM 1807 (5.1.378.0) or DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
+
 ## Backup Jobs in Recovery Services vault
 
 Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. In the Recovery Services vault settings, the **Monitoring** section provides in-built jobs and alerts.
@@ -103,6 +114,18 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an **Inactivate** button on the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting **Inactivate**.
 
 ![RS Vault alert inactivation](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## Azure Monitor alerts for Azure Backup (preview)
+
+Azure Backup also provides alerts via Azure Monitor, to enable users to have a consistent experience for alert management across different Azure services, including backup. With Azure Monitor alerts, you can route alerts to any notification channel supported by Azure Backup such as email, ITSM, Webhook, Logic App and so on.
+
+Currently, this feature is available for Azure Databases for PostgreSQL Server, Azure Blobs and Azure Managed Disks. Alerts are generated for the following scenarios and can be accessed by navigating to a Backup vault and clicking on the **Alerts** menu item:
+
+- Delete Backup Data
+- Backup Failure (to get alerts for Backup Failure, you need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
+- Restore Failure (to get alerts for Restore Failure, you  need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
+
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## Next steps
 

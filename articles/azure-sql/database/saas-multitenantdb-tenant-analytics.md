@@ -38,7 +38,7 @@ SaaS applications you develop have access to a vast amount of tenant data stored
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse. You then query the data warehouse to gather insights from the tickets data of all tenants.
 
-This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics (formerly SQL Data Warehouse). For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
+This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
 
 Next, the aggregated data is shredded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 

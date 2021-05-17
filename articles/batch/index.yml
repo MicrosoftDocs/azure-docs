@@ -56,12 +56,6 @@ landingContent:
             url: tutorial-run-python-batch-azure-data-factory.md
           - text: OCR with Batch and Functions
             url: tutorial-batch-functions.md
-          - text: Scene rendering with Arnold
-            url: tutorial-rendering-cli.md
-          - text: Rendering using Batch Explorer 
-            url: tutorial-rendering-batchexplorer-blender.md
-          - text: Parallel R simulation
-            url: tutorial-r-doazureparallel.md
 
   - title: Set up and manage resources
     linkLists:

@@ -154,4 +154,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-[Azure Stack Edge Pro technical specifications](data-box-edge-technical-specifications-compliance.md)
+[Azure Stack Edge Pro technical specifications](./azure-stack-edge-technical-specifications-compliance.md)

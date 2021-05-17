@@ -61,7 +61,7 @@ bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
 sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
 #### Shared Access Signature (SAS)
@@ -112,9 +112,7 @@ The payload of any Event Hub event is a byte stream and the content can be compr
 
 ### Log Compaction
 
-Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-The log compaction feature is used by the Kafka Connect and Kafka Streams client frameworks.
+Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. This feature is presently not implemented by Azure Event Hubs. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md). Please refer to the [Log Projection](event-hubs-federation-overview.md#log-projections) topic in the Event Hubs federation guidance for more details. 
 
 ### Kafka Streams
 

@@ -61,7 +61,7 @@ module.exports = df.orchestrator(function*(context) {
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
     yield context.df.createTimer(nextCleanup.toDate());
 
-    context.df.continueAsNew(undefined);
+    yield context.df.continueAsNew(undefined);
 });
 ```
 

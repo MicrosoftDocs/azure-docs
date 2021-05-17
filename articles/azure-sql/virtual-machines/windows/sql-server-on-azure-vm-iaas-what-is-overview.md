@@ -8,6 +8,7 @@ tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
 
+
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -46,7 +47,7 @@ If you require high availability, consider configuring SQL Server Availability G
 
 ## Performance
 
-Azure virtual machines offer different machine sizes to meet various workload demands. SQL Server VMs also provide automated storage configuration, which is optimized for your performance requirements. For more information about configuring storage for SQL Server VMs, see [Storage configuration for SQL Server VMs](storage-configuration.md). To fine-tune performance, see the [Performance best practices for SQL Server on Azure Virtual Machines](performance-guidelines-best-practices.md).
+Azure virtual machines offer different machine sizes to meet various workload demands. SQL Server VMs also provide automated storage configuration, which is optimized for your performance requirements. For more information about configuring storage for SQL Server VMs, see [Storage configuration for SQL Server VMs](storage-configuration.md). To fine-tune performance, see the [Performance best practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
 
 ## Get started with SQL Server VMs
 
@@ -142,7 +143,7 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 ### Networking
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
 
 ### SQL
 * [SQL Server documentation](/sql/index)

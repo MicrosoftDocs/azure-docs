@@ -27,7 +27,7 @@ The alert details will tell you:
 * Links directly to relevant searches on the data in Application Insights.
 
 ## Benefits of Smart Detection
-Ordinary [metric alerts](../platform/alerts-log.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing much the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+Ordinary [metric alerts](../alerts/alerts-log.md) tell you there might be a problem. But Smart Detection starts the diagnostic work for you, performing much the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 ## How it works
 Smart Detection monitors the data received from your app, and in particular the failure rates. This rule counts the number of requests for which the `Successful request` property is false, and the number of dependency calls for which the `Successful call` property is false. For requests, by default, `Successful request == (resultCode < 400)` (unless you have written custom code to [filter](./api-filtering-sampling.md#filtering) or generate your own [TrackRequest](./api-custom-events-metrics.md#trackrequest) calls). 
@@ -44,7 +44,7 @@ When your service is instrumented with these calls, the analyzer looks for an ex
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
-Like the [alerts you set manually](../platform/alerts-log.md), you can inspect the state of the fired alert, which can be resolved if the issue is fixed. Configure the alert rules in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+Like the [alerts you set manually](../alerts/alerts-log.md), you can inspect the state of the fired alert, which can be resolved if the issue is fixed. Configure the alert rules in the Alerts page of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
 
 ### Alert logic details
 
@@ -60,11 +60,11 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 
 You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
 
-This alert rule is created with an associated [Action Group](../platform/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
+This alert rule is created with an associated [Action Group](../alerts/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
 
 > [!NOTE]
 > Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](./proactive-email-notification.md).
-> Notifications sent from this alert rule follow the [common alert schema](../platform/alerts-common-schema.md).
+> Notifications sent from this alert rule follow the [common alert schema](../alerts/alerts-common-schema.md).
 >
 
 Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
@@ -81,207 +81,299 @@ Notice that you can disable or delete a Failure Anomalies alert rule, but you ca
 
 ```json
 {
-	"properties": {
-		"essentials": {
-			"severity": "Sev3",
-			"signalType": "Log",
-			"alertState": "New",
-			"monitorCondition": "Resolved",
-			"monitorService": "Smart Detector",
-			"targetResource": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule",
-			"targetResourceName": "test-rule",
-			"targetResourceGroup": "test-group",
-			"targetResourceType": "microsoft.insights/components",
-			"sourceCreatedId": "1a0a5b6436a9b2a13377f5c89a3477855276f8208982e0f167697a2b45fcbb3e",
-			"alertRule": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.alertsmanagement/smartdetectoralertrules/failure anomalies - test-rule",
-			"startDateTime": "2019-10-30T17:52:32.5802978Z",
-			"lastModifiedDateTime": "2019-10-30T18:25:23.1072443Z",
-			"monitorConditionResolvedDateTime": "2019-10-30T18:25:26.4440603Z",
-			"lastModifiedUserName": "System",
-			"actionStatus": {
-				"isSuppressed": false
-			},
-			"description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls."
-		},
-		"context": {
-			"DetectionSummary": "An abnormal rise in failed request rate",
-			"FormattedOccurenceTime": "2019-10-30T17:50:00Z",
-			"DetectedFailureRate": "50.0% (200/400 requests)",
-			"NormalFailureRate": "0.0% (over the last 30 minutes)",
-			"FailureRateChart": [["2019-10-30T05:20:00Z",
-			0],
-			["2019-10-30T05:40:00Z",
-			100],
-			["2019-10-30T06:00:00Z",
-			0],
-			["2019-10-30T06:20:00Z",
-			0],
-			["2019-10-30T06:40:00Z",
-			100],
-			["2019-10-30T07:00:00Z",
-			0],
-			["2019-10-30T07:20:00Z",
-			0],
-			["2019-10-30T07:40:00Z",
-			100],
-			["2019-10-30T08:00:00Z",
-			0],
-			["2019-10-30T08:20:00Z",
-			0],
-			["2019-10-30T08:40:00Z",
-			100],
-			["2019-10-30T17:00:00Z",
-			0],
-			["2019-10-30T17:20:00Z",
-			0],
-			["2019-10-30T09:00:00Z",
-			0],
-			["2019-10-30T09:20:00Z",
-			0],
-			["2019-10-30T09:40:00Z",
-			100],
-			["2019-10-30T10:00:00Z",
-			0],
-			["2019-10-30T10:20:00Z",
-			0],
-			["2019-10-30T10:40:00Z",
-			100],
-			["2019-10-30T11:00:00Z",
-			0],
-			["2019-10-30T11:20:00Z",
-			0],
-			["2019-10-30T11:40:00Z",
-			100],
-			["2019-10-30T12:00:00Z",
-			0],
-			["2019-10-30T12:20:00Z",
-			0],
-			["2019-10-30T12:40:00Z",
-			100],
-			["2019-10-30T13:00:00Z",
-			0],
-			["2019-10-30T13:20:00Z",
-			0],
-			["2019-10-30T13:40:00Z",
-			100],
-			["2019-10-30T14:00:00Z",
-			0],
-			["2019-10-30T14:20:00Z",
-			0],
-			["2019-10-30T14:40:00Z",
-			100],
-			["2019-10-30T15:00:00Z",
-			0],
-			["2019-10-30T15:20:00Z",
-			0],
-			["2019-10-30T15:40:00Z",
-			100],
-			["2019-10-30T16:00:00Z",
-			0],
-			["2019-10-30T16:20:00Z",
-			0],
-			["2019-10-30T16:40:00Z",
-			100],
-			["2019-10-30T17:30:00Z",
-			50]],
-			"ArmSystemEventsRequest": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourceGroups/test-group/providers/microsoft.insights/components/test-rule/query?query=%0d%0a++++++++++++++++systemEvents%0d%0a++++++++++++++++%7c+where+timestamp+%3e%3d+datetime(%272019-10-30T17%3a20%3a00.0000000Z%27)+%0d%0a++++++++++++++++%7c+where+itemType+%3d%3d+%27systemEvent%27+and+name+%3d%3d+%27ProactiveDetectionInsight%27+%0d%0a++++++++++++++++%7c+where+dimensions.InsightType+in+(%275%27%2c+%277%27)+%0d%0a++++++++++++++++%7c+where+dimensions.InsightDocumentId+%3d%3d+%27718fb0c3-425b-4185-be33-4311dfb4deeb%27+%0d%0a++++++++++++++++%7c+project+dimensions.InsightOneClassTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightExceptionCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightDependencyCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightRequestCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightTraceCorrelationTable%0d%0a++++++++++++&api-version=2018-04-20",
-			"LinksTable": [{
-				"Link": "<a href=\"https://portal.azure.com/#blade/AppInsightsExtension/ProactiveDetectionFeedBlade/ComponentId/{\"SubscriptionId\":\"4f9b81be-fa32-4f96-aeb3-fc5c3f678df9\",\"ResourceGroup\":\"test-group\",\"Name\":\"test-rule\"}/SelectedItemGroup/718fb0c3-425b-4185-be33-4311dfb4deeb/SelectedItemTime/2019-10-30T17:50:00Z/InsightType/5\" target=\"_blank\">View full details in Application Insights</a>"
-			}],
-			"SmartDetectorId": "FailureAnomaliesDetector",
-			"SmartDetectorName": "Failure Anomalies",
-			"AnalysisTimestamp": "2019-10-30T17:52:32.5802978Z"
-		},
-		"egressConfig": {
-			"displayConfig": [{
-				"rootJsonNode": null,
-				"sectionName": null,
-				"displayControls": [{
-					"property": "DetectionSummary",
-					"displayName": "What was detected?",
-					"type": "Text",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"property": "FormattedOccurenceTime",
-					"displayName": "When did this occur?",
-					"type": "Text",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"property": "DetectedFailureRate",
-					"displayName": "Detected failure rate",
-					"type": "Text",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"property": "NormalFailureRate",
-					"displayName": "Normal failure rate",
-					"type": "Text",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"chartType": "Line",
-					"xAxisType": "Date",
-					"yAxisType": "Percentage",
-					"xAxisName": "",
-					"yAxisName": "",
-					"property": "FailureRateChart",
-					"displayName": "Failure rate over last 12 hours",
-					"type": "Chart",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"defaultLoad": true,
-					"displayConfig": [{
-						"rootJsonNode": null,
-						"sectionName": null,
-						"displayControls": [{
-							"showHeader": false,
-							"columns": [{
-								"property": "Name",
-								"displayName": "Name"
-							},
-							{
-								"property": "Value",
-								"displayName": "Value"
-							}],
-							"property": "tables[0].rows[0][0]",
-							"displayName": "All of the failed requests had these characteristics:",
-							"type": "Table",
-							"isOptional": false,
-							"isPropertySerialized": true
-						}]
-					}],
-					"property": "ArmSystemEventsRequest",
-					"displayName": "",
-					"type": "ARMRequest",
-					"isOptional": false,
-					"isPropertySerialized": false
-				},
-				{
-					"showHeader": false,
-					"columns": [{
-						"property": "Link",
-						"displayName": "Link"
-					}],
-					"property": "LinksTable",
-					"displayName": "Links",
-					"type": "Table",
-					"isOptional": false,
-					"isPropertySerialized": false
-				}]
-			}]
-		}
-	},
-	"id": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule/providers/Microsoft.AlertsManagement/alerts/7daf8739-ca8a-4562-b69a-ff28db4ba0a5",
-	"type": "Microsoft.AlertsManagement/alerts",
-	"name": "Failure Anomalies - test-rule"
+    "properties": {
+        "essentials": {
+            "severity": "Sev3",
+            "signalType": "Log",
+            "alertState": "New",
+            "monitorCondition": "Resolved",
+            "monitorService": "Smart Detector",
+            "targetResource": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule",
+            "targetResourceName": "test-rule",
+            "targetResourceGroup": "test-group",
+            "targetResourceType": "microsoft.insights/components",
+            "sourceCreatedId": "1a0a5b6436a9b2a13377f5c89a3477855276f8208982e0f167697a2b45fcbb3e",
+            "alertRule": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.alertsmanagement/smartdetectoralertrules/failure anomalies - test-rule",
+            "startDateTime": "2019-10-30T17:52:32.5802978Z",
+            "lastModifiedDateTime": "2019-10-30T18:25:23.1072443Z",
+            "monitorConditionResolvedDateTime": "2019-10-30T18:25:26.4440603Z",
+            "lastModifiedUserName": "System",
+            "actionStatus": {
+                "isSuppressed": false
+            },
+            "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls."
+        },
+        "context": {
+            "DetectionSummary": "An abnormal rise in failed request rate",
+            "FormattedOccurenceTime": "2019-10-30T17:50:00Z",
+            "DetectedFailureRate": "50.0% (200/400 requests)",
+            "NormalFailureRate": "0.0% (over the last 30 minutes)",
+            "FailureRateChart": [
+                [
+                    "2019-10-30T05:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T05:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T06:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T06:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T06:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T07:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T07:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T07:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T08:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T08:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T08:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T17:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T17:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T09:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T10:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T10:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T10:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T11:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T11:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T11:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T12:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T12:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T12:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T13:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T13:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T13:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T14:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T14:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T14:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T15:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T15:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T15:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T16:00:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T16:20:00Z",
+                    0
+                ],
+                [
+                    "2019-10-30T16:40:00Z",
+                    100
+                ],
+                [
+                    "2019-10-30T17:30:00Z",
+                    50
+                ]
+            ],
+            "ArmSystemEventsRequest": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourceGroups/test-group/providers/microsoft.insights/components/test-rule/query?query=%0d%0a++++++++++++++++systemEvents%0d%0a++++++++++++++++%7c+where+timestamp+%3e%3d+datetime(%272019-10-30T17%3a20%3a00.0000000Z%27)+%0d%0a++++++++++++++++%7c+where+itemType+%3d%3d+%27systemEvent%27+and+name+%3d%3d+%27ProactiveDetectionInsight%27+%0d%0a++++++++++++++++%7c+where+dimensions.InsightType+in+(%275%27%2c+%277%27)+%0d%0a++++++++++++++++%7c+where+dimensions.InsightDocumentId+%3d%3d+%27718fb0c3-425b-4185-be33-4311dfb4deeb%27+%0d%0a++++++++++++++++%7c+project+dimensions.InsightOneClassTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightExceptionCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightDependencyCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightRequestCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightTraceCorrelationTable%0d%0a++++++++++++&api-version=2018-04-20",
+            "LinksTable": [
+                {
+                    "Link": "<a href=\"https://portal.azure.com/#blade/AppInsightsExtension/ProactiveDetectionFeedBlade/ComponentId/{\"SubscriptionId\":\"4f9b81be-fa32-4f96-aeb3-fc5c3f678df9\",\"ResourceGroup\":\"test-group\",\"Name\":\"test-rule\"}/SelectedItemGroup/718fb0c3-425b-4185-be33-4311dfb4deeb/SelectedItemTime/2019-10-30T17:50:00Z/InsightType/5\" target=\"_blank\">View full details in Application Insights</a>"
+                }
+            ],
+            "SmartDetectorId": "FailureAnomaliesDetector",
+            "SmartDetectorName": "Failure Anomalies",
+            "AnalysisTimestamp": "2019-10-30T17:52:32.5802978Z"
+        },
+        "egressConfig": {
+            "displayConfig": [
+                {
+                    "rootJsonNode": null,
+                    "sectionName": null,
+                    "displayControls": [
+                        {
+                            "property": "DetectionSummary",
+                            "displayName": "What was detected?",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "FormattedOccurenceTime",
+                            "displayName": "When did this occur?",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "DetectedFailureRate",
+                            "displayName": "Detected failure rate",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "property": "NormalFailureRate",
+                            "displayName": "Normal failure rate",
+                            "type": "Text",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "chartType": "Line",
+                            "xAxisType": "Date",
+                            "yAxisType": "Percentage",
+                            "xAxisName": "",
+                            "yAxisName": "",
+                            "property": "FailureRateChart",
+                            "displayName": "Failure rate over last 12 hours",
+                            "type": "Chart",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "defaultLoad": true,
+                            "displayConfig": [
+                                {
+                                    "rootJsonNode": null,
+                                    "sectionName": null,
+                                    "displayControls": [
+                                        {
+                                            "showHeader": false,
+                                            "columns": [
+                                                {
+                                                    "property": "Name",
+                                                    "displayName": "Name"
+                                                },
+                                                {
+                                                    "property": "Value",
+                                                    "displayName": "Value"
+                                                }
+                                            ],
+                                            "property": "tables[0].rows[0][0]",
+                                            "displayName": "All of the failed requests had these characteristics:",
+                                            "type": "Table",
+                                            "isOptional": false,
+                                            "isPropertySerialized": true
+                                        }
+                                    ]
+                                }
+                            ],
+                            "property": "ArmSystemEventsRequest",
+                            "displayName": "",
+                            "type": "ARMRequest",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        },
+                        {
+                            "showHeader": false,
+                            "columns": [
+                                {
+                                    "property": "Link",
+                                    "displayName": "Link"
+                                }
+                            ],
+                            "property": "LinksTable",
+                            "displayName": "Links",
+                            "type": "Table",
+                            "isOptional": false,
+                            "isPropertySerialized": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "id": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule/providers/Microsoft.AlertsManagement/alerts/7daf8739-ca8a-4562-b69a-ff28db4ba0a5",
+    "type": "Microsoft.AlertsManagement/alerts",
+    "name": "Failure Anomalies - test-rule"
 }
 ```
 
@@ -314,7 +406,7 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 ## What's the difference ...
 Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.
 
-* [metric alerts](../platform/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
+* [metric alerts](../alerts/alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of failure anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
 
 * [Smart Detection of performance anomalies](proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of failure anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for failure anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
 
@@ -345,17 +437,16 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 
 *Some of the alerts are about known issues and I do not want to receive them.*
 
-* You can use [alert action rules](../platform/alerts-action-rules.md) suppression feature.
+* You can use [alert action rules](../alerts/alerts-action-rules.md) suppression feature.
 
 ## Next steps
 These diagnostic tools help you inspect the data from your app:
 
-* [Metric explorer](../platform/metrics-charts.md)
+* [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/get-started-portal.md)
+* [Analytics - powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../platform/alerts-log.md)
+* [Manually configured metric alerts](../alerts/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)
-

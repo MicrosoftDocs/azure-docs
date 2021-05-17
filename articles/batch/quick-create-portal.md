@@ -1,9 +1,11 @@
 ---
 title: Azure Quickstart - Run your first Batch job in the Azure portal
-description:  Learn how to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
-ms.topic: quickstart
+description: This quickstart shows how to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.date: 08/17/2020
-ms.custom: mvc
+ms.topic: quickstart
+ms.custom:
+  - mvc
+  - mode-portal
 ---
 
 # Quickstart: Run your first Batch job in the Azure portal
@@ -53,7 +55,7 @@ Now that you have a Batch account, create a sample pool of Windows compute nodes
   
    |Setting  |Value  |
    |---------|---------|
-   |**Node pricing tier**     |Standard A1|
+   |**Node pricing tier**     |Standard_A1_v2|
    |**Target dedicated nodes**     |2|
 
 1. Keep the defaults for remaining settings, and select **OK** to create the pool.
@@ -64,7 +66,7 @@ After a few minutes, the allocation state changes to **Steady**, and the nodes s
 
 ## Create a job
 
-Now that you have a pool, create a job to run on it. A Batch job is a logical group for one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks.
+Now that you have a pool, create a job to run on it. A Batch job is a logical group of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. Initially the job has no tasks.
 
 1. In the Batch account view, select **Jobs** > **Add**.
 

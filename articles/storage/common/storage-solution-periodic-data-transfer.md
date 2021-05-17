@@ -61,9 +61,9 @@ The following table summarizes the differences in key capabilities.
 
 ## Next steps
 
-- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
+- [Transfer data with AzCopy](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [More information on data transfer with Storage REST APIs](/dotnet/api/overview/azure/storage).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
     - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Learn how to transfer data with Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

@@ -11,7 +11,8 @@ ms.author: denisgun
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.
 
-Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and others. WVD Partners may also implement their extensions that use DVC interfaces.
+Remote Desktop Protocol multiplexes multiple Dynamic Virtual Channels (DVCs) into a single data channel sent over different network transports. There are separate DVCs for remote graphics, input, device redirection, printing, and more. Windows Virtual Desktop partners can also use their extensions that use DVC interfaces.
+
 The amount of the data sent over RDP depends on the user activity. For example, a user may work with basic textual content for most of the session and consume minimal bandwidth, but then generate a printout of a 200-page document to the local printer. This print job will use a significant amount of network bandwidth.
 
 When using a remote session, your network's available bandwidth dramatically impacts the quality of your experience. Different applications and display resolutions require different network configurations, so it's essential to make sure your network configuration meets your needs.
@@ -72,7 +73,7 @@ The table below guides estimating of the data used by the different graphic scen
 | Idle | 0.3 Kbps | 0.3 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot of the idle connection":::| User is paused their work and there's no active screen updates |
 | Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animation of Microsoft Word":::| User is actively working with Microsoft Word, typing, pasting graphics and switching between documents |
 | Microsoft Excel | 150-200 Kbps | 400-500 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animation of Microsoft Excel":::| User is actively working with Microsoft Excel, multiple cells with formulas and charts are updated simultaneously |
-| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft PowerPoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. USer also modifying rich graphics, and using slide transition effects |
+| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft PowerPoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. User also modifying rich graphics, and using slide transition effects |
 | Web Browsing | 6-6.5 Mbps | 0.9-1 Mbps |:::image type="content" source="media/web.gif" alt-text="Animation of web browsing":::| User is actively working with a graphically rich website that contains multiple static and animated images. User scrolls the pages both horizontally and vertically |
 | Image Gallery | 3.3-3.6 Mbps | 0.7-0.8 Mbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animation of image gallery":::| User is actively working with the image gallery application. browsing, zooming, resizing and rotating images |
 | Video playback | 8.5-9.5 Mbps | 2.5-2.8 Mbps |:::image type="content" source="media/video.gif" alt-text="Animation of video playback":::| User is watching a 30 FPS video that consumes 1/2 of the screen |

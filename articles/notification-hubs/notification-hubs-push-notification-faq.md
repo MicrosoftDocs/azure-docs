@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
 ---
 
@@ -98,6 +98,10 @@ The PNS does not guarantee any SLA for delivering notifications. However, most p
 ### Is there any latency guarantee?
 
 Because of the nature of push notifications (they are delivered by an external, platform-specific PNS), there is no latency guarantee. Typically, the majority of push notifications are delivered within a few minutes.
+
+### Where does Azure Notification Hubs store data?
+
+Azure Notification Hubs stores customer registration data in the region selected by the customer. Notification Hubs provides metadata disaster recovery coverage (the Notification Hubs name, the connection string, and other critical information). For all regions except Brazil South and Southeast Asia, the metadata backup is hosted in a different region (usually the Azure paired region). For the Brazil South and Southeast Asia regions, backups are stored in the same region to accommodate data-residency requirements for these regions.
 
 ### What do I need to consider when designing a solution with namespaces and notification hubs?
 
@@ -188,7 +192,7 @@ You can also programmatically access metrics. For more information, see the foll
 
 - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). This sample uses the user name and password. To use a certificate, overload the FromServicePrincipal method to provide a certificate as shown in [this example](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
@@ -203,7 +207,7 @@ You can also programmatically access metrics. For more information, see the foll
 [Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
-[Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs Metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registrations Export/Import]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

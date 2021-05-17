@@ -1,44 +1,45 @@
 ---
-title: 'VPN Gateway: VPN client for P2S OpenVPN protocol connections: Azure AD authentication'
-description: Learn how to configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication.
+title: 'Configure VPN clients for P2S OpenVPN protocol connections: Azure AD authentication'
+description: Learn how to configure a VPN client to connect to a virtual network using VPN Gateway Point-to-Site VPN and Azure Active Directory authentication.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 04/28/2021
 ms.author: alzam
 
 ---
 # Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections
 
-This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about Point-to-Site, see [About Point-to-Site VPN](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="profile"></a>Working with client profiles
 
-To connect, you need to download the Azure VPN Client and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+For every computer that wants to connect to the VNet via the VPN client, you need to download the Azure VPN Client for the computer, and also configure a VPN client profile. If you want to configure multiple computers, you can create a client profile on one computer, export it, and then import it to other computers.
 
 ### To download the Azure VPN client
 
-Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the Azure VPN Client. Please ensure that the Azure VPN Client has permission to run in the background. To check/enable the permission follow the steps below:
+1. Download the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) to the computer.
+1. Verify that the Azure VPN Client has permission to run in the background. To check and enable permissions, navigate to **Start -> Settings -> Privacy -> Background Apps**.
 
-1. Go to Start , then select Settings  > Privacy > Background apps.
-2. Under Background Apps, make sure **Let apps run in the background** is turned On.
-3. Under Choose which apps can run in the background, turn settings for Azure VPN Client to **On**.
+   * Under **Background Apps**, make sure **Let apps run in the background** is turned **On**.
+   * Under **Choose which apps can run in the background**, turn settings for **Azure VPN Client** to **On**.
 
-  ![permission](./media/openvpn-azure-ad-client/backgroundpermission.png)
+     ![Screenshot of permissions.](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
 When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. For more information about certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-  ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+![Screenshot of certificate authentication.](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
 ### <a name="radius"></a>To create a RADIUS client profile
 
-  ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+![Screenshot of RADIUS authentication.](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
 > The Server Secret can be exported in the P2S VPN client profile.  Instructions on how to export a client profile can be found [here](about-vpn-profile-download.md).
@@ -156,7 +157,7 @@ Yes, with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-
 
 ### How do I add DNS suffixes to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 
 ```
 <azvpnprofile>
@@ -174,7 +175,7 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 
 ### How do I add custom DNS servers to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags
+You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags.
 
 ```
 <azvpnprofile>
@@ -190,12 +191,47 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 ```
 
 > [!NOTE]
-> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?preserve-view=true&view=win10-ps) in PowerShell.
+> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
+
+### <a name="split"></a>Can I configure split tunneling for the VPN client?
+
+Split tunneling is configured by default for the VPN client.
+
+### <a name="forced-tunnel"></a>How do I direct all traffic to the VPN tunnel (forced tunneling)?
+
+You can configure forced tunneling using two different methods; either by advertising custom routes, or by modifying the profile XML file.    
+
+> [!NOTE]
+> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
+>
+
+* **Advertise custom routes:** You can advertise custom routes 0.0.0.0/1 and 128.0.0.0/1. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
+
+* **Profile XML:** You can modify the downloaded profile XML file to add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
+
+
+    ```
+    <azvpnprofile>
+    <clientconfig>
+          
+    	<includeroutes>
+    		<route>
+    			<destination>0.0.0.0</destination><mask>1</mask>
+    		</route>
+    		<route>
+    			<destination>128.0.0.0</destination><mask>1</mask>
+    		</route>
+    	</includeroutes>
+           
+    </clientconfig>
+    </azvpnprofile>
+    ```
+
 
 ### How do I add custom routes to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
 ```
 <azvpnprofile>
@@ -213,7 +249,7 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 
 ### How do I block (exclude) routes from the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags
+You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags.
 
 ```
 <azvpnprofile>
@@ -229,14 +265,14 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 </azvpnprofile>
 ```
 
-### Can I import the profile from a command line prompt?
+### Can I import the profile from a command-line prompt?
 
-You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
+You can import the profile from a command-line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
 
 ```
 azurevpn -i azurevpnconfig.xml 
 ```
-to force the import use the **-f** switch as well
+To force the import, use the **-f** switch.
 
 
 ## Next steps

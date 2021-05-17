@@ -18,11 +18,11 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
-# Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal
+# Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal
 
 Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list, delete or assign a role to a user-assigned managed identity using the Azure portal.
+In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal.
 
 ## Prerequisites
 

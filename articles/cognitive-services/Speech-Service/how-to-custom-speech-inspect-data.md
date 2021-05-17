@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: erhopf
 ---
 
@@ -17,7 +17,7 @@ ms.author: erhopf
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
 
-Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
+Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Speech Studio](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
 In this document, you learn how to visually inspect the quality of Microsoft's baseline speech-to-text model, and/or custom models that you've trained . You also learn how to use the online transcription editor to create and refine labeled audio datasets.
 
@@ -25,7 +25,7 @@ In this document, you learn how to visually inspect the quality of Microsoft's b
 
 Follow these instructions to create a test:
 
-1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
 2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
 3. Click **Add Test**.
 4. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
@@ -95,8 +95,8 @@ The files exported to Data will be used as a brand-new dataset and will not affe
 
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Improve your model](how-to-custom-speech-improve-accuracy.md)
-- [Deploy your model](how-to-custom-speech-deploy-model.md)
+- [Improve your model](./how-to-custom-speech-evaluate-data.md)
+- [Deploy your model](./how-to-custom-speech-train-model.md)
 
 ## Additional resources
 

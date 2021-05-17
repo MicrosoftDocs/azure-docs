@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How application consent works
@@ -27,4 +27,4 @@ This article is to help you learn more about how the Azure AD consent framework 
 - For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## Next steps
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

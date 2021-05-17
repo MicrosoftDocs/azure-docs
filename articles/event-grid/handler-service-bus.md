@@ -11,6 +11,10 @@ An event handler is the place where the event is sent. The handler takes some fu
 You can use a Service queue or topic as a handler for events from Event Grid. 
 
 ## Service Bus queues
+
+> [!NOTE]
+> Session enabled queues are not supported as event handlers for Azure Event Grid events
+ 
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
 In the Azure portal, while creating an event subscription, select **Service Bus Queue** as endpoint type and then click **select an endpoint** to choose a Service Bus queue.
@@ -35,7 +39,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 
 ### Using CLI to add a Service Bus topic handler
 
-For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus topic:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

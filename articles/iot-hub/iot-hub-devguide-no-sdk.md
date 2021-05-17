@@ -39,7 +39,7 @@ For help using the following protocols without an Azure IoT SDK:
 
 * Device apps on **MQTT**, see [MQTT support](iot-hub-mqtt-support.md). Most of this topic treats using the MQTT protocol directly. It also contains information about using the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample). This repository contains C samples that use the Eclipse Mosquitto library to send messages to IoT Hub.
 
-* Device or back-end apps on **HTTPS**, consult the [Azure IoT Hub REST APIs](https://docs.microsoft.com/rest/api/iothub/). Be aware, as noted in [Development prerequisites](#development-prerequisites), that you can't use X.509 certificate authority (CA) authentication with HTTPS.
+* Device or back-end apps on **HTTPS**, consult the [Azure IoT Hub REST APIs](/rest/api/iothub/). Be aware, as noted in [Development prerequisites](#development-prerequisites), that you can't use X.509 certificate authority (CA) authentication with HTTPS.
 
 For devices, we strongly recommend using MQTT if your device supports it.
 

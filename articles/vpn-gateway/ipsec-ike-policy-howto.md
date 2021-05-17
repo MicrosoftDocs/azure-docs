@@ -1,13 +1,13 @@
 ﻿---
 title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections: Azure portal'
 titleSuffix: Azure VPN Gateway
-description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and Azure portal.
+description: Learn how to configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using the Azure portal.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 04/28/2021
 ms.author: yushwang
 
 ---
@@ -116,7 +116,7 @@ This section walks you through the steps to create a Site-to-Site VPN connection
 
 ### <a name="createvnet1"></a>Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
-Create the following resources, as shown in the screenshots below. For steps, see [Create a Site-to-Site VPN connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Create the following resources, as shown in the screenshots below. For steps, see [Create a Site-to-Site VPN connection](./tutorial-site-to-site-portal.md).
 
 * **Virtual network:**  TestVNet1
 

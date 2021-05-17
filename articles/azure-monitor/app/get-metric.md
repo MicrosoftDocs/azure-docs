@@ -2,7 +2,7 @@
 title: Get-Metric in Azure Monitor Application Insights
 description: Learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications with Azure Monitor Application Insights
 ms.service:  azure-monitor
-ms.subservice: application-insights
+
 ms.topic: conceptual
 ms.date: 04/28/2020
 ---
@@ -11,7 +11,7 @@ ms.date: 04/28/2020
 
 The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics, `TrackMetric()`, and `GetMetric()`. The key difference between these two methods is local aggregation. `TrackMetric()` lacks pre-aggregation while `GetMetric()` has pre-aggregation. The recommended approach is to use aggregation, therefore, `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article will walk you through using the GetMetric() method, and some of the rationale behind how it works.
 
-## TrackMetric versus GetMetric
+## Pre-aggregating vs non pre-aggregating API
 
 `TrackMetric()` sends raw telemetry denoting a metric. It is inefficient to send a single telemetry item for each value. `TrackMetric()` is also inefficient in terms of performance since every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors. Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. So if you need to closely monitor some custom metric at the second or even millisecond level you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This also greatly reduces the risk of throttling occurring since the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
 
@@ -28,7 +28,7 @@ Throttling is of particular concern in that like sampling, throttling can lead t
 In summary `GetMetric()` is the recommended approach since it does pre-aggregation, it accumulates values from all the Track() calls and sends a summary/aggregate once every minute. This can significantly reduce the cost and performance overhead by sending fewer data points, while still collecting all relevant information.
 
 > [!NOTE]
-> Only the .NET and .NET Core SDKs have a GetMetric() method. If you are using Java you can use [Micrometer metrics](./micrometer-java.md) or `TrackMetric()`. For Python you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics. For JavaScript and Node.js you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section.
+> Only the .NET and .NET Core SDKs have a GetMetric() method. If you are using Java, see [sending custom metrics using micrometer](./java-in-process-agent.md#send-custom-metrics-using-micrometer). For JavaScript and Node.js you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics but the metrics implementation is different.
 
 ## Getting started with GetMetric
 
@@ -64,7 +64,7 @@ namespace WorkerService3
             // Here "computersSold", a custom metric name, is being tracked with a value of 42 every second.
             while (!stoppingToken.IsCancellationRequested)
             {
-                _telemetryClient.GetMetric("computersSold").TrackValue(42);
+                _telemetryClient.GetMetric("ComputersSold").TrackValue(42);
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
@@ -84,7 +84,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 "ai.internal.sdkVersion":"m-agg2c:2.12.0-21496",
 "ai.internal.nodeName":"Test-Computer-Name"},
 "data":{"baseType":"MetricData",
-"baseData":{"ver":2,"metrics":[{"name":"computersSold",
+"baseData":{"ver":2,"metrics":[{"name":"ComputersSold",
 "kind":"Aggregation",
 "value":1722,
 "count":41,
@@ -97,6 +97,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 
 This single telemetry item represents an aggregate of 41 distinct metric measurements. Since we were sending the same value over and over again we have a *standard deviation (stDev)* of 0 with an identical *maximum (max)*, and *minimum (min)* values. The *value* property represents a sum of all the individual values that were aggregated.
 
+> [!NOTE]
+> GetMetric does not support tracking the last value (i.e. "gauge") or tracking histograms/distributions.
+
 If we examine our Application Insights resource in the Logs (Analytics) experience, this individual telemetry item would look as follows:
 
 ![Log Analytics query view](./media/get-metric/log-analytics.png)
@@ -104,7 +107,7 @@ If we examine our Application Insights resource in the Logs (Analytics) experien
 > [!NOTE]
 > While the raw telemetry item did not contain an explicit sum property/field once ingested we create one for you. In this case both the `value` and `valueSum` property represent the same thing.
 
-You can also access your custom metric telemetry in the [_Metrics_](../platform/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
+You can also access your custom metric telemetry in the [_Metrics_](../essentials/metrics-charts.md) section of the portal. As both a [log-based, and custom metric](pre-aggregated-metrics-log-metrics.md). (The screenshot below is an example of log-based.)
 ![Metrics explorer view](./media/get-metric/metrics-explorer.png)
 
 ### Caching metric reference for high-throughput usage
@@ -279,7 +282,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` is the max number of data time series a metric can contain. Once this limit is reached, calls to `TrackValue()`.
+* `seriesCountLimit` is the max number of data time series a metric can contain. Once this limit is reached, calls to `TrackValue()` that would normally result in a new series will return false.
 * `valuesPerDimensionLimit` limits the number of distinct values per dimension in a similar manner.
 * `restrictToUInt32Values` determines whether or not only non-negative integer values should be tracked.
 
@@ -298,6 +301,6 @@ SeverityLevel.Error);
 
 * [Learn more ](./worker-service.md)about monitoring worker service applications.
 * For further details on [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* [Metric Explorer](../platform/metrics-getting-started.md)
+* [Metric Explorer](../essentials/metrics-getting-started.md)
 * How to enable Application Insights for [ASP.NET Core Applications](asp-net-core.md)
 * How to enable Application Insights for [ASP.NET Applications](asp-net.md)

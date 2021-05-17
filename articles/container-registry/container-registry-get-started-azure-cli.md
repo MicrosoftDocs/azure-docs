@@ -63,10 +63,16 @@ Take note of `loginServer` in the output, which is the fully qualified registry 
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
+Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command. Specify only the registry name when logging in with the Azure CLI. Don't use the login server name, which includes a domain suffix like `azurecr.io`. 
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Example:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 The command returns a `Login Succeeded` message once completed.
@@ -134,10 +140,10 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md

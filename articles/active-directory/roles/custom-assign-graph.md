@@ -2,14 +2,14 @@
 title: Assign Azure AD admin roles with Microsoft Graph API | Microsoft Docs
 description: Assign and remove Azure AD administrator roles with Graph API in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -54,7 +54,7 @@ HTTP/1.1 201 Created
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Body
@@ -77,7 +77,7 @@ HTTP/1.1 404 Not Found
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Body
@@ -101,7 +101,7 @@ HTTP/1.1 201 Created
 POST
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
 Body
@@ -139,7 +139,7 @@ Only a subset of built-in roles are enabled for Administrative Unit scoping. Ref
 GET
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=principalId+eq+'<object-id-of-principal>'
 ```
 
 Response
@@ -169,7 +169,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=roleDefinitionId+eq+'<object-id-or-template-id-of-role-definition>'
 ```
 
 Response
@@ -214,7 +214,7 @@ HTTP/1.1 200 OK
 GET
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId eq '/d23998b1-8853-4c87-b95f-be97d6c6b610'
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$filter=directoryScopeId+eq+'/d23998b1-8853-4c87-b95f-be97d6c6b610'
 ```
 
 Response
@@ -246,7 +246,7 @@ HTTP/1.1 200 OK
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Response
@@ -259,7 +259,7 @@ HTTP/1.1 204 No Content
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Response
@@ -273,7 +273,7 @@ HTTP/1.1 404 Not Found
 DELETE
 
 ``` HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
+DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
 Response

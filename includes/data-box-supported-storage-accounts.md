@@ -3,11 +3,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 09/git14/2020
+ms.date: 02/21/2021
 ms.author: alkohli
 ---
 
-Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Here is a list of the supported storage accounts and storage types for a Data Box device. For a complete list of all capabilities for all types of storage accounts, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 For import orders, following table shows the supported storage accounts.
 
@@ -18,6 +18,7 @@ For import orders, following table shows the supported storage accounts.
 | General-purpose v1 Premium  |  | Y| | |
 | General-purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
 | General-purpose v2 Premium  |  |Y | | |
+| Azure Premium FileStorage |  |  | Y |  |  
 | Blob storage Standard |Y | | |Both hot and cool are supported. |
 
 \* *- Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
@@ -31,6 +32,7 @@ For export orders, following table shows the supported storage accounts.
 | General-purpose v1 Premium  |  | Y| | |
 | General-purpose v2 Standard  | Y | Y | Y | Hot, Cool|
 | General-purpose v2 Premium  |  |Y | | |
+| Azure Premium FileStorage |  |  | Y |  |
 | Blob storage Standard |Y | | |Hot, Cool |
 | Block Blob storage Premium |Y | | |Hot, Cool |
 | Page Blob storage Premium | |Y | | |
@@ -38,7 +40,7 @@ For export orders, following table shows the supported storage accounts.
 > [!IMPORTANT]
 > - For General-purpose accounts, Data Box does not support Queue, Table, and Disk storage types for import orders. For export orders, Data Box does not support Queue, Table, Disk, and Azure Data Lake Gen 2 storage types for General-purpose accounts.
 > - Data Box does not support append blobs for Blob Storage and Block Blob Storage accounts.
-> - Data Box does not support Premium File Storage accounts.
+> - Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box.
 > - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 > - A maximum of 80 TB can be exported.
 > - File history and blob snapshots are not exported.

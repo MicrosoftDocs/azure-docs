@@ -107,7 +107,13 @@ The new model doesn't allow deleting the restore point (Tier2) unless the snapsh
 
 ### Why does my snapshot still exist, even after the set retention period in backup policy?
 
-If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire.
+If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire. In rare scenarios, there might be one or two additional snapshots based on the heavier load on the garbage collector (GC).
+
+### Why do I see more snapshots than my retention policy?
+
+In a scenario where a retention policy is set as “1”, you can find two snapshots. This mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. This can cause the presence of two snapshots.<br></br>So, if the policy is for "n" snapshots, you can find “n+1” snapshots at times. Further, you can even find “n+1+2” snapshots if there is a delay in garbage collection. This can happen at rare times when:
+- You clean up snapshots, which are past retention.
+- The garbage collector (GC) in the backend is under heavy load.
 
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
@@ -115,5 +121,5 @@ Instant restore feature is enabled for everyone and can't be disabled. You can r
 
 ### Is it safe to restart the VM during the transfer process (which can take many hours)? Will restarting the VM interrupt or slow down the transfer?
 
-Yes its safe, and there is absolutely no impact in data transfer speed.
+Yes it's safe, and there is absolutely no impact in data transfer speed.
 

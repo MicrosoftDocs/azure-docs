@@ -1,12 +1,12 @@
 ---
 title: Template functions - date
-description: Describes the functions to use in an Azure Resource Manager template to work with dates.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
 # Date functions for ARM templates
 
-Resource Manager provides the following functions for working with dates in your Azure Resource Manager (ARM) templates:
+Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -176,7 +176,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHHmmssZ) format is used. **This function can only be used in the default value for a parameter.**
+Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (`yyyyMMddTHHmmssZ`) format is used. **This function can only be used in the default value for a parameter.**
 
 ### Parameters
 
@@ -281,7 +281,7 @@ The next example shows how to use a value from the function when setting a tag v
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -305,7 +305,7 @@ The next example shows how to use a value from the function when setting a tag v
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {
@@ -320,4 +320,4 @@ output utcShortOutput string = utcShort
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

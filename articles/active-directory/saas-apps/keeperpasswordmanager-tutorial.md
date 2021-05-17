@@ -151,7 +151,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can go directly to the sign-on URL for the application, and initiate the sign-in from there.
 
-* You can use Microsoft Access Panel. When you select the **Keeper Password Manager & Digital Vault** tile in Access Panel, this redirects you to the sign-on URL for the application. For more information about Access Panel, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft Access Panel. When you select the **Keeper Password Manager & Digital Vault** tile in Access Panel, this redirects you to the sign-on URL for the application. For more information about Access Panel, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

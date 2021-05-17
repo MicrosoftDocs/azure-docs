@@ -49,12 +49,11 @@ Alternatively, you can change the configuration using Azure Resource Manager tem
 ## Next steps
 These diagnostic tools help you inspect the telemetry from your app:
 
-* [Metric explorer](../platform/metrics-charts.md)
+* [Metric explorer](../essentials/metrics-charts.md)
 * [Search explorer](./diagnostic-search.md)
-* [Analytics - powerful query language](../log-query/get-started-portal.md)
+* [Analytics - powerful query language](../logs/log-analytics-tutorial.md)
 
 Smart Detection is completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../platform/alerts-log.md)
-* [Availability web tests](./monitor-web-app-availability.md) 
-
+* [Manually configured metric alerts](../alerts/alerts-log.md)
+* [Availability web tests](./monitor-web-app-availability.md)

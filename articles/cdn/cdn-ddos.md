@@ -23,7 +23,7 @@ A content delivery network provides DDoS protection by design. In addition to th
 
 ## Azure CDN from Microsoft
 
-Azure CDN from Microsoft is protected by [Azure Basic DDoS](../virtual-network/ddos-protection-overview.md). It is integrated into the Azure CDN from Microsoft platform by default and at no additional cost. The full scale and capacity of Azure CDN from Microsoft’s globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. Basic DDoS protection also defends against the most common, frequently occurring Layer 7 DNS Query Floods and Layer 3 and 4 volumetric attacks that target CDN endpoints. This service also has a proven track record in protecting Microsoft’s enterprise and consumer services from large-scale attacks.
+Azure CDN from Microsoft is protected by [Azure Basic DDoS](../ddos-protection/ddos-protection-overview.md). It is integrated into the Azure CDN from Microsoft platform by default and at no additional cost. The full scale and capacity of Azure CDN from Microsoft’s globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. Basic DDoS protection also defends against the most common, frequently occurring Layer 7 DNS Query Floods and Layer 3 and 4 volumetric attacks that target CDN endpoints. This service also has a proven track record in protecting Microsoft’s enterprise and consumer services from large-scale attacks.
 
 ## Azure CDN from Verizon
 
@@ -35,4 +35,4 @@ Azure CDN from Akamai is protected by Akamai's proprietary DDoS mitigation platf
 
 ## Next steps
 
-Learn more about [Azure DDoS](../virtual-network/ddos-protection-overview.md).
+Learn more about [Azure DDoS](../ddos-protection/ddos-protection-overview.md).

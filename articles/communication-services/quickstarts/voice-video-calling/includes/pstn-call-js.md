@@ -2,7 +2,7 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
@@ -10,60 +10,72 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
+- A phone number acquired in your Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
-- Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
 
-### Prerequisite check
 
-- To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
-- You can build and run your app with Azure Communication Services Calling client library for JavaScript:
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
-```
-
-## Setting up
-
-### Add PSTN functionality to your app
-
-Extend your layout with phone dialing controls.
-
-Place this code to the end of `<body />` section of **index.html**, before `<script />` tags:
+Here's the code:
 
 ```html
-<input 
-  id="callee-phone-input"
-  type="text"
-  placeholder="Phone number you would like to dial"
-  style="margin-bottom:1em; width: 230px;"
-/>
-<div>
-  <button id="call-phone-button" type="button">
-    Start Phone Call
-  </button>
-  &nbsp;
-  <button id="hang-up-phone-button" type="button" disabled="true">
-    Hang Up Phone Call
-  </button>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Communication Client - Calling Sample</title>
+  </head>
+  <body>
+    <h4>Azure Communication Services</h4>
+    <h1>Calling Quickstart</h1>
+    <input 
+      id="callee-phone-input"
+      type="text"
+      placeholder="Who would you like to call?"
+      style="margin-bottom:1em; width: 230px;"
+    />
+    <div>
+      <button id="call-phone-button" type="button">
+        Start Call
+      </button>
+      &nbsp;
+      <button id="hang-up-phone-button" type="button" disabled="true">
+        Hang Up
+      </button>
+    </div>
+    <script src="./bundle.js"></script>
+  </body>
+</html>
 ```
 
-Extend your application logic with telephony functionality.
-
-Add this code to **client.js**:
+Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic.
 
 ```javascript
+import { CallClient, CallAgent } from "@azure/communication-calling";
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
+
+let call;
+let callAgent;
+
 const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
+
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationTokenCredential('<USER ACCESS TOKEN with PSTN scope>');
+    callAgent = await callClient.createCallAgent(tokenCredential);
+  //  callPhoneButton.disabled = false;
+}
+
+init();
+
 ```
 
 ## Start a call to phone
 
 Specify phone number you acquired in Communication Services resource, that will be used to start the call:
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
 Add an event handler to initiate a call to the phone number you provided when the `callPhoneButton` is clicked:
 
@@ -72,10 +84,9 @@ Add an event handler to initiate a call to the phone number you provided when th
 callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
-    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: '+18336528005'}
+  call = callAgent.startCall(
+    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
-
   // toggle button states
   hangUpPhoneButton.disabled = false;
   callPhoneButton.disabled = true;
@@ -107,15 +118,14 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
 
-
-![Screenshot of the completed JavaScript Application.](../media/javascript/pstn-calling-javascript-app.png)
+:::image type="content" source="../media/javascript/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
 
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)

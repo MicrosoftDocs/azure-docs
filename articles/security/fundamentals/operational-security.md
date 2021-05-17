@@ -105,7 +105,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
 
-A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/overview.md). This solution uses the [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
+A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/overview.md). This solution uses the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](../../automation/automation-intro.md) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
@@ -162,7 +162,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## Azure Monitor
 
-The [Azure Monitor logs Security](../../security-center/security-center-monitoring.md) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Azure Monitor logs Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
+The [Azure Monitor logs Security](../../security-center/security-center-remediate-recommendations.md) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Azure Monitor logs Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
 -	Malware assessment
 -	Update assessment
@@ -192,11 +192,11 @@ These logs are emitted by a resource and provide rich, frequent data about the o
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/platform/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](../../azure-monitor/platform/data-platform.md) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
+Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](../../azure-monitor/data-platform.md) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
 -	**Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 
@@ -210,7 +210,7 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 ### Azure Diagnostics
 
-It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Other Azure services have their own separate diagnostics.
+It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Other Azure services have their own separate diagnostics.
 
 ## Azure Network Watcher
 
@@ -241,7 +241,7 @@ Network Watcher currently has the following capabilities:
 
 This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. Log entries are created only if there are requests made against the service endpoint. For example if a storage account has activity in its Blob endpoint but not in its Table or Queue endpoints, only logs pertaining to the Blob service is created.
 
-To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operation to enable Storage Analytics individually for each service.
+To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](../../storage/common/manage-storage-analytics-logs.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operation to enable Storage Analytics individually for each service.
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 

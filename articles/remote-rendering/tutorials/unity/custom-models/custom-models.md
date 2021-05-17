@@ -25,18 +25,18 @@ In this tutorial, you learn how to:
 
 ## Get started with the Mixed Reality Toolkit (MRTK)
 
-The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We'll use MRTK 2.3 for its interaction and visualization features.
+The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We'll use MRTK 2.5.1 for its interaction and visualization features.
 
-To add MRTK, follow the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) listed in [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
+To add MRTK, follow the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#required) listed in the [MRTK Installation Guide](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html).
 
 Those steps are:
- - [Get the latest MRTK Unity packages](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
-     - Even though it says "latest", this is for version 2.3.
+ - [Get the latest MRTK Unity packages](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#1-get-the-latest-mrtk-unity-packages)
+     - Even though it says "latest", please use version 2.5.1 from the MRTK release page.
      - We only use the *Foundation* package in this tutorial. The *Extensions*, *Tools*, and *Examples* packages are not required.
- - [Import MRTK packages into your Unity project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#import-mrtk-packages-into-your-unity-project)
- - [Switch your Unity project to the target platform](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#switch-your-unity-project-to-the-target-platform)
+ - [Import MRTK packages into your Unity project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#2-import-mrtk-packages-into-your-unity-project)
+ - [Switch your Unity project to the target platform](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#3-switch-your-unity-project-to-the-target-platform)
      - You should have done this step already in the first chapter, but now is a good time to double check!
- - [Add MRTK to a new scene or new project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project)
+ - [Add MRTK to a new scene or new project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#4-add-and-configure-mrtk-with-a-new-scene)
      - You can add MRTK to a new scene and re-add your coordinator and model objects/scripts, or you can add MRTK to your existing scene using the *Mixed Reality Toolkit -> Add to Scene and Configure* menu command.
 
 ## Import assets used by this tutorial
@@ -89,7 +89,7 @@ Notice that the **RemoteRenderedModel** script implements **BaseRemoteRenderedMo
 
 1. Create a new script named **RemoteRenderedModel** in the same folder as **RemoteRenderingCoordinator**. Replace the entire contents with the following code:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 

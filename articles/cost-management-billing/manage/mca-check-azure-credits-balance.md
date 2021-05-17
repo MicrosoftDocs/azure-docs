@@ -363,7 +363,7 @@ The API response returns all transactions that affected the credit balance for y
 
 In a billing account for a Microsoft customer agreement, you use billing profiles to manage your invoices and payment methods. A monthly invoice is generated for each billing profile and you use the payment methods to pay the invoice.
 
-you assign credits that you acquire to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
+You assign credits that you acquire to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
 
 ## Products that aren't covered by Azure credits
 

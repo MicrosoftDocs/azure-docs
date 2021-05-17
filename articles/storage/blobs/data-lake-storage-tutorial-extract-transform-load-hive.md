@@ -28,15 +28,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
 
-    See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+    See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 * **A Linux-based Hadoop cluster on HDInsight**
 
-    See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
+    See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -340,4 +340,4 @@ All resources used in this tutorial are preexisting. No cleanup is necessary.
 To learn more ways to work with data in HDInsight, see the following article:
 
 > [!div class="nextstepaction"]
-> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

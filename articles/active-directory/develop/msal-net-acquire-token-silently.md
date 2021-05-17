@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Get a token from the token cache using MSAL.NET
 
-When you acquire an access token using Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
+When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
 
 The recommended pattern is to call the `AcquireTokenSilent` method first.  If `AcquireTokenSilent` fails, then acquire a token using other methods.
 

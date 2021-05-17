@@ -3,10 +3,10 @@ title: Introduction to Azure Stream Analytics windowing functions
 description: This article describes four windowing functions (tumbling, hopping, sliding, session) that are used in Azure Stream Analytics jobs.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 03/16/2021
 ---
 # Introduction to Stream Analytics windowing functions
 
@@ -31,7 +31,7 @@ Hopping window functions hop forward in time by a fixed period. It may be easy t
 
 ## Sliding window
 
-Sliding windows, unlike Tumbling or Hopping windows, output events only for points in time when the content of the window actually changes. In other words, when an event enters or exits the window. Every window has at least one event, like in the case of Hopping windows, events can belong to more than one sliding window
+Sliding windows, unlike Tumbling or Hopping windows, output events only for points in time when the content of the window actually changes. In other words, when an event enters or exits the window. So, every window has at least one event. Similar to Hopping windows, events can belong to more than one sliding window.
 
 ![Stream Analytics sliding window](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

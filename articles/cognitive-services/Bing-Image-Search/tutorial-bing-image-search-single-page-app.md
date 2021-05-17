@@ -16,9 +16,9 @@ ms.custom: devx-track-js
 # Tutorial: Create a single-page app using the Bing Image Search API
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 

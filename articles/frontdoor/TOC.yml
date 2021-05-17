@@ -35,11 +35,13 @@
   - name: Resource Manager Templates
     href: front-door-quickstart-template-samples.md
 - name: Concepts
-  items:
+  items :
+  - name: Standard/Premium SKU
+    href: standard-premium/overview.md
   - name: Security
     items: 
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/TOC.json
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
@@ -47,7 +49,7 @@
   - name: DDoS protection
     href: front-door-ddos.md
   - name: Front Door FAQ
-    href: front-door-faq.md
+    href: front-door-faq.yml
   - name: Geo-filtering
     href: front-door-geo-filtering.md
   - name: Health probes
@@ -97,7 +99,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/front-door/
+    href: /cli/azure/afd/
   - name: Azure PowerShell
     href: /powershell/module/az.frontdoor
   - name: REST API

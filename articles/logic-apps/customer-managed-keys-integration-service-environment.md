@@ -3,16 +3,16 @@ title: Set up customer-managed keys to encrypt data at rest in ISEs
 description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 01/20/2021
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
 
 Azure Logic Apps relies on Azure Storage to store and automatically [encrypt data at rest](../storage/common/storage-service-encryption.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
-When you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key".
+When you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". With this capability, Azure Storage automatically enables [double encryption or *infrastructure encryption* using platform-managed keys](../security/fundamentals/double-encryption.md) for your key. To learn more, see [Doubly encrypt data with infrastructure encryption](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).
 
 This topic shows how to set up and specify your own encryption key to use when you create your ISE by using the Logic Apps REST API. For the general steps to create an ISE through Logic Apps REST API, see [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -22,11 +22,15 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) enabled. This identity lets the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your credentials.
+* To support customer-managed keys, your ISE requires that you enable either the [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
 
-* Currently, to create an ISE that supports customer-managed keys and has its system-assigned identity enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
+* Currently, to create an ISE that supports customer-managed keys and has either managed identity type enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* You must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault), but the timing depends on which managed identity that you use.
+
+  * **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault). Otherwise, ISE creation fails, and you get a permissions error.
+
+  * **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE, [give key vault access to your ISE's managed identity](#identity-access-to-key-vault).
 
 ## Prerequisites
 
@@ -51,7 +55,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## Create ISE with key vault and managed identity support
 
@@ -60,7 +64,7 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
+> The Logic Apps REST API 2019-05-01 version requires that you make your own HTTPS PUT request for ISE connectors.
 
 Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
@@ -86,7 +90,7 @@ In the request header, include these properties:
 
 In the request body, enable support for these additional items by providing their information in your ISE definition:
 
-* The system-assigned managed identity that your ISE uses to access your key vault
+* The managed identity that your ISE uses to access your key vault
 * Your key vault and the customer-managed key that you want to use
 
 #### Request body syntax
@@ -95,7 +99,7 @@ Here is the request body syntax, which describes the properties to use when you 
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -104,7 +108,14 @@ Here is the request body syntax, which describes the properties to use when you 
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -151,7 +162,13 @@ This example request body shows the sample values:
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -195,7 +212,11 @@ This example request body shows the sample values:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must add an access policy to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. 
+Although the timing differs based on the managed identity that you use, you must [give key vault access to your ISE's managed identity](#identity-access-to-key-vault).
+
+* **System-assigned managed identity**: Within *30 minutes after* you send the HTTPS PUT request that creates your ISE, you must add an access policy to your key vault for your ISE's system-assigned managed identity. Otherwise, creation for your ISE fails, and you get a permissions error.
+
+* **User-assigned managed identity**: Before you send the HTTPS PUT request that creates your ISE, add an access policy to your key vault for your ISE's user-assigned managed identity.
 
 For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
 

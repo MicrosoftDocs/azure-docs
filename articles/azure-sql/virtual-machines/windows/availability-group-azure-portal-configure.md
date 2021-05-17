@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -26,6 +27,9 @@ Use the Azure portal to create a new cluster or onboard an existing cluster, and
 This feature is currently in preview. 
 
 While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
 
 
 ## Prerequisites
@@ -95,9 +99,6 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
-
-
-
 
 ## Create availability group
 
@@ -203,7 +204,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster from the SQL VM RP metadata
 # example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
 
-az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+az sql vm group delete --name <cluster name> --resource-group <resource group name>
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -231,7 +232,7 @@ Next, remove the cluster metadata from the SQL IaaS Agent extension:
 # Remove the cluster metadata
 # example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
 
-Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name>"
 ```
 
 ---

@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 12/15/2020
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure managed identities for Azure resources on virtual machine scale sets using PowerShell
@@ -25,6 +26,7 @@ ms.collection: M365-identity-device-management
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, using PowerShell, you learn how to perform the managed identities for Azure resources operations on a virtual machine scale set:
+
 - Enable and disable the system-assigned managed identity on a virtual machine scale set
 - Add and remove a user-assigned managed identity on a virtual machine scale set
 

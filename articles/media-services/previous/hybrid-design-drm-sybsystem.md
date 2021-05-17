@@ -3,20 +3,18 @@ title: Hybrid design of DRM subsystem(s) using Azure Media Services | Microsoft 
 description: This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-
 ---
 # Hybrid design of DRM subsystems
 
@@ -112,7 +110,7 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 
 ### Sample 2
 
-* Source (base) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* Source (base) URL: `https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest` 
 * PlayReady LA_URL (DASH & smooth): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### Sample 3

@@ -134,7 +134,7 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Explore Azure Blob storage
+        - name: Explore Azure Blob Storage
           href: explore-data-blob.md
         - name: Explore SQL on a VM
           href: explore-data-sql-server.md
@@ -144,7 +144,7 @@
         items:
         - name: Overview
           href: sample-data.md
-        - name: Use blob storage
+        - name: Use Blob Storage
           href: sample-data-blob.md
         - name: Use SQL Server
           href: sample-data-sql-server.md

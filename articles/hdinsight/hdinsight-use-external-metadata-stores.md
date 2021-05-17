@@ -1,9 +1,6 @@
 ---
 title: Use external metadata stores - Azure HDInsight 
 description: Use external metadata stores with Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -16,7 +13,7 @@ HDInsight allows you to take control of your data and metadata with external dat
 
 The Apache Hive metastore in HDInsight is an essential part of the Apache Hadoop architecture. A metastore is the central schema repository. The metastore is used by other big data access tools such as Apache Spark, Interactive Query (LLAP), Presto, or Apache Pig. HDInsight uses an Azure SQL Database as the Hive metastore.
 
-![HDInsight Hive Metadata Store Architecture](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png" alt-text="HDInsight Hive Metadata Store Architecture" border="false":::
 
 There are two ways you can set up a metastore for your HDInsight clusters:
 
@@ -54,7 +51,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 * The cluster and the external metastore must be hosted in the same region.
 
-![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png" alt-text="HDInsight Hive Metadata Store Use Case" border="false":::
 
 ### Create and config Azure SQL Database for the custom metastore
 
@@ -62,17 +59,17 @@ Create or have an existing Azure SQL Database before setting up a custom Hive me
 
 While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Private endpoints for SQL stores is only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentationa](https://docs.microsoft.com/azure/hdinsight/hdinsight-private-link).
+Private endpoints for SQL stores is only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentationa](./hdinsight-private-link.md).
 
-![set server firewall button](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="set server firewall button":::
 
-![allow azure services access](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow azure services access":::
 
 ### Select a custom metastore during cluster creation
 
 You can point your cluster to a previously created Azure SQL Database at any time. For cluster creation through the portal, the option is specified from the **Storage > Metastore settings**.
 
-![HDInsight Hive Metadata Store Azure portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png" alt-text="HDInsight Hive Metadata Store Azure portal":::
 
 ## Hive metastore guidelines
 

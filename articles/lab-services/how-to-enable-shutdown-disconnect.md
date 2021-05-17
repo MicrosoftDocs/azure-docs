@@ -35,4 +35,4 @@ Make sure to review details about the auto-shutdown in the [Maximize cost contro
 > If you shutdown the Linux or Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
 ## Next steps
 
-[Dashboard for classroom labs](use-dashboard.md)
+[Dashboard for labs](use-dashboard.md)

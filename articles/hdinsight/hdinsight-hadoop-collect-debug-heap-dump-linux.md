@@ -1,9 +1,6 @@
 ---
 title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure
 description: Enable heap dumps for Apache Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -80,15 +77,15 @@ To modify the configuration for a service, use the following steps:
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
-    ![Image of Ambari web with HDFS Configs tab selected](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="Image of Ambari web with HDFS Configs tab selected":::
 
 3. Using the **Filter...** entry, enter **opts**. Only items containing this text are displayed.
 
-    ![Apache Ambari config filtered list](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari config filtered list":::
 
 4. Find the **\*\_OPTS** entry for the service you want to enable heap dumps for, and add the options you wish to enable. In the following image, I've added `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` to the **HADOOP\_NAMENODE\_OPTS** entry:
 
-    ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari hadoop-namenode-opts":::
 
    > [!NOTE]  
    > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
@@ -97,15 +94,15 @@ To modify the configuration for a service, use the following steps:
 
 5. Once the changes have been applied, the **Restart required** icon appears beside one or more services.
 
-    ![restart required icon and restart button](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="restart required icon and restart button":::
 
 6. Select each service that needs a restart, and use the **Service Actions** button to **Turn On Maintenance Mode**. Maintenance mode prevents alerts from being generated from the service when you restart it.
 
-    ![Turn on hdi maintenance mode menu](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Turn on hdi maintenance mode menu":::
 
 7. Once you have enabled maintenance mode, use the **Restart** button for the service to **Restart All Effected**
 
-    ![Apache Ambari Restart All Affected entry](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari Restart All Affected entry":::
 
    > [!NOTE]  
    > The entries for the **Restart** button may be different for other services.

@@ -1,12 +1,9 @@
 ---
 title: Install your custom Apache Hadoop applications on Azure HDInsight
 description: Learn how to install HDInsight applications for Apache Hadoop clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ---
 
@@ -104,13 +101,13 @@ If an application installation failed, you can see the error messages and debug 
 
     Open the cluster from the portal, and select Applications from Settings:
 
-    ![hdinsight applications application installation error](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="hdinsight applications application installation error":::
 
 * HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
 
     Select Script Action from Settings. Script action history shows the error messages
 
-    ![hdinsight applications script action error](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="hdinsight applications script action error":::
 
 * Apache Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 

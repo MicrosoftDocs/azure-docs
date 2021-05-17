@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet, contperfq2
+ms.custom: devx-track-dotnet, contperf-fy21q2
 
 ---
 
@@ -65,7 +65,7 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 
 **Connection policy: Use direct connection mode**
 
-.NET V3 SDK default connection mode is direct. You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.  To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
+.NET V3 SDK default connection mode is direct with TCP protocol. You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.  To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -168,7 +168,7 @@ Parallel queries provide two parameters that you can tune to fit your requiremen
 
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off throttling for the server-specified retry interval. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries. 
 
-For more information, see [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+For more information, see [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 There's a mechanism for logging additional diagnostics information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostics string for requests that have a higher read latency. The captured diagnostics string will help you understand how many times you received a *429* error for a given request.
 
@@ -211,7 +211,7 @@ Throughput is provisioned based on the number of [Request Units](request-units.m
 
 The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDF files, and the size of the source dataset all influence the cost of query operations.
 
-To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
+To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse<T>` or `FeedResponse<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
 
 ```csharp
 // Measure the performance (Request Units) of writes

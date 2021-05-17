@@ -222,4 +222,4 @@ To learn best practices on versioning data contracts, see [Data Contract Version
 
 To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
+To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)

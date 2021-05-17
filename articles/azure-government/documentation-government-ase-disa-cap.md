@@ -32,11 +32,14 @@ However, since DISA advertises a default route out the ExpressRoute circuit, the
 You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses.md
 )
 
-* Rule 1: 23.97.29.209 --> Internet
-* Rule 2: 23.97.0.17 --> Internet 
-* Rule 3: 23.97.16.184 --> Internet 
-* Rule 4: 13.72.180.105 --> Internet
-* Rule 5: 13.72.53.37 --> Internet
+- 23.97.29.209/32 --> Internet
+- 13.72.53.37/32 --> Internet
+- 13.72.180.105/32 --> Internet
+- 52.181.183.11/32 --> Internet
+- 52.227.80.100/32 --> Internet
+- 52.182.93.40/32 --> Internet
+- 52.244.79.34/32 --> Internet
+- 52.238.74.16/32 --> Internet
 
 Make sure the UDR is applied to the subnet your ASE is deployed to. 
 

@@ -10,8 +10,10 @@
   - name: Tutorials
     expanded: true
     items:
-    - name: Build a SCIM endpoint and configure provisioning
+    - name: Plan provisioning for a SCIM endpoint 
       href: use-scim-to-provision-users-and-groups.md
+    - name: Develop a sample SCIM endpoint
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
@@ -51,7 +53,7 @@
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automate configuration using MS Graph
-      href: https://docs.microsoft.com/graph/application-provisioning-configure-api
+      href: /graph/application-provisioning-configure-api
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -80,6 +82,8 @@
         href: sap-successfactors-integration-reference.md
       - name: SuccessFactors attribute reference
         href: sap-successfactors-attribute-reference.md
+      - name: Workday integration 
+        href: workday-integration-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history

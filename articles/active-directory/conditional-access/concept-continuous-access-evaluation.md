@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,13 +19,13 @@ ms.collection: M365-identity-device-management
 
 Token expiration and refresh is a standard mechanism in the industry. When a client application like Outlook connects to a service like Exchange Online, the API requests are authorized using OAuth 2.0 access tokens. By default, those access tokens are valid for one hour, when they expire, the client is redirected back to Azure AD to refresh them. That refresh period provides an opportunity to reevaluate policies for user access. For example: we might choose not to refresh the token because of a Conditional Access policy, or because the user has been disabled in the directory. 
 
-Customers have expressed concerns about the lag between when conditions change for the user, like network location or credential theft, and when policies can be enforced related to that change. We have experimented with the “blunt object” approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
+Customers have expressed concerns about the lag between when conditions change for the user, like network location or credential theft, and when policies can be enforced related to that change. We have experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
 
-Timely response to policy violations or security issues really requires a “conversation” between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
+Timely response to policy violations or security issues really requires a "conversation" between the token issuer, like Azure AD, and the relying party, like Exchange Online. This two-way conversation gives us two important capabilities. The relying party can notice when things have changed, like a client coming from a new location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user due to account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but in some cases latency of up to 15 minutes may be observed due to event propagation time.
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
-To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/develop/app-resilience-continuous-access-evaluation.md).
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -45,9 +45,12 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
+
+> [!NOTE] 
+> Teams and SharePoint Online does not support user risk events yet.
 
 ### Conditional Access policy evaluation (preview)
 
@@ -56,11 +59,11 @@ Exchange and SharePoint are able to synchronize key Conditional Access policies 
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint
+> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Not Supported | Not Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
@@ -68,23 +71,20 @@ This process enables the scenario where users lose access to organizational file
 | **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
+| | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
+
 ### Client-side claim challenge
 
 Before continuous access evaluation, clients would always try to replay the access token from its cache as long as it was not expired. With CAE, we are introducing a new case that a resource provider can reject a token even when it is not expired. In order to inform clients to bypass their cache even though the cached tokens have not expired, we introduce a mechanism called **claim challenge** to indicate that the token was rejected and a new access token need to be issued by Azure AD. CAE requires a client update to understand claim challenge. The latest version of the following applications below support claim challenge:
 
-- Outlook Windows
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Teams for Windows (Only for Teams resource)
-- Teams iOS (Only for Teams resource)
-- Teams Android (Only for Teams resource)
-- Teams Mac (Only for Teams resource)
-- Word/Excel/PowerPoint for Windows
-- Word/Excel/PowerPoint for iOS
-- Word/Excel/PowerPoint for Android
-- Word/Excel/PowerPoint for Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Supported | Supported | Supported | Supported | Supported |
+| **Teams** | Supported | Supported | Supported | Supported | Supported |
+| **Office** | Not Supported | Supported | Supported | Supported | Supported |
+| **OneDrive** | Supported | Supported | Supported | Supported | Supported |
 
 ### Token lifetime
 
@@ -102,7 +102,7 @@ If you are not using CAE-capable clients, your default access token lifetime wil
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
@@ -127,8 +127,12 @@ In the following example, a Conditional Access administrator has configured a lo
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
 1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
 1. Choose **Enable preview**.
+1. Select **Save**.
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
+
+> [!WARNING]
+> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -139,7 +143,7 @@ From this page, you can optionally limit the users and groups that will be subje
 For CAE, we only have insights into named IP-based named locations. We have no insights into other location settings like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When user comes from an MFA trusted IP or trusted locations that include MFA Trusted IPs or country location, CAE will not be enforced after user move to a different location. In those cases, we will issue a 1-hour CAE token without instant IP enforcement check.
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### IP address configuration
 
@@ -160,17 +164,17 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 
 For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
-### Policy change timing
+### Group membership and Policy update effective time
 
-Due to the potential of replication delay between Azure AD and resource providers, policy changes made by administrators could take up to 2 hours to be effective for Exchange Online.
+Group membership and policy update made by administrators could take up to one day to be effective. Some optimization has been done for policy updates which reduce the delay to two hours. However, it does not cover all the scenarios yet. 
 
-Example: Administrator adds a policy to block a range of IP addresses from accessing email at 11:00 AM, a user who has come from that IP range before could possibly continue to access email until 1:00 PM.
+If there is an emergency and you need to have your policies updated or group membership change to be applied to certain users immediately, you should use this [PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) or "Revoke Session" in the user profile page to revoke the users' session, which will make sure that the updated policies will be applied immediately.
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on the same document at the same time, the user’s access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after, closing the document, closing Word, Excel, or PowerPoint, or after a period of 10 hours.
+When multiple users are collaborating on the same document at the same time, the user's access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after, closing the document, closing Word, Excel, or PowerPoint, or after a period of 10 hours.
 
-To reduce this time a SharePoint Administrator can optionally reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command “Set-SPOTenant –IPAddressWACTokenLifetime"
+To reduce this time a SharePoint Administrator can optionally reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "Set-SPOTenant –IPAddressWACTokenLifetime"
 
 ### Enable after a user is disabled
 

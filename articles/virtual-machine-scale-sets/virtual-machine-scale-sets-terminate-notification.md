@@ -5,7 +5,7 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual 
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: terminate-notification
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli

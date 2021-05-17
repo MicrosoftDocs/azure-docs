@@ -3,9 +3,9 @@ title: Windows Virtual Desktop (classic) host pool Azure Marketplace - Azure
 description: How to create a Windows Virtual Desktop (classic) host pool by using the Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a host pool in Windows Virtual Desktop (classic)
 
@@ -74,10 +74,10 @@ For the **Configure virtual machines** tab:
 1. Either accept the defaults or customize the number and size of the virtual machines.
 
     >[!NOTE]
-    >If the specific virtual machine size you're looking for doesn't appear in the size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet. To request a size, create a request or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >If the specific virtual machine size you're looking for doesn't appear in the size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet.
 
-1. Enter a prefix for the names of the virtual machines. For example, if you enter *prefix*, the virtual machines will be called **prefix-0**, **prefix-1**, and so on.
-1. Select **Next: Virtual machine settings**.
+2. Enter a prefix for the names of the virtual machines. For example, if you enter *prefix*, the virtual machines will be called **prefix-0**, **prefix-1**, and so on.
+3. Select **Next: Virtual machine settings**.
 
 ### Virtual machine settings
 

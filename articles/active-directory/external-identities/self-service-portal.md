@@ -25,7 +25,7 @@ As an inviting organization, you might not know ahead of time who the individual
 
 ## Azure Active Directory B2B invitation API
 
-Organizations can use the [Microsoft Graph invitation manager API](/graph/api/resources/invitation?view=graph-rest-1.0) to build their own onboarding experiences for B2B guest users. When you want to offer self-service B2B guest user sign-up, we recommend that you use [Azure AD entitlement management](../governance/entitlement-management-overview.md). But if you want to build your own experience, you can use the [create invitation API](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) to automatically send your customized invitation email directly to the B2B user, for example. Or your app can use the inviteRedeemUrl returned in the creation response to craft your own invitation (through your communication mechanism of choice) to the invited user.
+Organizations can use the [Microsoft Graph invitation manager API](/graph/api/resources/invitation) to build their own onboarding experiences for B2B guest users. When you want to offer self-service B2B guest user sign-up, we recommend that you use [Azure AD entitlement management](../governance/entitlement-management-overview.md). But if you want to build your own experience, you can use the [create invitation API](/graph/api/invitation-post?tabs=http) to automatically send your customized invitation email directly to the B2B user, for example. Or your app can use the inviteRedeemUrl returned in the creation response to craft your own invitation (through your communication mechanism of choice) to the invited user.
 
 ## Next steps
 

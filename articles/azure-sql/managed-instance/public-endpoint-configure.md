@@ -9,7 +9,7 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
+ms.date: 02/08/2021
 ---
 # Configure public endpoint in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## Obtaining the managed instance public endpoint connection string
 
 1. Navigate to the managed instance configuration page that has been enabled for public endpoint. Select the **Connection strings** tab under the **Settings** configuration.
-1. Note that the public endpoint host name comes in the format <mi_name>.**public**.<dns_zone>.database.windows.net and that the port used for the connection is 3342.
+1. Note that the public endpoint host name comes in the format <mi_name>.**public**.<dns_zone>.database.windows.net and that the port used for the connection is 3342. Here's an example of a server value of the connection string denoting the public endpoint port that can be used in SQL Server Management Studio or Azure Data Studio connections: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![Screenshot shows the connection strings for your public and private endpoints.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

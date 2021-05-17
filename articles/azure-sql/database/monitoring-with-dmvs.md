@@ -8,15 +8,15 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: juliemsft
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
+ms.date: 03/15/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Microsoft Azure SQL Database and Azure SQL Managed Instance enable a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
+Microsoft Azure SQL Database and Azure SQL Managed Instance enable a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This article provides information on how to detect common performance problems by using dynamic management views.
 
 Microsoft Azure SQL Database and Azure SQL Managed Instance partially support three categories of dynamic management views:
 
@@ -25,6 +25,10 @@ Microsoft Azure SQL Database and Azure SQL Managed Instance partially support th
 - Transaction-related dynamic management views.
 
 For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+
+## Monitor with SQL insights
+
+[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) is a tool for monitoring Azure SQL managed instances, Azure SQL databases, and SQL Server instances in Azure SQL VMs. This service uses a remote agent to capture data from dynamic management views (DMVs) and routes the data to Azure Log Analytics, where it can be monitored and analyzed. You can view this data from [Azure Monitor](../../azure-monitor/overview.md) in provided views, or access the Log data directly to run queries and analyze trends. To start using Azure Monitor SQL insights, see [Enable SQL insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ## Permissions
 
@@ -248,12 +252,12 @@ GO
 
 When identifying IO performance issues, the top wait types associated with `tempdb` issues is `PAGELATCH_*` (not `PAGEIOLATCH_*`). However, `PAGELATCH_*` waits do not always mean you have `tempdb` contention.  This wait may also mean that you have user-object data page contention due to concurrent requests targeting the same data page. To further confirm `tempdb` contention, use [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to confirm that the wait_resource value begins with `2:x:y` where 2 is `tempdb` is the database ID, `x` is the file ID, and `y` is the page ID.  
 
-For tempdb contention, a common method is to reduce or re-write application code that relies on `tempdb`.  Common `tempdb` usage areas include:
+For tempdb contention, a common method is to reduce or rewrite application code that relies on `tempdb`.  Common `tempdb` usage areas include:
 
 - Temp tables
 - Table variables
 - Table-valued parameters
-- Version store usage (specifically associated with long running transactions)
+- Version store usage (associated with long running transactions)
 - Queries that have query plans that use sorts, hash joins, and spools
 
 ### Top queries that use table variables and temporary tables
@@ -557,14 +561,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### sys.resource_stats
 
 The [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) view in the **master** database has additional information that can help you monitor the performance of your database at its specific service tier and compute size. The data is collected every 5 minutes and is maintained for approximately 14 days. This view is useful for a longer-term historical analysis of how your database uses resources.
 
-The following graph shows the CPU resource use for a Premium database with the P2 compute size for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
+The following graph shows the CPU resource use for a Premium database with the P2 compute size for each hour in a week. This graph starts on a Monday, shows five work days, and then shows a weekend, when much less happens on the application.
 
 ![Database resource use](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -583,7 +587,7 @@ This example shows you how the data in this view is exposed:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![The sys.resource_stats catalog view](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -618,7 +622,7 @@ The next example shows you different ways that you can use the **sys.resource_st
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. With this information about the average and maximum values of each resource metric, you can assess how well your workload fits into the compute size you chose. Usually, average values from **sys.resource_stats** give you a good baseline to use against the target size. It should be your primary measurement stick. For an example, you might be using the Standard service tier with S2 compute size. The average use percentages for CPU and IO reads and writes are below 40 percent, the average number of workers is below 50, and the average number of sessions is below 200. Your workload might fit into the S1 compute size. It's easy to see whether your database fits in the worker and session limits. To see whether a database fits into a lower compute size with regards to CPU, reads, and writes, divide the DTU number of the lower compute size by the DTU number of your current compute size, and then multiply the result by 100:
+3. With this information about the average and maximum values of each resource metric, you can assess how well your workload fits into the compute size you chose. Usually, average values from **sys.resource_stats** give you a good baseline to use against the target size. It should be your primary measurement stick. For an example, you might be using the Standard service tier with S2 compute size. The average use percentages for CPU and IO reads and writes are below 40 percent, the average number of workers is below 50, and the average number of sessions is below 200. Your workload might fit into the S1 compute size. It's easy to see whether your database fits in the worker and session limits. To see whether a database fits into a lower compute size with regard to CPU, reads, and writes, divide the DTU number of the lower compute size by the DTU number of your current compute size, and then multiply the result by 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -693,7 +697,7 @@ To see the number of current active sessions, run this Transact-SQL query on you
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 If you're analyzing a SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure.
@@ -703,7 +707,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Again, these queries return a point-in-time count. If you collect multiple samples over time, you'll have the best understanding of your session use.
@@ -737,7 +741,7 @@ ORDER BY 2 DESC;
 
 ### Monitoring blocked queries
 
-Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Slow or long-running queries can contribute to excessive resource consumption and be the consequence of blocked queries. The cause of the blocking can be poor application design, bad query plans, the lack of useful indexes, and so on. You can use the sys.dm_tran_locks view to get information about the current locking activity in database. For example code, see [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). For more information on troubleshooting blocking, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 
 ### Monitoring query plans
 

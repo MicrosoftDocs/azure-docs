@@ -50,8 +50,8 @@ You need to synchronize identity data from your on-premises Active Directory env
 
 ## Implement directory synchronization with Azure AD
 
-* [What is identity provisioning?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [What is identity provisioning?](../cloud-sync/what-is-provisioning.md) 
 
-* [Hybrid identity directory integration tools](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [Hybrid identity directory integration tools](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Azure AD Connect installation roadmap](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Azure AD Connect installation roadmap](../hybrid/how-to-connect-install-roadmap.md)

@@ -1,6 +1,6 @@
 ---
 title: Convert resource class to a workload group 
-description: Learn how to create a workload group that is similar to a resource class in Azure Synapse Analytics.
+description: Learn how to create a workload group that is similar to a resource class in a dedicated SQL pool.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -51,7 +51,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## Create the Classifier
 
-Previously, the mapping of queries to resource classes was done with [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  To achieve the same functionality and map requests to workload groups, use the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  Using sp_addrolemember only allowed you to map resources to a request based on a login.  A classifier provides additional options besides login, such as:
+Previously, the mapping of queries to resource classes was done with [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  To achieve the same functionality and map requests to workload groups, use the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  Using sp_addrolemember only allowed you to map resources to a request based on a login.  A classifier provides additional options besides login, such as:
     - label
     - session
     - time
@@ -86,5 +86,5 @@ SELECT request_id, [label], classifier_name, group_name, command
 
 - [Workload Isolation](sql-data-warehouse-workload-isolation.md)
 - [How-To Create a Workload Group](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql??view=azure-sqldw-latest&preserve-view=true)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)
