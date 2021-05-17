@@ -3,7 +3,7 @@ title: Change feed in Azure Blob Storage | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: normesta
 ms.author: normesta
-ms.date: 02/08/2021
+ms.date: 05/17/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -55,7 +55,7 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
-- Only GPv2 and Blob storage accounts can enable Change feed. Premium block blob accounts, and hierarchical namespace enabled accounts are not currently supported. GPv1 storage accounts are not supported but can be upgraded to GPv2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
+- Only general-purpose v2 and Blob storage accounts can enable the change feed. Premium block blob accounts and hierarchical namespace enabled accounts are not currently supported. GGneral-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 ### [Portal](#tab/azure-portal)
 
