@@ -5,7 +5,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/17/2021
 ---
 
 # How to create and manage LUIS resources
@@ -118,7 +118,7 @@ The following procedure assigns a resource to a specific app.
 1. Sign in to the [LUIS portal](https://www.luis.ai). Select an app from the **My apps** list.
 1. Go to **Manage** > **Azure Resources**:
 
-    ![Screenshot that shows the Azure Resources page.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+    :::image type="content" source="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png" alt-text="Choose a type of Language Understanding authoring resource." lightbox="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png":::
 
 1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
 1. Use the fields in the form to find the correct resource, and then select **Save**.
@@ -237,7 +237,8 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 1.  In [the Azure portal](https://portal.azure.com), Go to **All resources** and select your resource
 
-    ![Screenshot that shows a LUIS subscription in the Azure portal.](./media/luis-usage-tiers/find.png)
+    :::image type="content" source="./media/luis-usage-tiers/find.png" alt-text="Screenshot that shows a LUIS subscription in the Azure portal." lightbox="./media/luis-usage-tiers/find.png":::
+
 1.  From the left side menu, select **Pricing tier** to see the available pricing tiers
 1.  Select the pricing tier you want, and click **Select** to save your change. When the pricing change is complete, a notification will appear in the top right with the pricing tier update.
 
@@ -246,14 +247,13 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 ## View a summary of Azure resource usage
 You can view LUIS usage information in the Azure portal. The **Overview** page shows a summary, including recent calls and errors. If you make a LUIS endpoint request, allow up to five minutes for the change to appear.
 
-![Screenshot that shows the Overview page.](./media/luis-usage-tiers/overview.png)
-
+:::image type="content" source="./media/luis-usage-tiers/overview.png" alt-text="Screenshot that shows the overview page." lightbox="./media/luis-usage-tiers/overview.png":::
 
 ## Customizing Azure resource usage charts
 The **Metrics** page provides a more detailed view of the data. 
 You can configure your metrics charts for a specific **time period** and **metric type**.
 
-![Screenshot that shows the Metrics page.](./media/luis-usage-tiers/metrics.png)
+:::image type="content" source="./media/luis-usage-tiers/metrics.png" alt-text="Screenshot that shows the metrics page." lightbox="./media/luis-usage-tiers/metrics.png":::
 
 ## Total transactions threshold alert
 If you want to know when you reach a certain transaction threshold, for example 10,000 transactions, you can create an alert:
@@ -261,23 +261,23 @@ If you want to know when you reach a certain transaction threshold, for example 
 1. From the left side menu select **Alerts**
 2. From the top menu select **New alert Rule**
 
-![Screenshot that shows the Alert rules page.](./media/luis-usage-tiers/alerts.png)
+    :::image type="content" source="./media/luis-usage-tiers/alerts.png" alt-text="Screenshot that shows the alert rules page." lightbox="./media/luis-usage-tiers/alerts.png":::
 
 3. Click on **Add Condition**
 
-![Screenshot that shows the Alert rules page2.](./media/luis-usage-tiers/alerts-2.png)
+    :::image type="content" source="./media/luis-usage-tiers/alerts-2.png" alt-text="Screenshot that shows the add condition page for alert rules." lightbox="./media/luis-usage-tiers/alerts-2.png":::
 
 4.Select **Total Calls**
 
-![Screenshot that shows the Alert rules page3.](./media/luis-usage-tiers/alerts-3.png)
+    :::image type="content" source="./media/luis-usage-tiers/alerts-3.png" alt-text="Screenshot that shows the total calls page for alerts." lightbox="./media/luis-usage-tiers/alerts-3.png":::
 
 5. Scroll down to the **Alert logic** section and set the attributes as you want and click **Done**
 
-![Screenshot that shows the Alert rules page4.](./media/luis-usage-tiers/alerts-4.png)
+    :::image type="content" source="./media/luis-usage-tiers/alerts-4.png" alt-text="Screenshot that shows the alert logic page." lightbox="./media/luis-usage-tiers/alerts-4.png":::
 
 6. To send notifications or invoke actions when the alert rule triggers go to the **Actions** section and add your action group.
 
-![Screenshot that shows the Alert rules page5.](./media/luis-usage-tiers/alerts-5.png)
+    :::image type="content" source="./media/luis-usage-tiers/alerts-4.png" alt-text="Screenshot that shows the actions page for alerts." lightbox="./media/luis-usage-tiers/alerts-4.png":::
 
 ### Reset an authoring key
 
