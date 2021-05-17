@@ -24,7 +24,7 @@ To use any of the commands in this article, you first have to be logged in to th
 
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
-## Set subscription
+### Set subscription
 
 Use this command to set the subscription that you want to work with.
 
@@ -48,25 +48,39 @@ You'll see these names referenced in the commands below.  The names of resources
 
 ### List Azure regions
 
-If you're not sure of what the region name is for the API, use this command to get a listing.
+If you're not sure of the actual region name to use, use this command to get a listing:
 
 [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
+## Sequence
+
+Each of the steps below is done in a particular order because one or more values from the JSON responses are used in the next step in the sequence.
+
 ## Create a resource group
+
+The resources you'll create must belong to a resource group. Create the resource group first. You'll use `your-resource-group-name` for the Media Services account creation step, and subsequent steps.
 
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
 
+
 ## Create a Storage account
+
+The Media Services account you'll create must have a storage account associated with it. Create the storage account for the Media Services account first. You'll use `your-storage-account-name` for subsequent steps.
 
 [!INCLUDE [Create a Storage account with the CLI](./includes/task-create-storage-account-cli.md)]
 
 ## Create a Media Services account with a Service Principal (Managed Identity)
 
+Now create the Media Services account with a Service Principal, otherwise known as a Managed Identity.
+
+> [!IMPORTANT]
+> It is important that you remember to use the --mi flag in the command.  Otherwise you will not be able to find the `principalId` for a later step.
+
 [!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-media-services-account-managed-identity-cli.md)]
 
 ## Create a Key Vault
 
-Key Vault is used to encrypt media data.
+Create the Key Vault.  The Key Vault is used to encrypt media data. You'll use `your-keyvault-name` to create your key and for later steps.
 
 [!INCLUDE [Create a Media Services account with the CLI](./includes/task-create-key-vault-cli.md)]
 
@@ -94,7 +108,7 @@ Set Media Services to use the key you've created. The value of the `key-identifi
 
 ## Validation
 
-To verify the account is encrypted using a Customer Managed Key, view the account encryption properties.
+To verify the account is encrypted using a Customer Managed Key, view the account encryption properties:
 
 [!INCLUDE [Set Media Services to use the key from Key Vault](./includes/task-show-account-encryption-cli.md)]
 
