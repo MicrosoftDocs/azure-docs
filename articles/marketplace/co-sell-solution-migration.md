@@ -70,7 +70,7 @@ Follow these steps before importing your solutions from OCP GTM:
 > - [Publishing in the commercial marketplace training deck](https://assetsprod.microsoft.com/mpn/en-us/guidance-and-permissions-needed-to-publish-an-offer-and-co-sell-with-ms.pptm)
 :::image type="content" source="media/co-sell-migrate/ready-to-migrate.png" alt-text="I want to migrate this solution to commercial marketplace":::
 
-## Migrate your solutions from OCP GTM
+## Begin the Migration of your solutions from OCP GTM
 
 1. Begin the migration [here](https://partner.microsoft.com/solutions/migration#).
 2. Select the **Overview** page, then **Click here to get started**.
