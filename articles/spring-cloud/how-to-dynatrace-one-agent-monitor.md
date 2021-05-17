@@ -20,7 +20,7 @@ Ths document explains how to use **Dynatrace OneAgent** to monitor Azure Spring 
 ## Prerequisite
 You will need the following to use these features:
 * **Dynatrace** account.
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Leverage Dynatrace OneAgent
 To set up **Dynatrace OneAgent**, create an application using an instance of Azure Spring Cloud. 
