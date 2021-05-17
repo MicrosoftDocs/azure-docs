@@ -165,6 +165,8 @@
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
     - name: Chat (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
+    - name: Chat (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
   - name: SMS libraries
     items:
     - name: SMS (JavaScript)
