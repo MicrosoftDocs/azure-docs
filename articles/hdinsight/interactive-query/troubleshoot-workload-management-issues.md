@@ -14,20 +14,10 @@ ms.date: 04/07/2021
 Workload Management (WLM) is available to the customers starting HDInsight 4.0 clusters. 
 Use the resources below to help debug issues related to WLM feature.
 
-To debug any ongoing issue that may be related to WLM following queries and resources can be utilized.
-
-### Hive Commands to view WLM Resource Plan Definition
-```
--- View all resource plans available in the cluster
-SHOW RESOURCE PLANS;
--- View resource plan definition
-SHOW RESOURCE PLAN <plan_name>;
-```
-
-### WLM Metrics
+## WLM Metrics
 
 WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dump Tab. <br>
-![HS22Interactive UI](./media/hive-workload-management/hs2Interactive-wlm.jpg)
+![HS22Interactive UI](./media/hive-workload-management/hs2interactive-wlm.jpg)
 
 Example metrics published by WLM for a given pool in a resource plan.
 ```
@@ -59,7 +49,7 @@ Note: Make sure hiveserver2 component is selected in the above filters and compo
 
 <br>
 
-### Get WLM entities information from metastore database
+## Get WLM entities information from metastore database
 WLM entities information can also be viewed from following tables in Hive Metastore database.
 
 * **WM_RESOURCEPLANS** (NAME string, STATUS string, QUERY_PARALLELISM int, DEFAULT_POOL_PATH string)
@@ -70,14 +60,14 @@ WLM entities information can also be viewed from following tables in Hive Metast
 
 <br>
 
-### WLM Feature Characteristics
-#### **Lifecycle of Tez AMs in WLM Enabled Clusters**
+## WLM Feature Characteristics
+### **Lifecycle of Tez AMs in WLM Enabled Clusters**
 In contrast to default LLAP clusters, WLM enabled clusters have another set of Tez AMs. These Tez AMs are scheduled to run in `wm` queue if *hive.server2.tez.interactive.queue=wm* is set in hive configs. <br>
 These Tez AMs spawn up when WLM is activated based on the sum of QUERY_PARALLELISM of all the pools defined in the resource plan. <br>
 When we disable the Workload Management in the cluster, these Tez AMs are automatically KILLED.
 `{ DISABLE WORKLOAD MANAGEMENT; }`
 
-#### **Resource contention**
+### **Resource contention**
 In WLM enabled LLAP cluster, resources are shared among queries based on resource plan configuration. The resource sharing sometimes leads to query slowness.
 Some tunings can be done to resource plan to reduce the resource contention that happens within a pool. For example `scheduling_policy` can be defined as either `fair`, which guarantees an equal share of resources on the cluster to each query that is assigned to the pool; or `fifo`, which guarantees all resources to the first query that comes to the pool.<br>
 Following example shows how to set scheduling policy for a pool named `etl` in the resource plan wlm_basic:
@@ -89,7 +79,7 @@ One can also set the scheduling policy while creating the pool:
 CREATE POOL wlm_basic.default WITH ALLOC_FRACTION = 0.5, QUERY_PARALLELISM = 2, SCHEDULING_POLICY = fifo;
 ```
 
-#### **Query Failures for some specific use cases**
+### **Query Failures for some specific use cases**
 Running queries in WLM can get killed automatically for following cases:
 1. When Move Trigger is applied to a query and destination pool that doesn't have any Tez AMs available, then query is killed instead. <br>
 The above is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even for maximum load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
@@ -97,7 +87,7 @@ The above is a design limitation of WLM feature. You can work around this featur
 ```
 FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Dag received [DAG_TERMINATE, DAG_KILL] in RUNNING state.
 ```
-3. When a WLM Tez AM gets killed, then some of the queries may fail with following pattern. These queries should run without any issues on resubmission.
+3. When a WLM Tez AM is manually killed, then some of the queries may fail with following pattern. <br/>These queries should run without any issues on resubmission.
 ```
 java.util.concurrent.CancellationException: Task was cancelled.
 	at com.google.common.util.concurrent.AbstractFuture.cancellationExceptionWithCause(AbstractFuture.java:1349) ~[guava-28.0-jre.jar:?]
@@ -122,7 +112,7 @@ java.util.concurrent.CancellationException: Task was cancelled.
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_275]
 ```
 
-### Known Issues
+## Known Issues
 1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-warehouse-connector) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
 To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
 The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
@@ -134,12 +124,3 @@ Check if an active resource plan is available before running `DISABLE WORKLOAD M
 
 3. Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
 Kill these Tez AMs via `yarn UI` or `yarn console application` after disabling workload management.
-
-### Next Steps
-If you are unable to troubleshoot your issue or is not one of the known issues, visit one of the following...
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
