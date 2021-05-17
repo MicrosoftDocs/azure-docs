@@ -95,6 +95,19 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to False. |
 
+
+### Speed Parameter Settings
+You can configure the speed computation through the tracker node parameter settings.
+```
+{
+"enable_speed": true,
+}
+```
+| Name | Type| Description|
+|---------|---------|---------|
+| `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to false. It is highly recommended that we enable both speed and orientation to have the best estimated values |
+
+
 ## Spatial Analysis operations configuration and output
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
