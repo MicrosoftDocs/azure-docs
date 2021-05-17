@@ -36,6 +36,9 @@ Conditions in Azure Storage are supported for blobs. This includes blobs in acco
 
 In this preview, you can add conditions to built-in roles for accessing Blob data, including [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) and [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader). If you're working with conditions based on [blob index tags](../blobs/storage-manage-find-blobs.md), you might have to use [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) since permissions for tag operations are included in this role.
 
+> [!NOTE]
+> Blob index tags are not supported for Data Lake Storage Gen2 storage accounts, which have a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS). You should not author role-assignment conditions using index tags on storage accounts that have HNS enabled.
+
 The [Azure role assignment condition format](../../role-based-access-control/conditions-format.md) allows use of `@Resource` or `@Request` attributes in the conditions. A `@Resource` attribute refers to an existing attribute of a storage resource that is being accessed, such as a storage account, a container, or a blob. A `@Request` attribute refers to an attribute included in a storage operation request.
 
 Azure Storage supports a select set of request or resource attributes that may be used in conditions on role assignments for each DataAction. For the full list of attributes supported for each DataAction, please see the [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md).

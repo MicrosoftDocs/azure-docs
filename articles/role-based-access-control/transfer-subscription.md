@@ -89,7 +89,6 @@ To complete these steps, you will need:
 
 - [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
-- [Owner](built-in-roles.md#owner) role in the target directory
 
 ## Step 1: Prepare for the transfer
 
