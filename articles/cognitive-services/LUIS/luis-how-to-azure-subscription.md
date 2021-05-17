@@ -253,7 +253,7 @@ You can view LUIS usage information in the Azure portal. The **Overview** page s
 
 ## Customizing Azure resource usage charts
 The **Metrics** page provides a more detailed view of the data. 
-You can configure your metrics charts for a specific **time period** and **metric type**.
+You can configure your metrics charts for a specific **time period** and **metric**.
 
 :::image type="content" source="./media/luis-usage-tiers/metrics.png" alt-text="Screenshot that shows the metrics page." lightbox="./media/luis-usage-tiers/metrics.png":::
 
@@ -261,15 +261,15 @@ You can configure your metrics charts for a specific **time period** and **metri
 If you want to know when you reach a certain transaction threshold, for example 10,000 transactions, you can create an alert:
 
 1. From the left side menu select **Alerts**
-2. From the top menu select **New alert Rule**
+2. From the top menu select **New alert rule**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts.png" alt-text="Screenshot that shows the alert rules page." lightbox="./media/luis-usage-tiers/alerts.png":::
 
-3. Click on **Add Condition**
+3. Click on **Add condition**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts-2.png" alt-text="Screenshot that shows the add condition page for alert rules." lightbox="./media/luis-usage-tiers/alerts-2.png":::
 
-4. Select **Total Calls**
+4. Select **Total calls**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts-3.png" alt-text="Screenshot that shows the total calls page for alerts." lightbox="./media/luis-usage-tiers/alerts-3.png":::
 
