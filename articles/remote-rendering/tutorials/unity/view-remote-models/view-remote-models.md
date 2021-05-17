@@ -569,11 +569,21 @@ public async void InitializeSessionService()
     if (ARRCredentialGetter == null)
         ARRCredentialGetter = GetDevelopmentCredentials;
 
-    var accountInfo = await ARRCredentialGetter.Invoke();
+    var sessionConfiguration = await ARRCredentialGetter.Invoke();
 
     ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
 
-    ARRSessionService.Initialize(accountInfo);
+    try
+    {
+        ARRSessionService.Initialize(sessionConfiguration);
+    }
+    catch (ArgumentException argumentException)
+    {
+        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
+        Debug.LogError(argumentException.Message);
+        CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
+        return;
+    }
 
     CurrentCoordinatorState = RemoteRenderingState.NoSession;
 }
