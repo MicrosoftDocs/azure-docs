@@ -14,7 +14,7 @@ ms.custom: "devx-track-python, devx-track-azurepowershell"
 
 Get started with the Microsoft Azure Confidential Ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger write-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -110,7 +110,7 @@ ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
 
 The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, and deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
 
-In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable and your Azure subscription id (both of which are set above).  
+In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable and your Azure subscription ID (both of which are set above).  
 
 ```python
 confidential_ledger_mgmt = ConfidentialLedgerAPI(
@@ -187,14 +187,14 @@ append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
 print(append_result.transaction_id)
 ```
 
-The print function will return the transaction id of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
+The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
 entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
 print(entry.contents)
 ```
 
-The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction id.
+The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID.
 
 ## Full sample code
 

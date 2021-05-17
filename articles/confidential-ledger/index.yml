@@ -57,7 +57,7 @@ landingContent:
           - text: Register a Ledger service principal
             url: register-ledger-service-principal.md
           - text: Register the Confidential Ledger resource provider
-            url: register-ledger-rp.md
+            url: register-ledger-resource-provider.md
   # Card
   - title: References
     linkLists:

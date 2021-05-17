@@ -42,7 +42,7 @@ Azure resources defined in the template:
 
 1. Select or enter the following values.
 
-    Unless it's specified, use the default value to create the CConfidential Ledger.
+    Unless it's specified, use the default value to create the Confidential Ledger.
 
     - **Ledger name**: Select a name for your ledger. Ledger names must be globally unique.
     - **Location**: Select a location. For example, **East US**.

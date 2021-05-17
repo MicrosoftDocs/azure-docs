@@ -23,7 +23,7 @@
   - name: Register a Ledger service principal
     href: register-ledger-service-principal.md
   - name: Register the Confidential Ledger resource provider
-    href: register-ledger-rp.md
+    href: register-ledger-resource-provider.md
 - name: References
   items:
   - name: FAQ

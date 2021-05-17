@@ -15,6 +15,8 @@ The Confidential Ledger APIs require client certificate-based authentication. On
 
 You will need a certificate in PEM format. You can create more than one certificate and add or delete them using Ledger Update API.
 
+## OpenSSL
+
 We recommending using OpenSSL to generate certificates. If you have git installed, you can run OpenSSL in the git shell. Otherwise, you can install OpenSSL for your OS.
 
 - **Windows**: Install [chocolatey for Windows](https://chocolatey.org/install), open a PowerShell terminal windows in admin mode, and run `choco install openssl`. Alternatively, you can install OpenSSL for Windows directly from [here](http://gnuwin32.sourceforge.net/packages/openssl.htm).
