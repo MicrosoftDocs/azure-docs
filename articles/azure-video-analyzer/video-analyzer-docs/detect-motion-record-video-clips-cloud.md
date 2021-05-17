@@ -20,7 +20,7 @@ This article walks you through the steps to use Azure Video Analyzer edge module
 
 ### Set up Azure resources
 
-[![Deploy to Azure](https://camo.githubusercontent.com/bad3d579584bd4996af60a96735a0fdcb9f402933c139cc6c4c4a4577576411f/68747470733a2f2f616b612e6d732f6465706c6f79746f617a757265627574746f6e)](https://aka.ms/ava-click-to-deploy)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
 1. **Video Analyzer account** - This [cloud service](overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
@@ -29,7 +29,7 @@ The deployment process will take about **20 minutes**. Upon completion, you will
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
-<!-- TODO: provide a link to the readme.md in github.com/azure-video-analyzer/setup/readme.md where we can list out all resources like virtual network etc. -->
+You can get more details [here](https://github.com/Azure/video-analyzer/tree/main/setup).
 
 ## Review the sample video
 
