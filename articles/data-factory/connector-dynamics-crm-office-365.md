@@ -209,6 +209,7 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Dynamics dataset.
+
 To copy data from and to Dynamics, the following properties are supported:
 
 | Property | Description | Required |
