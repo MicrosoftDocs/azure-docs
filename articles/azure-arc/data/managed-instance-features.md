@@ -4,8 +4,8 @@ description: Features and Capabilities of Azure Arc enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: MikeRayMSFT
+ms.author: mikeray
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
