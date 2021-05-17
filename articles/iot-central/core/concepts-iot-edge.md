@@ -191,8 +191,6 @@ To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Cen
 
 ### Update a deployment manifest
 
-If you create a new [version](howto-version-device-template.md) of the device template, you can replace the deployment manifest with a new version:
-
 When you replace the deployment manifest, any connected IoT Edge devices download the new manifest and update their modules. However, IoT Central doesn't update the interfaces in the device template with any changes to the module configuration. For example, if you replace the manifest shown in the previous snippet with the following manifest, you don't automatically see the **SendUnits** property in the **management** interface in the device template. Manually add the new property to the **management** interface for IoT Central to recognize it:
 
 ```json
