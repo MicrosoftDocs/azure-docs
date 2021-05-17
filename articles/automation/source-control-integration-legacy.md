@@ -37,7 +37,7 @@ If you already have a GitHub account and a repository that you want to link to A
    | Choose Source |Select the source. Currently, only **GitHub** is supported. |
    | Authorization |Click the **Authorize** button to grant Azure Automation access to your GitHub repository. If you are already logged in to your GitHub account in a different window, then the credentials of that account are used. Once authorization is successful, the page shows your GitHub user name under **Authorization Property**. |
    | Choose repository |Select a GitHub repository from the list of available repositories. |
-   | Choose branch |Select a branch from the list of available branches. Only the **master** branch is shown if you haven’t created any branches. |
+   | Choose branch |Select a branch from the list of available branches. Only the **main** branch is shown if you haven’t created any branches. |
    | Runbook folder path |The runbook folder path specifies the path in the GitHub repository from which you want to push or pull your code. It must be entered in the format **/foldername/subfoldername**. Only runbooks in the runbook folder path will be synced to your Automation account. Runbooks in the subfolders of the runbook folder path will **NOT** be synced. Use **/** to sync all the runbooks under the repository. |
 3. For example, if you have a repository named **PowerShellScripts** that contains a folder named **RootFolder**, which contains a folder named **SubFolder**. You can use the following strings to sync each folder level:
 

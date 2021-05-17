@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 04/12/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro technical specifications
@@ -18,16 +18,21 @@ The hardware components of your Microsoft Azure Stack Edge Pro device adhere to 
 
 The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
-| Specification           | Value                  |
-|-------------------------|----------------------------|
-| CPU    | 2 X 10 core CPU Intel Xeon Silver 4114 2.2G                    |
-| Memory              | 128 GB RAM (8x 16GB RDIMM)                 |
+| Specification           | Value                             |
+|-------------------------|-----------------------------------|
+| CPU type                | Dual Intel Xeon Silver 4114 2.2 G |
+| CPU: raw                | 20 total cores, 40 total vCPUs    |
+| CPU: usable             | 32 vCPUs                          |
+| Memory type             | 8 x 16 GB RDIMM                   |
+| Memory: raw             | 128 GB RAM (8 x 16 GB)           |
+| Memory: usable          | 102 GB RAM                        |
+
 
 ## FPGA specifications
 
 A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro device that enables Machine Learning (ML) scenarios.
 
-| Specification           | Value                  |
+| Specification           | Value                      |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
@@ -37,7 +42,7 @@ The Azure Stack Edge Pro device has two 100-240 V Power supply units (PSUs) with
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Maximum output power    | 750 W                     |
+| Maximum output power    | 750 W                      |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
@@ -59,7 +64,7 @@ Your Azure Stack Edge Pro device has 6 network interfaces, PORT1- PORT6.
 |-------------------------|----------------------------|
 |  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
 
-The Network Adapters used are: 
+The Network Adapters used are:
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
@@ -77,7 +82,7 @@ The Azure Stack Edge Pro devices have 9 X 2.5" NVMe SSDs, each with a capacity o
 |    Number of solid-state drives (SSDs)     |    8                  |
 |    Single SSD capacity                     |    1.6 TB             |
 |    Total capacity                          |    12.8 TB            |
-|    Total usable capacity*                  |    ~ 12.5 TB            |
+|    Total usable capacity*                  |    ~ 12.5 TB          |
 
 **Some space is reserved for internal use.*
 
@@ -89,19 +94,19 @@ The following tables list the various enclosure specifications for dimensions an
 
 The following table lists the dimensions of the enclosure in millimeters and inches.
 
-|     Enclosure     |     Millimeters     |     Inches     |
-|-------------------|---------------------|----------------|
-|    Height         |    44.45            |    1.75"          |
-|    Width          |    434.1           |    17.09"          |
-|    Length          |    740.4           |    29.15"          |
+|     Enclosure     |     Millimeters    |     Inches     |
+|-------------------|--------------------|----------------|
+|    Height         |    44.45           |    1.75"       |
+|    Width          |    434.1           |    17.09"      |
+|    Length         |    740.4           |    29.15"      |
 
 The following table lists the dimensions of the shipping package in millimeters and inches.
 
-|     Package     |     Millimeters     |     Inches     |
+|     Package       |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    311.2            |    12.25"          |
-|    Width          |    642.8          |    25.31"          |
-|    Length          |   1,051.1          |    41.38"          |
+|    Height         |    311.2            |    12.25"      |
+|    Width          |    642.8            |    25.31"      |
+|    Length         |   1,051.1           |    41.38"      |
 
 ### Enclosure weight
 

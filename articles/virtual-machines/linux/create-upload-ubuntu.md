@@ -2,7 +2,8 @@
 title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
@@ -23,7 +24,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the `Convert-VHD` cmdlet.
-* When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
+* When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
 * Do not configure a swap partition or swapfile on the OS disk. The cloud-init provisioning agent can be configured to create a swap file or a swap partition on the temporary resource disk. More information about this can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
@@ -171,7 +172,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 13. Click **Action -> Shut Down** in Hyper-V Manager.
 
-14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Azure only accepts fixed-size VHDs. If the VM's OS disk is not a fixed-size VHD, use the `Convert-VHD` PowerShell cmdlet and specify the `-VHDType Fixed` option. Please have a look at the docs for `Convert-VHD` here: [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
 
 ## Next steps

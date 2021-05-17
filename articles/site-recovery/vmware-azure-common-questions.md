@@ -141,6 +141,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 
 Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
+### How can I track progress of initial replication/synchronization?
+
+This capability has been recently to Site Recovery services. Update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Learn more on how to track the progress [here](vmware-azure-enable-replication.md#monitor-initial-replication).
+
 ### Can I do an offline initial replication?
 
 Offline replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).

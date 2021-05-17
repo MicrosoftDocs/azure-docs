@@ -3,7 +3,6 @@ title: Secure an Azure Service Fabric cluster
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
 ms.topic: conceptual
 ms.date: 08/14/2018
-ms.custom: sfrev
 ---
 # Service Fabric cluster security scenarios
 

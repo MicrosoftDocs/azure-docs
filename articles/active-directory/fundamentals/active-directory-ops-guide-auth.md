@@ -283,7 +283,7 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 #### Legacy authentication recommended reading
 
-- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Enable or disable POP3 or IMAP4 access to mailboxes in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access)
 
 ### Consent grants
 
@@ -360,8 +360,8 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 
 #### Logs recommended reading
 
-- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
-- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit)
+- [Azure Active Directory sign-in activity report API reference](/graph/api/resources/signin)
 - [Get data using the Azure AD Reporting API with certificates](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph for Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 Management Activity API reference](/office/office-365-management-api/office-365-management-activity-api-reference)

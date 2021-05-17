@@ -4,7 +4,8 @@ description: This article teaches you to create, test, and publish a simple Powe
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
-ms.topic: tutorial
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create a PowerShell Workflow runbook
@@ -126,7 +127,7 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
 ## Step 5 - Add authentication to manage Azure resources
 
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. Authentication uses the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. Authentication uses the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 >[!NOTE]
 >For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. You can use these cmdlets or you can [update your modules](../automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
@@ -141,7 +142,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
    ```powershell-interactive
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -160,13 +161,13 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 Now that your runbook is authenticating to the Azure subscription, you can manage resources. Let's add a command to start a virtual machine. You can pick any VM in your Azure subscription, and for now you're hardcoding that name in the runbook. If you're managing resources across multiple subscriptions, you need to use the `AzContext` parameter with the [Get-AzContext](/powershell/module/az.accounts/get-azcontext) cmdlet.
 
-1. Provide the name and resource group name of the VM to start by entering a call to the [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet as shown below. 
+1. Provide the name and resource group name of the VM to start by entering a call to the [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) cmdlet as shown below. 
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
    # Ensures that you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -195,7 +196,7 @@ Your runbook currently starts the VM that you have hardcoded in the runbook. It 
      [string]$ResourceGroupName
     )
    # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave –Scope Process
+   Disable-AzContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -222,7 +223,7 @@ Your runbook currently starts the VM that you have hardcoded in the runbook. It 
 ## Next steps
 
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 * To get started with graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
 * To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
 * To learn more about runbook types and their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).

@@ -3,10 +3,8 @@ title: Transform data in cloud using PowerShell
 description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster." 
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
@@ -37,7 +35,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
             .builder\
             .appName("PythonWordCount")\
             .getOrCreate()
-    		
+            
         lines = spark.read.text("wasbs://adftutorial@<storageaccountname>.blob.core.windows.net/spark/inputfiles/minecraftstory.txt").rdd.map(lambda r: r[0])
         counts = lines.flatMap(lambda x: x.split(' ')) \
             .map(lambda x: (x, 1)) \
@@ -47,7 +45,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
         spark.stop()
     
     if __name__ == "__main__":
-    	main()
+        main()
     ```
 2. Replace **&lt;storageAccountName&gt;** with the name of your Azure Storage account. Then, save the file. 
 3. In your Azure Blob Storage, create a container named **adftutorial** if it does not exist. 

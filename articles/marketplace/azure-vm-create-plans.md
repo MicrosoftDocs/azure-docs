@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
+ms.date: 05/06/2021
 ---
 
-# How to create plans for a virtual machine offer
+# Create plans for a virtual machine offer
 
 On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can create up to 100 plans for each offer; up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -23,7 +23,7 @@ After you create your plans, select the **Plan overview** tab to display:
 - Current publishing status
 - Available actions
 
-The actions available on the **Plan overview** pane vary depending on the current status of your plan.
+The actions available on this pane vary depending on the current status of your plan.
 
 - If the plan status is a draft, select **Delete draft**.
 - If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
@@ -44,13 +44,6 @@ Select **Create**. This opens the **Plan setup** page.
 ## Plan setup
 
 Set the high-level configuration for the type of plan, specify whether it reuses a technical configuration from another plan, and identify the Azure regions where the plan should be available. Your selections here determine which fields are displayed on other panes for the same plan.
-
-### Reuse technical configuration
-
-If you have more than one plan of the same type, and the packages are identical between them, you can select **This plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and lets you reuse its technical configuration.
-
-> [!NOTE]
-> When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after the plan is published.
 
 ### Azure regions
 
@@ -149,7 +142,9 @@ Private offers are not supported with Azure subscriptions established through a 
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
-Hidden plans don't support preview links.
+Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
+
+Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
@@ -157,8 +152,9 @@ Select **Save draft** before continuing to the next tab in the left-nav Plan men
 
 Provide the images and other technical properties associated with this plan.
 
-> [!NOTE]
-> This tab doesn't display if you configured this plan to reuse packages from another on the **Plan setup** tab.
+### Reuse technical configuration
+
+If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
 
 ### Operating system
 
@@ -186,7 +182,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 1. When creating a new offer, select a **Generation type** and enter the requested details:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation drop-down box.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="A view of the Generation detail section in Partner Center.":::
 
 2. To add another generation to a plan, select **Add generation**...
 
@@ -198,9 +194,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. To update an existing VM that has a Generation 1 already published, edit details on this **Technical configuration** page:
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
+3. To update an existing VM that has a Generation 1 already published, edit details on the **Technical configuration** page.
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
@@ -218,6 +212,8 @@ Data disks (select **Add data disk (maximum 16)**) are also VHD shared access si
 Regardless of which operating system you use, add only the minimum number of data disks that the solution requires. During deployment, customers can't remove disks that are part of an image, but they can always add disks during or after deployment.
 
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
+
+Once your VM image has published, you can delete the image from your Azure storage.
 
 ## Next steps
 

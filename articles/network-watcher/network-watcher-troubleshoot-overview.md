@@ -203,6 +203,11 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
+## Considerations 
+* Only one troubleshoot operation can be run at a time per subscription. To run another troubleshoot operation, wait for the previous one to complete. Triggering more operations while a previous one hasn't completed will cause subsequent operations to fail. 
+* CLI Bug: If you are using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
+
+
 ## Next steps
 
 To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).

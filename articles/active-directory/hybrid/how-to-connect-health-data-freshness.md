@@ -3,8 +3,8 @@ title: Azure AD Connect Health - Health service data is not up to date alert | M
 description: This document describes the cause of "Health service data is not up to date" alert and how to troubleshoot it.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
-manager: SamuelD
+author: billmath
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid

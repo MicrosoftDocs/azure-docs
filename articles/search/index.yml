@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
   ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/25/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search
             url: search-what-is-azure-search.md
+          - text: What is semantic search
+            url: semantic-search-overview.md
           - text: What is AI enrichment
             url: cognitive-search-concept-intro.md
           - text: What is an indexer
@@ -118,7 +120,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
-            url: search-query-simple-examples.md
+            url: search-query-create.md
           - text: Use full syntax
             url: search-query-lucene-examples.md
       - linkListType: reference

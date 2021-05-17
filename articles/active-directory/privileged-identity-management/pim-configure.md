@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
@@ -87,8 +87,8 @@ To better understand Privileged Identity Management and its documentation, you s
 | activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active.  Once activated, the user can use the role for a preconfigured period-of-time before they need to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
 | permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
-| expire  eligible | Duration | A role assignment where a user is eligible to activate the role within a specified start and end date. |
-| expire active | Duration | A role assignment where a user can use the role without performing any actions within a specified start and end date. |
+| time-bound eligible | Duration | A role assignment where a user is eligible to activate the role only within start and end dates. |
+| time-bound active | Duration | A role assignment where a user can use the role only within start and end dates. |
 | just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
 | principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 

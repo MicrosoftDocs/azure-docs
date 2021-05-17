@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to blob data in the Azure portal
@@ -33,6 +33,9 @@ To access blob data with the account access key, you must have an Azure role ass
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
 When you attempt to access blob data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
+
+> [!IMPORTANT]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Azure AD credentials to access blob data in the portal. For information about accessing blob data in the portal with Azure AD, see [Use your Azure AD account](#use-your-azure-ad-account).
 
 > [!NOTE]
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob data with the account key. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
@@ -59,9 +62,9 @@ Custom roles can support different combinations of the same permissions provided
 
 ## Navigate to blobs in the Azure portal
 
-To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Blob service** section in the menu.
+To view blob data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs**. Alternatively you can navigate to the **Containers** section in the menu.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal":::
 
 ## Determine the current authentication method
 

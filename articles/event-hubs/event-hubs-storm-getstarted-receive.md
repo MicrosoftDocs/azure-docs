@@ -230,7 +230,7 @@ You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview][Event Hubs overview]
 * [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 
 <!-- Links -->
 [Event Hubs overview]: ./event-hubs-about.md

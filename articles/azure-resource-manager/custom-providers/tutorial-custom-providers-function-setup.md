@@ -1,6 +1,6 @@
 ---
 title: Set up Azure Functions
-description: This tutorial goes over how to create an Azure function app and set it up to work with Azure Custom Providers
+description: This tutorial goes over how to create a function app in Azure Functions and set it up to work with Azure Custom Providers.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
@@ -9,14 +9,14 @@ ms.author: jobreen
 
 # Set up Azure Functions for Azure Custom Providers
 
-A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up an Azure function app to work as a custom provider endpoint.
+A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up a function app in Azure Functions to work as a custom provider endpoint.
 
-## Create the Azure function app
+## Create the function app
 
 > [!NOTE]
-> In this tutorial, you create a simple service endpoint that uses an Azure function app. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
+> In this tutorial, you create a simple service endpoint that uses a function app in Azure Functions. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
 
-To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../../azure-functions/functions-create-first-azure-function.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
+To start this tutorial, you should first follow the tutorial [Create your first function app in the Azure portal](../../azure-functions/functions-get-started.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
 
 ## Install Azure Table storage bindings
 
@@ -72,6 +72,6 @@ The following XML element is an example C# project file:
 
 ## Next steps
 
-In this tutorial, you set up an Azure function app to work as an Azure custom provider endpoint.
+In this tutorial, you set up a function app in Azure Functions to work as an Azure custom provider endpoint.
 
 To learn how to author a RESTful custom provider endpoint, see [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md).

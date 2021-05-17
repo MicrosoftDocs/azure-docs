@@ -4,7 +4,6 @@ description: Common questions and answers about Azure and Azure Active Directory
 services: active-directory
 author: ajburnle
 manager: daveba
-
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -47,7 +46,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 
 **A:** By default, the person who signs up for an Azure subscription is assigned the Owner role for Azure resources. An Owner can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
 
-If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For additional information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+If others need to sign in and access services by using the same subscription, you can assign them the appropriate [built-in role](../../role-based-access-control/built-in-roles.md). For additional information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. The Global Administrator has access to all Azure AD directory features. Azure AD has a different set of administrator roles to manage the directory and identity-related features. These administrators will have access to various features in the Azure portal. The administrator's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) and [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
 
@@ -115,7 +114,8 @@ For more information, see [Getting started with password management](../authenti
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.yml).
+
 ---
 **Q:  What can I do if I can't remember my existing Microsoft 365/Azure AD password while trying to change my password?**
 
@@ -126,10 +126,10 @@ For Microsoft 365 users, your admin can reset the password by using the steps ou
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
-
+- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
 ---
+
 ## Security
 **Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**
 

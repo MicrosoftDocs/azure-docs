@@ -1,20 +1,11 @@
 ---
 title: Fault tolerance of copy activity in Azure Data Factory 
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible data.'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: 
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-
 ---
 #  Fault tolerance of copy activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,13 +47,14 @@ When you copy binary files between storage stores, you can enable fault toleranc
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true        
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
         "enableCopyActivityLog": true,
         "copyActivityLogSettings": {            
-			"logLevel": "Warning",
+            "logLevel": "Warning",
             "enableReliableLogging": false
         },
         "logLocationSettings": {
@@ -70,7 +62,7 @@ When you copy binary files between storage stores, you can enable fault toleranc
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     }
 } 
@@ -81,6 +73,7 @@ skipErrorFile | A group of properties to specify the types of failures you want 
 fileMissing | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip files, which are being deleted by other applications when ADF is copying in the meanwhile. <br/> -True: you want to copy the rest by skipping the files being deleted by other applications. <br/> - False: you want to abort the copy activity once any files are being deleted from source store in the middle of data movement. <br/>Be aware this property is set to true as default. | True(default) <br/>False | No
 fileForbidden | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, when the ACLs of those files or folders require higher permission level than the connection configured in ADF. <br/> -True: you want to copy the rest by skipping the files. <br/> - False: you want to abort the copy activity once getting the permission issue on folders or files. | True <br/>False(default) | No
 dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent data between source and destination store. <br/> -True: you want to copy the rest by skipping inconsistent data. <br/> - False: you want to abort the copy activity once inconsistent data found. <br/>Be aware this property is only valid when you set validateDataConsistency as True. | True <br/>False(default) | No
+invalidFileName | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the particular files, when the file names are invalid for the destination store. <br/> -True: you want to copy the rest by skipping the files having invalid file names. <br/> - False: you want to abort the copy activity once any files have invalid file names. <br/>Be aware this property works when copying binary files from any storage store to ADLS Gen2 or copying binary files from AWS S3 to any storage store only. | True <br/>False(default) | No
 logSettings  | A group of properties that can be specified when you want to log the skipped object names. | &nbsp; | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you use to store the log file. | No
 path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
@@ -114,7 +107,7 @@ You can get the number of files being read, written, and skipped via the output 
             "filesSkipped": 2, 
             "throughput": 297,
             "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
-			"dataConsistencyVerification": 
+            "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
                 "InconsistentData": "Skipped" 
@@ -183,7 +176,7 @@ The following example provides a JSON definition to configure skipping the incom
     "logSettings": {
         "enableCopyActivityLog": true,
         "copyActivityLogSettings": {            
-			"logLevel": "Warning",
+            "logLevel": "Warning",
             "enableReliableLogging": false
         },
         "logLocationSettings": {
@@ -191,7 +184,7 @@ The following example provides a JSON definition to configure skipping the incom
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     } 
 }, 

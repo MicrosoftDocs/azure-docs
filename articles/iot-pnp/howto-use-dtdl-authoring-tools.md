@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a solution builder, I want to use a DTDL editor to author and validate DTDL model files to use in my IoT Plug and Play solution.
+#Customer intent: As a solution builder, I want to use a DTDL editor to author and validate DTDL model files to use in my IoT Plug and Play solution.
 ---
 
 # Install and use the DTDL authoring tools

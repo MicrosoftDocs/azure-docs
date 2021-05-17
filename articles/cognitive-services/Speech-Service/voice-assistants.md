@@ -61,7 +61,7 @@ Sample code for creating a voice assistant is available on GitHub. These samples
 
 * [Voice assistant samples on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
 * [Tutorial: Voice enable your assistant built using Azure Bot Service with the C# Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Tutorial: Create a Custom Commands application with simple voice commands](how-to-custom-commands-create-application-with-simple-commands.md)
+* [Tutorial: Create a Custom Commands application with simple voice commands](./how-to-develop-custom-commands-application.md)
 
 ## Customization
 

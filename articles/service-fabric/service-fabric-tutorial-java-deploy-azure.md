@@ -30,7 +30,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI](/cli/azure/install-azure-cli)
 * Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 * [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -109,10 +109,10 @@ The following steps create the necessary resources required to deploy your appli
 10. Create an Event Hubs resource using the following command. Follow the prompts to enter details for the namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule, and receiveAuthorizationRule.
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup

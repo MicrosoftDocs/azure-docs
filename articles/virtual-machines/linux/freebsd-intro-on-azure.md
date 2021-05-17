@@ -2,7 +2,8 @@
 title: Introduction to FreeBSD on Azure 
 description: Learn about using FreeBSD virtual machines on Azure
 author: thomas1206
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
@@ -41,10 +42,10 @@ sudo pkg install bash
 If python is not installed on your FreeBSD machine, run following commands before the installation. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
@@ -114,4 +115,4 @@ You can optionally obtain a root shell by using `sudo -s`.
 The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue](https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
-* Go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_1?tab=Overview) to create a FreeBSD VM.
+* Go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/thefreebsdfoundation.freebsd-12_2?tab=Overview) to create a FreeBSD VM.

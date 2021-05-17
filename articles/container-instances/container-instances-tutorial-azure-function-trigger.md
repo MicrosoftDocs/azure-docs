@@ -100,7 +100,7 @@ A notification is displayed after your function app is created and the deploymen
 
 ## Run the function in Azure
 
-After the deployment completes successfully, get the function URL. For example, use the **Azure: Functions** area in Visual Studio Code to copy the **HttpTrigger** function URL, or get the function URL in the [Azure portal](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+After the deployment completes successfully, get the function URL. For example, use the **Azure: Functions** area in Visual Studio Code to copy the **HttpTrigger** function URL, or get the function URL in the [Azure portal](../azure-functions/functions-get-started.md).
 
 The function URL is of the form:
 

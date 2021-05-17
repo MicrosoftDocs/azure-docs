@@ -63,7 +63,7 @@ Set breakpoints and inspect objects in your function using the IDE. When finishe
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using your computer's command prompt.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing using your computer's command prompt.
 
 ```azurecli
 az login

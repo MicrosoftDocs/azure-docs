@@ -3,7 +3,7 @@ title: Add a connected organization in Azure AD entitlement management - Azure A
 description: Learn how to allow people outside your organization to request access packages so that you can collaborate on projects.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
-ms.author: barclayn
+ms.date: 12/11/2020
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -28,14 +28,20 @@ With Azure Active Directory (Azure AD) entitlement management, you can collabora
 
 ## What is a connected organization?
 
-A connected organization is an external Azure AD directory or domain that you have a relationship with.
+A connected organization is another organization that you have a relationship with.  In order for the users in that organization to be able to access your resources, such as your SharePoint Online sites or apps, you'll need a representation of that organization's users in that directory.  Because in most cases the users in that organization aren't already in your Azure AD directory, you can use entitlement management to bring them into your Azure AD directory as needed.  
+
+There are three ways that entitlement management lets you specify the users that form a connected organization.  It could be
+
+* users in another Azure AD directory,
+* users in another non-Azure AD directory that has been configured for direct federation, or
+* users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations. These two organizations have different configurations:
 
 - Graphic Design Institute uses Azure AD, and their users have a user principal name that ends with *graphicdesigninstitute.com*.
 - Contoso does not yet use Azure AD. Contoso users have a user principal name that ends with *contoso.com*.
 
-In this case, you can configure two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then add the two connected organizations to a policy, users from each organization with a user principal name that matches the policy can request access packages. Users with a user principal name that has a domain of *graphicdesigninstitute.com* would match the Graphic Design Institute-connected organization and be allowed to submit requests. Users with a user principal name that has a domain of *contoso.com* would match the Contoso-connected organization and would also be allowed to request packages. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to their tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy.
+In this case, you can configure two connected organizations. You create one connected organization for Graphic Design Institute and one for Contoso. If you then add the two connected organizations to a policy, users from each organization with a user principal name that matches the policy can request access packages. Users with a user principal name that has a domain of contoso.com would match the Contoso-connected organization and would also be allowed to request packages. Users with a user principal name that has a domain of *graphicdesigninstitute.com* would match the Graphic Design Institute-connected organization and be allowed to submit requests. And, because Graphic Design Institute uses Azure AD, any users with a principal name that matches a [verified domain](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) that's added to their tenant, such as *graphicdesigninstitute.example*, would also be able to request access packages by using the same policy. If you have [email one-time passcode (OTP) authentication](../external-identities/one-time-passcode.md) turned on, that includes users from those domains who do not yet have Azure AD accounts who will authenticate using email OTP when accessing your resources. 
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -53,7 +59,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator* or *User administrator*
+**Prerequisite role**: *Global administrator*, *Identity Governance administrator*,  or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -129,13 +135,11 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
 1. In the connected organization's overview pane, select **Delete** to delete it.
 
-    Currently, you can delete a connected organization only if there are no connected users.
-
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
 ## Managing a connected organization programmatically
 
-You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) objects and set sponsors for them.
 
 ## State properties of connected organizations
 

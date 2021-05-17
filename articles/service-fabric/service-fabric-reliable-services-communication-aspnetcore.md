@@ -1,11 +1,8 @@
 ---
 title: Service communication with the ASP.NET Core 
 description: Learn how to use ASP.NET Core in stateless and stateful Azure Service Fabric Reliable Services applications.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 
@@ -188,7 +185,7 @@ A dynamic port allocated by an `Endpoint` configuration provides only one port *
 ## Kestrel in Reliable Services
 You can use Kestrel in Reliable Services by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`. `KestrelCommunicationListener` allows you to create an ASP.NET Core WebHost inside a reliable service by using Kestrel as the web server.
 
-Kestrel is a cross-platform web server for ASP.NET Core. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port. For more on Kestrel, see the [Implementation Details](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel is a cross-platform web server for ASP.NET Core. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port. For more on Kestrel, see the [Implementation Details](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Kestrel diagram][4]
 

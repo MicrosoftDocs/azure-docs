@@ -5,13 +5,10 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/09/2020
 ---
 
 # Logical decoding
- 
-> [!NOTE]
-> Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
 
 [Logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) allows you to stream data changes to external consumers. Logical decoding is popularly used for event streaming and change data capture scenarios.
 

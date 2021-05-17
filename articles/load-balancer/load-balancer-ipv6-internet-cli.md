@@ -54,7 +54,7 @@ To deploy a load balancer, create and configure the following objects:
 
 In this example, you run the Azure CLI tools in a PowerShell command window. To improve readability and reuse, you use PowerShell's scripting capabilities, not the Azure PowerShell cmdlets.
 
-1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) by following the steps in the linked article and sign in to your Azure account.
+1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli) by following the steps in the linked article and sign in to your Azure account.
 
 2. Set up PowerShell variables for use with the Azure CLI commands:
 

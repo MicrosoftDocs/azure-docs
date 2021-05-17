@@ -2,19 +2,19 @@
 title: Rewrite URL and query string with Azure Application Gateway - Azure portal
 description: Learn how to use the Azure portal to configure an Azure Application Gateway to rewrite URL and query string
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
+ms.date: 4/05/2021
+ms.author: azhussai
 ---
 
-# Rewrite URL with Azure Application Gateway - Azure portal (Preview)
+# Rewrite URL with Azure Application Gateway - Azure portal
 
 This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md) instance to rewrite URL.
 
 >[!NOTE]
-> URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> URL rewrite feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. When URL rewrite is configured on a WAF enabled gateway, WAF evaluation will take place on the rewritten request headers and URL. [Learn more](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -115,4 +115,4 @@ For more information on all the fields in the access logs, see [here](applicatio
 
 ##  Next steps
 
-To learn more about how to set up rewrites for some common use cases, see [common rewrite scenarios](rewrite-http-headers.md).
+To learn more about how to set up rewrites for some common use cases, see [common rewrite scenarios](./rewrite-http-headers-url.md).

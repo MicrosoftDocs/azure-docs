@@ -3,14 +3,63 @@ title: Windows Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Windows Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
 # Required URL list
 
-In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock.
+In order to deploy and use Windows Virtual Desktop, you must unblock certain URLs so your virtual machines (VMs) can access them anytime. This article lists the required URLs you need to unblock in order for Windows Virtual Desktop to function properly. 
+
+>[!IMPORTANT]
+>Windows Virtual Desktop doesn't support deployments that block the URLs listed in this article.
+
+## Required URL Check tool
+
+The Required URL Check tool will validate URLs and display whether the URLs the virtual machine needs to function are accessible. If not, then the tool will list the inaccessible URLs so you can unblock them, if needed.
+
+It's important to keep the following things in mind:
+
+- You can only use the Required URL Check tool for deployments in commercial clouds.
+- The Required URL Check tool can't check URLs with wildcards so make sure you unblock those URLs first.
+
+### Requirements
+
+You need the following things to use the Required URL Check tool:
+
+- Your VM must have a .NET 4.6.2 framework
+- RDAgent version 1.0.2944.400 or higher
+- The WVDAgentUrlTool.exe file must be in the same folder as the WVDAgentUrlTool.config file
+
+### How to use the Required URL Check tool
+
+To use the Required URL Check tool:
+
+1. Open a command prompt as an administrator on your VM.
+2. Run the following command to change the directory to the same folder as the build agent:
+
+    ```console
+    cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+    ```
+
+3. Run the following command:
+
+    ```console
+    WVDAgentUrlTool.exe
+    ```
+ 
+4. Once you run the file, you'll see a list of accessible and inaccessible URLs.
+
+    For example, the following screenshot shows a scenario where you'd need to unblock two required non-wildcard URLs:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of non-accessible URLs output.](media/noaccess.png)
+    
+    Here's what the output should look like once you've unblocked all required non-wildcard URLs:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of accessible URLs output.](media/access.png)
 
 ## Virtual machines
 
@@ -24,6 +73,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |*xt.blob.core.windows.net|443|Agent traffic|AzureCloud|
 |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
+|*xt.queue.core.windows.net|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
@@ -40,7 +90,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
-|*.wvd.microsoft.us|443|Service traffic|WindowsVirtualDesktop|
+|*.wvd.azure.us|443|Service traffic|WindowsVirtualDesktop|
 |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic|AzureCloud|

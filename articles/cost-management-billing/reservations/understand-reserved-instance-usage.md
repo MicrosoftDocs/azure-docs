@@ -13,7 +13,7 @@ ms.author: banders
 
 # Understand Azure reservation usage for your individual subscription with pay-as-you-go rates subscription
 
-Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com) to evaluate your reservation usage.
+Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure portal](https://portal.azure.com) to evaluate your reservation usage.
 
 If you are a customer with an Enterprise Agreement, see [Understand reservation usage for your Enterprise enrollment.](understand-reserved-instance-usage-ea.md).
 

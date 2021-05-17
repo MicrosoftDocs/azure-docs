@@ -1,14 +1,11 @@
 ---
 title: Troubleshoot package execution in the SSIS integration runtime
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.author: wenjiefu
-author: wenjiefu
+ms.author: sawinark
+author: swinarko
 ms.reviewer: sawinark
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ---
@@ -23,7 +20,7 @@ This article includes the most common errors that you might find when you're exe
 
 Use the Azure Data Factory portal to check the output of the SSIS package execution activity. The output includes the execution result, error messages, and operation ID. For details, see [Monitor the pipeline](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Use the SSIS catalog (SSISDB) to check the detail logs for the execution. For details, see [Monitor Running Packages and Other Operations](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Use the SSIS catalog (SSISDB) to check the detail logs for the execution. For details, see [Monitor Running Packages and Other Operations](/sql/integration-services/performance/monitor-running-packages-and-other-operations).
 
 ## Common errors, causes, and solutions
 
@@ -87,7 +84,7 @@ This error means the local disk is used up in the SSIS integration runtime node.
 This error occurs when package execution can't find a file in the local disk in the SSIS integration runtime. Try these actions:
 * Don't use the absolute path in the package that's being executed in the SSIS integration runtime. Use the current execution working directory (.) or the temp folder (%TEMP%) instead.
 * If you need to persist some files on SSIS integration runtime nodes, prepare the files as described in [Customize setup](how-to-configure-azure-ssis-ir-custom-setup.md). All the files in the working directory will be cleaned up after the execution is finished.
-* Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
 
 ### Error message: "The database 'SSISDB' has reached its size quota"
 
@@ -121,7 +118,10 @@ This error occurs when the SSIS integration runtime can't access the storage con
 One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
 
 1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).
-2. In Connection Manager, configure **Use a specific user name and password**: set **AppID** as the username and **clientSecret** as the password.
+2. In the Connection Manager, configure **Use a specific user name and password:** set **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;*** as the username and clientSecret as the password. Here is an example of a correctly formatted user name:
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. In Connection Manager, configure **Use a specific user name and password**: set **AppID** as the username and **clientSecret** as the password.
 
 ### Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using a managed identity
 
@@ -147,11 +147,15 @@ Make sure the corresponding provider used by your OLE DB connectors in your pack
 
 One potential cause is your Self-Hosted integration runtime is not installed or upgraded properly. Suggest to download and reinstall the latest Self-hosted integration runtime. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md#installation-best-practices)
 
+### Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy..."
+
+Check if security policies are correctly assigned to the account running self-hosted IR service. If Windows authentication is used on Execute SSIS Package activity or the execution credential is set in SSIS catalog (SSISDB), the same security policies must be assigned to the Windows account used. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks)
+
 ### Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection"
 
 * Potential cause & recommended action:
-  * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * Execution log can be found in [SSMS report](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) or in the log folder you specified in SSIS package execution activity.
+  * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy)
+  * Execution log can be found in [SSMS report](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) or in the log folder you specified in SSIS package execution activity.
   * vNet can also be used to access on-premises data as an alternative. More detail can be found at [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"

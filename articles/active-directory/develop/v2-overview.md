@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: identityplatformtop40, contperfq2
+ms.custom: identityplatformtop40, contperf-fy21q2
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
@@ -35,6 +35,8 @@ There are several components that make up the Microsoft identity platform:
 For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
 
 With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
+
+For a video overview of the platform and a demo of the authentication experience, see [What is the Microsoft identity platform for developers?](https://youtu.be/uDU1QTSw7Ps).
 
 ## Getting started
 
@@ -75,7 +77,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 ## Next steps
 
-If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
+If you have an Azure account you already have access to an Azure Active Directory tenant, but most the Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
 
 Learn how to create your own tenant for use while building your applications:
 

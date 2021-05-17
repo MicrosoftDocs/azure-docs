@@ -1,9 +1,9 @@
 ---
-title: Request transit data with Microsoft Azure Maps Mobility service
-description: Learn how to use the Azure Maps Mobility service to request public transit data, such as metro area IDs, transit stops, routes, and route itineraries.
+title: Request transit data with Microsoft Azure Maps Mobility services (Preview) 
+description: Learn how to use the Azure Maps Mobility services (Preview) to request public transit data, such as metro area IDs, transit stops, routes, and route itineraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/22/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -11,9 +11,15 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Request public transit data using the Azure Maps Mobility service
+# Request public transit data using the Azure Maps Mobility services (Preview) 
 
-This article shows you how to use Azure Maps [Mobility service](/rest/api/maps/mobility) to request public transit data. Transit data includes transit stops, route information, and travel time estimations.
+> [!IMPORTANT]
+> Azure Maps Mobility services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+This article shows you how to use Azure Maps [Mobility services](/rest/api/maps/mobility) to request public transit data. Transit data includes transit stops, route information, and travel time estimations.
 
 In this article you'll learn, how to:
 
@@ -31,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Get a metro area ID
 
-In order to request detail information about transit agencies and supported transit types for a particular metropolitan area, you'll need the `metroId` of that area. The [Get Metro Area API](/rest/api/maps/mobility/getmetroareapreview) allows you to request metro areas, in which the Azure Maps Mobility service is available. The response includes details such as the `metroId`, `metroName`, and the representation of the metro area geometry in GeoJSON format.
+In order to request detail information about transit agencies and supported transit types for a particular metropolitan area, you'll need the `metroId` of that area. The [Get Metro Area API](/rest/api/maps/mobility/getmetroareapreview) allows you to request metro areas, in which the Azure Maps Mobility services are available. The response includes details such as the `metroId`, `metroName`, and the representation of the metro area geometry in GeoJSON format.
 
 Let's make a request to get the Metro Area for the Seattle-Tacoma metro area ID. To request ID for a metro area, complete the following steps:
 
@@ -791,12 +797,12 @@ The Azure Maps [Get Transit Itinerary](/rest/api/maps/mobility/gettransititinera
 
 ## Next steps
 
-Learn how to request real-time data using Mobility service:
+Learn how to request real-time data using Mobility services (Preview):
 
 > [!div class="nextstepaction"]
 > [How to request real-time data](how-to-request-real-time-data.md)
 
-Explore the Azure Maps Mobility service API documentation
+Explore the Azure Maps Mobility services (Preview) API documentation
 
 > [!div class="nextstepaction"]
-> [Mobility service documentation](/rest/api/maps/mobility)
+> [Mobility services documentation](/rest/api/maps/mobility)

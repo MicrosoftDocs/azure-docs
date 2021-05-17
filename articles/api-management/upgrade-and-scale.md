@@ -85,4 +85,5 @@ If your security requirements include [compute isolation](../azure-government/az
 
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 - [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
-- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Plan and manage costs for API Management](plan-manage-costs.md)
+- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

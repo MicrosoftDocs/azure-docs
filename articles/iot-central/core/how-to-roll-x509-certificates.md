@@ -19,7 +19,7 @@ If you have a security breach, rolling certificates is a security best practice 
 
 ## Obtain new X.509 certificates
 
-You can create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. Only use this approach for testing unless you prepared to act as your own CA provider.
+You can create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. Only use this approach for testing unless you are prepared to act as your own CA provider.
 
 ## Enrollment groups and security breaches
 

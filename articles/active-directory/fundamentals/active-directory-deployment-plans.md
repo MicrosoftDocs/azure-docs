@@ -25,7 +25,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 
 | Capability | Description|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. |
+| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. Watch this video on [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions. |
 | [Self-service password reset](../authentication/howto-sspr-deployment.md)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
 | [Passwordless](../authentication/howto-authentication-passwordless-deployment.md) | Implement passwordless authentication using the the Microsoft Authenticator app or FIDO2 Security keys in your organization |
@@ -35,7 +35,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | Capability | Description|
 | -| - |
 | [Single sign-on](../manage-apps/plan-sso-deployment.md)| Single sign-on helps your users access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
-| [Access panel](../manage-apps/access-panel-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
+| [My Apps](../manage-apps/my-apps-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
 | [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
 

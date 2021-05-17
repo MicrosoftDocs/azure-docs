@@ -22,7 +22,7 @@ You can use the Video Indexer APIs to create and edit custom Language models in 
 
 ## Create a Language model
 
-The [create a language model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) API creates a new custom Language model in the specified account. You can upload files for the Language model in this call. Alternatively, you can create the Language model here and upload files for the model later by updating the Language model.
+The [create a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Language-Model) API creates a new custom Language model in the specified account. You can upload files for the Language model in this call. Alternatively, you can create the Language model here and upload files for the model later by updating the Language model.
 
 > [!NOTE]
 > You must still train the model with its enabled files for the model to learn the contents of its files. Directions on training a language are in the next section.
@@ -65,7 +65,7 @@ The response provides metadata on the newly created Language model along with me
 
 ## Train a Language model
 
-The [train a language model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API trains a custom Language model in the specified account with the contents in the files that were uploaded to and enabled in the language model.
+The [train a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Train-Language-Model) API trains a custom Language model in the specified account with the contents in the files that were uploaded to and enabled in the language model.
 
 > [!NOTE]
 > You must first create the Language model and upload its files. You can upload files when creating the Language model or by updating the Language model.
@@ -100,11 +100,11 @@ The response provides metadata on the newly trained Language model along with me
 }
 ```
 
-The returned `id` is a unique ID used to distinguish between language models, while `languageModelId` is used both for [uploading a video to index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) and [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) APIs (also known as `linguisticModelId` in Video Indexer upload/reindex APIs).
+The returned `id` is a unique ID used to distinguish between language models, while `languageModelId` is used both for [uploading a video to index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [reindexing a video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs (also known as `linguisticModelId` in Video Indexer upload/reindex APIs).
 
 ## Delete a Language model
 
-The [delete a language model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Video Indexer will use its default model to reindex the video.
+The [delete a language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model) API deletes a custom Language model from the specified account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise, Video Indexer will use its default model to reindex the video.
 
 ### Response
 
@@ -112,7 +112,7 @@ There's no returned content when the Language model is deleted successfully.
 
 ## Update a Language model
 
-The [update a Language model](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) API updates a custom Language person model in the specified account.
+The [update a Language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) API updates a custom Language person model in the specified account.
 
 > [!NOTE]
 > You must have already created the Language model. You can use this call to enable or disable all files under the model, update the name of the Language model, and upload files to be added to the language model.
@@ -156,7 +156,7 @@ Use the `id` of the files returned in the response to download the contents of t
 
 ## Update a file from a Language model
 
-The [update a file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) allows you to update the name and `enable` state of a file in a custom Language model in the specified account.
+The [update a file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model-file) allows you to update the name and `enable` state of a file in a custom Language model in the specified account.
 
 ### Response
 
@@ -176,7 +176,7 @@ Use the `id` of the file returned in the response to download the contents of th
 
 ## Get a specific Language model
 
-The [get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) API returns information on the specified Language model in the specified account such as language and the files that are in the Language model.
+The [get](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model) API returns information on the specified Language model in the specified account such as language and the files that are in the Language model.
 
 ### Response
 
@@ -212,7 +212,7 @@ Use the `id` of the file returned in the response to download the contents of th
 
 ## Get all the Language models
 
-The [get all](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API returns all of the custom Language models in the specified account in a list.
+The [get all](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Models) API returns all of the custom Language models in the specified account in a list.
 
 ### Response
 
@@ -256,7 +256,7 @@ The response provides a list of all of the Language models in your account and e
 
 ## Delete a file from a Language model
 
-The [delete](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) API deletes the specified file from the specified Language model in the specified account.
+The [delete](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Language-Model-File) API deletes the specified file from the specified Language model in the specified account.
 
 ### Response
 
@@ -264,7 +264,7 @@ There's no returned content when the file is deleted from the Language model suc
 
 ## Get metadata on a file from a Language model
 
-The [get metadata of a file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API returns the contents of and metadata on the specified file from the chosen Language model in your account.
+The [get metadata of a file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Language-Model-File-Data) API returns the contents of and metadata on the specified file from the chosen Language model in your account.
 
 ### Response
 
@@ -286,7 +286,7 @@ The response provides the contents and metadata of the file in JSON format, simi
 
 ## Download a file from a Language model
 
-The [download a file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) API downloads a text file containing the contents of the specified file from the specified Language model in the specified account. This text file should match the contents of the text file that was originally uploaded.
+The [download a file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Download-Language-Model-File-Content) API downloads a text file containing the contents of the specified file from the specified Language model in the specified account. This text file should match the contents of the text file that was originally uploaded.
 
 ### Response
 

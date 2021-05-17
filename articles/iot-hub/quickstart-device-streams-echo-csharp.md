@@ -1,5 +1,5 @@
 ---
-title: Communicate to device app in C# with Azure IoT Hub device streams
+title: Quickstart - Communicate to device app in C# with Azure IoT Hub device streams
 description: In this quickstart, you run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: robinsh
 ms.service: iot-hub
@@ -31,7 +31,7 @@ Azure IoT Hub currently supports device streams as a [preview feature](https://a
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 
-    Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+    Download the [.NET Core SDK for multiple platforms from .NET](https://dotnet.microsoft.com/download).
 
     Verify the current version of C# on your development machine by using the following command:
 
@@ -69,7 +69,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
    > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Note the returned device connection string for later use in this quickstart. It looks like the following example:

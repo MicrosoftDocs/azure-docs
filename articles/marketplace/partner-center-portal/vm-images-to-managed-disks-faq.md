@@ -6,8 +6,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ---
 
 # We’re moving virtual machine (VM) images on Azure Marketplace to managed disk storage
@@ -25,8 +25,6 @@ If you have any questions, please [contact us](https://support.microsoft.com/sup
 ### Would the users of my VM images experience an outage?
 
 Users of the VM images will not experience an outage. 
-
-In the first phase, we will only move VM images that have no running VMs. As there are no users for these images, there will not be any impact. For the subsequent phases too, there will be no impact on the users.
 
 ### How long does it take for the process to complete?
 

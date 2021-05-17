@@ -10,30 +10,30 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-1. In **Solution Explorer**, right-click the project and select **Publish**.
+1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.
 
-1. In **Target**, select **Azure**
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Select Azure target":::
+1. For the **Specific target**, choose **Azure Function App (Windows)**, which creates a function app that runs on Windows.
 
-1. In **Specific target**, select **Azure Function App (Windows)**
+1. In **Function Instance**, choose **Create a new Azure Function...** 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Select Azure Function App":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Create a new function app instance":::
 
-1. In **Function Instance**, select **Create a new Azure Function...** and then use the values specified in the following table:
+1. Create a new instance using the values specified in the following table:
 
     | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
     | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
     | **[Resource group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which to create your function app. Select an existing resource group from the drop-down list or choose **New** to create a new resource group.|
-    | **[Plan Type](../articles/azure-functions/functions-scale.md)** | Consumption | When you publish your project to a function app that runs in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
+    | **[Plan Type](../articles/azure-functions/functions-scale.md)** | Consumption | When you publish your project to a function app that runs in a [Consumption plan](../articles/azure-functions/consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
     | **Location** | Location of the app service | Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access. |
-    | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | General-purpose storage account | An Azure Storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure Storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
 
     ![Create App Service dialog](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Select **Create** to create a function app and its related resources in Azure. 
-1. In the **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance. 
+1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window. 
+
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Finish profile creation":::
 

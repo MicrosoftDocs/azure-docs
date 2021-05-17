@@ -86,7 +86,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 

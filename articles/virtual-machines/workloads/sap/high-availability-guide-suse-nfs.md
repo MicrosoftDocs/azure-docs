@@ -8,12 +8,11 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
 
 ---
@@ -49,6 +48,10 @@ ms.author: radeltch
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
+
+
+> [!NOTE]
+> This article contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the terms are removed from the software, we’ll remove them from this article.
 
 Read the following SAP Notes and papers first
 
@@ -168,7 +171,6 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
          1. Select **HA Ports**.
-         1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2

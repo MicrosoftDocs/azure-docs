@@ -1,19 +1,11 @@
 ---
 title: Move data from an HTTP source - Azure 
 description: Learn how to move data from an on-premises or cloud HTTP source by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an HTTP source by using Azure Data Factory
@@ -24,7 +16,6 @@ robots: noindex
 
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you're using the current version of the Azure Data Factory service, see [HTTP connector in V2](../connector-http.md).
-
 
 This article outlines how to use Copy Activity in Azure Data Factory to move data from an on-premises or cloud HTTP endpoint to a supported sink data store. This article builds on [Move data by using Copy Activity](data-factory-data-movement-activities.md), which presents a general overview of data movement by using Copy Activity. The article also lists the data stores that Copy Activity supports as sources and sinks.
 
@@ -94,7 +85,7 @@ To use basic authentication, set **authenticationType** to **ClientCertificate**
 | Property | Description | Required |
 | --- | --- | --- |
 | embeddedCertData | The Base64-encoded contents of binary data of the PFX file. | Specify either **embeddedCertData** or **certThumbprint** |
-| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine’s cert store. Apply only when you copy data from an on-premises HTTP source. | Specify either **embeddedCertData** or **certThumbprint** |
+| certThumbprint | The thumbprint of the certificate that was installed on your gateway machine's cert store. Apply only when you copy data from an on-premises HTTP source. | Specify either **embeddedCertData** or **certThumbprint** |
 | password | The password that's associated with the certificate. | No |
 
 If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the gateway service:
@@ -118,9 +109,8 @@ This linked service links your data factory to an on-premises HTTP web server. I
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-		    "certThumbprint": "thumbprint of certificate",
-		    "gatewayName": "gateway name"
-
+            "certThumbprint": "thumbprint of certificate",
+            "gatewayName": "gateway name"
         }
     }
 }
@@ -140,8 +130,8 @@ This linked service links your data factory to an on-premises HTTP web server. I
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-		    "embeddedCertData": "Base64-encoded cert data",
-		    "password": "password of cert"
+            "embeddedCertData": "Base64-encoded cert data",
+            "password": "password of cert"
         }
     }
 }
@@ -169,14 +159,14 @@ The **typeProperties** section is different for each type of dataset. The **type
 
 ```json
 {
-	"name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-		"type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-			"relativeUrl": "XXX/test.xml",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-		},
+          "relativeUrl": "XXX/test.xml",
+          "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -196,7 +186,7 @@ The **typeProperties** section is different for each type of dataset. The **type
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-		   "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -281,14 +271,14 @@ Setting **external** to **true** informs the Data Factory service that the datas
 
 ```json
 {
-	"name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-		"type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-	    	"additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-		},
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

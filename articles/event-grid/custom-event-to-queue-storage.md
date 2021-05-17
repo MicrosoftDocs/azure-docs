@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.' 
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart 
 ms.custom: devx-track-azurecli
 ---
@@ -24,7 +24,7 @@ This article gives you commands for using Azure CLI.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
@@ -112,6 +112,11 @@ Navigate to the Queue storage in the portal, and notice that Event Grid sent tho
 
 ![Show messages](./media/custom-event-to-queue-storage/messages.png)
 
+> [!NOTE]
+> If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> The reason is that when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**, but Event Grid sends messages to a storage queue in a plain text format. Currently, it's not possible to configure the queue trigger for Azure Functions to accept plain text. 
+
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, use the following command to delete the resources you created in this article.
@@ -128,3 +133,11 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+
+See the following samples to learn about publishing events to and consuming events from Event Grid using different programming languages. 
+
+- [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Azure Event Grid samples for Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Azure Event Grid samples for JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Azure Event Grid samples for TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

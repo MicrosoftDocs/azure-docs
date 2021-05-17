@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to configure a new multi-tenant application
@@ -25,4 +25,4 @@ Here is a list of recommended topics to learn more about multi-tenant applicatio
 - For more depth, learn [how a multi-tenant application is configured and coded end-to-end](./howto-convert-app-to-be-multi-tenant.md), including how to register, use the "common" endpoint, implement "user" and "admin" consent, how to implement more advanced multi-tier scenarios
 
 ## Next steps
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

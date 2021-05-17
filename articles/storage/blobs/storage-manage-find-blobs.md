@@ -1,10 +1,10 @@
 ---
 title: Manage and find Azure Blob data with blob index tags (preview)
 description: Learn how to use blob index tags to categorize, manage, and query for blob objects.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 10/19/2020
+ms.author: twooley
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -25,6 +25,9 @@ Blob index tags let you:
 
 Consider a scenario where you have millions of blobs in your storage account, accessed by many different applications. You want to find all related data from a single project. You aren't sure what's in scope as the data can be spread across multiple containers with different naming conventions. However, your applications upload all data with tags based on their project. Instead of searching through millions of blobs and comparing names and properties, you can use `Project = Contoso` as your discovery criteria. Blob index will filter all containers across your entire storage account to quickly find and return just the set of 50 blobs from `Project = Contoso`.
 
+> [!IMPORTANT]
+> Blob index tags are currently in **PREVIEW** and available in all public regions. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 To get started with examples on how to use blob index, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
 ## Blob index tags and data management
@@ -38,7 +41,6 @@ Consider the following five blobs in your storage account:
 - *photos/bannerphoto.png*
 - *archives/completed/2019review.pdf*
 - *logs/2020/01/01/logfile.txt*
-
 
 These blobs are separated using a prefix of *container/virtual folder/blob name*. You can set an index tag attribute of `Project = Contoso` on these five blobs to categorize them together while maintaining their current prefix organization. Adding index tags eliminates the need to move data by exposing the ability to filter and find data using the index.
 
@@ -108,6 +110,7 @@ The following criteria applies to blob index filtering:
 - Filters are applied with lexicographic sorting on strings
 - Same sided range operations on the same key are invalid (for example, `"Rank" > '10' AND "Rank" >= '15'`)
 - When using REST to create a filter expression, characters should be URI encoded
+- Tag queries are optimized for equality match using a single tag (e.g. StoreID = "100").  Range queries using a single tag involving >, >=, <, <= are also efficient. Any query using AND with more than one tag will not be as efficient.  For example, Cost > "01" AND Cost <= "100" is efficient. Cost > "01 AND StoreID = "2" is not as efficient.
 
 The below table shows all the valid operators for `Find Blobs by Tags`:
 
@@ -275,7 +278,7 @@ The following table summarizes the differences between metadata and blob index t
 
 ## Pricing
 
-Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to `Set Blob Tags`, `Get Blob Tags`, and `Find Blobs by Tags` are charged in accordance to their respective operation types. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Blob index pricing is in public preview and subject to change for general availability. You're charged for the monthly average number of index tags within a storage account. There's no cost for the indexing engine. Requests to Set Blog Tags, Get Blob Tags, and Find Blob Tags are charged at the current respective transaction rates. Note that the number of list transactions consumed when doing a Find Blobs by Tag transaction is equal to the number of clauses in the request. For example, the query (StoreID = 100) is one list transaction.  The query (StoreID = 100 AND SKU = 10010) is two list transactions. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability and storage account support
 
@@ -283,12 +286,7 @@ Blob index tags are only available on General Purpose v2 (GPv2) accounts with hi
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-In public preview, blob index tags are only available in the following regions:
-
-- Canada Central
-- Canada East
-- France Central
-- France South
+Blob index tags are currently available in all public regions.
 
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 

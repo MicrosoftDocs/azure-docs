@@ -38,7 +38,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
     * Without an Azure active subscription:
         * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7 or 3.5.3+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
+- [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -86,7 +86,7 @@ The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mast
 
 ## Indexing examples
 
-The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-kinds), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles.
+The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-types), and [indexing paths](index-policy.md#include-exclude-paths) conceptual articles.
 
 | Task | API reference |
 | --- | --- |

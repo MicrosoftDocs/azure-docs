@@ -1,6 +1,9 @@
 ---
 title: Add assessment tools in Azure Migrate 
 description: Learn how to add assessment tools in Azure Migrate. 
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ---
@@ -18,23 +21,23 @@ This article describes how to add assessment tools in [Azure Migrate](./migrate-
 1. In the Azure Migrate project, click **Overview**.
 2. Select the assessment scenario:
 
-    - To discover and assess machines and workloads for migration to Azure, select **Assess and migrate servers**.
+    - To discover, assess and migrate servers (physical or virtual) from your datacenter or other clouds to Azure, select **Discover, assess and migrate**. You can now also discover and assess SQL Server from your VMware environment using this migration goal.
     - To assess on-premises SQL Server databases, select **Assess and migrate databases**.
     - To assess or migrate on-premises web apps,  select **Explore more** > **Web Apps**.
     - To assess your virtual desktop infrastructure, select **Explore more** > **Virtual Desktop Infrastructure**.
 
     ![Options for selecting an assessment scenario](./media/how-to-assess/assess-scenario.png)
 
-## Select a server assessment tool 
+## Select a discovery and assessment tool 
 
 
 1. Add a tool:
 
-    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Azure Migrate Server Assessment tool is automatically added to the project. To add additional assessment tools, in **Servers**, next to **Assessment tools**, select **Add more tools**.
-    
+    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Azure Migrate Discovery and assessment tool is automatically added to the project. To add additional assessment tools, in **Windows, Linux and SQL Server**, next to **Assessment tools**, select **Add more tools**.
+
          ![Button to add additional assessment tools](./media/how-to-assess/add-assessment-tool.png)
 
-    - If you created a project using a different option, and don't yet have any assessment tools, in **Servers** > **Assessment tools**, select **Click here**.
+    - If you created a project using a different option, and don't yet have any assessment tools, in **Windows, Linux and SQL Server** > **Assessment tools**, select **Click here**.
 
         ![Button to add first assessment tool](./media/how-to-assess/no-assessment-tool.png)
 
@@ -76,4 +79,4 @@ If you created an Azure Migrate project using the **Explore more** > **WebApps**
 
 ## Next steps
 
-Discover on-premises machines for assessment using Azure Migrate Server Assessment tool for [VMware](./tutorial-discover-vmware.md) VMs, [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md)
+Discover on-premises servers for assessment using Azure Migrate Discovery and assessment tool for [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md)

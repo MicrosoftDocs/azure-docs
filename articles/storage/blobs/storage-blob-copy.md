@@ -2,10 +2,10 @@
 title: Copy a blob with Azure Storage APIs
 description: Learn how to copy a blob using the Azure Storage client libraries.
 services: storage
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 09/10/2020
+ms.author: twooley
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

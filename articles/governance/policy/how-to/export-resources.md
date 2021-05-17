@@ -1,9 +1,9 @@
 ---
 title: Export Azure Policy resources
 description: Learn to export Azure Policy resources to GitHub, such as policy definitions and policy assignments.
-ms.date: 10/29/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 # Export Azure Policy resources
 
@@ -45,7 +45,7 @@ To export a policy definition from Azure portal, follow these steps:
 
 1. On the **Policies** tab, set the scope to search by selecting the ellipsis and picking a
    combination of management groups, subscriptions, or resource groups.
-   
+
 1. Use the **Add policy definition(s)** button to search the scope for which objects to export. In
    the side window that opens, select each object to export. Filter the selection by the search box
    or the type. Once you've selected all objects to export, use the **Add** button at the bottom of

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Synapse Analytics  # < 60 chars
-summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # < 160 chars
+summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources—at scale. # < 160 chars
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
@@ -26,8 +26,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
-          - text: Tips and best practices
-            url: overview-cheat-sheet.md
+          - text: Terminology
+            url: overview-terminology.md
           - text: FAQ
             url: overview-faq.md
 
@@ -42,7 +42,7 @@ landingContent:
         links:
           - text: Use serverless SQL pool
             url: quickstart-sql-on-demand.md
-          - text: Create adedicated SQL pool using Synapse Studio
+          - text: Create a dedicated SQL pool using Synapse Studio
             url: quickstart-create-sql-pool-studio.md
 
 

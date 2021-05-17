@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Monitor your devices in Azure IoT Central
-description: Quickstart - As an operator, learn how to use your Azure IoT Central application to monitor your devices.
+description: Quickstart - Learn how to use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -12,9 +12,7 @@ ms.custom: mvc
 
 # Quickstart: Use Azure IoT Central to monitor your devices
 
-*This article applies to operators, builders, and administrators.*
-
-This quickstart shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
+This quickstart shows you how to use your Azure IoT Central application to monitor your devices and change settings.
 
 ## Prerequisites
 
@@ -45,6 +43,10 @@ To make a change to the device, use the **Manage device** page.
 Change **Target temperature** to 80 to warm the device and reduce the humidity. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
 :::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot that shows the updated target temperature setting for the device":::
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
+ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
@@ -27,6 +28,17 @@ Built-in skills fall into these categories:
 Built-in skills in Azure Cognitive Search are based on pre-trained machine learning models in Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Text Analytics](../cognitive-services/text-analytics/overview.md). You can attach a Cognitive Services resource if you want to leverage these resources during content processing.
 
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Cognitive Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need.  
+
+## Feature availability
+
+AI enrichment is available in regions where Azure Cognitive Services are also available.  You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.  AI enrichment is available in all supported regions except:
+
++ Australia Southeast
++ China North 2
++ Norway East
++ Germany West Central
+
+If your search service is located in one of these regions, you will not be able to create and use skillsets, but all other search service functionality is available and fully supported.
 
 ## When to use AI enrichment
 

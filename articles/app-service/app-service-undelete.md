@@ -4,12 +4,13 @@ description: Learn how to restore a deleted app in Azure App Service. Avoid the 
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
-ms.topic: article
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restore deleted App Service app Using PowerShell
 
-If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](/powershell/azure/).
 
 > [!NOTE]
 > - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.

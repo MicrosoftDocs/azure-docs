@@ -6,9 +6,10 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 12/02/2020
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -66,13 +67,12 @@ Blocked word list rules:
 To configure naming policy, one of the following roles is required:
 - Global administrator
 - Group administrator
+- Directory writer
 
 
 Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
 
 - Global administrator
-- Partner Tier 1 Support
-- Partner Tier 2 Support
 - User administrator
 
 ## Configure naming policy in Azure portal

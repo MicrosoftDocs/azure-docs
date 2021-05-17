@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Identify and diagnose Windows Virtual Desktop issues
 

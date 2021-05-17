@@ -125,7 +125,7 @@ Reminders are a mechanism to trigger persistent callbacks on an actor at specifi
 > [!NOTE]
 > The reliability of reminders is tied to the state reliability guarantees provided by the actor state provider. This means that for actors whose state persistence is set to *None*, the reminders will not fire after a failover.
 
-To register a reminder, an actor calls the [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) method provided on the base class, as shown in the following example:
+To register a reminder, an actor calls the [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync#remarks) method provided on the base class, as shown in the following example:
 
 ```csharp
 protected override async Task OnActivateAsync()

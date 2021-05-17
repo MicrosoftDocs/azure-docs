@@ -20,7 +20,7 @@ You can exchange a reservation for another reservation of the same type. It's al
 
 ### Partial refunds
 
-We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not monetary commitment.
+We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not Azure Prepayment (previously called monetary commitment).
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 
@@ -91,7 +91,7 @@ In scenarios where Azure EA customers have used all their Azure Prepayment, rese
 
 ### Reserved instance expiration
 
-You'll receive email notifications 30 days before reservation and at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## Next steps
 

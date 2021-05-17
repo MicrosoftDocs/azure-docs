@@ -2,7 +2,7 @@
 title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.date: 12/03/2020
 ---
 
 # Tutorial: Set up a classroom lab 
@@ -116,19 +116,71 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 ## Add users to the lab
 
-1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
-2. Select **Add users** on the toolbar, and then select **Add by email address**. 
+When you add users, by default, the **Restrict access** option is turned on and, unless they're in the list of users, students can't register with the lab even if they have a registration link. Only listed users can register with the lab by using the registration link you send. You can turn off **Restrict access**, which allows students to register with the lab as long as they have the registration link. 
 
-    ![Add users button](./media/how-to-configure-student-usage/add-users-button.png)
-1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+### Add users from an Azure AD group
 
-    ![Add user email addresses](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+You can sync a lab user list to an existing Azure Active Directory (Azure AD) group so that you do not have to manually add or delete users. 
 
-    ![Users list](./media/how-to-configure-student-usage/users-list-new.png)
+An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
 
-    You will see names of users in the list after they are registered to the lab. 
+> [!IMPORTANT]
+> Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear. 
+
+1. In the left pane, select **Users**. 
+1. Click **Sync from group**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Add users by syncing from an Azure AD group":::
     
+1. You will be prompted to pick an existing Azure AD group to sync your lab to. 
+    
+    If you don't see an Azure AD group in the list, could be because of the following reasons:
+
+    -	If you are a guest user for an Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you are not able to to search for groups inside the Azure AD. In this case, you won’t be able to add an Azure AD group to the lab in this case. 
+    -	Azure AD groups created through Teams do not show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md). 
+1. Once you picked the Azure AD group to sync your lab to, click **Add**.
+1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users, and you will see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also click on the Sync button in the Users tab to manually sync to the latest changes in the Azure AD group.
+1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab. 
+
+### Add users manually from email(s) or CSV file
+
+In this section, you add students manually (by email address or by uploading a CSV file). 
+
+#### Add users by email address
+
+1. In the left pane, select **Users**. 
+1. Click **Add users manually**. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Add users manually":::
+1. Select **Add by email address** (default), enter the students' email addresses on separate lines or on a single line separated by semicolons. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Add users' email addresses":::
+1. Select **Save**. 
+
+    The list displays the email addresses and statuses of the current users, whether they're registered with the lab or not. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Users list":::
+
+    > [!NOTE]
+    > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
+
+#### Add users by uploading a CSV file
+
+You can also add users by uploading a CSV file that contains their email addresses. 
+
+A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
+
+1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="List of users in a CSV file":::
+1. At the top of the **Users** pane, select **Add users**, and then select **Upload CSV**.
+1. Select the CSV file that contains the students' email addresses, and then select **Open**.
+
+    The **Add users** window displays the email address list from the CSV file. 
+1. Select **Save**. 
+1. In the **Users** pane, view the list of added students. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the Users pane"::: 
 
 ## Send invitation emails to users
 
@@ -140,11 +192,10 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
     ![Send registration link by email](./media/tutorial-setup-classroom-lab/send-email.png)
 4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**. 
 
-    For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
+For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 In this tutorial, you created a lab for your class in Azure. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Connect to a VM in the classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
-

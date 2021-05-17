@@ -43,7 +43,7 @@ Service plans:
 
 Read the following articles that apply to you to learn how discounts apply to a specific Azure service:
 
-- [App Service](reservation-discount-app-service-isolated-stamp.md)
+- [App Service](reservation-discount-app-service.md)
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
 - [Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)

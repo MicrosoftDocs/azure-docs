@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/26/2020
+ms.date: 01/07/2021
 ms.author: damendo
+ms.custom: fasttrack-edit
 
 ---
 
@@ -73,7 +74,7 @@ To create a Microsoft.Network/networkWatchers/flowLogs resource, add the above J
 
 If you are using Azure Resource Manager templates for the first time, you can learn more about them using the links below.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [Tutorial: Create and deploy your first Azure Resource Manager template](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -119,33 +120,32 @@ Below are two examples of complete templates to set up NSG Flow Logs.
   "contentVersion": "1.0.0.0",
   "apiProfile": "2019-09-01",
   "resources": [
- {
-    "name": "NetworkWatcher_centraluseuap/Microsoft.NetworkDalanDemoPerimeterNSG",
-    "type": "Microsoft.Network/networkWatchers/FlowLogs/",
-    "location": "centraluseuap",
-    "apiVersion": "2019-09-01",
-    "properties": {
-      "targetResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/DalanDemo/providers/Microsoft.Network/networkSecurityGroups/PerimeterNSG",
-      "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
-      "enabled": true,
-      "flowAnalyticsConfiguration": {
-		"networkWatcherFlowAnalyticsConfiguration": {
-			"enabled": true,
-			"workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
-			"trafficAnalyticsInterval": 10
-				}
-	  },
-      "retentionPolicy": {
-        "days": 5,
-        "enabled": true
-      },
-      "format": {
-        "type": "JSON",
-        "version": 2			
+    {
+      "name": "NetworkWatcher_centraluseuap/Microsoft.NetworkDalanDemoPerimeterNSG",
+      "type": "Microsoft.Network/networkWatchers/FlowLogs/",
+      "location": "centraluseuap",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "targetResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/DalanDemo/providers/Microsoft.Network/networkSecurityGroups/PerimeterNSG",
+        "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
+        "enabled": true,
+        "flowAnalyticsConfiguration": {
+          "networkWatcherFlowAnalyticsConfiguration": {
+            "enabled": true,
+            "workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
+            "trafficAnalyticsInterval": 10
+          }
+        },
+        "retentionPolicy": {
+          "days": 5,
+          "enabled": true
+        },
+        "format": {
+          "type": "JSON",
+          "version": 2
+        }
       }
     }
-
-  }
   ]
 }
 ```
@@ -157,7 +157,7 @@ You can save any of the above example templates locally as `azuredeploy.json`. U
 
 To deploy the template, run the following command in PowerShell.
 ```azurepowershell
-$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+$context = Get-AzSubscription -SubscriptionId <SubscriptionId>
 Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"

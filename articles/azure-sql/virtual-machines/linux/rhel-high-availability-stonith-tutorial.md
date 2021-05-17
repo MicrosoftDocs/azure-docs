@@ -1,8 +1,7 @@
 ---
 title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
 description: Learn about setting up high availability in an RHEL cluster environment and set up STONITH
-ms.service: virtual-machines-linux
-ms.subservice:
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
@@ -31,9 +30,9 @@ This tutorial will use the Azure CLI to deploy resources in Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -522,7 +521,7 @@ To add the role, run the following command:
 - Replace `<filename>` with the name of the file.
 - If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
 
-```bash
+```azurecli-interactive
 az role definition create --role-definition "<filename>.json"
 ```
 
@@ -940,6 +939,9 @@ If the `synchronization_state_desc` lists SYNCHRONIZED for `db1`, this means the
 ## Create availability group resources in the Pacemaker cluster
 
 We will be following the guide to [create the availability group resources in the Pacemaker cluster](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+
+> [!NOTE]
+> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### Create the AG cluster resource
 

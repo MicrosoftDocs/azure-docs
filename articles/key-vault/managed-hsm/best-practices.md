@@ -19,8 +19,10 @@ ms.author: ambapat
 Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your managed HSMs by allowing only authorized applications and users. This [article](access-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
 - Create an [Azure Active Directory Security Group](../../active-directory/fundamentals/active-directory-manage-groups.md) for the HSM Administrators (instead of assigning Administrator role to individuals). This will prevent "administration lock-out" in case of individual account deletion.
 - Lock down access to your management groups, subscriptions, resource groups and Managed HSMs - Use Azure RBAC to control access to your management groups, subscriptions, and resource groups
-- Create per key role assignments using [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac)
-- Use least privilege access principal to assign roles
+- Create per key role assignments using [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
+- To maintain separation of duties avoid assigning multiple roles to same principals. 
+- Use least privilege access principal to assign roles.
+- Create custom role definition with precise set of permissions.
 
 ## Choose regions that support availability zones
 

@@ -23,9 +23,7 @@ This article describes how to add tags to a VM using the portal. Tags are user-d
 
     :::image type="content" source="media/tag/key-value.png" alt-text="Screenshot of the page for adding a key value pair as a tag.":::
 
-
-
-**Next steps**
+### Next steps
 
 - To learn more about tagging your Azure resources, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md) and [Using Tags to organize your Azure Resources](../azure-resource-manager/management/tag-resources.md).
-- To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md) and [Gain insights into your Microsoft Azure resource consumption](../cost-management-billing/manage/usage-rate-card-overview.md).
+- To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md).

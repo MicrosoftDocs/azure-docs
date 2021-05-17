@@ -5,16 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid:
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom:
 ---
 # Understand Azure role definitions
@@ -58,7 +53,7 @@ The following table describes what the role properties mean.
 | Property | Description |
 | --- | --- |
 | `Name`</br>`roleName` | The display name of the role. |
-| `Id`</br>`name` | The unique ID of the role. |
+| `Id`</br>`name` | The unique ID of the role. Built-in roles have the same role ID across clouds. |
 | `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `Description`</br>`description` | The description of the role. |
 | `Actions`</br>`actions` | An array of strings that specifies the management operations that the role allows to be performed. |
@@ -286,11 +281,27 @@ The `Actions` permission specifies the management operations that the role allow
 
 ## NotActions
 
-The `NotActions` permission specifies the management operations that are excluded from the allowed `Actions`. Use the `NotActions` permission if the set of operations that you want to allow is more easily defined by excluding restricted operations. The access granted by a role (effective permissions) is computed by subtracting the `NotActions` operations from the `Actions` operations.
+The `NotActions` permission specifies the management operations that are subtracted or excluded from the allowed `Actions` that have a wildcard (`*`). Use the `NotActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `Actions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotActions` operations from the `Actions` operations.
+
+`Actions - NotActions = Effective management permissions`
+
+The following table shows two examples of the effective permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard operation:
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Effective management permissions |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *none* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > If a user is assigned a role that excludes an operation in `NotActions`, and is assigned a second role that grants access to the same operation, the user is allowed to perform that operation. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 >
+
+### Differences between NotActions and deny assignments
+
+`NotActions` and deny assignments are not the same and serve different purposes. `NotActions` are a convenient way to subtract specific actions from a wildcard (`*`) operation.
+
+Deny assignments block users from performing specific actions even if a role assignment grants them access. For more information, see [Understand Azure deny assignments](deny-assignments.md).
 
 ## DataActions
 
@@ -306,7 +317,17 @@ The `DataActions` permission specifies the data operations that the role allows 
 
 ## NotDataActions
 
-The `NotDataActions` permission specifies the data operations that are excluded from the allowed `DataActions`. The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
+The `NotDataActions` permission specifies the data operations that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+The following table shows two examples of the effective permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard operation:
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Effective data permissions |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *none* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > If a user is assigned a role that excludes a data operation in `NotDataActions`, and is assigned a second role that grants access to the same data operation, the user is allowed to perform that data operation. `NotDataActions` is not a deny rule – it is simply a convenient way to create a set of allowed data operations when specific data operations need to be excluded.
@@ -334,4 +355,4 @@ For information about `AssignableScopes` for custom roles, see [Azure custom rol
 
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
-* [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+* [Azure resource provider operations](resource-provider-operations.md)

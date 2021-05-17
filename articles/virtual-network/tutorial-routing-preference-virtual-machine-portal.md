@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
 
 ---
@@ -20,14 +20,9 @@ This article shows you how to configure routing preference for a virtual machine
 
 This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using the Azure portal.
 
-> [!IMPORTANT]
-> Routing preference is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://preview.portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a virtual machine
 
@@ -75,5 +70,5 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 - Learn more about [public IP with routing preference](routing-preference-overview.md).
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

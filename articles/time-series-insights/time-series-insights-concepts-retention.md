@@ -80,7 +80,7 @@ At that time, the environment shows the same dataset until ingress resumes or un
 When ingress resumes:
 
 - Data flows in the order it was received by event source
-- The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source. For more information on event source retention configuration, [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
+- The events are indexed based on their timestamp, unless you have exceeded retention policies on your event source. For more information on event source retention configuration, [Event Hubs FAQ](../event-hubs/event-hubs-faq.yml)
 
 > [!IMPORTANT]
 > You should set alerts to provide notice to help avoid ingress being paused. Data loss is possible since the default retention is 1 day for Azure event sources. Therefore, once ingress is paused, you likely lose the most recent data unless additional action is taken. You must increase capacity, or switch behavior to **Purge old data** to avoid the data loss potential.

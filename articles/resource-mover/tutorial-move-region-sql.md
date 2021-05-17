@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
@@ -268,8 +268,11 @@ Finishing moving databases and elastic pools as follows:
 
 After the move, you can optionally delete resources in the source region. 
 
-1. In **Across Regions**, click the name of each source resource that you want to delete.
-2. In the properties page for each resource, select **Delete**.
+> [!NOTE]
+> SQL Server servers can't be deleted from the portal, and must be deleted from the resource property page.
+
+1. In **Across Regions**, click the name of the source resource that you want to delete.
+2. Select **Delete source**.
 
 ## Next steps
 

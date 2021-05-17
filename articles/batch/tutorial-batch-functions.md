@@ -1,5 +1,5 @@
 ---
-title: Trigger a Batch job using Azure Functions
+title: Tutorial - Trigger a Batch job using Azure Functions
 description: Tutorial - Apply OCR to scanned documents as they're added to a storage blob
 ms.devlang: dotnet
 ms.topic: tutorial
@@ -10,7 +10,15 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Trigger a Batch job using Azure Functions
 
-In this tutorial, you'll learn how to trigger a Batch job using Azure Functions. We'll walk through an example in which documents added to an Azure Storage blob container have optical character recognition (OCR) applied to them via Azure Batch. To streamline the OCR processing, we will configure an Azure function that runs a Batch OCR job each time a file is added to the blob container.
+In this tutorial, you'll learn how to trigger a Batch job using [Azure Functions](../azure-functions/functions-overview.md). We'll walk through an example in which documents added to an Azure Storage blob container have optical character recognition (OCR) applied to them via Azure Batch. To streamline the OCR processing, we will configure an Azure function that runs a Batch OCR job each time a file is added to the blob container. You learn how to:
+
+> [!div class="checklist"]
+> * Use Batch Explorer to create pools and jobs
+> * Use Storage Explorer to create blob containers and a shared access signature (SAS)
+> * Create a blob-triggered Azure Function
+> * Upload input files to Storage
+> * Monitor task execution
+> * Retrieve output files
 
 ## Prerequisites
 
@@ -92,9 +100,13 @@ To download the output files from Storage Explorer to your local machine, first 
 > [!TIP]
 > The downloaded files are searchable if opened in a PDF reader.
 
+## Clean up resources
+
+You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. In the account view, select **Pools** and the name of the pool. Then select **Delete**. When you delete the pool, all task output on the nodes is deleted. However, the output files remain in the storage account. When no longer needed, you can also delete the Batch account and the storage account.
+
 ## Next steps
 
-In this tutorial you learned how to: 
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Use Batch Explorer to create pools and jobs
@@ -104,6 +116,10 @@ In this tutorial you learned how to:
 > * Monitor task execution
 > * Retrieve output files
 
-* For more examples of using the .NET API to schedule and process Batch workloads, see [the samples on GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* To see more Azure Functions triggers that you can use to run Batch workloads, see [the Azure Functions documentation](../azure-functions/functions-triggers-bindings.md).
+Continue on by exploring  the rendering applications available via Batch Explorer in the **Gallery** section. For each application there are several templates available, which will expand over time. For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
+
+For more examples of using the .NET API to schedule and process Batch workloads, see the samples on GitHub.
+
+> [!div class="nextstepaction"]
+> [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

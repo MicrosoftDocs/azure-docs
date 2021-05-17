@@ -24,7 +24,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in Azure portal.":::
 
-3. Select **Groups**. Your Tenant ID is located in the **Tenant information** box.
+3. Select **Overview**. Your Tenant ID should appear under **Basic information**.
 
     :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Select Groups in Azure portal.":::
 

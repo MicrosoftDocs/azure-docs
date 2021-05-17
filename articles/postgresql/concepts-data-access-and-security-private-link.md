@@ -10,7 +10,7 @@ ms.date: 03/10/2020
 
 # Private Link for Azure Database for PostgreSQL-Single server
 
-Private Link allows you to create private endpoints for Azure Database for PostgreSQL - Single server and so brings Azure services inside your private Virtual Network (VNet). The private endpoint exposes a private IP you can use to connect to your database server just like any other resource in the VNet.
+Private Link allows you to create private endpoints for Azure Database for PostgreSQL - Single server to bring it inside your Virtual Network (VNet). The private endpoint exposes a private IP within a subnet that you can use to connect to your database server just like any other resource in the VNet.
 
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../private-link/index.yml). A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet.
 
@@ -79,7 +79,8 @@ Once the network admin creates the private endpoint (PE), the PostgreSQL admin c
 
 ## Use cases of Private Link for Azure Database for PostgreSQL
 
-Clients can connect to the private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+
+Clients can connect to the private endpoint from the same VNet, [peered VNet](../virtual-network/virtual-network-peering-overview.md) in same region or across regions, or via [VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="select the private endpoint overview":::
 

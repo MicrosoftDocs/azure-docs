@@ -104,60 +104,7 @@ Teachers are able to connect to a student VM as long as it is turned on, and the
 
 ## Manage users in a lab
 
-Teachers are able to add student users to a lab and monitor their hour quotas. 
-
-### Add users by email address
-
-1. From the [Azure Lab services website](https://labs.azure.com/) click **Users** from the left-hand side of the window.
-1. At the top of the window, click on **Add users** and select **Add by email address**. 
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-button.png" alt-text="The 'Add users' button":::
-1. In the **Add users** pane that appears on the right, enter the students’ email addresses on separate lines or on a single line, separated by semicolons.
-1. Click **Save**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Add students to your lab":::
-1. Your list of users will now be updated with emails, status, invitation, and quota hours.
-
-    After students are registered for a lab, their names will be updated with first and last names from Azure Active Directory.
-
-    > [!NOTE]
-    > Keep the Restrict access option toggle is turned on for users. This means that only users that you list can register with the lab by using the registration link you send.
-
-### Add users using a spreadsheet 
-
-You can also add users by uploading a CSV file that contains their email addresses.
-
-1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
-1. From the [Azure Lab Services website](https://labs.azure.com/), at the top of the **Users** page, click the **Add Users** button.
-1. Select **Upload CSV**.
-1. Select the CSV file that contains the students' email addresses and click **Open**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Add users using a spreadsheet":::
-1. The emails will now appear in the window on the right. Click **Save**.
-
-    :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Register users":::
-
-### Register users
-
-Once users have been added to the lab, they will need to register in order to access the VMs. This can be done by either inviting users from the portal, which will send an email containing the registration link for the lab. Or by copying and pasting the registration link into an email, or other form of communication with the students.
-
-1. From the **Users** page, select a student or multiple students in the list.
-
-    In the row for the student you've selected, select the envelope icon in the list or, clicking **Invite** at the top of the screen.
-
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="Send an invitation":::
-    
-    In the **Send invitation** by email window, enter an optional message (like a username and password) to students, and then click **Send**. 
-    
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="Send an invitation by mail":::
-
-    Alternatively, from the same **Users** page, you can click the **Registration link** button at the top of the screen. 
-
-    :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="User registration link":::
-    
-    Copy the registration link from the text field and paste it into email or your preferred secure messaging tool.  
-    
-    :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Send user registration":::
+Teachers are able to add student users to a lab and monitor their hour quotas. For details on how to add users by email address or by using a spreadsheet list and register users, see [Add and manage lab users](how-to-configure-student-usage.md).
 
 After you have invited users or shared the link, you will be able to monitor which users have registered successfully in the **Users** page in the **Status** column. 
 
