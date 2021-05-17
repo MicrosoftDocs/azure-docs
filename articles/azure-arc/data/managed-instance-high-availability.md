@@ -74,7 +74,7 @@ Capabilities that availability groups enable:
 
 - All databases are automatically added to the availability group, including all user and system databases like `master` and `msdb`. This capability provides a single-system view across the availability group replicas. Notice both `containedag_master` and `containedag_msdb` databases if you connect directly to the instance. The `containedag_*` databases represent the `master` and `msdb` inside the availability group.
 
-- An external endpoint is automatically provisioned for connecting to databases within the availability group. This endpoint `<managed_instance_name>-svc-external` plays the role of the availability group listener.
+- An external endpoint is automatically provisioned for connecting to databases within the availability group. This endpoint `<managed_instance_name>-external-svc` plays the role of the availability group listener.
 
 ### Deploy
 

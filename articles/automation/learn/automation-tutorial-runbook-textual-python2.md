@@ -3,7 +3,7 @@ title: Create a Python runbook in Azure Automation
 description: This article teaches you to create, test, and publish a simple Python runbook in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2021
+ms.date: 05/17/2021
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ---
