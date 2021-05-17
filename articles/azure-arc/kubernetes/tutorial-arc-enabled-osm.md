@@ -301,25 +301,25 @@ Both Azure Monitor and Azure Application Insights helps you maximize the availab
 Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics.
 
 1. Ensure that prometheus_scraping is set to true in the OSM configmap.
-2. Expose the prometheus endpoints for application namespaces
+2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
+3. Expose the prometheus endpoints for application namespaces
 ```azurecli-interactive
 osm metrics enable --namespace <namespace1>
 osm metrics enable --namespace <namespace2>
 ```
-3. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
-4. Add the namespaces you want to monitor in container-azm-ms-osmconfig configmap 
+4. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+5. Add the namespaces you want to monitor in [container-azm-ms-osmconfig configmap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
 ```azurecli-interactive
 monitor_namespaces = ["namespace1", "namespace2"]
 ```
-5. Run the following kubectl command
+6. Run the following kubectl command
 ```azurecli-interactive
 kubectl apply -f container-azm-ms-osmconfig.yaml
 ```
 It may take upto 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
 
 ```azurecli-interactive
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
 | where Name contains "envoy"
 | extend t=parse_json(Tags)
 | where t.app == "namespace1"
