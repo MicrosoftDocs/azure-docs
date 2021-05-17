@@ -277,7 +277,7 @@ See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlreso
 
 ## <a id="role-assignments"></a> Create role assignments
 
-Once you've created your role definitions, you can associate them with your AAD identities. When creating a role assignment, you need to provide:
+You can associate built-in or custom role definitions with your Azure AD identities. When creating a role assignment, you need to provide:
 
 - The name of your Azure Cosmos DB account.
 - The resource group containing your account.
@@ -397,7 +397,7 @@ The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of
 > [!NOTE]
 > The data explorer exposed in the Azure portal does not support the Azure Cosmos DB RBAC yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) instead.
 
-When browsing the data stored in your account, the Azure Cosmos DB Explorer initially tries to fetch your account's primary key on behalf of the user who's logged in, and use this key to access the data. If that user is now allowed to fetch the primary key, their Azure AD identity will be used instead to access the data.
+When browsing the data stored in your account, the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) initially tries to fetch your account's primary key on behalf of the user who's logged in, and use this key to access the data. If that user is not allowed to fetch the primary key, their Azure AD identity will be used instead to access the data.
 
 ## Audit data requests
 
