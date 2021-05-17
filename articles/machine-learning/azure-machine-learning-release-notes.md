@@ -26,7 +26,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 
 ## 2021-05-24
 
-### Azure Machine Learning SDK for Python v1.28.0
+### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
