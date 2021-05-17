@@ -203,7 +203,7 @@ The following resources are defined in the template:
 
 1. Click on the *Deploy to Azure* button to sign in to Azure and open a template.
 
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)][click-to-deploy]
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 1. Select or enter the following values. Use the default values, when available.
 
