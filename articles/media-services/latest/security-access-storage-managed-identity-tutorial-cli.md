@@ -102,7 +102,7 @@ The first command below shows the Managed Identity of the Media Services account
 
 To verify the account is encrypted using a Customer Managed Key, view the account encryption properties:
 
-[!INCLUDE [Set Media Services to use the key from Key Vault](./includes/task-show-account-encryption-cli.md)]
+[!INCLUDE [Set Media Services to use the key from Key Vault](./includes/task-show-account-managed-identity-cli.md)]
 
 The `storageAuthentication` property should show “ManagedIdentity”.
 
