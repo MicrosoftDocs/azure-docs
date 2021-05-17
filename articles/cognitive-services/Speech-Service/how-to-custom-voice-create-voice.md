@@ -25,12 +25,13 @@ In [Prepare data for your training](how-to-custom-voice-prepare-data.md), you le
 
 A voice talent is an individual or target speaker whose voices are recorded and used to create neural voice models. Before you create a voice, define your voice persona and select a right voice talent. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md).
 
+To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the following sentence:
+
+**“I [state your first and last name] am aware that recordings of my voice will be used by [state 
+the name of the company] to create and use a synthetic version of my voice.”**
+This sentence is used to verify if the training data matches the audio in the consent statement. > Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+
 > [!NOTE]
-> To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the below sentence. 
-
->“I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-> This sentence is used to verify if the training data matches the audio in the consent statement. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
-
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
 The following steps assume you've prepared the voice talent verbal consent files.  Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a custom neural voice project, then follow the following steps to create a voice talent profile.
