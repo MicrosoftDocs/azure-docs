@@ -1,17 +1,17 @@
 ---
 title:  "Quickstart - Integrate with Azure Database for MySQL"
-description: Explains creation of an Azure Database for MySQL server and how to allow access from Azure resources.
+description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Integrate with Azure Database for MySQL
-This document describes creation of an Azure Database for MySQL server and how to allow access from Azure resources.
+# Quickstart - Integrate Azure Spring Cloud with Azure Database for MySQL
+
+In the default configuration, Pet Clinic deployed in the [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md) Azure Spring Cloud uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 
 ## Variables preparation
 
@@ -27,7 +27,7 @@ export MYSQL_SERVER_ADMIN_PASSWORD=<password> # customize this
 export MYSQL_DATABASE_NAME=petclinic
 ```
 
-## Create Azure Database for MySQL
+## Prepare an Azure Database for MySQL instance
 
 1. Create an Azure Database for MySQL server.
 
@@ -117,10 +117,9 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## Update Apps to use MySQL database
 
-1. Update the customer-service app with environment variables and profiles to enable MySQL as database.
+1. To enable MySQL as database for the sample app, simply update the customer-service app with active profile mysql and database credentials as environment variables.
 
     ```azcli
-    az spring-cloud app update --name api-gateway 
     az spring-cloud app update --name customers-service \
         --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
         --env MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
@@ -129,7 +128,7 @@ export MYSQL_DATABASE_NAME=petclinic
               MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
     ```
 
-## Update all other apps
+## Update extra apps
 
 ```azcli
 az spring-cloud app update --name api-gateway \
@@ -155,8 +154,6 @@ az spring-cloud app update --name visits-service \
             MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
             MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
 ```
-
-To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## Next steps
 * [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
