@@ -354,4 +354,4 @@ Deleting a logic app affects workflow instances in the following ways:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create stateful and stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Create single-tenant based logic app workflows in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
