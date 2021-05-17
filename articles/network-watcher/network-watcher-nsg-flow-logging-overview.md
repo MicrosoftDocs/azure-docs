@@ -186,7 +186,9 @@ The text that follows is an example of a flow log. As you can see, there are mul
                 ]
             }
         },
-	"records": [
+	"records":
+	[
+		
 		{
 			 "time": "2017-02-16T22:00:32.8950000Z",
 			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
@@ -216,9 +218,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
 		
 		
 ```
-
 **Version 2 NSG flow log format sample**
-
 ```json
  {
     "records": [
@@ -287,8 +287,8 @@ The text that follows is an example of a flow log. As you can see, there are mul
                 ]
             }
         }
+        
 ```
-
 **Log tuple explained**
 
 ![flow logs tuple](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
