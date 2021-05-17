@@ -69,7 +69,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 4. You created a Base-64 encoded *.cer* certificate (PEM format) for your Azure Stack Edge Pro device. That certificate is already uploaded as signing chain on the device and installed in the trusted root store on your client. This certificate is also required in *pem* format for Python to work on this client.
 
-    Convert this certificate to `pem` format by using the `certutil` command. You must run this command in the directory that contains your certificate.
+    Convert this certificate to `pem` format by using the [certutil](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc732443(v=ws.11)) command. You must run this command in the directory that contains your certificate.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -116,7 +116,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 <!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
-1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the `az --version` command.
+1. Install Azure CLI on your client. In this example, Azure CLI 2.0.80 was installed. To verify the version of Azure CLI, run the [az --version](/cli/azure/reference-index?view=azure-cli-latest#az_version) command.
 
     The following is sample output from the above command:
 
@@ -255,9 +255,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
 ### Connect to Azure Stack Edge Pro
 
-1. Register your Azure Stack Edge Pro environment by running the `az cloud register` command.
+1. Register your Azure Stack Edge Pro environment by running the [az cloud register](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) command.
 
-    In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the az cloud register command can fail with an error such as \"Unable to get endpoints from the cloud.\" To work around this error, set the following environment variables in Windows PowerShell:
+    In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as \"Unable to get endpoints from the cloud.\" To work around this error, set the following environment variables in Windows PowerShell:
 
     ```powershell
     $ENV:AZURE_CLI_DISABLE_CONNECTION_VERIFICATION = 1 
@@ -274,7 +274,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     $ENV:PRIVATE_IP_ADDRESS = "5.5.174.126"
     ```
 
-3. Register your environment. Use the following parameters when running az cloud register:
+3. Register your environment. Use the following parameters when running [az cloud register](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register):
 
     | Value | Description | Example |
     | --- | --- | --- |
@@ -306,7 +306,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Sign in to your Azure Stack Edge Pro environment by using the `az login` command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
+4. Sign in to your Azure Stack Edge Pro environment by using the [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login) command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](../active-directory/develop/app-objects-and-service-principals.md).
 
    Follow these steps to sign in as a *user*:
 
@@ -351,7 +351,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Your Azure Resource Manager Client ID is hard-coded. Your Azure Resource Manager Tenant ID and Azure Resource Manager Subscription ID are both present in the output of `az login` command you ran earlier. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
+   Your Azure Resource Manager Client ID is hard-coded. Your Azure Resource Manager Tenant ID and Azure Resource Manager Subscription ID are both present in the output of the `az login` command you ran earlier. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
 
    For more information, see [Azure Resource Manager password](./azure-stack-edge-gpu-set-azure-resource-manager-password.md).
 
@@ -382,7 +382,7 @@ A Python script is provided to you to create a VM. Depending on whether you are 
     Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created.
 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe example_dbe_arguments_name_https.py cli
     
     Create Resource Group
