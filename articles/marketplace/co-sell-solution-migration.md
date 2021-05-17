@@ -181,7 +181,7 @@ Select this option when a solution in OCP GTM solutions is no longer relevant. Y
 
  If you need additional help, select the **Get Help** tab to contact the partner support team.
 
-    :::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="The support link on the Get Help tab.":::
+:::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="The support link on the Get Help tab.":::
 
 ## Make your offer live in the marketplace
 
