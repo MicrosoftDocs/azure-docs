@@ -141,11 +141,11 @@ As part of any rule, you can add additional http header filters. The following h
 * X-Azure-FDID
 * X-FD-HealthProbe
 
-For each header name you can add up to 8 values separated by comma. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+For each header name, you can add up to eight values separated by comma. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to 8 IP ranges or 8 Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. You might use this if you have more than 512 IP ranges or you want to create logical rules where multiple IP ranges are combined with a single http header filter.
 
 Multi-source rules are defined the same way you define single-source rules, but with each range separated with comma.
 
