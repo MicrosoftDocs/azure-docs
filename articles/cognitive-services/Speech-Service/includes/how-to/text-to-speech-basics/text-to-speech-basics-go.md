@@ -128,7 +128,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -159,7 +159,7 @@ It's simple to make this change from the previous example. First, remove the `Au
 
 This time, you save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#SpeechSynthesisResult) variable.
 The `AudioData` property returns a `[]byte` of the output data. You can work with this `[]byte` manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
-In this example you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
+In this example, you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
 
 Replace the variables `subscription` and `region` with your subscription and region keys.
 
@@ -248,7 +248,7 @@ func main(subscription string, region string) {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
