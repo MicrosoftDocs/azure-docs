@@ -97,8 +97,6 @@ You're now ready to export FHIR data to the storage account securely. Note that 
 
 Select **Networking** of the Azure storage account from the
 portal. 
-
- 
    
 Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
 allow access from the internet or your on-premises networks. You can
