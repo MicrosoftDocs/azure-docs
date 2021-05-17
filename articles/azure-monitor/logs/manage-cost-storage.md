@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 05/07/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -212,7 +212,7 @@ Each workspace has its daily cap applied on a different hour of the day. The res
 Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached (see [below](#alert-when-daily-cap-reached)). 
 
 > [!NOTE]
-> The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. See [below](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
+> The daily cap cannot stop data collection as precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it is still billed. See [below](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 
 > [!WARNING]
 > The daily cap does not stop the collection of data types WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update and UpdateSummary, except for workspaces in which Azure Defender (Security Center) was installed before June 19, 2017. 

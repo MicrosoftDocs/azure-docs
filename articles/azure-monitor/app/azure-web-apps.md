@@ -71,7 +71,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 # [ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1 and 3.1. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1, 3.1, and 5.0. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 Targeting the full framework from ASP.NET Core, self-contained deployment, and Linux based applications are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
 
@@ -326,9 +326,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
 
-To check which version of the extension you are running visit `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
-![Screenshot of url path http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot of the U R L path to check the version of the extension you are running](./media/azure-web-apps/extension-version.png)
 
 ### Upgrade from versions 1.0.0 - 2.6.5
 

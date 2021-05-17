@@ -98,8 +98,6 @@
           href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
-        - name: How to remove a DSC package
-          href: how-to/remove-desired-state-configuration-package.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -194,6 +192,8 @@
               href: automation-dsc-compile.md
             - name: Remediate noncompliant State Configuration servers
               href: automation-dsc-remediate.md
+            - name: Remove node and configuration
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Set up continuous deployment with Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Integrate with Azure Monitor Logs

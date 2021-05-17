@@ -11,12 +11,12 @@ ms.date: 12/01/2020
 ms.author: danis
 
 ---
-# Prepare a SLES or openSUSE virtual machine for Azure
+# Prepare a SLES or openSUSE Leap virtual machine for Azure
 
 
-This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+This article assumes that you have already installed a SUSE or openSUSE Leap Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
-## SLES / openSUSE installation notes
+## SLES / openSUSE Leap installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
@@ -24,7 +24,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Use SUSE Studio
-[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
+[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE Leap images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE Leap images.
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -152,23 +152,23 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ---
-## Prepare openSUSE 13.1+
+## Prepare openSUSE 15.2+
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.
 3. On the shell, run the command '`zypper lr`'. If this command returns output similar to the following, then the repositories are configured as expected--no adjustments are necessary (note that version numbers may vary):
 
    | # | Alias                 | Name                  | Enabled | Refresh
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
+   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | Yes     | Yes
+   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | Yes     | Yes
+   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | Yes     | Yes
 
     If the command returns "No repositories defined..." then use the following commands to add these repos:
 
     ```console
-    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-    # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-    # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
+    # sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
+    # sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
     You can then verify the repositories have been added by running the command '`zypper lr`' again. In case one of the relevant update repositories is not enabled, enable it with following command:

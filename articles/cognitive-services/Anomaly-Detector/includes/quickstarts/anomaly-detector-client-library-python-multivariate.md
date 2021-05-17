@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for Python to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Sample code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py) | [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
+[Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Sample code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
 
 ## Prerequisites
 
@@ -31,6 +31,15 @@ Use the Anomaly Detector multivariate client library for Python to:
 
 
 ## Setting up
+
+### Install the client library
+
+After installing Python, you can install the client libraries with:
+
+```console
+pip install pandas
+pip install --upgrade azure-ai-anomalydetector
+```
 
 ### Create a new python application
 
@@ -47,20 +56,14 @@ from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 ```
 
-Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. For example, `westus2`.
+Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. 
 
 ```python
 subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
 ```
 
-### Install the client library
 
-After installing Python, you can install the client library with:
-
-```console
-pip install --upgrade azure-ai-anomalydetector
-```
 
 ## Code examples
 
