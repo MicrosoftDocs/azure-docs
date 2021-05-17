@@ -34,7 +34,7 @@ Each time series should be a CSV file with two (and only two) columns, **"timest
 Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the [blob SAS (Shared access signatures) URL](../../../storage/common/storage-sas-overview.md) for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
 ### Data quality
-1. As the model learns normal patterns from historical data, the training data should **represent the overall normal state of the system**. It is hard for the model to learn these types of patterns if the training data is full of anomalies. 
+- As the model learns normal patterns from historical data, the training data should **represent the overall normal state of the system**. It is hard for the model to learn these types of patterns if the training data is full of anomalies. 
 1.  The model has millions of parameters and it needs a minimum number of data points to learn an optimal set of parameters. The general rule is that you need to provide **at least 15,000 data points per variable** to properly train the model. The more data, the better the model.
 1. In general, the **missing value ratio of training data should be under 20%**. Too much missing data may end up with automatically filled values (usually straight segments or constant values) being learnt as normal patterns. That may result in real data points being detected as anomalies. 
 
