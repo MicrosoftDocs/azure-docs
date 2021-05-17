@@ -37,7 +37,7 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NETCore](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)** (in public preview), and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NET Core](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)** (in public preview), and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
 > Application monitoring is currently available for Windows code-based applications on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
@@ -45,7 +45,7 @@ Application monitoring on Azure App Service on Windows is available for **[.NET]
 ### Linux
 You can enable monitoring for **[Java](./azure-web-apps.md?tabs=java)** and **[Node.js](./azure-web-apps.md?tabs=nodejs)** apps running on Linux in App Service through the portal - the experience for both languages is in public preview and available in all regions. 
 
-For other languages - [.NETCore](./asp-net-core.md) and [Python](./opencensus-python.md), use the SDK.
+For other languages - [.NET Core](./asp-net-core.md) and [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
