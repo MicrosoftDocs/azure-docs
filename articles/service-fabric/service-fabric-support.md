@@ -1,10 +1,10 @@
 ---
 title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-author: pkcsf
+author: edoyle
 ms.topic: troubleshooting
-ms.date: 8/24/2018
-ms.author: pkc
+ms.date: 5/17/2021
+ms.author: erikadoyle
 ms.custom: support-help-page
 ---
 # Azure Service Fabric support options
