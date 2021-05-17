@@ -63,7 +63,7 @@ ms.custom: seodec18
 #### Samples
 
 - Updated Unity samples documentation for MacOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
-- A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/glharper/cognitive-js-sdk-react-native).
+- A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
 
 ## Speech CLI (also known as SPX): 2021-May release
 
