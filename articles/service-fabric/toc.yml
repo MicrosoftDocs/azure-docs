@@ -838,8 +838,6 @@
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
     - name: Modernize your application
       href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
-- name: Support and troubleshooting
-  href: service-fabric-support.md 
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -966,3 +964,5 @@
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
+- name: Support and troubleshooting
+  href: service-fabric-support.md 
