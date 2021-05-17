@@ -72,17 +72,25 @@ You can also leverage this agent from portal with the following procedure.
 
    ![Update Jvm Option](media/new-relic-monitoring/update-jvm-option.png)
 
-5. View the application **Summary** page from the **New Relic** dashboard.
+5. View the application api/gateway **Summary** page from the **New Relic** dashboard.
 
    ![App summary page](media/new-relic-monitoring/app-summary-page.png)
 
-6. View the Java Virtual Machines (JVM) of the application from the **New Relic** dashboard.
+6. View the application customers-service **Summary** page from **New Relic** dashboard.
+ 
+   ![Customers-service page](media/new-relic-monitoring/customers-service.png)  
 
-   ![Java Virtual Machines dashboard](media/new-relic-monitoring/java-virtual-machines.png)
+7. View the **Service Map** page from **New Relic** dashboard.  
 
-7. Profile the application from the **New Relic** dashboard.
+   ![Service map page](media/new-relic-monitoring/service-map.png) 
 
-   ![New Relic dashboard](media/new-relic-monitoring/new-relic-dashboard.png)
+8. View **JVMs** of the application from **New Relic** dashboard.
+
+   ![JVM page](media/new-relic-monitoring/jvm-page.png) 
+
+9. View the application profile from **New Relic** dashboard.
+
+   ![Application profile](media/new-relic-monitoring/.png) 
 
 ## New Relic Java Agent Logging
 
