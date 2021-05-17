@@ -84,9 +84,9 @@ By default, each lab has its own virtual network.  If you have virtual network p
 
 ## Shared image gallery
 
-A shared image gallery is attached to a lab account and serves as a central repository for storing images. An image is saved in the gallery when an educator chooses to export it from a lab's template VM. Each time an educator makes changes to the template VM and exports it, new image definitions and\or versions are created in the gallery.
+A shared image gallery is attached to a lab account and serves as a central repository for storing images. An image is saved in the gallery when an educator chooses to export it from a lab's template VM. Each time an educator makes changes to the template VM and exports it, new image definitions and\or versions are created in the gallery.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.  For more information about versioning, see [Image versions](../virtual-machines/shared-image-galleries#image-versions). 
 
-Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the highest version during lab creation.
+Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most version during lab creation.
 
 The shared image gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, shared image gallery offers many benefits that are helpful as you scale up to additional labs:
 
@@ -100,7 +100,7 @@ The shared image gallery service is an optional resource that you might not need
 
 - **You can upload your own custom images from other environments outside of labs**
 
-    You can [upload custom images other environments outside of the context of labs](../upload-custom-image-shared-image-gallery.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
+    You can [upload custom images other environments outside of the context of labs](../lab-services/how-to-attach-detach-shared-image-gallery).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
 To logically group shared images, you can do either of the following:
 
