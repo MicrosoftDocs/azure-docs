@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: cynthn
 
 ---
@@ -66,7 +66,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Here, `sdc` is the disk that we want, because it is 50G. If you aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. 
+Here, `sdc` is the disk that we want, because it is 50G. If you add multiple disks, and aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN.
 
 
 ### Format the disk
@@ -146,16 +146,18 @@ In this example, we are using the nano editor, so when you are done editing the 
 > The Azure VM Serial Console can be used for console access to your VM if modifying fstab has resulted in a boot failure. More details are available in the [Serial Console documentation](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### TRIM/UNMAP support for Linux in Azure
+
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
-* Use the `discard` mount option in */etc/fstab*, for example:
+- Use the `discard` mount option in */etc/fstab*, for example:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
-* In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+
+- In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
     **Ubuntu**
 

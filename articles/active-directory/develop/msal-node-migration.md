@@ -27,7 +27,7 @@ ms.author: v-doeris
 
 When working with ADAL Node, you were likely using the **Azure AD v1.0 endpoint**. Apps migrating from ADAL to MSAL should also consider switching to **Azure AD v2.0 endpoint**.
 
-1. Review the [differences between v1 and v2 endpoints](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison)
+1. Review the [differences between v1 and v2 endpoints](../azuread-dev/azure-ad-endpoint-comparison.md)
 1. Update, if necessary, your existing app registrations accordingly.
 
 > [!NOTE]
@@ -151,7 +151,7 @@ adal.logging.setLoggingOptions({
     console.log(message);
 
     if (error) {
-      console.log(error);
+        console.log(error);
     }
   },
   level: logging.LOGGING_LEVEL.VERBOSE, // provide the logging level
@@ -190,31 +190,32 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 An important difference between v1.0 vs. v2.0 endpoints is about how the resources are accessed. In ADAL Node, you would first register a permission on app registration portal, and then request an access token for a resource (such as Microsoft Graph) as shown below:
 
 ```javascript
-  authenticationContext.acquireTokenWithAuthorizationCode(
+authenticationContext.acquireTokenWithAuthorizationCode(
     req.query.code,
     redirectUri,
     resource, // e.g. 'https://graph.microsoft.com'
     clientId,
     clientSecret,
     function (err, response) {
-      // do something with the authentication response
-  );
+        // do something with the authentication response
+    }
+);
 ```
 
 MSAL Node supports both **v1.0** and **v2.0** endpoints. The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
-    const tokenRequest = {
-        code: req.query.code,
-        scopes: ["https://graph.microsoft.com/User.Read"],
-        redirectUri: REDIRECT_URI,
-    };
+const tokenRequest = {
+    code: req.query.code,
+    scopes: ["https://graph.microsoft.com/User.Read"],
+    redirectUri: REDIRECT_URI,
+};
 
-    pca.acquireTokenByCode(tokenRequest).then((response) => {
-        // do something with the authentication response
-    }).catch((error) => {
-        console.log(error);
-    });
+pca.acquireTokenByCode(tokenRequest).then((response) => {
+    // do something with the authentication response
+}).catch((error) => {
+    console.log(error);
+});
 ```
 
 One advantage of the scope-centric model is the ability to use *dynamic scopes*. When building applications using v1.0, you needed to register the full set of permissions (called *static scopes*) required by the application for the user to consent to at the time of login. In v2.0, you can use the scope parameter to request the permissions at the time you want them (hence, *dynamic scopes*). This allows the user to provide **incremental consent** to scopes. So if at the beginning you just want the user to sign in to your application and you don’t need any kind of access, you can do so. If later you need the ability to read the calendar of the user, you can then request the calendar scope in the acquireToken methods and get the user's consent. See for more: [Resources and scopes](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md)
@@ -237,9 +238,9 @@ However, some methods in ADAL Node are deprecated, while MSAL Node offers new me
 | ADAL                              | MSAL                            | Notes                             |
 |-----------------------------------|---------------------------------|-----------------------------------|
 | `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
-| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) |
+| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](./v2-oauth2-on-behalf-of-flow.md) |
 | `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
-| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols#endpoints) URL construction |
+| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./active-directory-v2-protocols.md#endpoints) URL construction |
 
 ## Use promises instead of callbacks
 
@@ -249,11 +250,11 @@ In ADAL Node, callbacks are used for any operation after the authentication succ
 var context = new AuthenticationContext(authorityUrl, validateAuthority);
 
 context.acquireTokenWithClientCredentials(resource, clientId, clientSecret, function(err, response) {
-  if (err) {
-    console.log(err);
-  } else {
-    // do something with the authentication response
-  }
+    if (err) {
+        console.log(err);
+    } else {
+        // do something with the authentication response
+    }
 });
 ```
 
@@ -341,7 +342,7 @@ const cachePlugin = {
 };
 ```
 
-If you are developing [public client applications](https://docs.microsoft.com/azure/active-directory/develop/msal-client-applications) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
+If you are developing [public client applications](./msal-client-applications.md) like desktop apps, the [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) offers secure mechanisms for client applications to perform cross-platform token cache serialization and persistence. Supported platforms are Windows, Mac and Linux.
 
 > [!NOTE]
 > [Microsoft Authentication Extensions for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/extensions/msal-node-extensions) is **not** recommended for web applications, as it may lead to scale and performance issues. Instead, web apps are recommended to persist the cache in session.
@@ -365,7 +366,13 @@ npm start
 
 ## Example: Securing web apps with ADAL Node vs. MSAL Node
 
-The snippet below demonstrates a confidential client web app in the Express.js framework. The app is secured with ADAL Node. It performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
+The snippet below demonstrates a confidential client web app in the Express.js framework. It performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
+
+
+<table>
+<tr><td> Using ADAL Node </td><td> Using MSAL Node </td></tr>
+<tr>
+<td>
 
 ```javascript
 // Import dependencies
@@ -391,9 +398,10 @@ adal.Logging.setLoggingOptions({
 });
 
 // Auth code request URL template
-var templateAuthzUrl = 'https://login.microsoftonline.com/' + tenant + 
- '/oauth2/authorize?response_type=code&client_id=' + clientId + '&redirect_uri=' 
- + redirectUri + '&state=<state>&resource=' + resource;
+var templateAuthzUrl = 'https://login.microsoftonline.com/' 
+    + tenant + '/oauth2/authorize?response_type=code&client_id=' 
+    + clientId + '&redirect_uri=' + redirectUri 
+    + '&state=<state>&resource=' + resource;
 
 // Initialize express
 var app = express();
@@ -403,12 +411,16 @@ app.locals.state = "";
 
 app.get('/auth', function(req, res) {
 
-    // Create a random string as state parameter, which is used against XSRF
+    // Create a random string to use against XSRF
     crypto.randomBytes(48, function(ex, buf) {
-        app.locals.state = buf.toString('base64').replace(/\//g, '_').replace(/\+/g, '-');
+        app.locals.state = buf.toString('base64')
+            .replace(/\//g, '_')
+            .replace(/\+/g, '-');
         
         // Construct auth code request URL
-        var authorizationUrl = templateAuthzUrl.replace('<state>', app.locals.state);
+        var authorizationUrl = templateAuthzUrl
+            .replace('<state>', app.locals.state);
+
         res.redirect(authorizationUrl);
     });
 });
@@ -420,7 +432,8 @@ app.get('/redirect', function(req, res) {
     }
 
     // Initialize an AuthenticationContext object
-    var authenticationContext = new adal.AuthenticationContext(authorityUrl);
+    var authenticationContext = 
+        new adal.AuthenticationContext(authorityUrl);
     
     // Exchange auth code for tokens
     authenticationContext.acquireTokenWithAuthorizationCode(
@@ -435,10 +448,13 @@ app.get('/redirect', function(req, res) {
     );
 });
 
-app.listen(3000, function() { console.log(`listening on port 3000!`); });
+app.listen(3000, function() { 
+    console.log(`listening on port 3000!`); 
+});
 ```
 
-A web app with equivalent functionality can be secured with MSAL Node as shown below:
+</td>
+<td>
 
 ```javascript
 // Import dependencies
@@ -480,9 +496,10 @@ app.get('/auth', (req, res) => {
     };
 
     // Request auth code, then redirect
-    cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-        res.redirect(response);
-    }).catch((error) => res.send(error));
+    cca.getAuthCodeUrl(authCodeUrlParameters)
+        .then((response) => {
+            res.redirect(response);
+        }).catch((error) => res.send(error));
 });
 
 app.get('/redirect', (req, res) => {
@@ -496,13 +513,19 @@ app.get('/redirect', (req, res) => {
     };
 
     // Exchange the auth code for tokens
-    cca.acquireTokenByCode(tokenRequest).then((response) => {
-        res.send(response);
-    }).catch((error) => res.status(500).send(error));
+    cca.acquireTokenByCode(tokenRequest)
+        .then((response) => {
+            res.send(response);
+        }).catch((error) => res.status(500).send(error));
 });
 
-app.listen(3000, () => console.log(`listening on port 3000!`));
+app.listen(3000, () => 
+    console.log(`listening on port 3000!`));
 ```
+
+</td>
+</tr>
+</table>
 
 ## Next steps
 
