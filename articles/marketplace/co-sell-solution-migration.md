@@ -56,7 +56,7 @@ Follow these steps before importing your solutions from OCP GTM:
 4. Decide which of the following you want to do:
     1. If you have a solution in OCP GTM that you want to migrate to Partner Center - *to retain referral pipeline, collateral, co-sell status and incentives* - there are two scenarios for you to choose from:
         - If there is no similar offer in commercial marketplace
-            - Step 1. [Create an offer](#Scenario 1: Similar offer does not exist in commercial marketplace)
+            - Step 1. [Create an offer](#step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
             - Step 2. [Publish it in the commercial marketplace](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
             - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#begin-the-migration-of-your-solutions-from-ocp-gtm).
         - If there is already a similar offer in Commercial marketplace
