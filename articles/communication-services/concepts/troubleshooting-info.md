@@ -187,7 +187,7 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | -------- | ---------------| ---------------|
 | 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
 | 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
-| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
 
 ## Related information
