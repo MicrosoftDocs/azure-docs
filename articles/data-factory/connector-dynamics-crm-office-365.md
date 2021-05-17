@@ -9,13 +9,19 @@ ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ---
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM by using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 This article outlines how to use a copy activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
+
 ## Supported capabilities
+
 This connector is supported for the following activities:
+
 - [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+
 >[!NOTE]
 >Effective November 2020, Common Data Service has been renamed to [Microsoft Dataverse](). This article is updated to reflect the latest terminology. 
 
@@ -25,8 +31,8 @@ This Dynamics connector supports Dynamics versions 7 through 9 for both online a
 - Version 9 maps to the later version of Dynamics 365.
 
 
-
 Refer to the following table of supported authentication types and configurations for Dynamics versions and products.
+
 | Dynamics versions | Authentication types | Linked service samples |
 |:--- |:--- |:--- |
 | Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 | [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
@@ -41,20 +47,28 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 This connector doesn't support other application types like Finance, Operations, and Talent.
+
 >[!TIP]
 >To copy data from Dynamics 365 Finance and Operations, you can use the [Dynamics AX connector](connector-dynamics-ax.md).
 
 This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+
 ## Prerequisites
 To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Azure Active Directory. You can find out how to do this [here](/azure/active-directory/develop/howto-create-service-principal-portal). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
 
 ## Get started
+
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.
+
 ## Linked service properties
+
 The following properties are supported for the Dynamics linked service.
+
 ### Dynamics 365 and Dynamics CRM online
+
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
@@ -67,9 +81,12 @@ The following properties are supported for the Dynamics linked service.
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
+
 >[!NOTE]
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
+
 #### Example: Dynamics online using Azure AD service-principal and key authentication
+
 ```json
 {  
     "name": "DynamicsLinkedService",  
@@ -90,7 +107,9 @@ The following properties are supported for the Dynamics linked service.
     }  
 }  
 ```
+
 #### Example: Dynamics online using Azure AD service-principal and certificate authentication
+
 ```json
 { 
     "name": "DynamicsLinkedService", 
@@ -119,6 +138,7 @@ The following properties are supported for the Dynamics linked service.
 } 
 ```
 #### Example: Dynamics online using Office 365 authentication
+
 ```json
 {
     "name": "DynamicsLinkedService",
@@ -141,8 +161,11 @@ The following properties are supported for the Dynamics linked service.
     }
 }
 ```
+
 ### Dynamics 365 and Dynamics CRM on-premises with IFD
+
 Additional properties that compare to Dynamics online are **hostName** and **port**.
+
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes. |
@@ -154,7 +177,9 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | username | The username to connect to Dynamics. | Yes. |
 | password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely in Data Factory. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
+
 #### Example: Dynamics on-premises with IFD using IFD authentication
+
 ```json
 {
     "name": "DynamicsLinkedService",
@@ -180,14 +205,18 @@ Additional properties that compare to Dynamics online are **hostName** and **por
     }
 }
 ```
+
 ## Dataset properties
+
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Dynamics dataset.
 To copy data from and to Dynamics, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to "DynamicsEntity", "DynamicsCrmEntity", or "CommonDataServiceForAppsEntity". |Yes |
 | entityName | The logical name of the entity to retrieve. | No for source if the activity source is specified as "query" and yes for sink |
+
 #### Example
+
 ```json
 {
     "name": "DynamicsDataset",
@@ -204,21 +233,29 @@ To copy data from and to Dynamics, the following properties are supported:
     }
 }
 ```
+
 ## Copy activity properties
+
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Dynamics source and sink types.
+
 ### Dynamics as a source type
+
 To copy data from Dynamics, the copy activity **source** section supports the following properties:
+
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to "DynamicsSource", "DynamicsCrmSource", or "CommonDataServiceForAppsSource". | Yes |
 | query | FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No if `entityName` in the dataset is specified |
+
 >[!NOTE]
 >The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.
 
 > [!IMPORTANT]
 >- When you copy data from Dynamics, explicit column mapping from Dynamics to sink is optional. But we highly recommend the mapping to ensure a deterministic copy result.
 >- When Data Factory imports a schema in the authoring UI, it infers the schema. It does so by sampling the top rows from the Dynamics query result to initialize the source column list. In that case, columns with no values in the top rows are omitted. The same behavior applies to copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which are honored during copy runtime.
+
 #### Example
+
 ```json
 "activities":[
     {
@@ -248,7 +285,9 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
     }
 ]
 ```
+
 ### Sample FetchXML query
+
 ```xml
 <fetch>
   <entity name="account">
@@ -266,8 +305,11 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
   </entity>
 </fetch>
 ```
+
 ### Dynamics as a sink type
+
 To copy data to Dynamics, the copy activity **sink** section supports the following properties:
+
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to "DynamicsSink", "DynamicsCrmSink", or "CommonDataServiceForAppsSink". | Yes. |
@@ -283,7 +325,9 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 For Dynamics 365 online, there's a limit of [two concurrent batch calls per organization](/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)#Run-time%20limitations). If that limit is exceeded, a "Server Busy" exception is thrown before the first request is ever run. Keep **writeBatchSize** at 10 or less to avoid such throttling of concurrent calls.
 
 The optimal combination of **writeBatchSize** and **parallelCopies** depends on the schema of your entity. Schema elements include the number of columns, row size, and number of plug-ins, workflows, or workflow activities hooked up to those calls. The default setting of **writeBatchSize** (10) &times; **parallelCopies** (10) is the recommendation according to the Dynamics service. This value works for most Dynamics entities, although it might not give the best performance. You can tune the performance by adjusting the combination in your copy activity settings.
+
 #### Example
+
 ```json
 "activities":[
     {
@@ -315,10 +359,13 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
     }
 ]
 ```
+
 ## Retrieving data from views
+
 To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.
 
 There are two entities which store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](/dynamics365/customer-engagement/web-api/userquery).
+
 ```xml
 <fetch top="5000" >
   <entity name="<TARGETENTITY>">
@@ -329,17 +376,22 @@ There are two entities which store different types of view: "saved query" stores
   </entity>
 </fetch>
 ```
+
 You can also add filters to filter the views. For example, add the following filter to get a view named "My Active Accounts" in account entity.
+
 ```xml
 <filter type="and" >
     <condition attribute="returnedtypecode" operator="eq" value="1" />
     <condition attribute="name" operator="eq" value="My Active Accounts" />
 </filter>
 ```
+
 ## Data type mapping for Dynamics
+
 When you copy data from Dynamics, the following table shows mappings from Dynamics data types to Data Factory interim data types. To learn how a copy activity maps to a source schema and a data type maps to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 Configure the corresponding Data Factory data type in a dataset structure that is based on your source Dynamics data type by using the following mapping table:
+
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Long | ✓ | ✓ |
@@ -360,27 +412,44 @@ Configure the corresponding Data Factory data type in a dataset structure that i
 | AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
+
 > [!NOTE]
 > The Dynamics data types **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist**, and **AttributeType.PartyList** aren't supported.
+
 ## Writing data to a lookup field
+
 To write data into a lookup field with multiple targets like Customer and Owner, follow this guidance and example:
+
 1. Make your source contains both the field value and the corresponding target entity name.
    - If all records map to the same target entity, ensure one of the following conditions:
       - Your source data has a column that stores the target entity name.
       - You've added an additional column in the copy activity source to define the target entity.
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
+
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
 For example, assume the source has these two columns:
+
 - **CustomerField** column of type **GUID**, which is the primary key value of the target entity in Dynamics.
 - **Target** column of type **String**, which is the logical name of the target entity.
+
 Also assume you want to copy such data to the sink Dynamics entity field **CustomerField** of type **Customer**.
+
 In copy-activity column mapping, map the two columns as follows:
+
 - **CustomerField** to **CustomerField**. This mapping is the normal field mapping.
 - **Target** to **CustomerField\@EntityReference**. The sink column is a virtual column representing the entity reference. Input such field names in a mapping, as they won't show up by importing schemas.
+
 ![Dynamics lookup-field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+
 If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here is a shortcut: in the copy activity source, add an additional column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
+
 ![Dynamics lookup-field adding an entity-reference column](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
+
 ## Lookup activity properties
+
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).
+
 ## Next steps
+
 For a list of data stores the copy activity in Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
