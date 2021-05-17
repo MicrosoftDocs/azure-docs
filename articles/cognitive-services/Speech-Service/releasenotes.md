@@ -25,7 +25,6 @@ ms.custom: seodec18
 - A new stand alone language recognizer allows you to recognize what language is being spoken.
 - Develop speech enabled mixed reality and gaming applications using Unity on MacOS.
 - You can now use text-to-speech in addition to speech recognition from the Go programming language.
-- Simple language understanding patterns make it easier to create simple command sets.
 - Several new features and bug fixes to address issues YOU, our valued customers, have flagged on GitHub! THANK YOU! Keep the feedback coming!
 
 #### New features
@@ -33,7 +32,6 @@ ms.custom: seodec18
 - **C++/C#**: Speech Recognition and Translation Recognition now support stand-alone Single-Shot and Continuous Language ID via the `SourceLanguageRecognizer` API . See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
 - **C#**:  Added support Unity support to MacOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
-- **C++**: We added simple language understanding for patterns. The simple language patterns work offline in combination with online speech recognition. This is great for simple command sets like telling an elevator what floor to go to. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-simple-language-pattern-matching).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency).
 - **C++/C#/Java/Python/Objective-C/Go**: We now expose the latency and underrun time in `SpeechSynthesisResult` to help you monitor and diagnose speech synthesis latency issues. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency). 
 - **C++/C#/Java/Python/Objective-C/Go**: We added a Gender property to the synthesis voice info to make it easier to select voices based on gender. This addresses [GitHub issue #1055](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1055).
