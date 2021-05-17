@@ -28,7 +28,7 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 
 ## Prerequisites
 
-If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with this account. 
 
 You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:
@@ -43,7 +43,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client), or the [Azure Digital Twins CLI](concepts-cli.md). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](concepts-cli.md). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
 You will need the **_Twin ID_** of a twin in your instance that you've created.
 

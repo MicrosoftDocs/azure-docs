@@ -204,6 +204,31 @@ This user has minimal permissions needed to query external data. If you want to 
 GRANT CONTROL TO [jovan@contoso.com]
 ```
 
+### Role-based security
+
+Instead of assigning permissions to the individual uses, a good practice it to organize the users into roles and manage permission at role-level.
+The following code sample creates a new role representing the people who can analyze COVID-19 cases, and adds three users to this role:
+
+```sql
+CREATE ROLE CovidAnalyst;
+
+ALTER ROLE CovidAnalyst ADD MEMBER [jovan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
+```
+
+You can assign the permissions to all users that belong to the group:
+
+```sql
+GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
+GO
+DENY SELECT ON SCHEMA::ecdc_adls TO [CovidAnalyst];
+GO
+DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
+```
+
+This role-based security access control might simplify management of your security rules.
+
 ## Next steps
 
 - To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
