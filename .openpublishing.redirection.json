@@ -231,9 +231,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+      "redirect_url": "/azure/container-registry/monitor-service",
+    },
+    {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
       "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -23282,27 +23285,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-devicetemplate.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-central/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
@@ -24049,6 +24047,11 @@
       "source_path_from_root": "/articles/iot-central/retail/index.yml",
       "redirect_url": "/azure/iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
@@ -62286,6 +62289,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/custom-keyword-overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/keyword-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
@@ -65990,6 +65998,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
@@ -66102,6 +66115,21 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
       "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
     }
   ]
