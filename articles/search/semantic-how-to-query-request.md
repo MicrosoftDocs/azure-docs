@@ -59,7 +59,7 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after completing the following steps:
 
-1. [Sign up](https://aka.ms/SemanticSearchPreviewSignup) and admittance of your search service into the preview program
+1. Complete the [preview sign up](https://aka.ms/SemanticSearchPreviewSignup). Support for semantic query types must be enabled internally for your service.
 
 1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`
 
