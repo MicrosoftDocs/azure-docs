@@ -40,7 +40,7 @@ The private endpoint connectivity method is recommended when there is an organiz
 Other migration tools may not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings.
 
 
-To enable public network access for the Azure Migrate project, Sign in to Azure Portal, Navigate to **Azure Migrate properties** page on the Azure port, select **No** > **Save**.
+To enable public network access for the Azure Migrate project, Sign in to Azure portal, Navigate to **Azure Migrate properties** page on the Azure portal, select **No** > **Save**.
 
 ![Diagram that shows how to change the network access mode.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
