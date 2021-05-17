@@ -48,7 +48,7 @@ More about these elements, and how to define them, is explained below.
 
 ## Create eligible authorizations using Azure Resource Manager templates
 
-To onboard your customer to Azure Lighthouse, you use an[] Azure Resource Manager template along with a corresponding parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
+To onboard your customer to Azure Lighthouse, you use an[] Azure Resource Manager template along with a corresponding [parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
 
 > [!NOTE]
 > While you can also onboard customers using Managed Service offers in Azure Marketplace, you can't currently include eligible authorizations in those offers.
@@ -97,12 +97,12 @@ The **subscription.json** template, which can be used to onboard a subscription 
             },
             "defaultValue": [
                 { 
-                    "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
+                    "principalId": "00000000-0000-0000-0000-000000000000", 
                     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
                     "principalIdDisplayName": "PIM_Group" 
                 }, 
                 { 
-                    "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
+                    "principalId": "00000000-0000-0000-0000-000000000000", 
                     "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
                     "principalIdDisplayName": "PIM_Group" 
                 }   
@@ -111,7 +111,7 @@ The **subscription.json** template, which can be used to onboard a subscription 
         "eligibleAuthorizations": { 
             "type": "array", 
             "metadata": { 
-                "description": "Provide the auhtorizations that will have just-in-time role assignments on customer environments" 
+                "description": "Provide the authorizations that will have just-in-time role assignments on customer environments" 
             },
            "defaultValue": [ 
                 { 
@@ -119,7 +119,7 @@ The **subscription.json** template, which can be used to onboard a subscription 
                             "multiFactorAuthProvider": "Azure", 
                             "maximumActivationDuration": "PT8H" 
                         },
-                        "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
+                        "principalId": "00000000-0000-0000-0000-000000000000", 
                         "principalIdDisplayName": "PIM_Group",
                         "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608" 
                         
@@ -199,7 +199,7 @@ Each of your eligible authorizations must be defined in the `eligibleAuthorizati
         "authorizations": {
             "value": [
                 { 
-                    "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
                     "principalIdDisplayName": "PIM group"
                 }
@@ -212,7 +212,7 @@ Each of your eligible authorizations must be defined in the `eligibleAuthorizati
                             "multiFactorAuthProvider": "Azure",
                             "maximumActivationDuration": "PT8H"
                         },
-                        "principalId": "ee8f6d35-15f2-4252-b1b8-591358e8a244", 
+                        "principalId": "00000000-0000-0000-0000-000000000000", 
                         "principalIdDisplayName": "Tier 2 Support",
                         "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
 
@@ -242,7 +242,7 @@ The `justInTimeAccessPolicy` specifies two elements:
 
 After you have onboarded a customer for Azure delegated resource management, any eligible authorizations you created will be available to the specified user (or to users in any specified groups).
 
-Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal and selecting the **View eligible roles in PIM** button. From the Azure AD Privileged Identity Management page in the Azure portal and following the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role).
+Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **View eligible roles in PIM** button. After that, they can follow the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) in Azure AD Privileged Identity Management.
 
 Once the eligible role has been activated, the user will be able to use that elevated role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
