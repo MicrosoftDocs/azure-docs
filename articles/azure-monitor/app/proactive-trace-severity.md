@@ -10,6 +10,7 @@ ms.date: 11/27/2017
 >
 > See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 > 
+
 # Degradation in trace severity ratio (preview)
 
 Traces are widely used in applications, as they help tell the story of what happens behind the scenes. When things go wrong, traces provide crucial visibility into the sequence of events leading to the undesired state. While traces are generally unstructured, there is one thing that can concretely be learned from them – their severity level. In an application’s steady state, we would expect the ratio between “good” traces (*Info* and *Verbose*) and “bad” traces (*Warning*, *Error*, and *Critical*) to remain stable. The assumption is that “bad” traces may happen on a regular basis to a certain extent due to any number of reasons (transient network issues for instance). But when a real problem begins growing, it usually manifests as an increase in the relative proportion of “bad” traces vs “good” traces. Application Insights smart detection automatically analyzes the traces logged by your application, and can warn you about unusual patterns in the severity of your trace telemetry.
