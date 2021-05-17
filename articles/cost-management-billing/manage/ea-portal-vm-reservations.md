@@ -45,7 +45,7 @@ Any reservation discounts that your organization might have negotiated are not s
 
 The prices for reservations are not necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
 
-Prices shown in the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [Retail Rates API](/rest/api/cost-management/retail-prices/azure-retail-prices) are the same. Querying the API is the best way to view all prices at once.
+Prices shown in the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) are the same. Querying the API is the best way to view all prices at once.
 
 ## Reserved instances API support
 
