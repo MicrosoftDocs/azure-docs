@@ -368,7 +368,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud update --profile 2019-03-01-hybrid
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
-<!--Why is this sample included? If you remove the command-line prompt, it's identical to the preceding sample.-->
+<!--Sample is identical to the preceding sample, with window dressing.-->
 
 ## Step 2: Create a VM
 
