@@ -182,16 +182,16 @@ A Consumption plan doesn't need to be defined. One will automatically be created
 The Consumption plan is a special type of "serverfarm" resource. For Windows, you can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties:
 
 ```json
-{  
+{
    "type":"Microsoft.Web/serverfarms",
    "apiVersion":"2016-09-01",
    "name":"[variables('hostingPlanName')]",
    "location":"[resourceGroup().location]",
-   "properties":{  
+   "properties":{
       "name":"[variables('hostingPlanName')]",
       "computeMode":"Dynamic"
    },
-   "sku":{  
+   "sku":{
       "name":"Y1",
       "tier":"Dynamic",
       "size":"Y1",
@@ -208,7 +208,7 @@ If you do explicitly define your Consumption plan, you will need to set the `ser
 
 ### Create a function app
 
-The settings required by a function app running in Consumption plan defer between Windows and Linux. 
+The settings required by a function app running in Consumption plan defer between Windows and Linux.
 
 #### Windows
 
@@ -254,11 +254,11 @@ On Windows, a Consumption plan requires an another setting in the site configura
 ```
 
 > [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
 
 #### Linux
 
-On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`. 
+On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`.
 
 ```json
 {
@@ -338,7 +338,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -373,7 +373,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 }
 ```
 > [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
 
 <a name="app-service-plan"></a>
 
@@ -796,4 +796,4 @@ Learn more about how to develop and configure Azure Functions.
 <!-- LINKS -->
 
 [Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json

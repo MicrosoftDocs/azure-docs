@@ -25,7 +25,7 @@ This document will cover the following topics:
 + How to configure metrics and create a dashboard
 + How to create alerts at specified thresholds
 
-Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vault here](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. [Learn more about Azure Monitor for Key Vault here](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
 
 ## Basic Key Vault metrics to monitor
 
