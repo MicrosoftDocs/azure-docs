@@ -42,6 +42,13 @@ The following list provides the requirements to create a Run As account in Power
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](automation-security-overview.md#permissions).
 
+If you are planning to use a certificate from your enterprise or third-party certificate authority (CA), Automation requires the certificate to have the following configuration:
+
+   * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marked as exportable
+   * Configured to use the SHA256 algorithm
+   * Saved in the `*.pfx` or `*.cer` format.
+
 To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGroupName`, which are required parameters for the PowerShell script, complete the following steps.
 
 1. Sign in to the Azure portal.

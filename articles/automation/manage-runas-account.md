@@ -24,7 +24,7 @@ When you renew the self-signed certificate, the current valid certificate is ret
 >If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
 >[!NOTE]
->If you have configured your Run As account to use a certificate issued by your enterprise or third-party certificate authority (CA) and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate. To renew your certificate in this case, see [Renew an enterprise or third-party certificate](renew-an-enterprise-or-third-party-certificate).
+>If you have configured your Run As account to use a certificate issued by your enterprise or third-party certificate authority (CA) and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate. To renew your certificate in this case, see [Renew an enterprise or third-party certificate](#renew-an-enterprise-or-third-party-certificate).
 
 Use the following steps to renew the self-signed certificate.
 
@@ -46,7 +46,7 @@ Use the following steps to renew the self-signed certificate.
 
 Every certificate has a built-in expiration date. If the certificate you assigned to the Run As account was issued by a certification authority (CA), you need to perform a different set of steps to configure the Run As account with the new certificate before it expires. You can renew it any time before it expires.
 
-1. Import the renewed certificate following the steps for [Create a new certificate](./shared-resources/certificates.md#create-a-new-certificate). Automation requires the certificate to:
+1. Import the renewed certificate following the steps for [Create a new certificate](./shared-resources/certificates.md#create-a-new-certificate). Automation requires the certificate to have the following configuration:
 
    * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
    * Marked as exportable
