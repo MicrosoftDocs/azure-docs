@@ -92,7 +92,7 @@ Grant the Media Services Managed Identity access to the Key Vault. There are two
 
 The first command below shows the Managed Identity of the Media Services account which is the `principalId` listed in the JSON returned by the command.
 
-[!INCLUDE [Show the Managed Identity of a Media Services account with the CLI](./includes/task-show-account-managed-identity-keyvault-cli.md)]
+[!INCLUDE [Show the Managed Identity of a Media Services account with the CLI](./includes/task-show-account-managed-identity-cli.md)]
 
 ### Set the Key Vault policy
 

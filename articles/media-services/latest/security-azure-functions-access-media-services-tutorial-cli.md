@@ -16,6 +16,9 @@ ms.author: inhenkel
 
 Suppose you want to build an “On Air” sign for your broadcasting studio. You can determine when Media Services Live Events are running using the Media Services API but this may be hard to call from an embedded device. Instead, you can expose a simple HTTP API for your embedded device using Azure Functions. Azure Functions could then call Media Services to get the state of a Live Event.
 
+> [!NOTE]
+> You must have the Owner role in order to assign Managed Identities for storage. Contributor doesn't have sufficient permissions.
+
 This tutorial uses the 2020-05-01 Media Services API.
 
 ## Sign in to Azure
