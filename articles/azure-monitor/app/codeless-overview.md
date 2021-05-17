@@ -23,7 +23,6 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | In progress     | In progress     | Not supported   |
 |Azure App Service on Linux             | N/A             | Not supported   | In progress     | Public Preview  | Not supported   |
-|Azure App Service on AKS               | N/A             | In design       | In design       | In design       | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       | Not supported   |
@@ -40,8 +39,8 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 #### .NET
 Application monitoring on Azure App Service on Windows is available for [.NET applications](./azure-web-apps.md?tabs=net) .NET and is enabled by default.
 
-#### .NETCore
-Monitoring for [.NETCore applications](./azure-web-apps.md?tabs=netcore) can be enabled with one click.
+#### .NET Core
+Monitoring for [.NET Core applications](./azure-web-apps.md?tabs=netcore) can be enabled with one click.
 
 #### Java
 The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](./java-in-process-agent.md) to your application without any code changes before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
@@ -51,8 +50,8 @@ Monitoring for Node.js applications on Windows cannot currently be enabled from 
 
 ### Linux
 
-#### .NETCore
-To monitor .NETCore applications running on Linux, use the [SDK](./asp-net-core.md).
+#### .NET Core
+To monitor .NET Core applications running on Linux, use the [SDK](./asp-net-core.md).
 
 #### Java 
 Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](./java-in-process-agent.md) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.

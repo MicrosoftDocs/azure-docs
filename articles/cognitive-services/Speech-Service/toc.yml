@@ -43,8 +43,6 @@
           items:
             - name: What is Custom Speech?
               href: custom-speech-overview.md
-            - name: Test a model using audio files in Speech Studio
-              href: quickstarts/speech-studio-test-model.md
             - name: Prepare data for Custom Speech
               href: how-to-custom-speech-test-and-train.md
             - name: Inspect Custom Speech data
@@ -297,12 +295,16 @@
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
-- name: Custom Keyword
+- name: Keyword recognition
   items:
-    - name: Custom keyword overview
-      href: custom-keyword-overview.md
-    - name: Custom keyword basics
+    - name: Keyword recognition overview
+      href: keyword-recognition-overview.md
+    - name: Custom Keyword quickstart
       href: custom-keyword-basics.md
+    - name: Recommendations and guidelines
+      href: keyword-recognition-guidelines.md
+    - name: Region support
+      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -586,9 +588,7 @@
     - name: Speech Studio
       items:
         - name: Speech Studio overview
-          href: https://speech.microsoft.com
-        - name: Create a Custom Commands app with Speech Studio
-          href: ./quickstart-custom-commands-application.md
+          href: speech-studio-overview.md
     - name: Enterprise readiness
       items:
       - name: Region support

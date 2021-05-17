@@ -20,7 +20,7 @@ Concepts:
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
-The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-pnp/concepts-components.md)
+The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
 
 ### Agent Metadata
 
@@ -32,7 +32,7 @@ information and status to Device Update services.
 |resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure and should follow [http status code specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |Idle|
-|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
+|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 |`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
 
 #### State
@@ -105,7 +105,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 The Device Information Interface is a concept used within [IoT Plug and Play architecture](../iot-pnp/overview-iot-plug-and-play.md). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more about Device Information interface, see this [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-pnp/concepts-components.md)
+The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|

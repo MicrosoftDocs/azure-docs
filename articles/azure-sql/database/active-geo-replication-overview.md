@@ -10,13 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/27/2020
+ms.date: 04/28/2021
 ---
 
 # Creating and using active geo-replication - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region).
+
+> [!NOTE]
+> Active geo-replication for Azure SQL Hyperscale [is now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, only forced failover supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
+
 
 > [!NOTE]
 > Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use [Auto-failover groups](auto-failover-group-overview.md).
@@ -135,6 +139,9 @@ By default, the backup storage redundancy of the secondary is same as that of th
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](purchasing-models.md).
 
 ## Cross-subscription geo-replication
+
+> [!NOTE]
+> Creating a geo-replica on a logical server in a different Azure tenant is not supported when [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) auth is active (enabled) on either primary or secondary logical server.
 
 To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires:
 

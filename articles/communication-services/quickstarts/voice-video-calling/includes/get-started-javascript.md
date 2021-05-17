@@ -73,7 +73,7 @@ import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
-let userTokenCredential = "";
+let tokenCredential = "";
 const userToken = document.getElementById("token-input");
 const calleeInput = document.getElementById("callee-id-input");
 const submitToken = document.getElementById("token-submit");

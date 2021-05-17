@@ -9,10 +9,10 @@ ms.date: 07/02/2020
 This article shows how to create a [container group](container-instances-container-groups.md) with an application container and a sidecar container running a TLS/SSL provider. By setting up a container group with a separate TLS endpoint, you enable TLS connections for your application without changing your application code.
 
 You set up an example container group consisting of two containers:
-* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image. 
-* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS. 
+* An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image.
+* A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS.
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports. 
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
@@ -106,7 +106,7 @@ http {
 
         location / {
             proxy_pass http://localhost:80; # TODO: replace port if app listens on port other than 80
-            
+
             proxy_set_header Connection "";
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -236,4 +236,4 @@ If you deploy your container group in an [Azure virtual network](container-insta
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) - see a sample [deployment template](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet).

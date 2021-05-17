@@ -169,7 +169,7 @@ az acr repository show --name <acrName> --repository azure-vote-front
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
-## Deploy application to Azure Container instances
+## Deploy application to Azure Container Instances
 
 Next, change to the ACI context. Subsequent Docker commands run in this context.
 

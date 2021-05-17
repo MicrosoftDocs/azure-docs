@@ -90,7 +90,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline
+      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing concepts
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
@@ -141,10 +141,14 @@
         href: vpn-profile-intune.md
     - name: VPN clients
       items:
-      - name: Windows 10
-        href: openvpn-azure-ad-client.md
-      - name: OpenVPN
-        href: howto-openvpn-clients.md?
+        - name: OpenVPN
+          href: howto-openvpn-clients.md?
+        - name: Azure AD authentication
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: macOS - Preview
+              href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
       - name: User tunnel

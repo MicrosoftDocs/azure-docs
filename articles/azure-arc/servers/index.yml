@@ -45,7 +45,10 @@ landingContent:
        links:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-
+     - linkListType: get-started
+       links:
+          - text: Test Arc enabled servers using an Azure VM
+            url: plan-evaluate-on-azure-virtual-machine.md
  # Card
   - title: Reference architecture
     linkLists:

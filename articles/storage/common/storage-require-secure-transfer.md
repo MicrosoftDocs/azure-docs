@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 04/27/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
@@ -34,14 +34,14 @@ You can turn on the **Secure transfer required** property when you create a stor
 ### Require secure transfer for a new storage account
 
 1. Open the **Create storage account** pane in the Azure portal.
-1. Under **Secure transfer required**, select **Enabled**.
+1. In the **Advanced** page, select the **Enable secure transfer** checkbox.
 
    ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
+1. In the storage account menu pane, under **Settings**, select **Configuration**.
 1. Under **Secure transfer required**, select **Enabled**.
 
    ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)

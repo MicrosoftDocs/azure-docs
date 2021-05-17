@@ -133,7 +133,7 @@ To enable stateless node types, you should configure the underlying virtual mach
 ```
 
 ## Configuring Stateless node types with multiple Availability Zones
-To configure Stateless node type spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
+To configure Stateless node type spanning across multiple availability zones follow the documentation [here](/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
 
 * Set **singlePlacementGroup** :  **false**  if multiple placement groups is required to be enabled.
 * Set  **upgradeMode** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.
@@ -267,4 +267,3 @@ Once the resources have finished deploying, you can begin to disable the nodes i
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md)
-

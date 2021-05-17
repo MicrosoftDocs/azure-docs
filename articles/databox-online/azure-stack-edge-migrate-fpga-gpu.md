@@ -152,10 +152,10 @@ You will now copy data from the source device to the Edge cloud shares and Edge 
 
 Follow these steps to sync the data on the Edge cloud shares on your target device:
 
-1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) corresponding to the share names created on the source device. When you create the shares, make sure that **Select blob container** is set to **Use existing**, and then select the container that was used with the previous device.
-1. [Add users](azure-stack-edge-j-series-manage-users.md#add-a-user) that had access to the previous device.
-1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. Refreshing the share will pull down all the cloud data from the existing container to the shares.
-1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
+1. [Add shares](./azure-stack-edge-gpu-manage-shares.md#add-a-share) corresponding to the share names created on the source device. When you create the shares, make sure that **Select blob container** is set to **Use existing**, and then select the container that was used with the previous device.
+1. [Add users](./azure-stack-edge-gpu-manage-users.md#add-a-user) that had access to the previous device.
+1. [Refresh the share](./azure-stack-edge-gpu-manage-shares.md#refresh-shares) data from Azure. Refreshing the share will pull down all the cloud data from the existing container to the shares.
+1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](./azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
 
 
 ### 2. From Edge local shares

@@ -3,7 +3,7 @@ title: Continuous integration and delivery for Synapse workspace
 description: Learn how to use continuous integration and delivery to deploy changes in workspace from one environment (development, test, production) to another.
 author: liudan66
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
@@ -27,10 +27,10 @@ These prerequisites and configurations must be in place to automate the deployme
 ### Azure DevOps
 
 - An Azure DevOps project has been prepared for running the release pipeline.
-- [Grant any users who will check in code "Basic" access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page), so they can see the repo.
+- [Grant any users who will check in code "Basic" access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repo.
 - Grant Owner Rights to the Azure Synapse repo.
 - Make sure you have created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
-- Permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
+- Permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
 - An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
 

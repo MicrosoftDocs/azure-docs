@@ -9,14 +9,14 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 04/24/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Clouldflare with Azure Active Directory B2C
+# Tutorial: Configure Cloudflare with Azure Active Directory B2C
 
-In this sample tutorial, learn how to enable [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/waf/) solution for Azure Active Directory (AD) B2C tenant with custom domain. Clouldflare WAF helps organization protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS.
+In this sample tutorial, learn how to enable [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/waf/) solution for Azure Active Directory (AD) B2C tenant with custom domain. Cloudflare WAF helps organization protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS.
 
 ## Prerequisites
 
@@ -34,15 +34,15 @@ Cloudflare WAF integration includes the following components:
 
 - **Azure AD B2C Tenant** – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
 
-- [**Azure Front Door**](https://docs.microsoft.com/azure/frontdoor/front-door-overview) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
+- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
 
 - **Cloudflare** – The web application firewall, which manages all traffic that is sent to the authorization server.
 
 ## Integrate with Azure AD B2C
 
-To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by Azure Front Door. Learn how to [enable Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).  
+To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by Azure Front Door. Learn how to [enable Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).  
 
-After custom domain for Azure AD B2C is successfully configured using Azure Front Door, [test the custom domain](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
+After custom domain for Azure AD B2C is successfully configured using Azure Front Door, [test the custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
 
 ## Onboard with Cloudflare
 
@@ -88,9 +88,8 @@ Add, update, or remove firewall rules using the firewall option available in the
 
 - [Troubleshoot Cloudflare custom page issues](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-#5QWV2KVjLnaAQ8L4tjiguw)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 ## Next steps 
  
-- [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
-   
+- [Configure a custom domain in Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow)

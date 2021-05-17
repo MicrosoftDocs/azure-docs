@@ -14,11 +14,11 @@ ms.service: digital-twins
 
 Azure Digital Twins can collect logs for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and perform root-cause analysis on issues without needing to contact Azure support.
 
-This article shows you how to [**configure diagnostic settings**](#turn-on-diagnostic-settings) in the [Azure portal](https://portal.azure.com) to start collecting logs from your Azure Digital Twins instance. You can also specify where the logs should be stored (such as Log Analytics or a storage account of your choice).
+This article shows you how to [configure diagnostic settings](#turn-on-diagnostic-settings) in the [Azure portal](https://portal.azure.com) to start collecting logs from your Azure Digital Twins instance. You can also specify where the logs should be stored (such as Log Analytics or a storage account of your choice).
 
 This article also contains lists of all [log categories](#log-categories) and [log schemas](#log-schemas) that Azure Digital Twins collects.
 
-After setting up logs, you can also [**query the logs**](#view-and-query-logs) to quickly gather custom insights.
+After setting up logs, you can also [query the logs](#view-and-query-logs) to quickly gather custom insights.
 
 ## Turn on diagnostic settings 
 
@@ -39,7 +39,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
         - QueryOperation
         - AllMetrics
         
-        For more details about these categories and the information they contain, see the [*Log categories*](#log-categories) section below.
+        For more details about these categories and the information they contain, see the [Log categories](#log-categories) section below.
      * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
         - Send to Log Analytics
         - Archive to a storage account
@@ -53,7 +53,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
-For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/essentials/diagnostic-settings.md).
+For more detailed information on diagnostic settings and their setup options, you can visit [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## Log categories
 
@@ -104,7 +104,7 @@ Each log category has a schema that defines how events in that category are repo
 
 ### API log schemas
 
-This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, with the **exception** of the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [*Egress log schemas*](#egress-log-schemas)).
+This log schema is consistent for `ADTDigitalTwinsOperation`, `ADTModelsOperation`, `ADTQueryOperation`. The same schema is also used for `ADTEventRoutesOperation`, with the **exception** of the `Microsoft.DigitalTwins/eventroutes/action` operation name (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
 The schema contains information pertinent to API calls to an Azure Digital Twins instance.
 
@@ -239,7 +239,7 @@ Below are example JSON bodies for these types of logs.
 
 #### ADTEventRoutesOperation
 
-Here is an example JSON body for an `ADTEventRoutesOperation` that is **not** of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [*Egress log schemas*](#egress-log-schemas)).
+Here is an example JSON body for an `ADTEventRoutesOperation` that is **not** of `Microsoft.DigitalTwins/eventroutes/action` type (for more information about that schema, see the next section, [Egress log schemas](#egress-log-schemas)).
 
 ```json
   {
@@ -361,10 +361,10 @@ Here is how to query the logs for your instance.
     - The *Queries* tab contains the example queries that you can load into the editor.
     - The *Filter* tab lets you customize a filtered view of the data that the query returns.
 
-For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
+For more detailed information on log queries and how to write them, you can visit [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Next steps
 
-* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/essentials/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md).
-* To see how to enable alerts for your metrics, see [*Troubleshooting: Set up alerts*](troubleshoot-alerts.md).
+* For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
+* For information about the Azure Digital Twins metrics, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
+* To see how to enable alerts for your metrics, see [Troubleshooting: Set up alerts](troubleshoot-alerts.md).

@@ -156,6 +156,8 @@
         href: safe-url-list.md
       - name: Bandwidth considerations
         href: rdp-bandwidth.md
+      - name: Proxy support guidelines
+        href: proxy-server-support.md
       - name: Determine user connection latency
         href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
@@ -185,7 +187,7 @@
   - name: Security
     items:
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline
+        href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -212,8 +214,6 @@
   items:
   - name: Security best practices
     href: security-guide.md
-  - name: Proxy support guidelines
-    href: proxy-server-support.md
   - name: Linux support
     href: linux-overview.md
   - name: Azure CLI
@@ -252,3 +252,6 @@
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Azure Advisor
+    href: ../advisor/advisor-overview.md
+
