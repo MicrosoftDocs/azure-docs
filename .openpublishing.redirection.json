@@ -62289,6 +62289,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/custom-keyword-overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/keyword-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
