@@ -40,7 +40,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
@@ -130,7 +130,7 @@ In the **Create Event Subscription** page, fill the fields as follows:
   1. For **Endpoint Type**, Select _Azure Function_.
   1. For **Endpoint**, use the _Select an endpoint_ link to choose what Azure Function to use for the endpoint.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details.":::
 
 In the _Select Azure Function_ page that opens up, verify or fill in the below details.
  1. **Subscription**: Your Azure subscription.
