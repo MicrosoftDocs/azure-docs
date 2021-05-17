@@ -361,6 +361,11 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 
 ## NSG flow logging considerations
 
+**Log Analytcs Workspace considerations**:
+- workspaceId: The GUID of the workspace Example: x2y1111-zx11-1ccw-222-q123456f9z12
+- workspaceResourceId: The URL to the workspace Example: /subscriptions/<workspace_subscription_id>/resourceGroups/<workspace_resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<worskpace_name>
+ARM template link: https://docs.microsoft.com/en-us/azure/templates/microsoft.network/networkwatchers/flowlogs?tabs=json
+
 **Storage account considerations**: 
 
 - Location: The storage account used must be in the same region as the NSG.
@@ -383,7 +388,7 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 
 **Enable on critical VNETs/Subnets**: Flow Logs should be enabled on all critical VNETs/subnets in your subscription as an auditability and security best practice. 
 
-**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied at the resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/network-security-group-how-it-works.md) in Network Security Groups. 
+**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. Only one flow log per NSG is allowed. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied at the resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/network-security-group-how-it-works.md) in Network Security Groups. 
 
 Few common scenarios:
 1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
