@@ -73,6 +73,8 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
 
+To learn more about best practices you edit a model, see [Edit an existing device template](howto-edit-device-template.md).
+
 > [!TIP]
 > You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
 
