@@ -135,7 +135,6 @@ To create and run a new scan, do the following:
     empty. All system schemas (for example, SysAdmin) and objects are
     ignored by default. When the list is empty, all available schemas
     are imported.
-
     Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
 
     -   start with A or    
