@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
-description: In this article, you learn how to create an Azure Bastion host and connect to a Windows VM.
+description: Learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 05/17/2021
 ms.author: cherylmc
 
 ---
@@ -59,6 +59,8 @@ This section helps you create the bastion object in your VNet. This is required 
     * **Resource Group**: The Azure resource group in which the new Bastion resource will be created. If you don't have an existing resource group, you can create a new one.
     * **Name**: The name of the new Bastion resource.
     * **Region**: The Azure public region that the resource will be created in.
+    * **Tier**: The SKU you want to use.
+    * **Instance count**: The number of instances.
     * **Virtual network**: The virtual network in which the Bastion resource will be created. You can create a new virtual network in the portal during this process, or use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements. If you don't see your virtual network from the dropdown, make sure you have selected the correct Resource Group.
     * **Subnet**: Once you create or select a virtual network, the subnet field will appear. The subnet in your virtual network where the new Bastion host will be deployed. The subnet will be dedicated to the Bastion host. Select **Manage subnet configuration** and create the Azure Bastion subnet. Select **+Subnet** and create a subnet using the following guidelines:
 
@@ -71,9 +73,8 @@ This section helps you create the bastion object in your VNet. This is required 
     * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.
 
+1. On the **Advanced** tab page, you can specify whether you want to use **IP Connect**.
 1. When you have finished specifying the settings, select **Review + Create**. This validates the values. Once validation passes, you can create the Bastion resource.
-
-   :::image type="content" source="./media/tutorial-create-host-portal/validation.png" alt-text="Screenshot of validation page.":::
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
