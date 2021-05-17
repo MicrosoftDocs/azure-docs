@@ -36,7 +36,7 @@ Each CSV file should be named after a different variable that will be used for m
 ### Data quality
 - As the model learns normal patterns from historical data, the training data should **represent the overall normal state of the system**. It is hard for the model to learn these types of patterns if the training data is full of anomalies. 
 -  The model has millions of parameters and it needs a minimum number of data points to learn an optimal set of parameters. The general rule is that you need to provide **at least 15,000 data points per variable** to properly train the model. The more data, the better the model.
-1. In general, the **missing value ratio of training data should be under 20%**. Too much missing data may end up with automatically filled values (usually straight segments or constant values) being learnt as normal patterns. That may result in real data points being detected as anomalies. 
+- In general, the **missing value ratio of training data should be under 20%**. Too much missing data may end up with automatically filled values (usually straight segments or constant values) being learnt as normal patterns. That may result in real data points being detected as anomalies. 
 
     However, there are cases when a high ratio is acceptable. For example, if you have two time series in a group using `Outer` mode to align timestamps. One has one-minute granularity, the other one has hourly granularity. Then the hourly time series by nature has at least 59 / 60 = 98.33% missing data points. In such cases, it's fine to fill the hourly time series using the only value available if it does not fluctuate too much typically.
 
