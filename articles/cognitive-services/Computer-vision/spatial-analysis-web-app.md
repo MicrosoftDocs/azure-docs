@@ -89,7 +89,7 @@ If you are using the sample [DeploymentManifest.json](https://github.com/Azure-S
 
 Now that the initial configuration of the spatial analysis container is complete, the next step is to configure the operations parameters and add them to the deployment. 
 
-The first step is to update the sample [DeploymentManifest.json](./DeploymentManifest.json) and configure the desired operation. For example, configuration for cognitiveservices.vision.spatialanalysis-personcount is shown below:
+The first step is to update the sample [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json) and configure the desired operation. For example, configuration for cognitiveservices.vision.spatialanalysis-personcount is shown below:
 
 ```json
 "personcount": {
@@ -154,7 +154,7 @@ The Spatial Analysis Web Application enables developers to quickly configure a s
 
 Follow the [guide](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image) to build and push the image to an Azure Container Registry in your subscription.
 
-# Setup Steps
+## Setup Steps
 
 To install the container, create a new Azure App Service and fill in the required parameters. Then go to the **Docker** Tab and select **Single Container**, then **Azure Container Registry**. Use your instance of Azure Container Registry where you pushed the image above.
 
