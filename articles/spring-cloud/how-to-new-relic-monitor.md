@@ -90,7 +90,7 @@ You can also leverage this agent from portal with the following procedure.
 
 9. View the application profile from **New Relic** dashboard.
 
-   ![Application profile](media/new-relic-monitoring/.png) 
+   ![Application profile](media/new-relic-monitoring/profile-app.png) 
 
 ## New Relic Java Agent Logging
 
