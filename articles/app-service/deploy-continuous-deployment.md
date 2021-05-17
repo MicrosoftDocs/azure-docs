@@ -38,7 +38,8 @@ Choose the tab that corresponds to your selection for the steps.
 
 1. If you're deploying from GitHub for the first time, click **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, click **Change Account**.
 
-1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for.
+1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. 
+If you can’t find an organization or repository, you may need to enable additional permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories)
 
 1. When GitHub Actions is the chosen build provider, you can select the workflow file you want with the **Runtime stack** and **Version** dropdowns. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, click **Preview file**.
 
