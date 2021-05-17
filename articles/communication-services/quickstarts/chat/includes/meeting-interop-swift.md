@@ -11,8 +11,8 @@ In this quickstart, you'll learn how to chat in a Teams meeting using the Azure 
 
 ## Prerequisites 
 
-1. A [Teams deployment](/deployoffice/teams-install). 
-2. A working [calling app](../../voice-video-calling/get-started-teams-interop.md). 
+- A [Teams deployment](/deployoffice/teams-install). 
+- A working [calling app](../../voice-video-calling/get-started-teams-interop.md). 
 
 ## Enable Teams interoperability 
 
@@ -105,14 +105,14 @@ Next change the title to `Chat Teams Quickstart`. Modify the following line with
 
 ### Initialize the ChatClient
 
-Instantiate the `ChatClient` and enable realtime notifications. We will be using realtime notifications for receiving chat messages.
+Instantiate the `ChatClient` and enable real-time notifications. We will be using real-time notifications for receiving chat messages.
 
 Inside the `NavigationView` `.onAppear` add the snippet below, after the existing code that initializes the `CallAgent`.
 
 ```
 // Initialize the ChatClient
 do {
-    let endpoint = "<ACS_RESOURCE_ENDPOINT_HERE>"
+    let endpoint = "COMMUNICATION_SERVICES_RESOURCE_ENDPOINT_HERE>"
     let credential = try CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN_HERE>")
 
     self.chatClient = try ChatClient(
@@ -123,15 +123,15 @@ do {
 
     self.message = "ChatClient successfully created"
 
-    // Start realtime notifications
+    // Start real-time notifications
     self.chatClient?.startRealTimeNotifications() { result in
         switch result {
         case .success:
-            print("Realtime notifications started")
+            print("Real-time notifications started")
             // Receive chat messages
             self.chatClient?.register(event: ChatEventId.chatMessageReceived, handler: receiveMessage)
         case .failure:
-            print("Failed to start realtime notifications")
+            print("Failed to start real-time notifications")
             self.message = "Failed to enable chat notifications"
         }
     }
@@ -142,7 +142,7 @@ do {
 }
 ```
 
-Replace `<ACS_RESOURCE_ENDPOINT_HERE>` with the endpoint for your ACS resource.
+Replace `<COMMUNICATION_SERVICES_RESOURCE_ENDPOINT_HERE>` with the endpoint for your Communication Services resource.
 Replace `<USER_ACCESS_TOKEN_HERE>` with an access token that has Chat scope. 
 
 Read more about user access tokens: [User Access Token](../../access-tokens.md)
@@ -232,7 +232,7 @@ struct MeetingMessage {
 }
 ```
 
-Next add the `receiveMessage()` function to `ContentView`. This is the handler that is called everytime a `ChatMessageReceived` event occurs.
+Next add the `receiveMessage()` function to `ContentView`. This is the handler that is called every time a `ChatMessageReceived` event occurs.
 
 ```
 func receiveMessage(response: Any, eventId: ChatEventId) {
@@ -290,7 +290,7 @@ To join the Teams meeting enter your Team's meeting link in the UI.
 
 After you join the Team's meeting you will need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat you will be able to send and receive messages.
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
 
 > [!NOTE] 
 > Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
