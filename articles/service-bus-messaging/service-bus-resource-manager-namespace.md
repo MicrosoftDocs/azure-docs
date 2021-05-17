@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create a service bus namespace
 
-In this quickstart, you use an [existing Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
+In this quickstart, you use an [existing Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
 
 [!code-json[create-azure-service-bus-namespace](~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json)]
 
@@ -40,7 +40,7 @@ To create a service bus namespace by deploying a template:
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${serviceBusNamespaceName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
