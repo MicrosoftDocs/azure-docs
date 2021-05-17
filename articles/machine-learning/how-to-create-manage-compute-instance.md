@@ -129,9 +129,6 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 ## <a name="setup-script"></a> Customize the compute instance with a script (preview)
 
-> [!TIP]
-> This preview is currently available for workspaces in West Central US and East US regions.
-
 Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements. 
 
 Some examples of what you can do in a setup script:
@@ -188,6 +185,8 @@ Once you store the script, specify it during creation of your compute instance:
 1. Add command arguments as needed.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
+
+Please note that if workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
 
 ### Use script in a Resource Manager template
 
