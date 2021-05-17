@@ -32,6 +32,12 @@ The following data platform tools are supported on the DSVM.
 > [!NOTE]
 > SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
 
+> [!NOTE]
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
+
+
 ### Windows
 
 #### Setup
