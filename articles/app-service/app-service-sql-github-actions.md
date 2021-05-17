@@ -94,7 +94,7 @@ To run the create Azure resources workflow:
 
 1. Go to **Actions** and select **Run workflow**.
 
-   :::image type="content" source="media/github-actions-workflows/gh-actions-run-workflow.png" alt-text="Run the GitHub Actions workflow to add resources.":::
+   :::image type="content" source="media/github-actions-workflows/github-actions-run-workflow.png" alt-text="Run the GitHub Actions workflow to add resources.":::
 
 1. Verify that your action ran successfully by checking for a green checkmark on the **Actions** page.
 
