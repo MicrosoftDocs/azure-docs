@@ -11,8 +11,8 @@ In this quickstart, you'll learn how to chat in a Teams meeting using the Azure 
 
 ## Prerequisites 
 
-1. A [Teams deployment](/deployoffice/teams-install). 
-2. A working [chat app](../get-started.md). 
+* A [Teams deployment](/deployoffice/teams-install). 
+* A working [chat app](../get-started.md). 
 
 ## Enable Teams interoperability 
 
