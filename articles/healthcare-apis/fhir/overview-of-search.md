@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/3/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
 ---
 # Overview of FHIR search
@@ -111,7 +111,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 |  :type (reference) | Yes             | Yes                       | Yes                             | 
 |  :not         | Yes                  | Yes                       | Yes                             | 
 |  :below (uri) | Yes                  | Yes                       | Yes                             |  
-|  :above (uri) | No                   | No                        | No                              | 
+|  :above (uri) | Yes                  | Yes                       | Yes                             | 
 |  :in (token)  | No                   | No                        | No                              | 
 |  :below (token) | No                 | No                        | No                              | 
 |  :above (token) | No                 | No                        | No                              | 
