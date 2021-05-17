@@ -304,7 +304,7 @@ function handleResponse(response) {
         // In case multiple accounts exist, you can select
         const currentAccounts = myMsal.getAllAccounts();
     
-        if (currentAccountss.length === 0) {
+        if (currentAccounts.length === 0) {
             // no accounts signed-in, attempt to sign a user in
             myMsal.loginRedirect(loginRequest);
         } else if (currentAccounts.length > 1) {
