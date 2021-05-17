@@ -1,7 +1,6 @@
 ---
 title: Create a single database with ledger enabled
-description: Create a single database in Azure SQL Database with ledger enabled using the Azure portal, PowerShell, or the Azure CLI.
-services: sql-database
+description: Create a single database in Azure SQL Database with ledger enabled using the Azure portal.
 ms.service: sql-database
 ms.subservice: security
 ms.devlang:
@@ -14,7 +13,7 @@ ms.date: 05/25/2021
 
 # Quickstart: Create an Azure SQL Database with ledger enabled
 
-In this quickstart, you create a [ledger database](https://docs.microsoft.com/azure/azure-sql/database/ledger-overview#ledger-database) in Azure SQL Database  and configure automatic digest storage with Azure Storage Immutable Blobs, using Azure Portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
+In this quickstart, you create a [ledger database](ledger-overview.md#ledger-database) in Azure SQL Database and configure [automatic digest storage with Azure Blob storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) using the Azure Portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
 
 ## Prerequisite
 
@@ -24,9 +23,9 @@ In this quickstart, you create a [ledger database](https://docs.microsoft.com/az
 
 Create a single ledger database in the [serverless compute tier](serverless-tier-overview.md) and configure uploading ledger digests to an Azure Storage account configured with an immutability policy on the container.
 
-# [Portal](#tab/azure-portal)
+### Using the Azure portal
 
-To create a single database in the Azure portal this quickstart starts at the Azure SQL page.
+To create a single database in the Azure portal, this quickstart starts at the Azure SQL page.
 
 1. Browse to the [Select SQL Deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
 
@@ -61,26 +60,25 @@ To create a single database in the Azure portal this quickstart starts at the Az
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-   ![](https://microsoft.sharepoint.com/:i:/t/sqlsecurity/ET1yzzE799BLgBTu7U7MK_ABdXF9KYOQjR1m-LrLbt6amg?e=twclm4)
+   :::image type="content" source="media/ledger/ledger-create-database-networking-tab.png" alt-text="Networking tab of Create Database in Azure Portal":::
 
 1. On the **Security** tab, in the **Ledger** section, select the **Configure ledger** option.
 
-    ![](https://microsoft.sharepoint.com/:i:/t/sqlsecurity/Ec16ee99e_5KmmpC9PQdAnUBudhfmv92-MEc6f-Obd08Iw?e=KJ8Eci)
+    :::image type="content" source="media/ledger/ledger-configure-ledger-security-tab.png" alt-text="Configure ledger in Security tab of Azure portal":::
 
-1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox.  This ensures that all future tables in the database will be ledger tables, which means that all data in the database will be tamper evident. By default, new tables will be created as updatable ledger tables, even if you do not specify `LEDGER = ON` in [CREATE TABLE](https://review.docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current). Alternatively, you can leave this un-selected, requiring you to enable ledger functionality on a per-table basis when creating new tables using Transact-SQL.
+1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox. This ensures that all future tables in the database will be ledger tables, which means that all data in the database will be tamper evident. By default, new tables will be created as updatable ledger tables, even if you do not specify `LEDGER = ON` in [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). Alternatively, you can leave this un-selected, requiring you to enable ledger functionality on a per-table basis when creating new tables using Transact-SQL.
 
-1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure immutable blob storage account and container with a locked retention policy of 365 days.  Un-select **Lock retention policy** and change the **Retention policy (Days)** to **1** if you plan to delete these resources after this Quickstart.
+1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure immutable blob storage account and container with a locked retention policy of 365 days. Un-select **Lock retention policy** and change the **Retention policy (Days)** to **1** if you plan to delete these resources after this Quickstart.
+
 1. Click the **Apply** button.
 
-    ![](https://microsoft.sharepoint.com/:i:/t/sqlsecurity/ESe6s4qYZCBFgvqzuNHqA_UBWEhz2o-E54NmLy3pZk8hjg?e=D4JwNX)
+    :::image type="content" source="media/ledger/ledger-configure-ledger-pane.png" alt-text="Configure ledger pane in Azure portal":::
 
-18. Select **Review + create** at the bottom of the page:
+1. Select **Review + create** at the bottom of the page:
 
-    ![](https://microsoft.sharepoint.com/:i:/t/sqlsecurity/Eand1IKwCbhAo3Z8vMtYuf4BSzir61wSy5kWovvXk2ArIQ?e=ohGtlm)
+    :::image type="content" source="media/ledger/ledger-review-security-tab.png" alt-text="Review and create ledger database in Security tab of Azure portal":::
 
-18. On the **Review + create** page, after reviewing, select **Create**.
-
----
+1. On the **Review + create** page, after reviewing, select **Create**.
 
 ## Clean up resources
 
@@ -88,7 +86,7 @@ Keep the resource group, server, and single database to go on to the next steps,
 
 When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
-### [Portal](#tab/azure-portal)
+### Using the Azure portal
 
 To delete **myResourceGroup** and all its resources using the Azure portal:
 
@@ -96,14 +94,10 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. On the resource group page, select **Delete resource group**.
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
----
-
 ## Next steps
 
 Connect and query your database using different tools and languages:
 
-> [!div class="nextstepaction"]
-> [Use updatable ledger tables](SQL-Ledger-How-To-Updatable-Ledger-Tables.md) 
->
-> [Use append-only ledger tables](SQL-Ledger-How-To-Append-Only-Ledger-Tables.md) 
+- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
+- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 
 
