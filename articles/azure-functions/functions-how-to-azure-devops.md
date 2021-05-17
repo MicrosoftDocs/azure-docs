@@ -173,7 +173,7 @@ steps:
 
 You must include one of the following YAML samples in your YAML file, depending on the hosting OS.
 
-# [Windows](#tab/windows)
+# [Windows](#tab/windows/csharp+javascript+powershell)
 
 You can use the following snippet to deploy a Windows function app:
 
@@ -189,6 +189,9 @@ steps:
     #resourceGroupName: '<Resource Group Name>'
     #slotName: '<Slot name>'
 ```
+# [Windows](#tab/windows/linux)
+
+Python function apps require Linux.
 
 # [Linux](#tab/linux)
 
