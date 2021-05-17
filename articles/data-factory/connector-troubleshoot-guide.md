@@ -495,7 +495,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
-## Dynamics 365, Common Data Service, and Dynamics CRM
+## Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
 
 ### Error code: DynamicsCreateServiceClientError
 
@@ -558,7 +558,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
  - **Cause**: You are seeing `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior
-AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000` if your use case meets the following conditions:
+AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` if your use case meets the following conditions:
     1. You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM, AND
     2. You are using Office365 Authentication, AND
     3. Your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc)
