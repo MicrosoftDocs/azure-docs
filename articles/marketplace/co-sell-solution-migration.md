@@ -18,7 +18,7 @@ ms.date: 5/17/2021
 - [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Begin the Migration of your solutions from OCP GTM](#begin-the-migration-of-your-solutions-from-ocp-gtm)
-- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#step-1:-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
+- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
 - [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
 - [Discard this solution](#discard-this-solution)
 
