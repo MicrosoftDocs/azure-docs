@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Device application development - connect to Azure IoT
+    - name: Device application development
       items: 
       - name: Send telemetry to IoT Central
         href: quickstart-send-telemetry-central.md
