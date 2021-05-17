@@ -231,9 +231,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+      "redirect_url": "/azure/container-registry/monitor-service",
+    },
+    {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
       "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -6981,37 +6984,37 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-agent.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-agent.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-collectd.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-collectd.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-filter-telemetry.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-filter-telemetry.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-get-started.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-get-started.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-trace-logs.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/java-troubleshoot.md",
+      "source_path_from_root": "/articles/azure-monitor/app/java-troubleshoot.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
+      "source_path_from_root": "/articles/azure-monitor/app/micrometer-java.md",
       "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
@@ -13683,6 +13686,11 @@
     {
       "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
       "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
       "redirect_document_id": false
     },
     {
@@ -23282,27 +23290,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-devicetemplate.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-central/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
@@ -24049,6 +24052,11 @@
       "source_path_from_root": "/articles/iot-central/retail/index.yml",
       "redirect_url": "/azure/iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
