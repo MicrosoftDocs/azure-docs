@@ -65,7 +65,7 @@ After you've created a lab from a custom image in a shared image gallery, you ca
 
 If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  This allows you to save an entirely new custom image without changing the original custom image that already exists in shared image gallery.
 
-If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
+If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
 
 ## Next steps
 To learn about how to set up shared image gallery by attaching and detaching it to a lab account, see [How to attach and detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
