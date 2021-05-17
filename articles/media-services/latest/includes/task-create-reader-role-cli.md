@@ -20,5 +20,19 @@ az role assignment create --assignee 00000000-0000-0000-000000000000 --role "Rea
 Example JSON response:
 
 ```json
+{
+  "canDelegate": null,
+  "condition": null,
+  "conditionVersion": null,
+  "description": null,
+  "id": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000000000000",
+  "name": "00000000-0000-0000-000000000000",
+  "principalId": "00000000-0000-0000-000000000000",
+  "principalType": "Reader",
+  "resourceGroup": "your-resource-group-name",
+  "roleDefinitionId": "/subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-000000000000",
+  "scope": "/subscriptions/00000000-0000-0000-000000000000/resourceGroups/your-resource-group-name/providers/Microsoft.Storage/storageAccounts/your-storage-account-name",
+  "type": "Microsoft.Authorization/roleAssignments"
+}
 
 ```

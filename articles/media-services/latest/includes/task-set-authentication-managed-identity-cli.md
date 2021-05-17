@@ -15,10 +15,6 @@ This command shows all of the properties of a Media Services account.
 az ams account show --name <your-media-services-account-name> --resource-group <your-resource-group>
 ```
 
-> [!NOTE]
-> If you have assigned access roles to the Media Services account, this line will return `"storageAuthentication": "ManagedIdentity"`.
-
-
 Example JSON response:
 
 ```json
@@ -31,7 +27,7 @@ Example JSON response:
   "identity": {
     "principalId": "00000000-0000-0000-0000-000000000000",
     "tenantId": "00000000-0000-0000-0000-000000000000",
-    "type": "SystemAssigned"  
+    "type": "SystemAssigned"
   },
   "location": "your-region",
   "mediaServiceId": "00000000-0000-0000-0000-000000000000",
@@ -44,7 +40,7 @@ Example JSON response:
       "type": "Primary"
     }
   ],
-  "storageAuthentication": "System", //If you have assigned access roles to the account, this line will return storageAuthentication": "ManagedIdentity"
+  "storageAuthentication": "System",
   "systemData": {
     "createdAt": "2021-05-14T21:25:12.3492071Z",
     "createdBy": "you@example.com",

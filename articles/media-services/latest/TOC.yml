@@ -458,7 +458,7 @@
     - name: Use a Key Vault key to encrypt data
       href: security-encrypt-data-managed-identity-tutorial-cli.md
     - name: Access storage with a Managed Identity
-      href: security-access-storage-managed-identity-how-to-cli.md
+      href: security-access-storage-managed-identity-tutorial-cli.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
