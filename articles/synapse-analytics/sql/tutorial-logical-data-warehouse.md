@@ -204,7 +204,7 @@ This user has minimal permissions needed to query external data. If you want to 
 GRANT CONTROL TO [jovan@contoso.com]
 ```
 
-### Role based security
+### Role-based security
 
 Instead of assigning permissions to the individual uses, a good practice it to organize the users into roles and manage permission at role-level.
 The following code sample creates a new role representing the people who can analyze COVID-19 cases, and adds three users to this role:
@@ -217,7 +217,7 @@ ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
 ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
 ```
 
-You can assing the permissions to all users that belong to the group:
+You can assign the permissions to all users that belong to the group:
 
 ```sql
 GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
