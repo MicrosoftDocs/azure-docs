@@ -23,10 +23,10 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 A new version of the [Spatial Analysis container](spatial-analysis-container.md) has been released with a new feature set. This Docker container lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. 
 
 * [Spatial Analysis operations](spatial-analysis-operations.md) can be now configured to detect the orientation that a person is facing. 
-    * An orientation classifier can be enabled for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations by configuring the `enable_orientation` parameter.
+    * An orientation classifier can be enabled for the `personcrossingline` and `personcrossingpolygon` operations by configuring the `enable_orientation` parameter. It is set to off by default.
 
 * [Spatial Analysis operations](spatial-analysis-operations.md) now also offers configuration to detect a person's speed while walking/running
-     * Speed is automatically detected for the `personcount`, `personcrossingline` and `personcrossingpolygon` operations and is reflected in the 'speed', 'avgSpeed', and 'minSpeed' outputs.
+     * Speed can be detected for the `personcrossingline` and `personcrossingpolygon` operations by turning on the 'enable_speed` classifier which is off by default. The output is reflected in the 'speed', 'avgSpeed', and 'minSpeed' outputs.
 
 
 ## April 2021
