@@ -18,8 +18,8 @@ A common challenge for developers is the management of secrets and credentials t
 
 There are three scenarios where Managed Identities can be used with Media Services:
 
-- [Granting a Media Services account access to Key Vault to enable Customer Managed Keys](security-encrypt-data-managed-identity-tutorial-cli.md)
-- [Granting a Media Services account access to storage accounts to allow Media Services to bypass Azure Storage Network ACLs](security-access-storage-managed-identity-tutorial-cli.md)
+- [Granting a Media Services account access to Key Vault to enable Customer Managed Keys](security-encrypt-data-managed-identity-cli-tutorial.md)
+- [Granting a Media Services account access to storage accounts to allow Media Services to bypass Azure Storage Network ACLs](security-access-storage-managed-identity-cli-tutorial.md)
 - Allowing other services (for example, VMs or Azure Functions) to access Media Services
 
 In the first two scenarios, the Managed Identity is used to grant the *Media Services account* access to other services.  In the third scenario, *the service* has a Managed Identity which is used to access Media Services.
@@ -42,4 +42,4 @@ Try these tutorials to get some hands-on experience with using a Managed Identit
 
 To learn more about what managed identities can do for you and your Azure applications, see [Azure AD Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
-To learn more about Azure Functions, see [About Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+To learn more about Azure Functions, see [About Azure Functions](../../azure-functions/functions-overview.md)
