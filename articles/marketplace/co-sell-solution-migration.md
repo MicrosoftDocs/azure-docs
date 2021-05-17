@@ -59,9 +59,9 @@ Follow these steps before importing your solutions from OCP GTM:
         - If there is no similar offer in commercial marketplace
             - Step 1. [Create an offer](# Scenario 1: Similar offer does not exist in commercial marketplace)
             - Step 2. [Publish it in the commercial marketplace](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
-            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#migrate-your-solutions-from-ocp-gtm).
+            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#begin-the-migration-your-solutions-from-ocp-gtm).
         - If there is already a similar offer in Commercial marketplace
-            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#migrate-your-solutions-from-ocp-gtm)
+            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#begin-the-migration-your-solutions-from-ocp-gtm)
     1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution
 
 > [!IMPORTANT]
@@ -70,7 +70,7 @@ Follow these steps before importing your solutions from OCP GTM:
 > - [Publishing in the commercial marketplace training deck](https://assetsprod.microsoft.com/mpn/en-us/guidance-and-permissions-needed-to-publish-an-offer-and-co-sell-with-ms.pptm)
 :::image type="content" source="media/co-sell-migrate/ready-to-migrate.png" alt-text="I want to migrate this solution to commercial marketplace":::
 
-## Begin the Migration of your solutions from OCP GTM
+## Begin the migration of your solutions from OCP GTM
 
 1. Begin the migration [here](https://partner.microsoft.com/solutions/migration#).
 2. Select the **Overview** page, then **Click here to get started**.
