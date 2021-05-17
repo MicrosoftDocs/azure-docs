@@ -1,7 +1,11 @@
 ---
-title: Azure Resources
-description: how to use azure resources.
+title: How to create and manage LUIS resources
+titleSuffix: Azure Cognitive Services
+description: Learn how to use and manage Azure resources for LUIS.the app.
 services: cognitive-services
+author: aahill
+ms.author: aahi
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
@@ -10,9 +14,7 @@ ms.date: 05/17/2021
 
 # How to create and manage LUIS resources
 
-You can use three types of Azure resources with LUIS:
-
-There are two main resource types for LUIS: 
+Use this article to learn about the types of Azure resources you can use with LUIS, and how to manage them.
 
 ## Authoring Resource
 
