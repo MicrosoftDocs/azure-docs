@@ -28,8 +28,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing edit rules.":::
-
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 1. Navigate to your virtual hub.
 1. Select **VPN (Site to site)**.
 1. Select **NAT rules (Edit)**.
