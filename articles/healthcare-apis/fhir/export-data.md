@@ -80,15 +80,15 @@ This option provides two different configurations, depending on whether the stor
 Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Selected networks** under the **Firewalls and virtual networks** tab.
 
 > [!IMPORTANT]
-> Make sure that you’ve granted access permission to storage account for Azure API for FHIR using its managed identity. For more details see [Configure export setting and set up the storage account](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
+> Ensure that you’ve granted access permission to the storage account for Azure API for FHIR using its managed identity. For more details, see [Configure export setting and set up the storage account](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
 
   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
 
-Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account**, and then save the setting. 
+Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account** and save the setting. 
 
 :::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
 
-You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and not publicly accessible. To access the files, you can either add the storage account to your virtual networks and create a Private Link endpoint or enable all networks for the storage account for a limited period of time.
+You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and is not publicly accessible. To access the files, you can either add the storage account to your virtual networks and create a Private Link endpoint, or you can enable all networks for the storage account for a limited period of time.
 
 > [!IMPORTANT]
 > The user interface will be updated later to allow you to select the Resource type for Azure API for FHIR and a specific service instance.
