@@ -196,6 +196,9 @@ You can add access restrictions programmatically by doing either of the followin
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
+   > [!NOTE]
+   > Working with service tags, http headers or multi-source rules in Azure CLI requires at least version 2.23.0. You can verify the version of the installed module with: ```az version```
+
 * Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
 
@@ -204,7 +207,7 @@ You can add access restrictions programmatically by doing either of the followin
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Working with service tags, http headers or multi-source rules requires at least version 5.7.0. You can verify the version of the installed module with: **Get-InstalledModule -Name Az**
+   > Working with service tags, http headers or multi-source rules in Azure PowerShell requires at least version 5.7.0. You can verify the version of the installed module with: ```Get-InstalledModule -Name Az```
 
 You can also set values manually by doing either of the following:
 
