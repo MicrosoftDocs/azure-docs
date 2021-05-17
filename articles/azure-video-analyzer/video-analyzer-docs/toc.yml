@@ -62,9 +62,9 @@
 - name: GitHub samples
   items:
   - name: C# sample repository
-    href: https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp
+    href: https://go.microsoft.com/fwlink/?linkid=2163551
   - name: Python sample repository
-    href: https://github.com/Azure-Samples/video-analyzer-iot-edge-python
+    href: https://go.microsoft.com/fwlink/?linkid=2163454
 - name: Concepts
   items:
   - name: Pipeline
