@@ -23,7 +23,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 ## Prerequisites
 
-- Azure AD Premium P1 license for each administrative unit administrator
+- Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
 - AzureAD module when using PowerShell

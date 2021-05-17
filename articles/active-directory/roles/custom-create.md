@@ -22,7 +22,7 @@ Custom roles can be created in the [Roles and administrators](https://portal.azu
 
 ## Prerequisites
 
-- Azure AD Premium P1 license
+- Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
