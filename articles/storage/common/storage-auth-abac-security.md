@@ -26,9 +26,12 @@ This article describes security considerations that you should factor into your 
 
 ## Use of other authorization mechanisms 
 
-Azure ABAC is implemented as conditions on role assignments. Since these conditions are evaluated only when using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) with Azure Active Directory (Azure AD), they can be bypassed if you enable access by using alternate authorization methods. For instance, conditions aren't evaluated when using [Shared Key](/rest/api/storageservices/authorize-with-shared-key), account-level or service-level [shared access signature (SAS) authorization](/rest/api/storageservices/delegate-access-with-shared-access-signature). Similarly, conditions aren't evaluated when access is granted to a file or a folder by using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) feature enabled on them.
+Azure ABAC is implemented as conditions on role assignments. Since these conditions are evaluated only when using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) with Azure Active Directory (Azure AD), they can be bypassed if you enable access by using alternate authorization methods. For instance, conditions aren't evaluated when using [Shared Key](/rest/api/storageservices/authorize-with-shared-key), account-level or service-level [shared access signature (SAS) authorization](/rest/api/storageservices/delegate-access-with-shared-access-signature). Similarly, conditions aren't evaluated when access is granted to a file or a folder by using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS) feature enabled on them.
 
 You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on RBAC, role-assignment conditions are evaluated when using this method of authorization.
+
+> [!NOTE]
+> Role-assignment conditions are not evaluated when access is granted using ACLs for storage accounts that use a hierarchical namespace (HNS). When using conditions with Data Lake Storage Gen2, you must plan the scope of access so it does not overlap with that granted through ACLs.
 
 ## Securing storage attributes used in conditions
 
