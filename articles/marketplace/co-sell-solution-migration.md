@@ -136,7 +136,9 @@ After the merge is complete you can return to the Co-sell with Microsoft tab and
 
     :::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
+
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
+
 1. **Continue to Scenario 2 below to complete the merge process.**
 
 #### Scenario 2: Similar offer exists in commercial marketplace please follow these steps
