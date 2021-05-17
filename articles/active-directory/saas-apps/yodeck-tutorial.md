@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Yodeck | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Yodeck.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Yodeck
 
@@ -27,7 +21,7 @@ Integrating Yodeck with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Yodeck (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -106,7 +100,7 @@ To configure Azure AD single sign-on with Yodeck, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![image](common/both-preintegrated-signon.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/both-preintegrated-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.yodeck.com/login`
@@ -117,15 +111,25 @@ To configure Azure AD single sign-on with Yodeck, perform the following steps:
 
 ### Configure Yodeck Single Sign-On
 
+1. To automate the configuration within **Yodeck**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
+
+1. After adding extension to the browser, click on **setup Yodeck** will direct you to the Yodeck application. From there, provide the admin credentials to sign into Yodeck. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+	**If you want to configure the application manually perform the following steps:**
+
 1. In a different web browser window, sign in to your Yodeck company site as an administrator.
 
-2. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
+1. Click on **User Settings** option form the top right corner of the page and select **Account Settings**.
 
-	![Yodeck Configuration](./media/yodeck-tutorial/configure1.png)
+	![Screenshot shows with Account Settings selected for the user.](./media/yodeck-tutorial/configure1.png)
 
-3. Select **SAML** and perform the following steps:
+1. Select **SAML** and perform the following steps:
 
-	![Yodeck Configuration](./media/yodeck-tutorial/configure2.png)
+	![Screenshot shows the SAML tab where you can perform these steps.](./media/yodeck-tutorial/configure2.png)
 
 	a. Select **Import from URL**.
 
@@ -195,15 +199,15 @@ To enable Azure AD users to sign in to Yodeck, they must be provisioned into Yod
 
 2. Click on **User Settings** option form the top right corner of the page and select **Users**.
 
-	![Add Employee](./media/yodeck-tutorial/user1.png)
+	![Screenshot shows with Users selected for the user.](./media/yodeck-tutorial/user1.png)
 
 3. Click on **+User** to open the **User Details** tab.
 
-	![Add Employee](./media/yodeck-tutorial/user2.png)
+	![Screenshot shows the Users button.](./media/yodeck-tutorial/user2.png)
 
 4. On the **User Details** dialog page, perform the following steps:
 
-	![Add Employee](./media/yodeck-tutorial/user3.png)
+	![Screenshot shows the User Details tab where you can perform these steps.](./media/yodeck-tutorial/user3.png)
 
 	a. In the **First Name** textbox, type the first name of the user like **Britta**.
 
@@ -219,13 +223,12 @@ To enable Azure AD users to sign in to Yodeck, they must be provisioned into Yod
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Yodeck tile in the Access Panel, you should be automatically signed in to the Yodeck for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Yodeck tile in the Access Panel, you should be automatically signed in to the Yodeck for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

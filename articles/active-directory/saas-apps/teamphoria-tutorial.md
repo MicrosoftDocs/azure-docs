@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamphoria | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Teamphoria.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Teamphoria
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Teamphoria with Azure Active Dir
 * Enable your users to be automatically signed-in to Teamphoria with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -137,15 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Go to **ADMIN SETTINGS** option in the left toolbar and under the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
+	![Screenshot shows ADMIN SETTINGS where you can select SINGLE SIGN-ON.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Click on **ADD NEW IDENTITY PROVIDER** option in the top right corner to open the form for adding the settings for SSO.
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
+	![Screenshot shows where you can select ADD NEW IDENTITY PROVIDER.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Enter the details in the fields as described below-
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+	![Screenshot shows the page where you can enter the values described.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
 	a. **DISPLAY NAME**: Enter the display name of the plugin on the admin page.
 
@@ -171,11 +164,11 @@ In order to enable Azure AD users to sign in to Teamphoria, they must be provisi
 
 1. Click on the **MANUAL INVITE** option.
 
-	![Invite People](./media/teamphoria-tutorial/admin_manage_add_users.png)
+	![Screenshot shows the MANUAL INVITE option.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. On this page, perform following action.
 
-	![Invite People](./media/teamphoria-tutorial/manual_user_invite.png)
+	![Screenshot shows the MANUAL USER INVITE page where you can enter name and email address.](./media/teamphoria-tutorial/manual_user_invite.png)
 
     a. In the **EMAIL ADDRESS** textbox, enter the **email address** of the user like B.Simon.
 
@@ -189,15 +182,14 @@ In order to enable Azure AD users to sign in to Teamphoria, they must be provisi
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Teamphoria tile in the Access Panel, you should be automatically signed in to the Teamphoria for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Teamphoria tile in the Access Panel, you should be automatically signed in to the Teamphoria for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Teamphoria with Azure AD](https://aad.portal.azure.com/)
-

@@ -3,13 +3,12 @@ title: "Tutorial: Azure Notebook - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 02/03/2020
-ms.author: diberry
+ms.date: 04/27/2020
+ms.custom: devx-track-python
 #Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
@@ -293,7 +292,7 @@ def add_event_id(rankjsonobj):
 
 This function selects a unique user, weather, and time of day, then adds those items to the JSON object to send to the Rank request.
 
-The cell has no output. When the function is called it returns the random user's name, random weather, and random time of day.
+The cell has no output. When the function is called, it returns the random user's name, random weather, and random time of day.
 
 The list of 4 users and their preferences - only some preferences are shown for brevity:
 
@@ -620,7 +619,7 @@ Coffee count 4
 
 ## Validate new learning policy
 
-Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done.
+Return to the Azure Notebooks file and continue by running the same loop, but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done.
 
 ```python
 # max iterations

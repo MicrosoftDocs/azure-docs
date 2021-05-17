@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus bindings for Azure Functions
+title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 author: craigshoemaker
 
@@ -7,13 +7,15 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Service Bus trigger for Azure Functions
 
-Use the Service Bus trigger to respond to messages from a Service Bus queue or topic.
+Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
+Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
-For information on setup and configuration details, see the [overview](functions-bindings-service-bus-output.md).
+For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
 
 ## Example
 
@@ -79,9 +81,42 @@ public static void Run(string myQueueItem,
 }
 ```
 
+# [Java](#tab/java)
+
+The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
 # [JavaScript](#tab/javascript)
 
-The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message. 
+The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
 Here's the binding data in the *function.json* file:
 
@@ -110,6 +145,35 @@ module.exports = function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
+```
+
+# [PowerShell](#tab/powershell)
+
+The following example shows a Service Bus trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md) that uses the binding. 
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "mytopic",
+      "subscriptionName": "mysubscription",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Here's the function that runs when a Service Bus message is sent.
+
+```powershell
+param([string] $mySbMsg, $TriggerMetadata)
+
+Write-Host "PowerShell ServiceBus queue trigger function processed message: $mySbMsg"
 ```
 
 # [Python](#tab/python)
@@ -158,42 +222,10 @@ def main(msg: func.ServiceBusMessage):
         'time_to_live': msg.time_to_live,
         'to': msg.to,
         'user_properties': msg.user_properties,
+        'metadata' : msg.metadata
     })
 
     logging.info(result)
-```
-
-# [Java](#tab/java)
-
-The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
 ```
 
 ---
@@ -219,7 +251,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  You can set the `Connection` property to specify the  name of an app setting that contains the Service Bus connection string to use, as shown in the following example:
+  Since the `Connection` property isn't defined, Functions looks for an app setting named `AzureWebJobsServiceBus`, which is the default name for the Service Bus connection string. You can also set the `Connection` property to specify the name of an application setting that contains the Service Bus connection string to use, as shown in the following example:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -263,14 +295,6 @@ The Service Bus account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include queue name and connection string name.
@@ -278,6 +302,18 @@ The `ServiceBusQueueTrigger` annotation allows you to create a function that run
 The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
 
 See the trigger [example](#example) for more detail.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
 
 ---
 
@@ -293,9 +329,10 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus". If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. <br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -308,10 +345,16 @@ The following parameter types are available for the queue or topic message:
 * `string` - If the message is text.
 * `byte[]` - Useful for binary data.
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when [`autoComplete`](functions-bindings-service-bus.md#hostjson-settings) is set to `false`)
 
-These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in the [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
 # [C# Script](#tab/csharp-script)
 
@@ -320,24 +363,38 @@ The following parameter types are available for the queue or topic message:
 * `string` - If the message is text.
 * `byte[]` - Useful for binary data.
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
 
-These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
-# [JavaScript](#tab/javascript)
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in the [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
 
-Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
-# [Python](#tab/python)
+### Additional types 
+Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusReceivedMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) instead of the one in [Microsoft.Azure.ServiceBus namespace](/dotnet/api/microsoft.azure.servicebus.message). This version drops support for the legacy `Message` type in favor of the following types:
 
-The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # [Java](#tab/java)
 
 The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
 
 [See the example for details](#example).
+
+# [JavaScript](#tab/javascript)
+
+Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
+
+# [PowerShell](#tab/powershell)
+
+The Service Bus instance is available via the parameter configured in the *function.json* file's name property.
+
+# [Python](#tab/python)
+
+The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
 
 ---
 
@@ -347,29 +404,43 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 ## PeekLock behavior
 
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running. 
+The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running.
 
-The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). The maximum allowed for this setting is 5 minutes according to the Service Bus documentation, whereas you can increase the Functions time limit from the default of 5 minutes to 10 minutes. For Service Bus functions you wouldn’t want to do that then, because you’d exceed the Service Bus renewal limit.
+The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration). The maximum allowed for this setting is 5 minutes according to the Service Bus documentation, whereas you can increase the Functions time limit from the default of 5 minutes to 10 minutes. For Service Bus functions you wouldn’t want to do that then, because you’d exceed the Service Bus renewal limit.
 
 ## Message metadata
 
-The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These properties are members of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
+The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|The number of deliveries.|
-|`DeadLetterSource`|`string`|The dead letter source.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
-|`ReplyTo`|`string`|The reply to queue address.|
-|`SequenceNumber`|`Int64`|The unique number assigned to a message by the Service Bus.|
-|`To`|`string`|The send to address.|
-|`Label`|`string`|The application-specific label.|
 |`CorrelationId`|`string`|The correlation ID.|
+|`DeadLetterSource`|`string`|The dead letter source.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`Label`|`string`|The application-specific label.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
+|`MessageSession`|`MessageSession`|A message receiver specifically for session-enabled queues and topics.|
+|`ReplyTo`|`string`|The reply to queue address.|
+|`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
+|`To`|`string`|The send to address.|
+|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. (For version 5.x+ of the extension this is not supported, please use `ApplicationProperties`.)|
 
 See [code examples](#example) that use these properties earlier in this article.
+
+### Additional message metadata
+
+The below metadata properties are supported for apps using 5.0.0 of the extension or higher. These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) class.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`ApplicationProperties`|`ApplicationProperties`|Properties set by the sender. Use this in place of the `UserProperties` metadata property.|
+|`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
+|`MessageActions`|`ServiceBusMessageActions`|The set of actions which can be performed on a `ServiceBusReceivedMessage`. This can be used in place of the `MessageReceiver` metadata property.
+|`SessionActions`|`ServiceBusSessionMessageActions`|The set of actions that can be performed on a session and a `ServiceBusReceivedMessage`. This can be used in place of the `MessageSession` metadata property.|
 
 ## Next steps
 

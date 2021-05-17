@@ -1,12 +1,12 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
-To stream in a compressed audio format to the Speech service, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.
+To configure Speech SDK to accept compressed audio input, create a `SPXPullAudioInputStream` or `SPXPushAudioInputStream`.
 
 The following snippet shows how to create a `SPXAudioConfiguration` from an instance of a `SPXPushAudioInputStream`, specifying an MP3 as the compression format of the stream.
 

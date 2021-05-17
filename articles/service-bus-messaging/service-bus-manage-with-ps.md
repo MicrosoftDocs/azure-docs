@@ -1,22 +1,10 @@
 ---
 title: Use PowerShell to manage Azure Service Bus resources | Microsoft Docs
 description: This article explains how to use Azure PowerShell module to create and manage Service Bus entities (namespaces, queues, topics, subscriptions).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Use PowerShell to manage Service Bus resources
 
 Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of Azure services. This article describes how to use the [Service Bus Resource Manager PowerShell module](/powershell/module/az.servicebus) to provision and manage Service Bus entities (namespaces, queues, topics, and subscriptions) using a local Azure PowerShell console or script.
@@ -167,8 +155,8 @@ You can use the [Service Bus PowerShell module](/powershell/module/az.servicebus
 
 There are some alternate ways to manage Service Bus entities, as described in these blog posts:
 
-* [How to create Service Bus queues, topics and subscriptions using a PowerShell script](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [How to create Service Bus queues, topics and subscriptions using a PowerShell script](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

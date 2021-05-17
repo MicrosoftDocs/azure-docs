@@ -1,21 +1,19 @@
 ---
-title: Understand how a reservation discount is applied to Azure disk storage
+title: Understand reservations discount for Azure disk storage
 description: Learn how an Azure reserved disks discount is applied to your Azure premium SSD managed disks.
 author: roygara
-ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2020
 ms.author: rogarana
+ms.service: cost-management-billing
+ms.subservice: reservations
+ms.topic: conceptual
+ms.date: 01/30/2020
 ---
 
 # Understand how your reservation discount is applied to Azure disk storage
 
 After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk SKUs only. Disk snapshots are charged at pay-as-you-go rates.
 
-For more information about Azure disk reservation, see [Save costs with Azure disk reservation](../../virtual-machines/linux/disks-reserved-capacity.md). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+For more information about Azure disk reservation, see [Save costs with Azure disk reservation](../../virtual-machines/disks-reserved-capacity.md). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
 
@@ -51,6 +49,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [Reduce costs with Azure Disks Reservation (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
-- [Reduce costs with Azure Disks Reservation (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
+- [Reduce costs with Azure Disks Reservation](../../virtual-machines/disks-reserved-capacity.md)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

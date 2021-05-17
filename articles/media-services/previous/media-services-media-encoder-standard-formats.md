@@ -3,25 +3,25 @@ title: Media Encoder Standard formats and codecs - Azure
 description: This article provides an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: anilmur
-
 ---
 # Media Encoder Standard Formats and Codecs
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
-> * [Version 3](../latest/media-encoder-standard-formats.md)
+> * [Version 3](../latest/encode-media-encoder-standard-formats-reference.md)
 
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
@@ -35,7 +35,7 @@ This document contains a list of the most common import and export file formats 
 | Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes |
 | AVI (Uncompressed 8bit/10bit) (.avi) |Yes |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Yes |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Yes |
 | Matroska/WebM (.mkv) |Yes |
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |
@@ -112,4 +112,3 @@ The following table lists the codecs and file formats that are supported for exp
 [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md)
 
 [How to encode with Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-

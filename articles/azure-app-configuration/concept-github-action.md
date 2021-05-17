@@ -1,10 +1,9 @@
 ---
 title: Sync your GitHub repository to App Configuration
 description: Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
-author: lisaguthrie
-
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 
@@ -16,12 +15,12 @@ Teams that want to continue using their existing source control practices can us
 &nbsp;&nbsp;&nbsp;&nbsp;•	Updating configuration without redeploying your entire app <br>
 &nbsp;&nbsp;&nbsp;&nbsp;•	Integration with services like Azure App Service and Functions. 
 
-A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
+A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 
-The GitHub [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) provides in-depth view of GitHub workflows and actions. 
+The GitHub [documentation](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) provides in-depth view of GitHub workflows and actions. 
 
 ## Enable GitHub Actions in your repository
-To start using this GitHub action, go to your repository and select the **Actions** tab. Click on **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
+To start using this GitHub action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure App Configuration Sync.”
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 
@@ -31,13 +30,13 @@ To start using this GitHub action, go to your repository and select the **Action
 ## Sync configuration files after a push
 This action syncs Azure App Configuration files when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the App Configuration Sync action updates the App Configuration instance with the new values.
 
-The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) about creating and using encrypted secrets.
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets) about creating and using encrypted secrets.
 
 ```json
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -57,16 +56,129 @@ jobs:
           separator: ':' 
 ```
 
-## Use a dynamic label on sync
-The previous action updates the App Configuration instance whenever `appsettings.json` is updated. This action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified and allowing code changes to be mapped to config changes.
-
-The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *master* branch. The second section runs a job that creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
+## Use strict sync
+By default the GitHub action does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
 
 ```json
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
+    paths: 
+      - 'appsettings.json' 
+ 
+jobs: 
+  syncconfig: 
+    runs-on: ubuntu-latest 
+    steps: 
+      # checkout done so that files in the repo can be read by the sync 
+      - uses: actions/checkout@v1 
+      - uses: azure/appconfiguration-sync@v1 
+        with: 
+          configurationFile: 'appsettings.json' 
+          format: 'json' 
+          # Replace <ConnectionString> with the name of the secret in your 
+          # repository 
+          connectionString: ${{ secrets.<ConnectionString> }}  
+          separator: ':' 
+          label: 'Label' 
+          prefix: 'Prefix:' 
+          strict: true 
+```
+## Sync multiple files in one action 
+
+If your configuration is in multiple files, you can use the pattern below to trigger a sync when either file is modified. This pattern uses the glob library https://www.npmjs.com/package/glob . Note that if your config file name contains a comma, you can use a backslash to escape the comma. 
+
+```json
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'appsettings.json'
+      - 'appsettings2.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: '{appsettings.json,appsettings2.json}'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+```
+
+## Sync by prefix or label
+Specifying prefixes or labels in your sync action will sync only that particular set. This is important for using strict sync with multiple files. Depending on how the configuration is set up, either a prefix or a label can be associated with each file and then each prefix or label can be synced separately so that nothing is overwritten. Typically prefixes are used for different applications or services and labels are used for different environments. 
+
+Sync by prefix: 
+
+```json
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          prefix: 'Prefix::'
+```
+
+Sync by label: 
+
+```json
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          label: 'Label'
+
+```
+
+## Use a dynamic label on sync
+The following action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified and allowing code changes to be mapped to config changes.
+
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section runs a job that creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
+
+```json
+on: 
+  push: 
+    branches: 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -91,36 +203,47 @@ jobs:
           label: ${{ steps.determine_label.outputs.LABEL }} 
 ```
 
-## Use strict sync
-When strict mode is enabled, the sync ensures that the App Configuration instance matches the configuration file for the given prefix and label exactly. Key-value pairs with the same prefix and label that aren't in the configuration file are deleted. 
- 
-If strict mode isn't enabled, the sync will only set key-values from the configuration file. No key-value pairs will be deleted. 
+## Use Azure Key Vault with GitHub Action
+Developers using Azure Key Vault with AppConfiguration should use two separate files, typically an appsettings.json and a secretreferences.json. The secretreferences.json will contain the url to the key vault secret.
+
+{
+  "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}"
+}
+
+The GitHub Action can then be configured to do a strict sync on the appsettings.json, followed by a non-strict sync on secretreferences.json. The following sample will trigger a sync when either file is updated:
 
 ```json
-on: 
-  push: 
-    branches: 
-      - 'master' 
-    paths: 
-      - 'appsettings.json' 
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/appconfiguration-sync@v1 
-        with: 
-          configurationFile: 'appsettings.json' 
-          format: 'json' 
-          # Replace <ConnectionString> with the name of the secret in your 
-          # repository 
-          connectionString: ${{ secrets.<ConnectionString> }}  
-          separator: ':' 
-          label: 'Label' 
-          prefix: 'Prefix:' 
-          strict: true 
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'appsettings.json'
+      - 'secretreferences.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          strict: true
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'secretreferences.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+
 ```
 
 ## Use max depth to limit GitHub Action
@@ -146,7 +269,7 @@ If the nested object is intended to be the value pushed to the Configuration ins
 on: 
   push: 
     branches: 
-      - 'master' 
+      - 'main' 
     paths: 
       - 'appsettings.json' 
  
@@ -174,7 +297,7 @@ Given a depth of 2, the example above now returns the following key-value pair:
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## Understand action inputs
-Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs).
+Input parameters specify data used by the action during runtime.  The following table contains input parameters accepted by App Configuration Sync and the expected values for each.  For more information about action inputs for GitHub Actions, see  GitHub's [documentation](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs).
 
 > [!Note]
 > Input IDs are case insensitive.

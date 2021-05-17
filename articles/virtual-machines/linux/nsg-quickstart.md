@@ -5,10 +5,11 @@ author: cynthn
 manager: gwallace
 ms.service: virtual-machines
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 
 ---
 # Open ports and endpoints to a VM with the Azure CLI
@@ -83,4 +84,4 @@ For highly available web applications, you should place your VMs behind an Azure
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
 * [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
-* [What is a Network Security Group (NSG)?](../../virtual-network/security-overview.md)
+* [What is a Network Security Group (NSG)?](../../virtual-network/network-security-groups-overview.md)

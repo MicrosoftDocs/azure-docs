@@ -3,14 +3,13 @@ title: Changes made to a MVC project when you connect to Azure AD
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
 author: ghogen
 manager: jillfra
-ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 
@@ -157,5 +156,5 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

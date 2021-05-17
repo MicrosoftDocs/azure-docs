@@ -1,49 +1,47 @@
 ---
-title: High-performance computing on H-series VMs - Azure Virtual Machines
-description: Learn about the features and capabilities of H-series VMs optimized for HPC.
+title: High-performance computing on InfiniBand enabled H-series and N-series VMs - Azure Virtual Machines
+description: Learn about the features and capabilities of InfiniBand enabled H-series and N-series VMs optimized for HPC.
 author: vermagit
 ms.author: amverma
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.subservice: hpc
 ms.topic: overview
-ms.date: 07/02/2019
+ms.date: 04/09/2021
+ms.reviewer: cynthn
+
 ---
 
-# High-performance computing on H-series VMs
+# High-performance computing on InfiniBand enabled H-series and N-series VMs
 
-High-performance computing (HPC) on HB-series and HC-series VMs enable the most optimized HPC performance of any VMs on Azure. HPC optimized VMs are used to solve some of the most difficult mathematical problems such as: fluid dynamics, oil and gas simulations, and weather modeling.
+Azure's InfiniBand enabled H-series and N-series VMs are designed to deliver leadership-class performance, Message Passing Interface (MPI) scalability, and cost efficiency for a variety of real-world HPC and AI workloads. These high-performance computing (HPC) optimized VMs are used to solve some of the most computationally intensive problems in science and engineering such as: fluid dynamics, earth modeling, weather simulations, etc.
 
-This article covers some key features of HB-series and HC-series VMs, why these VMs perform well in HPC scenarios, and how to get started.
+These articles describe how to get started on the InfiniBand-enabled H-series and N-series VMs on Azure as well as optimal configuration of the HPC and AI workloads on the VMs for scalability.
 
 ## Features and capabilities
 
-HB-series and HC-series VMs are designed to provide the best HPC performance, message passing interface (MPI) scalability, and cost efficiency for HPC workloads.
-
-### Message passing interface
-
-HB-series and HC-series support almost all MPI types and versions. Some of the most common, supported MPI types are: OpenMPI, MVAPICH2, Platform MPI, Intel MPI, and all remote direct memory access (RDMA) verbs. For more information, see [Set up Message Passing Interface for HPC](setup-mpi.md).
+The InfiniBand enabled H-series and N-series VMs are designed to provide the best HPC performance, MPI scalability, and cost efficiency for HPC workloads. See [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs to learn more about the features and capabilities of the VMs.
 
 ### RDMA and InfiniBand
 
-The RDMA interface is standard on HB-series and HC-series VMs. RDMA-capable instances communicate over an InfiniBand network, operating at enhanced data rates (EDR) for HB-series and HC-series virtual machines. RDMA-capable instances can boost the scalability and performance of some MPI applications.
+[RDMA capable](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs communicate over the low latency and high bandwidth InfiniBand network. The RDMA capability over such an interconnect is critical to boost the scalability and performance of distributed-node HPC and AI workloads. The InfiniBand enabled H-series and N-series VMs are connected in a non-blocking fat tree with a low-diameter design for optimized and consistent RDMA performance.
+See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up InfiniBand on the InfiniBand enabled VMs.
 
-The InfiniBand configuration supporting HB-series and HC-series VMs are non-blocking fat trees with a low-diameter design for consistent RDMA performance.
+### Message passing interface
 
-See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up InfiniBand on your HB-series or HC-series VMs.
+The SR-IOV enabled H-series and N-series support almost all MPI libraries and versions. Some of the most commonly used MPI libraries are: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, Platform MPI. All remote direct memory access (RDMA) verbs are supported.
+See [Set up MPI](setup-mpi.md) to learn more about installing various supported MPI libraries and their optimal configuration.
 
 ## Get started
 
-First, decide which H-series VM you're going to use. For details about HPC optimized VMs, see [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md). For specifications, see [High performance compute VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
-
-Once you've selected and created a VM for your application, you'll need to configure it by enabling InfiniBand. To learn how to enable InfiniBand on both Windows and Linux VMs, see [Enable InfiniBand](enable-infiniband.md).
-
-A critical component of HPC workloads is MPI. HB-series and HC-series support almost all MPI types and versions. For more information, see [Set up Message Passing Interface for HPC](setup-mpi.md).
-
-Once you've chosen your VM series, set up Infiniband and MPI, you're ready to start building your HPC workloads.
+The first step is to select the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VM type optimal for the workload based on the VM specifications and [RDMA capability](../../sizes-hpc.md#rdma-capable-instances).
+Second, configure the VM by enabling InfiniBand. There are various methods to doing this including using optimized VM images with drivers baked-in; see [Optimization for Linux](configure.md) and [Enable InfiniBand](enable-infiniband.md) for details.
+Third, for distributed node workloads, choosing and configuring MPI appropriately is critical. See [Set up MPI](setup-mpi.md) for details.
+Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 
 ## Next steps
 
-- Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about key differences and specifications.
-
-- For a higher level, architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- Learn about [configuring and optimizing](configure.md) the InfiniBand enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
+- Review the [HBv3-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

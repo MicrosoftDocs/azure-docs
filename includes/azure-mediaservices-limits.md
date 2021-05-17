@@ -1,8 +1,8 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018    
+ms.date: 09/16/2020   
 ms.author: jroth
 ---
 >[!NOTE]
@@ -23,7 +23,7 @@ ms.author: jroth
 | Programs in running state per channel |3|
 | Streaming endpoints that are stopped or running per Media Services account|2|
 | Streaming units per streaming endpoint |10 |
-| Storage accounts | 1,000<sup>5</sup> (fixed) |
+| Storage accounts | 100<sup>5</sup> (fixed) |
 | Policies | 1,000,000<sup>6</sup> |
 | File size| In some scenarios, there's a limit on the maximum file size supported for processing in Media Services.<sup>7</sup> |
 
@@ -35,7 +35,7 @@ As of April 1, 2017, any job record in your account older than 90 days is automa
 
 <sup>3</sup>When you make a request to list job entities, a maximum of 1,000 jobs is returned per request. To keep track of all submitted jobs, use the top or skip queries as described in [OData system query options](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup>The storage accounts must be from the same Azure subscription.
 

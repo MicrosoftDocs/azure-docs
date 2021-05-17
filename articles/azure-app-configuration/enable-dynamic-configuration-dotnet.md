@@ -2,18 +2,19 @@
 title: '.NET Framework Tutorial: dynamic configuration in Azure App Configuration'
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps using Azure App Configuration. 
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/21/2019
-ms.author: lcozzens
+ms.date: 07/24/2020
+ms.author: alkemper
 
 #Customer intent: I want to dynamically update my .NET Framework app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET Framework app
 
-The App Configuration .NET client library supports updating a set of configuration settings on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `Refresh` on that instance anywhere in your code.
+The App Configuration .NET client library supports updating a set of configuration settings on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `TryRefreshAsync` on that instance anywhere in your code.
 
 In order to keep the settings updated and avoid too many calls to the configuration store, a cache is used for each setting. Until the cached value of a setting has expired, the refresh operation does not update the value, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds, but it can be overridden if required.
 
@@ -34,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -42,7 +43,7 @@ In this tutorial, you learn how to:
 
     Leave **Label** and **Content Type** empty for now.
 
-7. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET Framework console app
 
@@ -91,7 +92,7 @@ In this tutorial, you learn how to:
         PrintMessage().Wait();
     }
     ```
-    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance can be used to trigger a refresh operation anywhere in your code.
+    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `TryRefreshAsync` method on this instance can be used to trigger a refresh operation anywhere in your code.
 
     > [!NOTE]
     > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
@@ -106,7 +107,7 @@ In this tutorial, you learn how to:
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
     ```
@@ -115,11 +116,15 @@ In this tutorial, you learn how to:
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Restart Visual Studio to allow the change to take effect. 
 

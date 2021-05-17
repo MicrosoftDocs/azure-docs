@@ -1,7 +1,7 @@
 ---
 title: 'Troubleshoot Azure point-to-site connection problems'
 titleSuffix: Azure VPN Gateway
-description: Learn how to troubleshoot point-to-site connection problems.
+description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
 services: vpn-gateway
 author: chadmath
 
@@ -68,11 +68,11 @@ To prepare Windows 10 or Server 2016 for IKEv2:
 1. Install the update.
 
    | OS version | Date | Number/Link |
-   |---|---|---|---|
+   |---|---|---|
    | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
-   |  |  |  |  |
+
 
 2. Set the registry key value. Create or set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD key in the registry to 1.
 
@@ -184,24 +184,26 @@ This problem might occur if the root certificate public key that you uploaded co
 
 Make sure that the data in the certificate does not contain invalid characters, such as line breaks (carriage returns). The entire value should be one long line. The following text is a sample of the certificate:
 
-    -----BEGIN CERTIFICATE-----
-    MIIC5zCCAc+gAwIBAgIQFSwsLuUrCIdHwI3hzJbdBjANBgkqhkiG9w0BAQsFADAW
-    MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzA2MTUwMjU4NDZaFw0xODA2MTUw
-    MzE4NDZaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF
-    AAOCAQ8AMIIBCgKCAQEAz8QUCWCxxxTrxF5yc5uUpL/bzwC5zZ804ltB1NpPa/PI
-    sa5uwLw/YFb8XG/JCWxUJpUzS/kHUKFluqkY80U+fAmRmTEMq5wcaMhp3wRfeq+1
-    G9OPBNTyqpnHe+i54QAnj1DjsHXXNL4AL1N8/TSzYTm7dkiq+EAIyRRMrZlYwije
-    407ChxIp0stB84MtMShhyoSm2hgl+3zfwuaGXoJQwWiXh715kMHVTSj9zFechYd7
-    5OLltoRRDyyxsf0qweTFKIgFj13Hn/bq/UJG3AcyQNvlCv1HwQnXO+hckVBB29wE
-    sF8QSYk2MMGimPDYYt4ZM5tmYLxxxvGmrGhc+HWXzMeQIDAQABozEwLzAOBgNVHQ8B
-    Af8EBAMCAgQwHQYDVR0OBBYEFBE9zZWhQftVLBQNATC/LHLvMb0OMA0GCSqGSIb3
-    DQEBCwUAA4IBAQB7k0ySFUQu72sfj3BdNxrXSyOT4L2rADLhxxxiK0U6gHUF6eWz
-    /0h6y4mNkg3NgLT3j/WclqzHXZruhWAXSF+VbAGkwcKA99xGWOcUJ+vKVYL/kDja
-    gaZrxHlhTYVVmwn4F7DWhteFqhzZ89/W9Mv6p180AimF96qDU8Ez8t860HQaFkU6
-    2Nw9ZMsGkvLePZZi78yVBDCWMogBMhrRVXG/xQkBajgvL5syLwFBo2kWGdC+wyWY
-    U/Z+EK9UuHnn3Hkq/vXEzRVsYuaxchta0X2UNRzRq+o706l+iyLTpe6fnvW6ilOi
-    e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
-    -----END CERTIFICATE-----
+```text
+-----BEGIN CERTIFICATE-----
+MIIC5zCCAc+gAwIBAgIQFSwsLuUrCIdHwI3hzJbdBjANBgkqhkiG9w0BAQsFADAW
+MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzA2MTUwMjU4NDZaFw0xODA2MTUw
+MzE4NDZaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEAz8QUCWCxxxTrxF5yc5uUpL/bzwC5zZ804ltB1NpPa/PI
+sa5uwLw/YFb8XG/JCWxUJpUzS/kHUKFluqkY80U+fAmRmTEMq5wcaMhp3wRfeq+1
+G9OPBNTyqpnHe+i54QAnj1DjsHXXNL4AL1N8/TSzYTm7dkiq+EAIyRRMrZlYwije
+407ChxIp0stB84MtMShhyoSm2hgl+3zfwuaGXoJQwWiXh715kMHVTSj9zFechYd7
+5OLltoRRDyyxsf0qweTFKIgFj13Hn/bq/UJG3AcyQNvlCv1HwQnXO+hckVBB29wE
+sF8QSYk2MMGimPDYYt4ZM5tmYLxxxvGmrGhc+HWXzMeQIDAQABozEwLzAOBgNVHQ8B
+Af8EBAMCAgQwHQYDVR0OBBYEFBE9zZWhQftVLBQNATC/LHLvMb0OMA0GCSqGSIb3
+DQEBCwUAA4IBAQB7k0ySFUQu72sfj3BdNxrXSyOT4L2rADLhxxxiK0U6gHUF6eWz
+/0h6y4mNkg3NgLT3j/WclqzHXZruhWAXSF+VbAGkwcKA99xGWOcUJ+vKVYL/kDja
+gaZrxHlhTYVVmwn4F7DWhteFqhzZ89/W9Mv6p180AimF96qDU8Ez8t860HQaFkU6
+2Nw9ZMsGkvLePZZi78yVBDCWMogBMhrRVXG/xQkBajgvL5syLwFBo2kWGdC+wyWY
+U/Z+EK9UuHnn3Hkq/vXEzRVsYuaxchta0X2UNRzRq+o706l+iyLTpe6fnvW6ilOi
+e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
+-----END CERTIFICATE-----
+```
 
 ## Azure portal error: Failed to save the VPN gateway, and the resource name is invalid
 
@@ -257,7 +259,7 @@ The only time that the client is prompted for a credential is when it has a vali
 
 To work around the problem, disable the caching of domain credentials from the following registry subkey: 
 
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1 
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1`
 
 
 ## Cannot find the point-to-site VPN connection in Windows after reinstalling the VPN client
@@ -278,7 +280,7 @@ When the client connects to Azure by using point-to-site VPN connection, it cann
 
 ### Cause
 
-Point-to-site VPN client uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client, so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
+Point-to-site VPN client normally uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client (unless the metric of the Ethernet interface is lower), so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
 
 ### Solution
 
@@ -292,7 +294,7 @@ This problem may occur if VPN client does not get the routes from Azure VPN gate
 
 ### Solution
 
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
+To resolve this problem, [reset Azure VPN gateway](./reset-gateway.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
@@ -311,7 +313,7 @@ This error occurs if the RADIUS server that you used for authenticating VPN clie
 
 ### Solution
 
-Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure AD Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## "Error 405" when you download root certificate from VPN Gateway
 

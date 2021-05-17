@@ -1,12 +1,9 @@
 ---
 title: Analyze website logs with Python libraries in Spark - Azure 
 description: This notebook demonstrates how to analyze log data using a custom library with Spark on Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
 ---
 
@@ -20,7 +17,7 @@ An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark
 
 ## Save raw data as an RDD
 
-In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
+In this section, we use the [Jupyter](https://jupyter.org) Notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.
 
 Once your data is saved as an Apache Hive table, in the next section we'll connect to the Hive table using BI tools such as Power BI and Tableau.
 
@@ -28,11 +25,11 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 
 1. Create a new notebook. Select **New**, and then **PySpark**.
 
-    ![Create a new Apache Jupyter notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Create a new Jupyter notebook")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Create a new Apache Jupyter Notebook" border="true":::Notebook" border="true":::
 
 1. A new notebook is created and opened with the name Untitled.pynb. Select the notebook name at the top, and enter a friendly name.
 
-    ![Provide a name for the notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Provide a name for the notebook")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Provide a name for the notebook" border="true":::
 
 1. Because you created a notebook using the PySpark kernel, you don't need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **Shift + Enter**.
 
@@ -171,7 +168,7 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 
    You should see an output like the following image:
 
-   ![hdinsight jupyter sql query output](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL query output")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql query output" border="true":::yter sql query output" border="true":::
 
    For more information about the `%%sql` magic, see [Parameters supported with the %%sql magic](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -189,7 +186,7 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 
    You should see an output like the following image:
 
-   ![apache spark web log analysis plot](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib output")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark web log analysis plot" border="true":::eb log analysis plot" border="true":::
 
 1. After you have finished running the application, you should shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action will shut down and close the notebook.
 
@@ -198,5 +195,5 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 Explore the following articles:
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)

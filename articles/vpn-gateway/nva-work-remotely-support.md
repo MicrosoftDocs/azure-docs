@@ -1,12 +1,13 @@
 ---
-title: 'Working remotely: Network Virtual Appliance (NVA) considerations for remote work | Azure VPN Gateway'
-description: This article helps you understand the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
+title: 'Working remotely: Network Virtual Appliance (NVA) considerations for remote work'
+titleSuffix: Azure VPN Gateway
+description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
 services: vpn-gateway
 author: scottnap
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
 
 ---
@@ -27,7 +28,7 @@ All major NVA vendors in Azure Marketplace should have recommendations on the VM
 
 - **Capacity and number of concurrent users** -  This number is particularly important for Point-to-Site VPN users as each connected user will create one encrypted (IPSec or SSL VPN) tunnel.  
 - **Aggregate throughput** - What is the aggregate bandwidth you will need to accommodate the number of users you need to which you will need to provide remote access.
-- **The VM size you will need** - You should always use VM sizes recommended by the NVA vendor.  For point-to-site VPN, if you will have a lot concurrent user connections, you should be using larger VM sizes such as [Dv2 and DSv2 series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Dv2 and Dsv2 Series") VMs. These VMs tend to have more vCPUs and can handle more concurrent VPN sessions.  In addition to having more virtual cores, larger VM sizes in Azure have more aggregate bandwidth capacity than smaller VM sizes.
+- **The VM size you will need** - You should always use VM sizes recommended by the NVA vendor.  For point-to-site VPN, if you will have a lot concurrent user connections, you should be using larger VM sizes such as [Dv2 and DSv2 series](../virtual-machines/dv2-dsv2-series.md "Dv2 and Dsv2 Series") VMs. These VMs tend to have more vCPUs and can handle more concurrent VPN sessions.  In addition to having more virtual cores, larger VM sizes in Azure have more aggregate bandwidth capacity than smaller VM sizes.
     > **Important:** Each vendor utilizes resources differently.  If it's not clear what instance sizes you should use to accommodate your estimated user load, you should contact the software vendor directly and ask them for a recommendation.
 - **Number of instances** - If you expect to have a large number of users and connections, there are limits to what scaling up your NVA instance sizes can achieve.  Consider deploying multiple VM instances.
 - **IPSec VPN vs SSL VPN** - In general IPSec VPN implementations perform better than SSL VPN implementations.  
@@ -50,6 +51,8 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 
 [Barracuda Enable Work from home while securing your data during COVID-19](https://www.barracuda.com/covid-19/work-from-home "Enable Work from home while securing your data during COVID-19")
 
+[Check Point Secure Remote Workforce During Coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Secure Remote Workforce During Coronavirus")
+
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 
 [Citrix COVID-19 Response Support Center](https://www.citrix.com/support/covid-19-coronavirus.html "Citrix COVID-19 Response Support Center")
@@ -59,3 +62,6 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 [Fortinet COVID-19 Updates for Customers and Partners](https://www.fortinet.com/covid-19.html "COVID-19 Updates for Customers and Partners")
 
 [Palo Alto Networks COVID-19 Response Center](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo Alto Networks COVID-19 Response Center")
+
+[Kemp Enable Remote Work and Always-On App Experience for Business Continuity](https://kemptechnologies.com/remote-work-always-on-application-experience-business-continuity/ "Kemp Enable Remote Work and Always-On App Experience for Business Continuity")
+

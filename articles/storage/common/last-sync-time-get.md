@@ -1,23 +1,24 @@
 ---
 title: Check the Last Sync Time property for a storage account 
 titleSuffix: Azure Storage
-description: Learn how to check the **Last Sync Time** property for a geo-replicated storage account. The **Last Sync Time** property indicates the last time at which all writes from the primary region were successfully written to the secondary region.   
+description: Learn how to check the Last Sync Time property for a geo-replicated storage account. The Last Sync Time property indicates the last time at which all writes from the primary region were successfully written to the secondary region.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/16/2019
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Check the Last Sync Time property for a storage account
 
 When you configure a storage account, you can specify that your data is copied to a secondary region that is hundreds of miles from the primary region. Geo-replication offers durability for your data in the event of a significant outage in the primary region, such as a natural disaster. If you additionally enable read access to the secondary region, your data remains available for read operations if the primary region becomes unavailable. You can design your application to switch seamlessly to reading from the secondary region if the primary region is unresponsive.
 
-Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) (preview) both replicate your data asynchronously to a secondary region. For read access to the secondary region, enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information about the various options for redundancy offered by Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) both replicate your data asynchronously to a secondary region. For read access to the secondary region, enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information about the various options for redundancy offered by Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 
 This article describes how to check the **Last Sync Time** property for your storage account so that you can evaluate any discrepancy between the primary and secondary regions.
 
@@ -33,13 +34,7 @@ You can use PowerShell or Azure CLI to retrieve the value of the **Last Sync Tim
 
 # [PowerShell](#tab/azure-powershell)
 
-To get the last sync time for the storage account with PowerShell, install an Azure Storage preview module that supports getting geo-replication stats. For example:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-```
-
-Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
+To get the last sync time for the storage account with PowerShell, install version 1.11.0 or later of the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -66,4 +61,4 @@ $lastSyncTime=$(az storage account show \
 
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
-- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)

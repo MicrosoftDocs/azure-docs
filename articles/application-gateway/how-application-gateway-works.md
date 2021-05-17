@@ -4,7 +4,7 @@ description: This article provides information about how an application gateway 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
 ---
@@ -25,9 +25,9 @@ This article explains how an application gateway accepts incoming requests and r
 
 4. If a web application firewall (WAF) is in use, the application gateway checks the request headers and the body, if present, against WAF rules. This action determines if the request is valid request or a security threat. If the request is valid, it's routed to the backend. If the request isn't valid and WAF is in Prevention mode, it's blocked as a security threat. If it's in Detection mode, the request is evaluated and logged, but still forwarded to the backend server.
 
-Azure Application Gateway can be used as an internal application load balancer or as an internet-facing application load balancer. An internet-facing application gateway uses public IP addresses. The DNS name of an internet-facing application gateway is publicly resolvable to its public IP address. As a result, internet-facing application gateways can route client requests to the internet.
+Azure Application Gateway can be used as an internal application load balancer or as an internet-facing application load balancer. An internet-facing application gateway uses public IP addresses. The DNS name of an internet-facing application gateway is publicly resolvable to its public IP address. As a result, internet-facing application gateways can route client requests from the internet.
 
-Internal application gateways use only private IP addresses. If you are using a Custom or [Private DNS zone](https://docs.microsoft.com/azure/dns/private-dns-overview), the domain name should be internally resolvable to the private IP address of the Application Gateway. Therefore, internal load-balancers can only route requests from clients with access to a virtual network for the application gateway.
+Internal application gateways use only private IP addresses. If you are using a Custom or [Private DNS zone](../dns/private-dns-overview.md), the domain name should be internally resolvable to the private IP address of the Application Gateway. Therefore, internal load-balancers can only route requests from clients with access to a virtual network for the application gateway.
 
 ## How an application gateway routes a request
 
@@ -57,7 +57,7 @@ An application gateway inserts four additional headers to all requests before it
 
 The valid values for x-forwarded-proto are HTTP or HTTPS. X-forwarded-port specifies the port where the request reached the application gateway. X-original-host header contains the original host header with which the request arrived. This header is useful in Azure website integration, where the incoming host header is modified before traffic is routed to the backend. If session affinity is enabled as an option, then it adds a gateway-managed affinity cookie.
 
-You can configure application gateway to modify headers by using [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) or to modify the URI path by using a path-override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
+You can configure application gateway to modify request and response headers and URL by using [Rewrite HTTP headers and URL](rewrite-http-headers-url.md) or to modify the URI path by using a path-override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
 
 ## Next steps
 

@@ -1,23 +1,24 @@
 ---
-title: Model interpretability in Azure Machine Learning
+title: Model interpretability in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
+description: Learn how to understand & explain how your machine learning model makes predictions during training & inferencing using the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: mesameki
-author: mesameki
+ms.topic: how-to
+ms.custom: responsible-ml
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
+ms.date: 02/25/2021
 ---
 
-# Model interpretability in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Model interpretability in Azure Machine Learning (preview)
 
-## Overview of model interpretability
 
-Interpretability is critical for data scientists, auditors, and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
+## Model interpretability overview
+
+Model interpretability is critical for data scientists, auditors, and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
 
 + Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings. They also require interpretability to debug their models and make informed decisions about how to improve them. 
 
@@ -25,30 +26,19 @@ Interpretability is critical for data scientists, auditors, and business decisio
 
 + Business decision makers need peace-of-mind by having the ability to provide transparency for end users. This allows them to earn and maintain trust.
 
-
 Enabling the capability of explaining a machine learning model is important during two main phases of model development:
+
 + During the training phase, as model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders. They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for model unfairness or insignificant features.
 
 + During the inferencing phase, as having transparency around deployed models empowers executives to understand "when deployed" how the model is working and how its decisions are treating and impacting people in real life. 
 
 ## Interpretability with Azure Machine Learning
 
-The interpretability classes are made available through multiple SDK packages: (Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+The model interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install))
 
-* `azureml.interpret`, the main package, containing functionalities supported by Microsoft.
+* `azureml.interpret`, contains functionalities supported by Microsoft.
 
-* `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
-
-* `azureml.train.automl.automlexplainer` package for interpreting automated machine learning models.
-
-Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-interpret-contrib` for AutoML use to get the interpretability packages.
-
-
-> [!IMPORTANT]
-> Content in the `contrib` namespace is not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main namespace.
-.
-
-
+Use `pip install azureml-interpret` for general use.
 
 ## How to interpret your model
 
@@ -57,13 +47,9 @@ Using the classes and methods in the SDK, you can:
 + Achieve model interpretability on real-world datasets at scale, during training and inference.
 + Use an interactive visualization dashboard to discover patterns in data and explanations at training time
 
-
 In machine learning, **features** are the data fields used to predict a target data point. For example,
 to predict credit risk, data fields for age, account size, and account age might be used. In this case,
 age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
-
-Learn about supported interpretability techniques, supported machine learning models, and supported run environments here.
-
 
 ## Supported interpretability techniques
 
@@ -71,17 +57,14 @@ Learn about supported interpretability techniques, supported machine learning mo
 
 |Interpretability Technique|Description|Type|
 |--|--|--------------------|
-|1. SHAP Tree Explainer| [SHAP](https://github.com/slundberg/shap)'s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to **trees and ensembles of trees**.|Model-specific|
-|2. SHAP Deep Explainer| Based on the explanation from [SHAP](https://github.com/slundberg/shap), Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the [SHAP NIPS paper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** models and **Keras** models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".|Model-specific|
-|3. SHAP Linear Explainer| [SHAP](https://github.com/slundberg/shap)'s Linear explainer computes SHAP values for a **linear model**, optionally accounting for inter-feature correlations.|Model-specific|
-|4. SHAP Kernel Explainer| [SHAP](https://github.com/slundberg/shap)'s Kernel explainer uses a specially weighted local linear regression to estimate SHAP values for **any model**.|Model-agnostic|
-|5. Mimic Explainer (Global Surrogate)| Mimic explainer is based on the idea of training [global surrogate models](https://christophm.github.io/interpretable-ml-book/global.html) to mimic blackbox models. A global surrogate model is an intrinsically interpretable model that is trained to approximate the predictions of **any black box model** as accurately as possible. Data scientists can interpret the surrogate model to draw conclusions about the black box model. You can use one of the following interpretable models as your surrogate model: LightGBM (LGBMExplainableModel), Linear Regression (LinearExplainableModel), Stochastic Gradient Descent explainable model (SGDExplainableModel), and Decision Tree (DecisionTreeExplainableModel).|Model-agnostic|
-|6. Permutation Feature Importance Explainer (PFI)| Permutation Feature Importance is a technique used to explain classification and regression models that is inspired by [Breiman's Random Forests paper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (see section 10). At a high level, the way it works is by randomly shuffling data one feature at a time for the entire dataset and calculating how much the performance metric of interest changes. The larger the change, the more important that feature is. PFI can explain the overall behavior of **any underlying model** but does not explain individual predictions. |Model-agnostic|
+|SHAP Tree Explainer| [SHAP](https://github.com/slundberg/shap)'s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to **trees and ensembles of trees**.|Model-specific|
+|SHAP Deep Explainer| Based on the explanation from SHAP, Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the [SHAP NIPS paper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** models and **Keras** models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".|Model-specific|
+|SHAP Linear Explainer| SHAP's Linear explainer computes SHAP values for a **linear model**, optionally accounting for inter-feature correlations.|Model-specific|
+|SHAP Kernel Explainer| SHAP's Kernel explainer uses a specially weighted local linear regression to estimate SHAP values for **any model**.|Model-agnostic|
+|Mimic Explainer (Global Surrogate)| Mimic explainer is based on the idea of training [global surrogate models](https://christophm.github.io/interpretable-ml-book/global.html) to mimic blackbox models. A global surrogate model is an intrinsically interpretable model that is trained to approximate the predictions of **any black box model** as accurately as possible. Data scientists can interpret the surrogate model to draw conclusions about the black box model. You can use one of the following interpretable models as your surrogate model: LightGBM (LGBMExplainableModel), Linear Regression (LinearExplainableModel), Stochastic Gradient Descent explainable model (SGDExplainableModel), and Decision Tree (DecisionTreeExplainableModel).|Model-agnostic|
+|Permutation Feature Importance Explainer (PFI)| Permutation Feature Importance is a technique used to explain classification and regression models that is inspired by [Breiman's Random Forests paper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (see section 10). At a high level, the way it works is by randomly shuffling data one feature at a time for the entire dataset and calculating how much the performance metric of interest changes. The larger the change, the more important that feature is. PFI can explain the overall behavior of **any underlying model** but does not explain individual predictions. |Model-agnostic|
 
-
-
-
-Besides the interpretability techniques described above, we support another [SHAP-based explainer](https://github.com/slundberg/shap), called `TabularExplainer`. Depending on the model, `TabularExplainer` uses one of the supported SHAP explainers:
+Besides the interpretability techniques described above, we support another SHAP-based explainer, called `TabularExplainer`. Depending on the model, `TabularExplainer` uses one of the supported SHAP explainers:
 
 * TreeExplainer for all tree-based models
 * DeepExplainer for DNN models
@@ -117,4 +100,7 @@ You can run explanation remotely on Azure Machine Learning Compute and log the e
 
 ## Next steps
 
-See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources. See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) for additional scenarios.
+- See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources. 
+- Learn how to enable [interpretability for automated machine learning models](how-to-machine-learning-interpretability-automl.md).
+- See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) for additional scenarios. 
+- If you're interested in interpretability for text scenarios, see [Interpret-text](https://github.com/interpretml/interpret-text), a related open source repo to [Interpret-Community](https://github.com/interpretml/interpret-community/), for interpretability techniques for NLP. `azureml.interpret` package does not currently support these techniques but you can get started with an [example notebook on text classification](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

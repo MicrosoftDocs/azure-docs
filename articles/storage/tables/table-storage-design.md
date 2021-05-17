@@ -1,12 +1,12 @@
 ---
 title: Design scalable and performant tables in Azure table storage. | Microsoft Docs
-description: Design scalable and performant tables in Azure table storage.
+description: Learn to design scalable and performant tables in Azure table storage. Review table partitions, Entity Group Transactions, and capacity and cost considerations.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 03/09/2020
-ms.author: sngun
 ms.subservice: tables
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: tables
 To design scalable and performant tables, you must consider factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations are familiar, but while there are some similarities between the Azure Table service storage model and relational models, there are also important differences. These differences typically lead to different designs that may look counter-intuitive or wrong to someone familiar with relational databases, yet make sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (or rows in relational database terminology) of data or for datasets that must support high transaction volumes. Therefore, you must think differently about how you store your data and understand how the Table service works. A well-designed NoSQL data store can enable your solution to scale much further and at a lower cost than a solution that uses a relational database. This guide helps you with these topics.  
 
 ## About the Azure Table service
-This section highlights some of the key features of the Table service that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and the Table service, first read [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md) and [Get started with Azure Table Storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on the Table service, it includes discussion of the Azure Queue and Blob services, and how you might use them with the Table service.  
+This section highlights some of the key features of the Table service that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and the Table service, first read [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md) and [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on the Table service, it includes discussion of the Azure Queue and Blob services, and how you might use them with the Table service.  
 
 What is the Table service? As you might expect from the name, the Table service uses a tabular format to store data. In the standard terminology, each row of the table represents an entity, and the columns store the various properties of that entity. Every entity has a pair of keys to uniquely identify it, and a timestamp column that the Table service uses to track when the entity was last updated. The timestamp is applied automatically, and you cannot manually overwrite the timestamp with an arbitrary value. The Table service uses this last-modified timestamp (LMT) to manage optimistic concurrency.  
 
@@ -116,7 +116,7 @@ The following example shows a simple table design to store employee and departme
 </table>
 
 
-So far, this data appears similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. Also, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+So far, this data appears similar to a table in a relational database with the key differences being the mandatory columns, and the ability to store multiple entity types in the same table. Also, each of the user-defined properties such as **FirstName** or **Age** has a data type, such as integer or string, just like a column in a relational database. Although unlike in a relational database, the schema-less nature of the Table service means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information about the table service such as supported data types, supported date ranges, naming rules, and size constraints, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Your choice of **PartitionKey** and **RowKey** is fundamental to good table design. Every entity stored in a table must have a unique combination of **PartitionKey** and **RowKey**. As with keys in a relational database table, the **PartitionKey** and **RowKey** values are indexed to create a clustered index to enable fast look-ups. However, the Table service does not create any secondary indexes, so **PartitionKey** and **RowKey** are the only indexed properties. Some of the patterns described in [Table design patterns](table-storage-design-patterns.md) illustrate how you can work around this apparent limitation.  
 
@@ -128,7 +128,7 @@ The account name, table name, and **PartitionKey** together identify the partiti
 In the Table service, an individual node services one or more complete partitions, and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, the table service can *split* the range of partitions serviced by that node onto different nodes; when traffic subsides, the service can *merge* the partition ranges from quiet nodes back onto a single node.  
 
 For more information about the internal details of the Table service, and in particular how the service manages partitions, see the paper [Microsoft Azure Storage: A Highly Available
-Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Cloud Storage Service with Strong Consistency](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ## Entity Group Transactions
 In the Table service, Entity Group Transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are sometimes also referred to as *batch transactions*. EGTs can only operate on entities stored in the same partition (that is, share the same partition key in a given table). So anytime you require atomic transactional behavior across multiple entities, you must ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition) and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it is important to ensure those EGTs do not operate on entities that are common across EGTs; otherwise, processing can be delayed.

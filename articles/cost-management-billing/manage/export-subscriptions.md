@@ -5,10 +5,12 @@ author: bandersmsft
 ms.reviewer: matrive
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Export and view your top-level Subscription information
 If you need to view the set of subscription IDs associated with your user credentials, [download a .json file with your subscription information from the Azure Account Center](https://account.azure.com/subscriptions/download).
 

@@ -4,7 +4,7 @@ description: This article provides information on how to obtain a certificate fr
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -45,11 +45,23 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     helm repo update
 
     # Install the cert-manager Helm chart
+    # Helm v3+
+    helm install \
+      cert-manager jetstack/cert-manager \
+      --namespace cert-manager \
+      --version v1.0.4 \
+      # --set installCRDs=true
+
+    # Helm v2
     helm install \
       --name cert-manager \
       --namespace cert-manager \
-      --version v0.8.0 \
-      jetstack/cert-manager
+      --version v1.0.4 \
+      jetstack/cert-manager \
+      # --set installCRDs=true
+      
+    #To automatically install and manage the CRDs as part of your Helm release, 
+    #   you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
 2. ClusterIssuer Resource

@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -88,10 +88,10 @@ If you no longer have access to the worker computer, you can unregister the work
 
 The sections below describe scenario-specific issues related to using Azure Database Migration Service hybrid mode to perform an online migration.
 
-### Online migrations to Azure SQL Database managed instance
+### Online migrations to Azure SQL Managed Instance
 
 **High CPU usage**
 
-**Issue**: For online migrations to SQL Database managed instance, the computer running the hybrid worker will encounter high CPU usage if there are too many backups or if the backups are too large.
+**Issue**: For online migrations to SQL Managed Instance, the computer running the hybrid worker will encounter high CPU usage if there are too many backups or if the backups are too large.
 
 **Mitigation**: To mitigate this issue, use compressed backups, split the migration so that it uses multiple shares, or scale up the computer running the hybrid worker.

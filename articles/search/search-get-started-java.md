@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a search index in Java using REST APIs'
+title: 'Quickstart: Create a search index in Javas'
 titleSuffix: Azure Cognitive Search
-description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search REST APIs.
+description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search client library for Java.
 
 manager: nitinme
 author: HeidiSteen
@@ -9,19 +9,21 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 03/04/2021
+ms.custom: devx-track-java
 ---
-# Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
-> [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
-> * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+# Quickstart: Create an Azure Cognitive Search index in Java
+> [!div class="op_single_selector"]
+> * [Java](search-get-started-java.md)
+> * [JavaScript](search-get-started-javascript.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-get-started-powershell.md)
+> * [Python](search-get-started-python.md)
+> * [REST](search-get-started-rest.md)
+
+Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +33,7 @@ We used the following software and services to build and test this quickstart:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/)
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -43,13 +45,11 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   Create a query key, too. It's a best practice to issue query requests with read-only access.
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Get the service name and admin and query keys" border="false":::
 
-![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
-
-Every request sent to your service requires an api key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+Every request sent to your service requires an API key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Set up your environment
 
@@ -61,7 +61,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 1. Select **Maven**.
 1. In the **Project SDK** list, select the Java 11 SDK.
 
-    ![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Create a maven project" border="false":::
 
 1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
@@ -72,7 +72,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
 1. Select the  **Import Maven projects automatically** check box, and click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step.
 
-    ![Maven importing options in IntelliJ settings](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven importing options in IntelliJ settings" border="false":::
 
 1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -82,21 +82,72 @@ Begin by opening IntelliJ IDEA and setting up a new project.
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
-    
         <groupId>AzureSearchQuickstart</groupId>
         <artifactId>AzureSearchQuickstart</artifactId>
+        <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
+        <properties>
+            <jackson.version>2.12.1</jackson.version>
+            <auto-value.version>1.6.2</auto-value.version>
+            <junit.version>5.4.2</junit.version>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
+        <name>azuresearch-console</name>
+        <url>http://maven.apache.org</url>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jdk8</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.value</groupId>
+                <artifactId>auto-value-annotations</artifactId>
+                <version>${auto-value.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.value</groupId>
+                <artifactId>auto-value</artifactId>
+                <version>${auto-value.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-search-documents</artifactId>
+                <version>11.1.3</version>
+            </dependency>
+        </dependencies>
+    
         <build>
-            <sourceDirectory>src</sourceDirectory>
             <plugins>
+                <!--put generated source files to generated-sources-->
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
+                    <version>3.8.0</version>
                     <configuration>
                         <source>11</source>
                         <target>11</target>
                     </configuration>
                 </plugin>
+                <!-- For JUnit -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <!-- Add exec plugin to run demo program -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
@@ -109,32 +160,26 @@ Begin by opening IntelliJ IDEA and setting up a new project.
                         </execution>
                     </executions>
                     <configuration>
-                        <mainClass>main.java.app.App</mainClass>
+                        <mainClass>com.microsoft.azure.search.samples.demo.App</mainClass>
                         <cleanupDaemonThreads>false</cleanupDaemonThreads>
                     </configuration>
                 </plugin>
             </plugins>
         </build>
-        <dependencies>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.2</version>
-            </dependency>
-        </dependencies>   
     </project>
     ```
 
+<!-- STOPPED HERE -- SENT EMAIL TO TONG XU ASKING FOR INFO -->
 ### Set up the project structure
 
 1. Select **File** > **Project Structure**.
 1. Select **Modules**, and expand the source tree to access the contents of the `src` >  `main` folder.
-1. In the `src` >  `main` > `java` folder, add  `app` and `service` folders. To do this, select the `java` folder, press Alt + Insert, and then enter the folder name.
+1. In the `src` >  `main` > `java` folder, add  folders for `com`, `microsoft`, `azure`, `search`, `samples`, `demo`. To do this, select the `java` folder, press Alt + Insert, and then enter the folder name.
 1. In the `src` >  `main` >`resources` folder, add `app` and `service` folders.
 
     When you're done, the project tree should look like the following picture.
 
-    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Project directory structure" border="false":::
 
 1. Click **OK** to close the window.
 
@@ -142,14 +187,14 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be `"mydemo"`.
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
         SearchServiceAdminKey=<YOUR-ADMIN-KEY>
         SearchServiceQueryKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
-        ApiVersion=2019-05-06
+        ApiVersion=2020-06-30
     ```
 
 ### Add the main method
@@ -367,10 +412,10 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. Verify that your project has the following structure.
 
-    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Project directory structure plus classes" border="false":::
 
 1. Open the **Maven** tool window, and execute this maven goal: `verify exec:java`
-![Execute maven goal: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+:::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute maven goal: verify exec:java" border="false":::
 
 When processing completes, look for a BUILD SUCCESS message followed by a zero (0) exit code.
 
@@ -505,7 +550,7 @@ The hotels index definition contains simple fields and one complex field. Exampl
     }
     ```
 
-    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Fields collection and field attributes](search-what-is-an-index.md#fields-collection).
+    The index name will be "hotels-quickstart". Attributes on the index fields determine how the indexed data can be searched in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. To learn more about attributes, see [Create Index (REST)](/rest/api/searchservice/create-index).
     
     The `Description` field in this index uses the optional `analyzer` property to override the default Lucene language analyzer. The `Description_fr` field is using the French Lucene analyzer `fr.lucene` because it stores French text. The `Description` is using the optional Microsoft language analyzer en.lucene. To learn more about analyzers, see [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md).
 

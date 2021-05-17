@@ -3,12 +3,12 @@ title: Azure Traffic Manager subnet override using Azure CLI | Microsoft Docs
 description: This article will help you understand how Traffic Manager subnet override can be used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end-user IP address via predefined IP range to endpoint mappings.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
-manager: twooley
-ms.topic: article
+author: duongau
+
+ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
+ms.author: duau
 ---
 
 # Traffic Manager subnet override using Azure CLI
@@ -30,17 +30,14 @@ There are two types of routing profiles that support subnet overrides:
 
 To create a Traffic Manager subnet override, you can use Azure CLI to add the subnets for the override to the Traffic Manager endpoint.
 
-## Azure CLI
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Update the Traffic Manager endpoint with subnet override.
-Use Azure CLI to update your endpoint with [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+Use Azure CLI to update your endpoint with [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update).
 
-```azurecli
-
+```azurecli-interactive
 ### Add a range of IPs ###
 az network traffic-manager endpoint update \
     --name MyEndpoint \
@@ -56,22 +53,21 @@ az network traffic-manager endpoint update \
     --resource-group MyResourceGroup \
     --subnets 9.10.11.0:24 \
     --type AzureEndpoints
-
 ```
 
-You can remove the IP address ranges by running the [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) with the **--remove** option.
+You can remove the IP address ranges by running the [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) with the **--remove** option.
 
-```azurecli
-
+```azurecli-interactive
 az network traffic-manager endpoint update \
     --name MyEndpoint \
     --profile-name MyTmProfile \
     --resource-group MyResourceGroup \
     --remove subnets \
     --type AzureEndpoints
-
 ```
+
 ## Next Steps
+
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-Learn about the [Subnet traffic-routing method](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Learn about the [Subnet traffic-routing method](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

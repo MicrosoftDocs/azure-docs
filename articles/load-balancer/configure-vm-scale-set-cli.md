@@ -1,34 +1,28 @@
 ---
 title: Configure virtual machine scale set with an existing Azure Load Balancer - Azure CLI
-description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
+description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer by using the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI
 
-In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer. 
+In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure subscription.
-- An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
-- An Azure Virtual Network for the virtual machine scale set.
+## Prerequisites 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+- You need an existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
 
-If you choose to use the CLI locally, this article requires that you have a version of the Azure CLI version 2.0.28 or later installed. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- You need an Azure Virtual Network for the virtual machine scale set.
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## Sign in to Azure CLI
-
-Sign into Azure.
-
-```azurecli-interactive
-az login
-```
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Deploy a virtual machine scale set with existing load balancer
 

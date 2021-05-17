@@ -1,9 +1,9 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -19,7 +19,7 @@ If you've followed the tutorials, you have a working Kubernetes cluster in AKS a
 > * Manually scale Kubernetes pods that run your application
 > * Configure autoscaling pods that run the app front-end
 
-In additional tutorials, the Azure Vote application is updated to a new version.
+In later tutorials, the Azure Vote application is updated to a new version.
 
 ## Before you begin
 
@@ -37,7 +37,7 @@ kubectl get pods
 
 The following example output shows one front-end pod and one back-end pod:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -49,7 +49,7 @@ To manually change the number of pods in the *azure-vote-front* deployment, use 
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
+Run [kubectl get pods][kubectl-get] again to verify that AKS successfully creates the additional pods. After a minute or so, the pods are available in your cluster:
 
 ```console
 kubectl get pods
@@ -72,11 +72,11 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. To install, clone the `metrics-server` GitHub repo and install the example resource definitions. To view the contents of these YAML definitions, see [Metrics Server for Kuberenetes 1.8+][metrics-server-github].
+> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. Metrics Server installation manifests are available as a `components.yaml` asset on Metrics Server releases, which means you can install them via a url. To learn more about these YAML definitions, see the [Deployment][metrics-server-github] section of the readme.
 > 
+> Example installation:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
@@ -111,6 +111,7 @@ spec:
     name: azure-vote-back
   targetCPUUtilizationPercentage: 50 # target CPU utilization
 
+---
 
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -128,7 +129,7 @@ spec:
 
 Use `kubectl apply` to apply the autoscaler defined in the `azure-vote-hpa.yaml` manifest file.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -155,7 +156,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 When the cluster has successfully scaled, the output is similar to following example:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,
@@ -190,12 +191,12 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
-[metrics-server]: https://v1-13.docs.kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show

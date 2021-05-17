@@ -1,8 +1,8 @@
 ---
 title: FAQ - Azure VMware Solution by CloudSimple 
-description: Frequently asked questions for Azure VMware Solution by CloudSimple 
-author: sharaths-cs
-ms.author: b-shsury 
+description: These frequently asked questions for Azure VMware Solution by CloudSimple include connectivity, networking, security, storage, Azure integration, and others.
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

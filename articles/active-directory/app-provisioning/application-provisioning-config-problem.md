@@ -1,23 +1,16 @@
 ---
-title: Problem configuring user provisioning to an Azure AD Gallery app
-description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
+title: Problem configuring user provisioning to an Azure Active Directory Gallery app
+description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure Active Directory Application Gallery
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 09/03/2019
-ms.author: mimart
-ms.reviewer: asteen
-
-ms.collection: M365-identity-device-management
+ms.topic: troubleshooting
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: asteen, arvinh
 ---
 
 # Problem configuring user provisioning to an Azure AD Gallery application

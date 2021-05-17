@@ -1,20 +1,16 @@
 ---
 title: Copy data from Google BigQuery by using Azure Data Factory 
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a data factory pipeline.
-services: data-factory
-documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ---
 
 # Copy data from Google BigQuery by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
@@ -34,7 +30,7 @@ Data Factory provides a built-in driver to enable connectivity. Therefore, you d
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to the Google BigQuery connector.
 
@@ -94,7 +90,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
 | keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
-| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
+| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
 **Example:**

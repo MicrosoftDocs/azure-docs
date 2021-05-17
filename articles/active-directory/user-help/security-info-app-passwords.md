@@ -9,7 +9,7 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
 ---
@@ -41,7 +41,7 @@ If you use two-step verification with your work or school account and your admin
 
 ### To create a new app password
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
@@ -55,7 +55,7 @@ If you use two-step verification with your work or school account and your admin
 
 4. Type the name of the app that requires the app password, and then select **Next**.
 
-    ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Screenshot that shows the "App password" page, with the name of the app entered.](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. Copy the text from the **Password** box, paste the password in the password area of the app (in this example, Outlook 2010), and then select **Done**.
 
@@ -80,4 +80,4 @@ If you no longer need to use an app that requires an app password, you can delet
 
 ## For more information
 
-- For more information about the **Security info** page and how to set it up, see [Security info overview](user-help-security-info-overview.md)
+- For more information about the **Security info** page and how to set it up, see [Security info overview](./security-info-setup-signin.md)

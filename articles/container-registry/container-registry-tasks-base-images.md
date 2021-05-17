@@ -17,9 +17,13 @@ A base image is often updated by the image maintainer to include new features or
 
 In some cases, such as a private development team, a base image might specify more than OS or framework. For example, a base image could be a shared service component image that needs to be tracked. Members of a team might need to track this base image for testing, or need to regularly update the image when developing application images.
 
+## Maintain copies of base images
+
+For any content in your registries that depends on base content maintained in a public registry such as Docker Hub, we recommend that you copy the content to an Azure container registry or another private registry. Then, ensure that you build your application images by referencing the private base images. Azure Container Registry provides an [image import](container-registry-import-images.md) capability to easily copy content from public registries or other Azure container registries. The next section describes using ACR Tasks to track base image updates when building application updates. You can track base image updates in your own Azure container registries and optionally in upstream public registries.
+
 ## Track base image updates
 
-ACR Tasks includes the ability to automatically build images for you when a container's base image is updated.
+ACR Tasks includes the ability to automatically build images for you when a container's base image is updated. You can use this ability to maintain and update copies of public base images in your Azure container registries, and then to rebuild application images that depend on base images.
 
 ACR Tasks dynamically discovers base image dependencies when it builds a container image. As a result, it can detect when an application image's base image is updated. With one preconfigured build task, ACR Tasks can automatically rebuild every application image that references the base image. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
@@ -34,6 +38,13 @@ For image builds from a Dockerfile, an ACR task detects dependencies on base ima
 
 If the base image specified in the `FROM` statement resides in one of these locations, the ACR task adds a hook to ensure the image is rebuilt anytime its base is updated.
 
+## Base image notifications
+
+The time between when a base image is updated and when the dependent task is triggered depends on the base image location:
+
+* **Base images from a public repo in Docker Hub or MCR** - For base images in public repositories, an ACR task checks for image updates at a random interval of between 10 and 60 minutes. Dependent tasks are run accordingly.
+* **Base images from an Azure container registry** - For base images in Azure container registries, an ACR task immediately triggers a run when its base image is updated. The base image may be in the same ACR where the task runs or in a different ACR in any region.
+
 ## Additional considerations
 
 * **Base images for application images** - Currently, an ACR task only tracks base image updates for application (*runtime*) images. It doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles.  
@@ -41,7 +52,7 @@ If the base image specified in the `FROM` statement resides in one of these loca
 * **Enabled by default** - When you create an ACR task with the [az acr task create][az-acr-task-create] command, by default the task is *enabled* for trigger by a base image update. That is, the `base-image-trigger-enabled` property is set to True. If you want to disable this behavior in a task, update the property to False. For example, run the following [az acr task update][az-acr-task-update] command:
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Trigger to track dependencies** - To enable an ACR task to determine and track a container image's dependencies -- which include its base image -- you must first trigger the task to build the image **at least once**. For example, trigger the task manually using the [az acr task run][az-acr-task-run] command.
@@ -69,13 +80,13 @@ See the following tutorials for scenarios to automate application image builds a
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

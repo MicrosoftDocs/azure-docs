@@ -1,13 +1,13 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules
-author: ChrisGMsft
-manager: bruz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: chrisgre
+ms.author: robinsh
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Automatic IoT device and module management using the Azure portal
@@ -229,14 +229,13 @@ When you delete a configuration, any device twins take on their next highest pri
 In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
 
 * [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Logical operators in a policy definition"
 description: This Azure Policy pattern provides examples of how to use the logical operators in a policy definition.
-ms.date: 01/31/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: logical operators
@@ -13,9 +13,10 @@ and **anyOf**. They're optional and can be nested to create complex scenarios.
 
 ## Sample 1: One logical operator
 
-This policy definition evaluates CosmosDB accounts to see if automatic failovers and multiple write
-locations are configured. When they aren't, the [audit](../concepts/effects.md#audit) triggers
-and creates a log entry when the non-compliant resource is created or updated.
+This policy definition evaluates [Azure Cosmos DB](../../../cosmos-db/introduction.md) accounts to
+see whether automatic failovers and multiple write locations are configured. When they aren't, the
+[audit](../concepts/effects.md#audit) triggers and creates a log entry when the non-compliant
+resource is created or updated.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -39,8 +40,24 @@ This policy definition evaluates resources for a naming pattern. If a resource d
 
 This **policyRule.if** block also includes a single **allOf**, but each condition is wrapped with
 the **not** logical operator. The conditional inside the **not** logical operator evaluates first
-and then evaluates the **not** to determine if the entire clause is true or false. If both **not**
-logical operators evaluate to true, the policy effect triggers.
+and then evaluates the **not** to determine whether the entire clause is true or false. If both
+**not** logical operators evaluate to true, the policy effect triggers.
+
+## Sample 3: Combining logical operators
+
+This policy definition evaluates [Spring on Azure](/azure/developer/java/spring-framework) accounts
+to see whether either trace isn't enabled or if trace isn't in a successful state.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### Sample 3: Explanation
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+This **policyRule.if** block includes both the **allOf** and **anyOf** logical operators. The
+**anyOf** logical operator evaluates true as long as one included condition is true. As the _type_
+is at the core of the **allOf**, it must always evaluate true. If the _type_ and one of the
+conditions in the **anyOf** are true, the policy effect triggers.
 
 ## Next steps
 

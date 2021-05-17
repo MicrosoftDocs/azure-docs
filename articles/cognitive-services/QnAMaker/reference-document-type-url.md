@@ -1,6 +1,8 @@
 ---
 title: URLs types supported for import - QnA Maker
 description: Understand how the types of URLs are used to import and create QnA pairs.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/02/2020
 ---

@@ -1,9 +1,9 @@
 ﻿---
-author: sptramer
 ms.topic: include
 ms.date: 01/30/2019
-ms.service: azure-powershell
-ms.author: sttramer
+author: mikefrobbins
+ms.author: mirobb
+manager: barbkess
 ---
 
 This sample requires Azure PowerShell Az 1.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed. 

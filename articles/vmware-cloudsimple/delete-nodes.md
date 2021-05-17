@@ -1,6 +1,6 @@
 ---
 title: Delete nodes for VMware Solution by CloudSimple - Azure 
-description: Learn how to delete nodes from your VMWare with CloudSimple deployment
+description: Learn how to delete nodes from your VMWare with CloudSimple deployment. CloudSimple nodes are metered. Delete the nodes that are not used from Azure portal.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/05/2019

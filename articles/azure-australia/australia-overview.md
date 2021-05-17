@@ -1,11 +1,12 @@
 ---
 title: What is Azure Australia? | Microsoft Docs
 description: Guidance on configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: Galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: overview
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
+ms.custom: references_regions
 ---
 
 # What is Azure Australia?
@@ -32,7 +33,7 @@ There are two categories of documentation provided for Australian Government age
 
 ## Security in Azure Australia
 
-Identity, role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section, there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
+Identity, Azure role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section, there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
 
 These articles can be accessed through the menu under *Concepts -> Security in Azure Australia*.
 

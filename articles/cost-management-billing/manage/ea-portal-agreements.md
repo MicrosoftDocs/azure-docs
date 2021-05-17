@@ -3,9 +3,10 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -13,19 +14,11 @@ ms.reviewer: boalcsva
 
 The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 
-## Amendment status
-
-Any amendments for Azure customers need to go through their partner or Microsoft account team and get processed through the regional operations center. If you think an amendment wasn't processed, check with your partner, software advisor, or Microsoft account team.
-
 ## Enrollment provisioning status
 
-The start date of a new monetary commitment is defined by the date that the regional operations center processed it. Since monetary commitment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your monetary commitment purchase order was processed in a different region. The coverage start date on the purchase order at https://www.explore.ms shows the start of the monetary commitment. The coverage start date is when the monetary commitment appears in the Azure EA portal.
+The start date of a new Azure Prepayment (previously called monetary commitment) is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure EA portal.
 
-## Support offer not provisioned
-
-You can order Standard or Pro-Direct support by purchasing support-specific SKUs. The order is similar to a EA Azure Monetary SKU purchase order. For example, 6QK-00001. Support SKU numbers are W6T-00002 (Pro-Direct) and W6T-00003 (Standard). Check the current support offers before you purchase support SKUs.
-
-The enrollment must have at least one active account for the support offer to be provisioned.
+## Support for enterprise customers
 
  The Azure [Enterprise Agreement Support Plan Offer](https://azure.microsoft.com/offers/enterprise-agreement-support/) is available for some customers.
 
@@ -39,14 +32,14 @@ An enrollment has one of the following status values. Each value determines how 
 
 **Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
-- Renew the enrollment by adding additional Monetary Commitment
+- Renew the enrollment by adding additional Azure Prepayment
 - Transfer the existing enrollment to a new enrollment
 - Migrate to the Microsoft Online Subscription Program (MOSP)
 - Confirm disablement of all services associated with the enrollment
 
 **Expired** - The EA enrollment expires when it reaches the enterprise agreement end date. The EA customer is opted out of the extended term and all their services are disabled.
 
-As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure EA portal](https://portal.azure.com). Or, your partner can submit a termination request at https://www.explore.ms. There's no change for customers with government agreement types.
+As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
 **Transferred** - Transferred status is applied to enrollments that have their associated accounts and services transferred to a new enrollment. Enrollments don't automatically transfer if a new enrollment number is generated during renewal. The prior enrollment number must be included in the customer's renewal request for an automatic transfer.
 
@@ -54,7 +47,7 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 In the Azure EA portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure EA portal shows usage and prices configured by partners for their customers.
 
-Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure EA portal such as: meter rates, monetary commitments, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure EA portal. For example, usage summary, price lists, and downloaded usage reports.
+Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure EA portal such as: meter rates, Azure Prepayment, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure EA portal. For example, usage summary, price lists, and downloaded usage reports.
 
 Starting in September 2019, partners can apply markup anytime during a term. They don't need to wait until the term next anniversary to apply markup.
 
@@ -64,7 +57,7 @@ Microsoft won't access or utilize the provided markup and associated prices for 
 
 The LSP provides a single percentage number in the EA portal.  All commercial information on the portal will be uplifted by the percentage provided by the LSP. Example:
 
-- Customer signs an EA with monetary commitment of USD 100,000.
+- Customer signs an EA with Azure Prepayment of USD 100,000.
 - The meter rate for Service A is USD 10 / Hour.
 - LSP sets markup percentage of 10% on the EA Portal.
 - The example below is how the customer will see the commercial information:
@@ -75,10 +68,10 @@ The LSP provides a single percentage number in the EA portal.  All commercial i
 
 ### When to use a markup
 
-Use the feature if you set the same markup percentage on ALL commercial transactions in the EA. i.e. – if you mark-up the monetary commitment information, the meter rates, the order information, etc.
+Use the feature if you set the same markup percentage on ALL commercial transactions in the EA. i.e. – if you mark-up the Azure Prepayment information, the meter rates, the order information, etc.
 
 Don't use the markup feature if:
-- You use different rates between monetary commitment and meter rates.
+- You use different rates between Azure Prepayment and meter rates.
 - You use different rates for different meters.
 
 If you're using different rates for different meters, we recommend developing a custom solution based on the API Key, which can be provided by the customer, to pull consumption data and provide reports.
@@ -100,12 +93,12 @@ Please make sure to review the commercial information - monetary balance informa
 
 **Step Two: Review and validate**
 
-Review the markup price in the _Usage Summary_ for the commitment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup "people" toggle at the top right.
+Review the markup price in the _Usage Summary_ for the Prepayment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup "people" toggle at the top right.
 
 1. Review the prices in the price sheet.
 1. Changes can be made before publishing by selecting **Edit** on _View Usage Summary > Customer View_ tab.
    
-Both the service prices and the commitment balances will be marked up by the same percentages. If you have different percentages for monetary balance and meter rates, or different percentages for different services, then please don't use this feature.
+Both the service prices and the Prepayment balances will be marked up by the same percentages. If you have different percentages for monetary balance and meter rates, or different percentages for different services, then please don't use this feature.
 
 **Step Three: Publish**
 
@@ -125,7 +118,7 @@ Once partner markup is published, the indirect customer will have access to bala
 Partners can use the markup feature (on Azure EA) after a Change of Channel Partner is processed; no need to wait for the next anniversary term.
 
 
-## Resource commitment and requesting quota increases
+## Resource Prepayment and requesting quota increases
 
 **The system enforces the following default quotas per subscription:**
 
@@ -139,38 +132,20 @@ Partners can use the markup feature (on Azure EA) after a Change of Channel Part
 | Access Control | 50 Namespaces per account. 100 million Access Control transactions per month |   |
 | Service Bus | 50 Namespaces per account. 40 Service Bus connections | Customers purchasing Service Bus connections through connection packs will have quotas equal to the midpoint between the connection pack they purchased and the next highest connection pack amount. Customers choosing a 500 Pack will have a quota of 750. |
 
-## Resource commitment
+## Resource Prepayment
 
-Microsoft will provide services to you up to at least the level of the associated usage included in the monthly commitment that you purchased (the Service Commitment), but all other increases in usage levels of service resources (e.g. adding to the number of compute instances running, or increasing the amount of storage in use) are subject to the availability of these service resources.
+Microsoft will provide services to you up to at least the level of the associated usage included in the monthly Prepayment that you purchased (the Service Prepayment), but all other increases in usage levels of service resources (e.g. adding to the number of compute instances running, or increasing the amount of storage in use) are subject to the availability of these service resources.
 
-Any quota described above is not a Service Commitment. For purposes of determining the number of simultaneous small compute instances (or their equivalent) that Microsoft will provide as part of a Service Commitment, this is determined by dividing the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year (i.e., February – 672 hours).
+Any quota described above is not a Service Prepayment. For purposes of determining the number of simultaneous small compute instances (or their equivalent) that Microsoft will provide as part of a Service Prepayment, this is determined by dividing the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year (i.e., February – 672 hours).
 
 ## Requesting a quota increase
 
-You can request a quota increase at any time by submitting an [online request](https://g.microsoftonline.com/0WAEP00en/6). To process your request, provide the following information:
+You can request a quota increase at any time by submitting an [online request](https://ms.portal.azure.com/). To process your request, provide the following information:
 
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.
 - The Azure Developer Portal Subscription ID associated with your service.
   - For information on how to obtain your subscription ID, please [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-## Azure Compute Pre-Purchase Plan (CPP)
-
-The Azure Compute Pre-Purchase Plan (CPP - previously known as the Azure Compute Promo) is an offer that gives customers with steady state, predictable workloads an opportunity to get computing at a significant discount by pre-purchasing Azure compute for 12 months. It is available for EA and visible in the EA Portal.
-
-If you have ordered a CPP SKU, it is for a specific type of machine in a specific data center. As this feature stands today we do not provide a list of all of the CPP purchases a customer has made so there is no list of awaiting credits; however, when you do configure the purchased machine types in the data center where they were purchased, you will see the monthly allocation in the Usage Summary report on the EA Portal.
-
-The pre-purchased amount will show up as a credit in the "Included Units" column and usage against it will result in no usage charges until the "Included Units" are consumed. Once they are consumed, additional usage will be at the negotiated rates in the normal EA customer price sheet.
-
-The way the credits are purchased are based on number of machines of a class per month. For example: if you purchased 70 A2 VMs per year in US East 2, you would not quite see that in the EA portal in the same way you purchased it.
-
-Monthly machines are calculated as running 744 hours per month. Converting that to hours would be 70 times 744 or 52,080 purchased hours of A2 VMs per month. Since in the EA Portal Usage Summary A2 VMs are reported in 100-Hours increments what you would see is a credit of 520.8 (52,080/100) "Included Units" per month and you would see the consumed units so far in the month. The usage charges should show as zero until the monthly consumed units exceed the monthly included units.
-
-Different machine types use different units of measure so for example D3 and D4 VMs use a 10-Hours unit of measure in our Usage Summary report so a purchase of 70 of those would show up a 5208 included units per month (52,080/10).
-
-In general, the formula below will provide you the number of VMs purchased based on their units of measurement:
-
-<center><b> ("Included Quantity" * "Units of Measure") / 744 </b></center>
 
 ## Plan SKUs
 
@@ -187,35 +162,6 @@ Enterprise Administrators can assign Account Owners to provision previously purc
 1. Click the **Price Sheet** tab.
 1. Click the 'Download' icon in the top-right corner.
 1. Find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
-
-### Provision the plan SKUs
-
-Enterprise administrators can add new account owners, associate an existing account owner, or request existing account owners to sign in to Azure EA Portal to provision previously purchased Plan SKUs in the Azure EA Portal by following the steps below.  
-
-**Adding a new Account Owner (completed by EA administrator):**
-
-1. From the Azure EA Portal, select **Manage** on the left navigation.
-1. Click the **Account** tab.
-1. On the Account page, click **+Add Account**.
-1. Select a department or leave as unassigned.
-1. Select intended authentication type.
-1. Provide a friendly name you would like to use to identify as this account in reporting.
-1. Enter the account owner email address you want associated with the new account.
-1. Confirm the email address you want to have associated with the new account.
-1. Click **Add**.
-1. You can add another account by clicking **Add Another Account** or you can click the **Add** button on bottom-right corner of the left toolbar.
-1. Now the account owner can sign in to add the relevant subscriptions to provision the Plan SKUs
-
-**Associate an Existing Account Owner:**
-
-1. From the Enterprise Portal, click **Manage**.
-1. Click the **Account** tab.
-1. Click **+Add an account**. Enter the Microsoft account or work or school account associated with the existing account.
-1. Confirm the Microsoft account or work or school account associated with the existing account.
-1. Provide a name you would like to use to identify this account in reporting.
-1. Click **Add**.
-1. You can add an additional account by selecting the **+ Add an Account** option again, or return to the homepage by selecting the **Admin** button.  
-1. If you click to view the Account page, the newly added account will appear in a "Pending" status. It will change to "Active" status after the Account Owner has logged on to EA portal for the first time.
 
 ### Existing/New account owners to create new subscriptions
 

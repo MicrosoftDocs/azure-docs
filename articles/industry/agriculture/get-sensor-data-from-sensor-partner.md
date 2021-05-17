@@ -1,10 +1,10 @@
 ---
 title: Get sensor data from the partners
 description: This article describes how to get sensor data from partners.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
 ---
 
 # Get sensor data from sensor partners
@@ -58,27 +58,37 @@ Follow the below steps to  generate the above information:
 
 5. Go to your home directory.
 
-    ```azurepowershell-interactive 
-    cd  
+    ```azurepowershell-interactive
+    cd
     ```
 
-6. Run the following command. This will download a script to your home directory.
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
+    Connect-AzureAD
+    ```
+
+7. Run the following command. This will download a script to your home directory.
+
+    ```azurepowershell-interactive
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+> [!NOTE]
+> 1. The Datahub API Endpoint name must be in lower case.
+> 2. If you are copying the farmbeats website name url for Datahub API Endpoint, make sure there is no trailing slash (/).
+
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
 
@@ -128,7 +138,7 @@ Follow these steps:
 
     ![Sensors page](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## Assign devices  
+## Assign devices
 
 After the sensor data is flowing in, you can assign it to the farm where you deployed the sensors.
 
@@ -164,7 +174,7 @@ Follow these steps:
 1. On the home page, select **Sensors** from the menu to view the **Sensors** page.
 2. Select the device you want to delete, and select **Delete** in the confirmation window.
 
-    ![Delete button](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Screenshot that highlights the Sensors Delete page and the Delete button.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 A confirmation message shows that the sensor is successfully deleted.
 

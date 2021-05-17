@@ -10,4 +10,4 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-At this time Deprovision is not supported using the portal or PowerShell, contact [Microsoft peering](mailto:peeringexperience@microsoft.com) to Deprovision.
+At this time, deprovisioning isn't supported by using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

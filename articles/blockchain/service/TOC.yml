@@ -4,13 +4,20 @@
   items:
   - name: About Azure Blockchain Service
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create member - Portal
+  - name: Create member using Portal
     href: create-member.md
-  - name: Create member - CLI
+  - name: Create member using CLI
     href: create-member-cli.md
+  - name: Create member using Azure PowerShell
+    href: create-member-powershell.md
+  - name: Create member using ARM template
+    displayName: Resource Manager
+    href: create-member-template.md
   - name: Connect to transaction node
     items:
     - name: Using VS Code
@@ -53,26 +60,32 @@
     href: manage-cli.md
   - name: Manage consortium using PowerShell
     href: manage-consortium-powershell.md
+  - name: Migration guide
+    href: migration-guide.md
   - name: Use Logic Apps
     href: ethereum-logic-app.md
   - name: Monitor Azure Blockchain Service
     href: monitor-azure-blockchain-service.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/blockchain
 - name: Resources
   items:
   - name: Azure Blockchain dev kit
     href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
   - name: Blockchain REST API
-    href: https://docs.microsoft.com/rest/api/blockchain/
+    href: /rest/api/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
-  - name: MSDN support forum
-    href: https://aka.ms/workbenchforum
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-blockchain-service.html
   - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Stack Overflow support
-    href: https://stackoverflow.com/questions/tagged/AzureBlockchainService
+    href: https://stackoverflow.com/questions/tagged/azure-blockchain-service
   - name: Product feedback
     href: https://feedback.azure.com/forums/921130-azure-blockchain-service
   - name: Pricing

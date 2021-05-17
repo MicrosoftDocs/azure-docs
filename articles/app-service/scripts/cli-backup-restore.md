@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Restore a web app from a backup using CLI
@@ -34,11 +34,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Gets a list of backups for a web app. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-restore) | Restores a web app from a backup. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Gets a list of backups for a web app. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az_webapp_config_backup_restore) | Restores a web app from a backup. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

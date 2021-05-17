@@ -6,7 +6,8 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/27/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurecli
 manager: philmea
 ---
 
@@ -16,28 +17,17 @@ manager: philmea
 
 Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure CLI](/cli/azure/) to manage your applications.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you prefer to run Azure CLI on your local machine, see [Install the Azure CLI](/cli/azure/install-azure-cli). When you run Azure CLI locally, use the **az login** command to sign in to Azure before you try the commands in this article.
-
-> [!TIP]
-> If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
-
-## Install the extension
-
-The commands in this article are part of the **azure-iot** CLI extension. Run the following command to install the extension:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+ - If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
 
 ## Create an application
 
-Use the [az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) command to create an IoT Central application in your Azure subscription. For example:
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
+Use the [az iot central app create](/cli/azure/iot/central/app#az_iot_central_app_create) command to create an IoT Central application in your Azure subscription. For example:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -47,14 +37,14 @@ az group create --location "East US" \
 
 ```azurecli-interactive
 # Create an IoT Central application
-az iotcentral app create \
+az iot central app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku ST1 --template "iotc-pnp-preview@1.0.0" \
+  --sku ST1 --template "iotc-pnp-preview" \
   --display-name "My Custom Display Name"
 ```
 
-These commands first create a resource group in the east US region for the application. The following table describes the parameters used with the **az iotcentral app create** command:
+These commands first create a resource group in the east US region for the application. The following table describes the parameters used with the **az iot central app create** command:
 
 | Parameter         | Description |
 | ----------------- | ----------- |
@@ -66,28 +56,32 @@ These commands first create a resource group in the east US region for the appli
 | template          | The application template to use. For more information, see the following table. |
 | display-name      | The name of the application as displayed in the UI. |
 
+### Application templates
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](howto-use-app-templates.md#create-an-application-template) section of your app.
 
 ## View your applications
 
-Use the [az iotcentral app list](/cli/azure/iotcentral/app#az-iotcentral-app-list) command to list your IoT Central applications and view metadata.
+Use the [az iot central app list](/cli/azure/iot/central/app#az_iot_central_app_list) command to list your IoT Central applications and view metadata.
 
 ## Modify an application
 
-Use the [az iotcentral app update](/cli/azure/iotcentral/app#az-iotcentral-app-update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
+Use the [az iot central app update](/cli/azure/iot/central/app#az_iot_central_app_update) command to update the metadata of an IoT Central application. For example, to change the display name of your application:
 
 ```azurecli-interactive
-az iotcentral app update --name myiotcentralapp \
+az iot central app update --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup \
   --set displayName="My new display name"
 ```
 
 ## Remove an application
 
-Use the [az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) command to delete an IoT Central application. For example:
+Use the [az iot central app delete](/cli/azure/iot/central/app#az_iot_central_app_delete) command to delete an IoT Central application. For example:
 
 ```azurecli-interactive
-az iotcentral app delete --name myiotcentralapp \
+az iot central app delete --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup
 ```
 

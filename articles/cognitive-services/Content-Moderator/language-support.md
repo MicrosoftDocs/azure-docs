@@ -109,7 +109,7 @@ ms.author: pafarley
 | | Russian | | |
 | | Scottish Gaelic | | |
 | | Serbian (Cyrillic) | | |
-| | Serbian (Cyrillic, Bosnia, and Herzegovina) | | |
+| | Serbian (Cyrillic, Bosnia and Herzegovina) | | |
 | | Serbian (Latin) | | |
 | | Sesotho | | |
 | | Sesotho sa Leboa | | |

@@ -1,19 +1,17 @@
 ---
 title: Copy data from AWS Marketplace
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Amazon Marketplace Web Service. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -30,7 +28,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Marketplace Web Service connector.
 
@@ -48,8 +46,8 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | accessKeyId | The access key ID used to access data.  | Yes |
 | secretKey | The secret key used to access data. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
-| usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
+| usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
 **Example:**
 

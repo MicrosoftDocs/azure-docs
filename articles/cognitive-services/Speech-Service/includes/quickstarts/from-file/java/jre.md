@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -104,7 +104,7 @@ ms.author: dapine
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 
@@ -125,4 +125,4 @@ The first 15 seconds of speech input from your audio file will be recognized and
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

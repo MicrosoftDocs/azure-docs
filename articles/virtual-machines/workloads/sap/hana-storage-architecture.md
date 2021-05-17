@@ -6,13 +6,11 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/20/2020
+ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -21,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
-The HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. For the Type II class of HANA Large Instance units, the storage isn't four times more. The units come with a volume that is intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+The HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. For the Type II class of HANA Large Instance units, the storage isn't four times more. The units come with a volume that is intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md).
 
 See the following table in terms of storage allocation. The table lists the rough capacity for the different volumes provided with the different HANA Large Instance units.
 
@@ -33,8 +31,6 @@ See the following table in terms of storage allocation. The table lists the roug
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
-| S224 |  4,224 GB |  512 GB |  1,024 GB |  512 GB |
-| S224m |  8,448 GB |  512 GB |  1,024 GB |  512 GB |
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
@@ -44,6 +40,35 @@ See the following table in terms of storage allocation. The table lists the roug
 | S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
 | S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
 | S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S896m | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
+
+More recent SKUs of HANA Large Instances are delivered with storage configurations looking like:
+
+| HANA Large Instance SKU | hana/data | hana/log | hana/shared | hana/logbackups |
+| --- | --- | --- | --- | --- |
+| S224 | 4,224 GB | 512 GB | 1,024 GB | 512 GB |
+| S224oo | 6,336 GB | 512 GB | 1,024 GB | 512 GB |
+| S224m | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
+| S224om | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
+| S224ooo | 10,560 GB | 512 GB | 1,024 GB | 512 GB |
+| S224oom | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
+| S448 | 8,448 GB | 512 GB | 1,024 GB | 512 GB |
+| S448oo | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
+| S448m | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
+| S448om | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
+| S448ooo | 21,120 GB | 512 GB | 1,024 GB | 512 GB |
+| S448oom | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
+| S672 | 12,672 GB | 512 GB | 1,024 GB | 512 GB |
+| S672oo | 19,008 GB | 512 GB | 1,024 GB | 512 GB |
+| S672m | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
+| S672om | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
+| S672ooo | 31,680 GB | 512 GB | 1,024 GB | 512 GB |
+| S672oom | 38,016 GB | 512 GB | 1,024 GB | 512 GB |
+| S896 | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
+| S896oo | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
+| S896om | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
+| S896ooo | 42,240 GB | 512 GB | 1,024 GB | 512 GB |
+| S896oom | 50,688 GB | 512 GB | 1,024 GB | 512 GB |
 
 
 Actual deployed volumes might vary based on deployment and the tool that is used to show the volume sizes.
@@ -63,7 +88,7 @@ These sizes are rough volume numbers that can vary slightly based on deployment 
 
 You might need more storage. You can add storage by purchasing additional storage in 1-TB units. This additional storage can be added as additional volume. It also can be used to extend one or more of the existing volumes. It isn't possible to decrease the sizes of the volumes as originally deployed and mostly documented by the previous tables. It also isn't possible to change the names of the volumes or mount names. The storage volumes previously described are attached to the HANA Large Instance units as NFS4 volumes.
 
-You can use storage snapshots for backup and restore and disaster recovery purposes. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can use storage snapshots for backup and restore and disaster recovery purposes. For more information, see [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 
 Refer [HLI supported scenarios](hana-supported-scenario.md) for storage layout details for your scenario.
 
@@ -93,7 +118,7 @@ The storage used for HANA Large Instance uses transparent encryption for the dat
 With the Type I class of SKUs, the volume the boot LUN is stored on, is encrypted. In Revision 3 HANA Large Instance stamps, using the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. In Revision 4 HANA Large Instance stamps, using Type II units the volume the boot LUN is stored and is encrypted at rest by default as well. 
 
 ## Required settings for larger HANA instances on HANA Large Instances
-The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in file size limitations in the EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. As a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16 TB, HANA will report errors and the index server will crash at the end.
+The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in file size limitations in the EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. As a result HANA will not automatically create a new data file when the file size limit of 16 TB is reached. As HANA attempts to grow the file beyond 16 TB, HANA will report errors and the index server will crash at the end.
 
 > [!IMPORTANT]
 > In order to prevent HANA trying to grow data files beyond the 16 TB file size limit of HANA Large Instance storage, you need to set the following parameters in the global.ini configuration file of HANA

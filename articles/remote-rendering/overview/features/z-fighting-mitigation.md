@@ -5,32 +5,46 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Z-fighting mitigation
 
-When two surfaces overlap, it is not clear which one should be rendered on top of the other. The result even varies per pixel, resulting in view-dependent artifacts. Consequently, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort z-fighting mitigation functionality is available in Azure Remote Rendering.
+When two surfaces overlap, it is not clear which one should be rendered on top of the other. The result even varies per pixel, resulting in camera view-dependent artifacts. Consequently, when the camera or the mesh moves, these patterns flicker noticeably. This artifact is called *z-fighting*. For AR and VR applications, the problem is intensified because head-mounted devices naturally always move. To prevent viewer discomfort z-fighting mitigation functionality is available in Azure Remote Rendering.
 
 ## Z-fighting mitigation modes
 
 |Situation                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Regular z-fighting               |![Z-fighting](./media/zfighting-0.png)|
-|Z-fighting mitigation enabled    |![Z-fighting](./media/zfighting-1.png)|
-|Checkerboard highlighting enabled|![Z-fighting](./media/zfighting-2.png)|
+|Regular z-fighting               |![No deterministic precedence between red and green quads](./media/zfighting-0.png)|
+|Z-fighting mitigation enabled    |![Red quad has precedence](./media/zfighting-1.png)|
+|Checkerboard highlighting enabled|![Red and green quad toggle preference in checkerboard pattern](./media/zfighting-2.png)|
 
 The following code enables z-fighting mitigation:
 
-``` cs
-void EnableZFightingMitigation(AzureSession session, bool highlight)
+```cs
+void EnableZFightingMitigation(RenderingSession session, bool highlight)
 {
-    ZFightingMitigationSettings settings = session.Actions.ZFightingMitigationSettings;
+    ZFightingMitigationSettings settings = session.Connection.ZFightingMitigationSettings;
 
     // enabling z-fighting mitigation
     settings.Enabled = true;
 
     // enabling checkerboard highlighting of z-fighting potential
     settings.Highlighting = highlight;
+}
+```
+
+```cpp
+void EnableZFightingMitigation(ApiHandle<RenderingSession> session, bool highlight)
+{
+    ApiHandle<ZFightingMitigationSettings> settings = session->Connection()->GetZFightingMitigationSettings();
+
+    // enabling z-fighting mitigation
+    settings->SetEnabled(true);
+
+    // enabling checkerboard highlighting of z-fighting potential
+    settings->SetHighlighting(highlight);
 }
 ```
 
@@ -56,6 +70,11 @@ The provided z-fighting mitigation is a best effort. There is no guarantee that 
 
 * Enabling z-fighting mitigation incurs little to no performance overhead.
 * Additionally enabling the z-fighting overlay does incur a non-trivial performance overhead, though it may vary depending on the scene.
+
+## API documentation
+
+* [C# RenderingConnection.ZFightingMitigationSettings property](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
+* [C++ RenderingConnection::ZFightingMitigationSettings()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
 
 ## Next steps
 

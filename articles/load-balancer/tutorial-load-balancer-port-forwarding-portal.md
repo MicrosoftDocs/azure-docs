@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
+# Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -35,6 +35,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For all steps in this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
+## Prerequisites
+
+* An Azure subscription.
+
 ## Create a Standard load balancer
 
 First, create a public Standard load balancer that can balance traffic load over VMs. A Standard load balancer supports only a Standard public IP address. When you create a Standard load balancer, you also create a new Standard public IP address, which is configured as the load balancer front end and named **LoadBalancerFrontEnd** by default. 
@@ -55,7 +59,7 @@ First, create a public Standard load balancer that can balance traffic load over
     |Availability zone| Select **Zone redundant**.    |
      
     >[!NOTE]
-     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#services-support-by-region). 
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-region.md). 
 
 3. In the **Review + create** tab, click **Create**.  
   

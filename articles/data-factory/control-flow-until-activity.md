@@ -1,19 +1,17 @@
 ---
 title: Until activity in Azure Data Factory 
 description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
 
 # Until activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory. 
 
 ## Syntax

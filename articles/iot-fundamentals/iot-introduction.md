@@ -7,6 +7,7 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
+ms.custom:  [amqp, mqtt]
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, what services are available, and examples of business cases so I can figure out where to start.
 ---
 
@@ -23,7 +24,7 @@ An IoT device is typically made up of a circuit board with sensors attached that
 * An accelerometer in an elevator.
 * Presence sensors in a room.
 
-There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/alldevices). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor. 
+There's a wide variety of devices available from different manufacturers to build your solution. For a list of devices certified to work with Azure IoT Hub, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). For prototyping, you can use devices such as an [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) or a [Raspberry Pi](https://www.raspberrypi.org/). The Devkit has built-in sensors for temperature, pressure, humidity, and a gyroscope, accelerometer, and magnetometer. The Raspberry Pi lets you attach many different types of sensor. 
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices. These [SDKs simplify and accelerate](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) the development of your IoT solutions.
 
@@ -67,6 +68,8 @@ For example, in a remote monitoring solution for an oil pumping station, the clo
 
 For real-life examples of how organizations use Azure IoT, see [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](/azure/architecture/reference-architectures/iot).
+
 ## Next steps
 
 For some actual business cases and the architecture used, see the [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
@@ -74,5 +77,3 @@ For some actual business cases and the architecture used, see the [Microsoft Azu
 For some sample projects that you can try out with an IoT DevKit, see the [IoT DevKit Project Catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
 For a more comprehensive explanation of the different services and how they're used, see [Azure IoT services and technologies](iot-services-and-technologies.md).
-
-For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).

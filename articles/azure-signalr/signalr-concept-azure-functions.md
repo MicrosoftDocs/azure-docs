@@ -12,7 +12,7 @@ ms.author: zhshang
 Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
 
 > [!NOTE]
-> Learn to use SignalR and Azure Functions together in the interactive tutorial [Enable automatic updates in a web application using Azure Functions and SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Learn to use SignalR and Azure Functions together in the interactive tutorial [Enable automatic updates in a web application using Azure Functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
 
 ## Integrate real-time communications with Azure services
 
@@ -63,7 +63,7 @@ In this article, you got an overview of how to use Azure Functions with SignalR 
 For full details on how to use Azure Functions and SignalR Service together visit the following resources:
 
 * [Azure Functions development and configuration with SignalR Service](signalr-concept-serverless-development-config.md)
-* [Enable automatic updates in a web application using Azure Functions and SignalR Service](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Enable automatic updates in a web application using Azure Functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Follow one of these quickstarts to learn more.
 

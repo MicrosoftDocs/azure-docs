@@ -9,7 +9,7 @@ ms.date: 04/03/2020
 
 # Troubleshoot replication in Azure VM disaster recovery
 
-This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
+This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery consistently replicates data from the source region to the disaster recovery region. It also creates a crash-consistent recovery point every 5 minutes. If Site Recovery can't create recovery points for 60 minutes, it alerts you with this information:
 
@@ -36,7 +36,7 @@ If you select the event, you should see the exact disk information:
 
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application input-output (I/O) combinations. Actual results can vary based on your application I/O mix.
 
-There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 25 MB/s of total churn per VM.
+There are two limits to consider: data churn per disk and data churn per virtual machine. Let's look at the Premium P20 disk in the following table for an example. For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 54 MB/s of total churn per VM.
 
 **Replication storage target** | **Average I/O size for source disk** |**Average data churn for source disk** | **Total data churn per day for source data disk**
 ---|---|---|---
@@ -73,7 +73,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
 
 Site Recovery sends replicated data to the cache storage account. You might experience network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds.
 
-To check for a problem related to latency, use [AzCopy](/azure/storage/common/storage-use-azcopy). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
+To check for a problem related to latency, use [AzCopy](../storage/common/storage-use-azcopy-v10.md). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
 
 We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA. For more information, see [Network virtual appliance configuration](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
@@ -100,6 +100,10 @@ Following are some of the most common issues.
 ### You're using Azure Storage Spaces Direct Configuration
 
 **How to fix**: Azure Site Recovery can't create application consistent recovery point for Storage Spaces Direct Configuration. [Configure the replication policy](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+
+### App-consistency not enabled on Linux servers
+
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
 
 ### More causes because of VSS-related issues:
 

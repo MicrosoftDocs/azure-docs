@@ -9,7 +9,7 @@ keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile,
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -57,7 +57,7 @@ To deploy a load balancer, you create and configure the following objects:
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information, see [Azure Load Balancer components](./concepts-limitations.md#load-balancer-components).
+For more information, see [Azure Load Balancer components](./components.md).
 
 ## Set up PowerShell to use Resource Manager
 
@@ -195,7 +195,7 @@ This example creates the following items:
 
 ## Create virtual machines and assign the newly created NICs
 
-For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Create an Availability Set and Storage account
 

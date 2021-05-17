@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
-description: Learn how to troubleshoot issues of outbound SMTP connectivity in Azure.
+description: Learn the recommended method for sending email and how to troubleshoot problems with outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
 manager: dcscontentpm
@@ -11,44 +11,73 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 04/28/2021
 ms.author: genli
 ---
 
 
-# Troubleshoot outbound SMTP connectivity issues in Azure
+# Troubleshoot outbound SMTP connectivity problems in Azure
 
-Starting on November 15, 2017, outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. Outbound SMTP connections that use TCP port 25 were blocked. (Port 25 is primarily used for unauthenticated email delivery.)
-
-This change in behavior applies only to new subscriptions and new deployments since November 15, 2017.
+Outbound email messages that are sent directly to external domains (like outlook.com and gmail.com) on TCP port 25 from a virtual machine (VM) is possible only when the VM is deployed in certain subscription types.
 
 ## Recommended method of sending email
-We recommend you use authenticated SMTP relay services (that typically connect through TCP port 587 or 443 but support other ports, too) to send email from Azure VMs or from Azure App Services. These services are used to maintain IP or domain reputation to minimize the possibility that third-party email providers will reject the message. Such SMTP relay services include but aren't limited to [SendGrid](https://sendgrid.com/partners/azure/). It's also possible you have a secure SMTP relay service that's running on-premises that you can use.
+
+We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587, but they support other ports.) These services are used to maintain IP and domain reputation to minimize the possibility that external domains reject your messages or put them to the SPAM folder. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have an authenticated SMTP relay service on your on-premises servers.
 
 Using these email delivery services isn't restricted in Azure, regardless of the subscription type.
 
 ## Enterprise Agreement
-For Enterprise Agreement Azure users, there's no change in the technical ability to send email without using an authenticated relay. Both new and existing Enterprise Agreement users can try outbound email delivery from Azure VMs directly to external email providers without any restrictions from the Azure platform. Although it's not guaranteed that email providers will accept incoming email from any given user, delivery attempts won't be blocked by the Azure platform for VMs within Enterprise Agreement subscriptions. You'll have to work directly with email providers to fix any message delivery or SPAM filtering issues that involve specific providers.
 
-## Pay-As-You-Go
-If you signed up before November 15, 2017 for the Pay-As-You-Go or Microsoft Partner Network subscription offers, there will be no change in the technical ability to try outbound email delivery. You'll continue to be able to try outbound email delivery from Azure VMs within these subscriptions directly to external email providers without any restrictions from the Azure platform. Again, it's not guaranteed that email providers will accept incoming email from any given user, and users will have to work directly with email providers to fix any message delivery or SPAM filtering issues that involve specific providers.
+For VMs that are deployed in Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 will not be blocked. However, there is no guarantee that external domains will accept the incoming emails from the VMs. If your emails are rejected or filtered by the external domains, you should contact the email service providers of the external domains to resolve the problems. These problems are not covered by Azure support.
 
-For Pay-As-You-Go or Microsoft Partner Network subscriptions that were created after November 15, 2017, there will be technical restrictions that block email that’s sent directly from VMs within these subscriptions. If you want the ability to send email from Azure VMs directly to external email providers (not using an authenticated SMTP relay), you can make a request to remove the restriction. Requests will be reviewed and approved at Microsoft’s discretion, and they'll be granted only after additional anti-fraud checks are made. To make a request, open a support case by using the following issue type: **Technical** > **Virtual Network** > **Connectivity** > **Cannot send email (SMTP/Port 25)**. Make sure that you add details about why your deployment has to send mail directly to mail providers instead of using an authenticated relay.
+## Pay-as-you-go
 
-After a Pay-As-You-Go or Microsoft Partner Network subscription is exempted and the VMs have been 'Stopped' & 'Started' from the Azure portal, all VMs within that subscription will be exempted going forward. The exemption is only applicable to the subscription requested and only applies to Virtual Machine traffic routed directly to the internet. Routing port 25 traffic via Azure PaaS services such as [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) is unsupported.
+The Azure platform will block outbound SMTP connections on TCP port 25 for VMs that are deployed in Pay-as-you-go subscriptions. It is possible to have this block removed if your Azure subscription is in good standing and has a sufficient payment history. you can request to have the restriction removed by going to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade for an Azure Virtual Network resource in the [Azure portal](https://portal.azure.com). 
+
+After a pay-as-you-go subscription is exempted from this block and the VMs are stopped and restarted in the Azure portal, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that's routed directly to the internet.
 
 > [!NOTE]
-> Microsoft reserves the right to revoke this exemption if it's determined that a violation of terms of service has occurred.
+> Microsoft reserves the right to revoke these exemptions if it's determined that a violation of terms of service has occurred.
 
-## MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free Trial
-If you created an MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, Free Trial, or any Visual Studio subscription after November 15, 2017, you’ll have technical restrictions that block email that’s sent from VMs within these subscriptions directly to email providers. The restrictions are done to prevent abuse. No requests to remove this restriction will be granted.
+## MSDN, Azure Pass, Azure in Open, Education, Azure for Students, Visual Studio, and Free Trial
 
-If you’re using these subscription types, you’re encouraged to use SMTP relay services, as outlined earlier in this article or change your subscription type.
+The Azure platform will block outbound SMTP connections on TCP port 25 for VMs deployed in the following subscription types:
 
-## Cloud Service Provider (CSP)
+- MSDN
+- Azure Pass
+- Azure in Open
+- Education
+- Azure for Students
+- Free Trial
+- Any Visual Studio subscription  
 
-If you’re using Azure resources through CSP, you can request the CSP to create an unblock exemption request with Microsoft on your behalf if a secure SMTP relay can't be used.
+The restrictions are in place to prevent abuse. Requests to remove these restrictions won't be granted.
+
+If you're using these subscription types, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article, or to change your subscription type.
+
+## Cloud Solution Provider
+
+The Azure platform will block outbound SMTP connections on TCP port 25 for VMs deployed in Cloud Solution Provider subscriptions. It is possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade in the Azure Virtual Network resource in the Azure portal and open a support request.
+
+## Microsoft Partner Network, BizSpark Plus, or Azure Sponsorship
+
+The Azure platform will block outbound SMTP delivery attempts on TCP port 25 for VMs deployed in the following subscriptions:
+
+- Microsoft Partner Network (MPN)
+- BizSpark Plus
+- Azure Sponsorship
+
+It is possible to have this block removed. To request to have the block removed, go to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade in the Azure Virtual Network resource in the Azure portal and open a support request.
+
+After the subscription is exempted from this block and the VMs are stopped and restarted, all VMs in that subscription are exempted going forward. The exemption applies only to the subscription requested and only to VM traffic that is routed directly to the internet.
+
+> [!NOTE]
+> Microsoft reserves the right to revoke these exemptions if it is determined that a violation of terms of service has occurred.
+
+## Changing subscription type
+
+If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments may result in outbound SMTP being blocked. If you plan to change your subscription type from Enterprise Agreement to another type of subscription and require outbound SMTP on TCP port 25, be sure to work with support to unblock your subscription prior to changing your subscription type.
 
 ## Need help? Contact support
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly by using the following issue type: **Subscription Management** Problem type: **Request to enable Port 25 email flow**.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly. Use this issue type: **Technical** > **Virtual Network** > **Cannot send email (SMTP/Port 25)**.

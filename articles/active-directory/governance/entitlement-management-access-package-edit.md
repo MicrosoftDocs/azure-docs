@@ -3,16 +3,16 @@ title: Hide or delete access package in entitlement management - Azure AD
 description: Learn how to hide or delete an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ This article describes how to hide or delete an access package.
 
 Follow these steps to change the **Hidden** setting for an access package.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

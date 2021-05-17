@@ -23,10 +23,10 @@ translation.priority.mt:
 ---
 # OData full-text search functions in Azure Cognitive Search - `search.ismatch` and `search.ismatchscoring`
 
-Azure Cognitive Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Azure Cognitive Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> The `search.ismatch` and `search.ismatchscoring` functions are only supported in filters in the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). They are not supported in the [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) or [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) APIs.
+> The `search.ismatch` and `search.ismatchscoring` functions are only supported in filters in the [Search API](/rest/api/searchservice/search-documents). They are not supported in the [Suggest](/rest/api/searchservice/suggestions) or [Autocomplete](/rest/api/searchservice/autocomplete) APIs.
 
 ## Syntax
 
@@ -71,7 +71,7 @@ The parameters are defined in the following table:
 | `queryType` | `Edm.String` | `'simple'` or `'full'`; defaults to `'simple'`. Specifies what query language was used in the `search` parameter. |
 | `searchMode` | `Edm.String` | `'any'` or `'all'`, defaults to `'any'`. Indicates whether any or all of the search terms in the `search` parameter must be matched in order to count the document as a match. When using the [Lucene Boolean operators](query-lucene-syntax.md#bkmk_boolean) in the `search` parameter, they will take precedence over this parameter. |
 
-All the above parameters are equivalent to the corresponding [search request parameters in the Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+All the above parameters are equivalent to the corresponding [search request parameters in the Search API](/rest/api/searchservice/search-documents).
 
 The `search.ismatch` function returns a value of type `Edm.Boolean`, which allows you to compose it with other filter sub-expressions using the Boolean [logical operators](search-query-odata-logical-operators.md).
 
@@ -91,31 +91,41 @@ Both the `search.ismatch` and `search.ismatchscoring` functions can be used in t
 
 ## Examples
 
-Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/rest/api/searchservice/search-documents) with `search=waterfront`.
+Find documents with the word "waterfront". This filter query is identical to a [search request](/rest/api/searchservice/search-documents) with `search=waterfront`.
 
+```odata-filter-expr
     search.ismatchscoring('waterfront')
+```
 
 Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. Note, this request could not be expressed without the `search.ismatchscoring` function.
 
+```odata-filter-expr
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
+```
 
 Find documents without the word "luxury".
 
+```odata-filter-expr
     not search.ismatch('luxury')
+```
 
 Find documents with the phrase "ocean view" or rating equal to 5. The `search.ismatchscoring` query will be executed only against fields `HotelName` and `Rooms/Description`.
 
 Documents that matched only the second clause of the disjunction will be returned too -- hotels with `Rating` equal to 5. To make it clear that those documents didn't match any of the scored parts of the expression, they will be returned with score equal to zero.
 
+```odata-filter-expr
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
+```
 
 Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed in at least some of the rooms. This query uses the [full Lucene query language](query-lucene-syntax.md).
 
+```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
 
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

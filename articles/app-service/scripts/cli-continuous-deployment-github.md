@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 09/02/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Create an App Service app with continuous deployment from GitHub using CLI
@@ -37,13 +37,13 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associates an App Service app with a Git or Mercurial repository. |
+| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) | Associates an App Service app with a Git or Mercurial repository. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

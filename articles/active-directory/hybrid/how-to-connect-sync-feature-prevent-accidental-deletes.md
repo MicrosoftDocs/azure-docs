@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
@@ -61,7 +61,7 @@ If all the deletes are desired, then do the following:
 
 1. To retrieve the current deletion threshold, run the PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password. The default value is 500.
 2. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
-   ![Credentials](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Screenshot shows a dialog box for entering the Azure AD Global Administrator user name and password.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
 4. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Replace 500 with the value you noticed when retrieving the current deletion threshold. Provide an Azure AD Global Administrator account and password.
 

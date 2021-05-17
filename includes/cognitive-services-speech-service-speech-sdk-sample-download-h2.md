@@ -10,7 +10,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The Speech SDK actively maintains a large set of examples in an open-source repository. For the sample source code repository, visit the <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK on GitHub <span class="docon docon-navigate-external x-hidden-focus"></span></a>. There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin.
+        The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, visit the <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK on GitHub <span class="docon docon-navigate-external x-hidden-focus"></span></a>. There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin.
     :::column-end:::
     :::column:::
         <br>

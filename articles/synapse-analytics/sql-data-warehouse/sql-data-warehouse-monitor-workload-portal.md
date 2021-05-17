@@ -2,13 +2,13 @@
 title: Monitor workload - Azure portal 
 description: Monitor Synapse SQL using the Azure portal
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
@@ -19,7 +19,7 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 ## Prerequisites
 
 - Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](load-data-from-azure-blob-storage-using-polybase.md).
+- SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Create a Log Analytics workspace
 
@@ -27,23 +27,23 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Log Analytics workspaces](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Add Analytics workspace](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Screenshot shows the Log Analytics workspaces where you can select Add.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Add Analytics workspace](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Screenshot shows the Log Analytics workspace where you can enter values.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
+For more details on workspaces, visit the following [documentation](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
-## Turn on Diagnostic logs
+## Turn on Resource logs
 
 Configure diagnostic settings to emit logs from your SQL pool. Logs consist of telemetry views equivalent to the most commonly used performance troubleshooting DMVs. Currently the following views are supported:
 
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-![Enabling diagnostic logs](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
+![Enabling resource logs](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
 Logs can be emitted to Azure Storage, Stream Analytics, or Log Analytics. For this tutorial, select Log Analytics.
 
@@ -58,7 +58,7 @@ Navigate to your Log Analytics workspace where you can do the following:
 - Create log alerts
 - Pin query results to a dashboard
 
-For details on the capabilities of log queries, visit the following [documentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+For details on the capabilities of log queries, visit the following [documentation](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 
 ![Log Analytics workspace editor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

@@ -1,0 +1,49 @@
+### YamlMime:Landing
+
+title: Azure Object Anchors documentation
+summary: Object Anchors can be used to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+
+metadata:
+  title: Azure Object Anchors documentation
+  description: Use Azure Object Anchors to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+  services: azure-object-anchors
+  ms.service: azure-object-anchors
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Object Anchors
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Object Anchors?
+            url: overview.md
+          - text: View release notes on GitHub
+            url: https://github.com/Azure/azure-object-anchors/releases
+
+  # Card
+  - title: Learn key concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: SDK overview
+            url: ./concepts/sdk-overview.md
+
+  # Card
+  - title: Quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Model conversion
+            url: ./quickstarts/get-started-model-conversion.md
+          - text: Unity HoloLens
+            url: ./quickstarts/get-started-unity-hololens.md
+          - text: Unity HoloLens with MRTK
+            url: ./quickstarts/get-started-unity-hololens-mrtk.md
+          - text: HoloLens DirectX
+            url: ./quickstarts/get-started-hololens-directx.md

@@ -1,24 +1,28 @@
 ---
-title: "Quickstart: Create a blueprint with PowerShell"
+title: 'Quickstart: Create a blueprint with PowerShell'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 11/21/2019
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-api
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization, such as:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
-
-If it isn't already installed, follow the instructions in
-[Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
-install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you don't have an Azure subscription, create a
+  [free account](https://azure.microsoft.com/free) before you begin.
+- If it isn't already installed, follow the instructions in
+  [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
+  install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+- If you've not used Azure Blueprints before, register the resource provider through Azure
+  PowerShell with `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,14 +30,14 @@ install and validate the **Az.Blueprint** module from the PowerShell Gallery.
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
 available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
-a role assignment on the resource group.
+assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+assignment on the resource group.
 
 > [!NOTE]
 > When using PowerShell, the _blueprint_ object is created first. For each _artifact_ to be added
 > that has parameters, the parameters need to be defined in advance on the initial _blueprint_.
 
-1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file which
+1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file that
    includes properties about the blueprint, any resource groups to create, and all of the blueprint
    level parameters. The parameters are set during assignment and used by the artifacts added in
    later steps.
@@ -118,8 +122,8 @@ a role assignment on the resource group.
 
 1. Add role assignment at subscription. The **ArtifactFile** defines the _kind_ of artifact, the
    properties align to the role definition identifier, and the principal identities are passed as an
-   array of values. In the example below, the principal identities granted the specified role are
-   configured to a parameter that is set during blueprint assignment. This example uses the
+   array of values. In the following example, the principal identities granted the specified role
+   are configured to a parameter that is set during blueprint assignment. This example uses the
    _Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - JSON file - \artifacts\roleContributor.json
@@ -210,14 +214,14 @@ a role assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **TemplateFile** for a Resource Manager template includes
-   the normal JSON component of the template. The template also reuses the **storageAccountType**,
-   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
-   parameters are available to the template by using parameter **TemplateParameterFile** and inside
-   the template JSON that key-value pair is used to inject the value. The blueprint and template
+1. Add template under resource group. The **TemplateFile** for an ARM template includes the normal
+   JSON component of the template. The template also reuses the **storageAccountType**, **tagName**,
+   and **tagValue** blueprint parameters by passing each to the template. The blueprint parameters
+   are available to the template by using parameter **TemplateParameterFile** and inside the
+   template JSON that key-value pair is used to inject the value. The blueprint and template
    parameter names could be the same.
 
-   - JSON Azure Resource Manager template file - \artifacts\templateStorage.json
+   - JSON ARM template file - \artifacts\templateStorage.json
 
      ```json
      {
@@ -271,7 +275,7 @@ a role assignment on the resource group.
      }
      ```
 
-   - JSON Azure Resource Manager template parameter file - \artifacts\templateStorageParams.json
+   - JSON ARM template parameter file - \artifacts\templateStorageParams.json
 
      ```json
      {
@@ -348,7 +352,8 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
 
 1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
    **owners** parameters require an array of objectIds of the principals to be granted the role
-   assignment, use [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   assignment, use
+   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
    for gathering the objectIds for use in the **AssignmentFile** for your own users, groups, or
    service principals.
 

@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
 ---
@@ -14,7 +15,7 @@ ms.custom: seodec18
 
 Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources. This tutorial walks you through an example where you identify underutilized Azure resources and then you take action to reduce costs.
 
-Watch the video [Optimizing cloud investments in Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) to learn more about using Advisor to optimize your costs.
+Watch the video [Optimizing cloud investments in Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) to learn more about using Advisor to optimize your costs. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 

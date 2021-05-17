@@ -1,13 +1,13 @@
 ---
 title: Create, change, or delete an Azure virtual network
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete a virtual network in Azure.
+description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
@@ -44,15 +44,14 @@ Complete the following tasks before completing steps in any section of this arti
 
      Although you can define only one address range when you create the virtual network in the portal, you can add more address ranges to the address space after the virtual network is created. To learn how to add an address range to an existing virtual network, see [Add or remove an address range](#add-or-remove-an-address-range).
 
-     >[!WARNING]
-     >If a virtual network has address ranges that overlap with another virtual network or on-premises network, the two networks cannot be connected. Before you define an address range, consider whether you might want to connect the virtual network to other virtual networks or on-premises networks in the future.
-     >
+     > [!WARNING]
+     > If a virtual network has address ranges that overlap with another virtual network or on-premises network, the two networks can't be connected. Before you define an address range, consider whether you might want to connect the virtual network to other virtual networks or on-premises networks in the future. Microsoft recommends configuring virtual network address ranges with private address space or public address space owned by your organization.
      >
 
-     - **Subnet name**: The subnet name must be unique within the virtual network. You cannot change the subnet name after the subnet is created. The portal requires that you define one subnet when you create a virtual network, even though a virtual network isn't required to have any subnets. In the portal, you can define only one subnet when you create a virtual network. You can add more subnets to the virtual network later, after the virtual network is created. To add a subnet to a virtual network, see [Manage subnets](virtual-network-manage-subnet.md). You can create a virtual network that has multiple subnets by using Azure CLI or PowerShell.
+     - **Subnet name**: The subnet name must be unique within the virtual network. You cannot change the subnet name after the subnet is created. The portal requires that you define one subnet when you create a virtual network, even though a virtual network isn't required to have any subnets. In the portal, you can define one or more subnets when you create a virtual network. You can add more subnets to the virtual network later, after the virtual network is created. To add a subnet to a virtual network, see [Manage subnets](virtual-network-manage-subnet.md). You can create a virtual network that has multiple subnets by using Azure CLI or PowerShell.
 
        >[!TIP]
-       >Sometimes, administrators create different subnets to filter or control traffic routing between the subnets. Before you define subnets, consider how you might want to filter and route traffic between your subnets. To learn more about filtering traffic between subnets, see [Network security groups](security-overview.md). Azure automatically routes traffic between subnets, but you can override Azure default routes. To learn more about Azures default subnet traffic routing, see [Routing overview](virtual-networks-udr-overview.md).
+       >Sometimes, administrators create different subnets to filter or control traffic routing between the subnets. Before you define subnets, consider how you might want to filter and route traffic between your subnets. To learn more about filtering traffic between subnets, see [Network security groups](./network-security-groups-overview.md). Azure automatically routes traffic between subnets, but you can override Azure default routes. To learn more about Azures default subnet traffic routing, see [Routing overview](virtual-networks-udr-overview.md).
        >
 
      - **Subnet address range**: The range must be within the address space you entered for the virtual network. The smallest range you can specify is /29, which provides eight IP addresses for the subnet. Azure reserves the first and last address in each subnet for protocol conformance. Three additional addresses are reserved for Azure service usage. As a result, a virtual network with a subnet address range of /29 has only three usable IP addresses. If you plan to connect a virtual network to a VPN gateway, you must create a gateway subnet. Learn more about [specific address range considerations for gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). You can change the address range after the subnet is created, under specific conditions. To learn how to change a subnet address range, see [Manage subnets](virtual-network-manage-subnet.md).
@@ -83,7 +82,7 @@ Complete the following tasks before completing steps in any section of this arti
    - **Properties**: Displays settings about the virtual network, including the virtual network's resource ID and the Azure subscription it is in.
    - **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, select the device.
    - **Common Azure settings**: To learn more about common Azure settings, see the following information:
-     - [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+     - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
      - [Access control (IAM)](../role-based-access-control/overview.md)
      - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -175,4 +174,4 @@ To perform tasks on virtual networks, your account must be assigned to the [netw
 ## Next steps
 
 - Create a virtual network using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks

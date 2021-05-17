@@ -26,7 +26,7 @@ ms.author: prmitiki
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Select the connection you would like to enable for Peering Service. For this example we will use the only connection available.
+1. Select the connection you want to enable for Peering Service. For this example, we'll use the only connection available.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -42,12 +42,12 @@ ms.author: prmitiki
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Now save the changes made to the Direct peering using command below.
+1. Now save the changes made to the Direct peering by using this command:
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Below is a sample output:
+    Here's a sample output:
     
     ```powershell
         Name                 : SeattleDirectPeering

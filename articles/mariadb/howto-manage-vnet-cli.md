@@ -1,40 +1,34 @@
 ---
 title: Manage VNet endpoints - Azure CLI - Azure Database for MariaDB
 description: This article describes how to create and manage Azure Database for MariaDB VNet service endpoints and rules using Azure CLI command line.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 3/18/2020
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints using Azure CLI
 
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MariaDB server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for MariaDB VNet service endpoints, including limitations, see [Azure Database for MariaDB Server VNet service endpoints](concepts-data-access-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MariaDB.
 
-## Prerequisites
-To step through this how-to guide, you need:
-- Install [the Azure CLI](/cli/azure/install-azure-cli) or use the Azure Cloud Shell in the browser.
-- An [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- You need an [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md).
+
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ## Configure VNet service endpoints
-The [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
-
-If you are running the CLI locally, you need to log in to your account using the [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command. Note the **id** property from the command output for the corresponding subscription name.
-```azurecli-interactive
-az login
-```
-
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
 
 - The account must have the necessary permissions to create a virtual network and service endpoint.
 
@@ -42,7 +36,7 @@ Service endpoints can be configured on virtual networks independently, by a user
 
 To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
-Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+Learn more about [built-in roles](../role-based-access-control/built-in-roles.md) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md).
 
 VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant. Ensure that both the subscriptions have the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 

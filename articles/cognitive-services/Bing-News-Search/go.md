@@ -9,24 +9,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/)
-* Install the go-spew library for it pretty printer to display results
-    * Install this library: `$ go get -u https://github.com/davecgh/go-spew`
+* Install the [Go binaries](https://golang.org/dl/).
+* Install the go-spew library to use a deep pretty printer to display the results. Use this command to install the library: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The go-spew library is needed to parse JSON. 
+Create a new Go project in your IDE or editor. Then, import `net/http` for requests, `ioutil` to read the response, `encoding/json` to handle the JSON text of results, and the `go-spew` library to parse the JSON results. 
 
 ```go
 package main
@@ -41,9 +45,9 @@ import (
 
 ```
 
-## Create a struct to format the News search results
+## Create a struct to format the news search results
 
-The `NewsAnswer` struct formats the data provided in the response. The response JSON is multilevel and quite complex.  The following implementation covers the essentials.
+The `NewsAnswer` struct formats the data provided in the response JSON, which is multilevel and complex. The following implementation covers the essentials:
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -83,7 +87,7 @@ type NewsAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+The following code declares the main function and assigns the required variables. Confirm that the endpoint is correct, and then replace the `token` value with a valid subscription key from your Azure account. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```go
 func main() {
@@ -104,7 +108,7 @@ func main() {
 
 ## Query and header
 
-Add the query string and access key header
+Add the query string and access key header.
 
 ```go
 // Add the query to the request.  
@@ -117,9 +121,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## Get request
+## GET request
 
-Create the client and send the Get request. 
+Create the client and send the GET request. 
 
 ```go
 // Instantiate a client.  
@@ -135,7 +139,7 @@ if err != nil {
 
 ## Send the request
 
-Send the request and read results using `ioutil`.
+Send the request and read the results by using `ioutil`.
 
 ```go
 resp, err := client.Do(req)
@@ -156,7 +160,7 @@ if err != nil {
 
 ## Handle the response
 
-The `Unmarshall` function extracts information from the JSON text returned by the News Search API.  Then you can display nodes from the results using the `go-spew` pretty printer.
+The `Unmarshall` function extracts information from the JSON text returned by the Bing News Search API. Then, display nodes from the results with the `go-spew` pretty printer.
 
 ```go
 // Create a new answer object 
@@ -177,7 +181,7 @@ spew.Dump(result.Name, result.URL)
 
 ## Results
 
-The results contain name and URL of each result.
+The following output contains the name and URL of each result:
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

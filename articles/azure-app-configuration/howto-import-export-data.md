@@ -1,19 +1,19 @@
 ---
 title: Import or export data with Azure App Configuration
-description: Learn how to import or export data to or from Azure App Configuration
+description: Learn how to import or export configuration data to or from Azure App Configuration. Exchange data between your App Configuration store and code project.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: lcozzens
+ms.author: alkemper
 ---
 
 # Import or export configuration data
 
 Azure App Configuration supports data import and export operations. Use these operations to work with configuration data in bulk and exchange data between your App Configuration store and code project. For example, you can set up one App Configuration store for testing and another for production. You can copy application settings between them so that you don't have to enter data twice.
 
-This article provides a guide for importing and exporting data with App Configuration. If you’d like to set up an ongoing sync with your GitHub repo, take a look at our [GitHub Action](https://aka.ms/azconfig-gha1).
+This article provides a guide for importing and exporting data with App Configuration. If you’d like to set up an ongoing sync with your GitHub repo, take a look at our [GitHub Action](./concept-github-action.md).
 
 ## Import data
 
@@ -60,4 +60,4 @@ Export data by using either the [Azure portal](https://portal.azure.com) or the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)

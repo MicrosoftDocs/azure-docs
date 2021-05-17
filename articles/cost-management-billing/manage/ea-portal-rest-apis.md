@@ -3,9 +3,10 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -19,15 +20,15 @@ Microsoft Enterprise Azure customers can get usage and billing information throu
 
 ### Available APIs
 
-**Balance and Summary -** The [Balance and Summary API](../../billing/billing-enterprise-api-balance-summary.md) provides a monthly summary of information about balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. For more information, see [Reporting APIs for Enterprise customers - Balance and Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
+**Balance and Summary -** The [Balance and Summary API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) provides a monthly summary of information about balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. For more information, see [Reporting APIs for Enterprise customers - Balance and Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
 
-**Usage Detail -** The [Usage Detail API](../../billing/billing-enterprise-api-usage-detail.md) provides a daily breakdown of consumed quantities and estimated charges by an enrollment. The result also includes information about instances, meters, and departments. You can query the API by billing period or by a specified start and end date. For more information, see [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+**Usage Detail -** The [Usage Detail API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) provides a daily breakdown of consumed quantities and estimated charges by an enrollment. The result also includes information about instances, meters, and departments. You can query the API by billing period or by a specified start and end date. For more information, see [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-**Marketplace Store Charge -** The [Marketplace Store Charge API](../../billing/billing-enterprise-api-marketplace-storecharge.md) returns usage-based marketplace charges, broken down day for the specified billing period or start and end dates. For more information, see [Reporting APIs for Enterprise customers - Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
+**Marketplace Store Charge -** The [Marketplace Store Charge API](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) returns usage-based marketplace charges, broken down day for the specified billing period or start and end dates. For more information, see [Reporting APIs for Enterprise customers - Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
 **Price Sheet -** The [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) provides the applicable rate for each meter for an enrollment and billing period. For more information, see [Reporting APIs for Enterprise customers - Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
-**Billing Periods -** The [Billing Periods API](../../billing/billing-enterprise-api-billing-periods.md) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+**Billing Periods -** The [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 ### Enable API data access
 
@@ -87,14 +88,6 @@ When you're using an API, response status codes are shown. The following table d
 ### Usage and billing data update frequency
 
 Usage and billing data files are updated every 24 hours for the current billing month. However, data latency can occur for up to three days. For example, if usage is incurred on Monday, data might not appear in the data file until Thursday.
-
-### Test enrollment for development
-
-If you're a partner or a developer without an Azure enterprise enrollment and you want to access the API, you can use the test enrollment. The enrollment name is _EnrollmentNumber 100_, you can find and test usage information up to June 2018. Then you can use the following key to call the API and see sample data.
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
-```
 
 ### Azure service catalog
 

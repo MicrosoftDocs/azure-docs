@@ -1,29 +1,21 @@
 ---
 title: Add migration tools in Azure Migrate 
 description: Learn how to add migration tools in Azure Migrate. 
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
-ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
+author: anvar-ms 
+ms.author: anvar
+ms.manager: bsiva
+ms.topic: how-to
+ms.date: 11/23/2020
 ---
 
 
 
 # Add migration tools
 
-This article describes how to add migration tools in [Azure Migrate](migrate-overview.md).
+This article describes how to add migration tools in [Azure Migrate](./migrate-services-overview.md).
 
-Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
-
-If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
-
-
-
-## Selecting an ISV tool
-
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for migration, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Deploy the tool, and follow the tool instructions and documentation to connect the tool workspace with Azure Migrate. 
+- If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](create-manage-projects.md).
+- If you've added an ISV tool for migration, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
 
 ## Select a migration scenario
 
@@ -31,46 +23,69 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for mi
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.
-    - To migrate on-premises SQL machines, select **Assess and migrate databases**.
-    - To migrate on-premises web apps, select **Assess and migrate web apps**.
-    - To migrate large amounts of on-premises data to Azure in offline mode, select **Order a Data Box**.
+    - To migrate on-premises databases, select **Assess and migrate databases**.
+    - To migrate on-premises web apps, select **Explore more** > **Web Apps**.
+    - To migrate data to Azure using Data box, select **Explore more** > **Data box**.
 
-    ![Assessment scenario](./media/how-to-migrate/assess-scenario.png)
+    ![Options for selecting a migrate scenario](./media/how-to-migrate/migrate-scenario.png)
+
 
 ## Select a server migration tool
 
-1. Click **Assess and Migrate Servers**.
-2. In **Azure Migrate - Servers**, if you haven't added migration tools yet, under **Migration tools**, select **Click here to add a migration tool**. If you've already added migration tools, in **Add more migration tools**, select **Change**.
+1. Add a tool:
 
-    > [!NOTE]
-    > If you need to navigate to a different project, in **Azure Migrate - Servers**, next to **See details for a different migrate project**, click **Click here**.
+    - If you created an Azure Migrate project using the **Assess and migrate servers** option in the portal, the Azure Migrate Server Migration tool is automatically added to the project. To add additional migration tools, in **Servers**, next to **Migration tools**, select **Add more tools**.
+    
+         ![Button to add additional migration tools](./media/how-to-migrate/add-migration-tools.png)
 
-3. In **Azure Migrate**, select the migration tool you want to use.
-    - If you use Azure Migrate Server Migration, you can set up and run migrations directly in the Azure Migrate project.
-    - If you use a third-party assessment tool, navigate to the link provided for the ISV, and run the migration in accordance with the instructions they provide.
+    - If you created a project using a different option, and don't yet have any migration tools, in **Servers** > **Migration tools**, select **Click here**.
+
+    ![Button to add first migration tools](./media/how-to-migrate/no-migration-tool.png)
+
+2. In **Azure Migrate** > **Add tools**, select the tools you want to add. Then select **Add tool**.
+
+    ![Select assessment tools from list](./media/how-to-migrate/select-migration-tool.png)
+
 
 ## Select a database migration tool
 
-1. Click **Assess and migrate databases**
-2. In **Databases**, click **Add tools**.
-3. In Add a tool > **Select migration tool**, select the tool you want to use to migrate your database.
+If you created an Azure Migrate project using the **Assess and migrate database** option in the portal, the Database Migration tool is automatically added to the project. 
+
+1. If the Database Migration tool isn't in the project, in **Databases** > **Assessment tools**, select **Click here**.
+    
+    ![Add database migration tools](./media/how-to-migrate/no-database-migration-tool.png)
+
+
+2. In **Azure Migrate** > **Add tools**, select the Database Migration tool. Then select **Add tool**.
+
+    ![Select the database migration tool from list](./media/how-to-migrate/select-database-migration-tool.png)
+
+    
 
 ## Select a web app migration tool
 
-1. Click **Assess and migrate web apps**.
-2. Follow the link to the Migration tool for the Azure App Service. Use the migration tool to:
+If you created an Azure Migrate project using the **Explore more** > **WebApps** option in the portal, the Web app migration tool is automatically added to the project. 
 
-    - **Assess apps online**: You can assess and migrate apps with a public URL online, using the Azure App Service Migration Assistant.
-    - **.NET/PHP**: For internal .NET and PHP apps, you can download and run the Migration Assistant.
+1. If the Web app migration tool isn't in the project, in **Web apps** > **Assessment tools**, select **Click here**.
+
+    ![Add web app migration tools](./media/how-to-migrate/no-web-app-migration-tool.png)
+ 
+
+2. In **Azure Migrate** > **Add tools**, select the Web App Migration tool. Then select **Add tool**.
+
+    ![Select webapp assessment tools from list](./media/how-to-migrate/select-web-app-migration-tool.png)
+
 
 ## Order an Azure Data Box
 
-To migrate large amounts of data to Azure,  you can order an Azure DAta Box for offline data transfer.
+To migrate large amounts of data to Azure,  you can order an Azure Data Box for offline data transfer.
 
-1. Click **Order a Data Box**.
-2. In **Select your Azure Data Box**, specify your subscription. 
-3. The transfer will be an import to Azure. Specify the data source, and the Azure region destination for the data.
+1. In **Overview**, select **Explore more**.
+2. In **Explore more**, select **Data box**.
+3. In **Get started with Data Box**, select the subscription and resource group you want to use when ordering a Data Box.
+4. The **Transfer type** is an import to Azure. Specify the country in which the data resides, and the Azure region to which you want to transfer the data. 
+5. Click **Apply** to save the settings.
 
 ## Next steps
 
-Try out a migration using Azure Migrate Server Migration for [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](tutorial-migrate-vmware.md) VMs.
+Try out a migration using the Azure Migrate Server Migration tool for [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](tutorial-migrate-vmware.md) VMs.

@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Materials
@@ -30,11 +31,15 @@ Azure Remote Rendering has two distinct material types:
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 
+## Material de-duplication
+
+During conversion multiple materials with the same properties and textures are automatically de-duplicated into a single material. You can disable this feature in the [conversion settings](../how-tos/conversion/configure-model-conversion.md), but we recommend leaving it on for best performance.
+
 ## Material classes
 
 All materials provided by the API derive from the base class `Material`. Their type can be queried through `Material.MaterialSubType` or by casting them directly:
 
-``` cs
+```cs
 void SetMaterialColorToGreen(Material material)
 {
     if (material.MaterialSubType == MaterialType.Color)
@@ -45,14 +50,43 @@ void SetMaterialColorToGreen(Material material)
     }
 
     PbrMaterial pbrMat = material as PbrMaterial;
-    if( pbrMat!= null )
+    if (pbrMat != null)
     {
-        PbrMaterial pbrMaterial = material.PbrMaterial.Value;
-        pbrMaterial.AlbedoColor = new Color4(0, 1, 0, 1);
+        pbrMat.AlbedoColor = new Color4(0, 1, 0, 1);
         return;
     }
 }
 ```
+
+```cpp
+void SetMaterialColorToGreen(ApiHandle<Material> material)
+{
+    if (material->GetMaterialSubType() == MaterialType::Color)
+    {
+        ApiHandle<ColorMaterial> colorMaterial = material.as<ColorMaterial>();
+        colorMaterial->SetAlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+
+    if (material->GetMaterialSubType() == MaterialType::Pbr)
+    {
+        ApiHandle<PbrMaterial> pbrMat = material.as<PbrMaterial>();
+        pbrMat->SetAlbedoColor({ 0, 1, 0, 1 });
+        return;
+    }
+}
+```
+
+## API documentation
+
+* [C# Material class](/dotnet/api/microsoft.azure.remoterendering.material)
+* [C# ColorMaterial class](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
+* [C++ Material class](/cpp/api/remote-rendering/material)
+* [C++ ColorMaterial class](/cpp/api/remote-rendering/colormaterial)
+* [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## Next steps
 

@@ -12,6 +12,9 @@ manager: philmea
 
 # Manage the OPC Vault certificate service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains the administrative tasks for the OPC Vault certificate management service in Azure. It includes information about how to renew Issuer CA certificates, how to renew the Certificate Revocation List (CRL), and how to grant and revoke user access.
 
 ## Create or renew the root CA certificate

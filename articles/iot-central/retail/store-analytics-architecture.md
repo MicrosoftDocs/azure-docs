@@ -4,7 +4,7 @@ description: Learn to build an in-store analytics application using Checkout app
 author: avneets
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
@@ -12,7 +12,6 @@ manager: eliotgra
 ---
 
 # In-store analytics architecture
-
 
 
 In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by using one of the application templates within IoT Central and the architecture below as guidance.
@@ -46,7 +45,7 @@ Azure IoT Central also provides a tailored experience to the store operator enab
 The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a Service) services that can perform data manipulation and enrich these insights before landing them in a business application. 
 
 ## Business application
-The IoT data can be used to power different kinds of business applications deployed within a retail environment. A retail store manager or staff member can use these applications to visualize business insights and take meaningful actions in real time. To learn how to build a real-time Power BI dashboard for your retail team, follow the [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+The IoT data can be used to power different kinds of business applications deployed within a retail environment. A retail store manager or staff member can use these applications to visualize business insights and take meaningful actions in real time. To learn how to build a real-time Power BI dashboard for your retail team, follow the [tutorial](./tutorial-in-store-analytics-create-app.md).
 
 ## Next steps
 * Get started with the [In-Store Analytics Checkout](https://aka.ms/checkouttemplate) and [In-Store Analytics Condition Monitoring](https://aka.ms/conditiontemplate) application templates. 

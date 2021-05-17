@@ -1,15 +1,20 @@
 ---
-title: Run Startup Tasks in Azure Cloud Services | Microsoft Docs
+title: Run Startup Tasks in Azure Cloud Services (classic) | Microsoft Docs
 description: Startup tasks help prepare your cloud service environment for your app. This teaches you how startup tasks work and how to make them
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to configure and run startup tasks for a cloud service
+
+# How to configure and run startup tasks for an Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 You can use startup tasks to perform operations before a role starts. Operations that you might want to perform include installing a component, registering COM components, setting registry keys, or starting a long running process.
 
 > [!NOTE]
@@ -150,13 +155,10 @@ Learn how to perform some [common startup tasks](cloud-services-startup-tasks-co
 [Package](cloud-services-model-and-package.md) your Cloud Service.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
+[Task]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Startup]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[Runtime]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[Environment]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[Variable]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)

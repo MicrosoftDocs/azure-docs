@@ -8,7 +8,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 10/26/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 
@@ -25,7 +26,7 @@ This article shows you how to request an access token for a web application and 
 ## Prerequisites
 
 - [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
-- If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-application.md).
+- If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
 
 ## Scopes
 
@@ -45,10 +46,15 @@ The following example shows scopes encoded in a URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-If you request more scopes than what is granted for your client application, the call succeeds if at least one permission is granted. The **scp** claim in the resulting access token is populated with only the permissions that were successfully granted. The OpenID Connect standard specifies several special scope values. The following scopes represent the permission to access the user’s profile:
+If you request more scopes than what is granted for your client application, the call succeeds if at least one permission is granted. The **scp** claim in the resulting access token is populated with only the permissions that were successfully granted. 
+
+### OpenID Connect scopes
+
+The OpenID Connect standard specifies several special scope values. The following scopes represent the permission to access the user's profile:
 
 - **openid** - Requests an ID token.
 - **offline_access** - Requests a refresh token using [Auth Code flows](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** - Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.
 
 If the **response_type** parameter in an `/authorize` request includes `token`, the **scope** parameter must include at least one resource scope other than `openid` and `offline_access` that will be granted. Otherwise, the `/authorize` request fails.
 
@@ -61,14 +67,16 @@ In the following example, you replace these values:
 - `<tenant-name>` - The name of your Azure AD B2C tenant.
 - `<policy-name>` - The name of your custom policy or user flow.
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
+- `<application-ID-URI>` - The application identifier URI that you set under **Expose an API** blade of the client application.
+- `<scope-name>` - The name of the scope that you added under **Expose an API** blade of the client application.
 - `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
 
-```HTTP
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+```http
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
 
@@ -80,14 +88,14 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 After successfully receiving the authorization code, you can use it to request an access token:
 
-```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+```http
+POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
 &client_id=<application-ID>
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
@@ -95,7 +103,7 @@ grant_type=authorization_code
 
 You should see something similar to the following response:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -109,7 +117,7 @@ You should see something similar to the following response:
 
 When using https://jwt.ms to examine the access token that was returned, you should see something similar to the following example:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

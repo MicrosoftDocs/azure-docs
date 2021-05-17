@@ -1,10 +1,11 @@
 ---
 title: Ingest historical telemetry data
 description: This article describes how to ingest historical telemetry data.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
+ms.custom: has-adal-ref
 ---
 
 # Ingest historical telemetry data
@@ -52,11 +53,17 @@ Follow these steps:
 
 5. Go to your home directory.
 
-    ```azurepowershell-interactive 
-    cd  
+    ```azurepowershell-interactive
+    cd
     ```
 
-6. Run the following command. This will download a script to your home directory.
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
+
+    ```azurepowershell-interactive
+    Connect-AzureAD
+    ```
+
+7. Run the following command. This will download a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -64,15 +71,15 @@ Follow these steps:
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 
 ## Create device or sensor metadata
@@ -87,54 +94,53 @@ Follow these steps:
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
 - /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
-- /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
+- /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-
-|        DeviceModel   |  Suggestions   |
-| ------- | -------             |
-|     Type (node, gateway)        |          Type of the Device - Node or Gateway      |
-|          Manufacturer            |         Name of the manufacturer    |
-|  ProductCode                    |  Device product code or model name or number. For example, EnviroMonitor#6800.  |
-|            Ports          |     Port name and type, which is digital or analog.
-|     Name                 |  Name to identify the resource. For example, the model name or product name.
-      Description     | Provide a meaningful description of the model.
-|    Properties          |    Additional properties from the manufacturer.   |
-|    **Device**             |                      |
-|   DeviceModelId     |     ID of the associated device model.  |
-|  HardwareId	       | Unique ID for the device, such as the MAC address.
-|  ReportingInterval        |   Reporting interval in seconds.
-|  Location            |  Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).   
-|ParentDeviceId       |    ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway.  |
-|    Name            | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats.|
-|     Description       |      Provide a meaningful description. |
-|     Properties    |  Additional properties from the manufacturer.
-|     **SensorModel**        |          |
-|       Type (analog, digital)          |      The type of sensor, whether it's analog or digital.       |
-|          Manufacturer            |       The manufacturer of the sensor.     |
-|     ProductCode| Product code or model name or number. For example, RS-CO2-N01. |
-|       SensorMeasures > Name	    | Name of the sensor measure. Only lowercase is supported. For measurements from different depths, specify the depth. For example, soil_moisture_15cm. This name must be consistent with the telemetry data.  |
-|          SensorMeasures > DataType	   |Telemetry data type. Currently, double is supported.|
-|    SensorMeasures > Type	  |Measurement type of the sensor telemetry data. The system-defined types are AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API.|
-|        SensorMeasures > Unit	            | Unit of sensor telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to the /ExtendedType API.|
-|    SensorMeasures > AggregationType	 |  Values can be none, average, maximum, minimum, or StandardDeviation.  |
-|          Name            | Name to identify a resource. For example, the model name or product name.  |
-|    Description        | Provide a meaningful description of the model.|
-|   Properties       |  Additional properties from the manufacturer.|
-|    **Sensor**      |          |
-| HardwareId          |   Unique ID for the sensor set by the manufacturer.|
-|  SensorModelId     |    ID of the associated sensor model.|
-| Location          |  Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).|
-|   Port > Name	       |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.|
-|    DeviceID  |    ID of the device that the sensor is connected to. |
-| Name	          |   Name to identify resource. For example, sensor name or product name and model number or product code.|
-|    Description	  | Provide a meaningful description.|
-|    Properties        |Additional properties from the manufacturer.|
+| DeviceModel | Suggestions |
+|--|--|
+| Type (node, gateway) | Type of the Device - Node or Gateway |
+| Manufacturer | Name of the manufacturer |
+| ProductCode | Device product code or model name or number. For example, EnviroMonitor#6800. |
+| Ports | Port name and type, which is digital or analog. |
+| Name | Name to identify the resource. For example, the model name or product name. |
+| Description | Provide a meaningful description of the model. |
+| Properties | Additional properties from the manufacturer. |
+| **Device** |  |
+| DeviceModelId | ID of the associated device model. |
+| HardwareId | Unique ID for the device, such as the MAC address. |
+| ReportingInterval | Reporting interval in seconds. |
+| Location | Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
+| ParentDeviceId | ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway. |
+| Name | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats. |
+| Description | Provide a meaningful description. |
+| Properties | Additional properties from the manufacturer. |
+| **SensorModel** |  |
+| Type (analog, digital) | The type of sensor, whether it's analog or digital. |
+| Manufacturer | The manufacturer of the sensor. |
+| ProductCode | Product code or model name or number. For example, RS-CO2-N01. |
+| SensorMeasures > Name | Name of the sensor measure. Only lowercase is supported. For measurements from different depths, specify the depth. For example, soil_moisture_15cm. This name must be consistent with the telemetry data. |
+| SensorMeasures > DataType | Telemetry data type. Currently, double is supported. |
+| SensorMeasures > Type | Measurement type of the sensor telemetry data. The system-defined types are AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API. |
+| SensorMeasures > Unit | Unit of sensor telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to the /ExtendedType API. |
+| SensorMeasures > AggregationType | Values can be none, average, maximum, minimum, or StandardDeviation. |
+| Name | Name to identify a resource. For example, the model name or product name. |
+| Description | Provide a meaningful description of the model. |
+| Properties | Additional properties from the manufacturer. |
+| **Sensor** |  |
+| HardwareId | Unique ID for the sensor set by the manufacturer. |
+| SensorModelId | ID of the associated sensor model. |
+| Location | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
+| Port > Name | Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model. |
+| DeviceID | ID of the device that the sensor is connected to. |
+| Name | Name to identify resource. For example, sensor name or product name and model number or product code. |
+| Description | Provide a meaningful description. |
+| Properties | Additional properties from the manufacturer. |
 
 For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ### API request to create metadata
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).  
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).
 
 ### Authentication
 
@@ -153,22 +159,27 @@ headers = *{"Authorization": "Bearer " + access_token, …}*
 The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats: 
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 **HTTP request headers**
@@ -287,10 +298,10 @@ Sensor
 The following sample request creates a device. This request has input JSON as payload with the request body.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 
@@ -319,7 +330,7 @@ Now that you've created the devices and sensors in FarmBeats, you can send the a
 
 ### Create a telemetry client
 
-You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about sending telemetry, see [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about sending telemetry, see [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### Send a telemetry message as the client
 

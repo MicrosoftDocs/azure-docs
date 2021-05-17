@@ -1,6 +1,6 @@
 ---
 title: Connect Symantec ICDx data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Symantec ICDx data to Azure Sentinel.
+description: Learn how to use the Symantec ICDx connector to easily connect all your Symantec security solution logs with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -66,7 +66,7 @@ Symantec ICDx can integrate and export logs directly to Azure Sentinel.
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 

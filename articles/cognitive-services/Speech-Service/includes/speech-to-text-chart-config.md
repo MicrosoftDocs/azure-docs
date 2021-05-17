@@ -3,13 +3,13 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Details the speech-to-text helm chart configuration options.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/22/2019
-ms.author: dapine
+ms.date: 05/05/2020
+ms.author: trbye
 ---
 
 ### Speech-to-Text (sub-chart: charts/speechToText)
@@ -35,3 +35,30 @@ To override the "umbrella" chart, add the prefix `speechToText.` on any paramete
 | `service.annotations` | The **speech-to-text** annotations for the service metadata. Annotations are key value pairs. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Whether the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is enabled. If `true`, the `speech-to-text-autoscaler` will be deployed in the Kubernetes cluster. | `true` |
 | `service.podDisruption.enabled` | Whether the [Pod Disruption Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) is enabled. If `true`, the `speech-to-text-poddisruptionbudget` will be deployed in the Kubernetes cluster. | `true` |
+
+#### Sentiment analysis (sub-chart: charts/speechToText)
+
+Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Text Analytics API.
+
+|Parameter|Description|Values|Default|
+| --- | --- | --- | --- |
+|`textanalytics.enabled`| Whether the **text-analytics** service is enabled| true/false| `false`|
+|`textanalytics.image.registry`| The **text-analytics** docker image registry| valid docker image registry| |
+|`textanalytics.image.repository`| The **text-analytics** docker image repository| valid docker image repository| |
+|`textanalytics.image.tag`| The **text-analytics** docker image tag| valid docker image tag| |
+|`textanalytics.image.pullSecrets`| The image secrets for pulling **text-analytics** docker image| valid secrets name| |
+|`textanalytics.image.pullByHash`| Specifies if you are pulling docker image by hash.  If `yes`, `image.hash` is required to have as well. If `no`, set it as 'false'. Default is `false`.| true/false| `false`|
+|`textanalytics.image.hash`| The **text-analytics** docker image hash. Only use it with `image.pullByHash:true`.| valid docker image hash | |
+|`textanalytics.image.args.eula`| One of the required arguments by **text-analytics** container, which indicates you've accepted the license. The value of this option must be: `accept`.| `accept`, if you want to use the container | |
+|`textanalytics.image.args.billing`| One of the required arguments by **text-analytics** container, which specifies the billing endpoint URI. The billing endpoint URI value is available on the Azure portal's Speech Overview page.|valid billing endpoint URI||
+|`textanalytics.image.args.apikey`| One of the required arguments by **text-analytics** container, which is used to track billing information.| valid apikey||
+|`textanalytics.cpuRequest`| The requested CPU for **text-analytics** container| int| `3000m`|
+|`textanalytics.cpuLimit`| The limited CPU for **text-analytics** container| | `8000m`|
+|`textanalytics.memoryRequest`| The requested memory for **text-analytics** container| | `3Gi`|
+|`textanalytics.memoryLimit`| The limited memory for **text-analytics** container| | `8Gi`|
+|`textanalytics.service.sentimentURISuffix`| The sentiment analysis URI suffix, the whole URI is in format "http://`<service>`:`<port>`/`<sentimentURISuffix>`". | | `text/analytics/v3.0-preview/sentiment`|
+|`textanalytics.service.type`| The type of **text-analytics** service in Kubernetes. See [Kubernetes service types](https://kubernetes.io/docs/concepts/services-networking/service/) | valid Kubernetes service type | `LoadBalancer` |
+|`textanalytics.service.port`| The port of the **text-analytics** service| int| `50085`|
+|`textanalytics.service.annotations`| The annotations users can add to **text-analytics** service metadata. For instance:<br/> **annotations:**<br/>`   ` **some/annotation1: value1**<br/>`  ` **some/annotation2: value2** | annotations, one per each line| |
+|`textanalytics.serivce.autoScaler.enabled`| Whether [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is enabled. If enabled, `text-analytics-autoscaler` will be deployed in the Kubernetes cluster | true/false| `true`|
+|`textanalytics.service.podDisruption.enabled`| Whether [Pod Disruption Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) is enabled. If enabled, `text-analytics-poddisruptionbudget` will be deployed in the Kubernetes cluster| true/false| `true`|

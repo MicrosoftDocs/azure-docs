@@ -1,9 +1,12 @@
-﻿---
-title: Quickstart - Create registry - Powershell
+---
+title: Quickstart - Create registry - PowerShell
 description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
-ms.topic: quickstart
 ms.date: 01/22/2019
-ms.custom: "seodec18, mvc"
+ms.topic: quickstart
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Create a private container registry using Azure PowerShell
@@ -46,11 +49,11 @@ The registry name must be unique within Azure, and contain 5-50 alphanumeric cha
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry. In production scenarios you should use an individual identity or service principal for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command:
+Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -63,6 +66,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 The command returns `Login Succeeded` once completed.
+
+> [!TIP]
+> The Azure CLI provides the `az acr login` command, a convenient way to log in to a container registry using your [individual identity](container-registry-authentication.md#individual-login-with-azure-ad), without passing docker credentials.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
@@ -81,7 +88,10 @@ Remove-AzResourceGroup -Name myResourceGroup
 In this quickstart, you created an Azure Container Registry with Azure PowerShell, pushed a container image, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+> [Azure Container Registry tutorials][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Azure Container Registry Tasks tutorials][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -100,3 +110,4 @@ In this quickstart, you created an Azure Container Registry with Azure PowerShel
 [Remove-AzResourceGroup]: /powershell/module/az.resources/remove-azresourcegroup
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

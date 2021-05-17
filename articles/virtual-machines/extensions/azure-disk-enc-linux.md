@@ -1,26 +1,20 @@
 ---
 title: Azure Disk Encryption for Linux 
 description: Deploys Azure Disk Encryption for Linux to a virtual machine using a virtual machine extension.
-services: virtual-machines-linux 
-documentationcenter: ''
-author: ejarvi 
-manager: gwallace 
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi 
 ms.author: ejarvi
+ms.date: 03/19/2020
+ms.collection: linux
 
 ---
 # Azure Disk Encryption for Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
 ## Overview
 
-Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full disk encryption on [select Azure Linux distributions](https://aka.ms/adelinux).  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets.
+Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full disk encryption on [select Azure Linux distributions](../linux/disk-encryption-overview.md).  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets.
 
 ## Prerequisites
 
@@ -165,7 +159,7 @@ For an example of template deployment based on schema v0.1, see the Azure Quicks
 
 >[!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM.
-> - When encrypting Linux OS volumes, the VM should be considered unavailable. We strongly recommend to avoid SSH logins while the encryption is in progress to avoid issues blocking any open files that will need to be accessed during the encryption process. To check progress, use the [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet or the [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI command. This process can be expected to take a few hours for a 30GB OS volume, plus additional time for encrypting data volumes. Data volume encryption time will be proportional to the size and quantity of the data volumes unless the encrypt format all option is used. 
+> - When encrypting Linux OS volumes, the VM should be considered unavailable. We strongly recommend to avoid SSH logins while the encryption is in progress to avoid issues blocking any open files that will need to be accessed during the encryption process. To check progress, use the [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet or the [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) CLI command. This process can be expected to take a few hours for a 30GB OS volume, plus additional time for encrypting data volumes. Data volume encryption time will be proportional to the size and quantity of the data volumes unless the encrypt format all option is used. 
 > - Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted. 
 
 >[!NOTE]

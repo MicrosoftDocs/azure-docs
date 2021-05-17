@@ -3,7 +3,7 @@ title: Replace battery on Microsoft Azure StorSimple 8000 series device
 description: Describes how to remove, replace, and maintain the backup battery module on your StorSimple device.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 

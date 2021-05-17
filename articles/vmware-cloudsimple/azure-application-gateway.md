@@ -1,8 +1,8 @@
 --- 
 title: Use Azure Application Gateway with VMware virtual machines
 description: Describes how to use the Azure application gateway to manage incoming web traffic for web servers running in VMware virtual machines win the CloudSimple Private Cloud environment
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -14,7 +14,7 @@ manager: dikamath
 
 You can use the Azure Application Gateway to manage incoming web traffic for your web servers running in VMware virtual machines within your CloudSimple Private Cloud environment.
 
-By leveraging Azure Application Gateway in a public-private hybrid deployment, you can manage web traffic to your applications, provide a secure front-end, and offload SSL processing for their services running in VMware environment. Azure Application Gateway routes incoming web traffic to backend pool instances residing in VMware environments according to configured rules and health probes.
+By leveraging Azure Application Gateway in a public-private hybrid deployment, you can manage web traffic to your applications, provide a secure front-end, and offload TLS processing for their services running in VMware environment. Azure Application Gateway routes incoming web traffic to backend pool instances residing in VMware environments according to configured rules and health probes.
 
 This Azure Application Gateway solution requires you to:
 
