@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 05/17/2021
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -291,5 +291,4 @@ NFSv4.x requires each client to identify itself to servers with a *unique* strin
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
-* [Mount the NFSv4.1 volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-
+* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 
