@@ -59,6 +59,7 @@ following:
 3.  Select **Register.**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
+
     :::image type="content" source="media/register-scan-hive-metastore-source/register-sources.png" alt-text="register hive source" border="true":::
 
 On the Register sources (Hive Metastore) screen, do the following:
@@ -76,7 +77,8 @@ On the Register sources (Hive Metastore) screen, do the following:
 4.  Select a collection or create a new one (Optional)
 
 5.  Finish to register the data source.
-    :::image type="content" source="media/register-scan-hive-metastore-source/configure-sources.png" alt-text="configure hive source" border="true":::
+
+       :::image type="content" source="media/register-scan-hive-metastore-source/configure-sources.png" alt-text="configure hive source" border="true":::
 
 
 ## Creating and running a scan
