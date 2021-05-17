@@ -17,13 +17,14 @@ ms.custom: seodec18
 
 ## Speech SDK 1.17.0: 2021-May release
 
-**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+>[!NOTE]
+>The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
 **Highlights summary**
 
 - Smaller footprint - we continue to decrease the memory and disk footprint of the Speech SDK and its components.
 - A new stand alone language detection API allows you to recognize what language is being spoken.
-- Develop speech enabled mixed reality and gaming applications using Unity on MacOS.
+- Develop speech enabled mixed reality and gaming applications using Unity on macOS.
 - You can now use text-to-speech in addition to speech recognition from the Go programming language.
 - Several Bug fixes to address issues YOU, our valued customers, have flagged on GitHub! THANK YOU! Keep the feedback coming!
 
@@ -31,7 +32,7 @@ ms.custom: seodec18
 
 - **C++/C#**: New stand-alone Single-Shot/at-start and Continuous Language Detection via the `SourceLanguageRecognizer` API.
 - **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Detection. See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
-- **C#**:  Added support Unity support to MacOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
+- **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency).
 - **C++/C#/Java/Python/Objective-C/Go**: We now expose the latency and underrun time in `SpeechSynthesisResult` to help you monitor and diagnose speech synthesis latency issues. See details for [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesisresult), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisresult) and [Go](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go#readme-reference). 
@@ -61,19 +62,20 @@ ms.custom: seodec18
 
 #### Samples
 
-- Updated Unity samples documentation for MacOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+- Updated Unity samples documentation for macOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
 - A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
 
 ## Speech CLI (also known as SPX): 2021-May release
 
-**Note**: Get started with the Azure Speech service command line interface (CLI) [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). The CLI enables you to use the Azure Speech service without writing any code.
+>[!NOTE]
+>Get started with the Azure Speech service command line interface (CLI) [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). The CLI enables you to use the Azure Speech service without writing any code.
 
 #### New features
 
 - SPX now supports Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the SPX command line.
 - We also added Dialog support - Try `spx dialog` from the SPX command line.
 - SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
-- We've decreased the size of the SPX .net tool install .
+- We've decreased the size of the SPX .NET tool install .
 
 **COVID-19 abridged testing**:
 
