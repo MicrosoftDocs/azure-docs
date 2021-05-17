@@ -47,7 +47,7 @@ For your solution to be discoverable to Microsoft sellers and partners, it must 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
 
-After you’ve enrolled in the commercial marketplace, prepare to migrate your solutions from OCP GTM.
+After you’ve enrolled in the commercial marketplace, prepare to migrate your solutions from OCP GTM. We have created a digital migration interface that provides a single view of the OCP GTM solutions for your organization. From this interface, you will be able to take the action to merge the solution with a similar offer already published and live in commercial marketplace, or discard it.
 
 Follow these steps before importing your solutions from OCP GTM:
 
@@ -100,7 +100,7 @@ If you have a solution in OCP GTM that you want to migrate to Partner Center the
 
 #### Scenario 1: Similar offer does not exist in commercial marketplace
 
-If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.) 
+If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.)
 
 1. Create a draft offer in commercial marketplace
 
@@ -119,12 +119,10 @@ If you do not have an offer already in the commercial marketplace to merge a sol
         - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
         - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
 
-2. After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see Configure co-sell for a commercial marketplace offer.
-
 > [!TIP]
 > We recommend that you *do not fill out* the data in the **Co-sell with Microsoft** tab. To save you time we will take care of populating this data for you with your existing collateral in OCP GTM during the merge process.
 
-After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed.For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
+After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
 
 1. When complete, select **Review and publish**.
 
@@ -162,6 +160,8 @@ Select this option if the solution is already published and live in the commerci
     1. Partner support will work with you to ensure a successful merge of this offer so it published as a live offer.
 
 ### Discard this solution
+
+We recommend that you take the time to assess the viability and relevance of your solutions to optimize your presence and discoverability in the commercial marketplace with high quality offers that fulfill customer demand.
 
 Select this option when a solution in OCP GTM solutions is no longer relevant. You will be asked to confirm the discard, and you can also undo it later.
 
