@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 04/23/2021 
+ms.date: 05/17/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -63,7 +63,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-As the owner of the key vault, you automatically have access to create secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
+As the owner of the key vault, you automatically have access to create secrets. If you need to let another user create secrets, use:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -87,6 +87,8 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
+The access policies aren't needed if the user is deploying a template that retrieves a secret. Add a user to the access policies only if the user needs to work directly with the secrets. The deployment permissions are defined in the next section.
+
 For more information about creating key vaults and adding secrets, see:
 
 - [Set and retrieve a secret by using CLI](../../key-vault/secrets/quick-create-cli.md)
@@ -95,11 +97,13 @@ For more information about creating key vaults and adding secrets, see:
 - [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
 - [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
 
-## Grant access to the secrets
+## Grant deployment access to the secrets
 
-The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
+The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. By checking this access, Azure Resource Manager prevents an unapproved user from accessing the secret by passing in the resource ID for the key vault. You can grant deployment access to users without granting write access to the secrets. 
 
-The following procedure shows how to create a role with the minimum permission, and how to assign the user.
+The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
+
+For other users, grant the `Microsoft.KeyVault/vaults/deploy/action` permission. The following procedure shows how to create a role with the minimum permission, and assign it to a user.
 
 1. Create a custom role definition JSON file:
 
