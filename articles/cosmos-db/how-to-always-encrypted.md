@@ -310,6 +310,7 @@ You may want to "rotate" your CMK (that is, use a new CMK instead of the current
 await database.RewrapClientEncryptionKeyAsync(
     "my-key",
     new EncryptionKeyWrapMetadata(
+        keyStoreProvider.ProviderName,
         "akvKey",
         " https://<my-key-vault>.vault.azure.net/keys/<new-key>/<version>"));
 ```

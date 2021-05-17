@@ -32,9 +32,6 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
 
-> [!NOTE]
-> The Azure Cosmos DB RBAC does not currently expose any built-in role definitions.
-
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
@@ -87,13 +84,22 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Database | - Reading database metadata<br>- Listing the containers under the database<br>- For each container under the database, the allowed actions at the container scope |
 | Container | - Reading container metadata<br>- Listing physical partitions under the container<br>- Resolving the address of each physical partition |
 
-## <a id="role-definitions"></a> Create role definitions
+## Built-in role definitions
 
-When creating a role definition, you need to provide:
+Azure Cosmos DB exposes 2 built-in role definitions:
+
+| ID | Name | Included actions |
+|---|---|---|
+| 00000000-0000-0000-0000-000000000001 | Cosmos DB Built-in Data Reader | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` |
+| 00000000-0000-0000-0000-000000000002 | Cosmos DB Built-in Data Contributor | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*` |
+
+## <a id="role-definitions"></a> Create custom role definitions
+
+When creating a custom role definition, you need to provide:
 
 - The name of your Azure Cosmos DB account.
 - The resource group containing your account.
-- The type of the role definition; only `CustomRole` is currently supported.
+- The type of the role definition: `CustomRole`.
 - The name of the role definition.
 - A list of [actions](#permission-model) that you want the role to allow.
 - One or multiple scope(s) that the role definition can be assigned at; supported scopes are:
@@ -271,7 +277,7 @@ See [this page](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlreso
 
 ## <a id="role-assignments"></a> Create role assignments
 
-Once you've created your role definitions, you can associate them with your AAD identities. When creating a role assignment, you need to provide:
+You can associate built-in or custom role definitions with your Azure AD identities. When creating a role assignment, you need to provide:
 
 - The name of your Azure Cosmos DB account.
 - The resource group containing your account.
@@ -386,30 +392,14 @@ The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 
-## Enforcing RBAC as the only authentication method
+## Use data explorer
 
-In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
+> [!NOTE]
+> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB RBAC yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) instead.
 
-### Using Azure PowerShell
+When browsing the data stored in your account, the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) initially tries to fetch your account's primary key on behalf of the user who's logged in, and use this key to access the data. If that user is not allowed to fetch the primary key, their Azure AD identity will be used instead to access the data.
 
-```powershell
-$resourceGroupName = "<myResourceGroup>"
-$accountName = "<myCosmosAccount>"
-$account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts"
-$account.Properties.disableLocalAuth = $true
-$account | Set-AzResource -Force
-```
-
-### Using the Azure CLI
-
-```azurecli
-resourceGroupName='<myResourceGroup>'
-accountName='<myCosmosAccount>'
-az cosmos db update --account-name $accountName --resource-group $resourceGroupName --disableLocalAuth true
-```
-
-## Auditing data requests
+## Audit data requests
 
 When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the AAD identity used for every data request sent to your Azure Cosmos DB account.
 
@@ -442,6 +432,10 @@ The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md)
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 
 Yes.
+
+### Is it possible to disable the usage of the account primary/secondary keys when using RBAC?
+
+Disabling the account primary/secondary keys is not currently possible.
 
 ## Next steps
 
