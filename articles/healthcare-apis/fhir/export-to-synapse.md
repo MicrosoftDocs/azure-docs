@@ -21,7 +21,7 @@ Moving data from the FHIR server to Synapse involves exporting the data using th
 
 ### `$export` for moving FHIR data into Azure Data Lake Gen 2 storage
 
-:::image type="content" source="media/export-data/analytics-pipeline-option.png" alt-text="Azure storage to Synapse using $export":::
+:::image type="content" source="media/export-data/export-azure-storage-option.png" alt-text="Azure storage to Synapse using $export":::
 
 #### Configure your FHIR server to support `$export`
 
@@ -165,7 +165,7 @@ GO
 
 ## Use FHIR Analytics Pipelines OSS tools
 
-:::image type="content" source="media/export-data/adf-cdm-synapse.png" alt-text="Using ADF pipeline to move data into CDM folder then into Synapse":::
+:::image type="content" source="media/export-data/analytics-pipeline-option.png" alt-text="Using ADF pipeline to move data into CDM folder then into Synapse":::
 
 > [!Note]
 > [FHIR Analytics pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
