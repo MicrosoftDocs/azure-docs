@@ -38,7 +38,7 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 ## Considerations  
 
 * The Unix permissions you specify apply only for the volume mount point (root directory).  
-* You cannot modify the Unix permissions of a cross-region replication source or destination volume when the volume is in the [*Mirrored* state](cross-region-replication-display-health-status.md). 
+* You cannot modify the Unix permissions on cross-region replication source and destination volumes. 
 
 ## Steps
 
