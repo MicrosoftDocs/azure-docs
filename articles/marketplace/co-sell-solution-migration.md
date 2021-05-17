@@ -75,7 +75,7 @@ Follow these steps before importing your solutions from OCP GTM:
 1. Begin the migration [here](https://partner.microsoft.com/solutions/migration#).
 2. Select the **Overview** page, then **Click here to get started**.
 
-    :::image type="content" source="media/co-sell-migrate/welcome-overview.png" alt-text="Partner Center Overview page, Overview tab.":::
+    :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Displays overview page":::
 
 3. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
 
@@ -94,7 +94,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
 What is the value of merging your OCP GTM solution into an existing published and live offer in the commercial marketplace?
 
-    - Partners currently co-selling with offers in OCP GTM are encouraged to migrate their solutions to the commercial marketplace to take advantage of its capabilities and simplify the publishing experience.
+- Partners currently co-selling with offers in OCP GTM are encouraged to migrate their solutions to the commercial marketplace to take advantage of its capabilities and simplify the publishing experience.
 
 If you have a solution in OCP GTM that you want to migrate to Partner Center there are two scenarios for you to choose from. At the end of this merge process your offer will retain referral pipeline, collateral, co-sell status and incentives.
 
