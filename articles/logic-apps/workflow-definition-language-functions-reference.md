@@ -4884,7 +4884,7 @@ xml('<value>')
 
 *Example 1*
 
-This example converts the string into an XML:
+This example converts the string to XML:
 
 `xml('<name>Sophia Owen</name>')`
 
