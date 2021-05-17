@@ -333,7 +333,7 @@ You can read the metric values of your storage account or the Queue Storage serv
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET SDK](#tab/dotnet)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
