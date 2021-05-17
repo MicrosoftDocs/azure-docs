@@ -15,8 +15,6 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## Minimal declaration
 
 At a minimum, every parameter needs a name and type. In Bicep, a parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.

@@ -28,8 +28,6 @@ Resource Manager provides several functions for working with arrays in your Azur
 
 To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## array
 
 `array(convertToArray)`

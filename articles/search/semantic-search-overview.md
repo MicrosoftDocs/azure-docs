@@ -21,7 +21,7 @@ Semantic search is a collection of query-related capabilities that add semantic 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 1. [Check regional and service tier requirements](#availability-and-pricing).
-1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup).
+1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
 1. Upon acceptance, create or modify queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
 1. Add a few more query properties to also return [semantic answers](semantic-answers.md).
 1. Optionally, include a [spell check](speller-how-to-add.md) property to maximize precision and recall.
@@ -96,4 +96,4 @@ Final pricing information will be documented in the [Cognitive Search pricing pa
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-When your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.

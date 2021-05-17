@@ -44,8 +44,6 @@ Resource Manager provides the following functions for working with strings in yo
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## base64
 
 `base64(inputString)`
