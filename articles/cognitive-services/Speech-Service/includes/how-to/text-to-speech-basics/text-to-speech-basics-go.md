@@ -10,7 +10,7 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 
 ## Skip to samples on GitHub
 
-If you want to skip straight to sample code, see the [C++ quickstart samples](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/synthesizer) on GitHub.
+If you want to skip straight to sample code, see the [Go quickstart samples](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples/synthesizer) on GitHub.
 
 ## Prerequisites
 
@@ -128,16 +128,16 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on GitHub.
+Run the following commands to create a `go.mod` file that links to components hosted on GitHub.
 
-```cmd
+```shell
 go mod init quickstart
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
 Now build and run the code.
 
-```cmd
+```shell
 go build
 go run quickstart
 ```
@@ -146,7 +146,8 @@ See the reference docs for detailed information on the [`SpeechConfig`](https://
 
 ## Text-to-speech to in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior including:
+For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file.
+This will allow you to build custom behavior including:
 
 * Abstract the resulting byte array as a seek-able stream for custom downstream services.
 * Integrate the result with other API's or services.
@@ -248,16 +249,16 @@ func main(subscription string, region string) {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on GitHub.
+Run the following commands to create a `go.mod` file that links to components hosted on GitHub.
 
-```cmd
+```shell
 go mod init quickstart
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
 Now build and run the code.
 
-```cmd
+```shell
 go build
 go run quickstart
 ```
