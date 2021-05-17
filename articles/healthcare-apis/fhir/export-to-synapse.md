@@ -21,7 +21,7 @@ Moving data from the FHIR server to Synapse involves exporting the data using th
 
 ### `$export` for moving FHIR data into Azure Data Lake Gen 2 storage
 
-:::image type="content" source="media/export-data/synapse-from-azurestorage.png" alt-text="Azure storage to Synapse using $export":::
+:::image type="content" source="media/export-data/analytics-pipeline-option.png" alt-text="Azure storage to Synapse using $export":::
 
 #### Configure your FHIR server to support `$export`
 
