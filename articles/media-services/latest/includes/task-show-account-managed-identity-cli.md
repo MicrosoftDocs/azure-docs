@@ -31,7 +31,7 @@ Example JSON response:
   "identity": {
     "principalId": "00000000-0000-0000-0000-000000000000",
     "tenantId": "00000000-0000-0000-0000-000000000000",
-    "type": "SystemAssigned"  
+    "type": "SystemAssigned"  //Type will show "Managed Identity" if you have assigned a role to the Media Services account.
   },
   "location": "your-region",
   "mediaServiceId": "00000000-0000-0000-0000-000000000000",

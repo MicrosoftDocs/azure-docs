@@ -7,11 +7,11 @@ ms.author: inhenkel
 ms.custom: CLI, devx-track-azurecli
 ---
 
-<!-- ### Create a Storage Blob Contributor role -->
+<!-- ### Give a Media Services Managed identity access to a storage account. -->
 
-The following command creates a Reader role. 
+The following command gives a Media Services Managed Identity access to a storage account.
 
-The command assumes that you have already created a resource group, a Storage account, and a Media Services account. Change `your-resource-group-name` to the resource group name, `your-storage-account-name` to the storage account name, and `your-media-services-account-name`to the Media Services account name you want to work with in the command below:
+In the command below, change `your-resource-group-name` to the resource group name, and `your-media-services-account-name`to the Media Services account name you want to work with:
 
 ```azurecli-interactive
 az ams account storage set-authentication --storage-auth ManagedIdentity --resource-group <your-resource-group_name> --account-name <your-media-services-account-name>
@@ -30,7 +30,7 @@ Example JSON response:
   "identity": null,
   "location": "West US 2",
   "mediaServiceId": "00000000-0000-0000-00000000",
-  "name": "mediatestacc3",
+  "name": "your-media-services-account",
   "resourceGroup": "your-resource-group-name",
   "storageAccounts": [
     {
