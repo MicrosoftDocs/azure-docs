@@ -22,6 +22,7 @@ For more information about Azure AD admin roles, see [Assigning administrator r
 
 ## Prerequisites
 
+- Azure AD Premium P1 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 

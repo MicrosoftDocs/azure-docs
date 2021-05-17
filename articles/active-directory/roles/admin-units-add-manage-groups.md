@@ -22,6 +22,8 @@ In Azure Active Directory (Azure AD), you can add groups to an administrative un
 
 ## Prerequisites
 
+- Azure AD Premium P1 license for each administrative unit administrator
+- Azure AD Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
 - AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API

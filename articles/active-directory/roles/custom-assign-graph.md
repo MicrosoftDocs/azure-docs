@@ -20,6 +20,7 @@ You can automate how you assign roles to user accounts using the Microsoft Graph
 
 ## Prerequisites
 
+- Azure AD Premium P1 license
 - Privileged Role Administrator or Global Administrator
 - Admin consent when using Graph explorer for Microsoft Graph API
 

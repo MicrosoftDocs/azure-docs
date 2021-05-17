@@ -21,6 +21,7 @@ This article explains how to create a custom role with permissions to manage ent
 
 ## Prerequisites
 
+- Azure AD Premium P1 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
