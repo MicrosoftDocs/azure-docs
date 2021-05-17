@@ -253,35 +253,43 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
-## Configure two VMs with the same hostname to access an NFSv4.1 volume 
+## Configure two VMs with the same hostname to access NFSv4.1 volumes 
 
-This section explains how you can configure two VMs that have the same hostname to access an Azure NetApp Files NFSv4.1 volume within the same VNet. This procedure can be useful when you conduct a disaster recovery (DR) test and require a test system with the same hostname as the primary DR system. This procedure is only required when you have the same hostname on two VMs that are accessing the same Azure NetApp Files volumes in a VNet.
+This section explains how you can configure two VMs that have the same hostname to access Azure NetApp Files NFSv4.1 volumes. This procedure can be useful when you conduct a disaster recovery (DR) test and require a test system with the same hostname as the primary DR system. This procedure is only required when you have the same hostname on two VMs that are accessing the same Azure NetApp Files volumes.  
 
-1. Display the settings on the VM clients by using the following command:   
+NFSv4.x requires each client to identify itself to servers with a *unique* string. File open and lock state shared between one client and one server is associated with this identity. To support robust NFSv4.x state recovery and transparent state migration, this identity string must not change across client reboots.
+
+1. Display the `nfs4_unique_id` string on the VM clients by using the following command:
     
-    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `# systool -v -m nfs | grep -i nfs4_unique`     
     `    nfs4_unique_id      = ""`
 
-2. On the test DR system, create a unique `nfs4_unique_id`.  This step allows Azure NetApp Files to distinguish between the two VMs with the same hostname and permit mounting NFSv4.1 volumes on both VMs.   
+    To mount the same volume on an additional VM with the same hostname, for example the DR system, create a `nfs4_unique_id` so it can uniquely identify itself to the Azure NetApp Files NFS service.  This step allows the service to distinguish between the two VMs with the same hostname and enable mounting NFSv4.1 volumes on both VMs.  
 
-    You need to perform this step only on the test DR system.
+    You need to perform this step on the test DR system only. For consistency, you can consider applying a unique setting on each involved virtual machine.
 
-    `echo options nfs nfs4_unique_id=uniquenfs4-1 > /etc/modprobe.d/nfsclient.conf`   
-    `uniquenfs4-1 can be any alphanumeric string`   
-    `Reboot VM`   
+2. On the test DR system, add the following line to the `nfsclient.conf` file, typically located in `/etc/modprobe.d/`:
 
-3. On the test DR system, verify the `nfs4_unique_id` has been set after the VM reboot:       
+    `options nfs nfs4_unique_id=uniquenfs4-1`  
 
-    `systool -v -m nfs | grep -i nfs4_unique`
+    The string `uniquenfs4-1` can be any alphanumeric string, as long as it is unique across the VMs to be connected to the service.
 
-    The result should show `uniquenfs4-1` from Step 2.
+    Check your distribution’s documentation about how to configure NFS client settings.
 
-4. Mount the NFSv4.1 volume on both VMs.
+    Reboot the VM for the change to take effect.
 
-Both VMs can now access the NFSv4.1 volume that is mounted in the same VNet.  
+3. On the test DR system, verify that `nfs4_unique_id` has been set after the VM reboot:       
+
+    `# systool -v -m nfs | grep -i nfs4_unique`   
+    `   nfs4_unique_id      = "uniquenfs4-1"`   
+
+4. [Mount the NFSv4.1 volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) on both VMs as normal.
+
+    Both VMs with the same hostname can now mount and access the NFSv4.1 volume.  
 
 ## Next steps  
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
+* [Mount the NFSv4.1 volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 
