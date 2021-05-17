@@ -26,8 +26,8 @@ The current system is designed with multiple stages spanning across the edge and
 ![Multiple stages of keyword recognition across edge and cloud.](media/custom-keyword/keyword-recognition-multi-stage.png)
 
 Accuracy of keyword recognition is measured via the following metrics:
-1. **Correct accept rate (CA)** – Measures the system’s ability to recognize the keyword when it is spoken by an end-user. This is also known as the true positive rate. 
-2. **False accept rate (FA)** – Measures the system’s ability to filter out audio that is not the keyword spoken by an end-user. This is also known as the false positive rate.
+* **Correct accept rate (CA)** – Measures the system’s ability to recognize the keyword when it is spoken by an end-user. This is also known as the true positive rate. 
+* **False accept rate (FA)** – Measures the system’s ability to filter out audio that is not the keyword spoken by an end-user. This is also known as the false positive rate.
 
 The goal is to maximize the correct accept rate while minimizing the false accept rate. The current system is designed to detect a keyword or phrase preceded by a short amount of silence. Detecting a keyword in the middle of a sentence or utterance is not supported.
 
@@ -75,13 +75,13 @@ When Keyword Verification is used, it is always in combination with Speech-to-te
 ![Parallel processing of Keyword Verification and Speech-to-text.](media/custom-keyword/keyword-verification-parallel-processing.png)
 
 Running Keyword Verification and Speech-to-text in parallel yields the following benefits:
-1. **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md)).
-2. **Forced keyword prefix in Speech-to-text results** – Speech-to-text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-text results for speech that follows the keyword.
-3. **Increased Speech-to-text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-text processing. This ensures the end-user experience is correctly handled for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*). 
+* **No additional latency on Speech-to-text results** – Parallel execution means Keyword Verification adds no latency, and the client receives Speech-to-text results just as quickly. If Keyword Verification determines the keyword was not present in the audio, Speech-to-text processing is terminated, which protects against unnecessary Speech-to-text processing. However, network and cloud model processing increases the user-perceived latency of voice activation. For details, see [Recommendations and guidelines](keyword-recognition-guidelines.md)).
+* **Forced keyword prefix in Speech-to-text results** – Speech-to-text processing will ensure that the results sent to the client are prefixed with the keyword. This allows for increased accuracy in the Speech-to-text results for speech that follows the keyword.
+* **Increased Speech-to-text timeout** – Due to the expected presence of the keyword at the beginning of audio, Speech-to-text will allow for a longer pause of up to 5 seconds after the keyword, before determining end of speech and terminating Speech-to-text processing. This ensures the end-user experience is correctly handled for both staged commands (*\<keyword> \<pause> \<command>*) and chained commands (*\<keyword> \<command>*). 
 
 ### Keyword Verification responses and latency considerations
 
-For each request to the service, Keyword Verification will return one of two responses: Accepted or Rejected. The processing latency varies depending on the length of the keyword and the length of the audio segment expected to contain the keyword. *Note: processing latency does not include network cost between the client and Azure Speech services.*
+For each request to the service, Keyword Verification will return one of two responses: Accepted or Rejected. The processing latency varies depending on the length of the keyword and the length of the audio segment expected to contain the keyword. Processing latency does not include network cost between the client and Azure Speech services.
 
 | Keyword Verification response | Description |
 | ----------------------------- | ----------- |
@@ -93,9 +93,9 @@ Rejected cases often yield higher latencies as the service processes more audio 
 ### Using Keyword Verification with on-device models from Custom Keyword
 
 The Speech SDK facilitates seamless use of on-device models generated using Custom Keyword with Keyword Verification and Speech-to-text. It transparently handles:
-1. Audio gating to Keyword Verification & Speech recognition based on the outcome of on-device model.
-2. Communicating the keyword to the Keyword Verification service.
-3. Communicating any additional metadata to the cloud for orchestrating the end-to-end scenario. 
+* Audio gating to Keyword Verification & Speech recognition based on the outcome of on-device model.
+* Communicating the keyword to the Keyword Verification service.
+* Communicating any additional metadata to the cloud for orchestrating the end-to-end scenario. 
 
 You do not need to explicitly specify any configuration parameters. All necessary information will automatically be extracted from the on-device model generated by Custom Keyword.
 
