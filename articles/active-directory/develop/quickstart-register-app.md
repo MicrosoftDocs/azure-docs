@@ -28,16 +28,11 @@ The Microsoft identity platform performs identity and access management (IAM) on
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account must be assigned one of the following roles:
+  - [Application administrator](../roles/permissions-reference.md#application-administrator) - can create and manage all aspects of app registrations and enterprise apps.
+  - [Application developer](../roles/permissions-reference.md#application-developer) - can create application registrations independent of the 'Users can register applications' setting.
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator) - can create and manage all aspects of app registrations and enterprise apps except App Proxy.
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
-- The following roles are capable of working with app registrations.
-
-| Role                                                                                                 | Description                                                                                        |
-| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| [Application administrator](../roles/permissions-reference.md#application-administrator)             | Can create and manage all aspects of app registrations and enterprise apps.                        |
-| [Application developer](../roles/permissions-reference.md#application-developer)                     | Can create application registrations independent of the 'Users can register applications' setting. |
-| [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator) | Can create and manage all aspects of app registrations and enterprise apps except App Proxy.       |
-
-- Learn more about [Azure AD built-in roles](../roles/permissions-reference.md)
 
 ## Register an application
 
@@ -147,5 +142,4 @@ Client applications typically need to access resources in a web API. You can pro
 
 Go to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
-> [!div class="nextstepaction"]
-> [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
+> [!div class="nextstepaction"] > [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
