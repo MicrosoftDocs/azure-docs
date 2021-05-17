@@ -517,7 +517,7 @@ Stay healthy!
 **New features**
 - **Go**: New Go language support for [speech recognition](./get-started-speech-to-text.md?pivots=programming-language-go) and [custom voice assistant](./quickstarts/voice-assistants.md?pivots=programming-language-go). Set up your dev environment [here](./quickstarts/setup-platform.md?pivots=programming-language-go). For sample code, see the Samples section below. 
 - **JavaScript**: Added Browser support for Text-To-Speech. See documentation [here](./get-started-text-to-speech.md?pivots=programming-language-JavaScript).
-- **C++, C#, Java**: New `KeywordRecognizer` object and APIs supported on Windows, Android, Linux & iOS platforms. Read the documentation [here](./custom-keyword-overview.md). For sample code, see the Samples section below. 
+- **C++, C#, Java**: New `KeywordRecognizer` object and APIs supported on Windows, Android, Linux & iOS platforms. Read the documentation [here](./keyword-recognition-overview.md). For sample code, see the Samples section below. 
 - **Java**: Added multi-device conversation with translation support. See the reference doc [here](/java/api/com.microsoft.cognitiveservices.speech.transcription).
 
 **Improvements & Optimizations**

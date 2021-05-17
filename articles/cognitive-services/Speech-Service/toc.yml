@@ -295,12 +295,16 @@
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
-- name: Custom Keyword
+- name: Keyword recognition
   items:
-    - name: Custom keyword overview
-      href: custom-keyword-overview.md
-    - name: Custom keyword basics
+    - name: Keyword recognition overview
+      href: keyword-recognition-overview.md
+    - name: Custom Keyword quickstart
       href: custom-keyword-basics.md
+    - name: Recommendations and guidelines
+      href: keyword-recognition-guidelines.md
+    - name: Region support
+      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios

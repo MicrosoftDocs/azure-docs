@@ -21,6 +21,9 @@ ms.date: 05/11/2021
 
 1. Select **Machine Learning**.
 
+   :::image type="content" source="media/aml-create-in-portal/machine-learning.png" alt-text="Screenshot shows search results to select Machine Learning.":::
+
+
 1. In the **Machine Learning** pane, select **Create** to begin.
 
 1. Provide the following information to configure your new workspace:
