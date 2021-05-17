@@ -85,7 +85,7 @@ Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CL
 
 ## Deployment name
 
-When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -111,39 +111,11 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Deploy template spec
 
-> [!NOTE]
-> Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
-
-Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
-
-The following examples show how to create and deploy a template spec.
-
-First, create the template spec by providing the ARM template.
-
-```azurecli
-az ts create \
-  --name storageSpec \
-  --version "1.0" \
-  --resource-group templateSpecRG \
-  --location "westus2" \
-  --template-file "./mainTemplate.json"
-```
-
-Then, get the ID for template spec and deploy it.
-
-```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
-
-az deployment group create \
-  --resource-group demoRG \
-  --template-spec $id
-```
-
-For more information, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Parameters
 
@@ -208,7 +180,7 @@ Use double quotes around the JSON that you want to pass into the object.
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Both ARM template and Bicep file use JSON parameter files.
 
-For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
+For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
 To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
 
@@ -216,7 +188,7 @@ To pass a local parameter file, use `@` to specify a local file named _storage.p
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file storage.bicep \
   --parameters @storage.parameters.json
 ```
 
@@ -245,6 +217,6 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
 ## Next steps
 
 * To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
+* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](./deployment-modes.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).

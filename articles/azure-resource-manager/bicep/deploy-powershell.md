@@ -4,18 +4,18 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/17/2021
 ---
 
 # Deploy resources with ARM templates and Azure PowerShell (Bicep)
 
-This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
+This article explains how to use Azure PowerShell with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
 
 To deploy Bicep files, you need [Azure PowerShell version 5.6.0 or later](/powershell/azure/install-az-ps).
 
 ## Prerequisites
 
-You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is _C:\MyTemplates\azuredeploy.json_.
+You need a Bicep file to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is _C:\MyTemplates\azuredeploy.json_.
 
 You need to install Azure PowerShell and connect to Azure:
 
