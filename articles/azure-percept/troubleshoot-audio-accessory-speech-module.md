@@ -15,7 +15,7 @@ Use the guidelines below to troubleshoot voice assistant application issues.
 
 ## Understanding Ear SoM LED indicators
 
-You can use LED indicators to understand which state you device is in. It takes around 4-5 minutes for the device to power on and the module to fully initialize. As it goes through initialization steps, you will see:
+You can use LED indicators to understand which state your device is in. It takes around 4-5 minutes for the device to power on and the module to fully initialize. As it goes through initialization steps, you will see:
 
 1. Center white LED on (static): the device is powered on.
 1. Center white LED on (blinking): authentication is in progress.
@@ -69,10 +69,10 @@ After redirecting output to a .txt file, copy the file to your host PC via SCP:
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[local host file path] refers to the location on your host PC which you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
+[local host file path] refers to the location on your host PC, which you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
 
 ## Known Issues
-- If using a free trial, the speech model may exceed the free trial price plan. Ir this is the case, the model will simply stop working without an error message.
+- If using a free trial, the speech model may exceed the free trial price plan. In this case, the model will stop working without an error message.
 - If more than 5 IoT Edge devices are connected, the report (the text sent via telemetry to IoT Hub and Speech Studio) may be blocked.
 - If the device is in a different region than the resources, the report message may be delayed. 
 
