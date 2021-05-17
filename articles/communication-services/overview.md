@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 05/17/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technology. Azure Communication Services supports a variety of communication formats:
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. Azure Communication Services supports various communication formats:
 
 1. Voice and Video Calling
 1. Rich Text Chat
@@ -22,7 +22,7 @@ Azure Communication Services are cloud-based services with REST APIs and client 
 
 Voice and video calling applications can interact with the publicly switched telephony network (PSTN). You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
-In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for a variety of platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
+In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
 REST APIs and SDKs are also available to connect services and bots to communication applications.
 
