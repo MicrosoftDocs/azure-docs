@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 # Manage an Azure Automation Run As account
 
-Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account.
+Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account, including renewal of the self-signed or certificate from an enterprise or third-party certificate authority (CA).
 
 To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
@@ -24,7 +24,7 @@ When you renew the self-signed certificate, the current valid certificate is ret
 >If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
 >[!NOTE]
->If you have configured your Run As account to use a certificate issued by your enterprise or third-party certificate authority (CA) and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate. To renew your certificate in this case, see [Renew an enterprise or third-party certificate](#renew-an-enterprise-or-third-party-certificate).
+>If you have configured your Run As account to use a certificate issued by your enterprise or third-party CA and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate. To renew your certificate in this case, see [Renew an enterprise or third-party certificate](#renew-an-enterprise-or-third-party-certificate).
 
 Use the following steps to renew the self-signed certificate.
 
@@ -59,7 +59,7 @@ Every certificate has a built-in expiration date. If the certificate you assigne
 
 1. Search for and select **Automation Accounts**.
 
-1. On the Automation Accounts page, select your Automation account from the list.\
+1. On the Automation Accounts page, select your Automation account from the list.
 
 1. In the left pane, select **Connections**.
 
