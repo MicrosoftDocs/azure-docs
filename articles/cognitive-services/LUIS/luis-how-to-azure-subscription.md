@@ -118,7 +118,7 @@ The following procedure assigns a resource to a specific app.
 1. Sign in to the [LUIS portal](https://www.luis.ai). Select an app from the **My apps** list.
 1. Go to **Manage** > **Azure Resources**:
 
-    :::image type="content" source="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png" alt-text="Choose a type of Language Understanding authoring resource." lightbox="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png":::
+    :::image type="content" source="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png" alt-text="Choose a type of Language Understanding prediction resource." lightbox="./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png":::
 
 1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
 1. Use the fields in the form to find the correct resource, and then select **Save**.
@@ -267,7 +267,7 @@ If you want to know when you reach a certain transaction threshold, for example 
 
     :::image type="content" source="./media/luis-usage-tiers/alerts-2.png" alt-text="Screenshot that shows the add condition page for alert rules." lightbox="./media/luis-usage-tiers/alerts-2.png":::
 
-4.Select **Total Calls**
+4. Select **Total Calls**
 
     :::image type="content" source="./media/luis-usage-tiers/alerts-3.png" alt-text="Screenshot that shows the total calls page for alerts." lightbox="./media/luis-usage-tiers/alerts-3.png":::
 
