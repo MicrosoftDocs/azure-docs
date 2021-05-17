@@ -28,7 +28,9 @@ Creating an append-only ledger table can be done through specifying the `LEDGER 
 
 ### Append-only ledger table schema
 
-When created, append-only ledger tables will add two system-generated hidden columns to your table. These columns contain metadata noting which transactions made changes to your append-only ledger tables and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
+An append-only table needs to have the following `GENERATED ALWAYS` columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
+
+If you do not specify the definitions of the `GENERATED ALWAYS` columns in the [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) statement, the system will automatically add them, using the below default names.
 
 | Column name | Data type | Description |
 |--|--|--|

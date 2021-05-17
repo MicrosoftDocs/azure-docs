@@ -26,20 +26,20 @@ Both updatable ledger tables and [temporal tables](/sql/relational-databases/tab
 You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
 
-1. When creating a new database in the Azure Portal by selecting **Enable ledger on all future tables in this database** during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This enables ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
+1. When creating a new database in the Azure Portal by selecting **Enable ledger on all future tables in this database** during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This creates a ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
 1. When creating a new table on a database where ledger isn't enabled at the database-level, by specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement.
 
 For details on options available when specifying the `LEDGER` argument in your T-SQL statement, see [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql).
 
 > [!IMPORTANT]
-> Enabling database ledger, or for specific tables, cannot be disabled later. This is to ensure an attacker cannot temporarily remove ledger capabilities on a ledger table, make changes, and then re-enable ledger functionality. 
+> Once created, a ledger table cannot be converted to a table that is not a ledger table. This is to ensure an attacker cannot temporarily remove ledger capabilities on a ledger table, make changes, and then re-enable ledger functionality. 
 
 ### Updatable ledger table schema
 
-When created, updatable ledger tables will add 4 system-generated, hidden columns to your table. These columns contain metadata noting which transactions made changes to your updatable ledger tables and the order of operations by which rows were updated by the transaction. This data is useful for forensics purposes in understanding how data was changed over time.
+An updatable ledger table needs to have the following `GENERATED ALWAYS` columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
 
 > [!NOTE]
-> The `GENERATE ALWAYS` columns of the ledger table and ledger history table name can be customized when creating the table using the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. For more information, see our examples of [Creating a updatable ledger table](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#x-creating-a-updatable-ledger-table).
+> If you do not specify the required `GENERATED ALWAYS` columns of the ledger table and ledger history table in the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement, the system will automatically add the columns, and it will use the below default names. For more information, see our examples of [Creating a updatable ledger table](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#x-creating-a-updatable-ledger-table).
 
 | Column name | Data type | Description |
 | --- | --- | --- |
