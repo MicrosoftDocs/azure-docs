@@ -28,119 +28,30 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-accel-models**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-automl-core**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
+  + **Breaking changes**
+    + Dropped support for Python 3.5. on azureml-sdk 
   + **azureml-automl-runtime**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
     + Fixed a bug where the STLFeaturizer failed if the time-series length was shorter than the seasonality. This error manifested as an IndexError. The case is handled now without error, though the seasonal component of the STL will just consist of zeros in this case.
-  + **azureml-cli-common**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-contrib-automl-dnn-vision**
     + Added a method for batch inferencing with file paths.
-  + **azureml-contrib-automl-pipeline-steps**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-dataset**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-fairness**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-featurestore**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-functions**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-contrib-gbdt**
     + The azureml-contrib-gbdt package has been deprecated and might not receive future updates and will be removed from the distribution altogether.
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-iot**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-jupyterrun**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-contrib-k8s**
     + Removed ArcKubernetesCompute and CmAksCompute. Instead, customers should stick with the existing KubernetesCompute. This change also includes a warning when using KubernetesCompute, which suggested users to switch to azureml.core because the azureml.contrib.k8s package is deprecated
-  + **azureml-contrib-mir**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-notebook**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-optimization**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-pipeline-steps**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-reinforcementlearning**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-reports**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-run**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-server**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-contrib-services**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-core**
     + 1. Corrected explanation of parameter "create_if_not_exists" in method "register_azure_blob_container" of class "Datastore"; 2. Sample codes in class "DatasetConsumptionConfig"
     + Added support for step as an alternative axis for scalar metric values in run.log()
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
     + CLI doc string improvements.
-  + **azureml-datadrift**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-dataprep**
     + Limit partition size accepted in `_with_partition_size()` to 2GB
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-dataprep-native**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-explain-model**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-interpret**
     + update azureml-interpret to the latest interpret-core package version
     + Dropped support for SHAP DenseData, which has been deprecated in SHAP 0.36.0.
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
     + Enable `ExplanationClient` to upload to a user specified datastore.
-  + **azureml-jupyter-notebook**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-mlflow**
     + Move azureml-mlflow to mlflow-skinny to reduce the dependency footprint while maintaining full plugin support
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-opendatasets**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-parallel-run**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-pipeline**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
   + **azureml-pipeline-core**
     + PipelineParameter code sample is updated in the reference doc to use correct parameter.
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-responsible-ai**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-sdk**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-sidecar**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-synapse**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-telemetry**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-tensorboard**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train-automl**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train-automl-client**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train-automl-runtime**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train-core**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-train-restclients-hyperdrive**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-webservice-schema**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
-  + **azureml-widgets**
-    + Dropped support for Python 3.5. Please use Python >= 3.6, < 3.9.
 
 
 ## 2021-05-10
