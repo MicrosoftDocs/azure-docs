@@ -68,7 +68,7 @@ You can also leverage this agent from portal with the following procedure.
 
    ![Update environment](media/new-relic-monitoring/configurations-update-environment.png)
 
-4. Click **General settings** to add/update/delete the `Jvm Option` of the application.
+4. Click **General settings** to add/update/delete the **Jvm Option** of the application.
 
    ![Update Jvm Option](media/new-relic-monitoring/update-jvm-option.png)
 
@@ -96,16 +96,16 @@ You can also leverage this agent from portal with the following procedure.
 
 By default, Azure Spring Cloud will print the logs of the **New Relic** Java agent to `STDOUT`. It will be combined with the application logs. You can get the explicit agent version from the application logs.
 
-You can also get the logs of the `New Relic` agent from:
+You can also get the logs of the **New Relic** agent from:
 
 * Azure Spring Cloud Logs.
 * Azure Spring Cloud Application Insights.
 * Azure Spring Cloud LogStream.
 
-You can leverage some environment variables provided by `New Relic` to configure the logging of the `New Agent`, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+You can leverage some environment variables provided by **New Relic** to configure the logging of the **New Agent**, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 > [!CAUTION]
-> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Cloud for `New Relic`. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to you applications. Log file(s) may be lost after restart or redeployment of application(s).
+> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Cloud for New Relic. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
 >
 > * NEW_RELIC_LOG
 > * NEW_RELIC_LOG_FILE_PATH
@@ -123,4 +123,4 @@ The **New Relic** Java agent will update/upgrade the JDK regularly. The agent up
 For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the **New Relic** Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
-*  [Distributed tracing and App Insights](href: how-to-distributed-tracing.md)
+*  [Distributed tracing and App Insights](how-to-distributed-tracing.md)
