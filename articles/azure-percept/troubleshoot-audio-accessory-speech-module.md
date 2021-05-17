@@ -22,10 +22,10 @@ You can use LED indicators to understand which state your device is in. It takes
 1. Center white LED on (static): the device is authenticated but keyword is not configured.​
 1. All three LEDs will change to blue once a demo was deployed and the device is ready to use.
 
-For more reference, see this article about [Azure Percept Audio button and LED behavior](./audio-button-led-behavior).
+For more reference, see this article about [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md).
 
 ### Troubleshooting LED issues
-- **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech).
+- **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
 - **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
     - Make sure that your USB-A and micro usb connections are secured 
     - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module#checking-runtime-status-of-the-speech-module)
@@ -77,7 +77,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 - If the device is in a different region than the resources, the report message may be delayed. 
 
 ## Useful Links
-- [Azure Percept Audio setup](./azure-percept/quickstart-percept-audio-setup)
-- [Azure Percept Audio button and LED behavior](./audio-button-led-behavior)
-- [Create a voice assistant with Azure Percept DK and Azure Percept Audio](./tutorial-no-code-speech)
+- [Azure Percept Audio setup](./azure-percept/quickstart-percept-audio-setup.md)
+- [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md)
+- [Create a voice assistant with Azure Percept DK and Azure Percept Audio](./tutorial-no-code-speech.md)
 - [Azure Percept DK general troubleshooting guide](./troubleshoot-dev-kit.md)
