@@ -142,4 +142,5 @@ Client applications typically need to access resources in a web API. You can pro
 
 Go to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
-> [!div class="nextstepaction"] > [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
+> [!div class="nextstepaction"]
+> [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
