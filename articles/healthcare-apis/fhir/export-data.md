@@ -5,7 +5,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 3/18/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
 ---
 # How to export FHIR data
@@ -68,16 +68,37 @@ The Azure API for FHIR supports the following query parameters. All of these par
 
 ## Secure Export to Azure Storage
 
-Azure API for FHIR supports a secure export operation. One option to run
-a secure export is to permit specific IP addresses associated with Azure API for FHIR to access the Azure storage account. Depending on whether the storage account is in the same or a different location from that of the
-Azure API for FHIR, the configurations are different.
+Azure API for FHIR supports a secure export operation. Choose one of the two options below:
+
+* Allowing Azure API for FHIR as a Microsoft Trusted Service to access the Azure storage account.
+ 
+* Allowing specific IP addresses associated with Azure API for FHIR to access the Azure storage account. 
+This option provides two different configurations, depending on whether the storage account is in the same or a different location from that of the Azure API for FHIR, the configurations are different.
+
+### Allowing Azure API for FHIR as a Microsoft Trusted Service
+
+Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Selected networks** under the **Firewalls and virtual networks** tab.
+
+> [!IMPORTANT]
+> Make sure that you’ve granted access permission to storage account for Azure API for FHIR using its managed identity. For more details see [Configure export setting and set up the storage account](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
+
+  :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
+
+Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account**, and then save the setting. 
+
+:::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
+
+You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and not publicly accessible. To access the files, you can either add the storage account to your virtual networks and create a Private Link endpoint or enable all networks for the storage account for a limited period of time.
+
+> [!IMPORTANT]
+> The user interface will be updated later to allow you to select the Resource type for Azure API for FHIR and a specific service instance.
 
 ### When the Azure storage account is in a different region
 
 Select **Networking** of the Azure storage account from the
 portal. 
 
-   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
+ 
    
 Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
 allow access from the internet or your on-premises networks. You can
