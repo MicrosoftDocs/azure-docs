@@ -71,7 +71,7 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
 ## Install Event Grid on Kubernetes extension
 
 1. On the Azure portal, search (field on top) for **Azure Arc**
-1. Select **Kuberntes cluster** on the left-hand-side menu in the **Infrastructure** section
+1. Select **Kubernetes cluster** on the left-hand-side menu in the **Infrastructure** section
 1. Under the list of clusters, locate the one to which you want to install Event Grid, and select it. The **Overview** page for the cluster is displayed.
 1. Select **Extensions** in the **Settings** group on the left menu.
 1. Select **+ Add**. A page showing the available Azure Arc Kubernetes extensions is displayed.
