@@ -3,19 +3,19 @@
 - name: Overview
   expanded: true
   items:
+  - name: What is Translator?
+    href: translator-info-overview.md
   - name: Language Support
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
     href: whats-new.md
+  - name: Translator FAQ
+    href: https://www.microsoft.com/translator-faq.md
 - name: Text Translation
   expanded: true
   items:
-  - name: What is Translator?
-    href: translator-info-overview.md
-  - name: Translator FAQ
-    href: https://www.microsoft.com/translator/faq.aspx
   - name: Quickstart
     href: quickstart-translator.md
   - name: Samples
@@ -52,10 +52,6 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
-  - name: Concepts
-    items:
-    - name: How the API counts characters
-      href: character-counts.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#

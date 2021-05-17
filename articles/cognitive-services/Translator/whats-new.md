@@ -17,12 +17,6 @@ ms.author: lajanuar
 
 Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-## May 2021
-
-### Translator container public preview
-
-* **New release**:  The Translator container works in collaboration with Docker, an open-source platform for the development lifecycle of containerized applications, to enable you to run features of the Translator API in your own environment.  Containers package everything an application needs to run—dependencies, configurations, libraries, and other binaries—and to enable smooth and consistent deployment across any computing environment.
-
 ## February 2021
 
 ### [Document Translation public preview](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
@@ -81,11 +75,9 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 * **Northern (Kurmanji) Kurdish** (15 million native speakers) and **Central (Sorani) Kurdish** (7 million native speakers). Most Kurdish texts are written in Kurmanji and Sorani.
 
-### [Text translation support for two Afghan languages](https://www.microsoft.com/translator/blog/2020/08/20/translator-adds-two-kurdish-dialects-for-text-translation/)
+### [Text translation support for two Afghan languages](https://www.microsoft.com/translator/blog/2020/08/17/translator-adds-dari-and-pashto-text-translation/)
 
 * **Dari** (20 million native speakers) and **Pashto** (40 - 60 million speakers). The two official languages of Afghanistan.
-
-### [Text translation support for two Afghan languages](https://www.microsoft.com/translator/blog/2020/08/17/translator-adds-dari-and-pashto-text-translation/)
 
 ### [Text translation support for Odia](https://www.microsoft.com/translator/blog/2020/08/13/odia-language-text-translation-is-now-available-in-microsoft-translator/)
 
