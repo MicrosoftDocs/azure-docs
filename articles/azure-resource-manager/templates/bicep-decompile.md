@@ -33,9 +33,9 @@ This command provides a starting point for Bicep authoring. The command doesn't 
 
 ## Convert from Bicep to JSON
 
-The Bicep CLI also provides a command to convert Bicep to JSON. To build a JSON file, use:
+The Bicep CLI also provides a command to convert Bicep to JSON. 
 
-For Azure CLI version 2.20.0 or later, use:
+For Azure CLI version 2.20.0 or later, use the following command to build a JSON file:
 
 ```azurecli
 az bicep build mainTemplate.bicep
