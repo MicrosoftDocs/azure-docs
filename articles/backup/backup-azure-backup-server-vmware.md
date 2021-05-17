@@ -120,7 +120,7 @@ If you have secure boundaries within your organization, and don't want to use th
 
     ```text
     Windows Registry Editor Version 5.00
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMware]
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
     "IgnoreCertificateValidation"=dword:00000001
     ```
 
