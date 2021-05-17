@@ -21,9 +21,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
 
 1.  Set up the latest [self-hosted integration
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted
-    integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -38,8 +36,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
 4.  You will have to manually download the Hive Metastore database's
     JDBC driver on your virtual machine where self-hosted integration
     runtime is running. For example, if the database used is mssql, make
-    sure to download [Microsoft's JDBC driver for SQL
-    Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+    sure to download [Microsoft's JDBC driver for SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
 
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
@@ -89,7 +86,7 @@ To create and run a new scan, do the following:
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned
-    [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes)
+    [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
 
 2.  Navigate to **Sources**.
@@ -112,7 +109,7 @@ To create and run a new scan, do the following:
     -   Provide the Metastore username in the User name input field
     -   Store the Metastore password in the secret key.
 
-    To understand more on credentials, refer to the link [here](https://docs.microsoft.com/azure/purview/manage-credentials)
+    To understand more on credentials, refer to the link [here](manage-credentials.md)
 
     d. **Metastore JDBC Driver Location**: Specify the path to the JDBC
     driver location on your VM where self-host integration runtime is
