@@ -14,7 +14,7 @@ ms.date: 11/01/2018
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
 Micrometer application monitoring measures metrics for JVM-based application code and lets you export the data to your favorite monitoring systems. This article will teach you how to use Micrometer with Application Insights for both Spring Boot and non-Spring Boot applications.
 
