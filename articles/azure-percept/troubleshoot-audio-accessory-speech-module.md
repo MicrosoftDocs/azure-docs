@@ -27,7 +27,7 @@ For more reference, see this article about [Azure Percept Audio button and LED b
 ### Troubleshooting LED issues
 - **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
 - **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
-    - Make sure that your USB-A and micro usb connections are secured 
+    - Make sure that your USB-A and micro USB connections are secured 
     - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
     - Restart the device
     - [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
@@ -71,12 +71,12 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 [local host file path] refers to the location on your host PC, which you would like to copy the .txt file to. [remote username] is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
 
-## Known Issues
+## Known issues
 - If using a free trial, the speech model may exceed the free trial price plan. In this case, the model will stop working without an error message.
 - If more than 5 IoT Edge devices are connected, the report (the text sent via telemetry to IoT Hub and Speech Studio) may be blocked.
 - If the device is in a different region than the resources, the report message may be delayed. 
 
-## Useful Links
+## Useful links
 - [Azure Percept Audio setup](./quickstart-percept-audio-setup.md)
 - [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md)
 - [Create a voice assistant with Azure Percept DK and Azure Percept Audio](./tutorial-no-code-speech.md)
