@@ -10,7 +10,7 @@ ms.date: 05/13/2021
 # As a developer, I want to connect to my single-tenant workflows from virtual networks using private endpoints.
 ---
 
-# Secure traffic between virtual networks and single-tenant workflows in Azure Logic Apps using private endpoints (preview)
+# Secure traffic between virtual networks and single-tenant workflows in Azure Logic Apps using private endpoints
 
 To securely and privately communicate between your logic app workflow and a virtual network, you can set up *private endpoints* for inbound traffic and use virtual network integration for outbound traffic.
 
