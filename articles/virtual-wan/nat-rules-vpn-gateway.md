@@ -75,14 +75,14 @@ The following diagram shows the projected end result:
 
  2.  Toggle **BGP Route Translation** to 'Enable'.
 
-       :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Screenshot showing edit rules.":::
+       :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
 
 
 3. Ensure the Site-to-site VPN Gateway is able to peer with the on-premises BGP peer.
 
       In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 127.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (127.30.0.132). 
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to change the BGP peering IP.":::
 
  
 
