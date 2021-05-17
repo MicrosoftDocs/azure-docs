@@ -42,7 +42,7 @@ az group create --name "myResourceGroup" --location westus2
 ## Deploy the Azure API for FHIR
 
 ```azurecli-interactive
-az healthcareapis create --resource-group myResourceGroup --name nameoffhiraccount --kind fhir-r4 --location westus2 
+az healthcareapis service create --resource-group myResourceGroup --name nameoffhiraccount --kind fhir-r4 --location westus2 --identity-type SystemAssigned
 ```
 
 ## Fetch FHIR API capability statement
