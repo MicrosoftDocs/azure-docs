@@ -40,7 +40,7 @@ An *action* is an operation that follows the trigger and performs some kind of t
 
 ## Connector categories
 
-In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [Logic Apps Preview](../logic-apps/single-tenant-overview-compare.md).
+In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 [Built-in triggers and actions](built-in.md) run natively on the Logic Apps runtime, don't require creating connections, and perform these kinds of tasks:
 
