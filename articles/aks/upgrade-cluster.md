@@ -165,7 +165,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 
 ## Using Cluster Auto-Upgrade with Planned Maintenance
 
-Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically.
+If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specificed maintenance window. To read more about Planned Maintenance, visit the [documentation][planned-maintenance].
 
 ## Next steps
 
@@ -190,3 +190,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

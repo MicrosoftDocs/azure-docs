@@ -209,7 +209,7 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 
 ## Using Planned Maintenance with Cluster Auto-Upgrade
 
-Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically.
+Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. To read more about Cluster Auto-Upgrade, visit the [documentation][aks-upgrade].
 
 ## Next steps
 
