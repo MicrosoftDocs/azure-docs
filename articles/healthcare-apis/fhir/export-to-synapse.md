@@ -14,9 +14,8 @@ In this article you will learn a couple of ways to move data from Azure API for 
 
 Moving data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while moving them into Synapse.
 
-**1. Load exported data to Synapse using T-SQL:** Use `$export` operation to move FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](../../synapse-analytics/get-started-pipelines.md).
-
-**2. Use the tools from the FHIR Analytics Pipelines OSS repo:** The [FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) repo contains tools that can create an **Azure Data Factory (ADF) pipeline** to move FHIR data into a **Common Data Model (CDM) folder**, and from the CDM folder to Synapse. 
+* **Load exported data to Synapse using T-SQL:** Use `$export` operation to move FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](../../synapse-analytics/get-started-pipelines.md).
+* **Use the tools from the FHIR Analytics Pipelines OSS repo:** The [FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) repo contains tools that can create an **Azure Data Factory (ADF) pipeline** to move FHIR data into a **Common Data Model (CDM) folder**, and from the CDM folder to Synapse.
 
 ## Load exported data to Synapse using T-SQL
 
