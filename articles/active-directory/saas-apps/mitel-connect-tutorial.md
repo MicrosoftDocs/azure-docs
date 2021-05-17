@@ -19,7 +19,6 @@ In this tutorial, you will learn how to use the Mitel Connect app to integrate A
 * You can control users' access to MiCloud Connect apps and to CloudLink apps in Azure AD by using their enterprise credentials.
 * You can enable users on your account to be automatically signed in to MiCloud Connect or CloudLink (single sign-on) by using their Azure AD accounts.
 
-
 ## Prerequisites
 
 To configure Azure AD integration with MiCloud Connect, you need the following items:
@@ -166,7 +165,7 @@ Create a user on your MiCloud Connect account with the following details:
 > [!NOTE]
 > The user’s MiCloud Connect username must be identical to the user’s email address in Azure.
 
-## Test SSO
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -292,7 +291,7 @@ Create a user on your CloudLink Accounts portal with the following details:
 > [!NOTE]
 > The user's CloudLink email address must be identical to the **User Principal Name** in the Azure portal.
 
-## Test SSO
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
