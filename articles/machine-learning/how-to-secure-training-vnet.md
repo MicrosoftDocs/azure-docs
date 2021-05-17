@@ -60,6 +60,7 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > * When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for `<instance-name>.<region>.instances.azureml.ms` with private IP address of workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md) article.
 > * The subnet used to deploy compute cluster/instance should not be delegated to any other service like ACI
 > * Virtual network service endpoint policies do not work for compute cluster/instance system storage accounts
+> * If storage and compute instance are in different regions you might see intermittent timeouts
 
     
 > [!TIP]

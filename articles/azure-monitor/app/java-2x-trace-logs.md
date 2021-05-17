@@ -13,7 +13,7 @@ ms.author: jgol
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 

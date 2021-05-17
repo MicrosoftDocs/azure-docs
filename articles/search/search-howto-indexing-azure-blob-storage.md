@@ -20,7 +20,7 @@ This article shows you how to configure a blob indexer for either scenario. If y
 
 ## Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and hool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 <a name="SupportedFormats"></a>
 
