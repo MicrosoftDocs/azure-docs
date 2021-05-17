@@ -1,7 +1,7 @@
 ---
-title: UI Framework Teams Embed
+title: UI Library Teams Embed
 titleSuffix: An Azure Communication Services quickstart
-description: In this document, you'll learn how the Azure Communication Services UI Framework Teams Embed capability can be used to build turnkey calling experiences.
+description: In this document, you'll learn how the Azure Communication Services UI Library Teams Embed capability can be used to build turnkey calling experiences.
 author: tophpalmer
 ms.author: chpalm
 ms.date: 11/16/2020
@@ -31,4 +31,4 @@ The Teams Embed provides most features supported in Teams meetings, including:
 - [Multiple options for the video gallery](https://support.microsoft.com/office/using-video-in-microsoft-teams-3647fc29-7b92-4c26-8c2d-8a596904cdae) large gallery, together mode, focus, pinning, and spotlight
 - [Content Sharing](https://support.microsoft.com/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8): allowing participants to share their screen
 
-For more information about this UI compared to other Azure Communication SDKs, see the [UI SDK concept introduction](ui-sdk-overview.md). 
+For more information about this UI compared to other Azure Communication SDKs, see the [UI SDK concept introduction](ui-library-overview.md). 
