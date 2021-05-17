@@ -402,6 +402,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
+
 <sup>1</sup>The limit for `databases` is different for each Azure Cache for Redis pricing tier and can be set at cache creation. If no `databases` setting is specified during cache creation, the default is 16.
 
 * Basic and Standard caches
@@ -427,6 +428,7 @@ For more information about databases, see [What are Redis databases?](cache-deve
 >
 
 <a name="maxclients"></a>
+
 <sup>2</sup>`maxclients` is different for each Azure Cache for Redis pricing tier.
 
 * Basic and Standard caches
