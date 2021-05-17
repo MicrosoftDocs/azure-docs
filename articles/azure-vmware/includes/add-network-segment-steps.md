@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/13/2021
 ---
 
-<!-- Used in configure-dhcp-l2-stretched-vmware-hcx-networks.md and tutorial-nsx-t-network-segment.md -->
+<!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
 1. In NSX-T Manager, select **Networking** > **Segments**, and then select **Add Segment**. 
 
