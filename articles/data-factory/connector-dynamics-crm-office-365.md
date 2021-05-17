@@ -23,7 +23,7 @@ This connector is supported for the following activities:
 You can copy data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 >[!NOTE]
->Effective November 2020, Common Data Service has been renamed to [Microsoft Dataverse](). This article is updated to reflect the latest terminology. 
+>Effective November 2020, Common Data Service has been renamed to [Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro). This article is updated to reflect the latest terminology. 
 
 This Dynamics connector supports Dynamics versions 7 through 9 for both online and on-premises. More specifically:
 - Version 7 maps to Dynamics CRM 2015.
