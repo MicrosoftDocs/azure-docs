@@ -48,7 +48,7 @@ Now in beta, Microsoft has the final iteration of the PIM API before we release 
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-In the current iteration, there is no API support for PIM alerts and privileged access groups. They are on the roadmap for future development.
+In the current iteration, there is no API support for PIM alerts and privileged access groups.
 
 ## Current permissions required
 
@@ -118,7 +118,7 @@ To manage the setting, we provide the following entities:
 
 The *role management policy* defines the setting of the rule. For example, whether MFA/approval is required, whether and who to send the email notifications to, or whether permanent assignments are allowed or not. The *policy assignment* attaches the policy to a specific role.
 
-The two-entity design could support future scenarios such as attaching a policy to multiple roles. For now, use this API is to get a list of all the roleManagementPolicyAssignments, filter it by the roleDefinitionID you want to modify, and then update the policy associated with the policyAssignment.
+Use this API is to get a list of all the roleManagementPolicyAssignments, filter it by the roleDefinitionID you want to modify, and then update the policy associated with the policyAssignment.
 
 ## Relationship between PIM entities and role assignment entities
 
