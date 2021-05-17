@@ -62,7 +62,7 @@ Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github
 
 ## Check the StackOverflow forum
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='./media/logos/logo-stackoverflow.svg'>
+    <img alt='Stack Overflow' src='./media/logos/logo-stack-overflow.svg'>
 </div>
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
