@@ -9,8 +9,8 @@ ms.topic: how-to
 
 You can use shared image gallery to bring your own Windows custom images and use these images to create labs in Azure Lab Services.  This article shows how to bring a custom image from:
 
-* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#bring-custom-image-from-a-physical-lab-environment).
-* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#bring-custom-image-from-an-azure-virtual-machine).
+* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#upload-custom-image-from-a-physical-lab-environment).
+* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#upload-custom-image-from-an-azure-virtual-machine).
 
 This task is typically performed by a school's IT department.
 
@@ -48,7 +48,7 @@ Many options exist for creating a VHD from a physical lab environment. The below
     You can upload either specialized or generalized images to shared image gallery and use them to create labs.  The steps above will create a specialized image. If you need to instead create a generalized image, you also will need to [run SysPrep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep).  
 
     > [!IMPORTANT]
-    > You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries#generalized-and-specialized-images).
+    > You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
     1. Navigate to **Hyper-V Manager** -> **Action** -> **Edit Disk**.
@@ -66,13 +66,14 @@ Many options exist for creating a VHD from a physical lab environment. The below
 
     1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal.  
     
-        > [!IMPORTANT] The Azure portal's **Size\Performance** tab allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
+    > [!IMPORTANT] 
+    > The Azure portal's **Size\Performance** tab allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
 1. Take a snapshot of the managed disk.
 	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as shown in [Create a snapshot using the portal or PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
 
 1. In shared image gallery, create an image definition and version:
-    1. [Create an image definition](../virtual-machines/windows/shared-images-portal#create-an-image-definition.md).  
+    1. [Create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition).  
      - Choose **Gen 1** for the **VM generation**.
      - Choose whether you are creating a **specialized** or **generalized** image for the **Operating system state**.
      
@@ -81,14 +82,14 @@ Many options exist for creating a VHD from a physical lab environment. The below
     > [!NOTE] 
     > You can also choose to use an existing image definition and create a new version for your custom image.
     
-1. [Create an image version](../virtual-machines/windows/shared-images-portal#create-an-image-version.md).
+1. [Create an image version](../virtual-machines/windows/shared-images-portal.md#create-an-image-version).
     - The **Version number** property uses the following format: *MajorVersion.MinorVersion.Patch*.   When you use Lab Services to create a lab and choose a custom image, the most recent version of the image is automatically used.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.
     - For the **Source**, choose **Disks and/or snapshots** from the drop-down list.
     - For the **OS disk** property, choose the snapshot that you created in previous steps.
     
     For more information about the values you can specify for an image definition, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions). 
    
-1. [Create the lab](../lab-services/tutorial-setup-classroom-lab) in Lab Services and select the custom image from the shared image gallery.
+1. [Create the lab](tutorial-setup-classroom-lab.md) in Lab Services and select the custom image from the shared image gallery.
 
     If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space:      
     - Log into the lab's template VM and follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). 
