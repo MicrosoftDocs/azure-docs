@@ -1,6 +1,6 @@
 ---
 title: Access storage with a Media Services Managed Identity
-description: If you would like to access my storage account when the storage account is configured to block requests from unknown IP addresses, the Media Services account must be granted access to the Storage account. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to storage using the Media Services CLI.
+description: If you would like to access a storage account when the storage account is configured to block requests from unknown IP addresses, the Media Services account must be granted access to the Storage account. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to storage using the Media Services CLI.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -14,7 +14,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-If you would like to access my storage account when the storage account is configured to block requests from unknown IP addresses, the Media Services account must be granted access to the Storage account. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to storage using the Media Services CLI.
+If you would like to access a storage account when the storage account is configured to block requests from unknown IP addresses, the Media Services account must be granted access to the Storage account. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to storage using the Media Services CLI.
 
 This tutorial uses the 2020-05-01 Media Services API.
 

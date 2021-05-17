@@ -81,6 +81,12 @@
     items:
     - name: Encode and stream a remote file CLI
       href: stream-files-cli-quickstart.md
+    - name: Use a Key Vault key to encrypt data
+      href: security-encrypt-data-managed-identity-cli-tutorial.md
+    - name: Access storage with a Managed Identity
+      href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give Azure Functions to access a Media Services account
+      href: security-azure-functions-access-media-services-cli-tutorial.md
   - name: Node.js
     items:
     - name: Encode and stream a remote file Node.js
@@ -456,9 +462,11 @@
     - name: Customer managed keys with REST API
       href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: Use a Key Vault key to encrypt data
-      href: security-encrypt-data-managed-identity-tutorial-cli.md
+      href: security-encrypt-data-managed-identity-cli-tutorial.md
     - name: Access storage with a Managed Identity
-      href: security-access-storage-managed-identity-tutorial-cli.md
+      href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give Azure Functions to access a Media Services account
+      href: security-azure-functions-access-media-services-cli-tutorial.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
