@@ -18,7 +18,7 @@ ms.date: 5/17/2021
 - [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Begin the Migration of your solutions from OCP GTM](#begin-the-migration-of-your-solutions-from-ocp-gtm)
-- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace)
+- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
 - [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
 - [Discard this solution](#discard-this-solution)
 
@@ -41,7 +41,7 @@ Ensure you have an active Microsoft Partner Network membership and are enrolled 
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#cosell-tab) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
