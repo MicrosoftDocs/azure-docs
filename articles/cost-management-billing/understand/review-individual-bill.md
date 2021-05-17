@@ -123,7 +123,7 @@ Costs shown in cost analysis should match precisely to the *usage charges* cost 
 
 External services or marketplace charges are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure Marketplace. For example, a Barracuda Firewall is an Azure Marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
 
-External service charges appear on your Azure invoice.
+External service charges appear on a separate invoice.
 
 ### Resources are billed by usage meters
 
