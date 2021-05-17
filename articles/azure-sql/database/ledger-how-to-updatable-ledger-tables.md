@@ -58,7 +58,7 @@ We'll create an account balance table with the following schema.
    ```
 
     > [!NOTE]
-    > Specifying the `LEDGER = ON` argument is optional if you enabled ledger when you created your Azure SQL Database. In the above example, the system will generate the names of the `GENERATE ALWAYS` columns in the table, the name of the [ledger view](ledger-updatable-ledger-tables.md#ledger-view), and the names of the [ledger view columns](ledger-updatable-ledger-tables.md#ledger-view-schema).
+    > Specifying the `LEDGER = ON` argument is optional if you enabled ledger database when you created your Azure SQL Database. In the above example, the system will generate the names of the `GENERATE ALWAYS` columns in the table, the name of the [ledger view](ledger-updatable-ledger-tables.md#ledger-view), and the names of the [ledger view columns](ledger-updatable-ledger-tables.md#ledger-view-schema).
     >
     > The ledger view column names can be customized when creating the table using the `<ledger_view_option>` parameter with the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. The `GENERATE ALWAYS` columns, as well as the [history table](ledger-updatable-ledger-tables.md#history-table) name can be customized. For more information, see [ledger view options](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) and the corresponding examples in [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true##x-creating-a-updatable-ledger-table).
 

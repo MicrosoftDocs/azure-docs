@@ -15,7 +15,7 @@ ms.author: janders
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The database ledger logically uses a blockchain and [Merkle tree data structures](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals). The database ledger incrementally captures the state of the database as it evolves over time while updates occur on ledger tables. To achieve that, the database ledger stores an entry for every transaction, capturing metadata about the transaction. such as its commit timestamp and the identity of the user that executed it, but also the Merkle tree root of the rows updated in each ledger table. These entries are then appended to a tamper-evident data structure to allow verification of integrity in the future.
+The database ledger logically uses a blockchain and [Merkle tree data structures](/archive/msdn-magazine/2018/march/blockchain-blockchain-fundamentals). The database ledger incrementally captures the state of the database as it evolves over time while updates occur on ledger tables. To achieve that, the database ledger stores an entry for every transaction, capturing metadata about the transaction such as its commit timestamp and the identity of the user that executed it, but also the Merkle tree root of the rows updated in each ledger table. These entries are then appended to a tamper-evident data structure to allow verification of integrity in the future.
 
 :::image type="content" source="media/ledger/merkle-tree.png" alt-text="sql ledger merkle tree":::
 
