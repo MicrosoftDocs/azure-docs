@@ -54,7 +54,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
     # sudo update-grub
     ```
 
-6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 8, 9 or 10:
+6. Add Debian's Azure Repositories to /etc/apt/sources.list for either Debian 8, 9 or 10:
 
     **Debian 8.x "Jessie"**
 
