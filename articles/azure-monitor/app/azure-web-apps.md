@@ -98,8 +98,8 @@ You can monitoring your Node.js apps running in Azure App Service without any co
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
-    [!div class="mx-imgBorder"]
-    ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
+    > [!div class="mx-imgBorder"]
+    > ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
@@ -110,8 +110,8 @@ You can monitoring your Node.js apps running in Azure App Service without any co
 
 2. Once you have specified which resource to use, you are all set to go. 
 
-    [!div class="mx-imgBorder"]
-    ![Choose options per platform.](./media/azure-web-apps/appservice-node.png)
+    > [!div class="mx-imgBorder"]
+    > ![Choose options per platform.](./media/azure-web-apps/app-service-node.png)
 
 # [Java](#tab/java)
 
@@ -119,8 +119,8 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
-    [!div class="mx-imgBorder"]
-    ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
+    > [!div class="mx-imgBorder"]
+    > ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
 
    * Choose to create a new resource, unless you already set up an application insights resource for this application. 
 
@@ -131,8 +131,8 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
 2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file without specifying the connection string. You have already picked an application insights resource to connect to, remember? 
 
-    [!div class="mx-imgBorder"]
-    ![Choose options per platform.](./media/azure-web-apps/create-appservice-ai.png)
+    > [!div class="mx-imgBorder"]
+    > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
 
 # [Python](#tab/python)
 
