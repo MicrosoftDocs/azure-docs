@@ -79,13 +79,13 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 "provisioningState": "Succeeded",
 ```
 
-## Deploy remote template
+## Deploy remote Bicep file
 
 Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Deployment name
 
-When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep file named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -115,7 +115,7 @@ Currently, Azure CLI doesn't support creating template specs by providing Bicep 
 
 ## Preview changes
 
-Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the Bicep file makes the changes that you expect. What-if also validates the Bicep file for errors.
 
 ## Parameters
 
@@ -123,7 +123,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 
 ### Inline parameters
 
-To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template in a Bash shell, use:
+To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a Bicep file in a Bash shell, use:
 
 ```azurecli-interactive
 az deployment group create \
@@ -154,7 +154,7 @@ The _arrayContent.json_ format is:
 ]
 ```
 
-To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
+To pass in an object, for example, to set tags, use JSON. For example, your Bicep file might include a parameter like this one:
 
 ```json
     "resourceTags": {
@@ -170,7 +170,7 @@ In this case, you can pass in a JSON string to set the parameter as shown in the
 ```bash
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
---template-file $templateFile \
+--template-file $bicepFile \
 --parameters resourceName=abcdef4556 resourceTags="$tags"
 ```
 
