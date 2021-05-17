@@ -6,7 +6,7 @@ ms.author: v-jbrannian
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/14/2021
+ms.date: 05/17/2021
 ---
 
 # Quickstart: Connect a Microchip ATSAME54-XPro evaluation kit to IoT Central

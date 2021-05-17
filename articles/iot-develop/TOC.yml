@@ -21,7 +21,7 @@
         href: quickstart-device-development.md
       - name: Connect an MXCHIP AZ3166 to IoT Central
         href: quickstart-devkit-mxchip-az3166.md
-      - name: Connect a Microchip ATSAME54-XPro to IoT Central
+      - name: Connect to IoT Central -- Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
 - name: Tutorials
   items:
