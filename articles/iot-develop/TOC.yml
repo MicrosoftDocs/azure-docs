@@ -19,7 +19,7 @@
       items:
       - name: Embedded device development quickstarts
         href: quickstart-device-development.md
-      - name: Connect an MXCHIP AZ3166 to IoT Central
+      - name: Connect to IoT Central -- MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
 - name: Tutorials
   items:
