@@ -25,7 +25,6 @@ The examples in this article show how to:
 
 For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about configuring development environments, see [here](how-to-configure-environment.md).
 
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
@@ -48,10 +47,10 @@ To create an environment:
 1. Select the **Create** button. 
 
 Create an environment by specifying one of the following:
-> * Pip requirements file
-> * Conda yaml file
-> * Docker image
-> * Dockerfile
+> * Pip requirements [file](https://pip.pypa.io/stable/cli/pip_install/#requirements-file-format)
+> * Conda yaml [file](https://conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#sharing-an-environment)
+> * Docker [image](https://hub.docker.com/search?q=&type=image)
+> * [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
