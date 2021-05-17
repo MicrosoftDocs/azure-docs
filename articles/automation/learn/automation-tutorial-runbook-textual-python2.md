@@ -18,9 +18,6 @@ This tutorial walks you through the creation of a [Python runbook](../automation
 > * Run and track the status of the runbook job
 > * Update the runbook to start an Azure virtual machine with runbook parameters
 
-> [!NOTE]
-> Using a webhook to start a Python runbook is not supported.
-
 ## Prerequisites
 
 To complete this tutorial, you need the following:
