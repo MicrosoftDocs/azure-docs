@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 05/17/2021
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
@@ -57,3 +57,4 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 * [NFS FAQs](./azure-netapp-files-faqs.md#nfs-faqs)
 * [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
+* [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 
