@@ -18,7 +18,7 @@ ms.date: 5/13/2021
 - [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
-- [Begin the Migration of your solutions from OCP GTM](#beginmigration)
+- [Begin the Migration of your solutions from OCP GTM](#begin-the-migration-of-your-solutions-from-ocp-gtm)
 - [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace)
 - [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
 - [Discard this solution](#discard-this-solution)
@@ -59,9 +59,9 @@ Follow these steps before importing your solutions from OCP GTM:
         - If there is no similar offer in commercial marketplace
             - Step 1. [Create an offer](# Scenario 1: Similar offer does not exist in commercial marketplace)
             - Step 2. [Publish it in the commercial marketplace](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
-            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#begin-the-migration-your-solutions-from-ocp-gtm).
+            - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#begin-the-migration-of-your-solutions-from-ocp-gtm).
         - If there is already a similar offer in Commercial marketplace
-            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#begin-the-migration-your-solutions-from-ocp-gtm)
+            - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#begin-the-migration-of-your-solutions-from-ocp-gtm)
     1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution
 
 > [!IMPORTANT]
