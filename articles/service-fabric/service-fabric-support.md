@@ -12,7 +12,7 @@ We have created a number of support request options to serve the needs of managi
 
 ## Create an Azure support request
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
 </div>
 
 To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
@@ -32,7 +32,7 @@ Learn more about:
 
 ## Create a support request for standalone Service Fabric clusters
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
 </div>
 
 To report issues related to Service Fabric clusters running on-premises or on other clouds, you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
@@ -55,14 +55,14 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 ## Open a GitHub issue
 <div class='icon is-large'>
-    <img alt='GitHub-image' src='./media/logos/github.svg'>
+    <img alt='GitHub-image' src='./media/logos/github-logo.png'>
 </div>
 
 Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github.com/microsoft/service-fabric/issues). This repo is intended for reporting and tracking issues as well as making small feature requests related to Azure Service Fabric. **Do not use this medium to report live-site issues**.
 
 ## Check the StackOverflow forum
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='./media/logos/logo_stackoverflow.svg'>
+    <img alt='Stack Overflow' src='./media/logos/logo-stackoverflow.svg'>
 </div>
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
