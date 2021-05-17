@@ -59,13 +59,11 @@
       href: analyze-live-video-custom-vision.md 
     - name: With Spatial Analysis
       href: computer-vision-for-spatial-analysis.md    
-- name: Samples
+- name: GitHub samples
   items:
-  - name: Samples
-    href: https://github.com/Azure/video-analyzer
-  - name: C# samples
+  - name: C# sample repository
     href: https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp
-  - name: Python samples
+  - name: Python sample repository
     href: https://github.com/Azure-Samples/video-analyzer-iot-edge-python
 - name: Concepts
   items:
