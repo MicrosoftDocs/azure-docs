@@ -23,7 +23,6 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 ## Prerequisites
 
-- Directory Readers, Privileged Role Administrator, or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
