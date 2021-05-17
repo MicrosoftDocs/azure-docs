@@ -55,7 +55,7 @@ For every scope, the user deploying the Bicep file must have the required permis
 
 ## Deploy local Bicep file
 
-You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
+You can deploy a Bicep file from your local machine or one that is stored externally. This section describes deploying a local Bicep file.
 
 If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
@@ -63,7 +63,7 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 az group create --name ExampleGroup --location "Central US"
 ```
 
-To deploy a local template or Bicep file, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value.
+To deploy a local Bicep file, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value.
 
 ```azurecli-interactive
 az deployment group create \
@@ -81,42 +81,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote template
 
-> [!NOTE]
-> Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
-
-Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
-
-[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
-
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-```
-
-To deploy an external template, use the `template-uri` parameter.
-
-```azurecli-interactive
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
-
-To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
-
-```azurecli-interactive
-az deployment group create \
-  --name linkedTemplateWithRelativePath \
-  --resource-group myResourceGroup \
-  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
-  --query-string $sasToken
-```
-
-For more information, see [Use relative path for linked templates](../templates/linked-templates.md#linked-template).
+Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Deployment name
 
