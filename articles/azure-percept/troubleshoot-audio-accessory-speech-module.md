@@ -77,7 +77,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 - If the device is in a different region than the resources, the report message may be delayed. 
 
 ## Useful Links
-- [Azure Percept Audio setup](./azure-percept/quickstart-percept-audio-setup.md)
+- [Azure Percept Audio setup](./quickstart-percept-audio-setup.md)
 - [Azure Percept Audio button and LED behavior](./audio-button-led-behavior.md)
 - [Create a voice assistant with Azure Percept DK and Azure Percept Audio](./tutorial-no-code-speech.md)
 - [Azure Percept DK general troubleshooting guide](./troubleshoot-dev-kit.md)
