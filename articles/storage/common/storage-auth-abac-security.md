@@ -29,7 +29,7 @@ This article describes security considerations that you should factor into your 
 Role assignment conditions are only evaluated when using Azure RBAC for authorization. These conditions can be bypassed if you allow access using alternate authorization methods:
 - [Shared Key](/rest/api/storageservices/authorize-with-shared-key) authorization
 - [Account shared access signature](/rest/api/storageservices/create-account-sas) (SAS)
-- [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/create-service-sas).
+- [Service SAS](/rest/api/storageservices/create-service-sas).
 
 Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS).
 
@@ -83,9 +83,9 @@ If you’re using role assignment conditions for [Azure built-in roles](../../ro
 
 Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has the same permission assigned to them through multiple role assignments, then access for an operation using that permission is evaluated separately for each assignment at every level.
 
-Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user at both the subscription and storage account levels, but add a condition only at the storage account level. In this case, the user will have unrestricted access to the storage account through the role assignment at the subscription level.
+Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. In this case, the user will have unrestricted access to the storage account through the role assignment at the subscription level.
 
-Therefore, you must apply conditions consistently at all levels of a resource hierarchy where principals have been granted access to a resource.
+That's why you should apply conditions consistently for all role assignments across a resource hierarchy.
 
 ## Other considerations
 
