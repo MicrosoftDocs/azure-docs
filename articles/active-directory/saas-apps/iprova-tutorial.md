@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/19/2020
+ms.date: 05/17/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate iProva with Azure Active Directo
 * Control in Azure AD who has access to iProva.
 * Enable your users to be automatically signed-in to iProva with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,47 +32,42 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* iProva supports **SP** initiated SSO
+* iProva supports **SP** initiated SSO.
 
-* Once you configure iProva you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## Adding iProva from the gallery
+## Add iProva from the gallery
 
 To configure the integration of iProva into Azure AD, you need to add iProva from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **iProva** in the search box.
 1. Select **iProva** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for iProva
+## Configure and test Azure AD SSO for iProva
 
 Configure and test Azure AD SSO with iProva using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in iProva.
 
-To configure and test Azure AD SSO with iProva, complete the following building blocks:
+To configure and test Azure AD SSO with iProva, perform the following steps:
 
-1. **[Retrieve configuration information from iProva](#retrieve-configuration-information-from-iprova)** - as a preparation for the next steps.
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Create iProva test user](#create-iprova-test-user)** - to have a counterpart of B.Simon in iProva that is linked to the Azure AD representation of user.
-1. **[Configure iProva SSO](#configure-iprova-sso)** - to configure the Single Sign-On settings on application side.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure iProva SSO](#configure-iprova-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create iProva test user](#create-iprova-test-user)** - to have a counterpart of B.Simon in iProva that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Retrieve configuration information from iProva
 
 In this section, you retrieve information from iProva to configure Azure AD single sign-on.
 
-1. Open a web browser, and go to the **SAML2 info** page in iProva by using the following URL pattern:
+1. Open a web browser, and go to the **SAML2 info** page in iProva by using the following URL patterns:
+	
+     `https://<SUBDOMAIN>.iprova.nl/saml2info` 
+  	 `https://<SUBDOMAIN>.iprova.be/saml2info` 
 
-    ```https
-    https://SUBDOMAIN.iprova.nl/saml2info
-    https://SUBDOMAIN.iprova.be/saml2info
-    ```
-
-	![View the iProva SAML2 info page](media/iprova-tutorial/iprova-saml2-info.png)
+	![View the iProva SAML2 info page](media/iprova-tutorial/information.png)
 
 1. Leave the browser tab open while you proceed with the next steps in another browser tab.
 
@@ -82,9 +75,9 @@ In this section, you retrieve information from iProva to configure Azure AD sing
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **iProva** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **iProva** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -129,16 +122,52 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **iProva**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure iProva SSO
+
+1. Sign in to iProva by using the **Administrator** account.
+
+2. Open the **Go to** menu.
+
+3. Select **Application management**.
+
+4. Select **General** in the **System settings** panel.
+
+5. Select **Edit**.
+
+6. Scroll down to **Access control**.
+
+	![iProva Access control settings](media/iprova-tutorial/access-control.png)
+
+7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
+
+8. Select **Set up**.
+
+9. Select **Next**.
+
+10. iProva asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
+
+	![Download Azure AD metadata](media/iprova-tutorial/metadata.png)
+
+11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
+
+12. Select the arrow-shaped button to download the metadata from Azure AD.
+
+13. When the download is complete, the confirmation message **Valid Federation Data file downloaded** appears.
+
+14. Select **Next**.
+
+15. Skip the **Test login** option for now, and select **Next**.
+
+16. In the **Claim to use** drop-down box, select **windowsaccountname**.
+
+17. Select **Finish**.
+
+18. You now return to the **Edit general settings** screen. Scroll down to the bottom of the page, and select **OK** to save your configuration.
 
 ## Create iProva test user
 
@@ -162,64 +191,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 10. Scroll down to the end of the page, and select **Finish**.
 
-## Configure iProva SSO
-
-1. Sign in to iProva by using the **Administrator** account.
-
-2. Open the **Go to** menu.
-
-3. Select **Application management**.
-
-4. Select **General** in the **System settings** panel.
-
-5. Select **Edit**.
-
-6. Scroll down to **Access control**.
-
-	![iProva Access control settings](media/iprova-tutorial/iprova-accesscontrol.png)
-
-7. Find the setting **Users are automatically logged on with their network accounts**, and change it to **Yes, authentication via SAML**. Additional options now appear.
-
-8. Select **Set up**.
-
-9. Select **Next**.
-
-10. iProva asks if you want to download federation data from a URL or upload it from a file. Select the **From URL** option.
-
-	![Download Azure AD metadata](media/iprova-tutorial/iprova-download-metadata.png)
-
-11. Paste the metadata URL you saved in the last step of the "Configure Azure AD single sign-on" section.
-
-12. Select the arrow-shaped button to download the metadata from Azure AD.
-
-13. When the download is complete, the confirmation message **Valid Federation Data file downloaded** appears.
-
-14. Select **Next**.
-
-15. Skip the **Test login** option for now, and select **Next**.
-
-16. In the **Claim to use** drop-down box, select **windowsaccountname**.
-
-17. Select **Finish**.
-
-18. You now return to the **Edit general settings** screen. Scroll down to the bottom of the page, and select **OK** to save your configuration.
-
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the iProva tile in the Access Panel, you should be automatically signed in to the iProva for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to iProva Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to iProva Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the iProva tile in the My Apps, this will redirect to iProva Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try iProva with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect iProva with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure iProva you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
