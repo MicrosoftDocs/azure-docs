@@ -14,7 +14,7 @@ ms.author: juliako
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
-Azure Video Analyzer for Media (formerly Video Indexer) is the Azure Media Services AI solution and part of the Azure Applied AI Services brand. Video Analyzer for Media provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, and creates new user experiences on large archives of videos (with low entry barriers).
+Azure Video Analyzer for Media (formerly Video Indexer) is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Video Analyzer for Media video and audio models.
 
 To start extracting insights with Video Analyzer for Media, you need to create an account and upload videos. When you upload your videos to Video Analyzer for Media, it analyses both visuals and audio by running different AI models. As Video Analyzer for Media analyzes your video, the insights that are extracted by the AI models.
 
