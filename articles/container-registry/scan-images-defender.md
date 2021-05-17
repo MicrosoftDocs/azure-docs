@@ -7,21 +7,35 @@ ms.date: 05/14/2021
 
 # Scan registry images with Azure Defender
 
-To scan images in your Azure container registries for vulnerabilities, you can integrate third-party solution or enable Azure security features. In Azure Security Center, enable [Azure Defender for container registries](../security-center/defender-for-container-registries-introduction.md) at the subscription level. Azure Security Center will then scan images that are pushed to a registry, imported into a registry, or any images pulled within the last 30 days. This feature is charged per image.
+To scan images in your Azure container registries for vulnerabilities, you can integrate an Azure Marketplace solution, or enable Azure Security Center features for your container registry. In Azure Security Center, optionally enable [Azure Defender for container registries](../security-center/defender-for-container-registries-introduction.md) at the subscription level to scan images for vulnerabilities. Azure Security Center will then scan images that are pushed to a registry, imported into a registry, or any images pulled within the last 30 days. This feature is charged per image.
 
-* Learn more about [using Azure Defender for container registry](../security-center/defender-for-container-registries-usage.md)
+* Learn more about [using Azure Defender for container registries](../security-center/defender-for-container-registries-usage.md)
 * Learn more about [container security in Azure Security Center](../security-center/container-security.md)
+
+## Registry operations by Azure Defender
+
+When scanning images for vulnerabilities, Azure Defender regularly authenticates with the registry to pull images. If vulnerabilities are detected, [recommended remediations](../security-center/defender-for-container-registries-usage.md#view-and-remediate-findings) appear in Azure Security Center.
+
+ After you have taken the recommended steps required to remediate the security issue, replace the image in your registry. Azure Defender rescans the image to confirm that the vulnerabilties are remediated.
+
+> [!TIP]
+> If resource logs are collected for your registry, you'll see registry operations by Azure Defender logged along with other operations by registry users and services. For example, you might see an entry similar to the following in the RegistryLoginEvents table when Azure Defender authenticates with the registry:
+
+```
+
+```
+
+
 
 ## Scan a network-restricted registry
 
-If you've disabled public registry access, configured IP access rules, or created private endpoints for a container registry, enable the network setting to [**allow trusted Microsoft services**](allow-access-trusted-services.md) to access the registry. This setting is required for Azure Security Center to access a network-restricted registry to scan images.
+
+Azure Defender for container registries can scan images or vulnerabilities in a publicly accessible container registry or one that's protected with network access rules. If you've disabled public registry access, configured IP access rules, or created private endpoints for a container registry, you myst enable the network setting to [**allow trusted Microsoft services**](allow-access-trusted-services.md) to access the registry. By default, this setting is enabled in a new container registry.
 
 > [!NOTE]
 > After enabling the setting to allow access by trusted services, it can take several minutes before Azure Defender can scan registry images.
 
-## Registry operations by Azure Defender
 
-To access the registry to scan images, Azure Defender needs to authenticate with the registry and to pull images. These events 
 
 
 ## Next steps
