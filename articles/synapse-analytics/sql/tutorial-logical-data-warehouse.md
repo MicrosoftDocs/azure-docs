@@ -177,11 +177,23 @@ To optimize performance, you should use the smallest possible types in the `WITH
 ## Access and permissions
 
 As a final step, you should create database users that should be able to access your LDW, and give them permissions to select data from the external tables and views.
-In the following script you can see how to add a new user and provide permissions to read data:
+In the following script you can see how to add a new user that will be authenticated using Azure AD identity:
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+Instead of Azure AD principals, you can create SQL principals that authenticate with the login name and password.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+In both cases, you can assign permissions to the users.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
