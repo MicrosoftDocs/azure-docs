@@ -40,7 +40,7 @@ In this section we will create a JWT token that we will use later in the documen
 > [!NOTE] 
 > If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate then you can skip this section.
 
-1. Download the JWTTokenIssuer application located [here]().
+1. Download the JWTTokenIssuer application located [here](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/readme.md).
 
    > [!NOTE] 
    > For more information about configuring your audience values see this [article](./access-policies.md)
