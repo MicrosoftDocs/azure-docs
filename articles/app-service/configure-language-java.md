@@ -201,7 +201,7 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 
 To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` for Java SE or `CATALINA_OPTS` for Tomcat that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
 To configure the app setting from the Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heap size:
 
