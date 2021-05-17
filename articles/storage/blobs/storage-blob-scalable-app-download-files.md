@@ -98,13 +98,13 @@ dotnet run
 
 The `DownloadFilesAsync` task is shown in the following example:
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs using the [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) method and downloads them to the local machine using the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
 
