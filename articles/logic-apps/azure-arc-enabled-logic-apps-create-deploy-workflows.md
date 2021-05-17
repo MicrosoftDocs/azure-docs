@@ -814,6 +814,12 @@ For a new logic app, run the Azure CLI command, `az logicapp create`, for exampl
 
 `az logicapp create -g {resource-group} --name {appinsights} --storage-account {storage-account-name} --custom-location {custom-location} --functions-version 3 --plan {hosting-plan-name} --runtime node --runtime-version 12 --min-worker-count 1 --max-worker-count 4`
 
+To configure your maximum instance count, use the --settings` parameter:
+
+```azurecli
+az logicapp config appsettings set -n MyLogicApp -g MyResourceGroup --settings "K8SE_APP_MAX_INSTANCE_COUNT=10"
+```
+
 #### Azure portal
 
 In your single-tenant based logic app's settings, add or edit the `K8SE_APP_MAX_INSTANCE_COUNT` setting value by following these steps:
@@ -835,9 +841,11 @@ To change this minimum, use the Azure CLI or the Azure portal.
 
 #### Azure CLI
 
-For a existing logic app resource, run the Azure CLI command, `az webapp scale`, for example:
+For a existing logic app resource, run the Azure CLI command, `az logicapp scale`, for example:
 
-`az webapp scale -g {resource-group} --name {appinsights} --number-of-workers 7`
+```azurecli
+az logicapp scale -n MyLogicApp -g MyResourceGroup --instance-count 5
+```
 
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
@@ -861,7 +869,19 @@ To get more information about your deployed logic apps, try the following option
 To access your app settings, run the following Azure CLI command: 
 
 ```azurecli
-az webapp config appsettings list --name logic-app-name -g resource-group-name 
+az logicapp config appsettings list --name logic-app-name -g resource-group-name 
+```
+
+To configure an app setting, run the command `az logicapp config appsettings set` as follows. Be sure to use the `--settings` parameter with your setting's name and value.
+
+```azurecli
+az logicapp config appsettings set -n MyLogicApp -g MyResourceGroup --settings "MySetting=1"
+```
+
+To delete an app setting, run the command `az logicapp config appsettings delete` as follows. Be sure to using the `--setting-names` parameter with the name of the setting you want to delete.
+
+```azurecli
+az logicapp config appsettings delete -n MyLogicApp -g MyResourceGroup --setting-names MySetting
 ```
 
 ### View logic app properties
@@ -869,7 +889,7 @@ az webapp config appsettings list --name logic-app-name -g resource-group-name
 To view your app's information and properties, run the following Azure CLI command: 
 
 ```azurecli
-az webapp show --name logic-app-name -g resource-group-name 
+az logicapp show --name logic-app-name -g resource-group-name 
 ```
 
 ### Monitor workflow activity
