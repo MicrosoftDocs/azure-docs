@@ -911,7 +911,7 @@
             - name: Java bulk executor library v2
               href: sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/cosmosdb
+          href: /cli/azure/azure-cli-reference-for-cosmos-db           
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -1042,6 +1042,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: MongoDB API
   items:
     - name: Overview
@@ -1174,6 +1176,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: Gremlin API
   displayName: graph, graph database
   items:
@@ -1254,6 +1258,8 @@
           href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: Table API
   items:
     - name: Overview
@@ -1338,6 +1344,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: How-to guides
   items:
     - name: Manage Azure Cosmos DB resources
