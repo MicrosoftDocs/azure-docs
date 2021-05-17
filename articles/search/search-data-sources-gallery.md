@@ -1,20 +1,20 @@
 ---
-title: Data source gallery
+title: Data sources gallery
 titleSuffix: Azure Cognitive Search
 description: Lists all of the supported data sources for importing into an Azure Cognitive Search index.
 author: vkurpad
 ms.author: vikurpad
 
 ms.service: cognitive-search
-ms.topic: landing-page
+ms.topic: conceptual
 layout: LandingPage
 ms.date: 05/17/2021
 
 ---
 
-# Data source gallery
+# Data sources gallery
 
-## Indexer data sources in Cognitive Search
+## Indexer data sources in Azure Cognitive Search
 
 :::row:::
 :::column span="":::
@@ -51,71 +51,17 @@ Extract field values from a single table or view, serialized into JSON documents
 
 ---
 
-### Azure SQL Managed Instance
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-
-[More details](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_sql_managed_instance_logo_small.png":::
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### Cosmos DB
+### Azure Cosmos DB
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
 Connect to Cosmos DB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
-SQL API is generally available. MongoDB API and Cassandra API are in preview.
+SQL API is generally available, with MongoDB API, Cassandra API, and [Gremlin API](search-howto-index-cosmosdb-gremlin.md) in preview.
 
 [More details](search-howto-index-cosmosdb.md)
 
 :::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Cosmos DB (Gremlin)
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](search-howto-index-cosmosdb-gremlin.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Azure Table Storage
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Extract rows from Azure Tables, serialized into JSON documents, and imported into a search index as search documents. Set properties in both data source and indexer definitions to optimize for various blob content types. Change detection is supported automatically.
-
-[More details](search-howto-indexing-azure-tables.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
 :::row-end:::
@@ -137,7 +83,7 @@ Extract rows from Azure Tables, serialized into JSON documents, and imported int
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Connect to a SharePoint Online site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
 
 [More details](search-howto-index-sharepoint-online.md)
 
@@ -159,6 +105,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 :::image type="icon" source="media/search-data-sources-gallery/power_query_logo.png":::
 
 :::column-end:::
+:::column span="":::
+
+---
+
+### Azure Table Storage
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Extract rows from an Azure Table, serialized into JSON documents, and imported into a search index as search documents. 
+
+[More details](search-howto-indexing-azure-tables.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
 :::row-end:::
 :::row:::
 :::column span="":::
@@ -178,11 +139,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### TBD-1
 
-by [BA Insight](https://www.bainsight.com/)
+by [Raytion](https://www.raytion.com/)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/)
 
 :::column-end:::
 :::column span="":::
@@ -191,11 +152,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### TBD-2
 
-by [BA Insight](https://www.bainsight.com/)
+by [Raytion](https://www.raytion.com/)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/)
 
 :::column-end:::
 :::column span="":::
@@ -204,11 +165,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### TBD-3
 
-by [Raytion](https://www.raytion.com/)
+by [BA Insight](https://www.bainsight.com/)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.bainsight.com/)
 
 :::column-end:::
 :::row-end:::

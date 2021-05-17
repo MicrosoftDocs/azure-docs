@@ -148,7 +148,7 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Management
+  - name: Service management
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -270,7 +270,7 @@
       href: cognitive-search-common-errors-warnings.md
   - name: Data sources (indexers)
     items:
-      - name: Data source gallery
+      - name: Data sources gallery
         href: search-data-sources-gallery.md
       - name: Azure Blobs
         items:      
