@@ -75,6 +75,8 @@
         href: akamai-tutorial.md
       - name: AKASHI
         href: akashi-tutorial.md
+      - name: AlacrityLaw
+        href: alacritylaw-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -139,6 +141,8 @@
         href: arcgisenterprise-tutorial.md
       - name: ArcGIS Online
         href: arcgis-tutorial.md
+      - name: Ardoq
+        href: ardoq-tutorial.md
       - name: ARES for Enterprise
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
@@ -169,6 +173,8 @@
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
         href: auditboard-tutorial.md
+      - name: Autodesk SSO
+        href: autodesk-sso-tutorial.md
       - name: Autotask Endpoint Backup
         href: autotaskendpointbackup-tutorial.md
       - name: Autotask Workplace
@@ -325,8 +331,12 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: Check Point Harmony Connect
+        href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
+      - name: Check Point Remote Access VPN
+        href: check-point-remote-access-vpn-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -401,6 +411,8 @@
         href: coggle-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
+      - name: Cognician
+        href: cognician-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: ColorTokens ZTNA
@@ -511,6 +523,8 @@
         href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
+      - name: Documo
+        href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
       - name: Dome9 Arc
@@ -603,6 +617,8 @@
         href: elqano-sso-tutorial.md
       - name: Equinix Federation App
         href: equinix-federation-app-tutorial.md
+      - name: Equisolve
+        href: equisolve-tutorial.md
       - name: EasySSO for Jira
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -1002,6 +1018,8 @@
         href: jostle-tutorial.md
       - name: Juno Journey
         href: juno-journey-tutorial.md
+      - name: JustLogin
+        href: justlogin-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
       - name: Kallidus
@@ -1070,6 +1088,8 @@
         href: launchdarkly-tutorial.md
       - name: LCVista
         href: lcvista-tutorial.md
+      - name: Leadfamly
+        href: leadfamly-tutorial.md  
       - name: Lean
         href: lean-tutorial.md
       - name: Leapsome
@@ -1522,6 +1542,8 @@
         href: replicon-tutorial.md
       - name: Reprints Desk - Article Galaxy
         href: reprints-desk-article-galaxy-tutorial.md
+      - name: Rescana
+        href: rescana-tutorial.md
       - name: Resource Central
         href: resource-central-tutorial.md
       - name: Retail Zipline
@@ -1594,6 +1616,8 @@
         href: samlssojira-tutorial.md
       - name: Azure AD SAML Toolkit
         href: saml-toolkit-tutorial.md
+      - name: Samsara 
+        href: samsara-tutorial.md 
       - name: Samsung Knox and Business Services
         href: samsung-knox-and-business-services-tutorial.md
       - name: Sansan
@@ -2058,6 +2082,8 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
+      - name: Workshop
+        href: workshop-tutorial.md
       - name: Workspot Control
         href: workspotcontrol-tutorial.md
       - name: Workstars
@@ -2094,6 +2120,8 @@
         href: zephyrsso-tutorial.md
       - name: Ziflow
         href: ziflow-tutorial.md
+      - name: Zip
+        href: zip-tutorial.md
       - name: ZIVVER
         href: zivver-tutorial.md
       - name: Zoho
@@ -2155,6 +2183,8 @@
         href: atea-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: AuditBoard
+        href: auditboard-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: AWS Single Sign-On
@@ -2265,6 +2295,8 @@
         href: infor-cloudsuite-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
+      - name: Insite LMS
+        href: insite-lms-provisioning-tutorial.md
       - name: Iris Intranet
         href: iris-intranet-provisioning-tutorial.md        
       - name: iPass SmartConnect
@@ -2279,6 +2311,8 @@
         href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: kpifire
+        href: kpifire-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator

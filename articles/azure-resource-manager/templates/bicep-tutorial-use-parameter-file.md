@@ -4,7 +4,8 @@ description: Use parameter files that contain the values to use for deploying yo
 author: mumian
 ms.date: 04/27/2021
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use parameter files to deploy Azure Resource Manager Bicep file

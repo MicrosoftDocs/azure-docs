@@ -42,7 +42,7 @@ with policy assignments or Azure role assignments more suited to a new subscript
 
 ### Set default management group in portal
 
-To configure this setting in Azure portal, follow these steps:
+To configure this setting in the Azure portal, follow these steps:
 
 1. Use the search bar to search for and select 'Management groups'.
 
@@ -62,8 +62,8 @@ To configure this setting in Azure portal, follow these steps:
 ### Set default management group with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use the
-following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use
+the following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
 group and `{defaultGroupID}` with the ID of the management group to become the default management
 group:
 
@@ -97,7 +97,7 @@ child management groups.
 
 ### Set require authorization in portal
 
-To configure this setting in Azure portal, follow these steps:
+To configure this setting in the Azure portal, follow these steps:
 
 1. Use the search bar to search for and select 'Management groups'.
 
@@ -115,8 +115,8 @@ To configure this setting in Azure portal, follow these steps:
 ### Set require authorization with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use the
-following REST API URI and body format. This value is a _boolean_, so provide either **true** or
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use
+the following REST API URI and body format. This value is a _boolean_, so provide either **true** or
 **false** for the value. A value of **true** enables this method of protecting your management group
 hierarchy:
 
@@ -141,7 +141,8 @@ To turn the setting back off, use the same endpoint and set
 
 ## PowerShell sample
 
-PowerShell does not have an 'Az' command to set the default management group or set require authorization, but as a workaround you can leverage the REST API with the PowerShell sample below:
+PowerShell doesn't have an 'Az' command to set the default management group or set require
+authorization, but as a workaround you can use the REST API with the PowerShell sample below:
 
 ```powershell
 $root_management_group_id = "Enter the ID of root management group"

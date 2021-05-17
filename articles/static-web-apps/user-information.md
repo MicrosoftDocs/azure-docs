@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Accessing user information in Azure Static Web Apps Preview
+# Accessing user information in Azure Static Web Apps
 
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
@@ -31,9 +31,9 @@ The following example is a sample client principal object:
 
 ```json
 {
-  "identityProvider": "facebook",
+  "identityProvider": "github",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
-  "userDetails": "user@example.com",
+  "userDetails": "username",
   "userRoles": ["anonymous", "authenticated"]
 }
 ```

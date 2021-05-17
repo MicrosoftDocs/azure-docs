@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -199,7 +199,13 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **Q**: Why I am having issues with Apple Watch on watchOS 7?
 
-**A**: There is an issue with approving notifications on watchOS 7, and we’re working with Apple to get this fixed. In the meantime, any notifications that require the Microsoft Authenticator watchOS app should be approved on your phone instead.
+**A**: Sometimes, approving or denying a session on watchOS 7 fails with the error message "Failed to communicate with the phone. Make sure to keep your Watch screen awake during future requests. See the FAQs for more info.". There is a known issue with notifications when app lock is enabled or when number matching is required, and we’re working with Apple to get this fixed. In the meantime, any notifications that require the Microsoft Authenticator watchOS app should be approved on your phone instead.
+
+### Signing into an iOS app
+
+**Q**: I’m trying to sign into an iOS app, and I need to approve a notification on the Authenticator app. When I go back to the iOS app, I get stuck. What can I do?
+
+**A**: This is a known issue on iOS 13+. Reach out to your support admin for help, and provide the following details: `Use Azure MFA, not MFA server.`
 
 ### Apple Watch doesn't show accounts
 

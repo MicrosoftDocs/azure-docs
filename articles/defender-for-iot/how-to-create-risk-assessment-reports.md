@@ -53,6 +53,16 @@ Risk Assessment scores are based on information learned from packet inspection, 
 
 **Vulnerable Devices** are devices with a security score below 70 %.
 
+### About backup and anti-virus servers
+
+The risk assessment score may be negatively impacted if you do not define backup and anti-virus server addresses in your sensor. Adding these addresses improves your score. By default these addresses are not defined.
+The Risk Assessment report cover page will indicate if backup servers and anti-virus servers are not defined.
+
+**To add servers:**
+
+1. Select **System Settings** and then select **System Properties**.
+1. Select **Vulnerability Assessment** and add the addresses to **backup_servers** and **AV_addresses** fields. Use commas to separate multiple addresses.  separated by commas.  
+1. Select **Save**.
 ## Create risk assessment reports
 
 Create a PDF risk assessment report. The report name is automatically generated as risk-assessment-report-1.pdf. The number is updated for each new report you create.  The time and day of creation are displayed.

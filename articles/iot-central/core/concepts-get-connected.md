@@ -10,11 +10,10 @@ services: iot-central
 manager: philmea
 ms.custom:  [amqp, mqtt, device-developer]
 
+# This article applies to operators and device developers.
 ---
 
 # Get connected to Azure IoT Central
-
-*This article applies to operators and device developers.*
 
 This article describes how devices connect to an Azure IoT Central application. Before a device can exchange data with IoT Central, it must:
 
@@ -206,7 +205,16 @@ When a real device connects to your IoT Central application, its device status c
     - A set of devices is added using **Import** on the **Devices** page without specifying the device template.
     - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
 
-    The Operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
+    An operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
+
+## Device connection status
+When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events are shown for the device. These events are not sent by the device sends, they are generated internally by IoT Central.
+
+The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute..
+
+:::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagram that shows event window for connected and disconnected events." border="false":::
+
+You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## SDK support
 
@@ -254,7 +262,7 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 ## Next steps
 
-If you're a device developer, some suggested next steps are to:
+Some suggested next steps are to:
 
 - Review [best practices](concepts-best-practices.md) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

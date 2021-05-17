@@ -36,20 +36,18 @@ Multiple Disks | Supported
 Availability Sets | Supported
 Availability Zones | Supported
 Azure Disk Encryption (ADE) enabled VMs | Not supported
-Proximity Placement Groups (PPG) | Not supported
+Proximity Placement Groups (PPG) | Supported
 Customer-managed keys (CMK) enabled disks | Not supported
 Storage spaces direct (S2D) clusters | Not supported
 Azure Resource Manager Deployment Model | Supported
 Classic Deployment Model | Not supported
 Zone to Zone DR  | Supported
-Azure Disk Encryption v1 | Not supported
-Azure Disk Encryption v2 | Not supported
-Interoperability with Azure Backup | Not supported
-Hot add/remove of disks | Not supported
 Interoperability with other policies applied as default by Azure (if any) | Supported
 
 >[!NOTE]
->If a not-supported VM is created within the scope of policy, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance.
+>In the following cases, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance: 
+>1. If a not-supported VM is created within the scope of policy.
+>1. If a VM is a part of both an Availability Set as well as PPG.
 
 ## Create a Policy Assignment
 In this section, you create a policy assignment that enables Azure Site Recovery for all newly created resources.

@@ -3,7 +3,7 @@ title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with
 description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -29,16 +29,13 @@ In this tutorial, you will:
 > *	Render the reachable range boundary and charging stations on a map.
 > *	Find and visualize a route to the closest electric vehicle charging station based on drive time.
 
+## Prerequisites
 
-## Prerequisites 
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account), and [choose either Gen 2 or S1 pricing tier](choose-pricing-tier.md).
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
+For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
-To create an Azure Maps account subscription, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account). You need an Azure Maps account subscription with the S1 price tier. 
-
-To get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-
-For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Create an Azure Notebooks project
 

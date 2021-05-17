@@ -30,7 +30,7 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-1. [Make an Azure Maps account with S1 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Make an Azure Maps account in Gen 1 (S1) or Gen 2 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).

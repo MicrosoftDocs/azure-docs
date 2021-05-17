@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
+
+# This article applies to operators, builders, and administrators.
 ---
 
 # Configure rules
-
-*This article applies to operators, builders, and administrators.*
 
 Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
 

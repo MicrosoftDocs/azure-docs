@@ -4,7 +4,8 @@ description: Determine what changes will happen to your resources before deployi
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurepowershell
 ---
 # ARM template deployment what-if operation
 
