@@ -15,7 +15,7 @@
         href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Embedded development - connect to IoT Central
+    - name: Embedded device development
       items:
       - name: Embedded device development quickstarts
         href: quickstart-device-development.md
