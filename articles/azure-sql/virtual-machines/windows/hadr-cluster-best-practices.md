@@ -33,7 +33,7 @@ Review the following checklist for a brief overview of the HADR best practices t
     - Do not set any values lower than their default values. 
     - SameSubnetThreshold <= CrossSubnetThreshold
     - SameSubnetDelay <= CrossSubnetDelay
-    - These change take effect immediately, no restart required. 
+    - These changes take effect immediately, no restart required. 
 * To reduce the impact of downtime, choose the [VM availability settings](#vm-availability-settings) that best suit your business needs and environment, such as availability sets, proximity placement groups and/or availability zones. 
 * Use a single NIC per cluster node and a single subnet. 
 * Configure cluster [quorum voting](#quorum-voting) to use 3 or more odd number of votes, and do not assign votes to DR regions. 
@@ -46,7 +46,7 @@ Review the following checklist for a brief overview of the HADR best practices t
 * If you're still experiencing unexpected failures, consider [relaxing the monitoring](#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so simply reduces the likelihood of failure but is unlikely to eliminate the underlying source of the issue. You may still need to investigate and address the underlying root cause. 
    - Do not set any values lower than their default values. 
    - The lease interval for an availability group ((1/2)*Lease timeout) must be shorter than SameSubnetThreshold * SameSubnetDelay.
-   - Consider relaxing your monitoring during certain highload activities, such as index maintenance, or DBCC Checkdb. 
+   - Consider relaxing your monitoring during certain high-load activities, such as index maintenance, or DBCC CHECKDB. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:
@@ -65,15 +65,15 @@ To ensure recovery during legitimate outages while providing greater tolerance f
 | **CrossSubnetDelay**     | 1 second                    | 2 second               |  
 | **CrossSubnetThreshold** | 40 heartbeats               | 20 heartbeats (max)         |
 
-If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolving it. 
+If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolve it. 
 
 For both the AG, and FCI: 
-- **Healthcheck timeout**: Start with 60000
--  **Failure-condition level**: Considering making less restrictive by lowering the value less than the default of 3. 
+- **HealthCheckTimeout**: Start with 60000. You can learn more about the HealthCheckTimeout setting in [Failover Policy for Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/failover-policy-for-failover-cluster-instances.md#instance).
+-  **FailureConditionLevel**: Consider making less restrictive by lowering the value less than the default of 3. You can learn about the different FailureConditionLevel settings in [Failover Policy for Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/failover-policy-for-failover-cluster-instances.md#determine). 
 
 For the AG:
 - **Lease timeout**: For Window Server 2012 or later, start with 40 seconds, do not exceed 120 seconds. For Windows Server 2008 & 2008 R2, start with 30 seconds, do not exceed 40 seconds. 
-- **Session timeout** Increase to 15 from the default of 10, though this can increase HADR_sync_commit waits. 
+- **Session timeout** Increase to 15 from the default of 10, though this can increase HADR_SYNC_COMMIT waits. 
 - **Max failures in a specified period**: Increase this value above 3 if your availability group is frequently in a failed state. 
 
 
@@ -83,7 +83,7 @@ For the AG:
 To reduce the impact of downtime, consider the following VM best availability settings: 
 
 * Use proximity placement groups together with accelerated networking for lowest latency.
-* Use availability zones to protect from datacenter level failures or configure multiple virtual machines in an availability set for redundancy.
+* Place virtual machine cluster nodes in separate availability zones to protect from datacenter-level failures or in a single availability set for lower-latency redundancy within the same datacenter.
 * Use premium-managed OS and data disks for VMs in an availability set.
 * Configure each application tier into separate availability sets.
 
@@ -163,7 +163,7 @@ Most SQL Server features work transparently with FCI and availability groups whe
 
 ## Heartbeat and threshold 
 
-Change the cluster heartbeat and threshold settings to relaxed settings. The default heartbeat and threshold cluster settings are designed for highly tuned on-premises networks and do not consider the possibility of induced latency in a cloud environment. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations.
+Change the cluster heartbeat and threshold settings to relaxed settings. The default heartbeat and threshold cluster settings are designed for highly tuned on-premises networks and do not consider the possibility of increased latency in a cloud environment. The heartbeat network is maintained with UDP 3343, which is traditionally far less reliable than TCP and more prone to incomplete conversations.
  
 Therefore, when running cluster nodes for SQL Server on Azure VM high availability solutions, change the cluster settings to a more relaxed monitoring state to avoid transient failures due to the increased possibility of network latency or failure, Azure maintenance, or hitting resource bottlenecks. 
 
@@ -231,7 +231,7 @@ To learn more, see [Tuning Failover Cluster Network Thresholds](/windows-server/
 
 ## Relaxed monitoring
 
-If tuning your cluster heartbeat and threshold settings is insufficient tolerance and you're still seeing failures due to transient issues rather than true outages, you can configure your AG or FCI monitoring to be more relaxed. In some scenarios, it may be beneficial to temporarily relax the monitoring for a period of time given the level of activity. For example, you may want to relax the monitoring when you're doing IO intensive workloads such as database backups, index maintenance, DBCC checkdb, etc. Once the activity is complete, set your monitoring to less relaxed values. 
+If tuning your cluster heartbeat and threshold settings as recommended is insufficient tolerance and you're still seeing failures due to transient issues rather than true outages, you can configure your AG or FCI monitoring to be more relaxed. In some scenarios, it may be beneficial to temporarily relax the monitoring for a period of time given the level of activity. For example, you may want to relax the monitoring when you're doing IO intensive workloads such as database backups, index maintenance, DBCC CHECKDB, etc. Once the activity is complete, set your monitoring to less relaxed values. 
 
 > [!WARNING]
 > Changing these settings may mask an underlying problem, and should be used as a temporary solution to reduce, rather than eliminate, the likelihood of failure. Underlying issues should still be investigated and addressed. 
