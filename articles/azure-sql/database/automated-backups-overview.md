@@ -57,12 +57,14 @@ You can use these backups to:
    > Geo-restore is available only for SQL databases or managed instances configured with geo-redundant backup storage.
 - **Restore from long-term backup** - [Restore a database from a specific long-term backup](long-term-retention-overview.md) of a single database or pooled database, if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](long-term-backup-retention-configure.md#using-the-azure-portal) or [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](long-term-retention-overview.md).
 
-To perform a restore, see [Restore database from backups](recovery-using-backups.md).
-
 > [!NOTE]
 > In Azure Storage, the term *replication* refers to copying blobs from one location to another. In SQL, *database replication* refers to various technologies used to keep multiple secondary databases synchronized with a primary database.
 
-The below table summarizes the capabilities and features of point in time restore (PITR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
+<a name="restore-capabilities"></a>
+
+### Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance
+
+This table summarizes the capabilities and features of point in time restore (PITR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
 | **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long term backup restore |           
 |----|--|--|--|
@@ -80,10 +82,14 @@ The below table summarizes the capabilities and features of point in time restor
 | | | | |
 
 \* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
+
 \*\* All PITR backups are stored on geo-redundant storage by default. Hence, geo-restore is enabled by default. 
+
 \*\*\* Workaround is to restore to a new server and use Resource Move to move the server to another Subscription.
 
-You can try backup configuration and restore operations using the following examples:
+### Restoring a database from backups 
+
+To perform a restore, see [Restore database from backups](recovery-using-backups.md). You can try backup configuration and restore operations using the following examples:
 
 | Operation | Azure portal | Azure PowerShell |
 |---|---|---|
@@ -92,7 +98,6 @@ You can try backup configuration and restore operations using the following exam
 | **Restore a database from a point in time** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | **Restore a deleted database** | [SQL Database](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | **Restore a database from Azure Blob storage** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
-
 
 ## Backup scheduling
 
