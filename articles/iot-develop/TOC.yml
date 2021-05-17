@@ -9,17 +9,17 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Get started with device application development
+    - name: Device application development - connect to Azure IoT
       items: 
       - name: Send telemetry to IoT Central
         href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Get started with embedded development
+    - name: Embedded development - connect to IoT Central
       items:
       - name: Embedded device development quickstarts
         href: quickstart-device-development.md
-      - name: Connect to IoT Central -- MXCHIP AZ3166
+      - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
 - name: Tutorials
   items:
