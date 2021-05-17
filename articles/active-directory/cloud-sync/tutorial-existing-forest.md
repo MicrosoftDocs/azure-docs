@@ -65,7 +65,7 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install-4a.png)</br>
 
    > [!NOTE]
-   > The Group Managed Service Account (i.e. CONTOSO\provAgentgMSA$) is created in the same Active Directory domain where the host server has joined.
+   > The group managed service account (for example, CONTOSO\provAgentgMSA$) is created in the same Active Directory domain where the host server has joined.
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install-5.png)</br>
