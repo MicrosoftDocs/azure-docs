@@ -7,7 +7,7 @@ ms.date: 04/01/2021
 
 ---
 
-# How-to Guide: Develop and deploy gRPC inference server
+# Develop and deploy gRPC inference server
 
 This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via pipeline extension.
 

@@ -42,6 +42,8 @@
     href: use-continuous-video-recording.md
   - name: Use event-based video recording
     href: record-event-based-live-video.md
+  - name: Record and stream inference data with video
+    href: record-stream-inference-data-with-video.md
   - name: Use line crossing
     href: use-line-crossing.md
   - name: Analyze live video
@@ -57,6 +59,12 @@
       href: analyze-live-video-custom-vision.md 
     - name: With Spatial Analysis
       href: computer-vision-for-spatial-analysis.md    
+- name: GitHub samples
+  items:
+  - name: C# sample repository
+    href: https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp
+  - name: Python sample repository
+    href: https://github.com/Azure-Samples/video-analyzer-iot-edge-python
 - name: Concepts
   items:
   - name: Pipeline
@@ -96,11 +104,9 @@
     - name: Using the Azure Video Analyzer player widget
       href: player-widget.md
     - name: Use access policies for playback
-      href: access-policies.md #404
+      href: access-policies.md
   - name: Record
     items:
-    - name: Record and stream inference data with video
-      href: record-stream-inference-data-with-video.md  #404
     - name: Manage recording policy
       href: manage-recording-policy.md
     - name: Configure a signal gate

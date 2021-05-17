@@ -79,8 +79,8 @@ landingContent:
       links:
         - text: FAQs
           url: faq-edge.md 
-        - text: Client APIs #404
-          url: client-apis.md
+        - text: SDKs
+          url: sdk.md
         - text: Pipeline extension
           url: pipeline-extension.md
         - text: Direct methods
