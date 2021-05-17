@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 05/15/2021
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 ---
 
 # Mitigate credential attacks in Azure AD B2C
@@ -25,7 +26,7 @@ Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are lo
 
 ## Unlock accounts
 
-The first 10 lockout periods are one minute long. The next 10 lockout periods are slightly longer and increase in duration after every 10 lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. Lockout periods can last up to five hours. Users must wait for the lockout duration to expire. However, the user can unlock by using self-service [password user flow](add-password-reset-policy.md).
+When a user enters correct password immediately after the account is locked out, it does not take lockout duration into consideration and allows the user to sign-in successfully. However, if the user keeps entering wrong password, the lockout duration increases. The first 10 lockout periods are one minute long. The next 10 lockout periods are slightly longer and increase in duration after every 10 lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. Lockout periods can last up to five hours. Users must wait for the lockout duration to expire. However, the user can unlock by using self-service [password user flow](add-password-reset-policy.md).
 
 ## Manage password protection settings
 
