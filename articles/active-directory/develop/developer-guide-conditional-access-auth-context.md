@@ -80,6 +80,8 @@ These steps are the changes that you need to carry in your code base. The steps 
 - Allow IT admins to select sensitive/ high-privileged operations and assign them against the available auth contexts. 
 - Save this mapping information in your database, per tenant, unless your application is going to ever be used in a single tenant.
 
+:::image type="content" source="media/developer-guide-conditional-access-auth-context/configure-conditional-access-auth-context.png" alt-text="Setup flow for creating an authentication context":::
+
 Third: Your application, and for this example, we’d assume it’s a web API, then needs to evaluate calls against the saved mapping and accordingly raise claim challenges for its client apps. To prepare for this action, the following steps are to be taken:
 
 1. Request the Authentication Context Class Reference (acrs) as an optional claim in its Access token by requesting it in the Web APIs app manifest.
@@ -102,6 +104,8 @@ Third: Your application, and for this example, we’d assume it’s a web API, t
 
 1. In a sensitive and protected by auth context operation, evaluate the values in the acrs claim against the auth context ID mapping saved earlier and raise a claims challenge as provided in the code snippet below. 
 1. The following diagram shows the interaction between the user, client app, and the web API.
+
+   :::image type="content" source="media/developer-guide-conditional-access-auth-context/authentication-context-application-flow.png" alt-text="Diagram showing of interation of user, web app, API, and Azure AD":::
 
    The code snippet that follows is from this code sample. The first method, EnsureUserHasElevatedScope() in the API checks if the action being called,
 
