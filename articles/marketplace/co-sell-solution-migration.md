@@ -124,24 +124,19 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 > [!TIP]
 > We recommend that you *do not fill out* the data in the **Co-sell with Microsoft** tab. To save you time we will take care of populating this data for you with your existing collateral in OCP GTM during the merge process.
 
-**OPTIONAL** - It is not necessary to complete the Co-sell with Microsoft tab during the merge. All of the co-sell information associated to the solution in OCP GTM will be migrated over to the offer in the commercial marketplace during the merge process. For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
+After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed.For more information, see [Configure co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure).
 
 1. When complete, select **Review and publish**.
 
- :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
-
+     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
 1. After reviewing all submitted information, select Publish to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
 
-:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Shows Review and Publish page with the Publish button highlighted.":::
-
+    :::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Shows Review and Publish page with the Publish button highlighted.":::
 1. Track the status of your submission on the Overview tab.
 
-:::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
-
+    :::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
-
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
-
 1. **Continue to Scenario 2 below to complete the merge process.**
 
 #### Scenario 2: Similar offer exists in commercial marketplace please follow these steps
