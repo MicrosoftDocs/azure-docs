@@ -455,6 +455,8 @@
       href: security-trusted-storage-rest-tutorial.md
     - name: Customer managed keys with REST API
       href: security-customer-managed-keys-rest-postman-tutorial.md
+    - name: Use a Key Vault key to encrypt data
+      href: security-encrypt-data-managed-identity-tutorial-cli.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up

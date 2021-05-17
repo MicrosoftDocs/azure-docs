@@ -45,6 +45,7 @@ You'll see these names referenced in the commands below.  The names of resources
 
 > [!NOTE]
 > The hyphens above are only used to separate guidance words. Because of the inconsistency of naming resources in Azure services, don't use hyphens when you name your resources.
+> Also, you don't create the region name.  The region name is determined by Azure.
 
 ### List Azure regions
 
