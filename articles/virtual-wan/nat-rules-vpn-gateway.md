@@ -121,7 +121,7 @@ In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the
 
    * Select the VPN site that is connected to the Virtual WAN hub via Link A. Select Edit Site and input 172.30.0.0/24 as the private address space for the VPN site. 
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/vpnsite-static.png" alt-text="Screenshot showing how to edit the Private Address space of a VPN site" lightbox="./media/nat-rules-vpn-gateway/vpnsite-static.png":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/vpn-site-static.png" alt-text="Screenshot showing how to edit the Private Address space of a VPN site" lightbox="./media/nat-rules-vpn-gateway/vpnsite-static.png":::
 
 ### <a name="considerationsnobgp"></a>Considerations if VPN sites are statically configured (not connected via BGP)
 * The subnet size for both internal and external mapping must be the same for static one-to-one NAT.
