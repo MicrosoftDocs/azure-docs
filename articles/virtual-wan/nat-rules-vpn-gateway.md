@@ -47,7 +47,7 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 > If you want the Site-to-site VPN Gateway to advertise translated (**ExternalMapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN Hub, connected Virtual Networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. 
 > Please note that the **Enable Bgp Translation** setting is applied to all NAT rules on the Virtual WAN Hub Site-to-site VPN Gateway. 
 
-## <a name="examples"></a>Example Configurations
+## <a name="examples"></a>Example configurations
 
 ### Ingress SNAT (BGP-Enabled VPN Site)
 
@@ -95,7 +95,7 @@ The following diagram shows the projected end result:
  
 ### Ingress SNAT (VPN site with statically configured routes)
 
-Ingress SNAT rules are applied on packets that are entering Azure through the Virtual WAN Site-to-site VPN gateway. In this scenario, you want to connect two Site-to-site VPN branches to Azure. VPN Site 1 connects via Link A, and VPN Site 2 connects via Link B. Each site has the same address space 10.30.0.0/24.
+**Ingress SNAT rules** are applied on packets that are entering Azure through the Virtual WAN Site-to-site VPN gateway. In this scenario, you want to connect two Site-to-site VPN branches to Azure. VPN Site 1 connects via Link A, and VPN Site 2 connects via Link B. Each site has the same address space 10.30.0.0/24.
 
 In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the VPN Site is not connected to the Site-to-site VPN Gateway via BGP, the configuration steps are slightly different than the BGP-enabled example. 
 
