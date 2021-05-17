@@ -167,4 +167,4 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 Now that you've learned how to create jobs in your Azure IoT Central application, here are some next steps:
 
 - [Manage your devices](howto-manage-devices.md)
-- [Version your device template](howto-version-device-template.md)
+- [Edit a device template](howto-edit-device-template.md)
