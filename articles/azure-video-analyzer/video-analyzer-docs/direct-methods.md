@@ -79,6 +79,7 @@ As shown in the example below, when you get an error response from a direct meth
 ```
 
 Following are the error codes used at the top level.
+
 |Status	|Code	|Message|
 |---|---|---|
 |400|	BadRequest|	Request is not valid|
