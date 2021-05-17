@@ -5,6 +5,7 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
+ms.custom: support-help-page
 ---
 # Azure Service Fabric support options
 
