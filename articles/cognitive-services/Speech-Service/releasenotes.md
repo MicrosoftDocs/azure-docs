@@ -18,7 +18,7 @@ ms.custom: seodec18
 ## Speech SDK 1.17.0: 2021-May release
 
 >[!NOTE]
->The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+>Get started with the Speech SDK [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk).
 
 **Highlights summary**
 
@@ -44,7 +44,10 @@ ms.custom: seodec18
 
 - Linux and Android Speech SDK binaries have been updated to use the latest version of OpenSSL (1.1.1k)
 - Code Size improvements:
-	- Language Understanding is now split into a separate "lu" library
+	- Language Understanding is now split into a separate "lu" library.
+	- Windows x64 core binary size decreased by 14.4%. 
+	- Android ARM64 core binary size decreased by 13.7%.
+	- other components also decreased in size.
 
 #### Bug fixes
 
@@ -75,7 +78,7 @@ ms.custom: seodec18
 - SPX now supports Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the SPX command line.
 - We also added Dialog support - Try `spx dialog` from the SPX command line.
 - SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
-- We've decreased the size of the SPX .NET tool install .
+- We've decreased the size of the SPX .NET tool install.
 
 **COVID-19 abridged testing**:
 
