@@ -29,12 +29,12 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration can currently be performed using CLI or REST requests . Azure portal or PowerShell are not supported yet.
+- Configuration currently can be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
 - The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables aren't currently supported.
+- Supported tables currently are limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables currently aren't supported.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- Data export will be available in all regions, but currently not available in the following: Azure Government regions, Japan West, Brazil south east, Norway East, Norway West, UAE North, UAE Central, Australia Central 2, Switzerland North, Switzerland West, Germany West Central, South India, France South, Japan West
+- Data export will be available in all regions, but currently it's not available in the following: Azure Government regions, Japan West, Brazil south east, Norway East, Norway West, UAE North, UAE Central, Australia Central 2, Switzerland North, Switzerland West, Germany West Central, South India, France South, Japan West
 - You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
 - Destination must be unique across all export rules in your workspace.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
@@ -44,7 +44,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
 
 ## Cost
-There are currently no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
+Currently, there are no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice period provided prior to the start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
 
 ## Export destinations
 
@@ -66,11 +66,11 @@ Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An
 > The [number of supported event hubs per 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, either split the tables between several export rules to different event hub namespaces, or provide event hub name in the export rule and export all tables to that event hub.
 
 Considerations:
-1. The 'Basic' event hub sku supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
+1. The 'Basic' event hub SKU supports a lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend using a 'Standard' or 'Dedicated' event hub as an export destination.
 2. The volume of exported data often increases over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
-The following  prerequisites must be completed before configuring Log Analytics data export.
+The following prerequisites must be completed before configuring Log Analytics data export:
 
 - Destinations must be created prior to the export rule configuration and should be in the same region as your Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md).  
 - The storage account must be StorageV1 or StorageV2. Classic storage is not supported  
@@ -539,7 +539,7 @@ If the data export rule includes a table that doesn't exist, it will fail with t
 
 
 ## Supported tables
-Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list will be updated as support for additional tables is added.
+Supported tables currently are limited to those specified below. All data from the table will be exported unless limitations are specified. This list will be updated as support for additional tables is added.
 
 
 | Table | Limitations |
@@ -639,7 +639,7 @@ Supported tables are currently limited to those specified below. All data from t
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
 | Operation | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| Perf | Partial support – only Windows perf data currently is supported. The Linux perf data is missing in export currently. |
 | PowerBIDatasetsTenant |  |
 | PowerBIDatasetsWorkspace |  |
 | PowerBIDatasetsWorkspacePreview |  |
