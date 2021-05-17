@@ -39,7 +39,7 @@ The direct methods are based on the following conventions:
     * No spaces
     * Max of 32 characters
 
-### Here is an example of response from a direct method
+### Example of response from a direct method
 
 ```
 -----------------------  Request: livePipelineList  --------------------------------------------------
@@ -56,24 +56,11 @@ The direct methods are based on the following conventions:
 
 --------------------------------------------------------------------------
 ```    
-### Top-level error codes     
+### Error codes
+As shown in the example below, when you get an error response from a direct method, there is a top-level error code, and further information is provided under `details`.
 
-|Status	|Code	|Message|
-|---|---|---|
-|400|	BadRequest|	Request is not valid|
-|400|	InvalidResource|	Resource is not valid|
-|400|	InvalidVersion|	API version is not valid|
-|402|	ConnectivityRequired	|Edge module requires cloud connectivity to properly function.|
-|404|	NotFound	|Resource was not found|
-|409|	Conflict|	Operation conflict|
-|500|	InternalServerError|	Internal server error|
-|503|	ServerBusy|	Server busy|
 
-### Detailed error codes
-
-Detailed validations error, such as pipeline module validations, are added as error details:
-
-```
+```json
 {
   "status": 400,
   "payload": {
@@ -90,19 +77,35 @@ Detailed validations error, such as pipeline module validations, are added as er
   }
 }
 ```
+
+Following are the error codes used at the top level.
+|Status	|Code	|Message|
+|---|---|---|
+|400|	BadRequest|	Request is not valid|
+|400|	InvalidResource|	Resource is not valid|
+|400|	InvalidVersion|	API version is not valid|
+|402|	ConnectivityRequired	|Edge module requires cloud connectivity to properly function.|
+|404|	NotFound	|Resource was not found|
+|409|	Conflict|	Operation conflict|
+|500|	InternalServerError|	Internal server error|
+|503|	ServerBusy|	Server busy|
+
+Following are some of the error codes used at the detail level.
+
 |Status|	Detailed code	|Description|
 |---|---|---|
-|400|	PipelineValidationError|	General Pipeline errors such as cycles or partitioning, etc.|
+|400|	PipelineValidationError|	General pipeline errors such as cycles or partitioning, etc.|
 |400|	ModuleValidationError|	Module specific validation errors.|
-|409|	PipelineTopologyInUse|	Pipeline topology is still referenced by one or more Pipeline.|
+|409|	PipelineTopologyInUse|	Pipeline topology is still referenced by one or more live pipeline.|
 |409|	OperationNotAllowedInState|	Requested operation cannot be performed in the current state.|
-|409|	ResourceValidationError|	Referenced resource (example: asset) is not in a valid state.|
+|409|	ResourceValidationError|	Referenced resource (example: video resource) is not in a valid state.|
 
-## Details  
+## Supported direct methods  
+Following are the direct methods exposed by the Video Analyzer edge module.
 
 ### pipelineTopologyList
 
-This direct method retrieves a single pipeline topology.
+This direct method lists all the pipeline topologies that have been created.
 
 #### Request
 
@@ -115,6 +118,7 @@ This direct method retrieves a single pipeline topology.
 
 ```
 {
+  "status": 200,
   "value": [
     {
       "systemData": {
@@ -122,34 +126,42 @@ This direct method retrieves a single pipeline topology.
         "lastModifiedAt": "2021-05-05T16:20:41.505Z"
       },
       
-      //Complete Topology
+      // first pipeline topology payload
       
-    }
+    },
+      "systemData": {
+        "createdAt": "2021-05-06T14:19:22.16Z",
+        "lastModifiedAt": "2021-05-06T16:20:41.505Z"
+      },
+      
+      // next pipeline topology payload
+      
+    }    
   ]
 }
 ```
 
 #### Status codes
 
-| Condition | Status code | Detailed error code |
-|--|--|--|
-| Entity found | 200 | N/A |
-| General user errors | 400 range |  |
-| Entity not found | 404 |  |
-| General server errors | 500 range |  |
+| Condition | Status code |
+|--|--|
+| Entity found | 200 |
+| General user errors | 400 range |
+| Entity not found | 404 |
+| General server errors | 500 range |
 
 ### pipelineTopologySet
 
-Creates a single pipeline topology if there is no existing one with the given name or updates and existing one with the same name.
+Creates a pipeline topology with the given name if no such topology exists, or updates an existing topology with that name.
 
 Key aspects:
 
-* A Pipeline topology can be freely updated if there are no pipeline referencing it.
-* A Pipeline topology can be freely updated if all referencing pipeline are deactivated as long as:
+* A pipeline topology can be freely updated if there are no live pipelines referencing it.
+* A pipeline topology can be freely updated if all referencing live pipelines are deactivated as long as:
 
     * Newly added parameters have default values
     * Removed parameters are not referenced by any pipeline
-* Only some pipeline updates are allowed while the pipeline is active.
+* Only some pipeline topology updates are allowed while a live pipeline is active.
 
 #### Request
 
@@ -160,7 +172,7 @@ Key aspects:
         "@apiVersion": "1.0",
         "name": "{TopologyName}",
         "properties": {
-            // Desired Topology properties
+            // Desired pipeline topology properties
         }
     }
   }
@@ -172,9 +184,13 @@ Key aspects:
   {
     "status": 201,
     "payload": {
+        "systemData": {
+           "createdAt": "2021-05-11T18:16:46.491Z",
+           "lastModifiedAt": "2021-05-11T18:16:46.491Z"
+        },
         "name": "{TopologyName}",
         "properties": {
-            // Complete Topology
+            // Complete pipeline topology
         }
     }
   }
@@ -186,23 +202,61 @@ Key aspects:
 Existing entity updated	|200|	N/A|
 New entity created	|201|	N/A|
 General user errors	|400 range	||
-Pipeline Validation Errors	|400	|PipelineValidationError|
-Module Validation Errors|	400	|ModuleValidationError|
+Pipeline validation Errors	|400	|PipelineValidationError|
+Module validation Errors|	400	|ModuleValidationError|
 General server errors	|500 range	||
 
-### pipelineTopologyDelete
+### pipelineTopologyGet
 
-Deletes a single live pipeline topology.
-
-* Note that there cannot be any live pipelines referencing a pipeline topology being deleted. If this is the case you will receive a `TopologyInUse` error.
+It retrieves a pipeline topology with the specified name, if it exists.
 
 #### Request
 
 ```
   {
-    "methodName": "pipeline
-    
-    Delete",
+        "@apiVersion": "1.0",
+        "name": "{TopologyName}"       
+  }
+```
+#### Response
+
+```
+{
+  "status": 200,
+  "payload": {
+    "value": [
+      {
+        "systemData": {
+          "createdAt": "2021-05-06T10:28:04.560Z",
+          "lastModifiedAt": "2021-05-06T10:28:04.560Z"
+        },
+        "name": "{TopologyName}",
+        // Complete pipeline topology
+      }
+    ]
+  }
+}
+```
+
+#### Status codes
+
+| Condition | Status code |
+|--|--|
+| Success | 200 |
+| General user errors | 400 range |
+| General server errors | 500 range |
+
+### pipelineTopologyDelete
+
+Deletes a single pipeline topology.
+
+* Note that there cannot be any live pipelines [referencing a pipeline topology being deleted](pipeline.md#pipeline-states). If there are such live pipelines you will receive a `TopologyInUse` error.
+
+#### Request
+
+```
+  {
+    "methodName": "pipelineTopologyDelete",
     "payload": {
         "@apiVersion": "1.0",
         "name": "{TopologyName}"
@@ -230,49 +284,54 @@ Deletes a single live pipeline topology.
 
 ### livePipelineList
 
-Retrieves a single Pipeline:
+Lists all live pipelines.
 
 #### Request
 
 ```
   {
-        "@apiVersion": "1.0",
-        "name": "{livePipelineName}"
+        "@apiVersion": "1.0"
   }
 ```
 #### Response
 
 ```
-  {
-    "status": 200,
-    "payload": {
-        "name": "{livePipelineName}",
-        "properties": {
-            // Complete pipeline
-        }
-    }
-  }
+{
+  "status": 200,
+  "value": [
+    {
+      "systemData": {
+        "createdAt": "2021-05-05T14:19:22.16Z",
+        "lastModifiedAt": "2021-05-05T16:20:41.505Z"
+      },      
+      // first live pipeline payload  
+    },
+      "systemData": {
+        "createdAt": "2021-05-06T14:19:22.16Z",
+        "lastModifiedAt": "2021-05-06T16:20:41.505Z"
+      },
+      // next live pipeline payload
+    }    
+  ]
+}
 ```
 #### Status codes
 
-| Condition | Status code | Detailed error code |
-|--|--|--|
-| Entity found | 200 | N/A |
-| General user errors | 400 range |  |
-| Entity not found | 404 |  |
-| General server errors | 500 range |  |
+| Condition | Status code |
+|--|--|
+| Entity found | 200 |
+| General user errors | 400 range |
+| Entity not found | 404 |
+| General server errors | 500 range |
 
 ### livePipelineSet
 
-Creates a single pipeline if there is no existing one with the given name or updates and existing one with the same name.
+Creates a live pipeline with the given name if no such live pipeline exists, or updates an existing live pipeline with that name.
 
 Key aspects:
 
-* A Pipeline can be freely updated while in "Deactivated" state.
-
-* A Pipeline is revalidated on every update.
-* Pipeline updates are partially restricted while the pipeline is not in the “Inactive” state.
-* Only some pipeline updates are allowed while the pipeline is active.
+* A live pipeline can be freely updated while in "Deactivated" state. In other states, only some updates are allowed.
+* A live pipeline is revalidated on every update.
 
 #### Request
 
@@ -281,7 +340,7 @@ Key aspects:
         "@apiVersion": "1.0",
         "name": "{livePipelineName}",
         "properties": {
-            // Desired Stream properties
+            // Desired live pipeline properties
         }
   }
 ```
@@ -291,9 +350,13 @@ Key aspects:
   {
     "status": 201,
     "payload": {
+        "systemData": {
+           "createdAt": "2021-05-11T18:16:46.491Z",
+           "lastModifiedAt": "2021-05-11T18:16:46.491Z"
+        },
         "name": "{livePipelineName}",
         "properties": {
-            // Complete pipeline
+            // Complete live pipeline
         }
     }
   }
@@ -305,18 +368,18 @@ Key aspects:
 | Existing entity updated | 200 | N/A |
 | New entity created | 201 | N/A |
 | General user errors | 400 range | N/A |
-| Pipeline Validation Errors | 400 | PipelineValidationError |
-| Module Validation Errors | 400 | ModuleValidationError |
+| Live pipeline validation errors | 400 | PipelineValidationError |
+| Module validation errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
 | General server errors | 500 range | N/A |
 
 ### livePipelineDelete
 
-Deletes a single pipeline.
+Deletes a single live pipeline.
 
 Key aspects:
 
-* Only deactivated pipeline can be deleted.
+* Only deactivated live pipelines can be deleted.
 
 #### Request
 
@@ -338,21 +401,22 @@ Key aspects:
 
 | Condition | Status code | Detailed error code |
 |--|--|--|
-| Pipeline deleted successfully | 200 | N/A |
-| Pipeline not found | 204 | N/A |
+| Live pipeline deleted successfully | 200 | N/A |
+| Live pipeline not found | 204 | N/A |
 | General user errors | 400 range |  |
-| Pipeline is not in the "Stopped" state | 409 | OperationNotAllowedInState |
+| Pipeline is not in the "Deactivated" state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
 
-### livePipelineList
+### livePipelineGet
 
-This is similar to liveTopologyList. It retrieves a list of all the pipelines.
+This is similar to liveTopologyGet. It retrieves a live pipeline with the specified name, if it exists.
 
 #### Request
 
 ```
   {
-        "@apiVersion": "1.0"
+        "@apiVersion": "1.0",
+        "name": "{livePipelineName}"       
   }
 ```
 #### Response
@@ -367,26 +431,8 @@ This is similar to liveTopologyList. It retrieves a list of all the pipelines.
           "createdAt": "2021-05-06T10:28:04.560Z",
           "lastModifiedAt": "2021-05-06T10:28:04.560Z"
         },
-        "name": "Sample-Pipeline-1",
-        "properties": {
-          "state": "Active",
-          "description": "Sample pipeline description",
-          "topologyName": "CVRToVideoSink",
-          "parameters": [
-            {
-              "name": "rtspPassword",
-              "value": "testpassword"
-            },
-            {
-              "name": "rtspUrl",
-              "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-            },
-            {
-              "name": "rtspUserName",
-              "value": "testuser"
-            }
-          ]
-        }
+        "name": "{livePipelineName}",
+        // Complete live pipeline
       }
     ]
   }
@@ -395,26 +441,24 @@ This is similar to liveTopologyList. It retrieves a list of all the pipelines.
 
 #### Status codes
 
-| Condition | Status code | Detailed error code |
-|--|--|--|
-| Success | 200 | N/A |
-| General user errors | 400 range |  |
-| General server errors | 500 range |  |
+| Condition | Status code |
+|--|--|
+| Success | 200 |
+| General user errors | 400 range |
+| General server errors | 500 range |
 
 ### livePipelineActivate
 
-Activates a single pipeline. 
+Activates a live pipeline. 
 
 Key aspects
 
-* Method only returns when pipeline is activated 
-* Pipeline assumes the “Activating” state while being activated.
-
-* A List/Set operation on the pipeline would return the pipeline on the proper state.
+* Method returns when the live pipeline is in "Activating" or "Activated" state. 
+* A List/Set operation on the live pipeline would return the current state.
+* This method can be invoked as long as the live pipeline is not in the (transient) "Deactivating" state.
 * Idempotency:
-
-    * Starting a pipeline on “Activating” state behaves the same way as if the pipeline was deactivated (that is: call blocks until pipeline is activated)
-    * Activating a pipeline on “Active” state returns successfully immediately.
+    * Calling `livePipelineActivate` on a live pipeline which is already in "Activating" state behaves the same way as if the live pipeline was deactivated.
+    * Activating a pipeline which is in "Active" state returns a success code immediately.
 
 #### Request
 
@@ -441,24 +485,24 @@ Key aspects
 | General user errors | 400 range |  |
 | Module validation errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
-| Pipeline is in deactivating state | 409 | OperationNotAllowedInState |
+| Live pipeline is in deactivating state | 409 | OperationNotAllowedInState |
 | General server errors | 500 range |  |
 
 ### livePipelineDeactivate
 
-Deactivates a single pipeline. Deactivating a pipeline gracefully deactivates the video processing and ensures that all events and video transiently stored on edge is committed to cloud, whenever applicable.
+Deactivates a live pipeline. Deactivating a pipeline gracefully deactivates the video processing and ensures that all events and video cached on the edge is committed to cloud, whenever applicable.
 
 Key aspects:
 
-* Method only returns when pipeline is deactivated
-* Pipeline assumes the “Deactivating” state while being deactivated.
-
-    * A List/Set operation on the pipeline would return the pipeline on the proper state.
-    * Stop only completes when all media has been uploaded to the cloud.
+* Method only returns when live pipeline is deactivated.
+* This method can be invoked as long as the live pipeline is not in the (transient) "Activating" state.
+* Pipeline goes into the "Deactivating" state while being deactivated.
+    * A List/Set operation on the live pipeline would return the current state.
+    * Deactivation completes when all media has been uploaded to the cloud (if the pipeline has a [video sink](pipeline.md#video-sink) node).
 * Idempotency:
+    * Calling `livePipelineDeactivate` on a live pipeline which is already in "Deactivating" state behaves the same way as if the live pipeline was in "Active" state.
+    * Deactivating a pipeline which is in "Inactive" state returns a success code immediately.
 
-    * Deactivating a pipeline on “Deactivating” state behaves the same way as if the pipeline was deactivated (that is: call blocks until pipeline is deactivated)
-    * Deactivating a pipeline on “Inactive” state returns successfully immediately.
 
 #### Request
 
