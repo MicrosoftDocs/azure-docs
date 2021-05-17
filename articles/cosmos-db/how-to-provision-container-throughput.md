@@ -27,11 +27,11 @@ If you are using a different API, see [API for MongoDB](how-to-provision-through
 
    * Indicate whether you are creating a new database or using an existing one.
    * Enter a Container ID.
-   * Enter a partition key value (for example, `/ItemID`).
-   * Enter a throughput that you want to provision (for example, 1000 RUs).
+   * Enter a partition key value (for example, `/category`).
+   * Enter a throughput that you want to provision (for example, 400 RU/s).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
+     :::image type="content" source="../includes/media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## Azure CLI or PowerShell
 
