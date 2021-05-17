@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/31/2021
 ---
 
-# How to use Azure portal to invoke direct methods for Azure Video Analyzer
+# Use Azure portal to invoke direct methods for Azure Video Analyzer
 
 IoT Hub gives you the ability to invoke [direct methods](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Azure Video Analyzer (Video Analyzer) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and activate different pipelines for analyzing live video.
 
