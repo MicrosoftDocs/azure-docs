@@ -10,7 +10,13 @@ ms.custom: devx-track-azurepowershell
 
 # Manage an Azure Automation Run As account
 
-Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account, including renewal of the self-signed or certificate from an enterprise or third-party certificate authority (CA).
+Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. 
+
+In this article we cover how to manage a Run as or Classic Run As account, including:
+
+   * How to renew a self-signed certificate
+   * How to renew a certificate from an enterprise or third-party certificate authority (CA)
+   * Manage permissions for the Run As account
 
 To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
