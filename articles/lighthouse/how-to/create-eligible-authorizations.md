@@ -48,7 +48,7 @@ More about these elements, and how to define them, is explained below.
 
 ## Create eligible authorizations using Azure Resource Manager templates
 
-To onboard your customer to Azure Lighthouse, you use an[] Azure Resource Manager template along with a corresponding [parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
+To onboard your customer to Azure Lighthouse, you use an [Azure Resource Manager template along with a corresponding parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
 
 > [!NOTE]
 > While you can also onboard customers using Managed Service offers in Azure Marketplace, you can't currently include eligible authorizations in those offers.
