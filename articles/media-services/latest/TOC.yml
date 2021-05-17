@@ -85,8 +85,6 @@
       href: security-encrypt-data-managed-identity-cli-tutorial.md
     - name: Access storage with a Managed Identity
       href: security-access-storage-managed-identity-cli-tutorial.md
-    - name: Give Azure Functions to access a Media Services account
-      href: security-azure-functions-access-media-services-cli-tutorial.md
   - name: Node.js
     items:
     - name: Encode and stream a remote file Node.js
@@ -465,8 +463,6 @@
       href: security-encrypt-data-managed-identity-cli-tutorial.md
     - name: Access storage with a Managed Identity
       href: security-access-storage-managed-identity-cli-tutorial.md
-    - name: Give Azure Functions to access a Media Services account
-      href: security-azure-functions-access-media-services-cli-tutorial.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up

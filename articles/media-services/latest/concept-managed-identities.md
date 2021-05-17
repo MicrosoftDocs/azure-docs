@@ -31,10 +31,10 @@ In the first two scenarios, the Managed Identity is used to grant the *Media Ser
 
 ## Tutorials and How Tos
 
-These tutorials include both of the scenarios mentioned above.
-- [CLI: Encrypt data into a Media Services account using a key in Key Vault](security-encrypt-data-managed-identity-tutorial-cli.md)
-- [CLI: Allow Media Services to access a storage account that is configured to block requests from unknown IP addresses](security-access-storage-managed-identity-tutorial-cli.md)
-<!--- [CLI: Use Azure Functions to access my Media Services account]()-->
+Try these tutorials to get some hands-on experience with using a Managed Identity with Media Services.
+
+- [CLI: Encrypt data into a Media Services account using a key in Key Vault](security-encrypt-data-managed-identity-cli-tutorial.md)
+- [CLI: Allow Media Services to access a storage account that is configured to block requests from unknown IP addresses](security-access-storage-managed-identity-cli-tutorial.md)
 - [PORTAL: Use the Azure portal to use customer-managed keys or BYOK with Media Services](security-customer-managed-keys-portal-tutorial.md)
 - [POSTMAN/REST: Use customer-managed keys or BYOK with Media Services REST API](security-customer-managed-keys-rest-postman-tutorial.md)
 
