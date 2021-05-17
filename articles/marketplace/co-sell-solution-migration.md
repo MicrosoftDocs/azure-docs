@@ -18,7 +18,7 @@ ms.date: 5/17/2021
 - [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
 - [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
 - [Begin the Migration of your solutions from OCP GTM](#begin-the-migration-of-your-solutions-from-ocp-gtm)
-- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#scenario-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
+- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#step-1:-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
 - [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
 - [Discard this solution](#discard-this-solution)
 
@@ -145,7 +145,8 @@ Select this option if the solution is already published and live in the commerci
    1. Select **Continue**.
         [![The Action 1 tab of the merge process.](media/co-sell-migrate/action-1-merge.png)](media/co-sell-migrate/action-1-merge.png#lightbox)
 1. Request the merge.
-    1. The **Action 2** tab shows directions to request the merge of your OCP GTM solution with the one you identified. To request the merge, select **Save & Contact support**, which opens a partner support page in a browser.
+    1. The **Action 2** tab shows directions to request the merge of your OCP GTM solution with the one you identified. To request the merge, select **Save & Contact support**, which opens a partner support page in a browser. 
+    <a id="action-2-merge"></a>
         [![The Action 2 tab of the merge process.](media/co-sell-migrate/action-2-merge.png)](media/co-sell-migrate/action-2-merge.png#lightbox)
     1. Select **Provide Issue Details** and enter the following:
         1. Offer Type
