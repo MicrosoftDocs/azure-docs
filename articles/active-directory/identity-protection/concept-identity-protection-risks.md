@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -80,7 +80,7 @@ While Microsoft does not provide specific details about how risk is calculated, 
 
 ### Password hash synchronization
 
-Risk detections like leaked credentials and password spray require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+Risk detections like leaked credentials require the presence of password hashes for detection to occur. For more information about password hash synchronization, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### Leaked credentials
 

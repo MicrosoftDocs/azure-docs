@@ -2,14 +2,14 @@
 title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---

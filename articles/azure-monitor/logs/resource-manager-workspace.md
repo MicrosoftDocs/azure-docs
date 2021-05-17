@@ -4,7 +4,8 @@ description: Sample Azure Resource Manager templates to deploy Log Analytics wor
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
+ms.date: 05/18/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 

@@ -80,5 +80,5 @@ In the following diagram, several container groups have been deployed to a subne
 [aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list

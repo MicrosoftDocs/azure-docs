@@ -297,14 +297,14 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-keyvault-create]: /cli/azure/keyvault/secret#az_keyvault_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-login]: /cli/azure/reference-index#az_login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->

@@ -39,7 +39,7 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In this example, the image definition is named *myImageDefinition*, and is for a [generalized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
@@ -61,7 +61,7 @@ az sig image-definition create \
 
 ## Create the image version
 
-Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get the IDs for your images. 
+Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az_image_list) to get the IDs for your images. 
 
 ```azurecli-interactive
 az image list --query "[].[name, id]" -o tsv

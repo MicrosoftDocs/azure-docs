@@ -243,7 +243,7 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [FAQ - Develop with the Table API](./faq.md)
+* [FAQ - Develop with the Table API](./faq.yml)
 * [Azure Cosmos DB SDK for Python API reference](/python/api/overview/azure/cosmosdb)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
@@ -262,4 +262,4 @@ table_service.delete_table('tasktable')
 [py_update_entity]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
 [py_delete_table]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
 [py_TableService]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
-[py_TableBatch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice
+[py_TableBatch]: /python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice

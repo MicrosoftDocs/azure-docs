@@ -13,7 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to use Role-Based Access Control in Azure API Management

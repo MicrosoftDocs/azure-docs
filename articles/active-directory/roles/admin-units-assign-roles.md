@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 04/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -68,11 +68,11 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
 
 ```powershell
 $adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
-$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
+$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Administrator"
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-$roleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
-$roleMember.ObjectId = $adminUser.ObjectId
-Add-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId -RoleObjectId $role.ObjectId -RoleMemberInfo $roleMember
+$roleMember = New-Object -TypeName Microsoft.Open.MSGraph.Model.MsRoleMemberInfo
+$roleMember.Id = $adminUser.ObjectId
+Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -RoleMemberInfo $roleMember
 ```
 
 You can change the highlighted section as required for the specific environment.
@@ -114,7 +114,7 @@ You can view all the role assignments created with an administrative unit scope 
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId | fl *
+Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
 ```
 
 You can change the highlighted section as required for your specific environment.

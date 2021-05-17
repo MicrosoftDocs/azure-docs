@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 05/13/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -27,7 +27,7 @@ The following scope is specific for the registering and scanning Amazon S3 bucke
 |---------|---------|
 |**Data limits**     |    The Purview scanner service currently supports scanning Amazon S3 buckets for up to 100 GB of data per tenant.     |
 |**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed only in the **AWS US East (Ohio)** and **Europe (Frankfurt)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
+|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in the AWS **US East (Ohio)**, **US East (N. Virginia)**, **Europe (Ireland)**, and **Europe (Frankfurt)**, and **Asia Pacific (Sydney)** regions. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
 |     |         |
 
 For more information, see the documented Purview limits at:
@@ -35,6 +35,7 @@ For more information, see the documented Purview limits at:
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
 - [Use private endpoints for your Purview account](catalog-private-link.md)
+
 ### Storage and scanning regions
 
 The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
@@ -46,25 +47,25 @@ The following table maps the regions where you data is stored to the region wher
 | Storage region | Scanning region |
 | ------------------------------- | ------------------------------------- |
 | US East (Ohio)                  | US East (Ohio)                        |
-| US East (N. Virginia)           | US East (Ohio) or US East (N. Virginia)                       |
-| US West (N. California)         | US East (Ohio)                        |
-| US West (Oregon)                | US East (Ohio)                        |
+| US East (N. Virginia)           | US East (N. Virginia)                       |
+| US West (N. California)         | US East (Ohio) or US West (N. California)                        |
+| US West (Oregon)                | US East (Ohio)  or US West (Oregon)                      |
 | Africa (Cape Town)              | Europe (Frankfurt)                    |
-| Asia Pacific (Hong Kong)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Mumbai)           | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Osaka-Local)      | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Seoul)            | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Singapore)        | Europe (Frankfurt) or Asia Pacific (Sydney)                   |
-| Asia Pacific (Sydney)           | Europe (Frankfurt)  or Asia Pacific (Sydney)                  |
-| Asia Pacific (Tokyo)            | Europe (Frankfurt) or Asia Pacific (Sydney)                 |
+| Asia Pacific (Hong Kong)        | Asia Pacific (Sydney)   or Asia Pacific (Singapore)                |
+| Asia Pacific (Mumbai)           | Asia Pacific (Sydney)   or Asia Pacific (Singapore)                |
+| Asia Pacific (Osaka-Local)      | Asia Pacific (Sydney)  or Asia Pacific (Tokyo)                 |
+| Asia Pacific (Seoul)            | Asia Pacific (Sydney)  or Asia Pacific (Tokyo)                 |
+| Asia Pacific (Singapore)        | Asia Pacific (Sydney)  or Asia Pacific (Singapore)                 |
+| Asia Pacific (Sydney)           | Asia Pacific (Sydney)                  |
+| Asia Pacific (Tokyo)            | Asia Pacific (Sydney) or Asia Pacific (Tokyo)                |
 | Canada (Central)                | US East (Ohio)                        |
 | China (Beijing)                 | Not supported                    |
 | China (Ningxia)                 | Not supported                   |
 | Europe (Frankfurt)              | Europe (Frankfurt)                    |
-| Europe (Ireland)                | Europe (Frankfurt) or Europe (Ireland)                   |
-| Europe (London)                 | Europe (Frankfurt) or Europe (Ireland)                   |
+| Europe (Ireland)                | Europe (Ireland)                   |
+| Europe (London)                 | Europe (Ireland)  or Europe (London)                 |
 | Europe (Milan)                  | Europe (Frankfurt)                    |
-| Europe (Paris)                  | Europe (Frankfurt)                    |
+| Europe (Paris)                  | Europe (Frankfurt) or Europe (Paris)                   |
 | Europe (Stockholm)              | Europe (Frankfurt)                    |
 | Middle East (Bahrain)           | Europe (Frankfurt)                    |
 | South America (São Paulo)       | US East (Ohio)                        |
@@ -112,9 +113,30 @@ This procedure describes how to create a new Purview credential to use when scan
 
     Select **Create** when you're done to finish creating the credential.
 
-For more information about Purview credentials, see the [Azure Purview public preview documentation](manage-credentials.md).
+1. If you haven't yet, copy and paste the **Microsoft account ID** and **External ID** values for use when [creating a new AWS role for Purview](#create-a-new-aws-role-for-purview), which is your next step.
+
+For more information about Purview credentials, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
 ### Create a new AWS role for Purview
+
+This procedure requires that you enter the values for your Azure Account ID and External ID when creating your AWS role.
+
+If you don't have these values, locate them first in your [Purview credential](#create-a-purview-credential-for-your-aws-bucket-scan).
+
+**To locate your Microsoft Account ID and External ID**:
+
+1. In Purview, navigate to the **Management Center** > **Security and access** > **Credentials**.
+
+1. Select the credential that you [created for your AWS bucket scan](#create-a-purview-credential-for-your-aws-bucket-scan), and then in the toolbar, select **Edit**.
+
+1. In the **Edit credential** pane that appears on the right, copy the **Microsoft account ID** and **External ID** values to a separate file, or have them handy for pasting into the relevant field in AWS.
+
+    For example:
+
+    [ ![Locate your Microsoft account ID and External ID values.](./media/register-scan-amazon-s3/locate-account-id-external-id.png) ](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+
+
+**To create your AWS role for Purview**:
 
 1.	Open your **Amazon Web Services** console, and under **Security, Identity, and Compliance**, select **IAM**.
 
@@ -125,12 +147,8 @@ For more information about Purview credentials, see the [Azure Purview public pr
     |Field  |Description  |
     |---------|---------|
     |**Account ID**     |    Enter your Microsoft Account ID. For example: `615019938638`     |
-    |**External ID**     |   Under options, select **Require external ID...**, and then enter your External ID in the designated field. <br>For example: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>You can find this external ID when you .  |
+    |**External ID**     |   Under options, select **Require external ID...**, and then enter your External ID in the designated field. <br>For example: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
-
-    > [!NOTE]
-    > You can find the values for both the **Microsoft Account ID** and **External ID** in the Purview **Management Center** > **Credentials** area, where you [created your Purview credentials](#create-a-purview-credential-for-your-aws-bucket-scan).
-    >
 
     For example:
 

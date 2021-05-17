@@ -13,13 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Install Azure Application Consistent Snapshot tool (preview)
+# Install Azure Application Consistent Snapshot tool
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files or Azure Large Instance.
+
+> [!IMPORTANT]
+> Distributed installations are the only option for **Azure Large Instance** systems as they are deployed in a private network.  Therefore AzAcSnap installations must be done on each system to ensure connectivity.
 
 ## Introduction
 

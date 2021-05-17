@@ -18,7 +18,7 @@
     - name: Security
       items:
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/cloud-services-security-baseline?toc=/azure/cloud-services/toc.json
   - name: How To
     items:
     - name: Plan

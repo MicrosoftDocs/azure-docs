@@ -4,7 +4,8 @@ description: This article tells how to create and work with a schedule in Azure 
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/29/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage schedules in Azure Automation

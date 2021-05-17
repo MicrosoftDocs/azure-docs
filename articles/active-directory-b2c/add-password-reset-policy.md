@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/11/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -57,17 +57,17 @@ To enable self-service password reset for the sign-up or sign-in user flow:
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 1. Under **Customize** in the left menu, select **Page layouts**.
-1. In the **Page Layout Version**, choose **2.1.2 - Current** or above.
+1. In the **Page Layout Version**, choose **2.1.3** or above.
 1. Select **Save**.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-The following sections describe how to add a self-service password experience to a custom policy. The sample is based on the policy files included in the [custom policy starter pack](./custom-policy-get-started.md). 
+The following sections describe how to add a self-service password experience to a custom policy. The sample is based on the policy files included in the [custom policy starter pack](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack). 
 
 > [!TIP]
 > You can find a complete sample of the "sign-up or sign-in with password reset" policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
@@ -312,7 +312,7 @@ To let users of your application reset their password, you create a password res
 
 ### Create a password reset policy
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

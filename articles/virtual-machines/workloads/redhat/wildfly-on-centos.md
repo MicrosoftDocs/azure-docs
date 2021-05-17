@@ -3,13 +3,14 @@ title: Quickstart - WildFly on CentOS
 description: Deploy Java applications to WildFly on CentOS VM
 author: Theresa-Nguyen
 ms.author: bicnguy
+ms.date: 10/23/2020
+ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom:
+  - mode-api
 ms.collection: linux
-ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
-ms.date: 10/23/2020
-
 ---
 
 # Quickstart: WildFly on CentOS 8

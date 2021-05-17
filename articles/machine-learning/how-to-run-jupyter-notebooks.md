@@ -8,8 +8,7 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 01/19/2021
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
@@ -285,8 +284,10 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 ## Troubleshooting
 
 * If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+
 * When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
 
+* If your kernel crashed and was restarted you can run the following command to look at jupyter log and find out more details. `sudo journalctl -u jupyter`. if kernel issues persist, please consider using a compute instance with more memory.
     
 ## Next steps
 

@@ -150,7 +150,7 @@ Before you can use the digital certificate created in the previous step with you
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
 
-    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
+    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pki/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
 
     ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -310,7 +310,7 @@ For the certificate subject name match, the DC will use the Azure ADDS domain na
 
 The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
 
-For more information, see [TLS Handshake](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
+For more information, see [TLS Handshake](/windows/win32/secauthn/tls-handshake-protocol).
 
 ## Next steps
 
@@ -334,4 +334,4 @@ In this tutorial, you learned how to:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

@@ -19,8 +19,8 @@ When you have critical applications and business processes relying on Azure reso
 > [!TIP]
 > The information in this document is primarily for __administrators__, as it describes monitoring for the Azure Machine Learning service and associated Azure services. If you are a __data scientist__ or __developer__, and want to monitor information specific to your *model training runs*, see the following documents:
 >
-> * [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-> * [Log metrics for training runs](how-to-track-experiments.md)
+> * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+> * [Log metrics for training runs](how-to-log-view-metrics.md)
 > * [Track experiments with MLflow](how-to-use-mlflow.md)
 > * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 >

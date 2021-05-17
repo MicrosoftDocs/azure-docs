@@ -4,7 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/06/2021
 ---

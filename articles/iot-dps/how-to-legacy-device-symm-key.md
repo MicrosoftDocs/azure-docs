@@ -3,7 +3,7 @@ title: Provision devices using symmetric keys - Azure IoT Hub Device Provisionin
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -25,6 +25,16 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 > [!NOTE]
 > The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
+## Prerequisites
+
+* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+
+* Latest version of [Git](https://git-scm.com/download/) installed.
+
 ## Overview
 
 A unique registration ID will be defined for each device based on information that identifies that device. For example, the MAC address or a serial number.
@@ -35,16 +45,6 @@ The device code demonstrated in this article will follow the same pattern as the
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## Prerequisites
-
-* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
-
-The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
-
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
-
-* Latest version of [Git](https://git-scm.com/download/) installed.
 
 ## Prepare an Azure IoT C SDK development environment
 
@@ -146,7 +146,23 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 > Your device code for each device should only include the corresponding derived device key for that device. Do not include your group master key in your device code. 
 > A compromised master key has the potential to compromise the security of all devices being authenticated with it.
 
+# [Azure CLI](#tab/azure-cli)
 
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
+
+Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
+
+Replace the value of `--registration-id` argument with your registration ID.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Example result:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
 # [Windows](#tab/windows)
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
@@ -280,6 +296,15 @@ Be aware that this leaves the derived device key included as part of the image f
 
 ## Next steps
 
-* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-* [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+* To learn more about Reprovisioning, see
+
+> [!div class="nextstepaction"]
+> [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
+
+* To learn more about Deprovisioning, see
+
+> [!div class="nextstepaction"]
+> [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)

@@ -82,7 +82,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
+To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
 
 The following example enables soft delete and sets the soft-delete retention period to 14 days, enables change feed and versioning, and enables point-in-time restore with a restore period of 7 days. When running the example, remember to replace the values in angle brackets with your own values:
 

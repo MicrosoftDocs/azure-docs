@@ -63,7 +63,7 @@ Responses are shaped by the parameters on the request:
 
 + For Autocomplete, set the [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) to determine whether text completion occurs on one or two terms. 
 
-+ For Suggestions, set [$select](/rest/api/searchservice/suggestionse#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
++ For Suggestions, set [$select](/rest/api/searchservice/suggestions#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
 
 The following additional parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
 

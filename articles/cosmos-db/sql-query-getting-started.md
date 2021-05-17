@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
 
 ---
@@ -38,7 +38,7 @@ The remainder of this doc shows how to get started writing SQL queries in Azure 
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](./data-explorer.md) to create a container called `Families`. After the it is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
+In your SQL API Cosmos DB account, open the [Data Explorer](./data-explorer.md) to create a container called `Families`. After the container is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 

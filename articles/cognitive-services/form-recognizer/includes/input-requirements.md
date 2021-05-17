@@ -17,6 +17,5 @@ Form Recognizer works on input documents that meet these requirements:
 * The total size of the training data set must be 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submitting them.
 * If scanned from paper documents, forms should be high-quality scans.
-* Text must use the Latin alphabet (English characters).
 * For unsupervised learning (without labeled data), data must contain keys and values.
 * For unsupervised learning (without labeled data), keys must appear above or to the left of the values; they can't appear below or to the right.

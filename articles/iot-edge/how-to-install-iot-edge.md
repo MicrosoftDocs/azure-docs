@@ -142,7 +142,7 @@ The IoT identity service was introduced along with version 1.2 of IoT Edge. This
 The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation](#offline-or-specific-version-installation-optional) steps later in this article.
 
 >[!NOTE]
->The steps in this section show you how to install IoT Edge version 1.2, which is currently in public preview. If you are looking for the steps to install the latest generally available version of IoT Edge, view the [1.1 (LTS)](?view=iotedge-2018-06&preserve-view=true) version of this article.
+>The steps in this section show you how to install IoT Edge version 1.2.
 >
 >If you already have an IoT Edge device running an older version and want to upgrade to 1.2, use the steps in [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md). Version 1.2 is sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
@@ -164,15 +164,11 @@ If you want to install the most recent version of IoT Edge, use the following co
    sudo apt-get install aziot-edge
    ```
 
-<!-- commenting out for public preview. reintroduce at GA
-
-Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services.. For example, the following command installs the most recent version of the 1.2 release:
+Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services. For example, the following command installs the most recent version of the 1.2 release:
 
    ```bash
    sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
    ```
-
--->
 
 <!-- end 1.2 -->
 ::: moniker-end

@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning'
 description: Migrate from Studio (classic) to Azure Machine Learning for a modernized data science platform.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper

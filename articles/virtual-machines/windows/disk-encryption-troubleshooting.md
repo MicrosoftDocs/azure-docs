@@ -79,10 +79,6 @@ To disable Azure Disk Encryption with PowerShell, use [Disable-AzVMDiskEncryptio
 
 To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
 
-## 
-
-
-
 ## Next steps
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:

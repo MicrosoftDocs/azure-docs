@@ -24,16 +24,19 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Here are the features currently available for preview:
 
-* **[Columnar storage](concepts-hyperscale-columnar.md)**.
-  Store selected tables' columns (rather than rows) contiguously
-  on disk. Supports on-disk compression. Good for analytic and
-  data warehousing workloads.
-* **[PostgreSQL 12 and 13](concepts-hyperscale-versions.md)**.
-  Use the latest database version in your server group.
 * **[Basic tier](concepts-hyperscale-tiers.md)**. Run a server
   group using only a coordinator node and no worker nodes. An
   economical way to do initial testing and development, and
   handle small production workloads.
+* **[PostgreSQL 12 and 13](concepts-hyperscale-versions.md)**.
+  Use the latest database version in your server group.
+* **[Citus
+  10](concepts-hyperscale-versions.md#citus-and-other-extension-versions)**.
+  Installed automatically on server groups running PostgreSQL 13.
+* **[Columnar storage](concepts-hyperscale-columnar.md)**.
+  Store selected tables' columns (rather than rows) contiguously
+  on disk. Supports on-disk compression. Good for analytic and
+  data warehousing workloads.
 * **[Read replicas](howto-hyperscale-read-replicas-portal.md)**
   (currently same-region only). Any changes that happen to the
   primary server group get reflected in its replica, and queries
@@ -46,7 +49,7 @@ Here are the features currently available for preview:
   the server group at once, while limiting the number of active
   connections. It satisfies connection requests while keeping
   the coordinator node running smoothly.
-* **[PgAudit](concepts-hyperscale-audit.md)**. Provides detailed
+* **[pgAudit](concepts-hyperscale-audit.md)**. Provides detailed
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.

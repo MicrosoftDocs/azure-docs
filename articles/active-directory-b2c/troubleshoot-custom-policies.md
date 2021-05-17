@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/06/2021
+ms.date: 04/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -81,18 +81,31 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
 
 To diagnose problems with your custom policies, use [Application Insights](troubleshoot-with-application-insights.md). Application Insights traces the activity of your custom policy user journey. It provides a way to diagnose exceptions and observe the exchange of claims between Azure AD B2C and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services.  
 
-We recommend installing the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by policy name, correlation ID (Application Insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C.
+We recommend installing the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by policy name, correlation ID (Application Insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C. 
 
 > [!NOTE]
-> The community has developed the Visual Studio Code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft and is made available strictly as-is.
+> - There is a short delay, typically less than five minutes, before you can see new logs in Application Insights.
+> - The community has developed the Visual Studio Code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft and is made available strictly as-is.
 
 A single sign-in flow can issue more than one Azure Application Insights trace. In the following screenshot, the *B2C_1A_signup_signin* policy has three logs. Each log represents part of the sign-in flow.
 
+The following screenshot shows the Azure AD B2C extension for VS Code with Azure Application Insights trace explorer.
+
 ![Screenshot of Azure AD B2C extension for VS Code with Azure Application Insights trace.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-trace.png)
+
+### Filter the trace log
+
+With the focus on the Azure AD B2C trace explorer, start to type the first digit of the correlation ID, or a time you want to find. You will see a filter box in the top-right of the Azure AD B2C trace explorer showing what you have typed so far, and matching trace logs will be highlighted.  
+
+![Screenshot of Azure AD B2C extension Azure AD B2C trace explorer filter highlighting.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-highlight.png)
+
+Hovering over the filter box and selecting **Enable Filter on Type** will show only matching trace logs. Use the **'X' Clear button** to clear the filter.
+
+![Screenshot of Azure AD B2C extension Azure AD B2C trace explorer filter.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-filter.png)
 
 ### Application Insights trace log details
 
-When you select an Azure Application Insights trace, the extension opens the **Application Insights details** page with the following information:
+When you select an Azure Application Insights trace, the extension opens the **Application Insights details** window with the following information:
 
 - **Application Insights** - Generic information about the trace log, including the policy name, correlation ID, Azure Application Insights trace ID, and trace timestamp.
 - **Technical profiles** -  List of technical profiles that appear in the trace log.
@@ -101,6 +114,10 @@ When you select an Azure Application Insights trace, the extension opens the **A
 - **Tokens** - List of tokens that appear in the trace log. The tokens include the underlying federated OAuth, and OpenId Connect identity provider's tokens. The federated identity provider's token gives details about how the identity provider returns the claims to Azure AD B2C so you can map the identity provider technical profile output claims. 
 - **Exceptions** - List of exceptions or fatal errors that appear in the trace log.
 - **Application Insights JSON** -  The raw data the returns from the Application Insights.
+
+The following screenshot shows an example of the Application Insights trace log details window.  
+
+![Screenshot of Azure AD B2C extension Azure AD B2C trace report.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-report.png)
 
 ## Troubleshoot JWT tokens
 

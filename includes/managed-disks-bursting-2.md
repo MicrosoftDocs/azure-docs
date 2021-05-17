@@ -53,6 +53,9 @@ The burst transaction is accounted as the max number of transactions from either
 
 You can refer to the [Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details on pricing and use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=storage) to make the assessment for your workload. 
 
+
+To enable on-demand bursting, see [Enable on-demand bursting](../articles/virtual-machines/disks-enable-bursting.md).
+
 ### Credit-based bursting
 
 Credit-based bursting is available for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.

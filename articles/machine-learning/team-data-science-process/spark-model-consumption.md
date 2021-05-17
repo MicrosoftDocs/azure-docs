@@ -368,7 +368,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 19.22 seconds
 
 ## Score a Linear Regression Model
-We used [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) to train a linear regression model using Stochastic Gradient Descent (SGD) for optimization to predict the amount of tip paid. 
+We used [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
+) to train a linear regression model using Stochastic Gradient Descent (SGD) for optimization to predict the amount of tip paid. 
 
 The code in this section shows how to load a Linear Regression Model from Azure blob storage, score using scaled variables, and then save the results back to the blob.
 
