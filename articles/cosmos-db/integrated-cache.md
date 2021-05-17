@@ -96,7 +96,7 @@ When using the integrated cache, it is helpful to monitor a few key metrics. The
 - `DedicatedGatewayMemoryUsage` - Memory usage by each dedicated gateway node for both routing requests and caching
 - `DedicatedGatewayRequests` - The number of requests routed through each dedicated gateway node
 - `IntegratedCacheEvictedEntriesSize` – The amount of data evicted from the integrated cache
-- `IntegratedCacheTTLExpirationCount`  - The amount of data evicted from the integrated cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheTTLExpirationCount`  - The number of entries evicted from the integrated cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
 - `IntegratedCacheHitRate` – The ratio of point reads and queries that used the integrated cache (out of all dedicated gateway requests that tried to use the integrated cache).
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):

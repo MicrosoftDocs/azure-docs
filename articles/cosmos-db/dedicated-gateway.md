@@ -83,7 +83,7 @@ When you provision a dedicated gateway cluster in multi-region accounts, identic
 > [!NOTE]
 > You cannot provision a dedicated gateway cluster in accounts with availability zones enabled
 
-Like nodes within a cluster, dedicated gateway nodes across regions are independent. It's possible that the cached data in each region will be different, depending on the recent reads or writes to that region. The best way to manage consistency for cached requests is to customize the [MaxIntegratedCacheStaleness](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness) for each request.
+Like nodes within a cluster, dedicated gateway nodes across regions are independent. It's possible that the cached data in each region will be different, depending on the recent reads or writes to that region.
 
 ## Limitations
 
