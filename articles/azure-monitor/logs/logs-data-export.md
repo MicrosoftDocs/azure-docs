@@ -30,10 +30,10 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 ## Limitations
 
 - Configuration can currently be performed using CLI or REST requests . Azure portal or PowerShell are not supported yet.
-- The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables aren't currently supported .
+- The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
+- Supported tables are currently limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables aren't currently supported.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
-- If the data export rule includes a table that doesn't exist, it will fail with error ```Table <tableName> does not exist in the workspace```.
+- If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
 - Data export will be available in all regions, but currently not available in the following: Azure Government regions, Japan West, Brazil south east, Norway East, Norway West, UAE North, UAE Central, Australia Central 2, Switzerland North, Switzerland West, Germany West Central, South India, France South, Japan West
 - You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
 - Destination must be unique across all export rules in your workspace.
