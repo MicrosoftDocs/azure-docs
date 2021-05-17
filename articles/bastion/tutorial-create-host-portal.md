@@ -72,8 +72,6 @@ This section helps you create the bastion object in your VNet. This is required 
     * **Public IP address name**: The name of the public IP address resource. For this tutorial, you can leave the default.
     * **Public IP address SKU**: This setting is prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard public IP SKU.
     * **Assignment**: This setting is prepopulated by default to **Static**.
-
-1. On the **Advanced** tab page, you can specify whether you want to use **IP Connect**.
 1. When you have finished specifying the settings, select **Review + Create**. This validates the values. Once validation passes, you can create the Bastion resource.
 1. Review your settings. Next, at the bottom of the page, select **Create**.
 1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
