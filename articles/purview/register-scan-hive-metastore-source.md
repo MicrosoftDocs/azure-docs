@@ -20,10 +20,10 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
 ## Prerequisites
 
 1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/en-us/download/details.aspx?id=39717).
+    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
     For more information, see [Create and configure a self-hosted
     integration
-    runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
+    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
 2.  Make sure [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -62,7 +62,7 @@ following:
 3.  Select **Register.**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
-    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources.png" alt-text="register sources" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources.png" alt-text="register hive source" border="true":::
 
 On the Register sources (Hive Metastore) screen, do the following:
 
@@ -79,7 +79,7 @@ On the Register sources (Hive Metastore) screen, do the following:
 4.  Select a collection or create a new one (Optional)
 
 5.  Finish to register the data source.
-    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources2.png" alt-text="register sources" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources2.png" alt-text="configure hive source" border="true":::
 
 
 ## Creating and running a scan
@@ -89,7 +89,7 @@ To create and run a new scan, do the following:
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned
-    [here](https://docs.microsoft.com/en-us/azure/purview/manage-integration-runtimes)
+    [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes)
     to setup a self-hosted integration runtime
 
 2.  Navigate to **Sources**.
@@ -112,7 +112,7 @@ To create and run a new scan, do the following:
     -   Provide the Metastore username in the User name input field
     -   Store the Metastore password in the secret key.
 
-    To understand more on credentials, refer to the link [here](https://docs.microsoft.com/en-us/azure/purview/manage-credentials)
+    To understand more on credentials, refer to the link [here](https://docs.microsoft.com/azure/purview/manage-credentials)
 
     d. **Metastore JDBC Driver Location**: Specify the path to the JDBC
     driver location on your VM where self-host integration runtime is
@@ -149,7 +149,7 @@ To create and run a new scan, do the following:
     customer's VM to be used by scanning processes. This is dependent on
     the size of Hive Metastore database to be scanned.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="register sources" border="true":::
+    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
 6.  Click on **Continue**.
 
