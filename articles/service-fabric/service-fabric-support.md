@@ -10,6 +10,15 @@ ms.author: pkc
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
 
+## Self help troubleshooting content
+<div class='icon is-large'>
+    <img alt='Self help content' src='./media/logos/i-article.svg'>
+</div>
+
+This is the material that is referenced by Customer Support Services when a ticket is created, by Service Fabric Site Reliability Engineers responding to an incident, and by users when discovering resolutions to active system issues.
+
+For a full list of self help troubleshooting content, see [Service Fabric troubleshooting guides](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+
 ## Create an Azure support request
 <div class='icon is-large'>
     <img alt='Azure support' src='./media/logos/logo-azure.svg'>
