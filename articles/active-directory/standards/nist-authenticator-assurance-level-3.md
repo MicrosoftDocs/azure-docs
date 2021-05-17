@@ -37,7 +37,7 @@ Microsoft offers authentication methods that enable you to meet required NIST au
 
 ### Our recommendations 
 
-We recommend using a multifactor cryptographic hardware authenticator to achieve AAL3. Passwordless authentication eliminates the greatest attack surface, the password, and offers users a streamlined authentication method. If your organization is completely cloud-based, we recommend that you use FIDO2 security keys.
+We recommend using a multifactor cryptographic hardware authenticator to achieve AAL3. Passwordless authentication eliminates the greatest attack surface, the password, and offers users a streamlined authentication method. If your organization is completely cloud based, we recommend that you use FIDO2 security keys.
 
 Note that FIDO2 keys and Windows Hello for Business haven't been validated at the required FIPS 140 Security Level. So federal customers need to conduct risk assessment and evaluation before accepting these authenticators as AAL3.
 
@@ -49,7 +49,7 @@ For more information on implementing Windows Hello for Business, see the [Window
 
 ### Verifier requirements
 
-Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic   
+Azure AD uses the Windows FIPS 140 Level 1 Overall validated cryptographic   
 ‎module for all of its authentication-related cryptographic operations. So it's a FIPS-140 compliant verifier.
 
 ### Authenticator requirements
@@ -105,17 +105,17 @@ To meet the requirement for reauthentication regardless of user activity, Micros
 
 NIST also allows the use of compensating controls for confirming the subscriber's presence:
 
-* You can set a session inactivity timeout of 15 minutes by locking the device at the OS level by using System Center Configuration Manager (SCCM), Group Policy Objects (GPO), or Intune. You must also require local authentication for the subscriber to unlock it.
+* You can set a session inactivity timeout of 15 minutes by locking the device at the OS level. You can do so by using System Center Configuration Manager (SCCM), Group Policy Objects (GPO), or Intune. You must also require local authentication for the subscriber to unlock it.
 
 * You can achieve timeout regardless of activity by running a scheduled task (by using SCCM, GPO, or Intune) that locks the machine after 12 hours, regardless of activity.
 
 ## Man-in-the-middle (MitM) resistance 
 
-All communications between the claimant and Azure AD are performed over an authenticated protected channel to provide resistance to MitM attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
+All communications between the claimant and Azure AD are done over an authenticated, protected channel to provide resistance to MitM attacks. This configuration satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
 ## Verifier impersonation resistance
 
-All Azure AD authentication methods that meet AAL3 use cryptographic authenticators that bind the authenticator output to the specific session being authenticated. They do so by using a private key controlled by the claimant for which the public key is known to the verifier. This configuration satisfies the verifier impersonation resistance requirements for AAL3.
+All Azure AD authentication methods that meet AAL3 use cryptographic authenticators that bind the authenticator output to the specific session being authenticated. They do so by using a private key controlled by the claimant for which the public key is known to the verifier. This configuration satisfies the verifier-impersonation resistance requirements for AAL3.
 
 ## Verifier compromise resistance
 
@@ -131,7 +131,7 @@ All Azure AD authentication methods that meet AAL3 use either nonce or challenge
 
 ## Authentication intent
 
-The goal of authentication intent is to make it more difficult for directly connected physical authenticators (like multifactor cryptographic devices) to be used without the subject’s knowledge. For example, by malware on the endpoint.
+The goal of authentication intent is to make it more difficult for directly connected physical authenticators (like multifactor cryptographic devices) to be used without the subject's knowledge. For example, by malware on the endpoint.
 
 NIST allows the use of compensating controls for mitigating malware risk. Any Intune-compliant device that runs Windows Defender System Guard and Windows Defender ATP meets this mitigation requirement.
 

@@ -35,13 +35,13 @@ The following terminology is used throughout these NIST articles.
 |Relying party| An entity that relies on a *verifier’s assertion* or a *claimant’s authenticators* and *credentials*, usually to grant access to a system. |
 |  Subject| A person, organization, device, hardware, network, software, or service. |
 | Subscriber| A party who has received a *credential* or *authenticator* from a *CSP*. |
-|Trusted Platform Module (TPM)  | A TPM is a tamper-resistant module that performs cryptographic operations, including key generation. |
+|Trusted Platform Module (TPM)  | A TPM is a tamper-resistant module that does cryptographic operations, including key generation. |
 |  Verifier| An entity that verifies the *claimant’s* identity by verifying the claimant’s possession and control of *authenticators*. |
 
 
 ## About Trusted Platform Module technology
 
-Trusted Platform Module (TPM) technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure crypto processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
+Trusted Platform Module (TPM) technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure cryptographic processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
 
 Microsoft provides significant information on how TPMs work with Windows. For more information, see [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
 
@@ -69,9 +69,15 @@ NIST provides limited guidance about the relative strength of authentication fac
 
 * [Account lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
 
-**Something you have**. The strength of *something you have* is based on how likely the subscriber is to keep it in possession and the difficulty for an attacker to gain access to it. For example, when you're trying to protect against internal threat, a personal mobile device or hardware key will have a higher affinity, and therefore be more secure, than a desktop computer in an office.
+**Something you have**. The strength of *something you have* is based on how likely the subscriber is to keep it in possession and the difficulty for an attacker to gain access to it. For example, when you're trying to protect against internal threats, a personal mobile device or hardware key will have a higher affinity. So it will be more secure than a desktop computer in an office.
 
-**Something you are**. The ease with which an attacker can obtain a copy of *something you are*, or spoof a biometric, matters. NIST is drafting a framework for biometrics. NIST currently won't accept biometrics as a separate authentication method. It must be a factor within multi-factor authentication. This precaution is in place because biometrics are probabilistic in nature. That is, they use algorithms that determine the likelihood of affinity. Biometrics don't necessarily provide an exact match, as passwords do. For more information, see [Strength of Function for Authenticators – Biometrics](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). SOFA-B attempts to present a framework to quantify the strength of biometrics in terms of false match rate, false fail rate, presentation attack detection error rate, and effort required to perform an attack. 
+**Something you are**. The ease with which an attacker can obtain a copy of *something you are*, or spoof a biometric, matters. NIST is drafting a framework for biometrics. NIST currently won't accept biometrics as a separate authentication method. It must be a factor within multi-factor authentication. This precaution is in place because biometrics are probabilistic in nature. That is, they use algorithms that determine the likelihood of affinity. Biometrics don't necessarily provide an exact match, as passwords do. For more information, see [Strength of Function for Authenticators – Biometrics](https://pages.nist.gov/SOFA/SOFA.html) (SOFA-B). 
+
+SOFA-B attempts to present a framework to quantify the strength of biometrics for:
+- False match rate.
+- False fail rate.
+- Presentation attack detection error rate.
+- Effort required to perform an attack. 
 
 ## ‎Single-factor authentication
 
@@ -85,7 +91,7 @@ You can implement multifactor authentication either by using a multifactor authe
 
 ### Multifactor authentication by using two single-factor authenticators
 
-Multifactor authentication requires two different authentication factors. These authenticators can independent. For example: 
+Multifactor authentication requires two different authentication factors. These authenticators can be independent. For example: 
 
 * Memorized secret (password) and out of band (SMS)
 
@@ -102,7 +108,7 @@ Multifactor factor authentication requires one authentication factor (*something
 
 ![Graphic that shows multifactor authentication by using a single multifactor authenticator.](media/nist-authentication-basics/nist-authentication-basics-3a.png)
 
-One example is the Microsoft Authenticator app used in passwordless mode. With this method, the user attempts to access a secured resource (relying party), and receives a notification on the Authenticator app. The user responds to the notification by providing either a biometric (*something you are*) or a PIN (*something you know*), which then unlocks the cryptographic key on the phone (*something you have*), which is then validated by the verifier.
+One example is the Microsoft Authenticator app used in passwordless mode. With this method, the user attempts to access a secured resource (relying party), and receives a notification on the Authenticator app. The user responds to the notification by providing either a biometric (*something you are*) or a PIN (*something you know*). This factor unlocks the cryptographic key on the phone (*something you have*), which the verifier then validates.
 
 ## Next steps 
 
