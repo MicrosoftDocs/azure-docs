@@ -47,7 +47,7 @@ If you're not an enterprise administrator, contact an enterprise administrator t
 
 #### If your enterprise administrator can't help you
 
-If your enterprise administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
+If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
 
 - Enrollment number
 - Email address to add, and authentication type (work, school, or Microsoft account)
