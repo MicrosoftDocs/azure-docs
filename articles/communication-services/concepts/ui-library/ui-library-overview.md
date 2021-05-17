@@ -1,5 +1,5 @@
 ---
-title: UI Library Overview
+title: UI Library overview
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services UI Library.
 author: ddematheu2
