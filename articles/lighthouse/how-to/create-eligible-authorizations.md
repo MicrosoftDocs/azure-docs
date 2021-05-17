@@ -1,6 +1,6 @@
 ---
 title: Create eligible authorizations
-description: Learn how to update a delegation for a customer previously onboarded to Azure Lighthouse.
+description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
 ms.date: 05/25/2021
 ms.topic: how-to
 ---
