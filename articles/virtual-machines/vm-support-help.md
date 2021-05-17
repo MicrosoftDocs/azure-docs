@@ -15,7 +15,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 ## Self help troubleshooting Content
 <div class='icon is-large'>
-    <img alt='Self help content' src='./media/logos/i_article.svg'>
+    <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
