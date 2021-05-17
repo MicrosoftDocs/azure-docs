@@ -11,7 +11,7 @@ ms.custom: CLI, devx-track-azurecli
 
 The following Azure CLI command creates a new Media Services account. Replace the following values: `your-media-services-account-name`  `your-storage-account-name`, and `your-resource-group-name` with the names you want to use. The command assumes that you have already created a resource group and a Storage account. 
 
-It gives the Media Services account a system assigned managed identity with the `--mi` flag.
+It gives the Media Services account a system assigned managed identity with the `--mi-system-assigned` flag.
 
 ```azurecli-interactive
 

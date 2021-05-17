@@ -12,8 +12,8 @@ ms.custom: CLI
 Use the following commands to create a Key Vault and key. Change `your-resource-group-name`, `your-keyvault-name` and `your-key-name`  to the values you want to use. The command assumes that you have already created a resource group.
 
 > [!NOTE]
-> The `--bypass AzureServices` value is for using a Managed Identity with the Key Vault, which is required for this use case.
-> The  `--enable-purge-protection` value is optional. However, if it is not set, you will not be able to use your key.
+> The `--bypass AzureServices` allows Media Services (and other Azure Services) to access the Key Vault when that access would normally be blocked by the Key Vault network ACLs
+> The  `--enable-purge-protection` If it is not set, you will not be able to use your key.
 
 ### Create the Key Vault
 

@@ -1,6 +1,6 @@
 ---
-title: Encrypt data into a Media Services account using a key in Key Vault
-description: Learn how to use the Azure Media Services CLI to encrypt data into a Media Services account using a key in Key Vault
+title: Use a Key Vault key to encrypt data into a Media Services account
+description: If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -10,17 +10,17 @@ ms.date: 05/14/2021
 ms.author: inhenkel
 ---
 
-# Tutorial: Encrypt data into a Media Services account using a key in Key Vault
+# Tutorial: Use a Key Vault key to encrypt data into a Media Services account
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to their Key Vault using the Media Services CLI.
+If you'd like Media Services to encrypt data using a key from your Key Vault, the Media Services account must be granted *access* to the Key Vault. Follow the steps below to create a Managed Identity for the Media Services account and grant this identity access to your Key Vault using the Media Services CLI.
 
 This tutorial uses the 2020-05-01 Media Services API.
 
 ## Sign in to Azure
 
-To use any of the commands in this article, you first have to be logged in to the subscription that you want to use.
+To use any of the commands in this article, you first have to be signed in to the subscription that you want to use.
 
  [!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
 
@@ -50,7 +50,7 @@ You'll see these names referenced in the commands below.  The names of resources
 
 If you're not sure of the actual region name to use, use this command to get a listing:
 
-[!INCLUDE [Sign in to Azure with the CLI](./includes/task-sign-in-azure-cli.md)]
+[!INCLUDE [List Azure regions with the CLI](./includes/task-list-azure-regions-cli.md)]
 
 ## Sequence
 
@@ -61,7 +61,6 @@ Each of the steps below is done in a particular order because one or more values
 The resources you'll create must belong to a resource group. Create the resource group first. You'll use `your-resource-group-name` for the Media Services account creation step, and subsequent steps.
 
 [!INCLUDE [Create a resource group with the CLI](./includes/task-create-resource-group-cli.md)]
-
 
 ## Create a Storage account
 
