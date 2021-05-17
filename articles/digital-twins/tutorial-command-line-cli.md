@@ -65,7 +65,7 @@ You can get both of these values for your instance in the output of the followin
 az dt show --dt-name <ADT_instance_name>
 ```
 
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID (part of the id field) are highlighted.":::
+:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID are highlighted.":::
 
 ## Model a physical environment with DTDL
 

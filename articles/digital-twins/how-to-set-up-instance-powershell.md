@@ -42,7 +42,7 @@ This version of this article goes through these steps manually, one by one, usin
         1. Open a Cloud Shell window by following [this link](https://shell.azure.com) in your browser.
         1. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
     
-            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
+            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the PowerShell version.":::
     
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
    [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
