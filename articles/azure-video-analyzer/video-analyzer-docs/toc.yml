@@ -121,10 +121,8 @@
     href: troubleshoot.md
 - name: Reference 
   items:
-  - name: Client APIs #404
-    href: client-apis.md
-  - name: Cloud APIs #404
-    href: cloud-apis.md
+  - name: Developer SDKs
+    href: sdk.md
   - name: Direct methods
     href: direct-methods.md
   - name: gRPC extension protocol
