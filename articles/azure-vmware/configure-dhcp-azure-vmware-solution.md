@@ -94,4 +94,5 @@ If you want to use a third-party external DHCP server, you'll need to create a D
 
 ## Next steps
 
-If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll create a new security segment profile. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-dhcp-on-l2-stretched-vmware-hcx-networks.md) procedure.
+If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll create a new security segment profile. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
+
