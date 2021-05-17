@@ -25,7 +25,7 @@ ms.custom: seodec18
 - A new stand alone language detection API allows you to recognize what language is being spoken.
 - Develop speech enabled mixed reality and gaming applications using Unity on MacOS.
 - You can now use text-to-speech in addition to speech recognition from the Go programming language.
-- Several new features and bug fixes to address issues YOU, our valued customers, have flagged on GitHub! THANK YOU! Keep the feedback coming!
+- Several Bug fixes to address issues YOU, our valued customers, have flagged on GitHub! THANK YOU! Keep the feedback coming!
 
 #### New features
 
