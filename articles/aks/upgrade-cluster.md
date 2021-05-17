@@ -165,7 +165,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 
 ## Using Cluster Auto-Upgrade with Planned Maintenance
 
-If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specificed maintenance window. To read more about Planned Maintenance, visit the [documentation][planned-maintenance].
+If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specified maintenance window. For more details on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
 
 ## Next steps
 
