@@ -28,7 +28,7 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 
 1. Power on the devkit. LED L02 on the Audio interposer board will change to blinking white to indicate that the device was powered on and that the Audio SoM is authenticating.
 
-1. Wait for the authentication process to complete--this can take up to 3 minutes.
+1. Wait for the authentication process to complete--this can take up to 5 minutes.
 
 1. You are ready to begin prototyping when you see one of the following:
 
