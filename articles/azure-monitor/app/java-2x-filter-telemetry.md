@@ -13,7 +13,7 @@ ms.author: jgol
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
 Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](java-2x-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
 
