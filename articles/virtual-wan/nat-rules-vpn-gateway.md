@@ -63,7 +63,7 @@ The following diagram shows the projected end result:
 
    Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 10.30.0.0/24). In this example, we focus on Link A for VPN Site 1.
 
-   The following NAT rule can be set up and associated to Link A. Because this is a static NAT rule, the address spaces of the InternalMapping and ExternalMapping contain the same number of IP addresses.
+   The following NAT rule can be set up and associated to Link A. Because this is a static NAT rule, the address spaces of the **InternalMapping** and **ExternalMapping** contain the same number of IP addresses.
 
    * **Name:** ingressRule01
    * **Type:** Static
@@ -106,7 +106,7 @@ In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the
 
     Specify a NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with the same address space 10.30.0.0/24. In this example, we focus on Link A for VPN Site 1.
 
-    The following NAT rule can be set up and associated to Link A of one of VPN site 1. Because this is a static NAT rule, the address spaces of the InternalMapping and ExternalMapping contain the same number of IP addresses.
+    The following NAT rule can be set up and associated to Link A of one of VPN site 1. Because this is a static NAT rule, the address spaces of the **InternalMapping** and **ExternalMapping** contain the same number of IP addresses.
 
     * **Name**: IngressRule01
     * **Type**: Static
@@ -173,7 +173,7 @@ The following table shows common configuration patterns that arise when configur
 | Type of VPN Site | Ingress NAT Rules | Egress NAT Rules
 |--- |--- | ---|
 |VPN Site with Statically Configured Routes |Edit 'Private Address Space' in the VPN Site to contain the **ExternalMapping** of the NAT rule| Apply routes for the **ExternalMapping** of the NAT Rule on the on-premises device.|
-|VPN Site (BGP Translation Enabled)|Put the ExternalMapping address of the BGP peer in the VPN site Link Connection's BGP address.  | No special considerations. |
+|VPN Site (BGP Translation Enabled)|Put the **ExternalMapping** address of the BGP peer in the VPN site Link Connection's BGP address.  | No special considerations. |
 | VPN Site (BGP Translation Disabled) | Ensure the on-premises BGP Speaker advertises the prefixes in the **ExternalMapping** of the NAT Rule. Also put the ExternalMapping address of the BGP peer in the VPN site Link Connection's BGP address.| Apply routes for the **ExternalMapping** of the NAT rule on the on-premises device.|
 
 ## Next steps
