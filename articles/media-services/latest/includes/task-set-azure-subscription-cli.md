@@ -12,7 +12,7 @@ ms.custom: CLI
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account.
 
 ```azurecli
-az account set --subscription your-subscription-name
+az account set --subscription <your-subscription-name>
 ```
 
-This command returns nothing.
+This command doesn't return anything.
