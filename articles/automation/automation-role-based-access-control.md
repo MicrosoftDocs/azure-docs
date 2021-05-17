@@ -4,7 +4,7 @@ description: This article describes how to use Azure role-based access control (
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/14/2020
+ms.date: 05/17/2020
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -265,11 +265,10 @@ Update management reaches across multiple services to provide its service. The f
 |Solution |Log Analytics Contributor |Solution|
 |Virtual Machine |Virtual Machine Contributor |Virtual Machine |
 |**Actions on Virtual Machine** | | |
-|[Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader |Automation account |
-|[Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) |Reader |Automation account |
+|View history of update schedule execution ([Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns)) |Reader |Automation account |
 |**Actions on virtual machine** |**Permission** | |
-|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
-|[Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
+|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
+|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
 
 ## Configure Azure RBAC for your Automation account
 
