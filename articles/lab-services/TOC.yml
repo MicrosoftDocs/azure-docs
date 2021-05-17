@@ -101,7 +101,7 @@
       items:
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery.md
-      - name: Upload a custom image to shared image gallery
+      - name: Upload a Windows custom image to shared image gallery
         href: upload-custom-image-shared-image-gallery.md
     - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md

@@ -70,6 +70,6 @@ If instead you choose **Update existing image**, the original custom image's def
 ## Next steps
 To learn about how to set up shared image gallery by attaching and detaching it to a lab account, see [How to attach and detach shared image gallery](how-to-attach-detail-shared-image-gallery.md).
 
-To bring a custom image to shared image gallery outside of the context of a lab, see [Bring custom image to shared image gallery](../lab-services/upload-custom-image-shared-image-gallery).
+To bring a Windows custom image to shared image gallery outside of the context of a lab, see [Bring custom image to shared image gallery](../lab-services/upload-custom-image-shared-image-gallery).
 
 For more information about shared image galleries in general, see [shared image gallery](../virtual-machines/shared-image-galleries.md).
