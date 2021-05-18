@@ -40,12 +40,14 @@ To ensure you apply the correct update package to your dev kit, you must first d
 Using the **model** and **swVersion** identified in the previous section, check the table below to determine which update package to download.
 
 
-|model  |swVersion  |Update method  |Download links  |
-|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |
-|PE-101     |2021.102.108.112, <br>         |OTA or USB        |[OTA manifest](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |
-|APDK-101     |All swVersions        |OTA or USB       | [OTA manifest](https://go.microsoft.com/fwlink/?linkid=2162292)<br>[OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)        |
+|model  |swVersion  |Update method  |Download links  |Note  |
+|---------|---------|---------|---------|---------|
+|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.104.110.103 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |Public Preview major release         |
+|PE-101     |2021.102.108.112, <br>         |OTA or USB        |[2021.104.110.103 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.104.110.103 OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.104.110.103 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |Public Preview major release         |
+|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Latest monthly release (May)         |
 
+> [!NOTE]
+> For devkit identified as "PE-101" by the model name, once it is applied with the required update from the table above, the model name will be changed to "APDK-101" and unblocked the devkit to take further updates.
 
 
 ## Next steps
