@@ -257,7 +257,7 @@ To create the request:
     }
     ```
 
-10. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+10. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
