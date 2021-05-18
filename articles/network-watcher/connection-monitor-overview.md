@@ -367,7 +367,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 No, Connection Monitor does not support Classic VMs. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
 
 ### My topology is not decorated or my hops have missing information?
-From non-Azure to Azure, topology can only be decorated if destination azure resource and connection monitor resource are in same region 
+From non-Azure to Azure, topology can only be decorated if destination Azure resource and connection monitor resource are in same region 
 
 ### My Connection Monitor creation is failing with error "We don't allow creating different endpoints for the same VM"?
 Same Azure VM cannot be used with different configurations in the same connection monitor. 
