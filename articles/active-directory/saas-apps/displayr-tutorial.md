@@ -142,7 +142,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Restrict access to specific users
 
-By default all the users in the tenant where you added the Displayr application will be able to login to Displayr using SSO. If you would like to restrict access to specific users or groups please see [How to: Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
+By default, all users in the tenant where you added the Displayr application can log in to Displayr by using SSO. If you want to restrict access to specific users or groups, see [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ### Test SSO
 
