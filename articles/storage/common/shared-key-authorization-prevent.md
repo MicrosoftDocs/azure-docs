@@ -1,27 +1,24 @@
 ---
-title: Prevent authorization with Shared Key (preview)
+title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
-description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
+description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 05/18/2021
 ms.author: tamram
 ms.reviewer: fryu
 ---
 
-# Prevent Shared Key authorization for an Azure Storage account (preview)
+# Prevent Shared Key authorization for an Azure Storage account
 
-Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
+Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 
 When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-> [!IMPORTANT]
-> Disallowing Shared Key authorization is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account. To learn how to register for the preview, see [About the preview](#about-the-preview).
+This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
 
 ## Detect the type of authorization used by client applications
 
@@ -73,7 +70,6 @@ Azure Storage logging in Azure Monitor supports using log queries to analyze log
 
 To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
-1. Enroll in the [Azure Storage logging in Azure Monitor preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
 1. In the Monitoring section, select **Diagnostic settings (preview)**.
