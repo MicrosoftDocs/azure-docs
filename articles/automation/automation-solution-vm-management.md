@@ -3,7 +3,7 @@ title: Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitor them from Azure Monitor Logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/18/2020
+ms.date: 05/18/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
