@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -213,11 +213,11 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace' parameter to `$True` on the call to the **New-AzStorageAccount** command.
 
-The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -Kind parameter | Possible values for the -SkuName parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the Kind parameter | Supported values for the SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -255,11 +255,11 @@ az storage account create \
   --kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
 
-The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `sku` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -kind parameter | Possible values for the -sku parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
