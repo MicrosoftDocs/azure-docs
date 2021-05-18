@@ -58,6 +58,9 @@ from azure.core.exceptions import HttpResponseError
 
 Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. 
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```python
 subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
@@ -251,4 +254,14 @@ We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/Ano
 Run the application with the `python` command and your file name.
 
 
-[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+## Next steps
+
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
