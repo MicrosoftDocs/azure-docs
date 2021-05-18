@@ -72,7 +72,6 @@ Based on whether you want to use Azure CLI, Visual Studio Code, or the Azure por
 #### Prerequisites
 
 - The [Azure CLI installed](/cli/azure/install-azure-cli) on your local computer.
-- The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list) installed on your computer. To install this extension, use the Azure CLI command, `az extension add --name logicapp`. 
 - An [Azure resource group](#create-resource-group) where to create your logic app.
 
 Check your environment before you begin:
@@ -93,13 +92,26 @@ Check your environment before you begin:
 
 1. If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
-#### Create resource group
+#### Install Logic Apps extension
 
-If you don't already have a resource group for your logic app, create the group with the command `az group create`. For example, the following command creates a resource group named `testResourceGroup` in the location `eastus`:
+Install the preview version of the Logic Apps extension for the Azure CLI:
 
 ```azurecli
-az group create --name testResourceGroup --location eastus
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
+
+#### Create resource group
+
+If you don't already have a resource group for your logic app, create the group with the command `az group create`. Make sure to use the `--subscription` parameter with your subscription name or identifier. For example, the following command creates a resource group named `MyResourceGroupName` in the location `eastus`:
+
+```azurecli
+az group create --name MyResourceGroupName --location eastus --subscription MySubscription
+```
+
+> [!TIP]
+> You don't have to use the `--subscription` parameter if you've set a default subscription for your Azure account.
+> To set a default subscription, run the following command, and replace `MySubscription` with your subscription name or identifier.
+> `az account set --subscription MySubscription`
 
 The output shows the `provisioningState` as `Succeeded` when your resource group is successfully created:
 
@@ -117,8 +129,8 @@ The output shows the `provisioningState` as `Succeeded` when your resource group
 To create an Azure Arc enabled logic app using the Azure CLI, run the command `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create -g MyResourceGroup --name MyUniqueAppName --storage-account MyStorageAccount 
-        --custom-location MyCustomLocation
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount 
+        --custom-location MyCustomLocation --subscription MySubscription
 ```
 
 > [!IMPORTANT]
@@ -133,8 +145,8 @@ Be sure to provide the required parameters in your command:
 To create a logic app in Azure Arc using a private Azure Container Registry image, run `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create -g MyResourceGroup --name MyUniqueAppName --storage-account MyStorageAccount
-        --custom-location MyCustomLocation --runtime node --runtime-version 12
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --subscription MySubscription
+        --custom-location MyCustomLocation
         --deployment-container-image-name myacr.azurecr.io/myimage:tag
         --docker-registry-server-password passw0rd --docker-registry-server-user MyUser
 ```
@@ -144,35 +156,23 @@ az logicapp create -g MyResourceGroup --name MyUniqueAppName --storage-account M
 To show details about your Azure Arc enabled logic app, run the command `az logicapp show` as follows:
 
 ```azurecli
-az logicapp show --name MyLogicApp --resource-group MyResourceGroup
+az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Deploy logic app
 
-To deploy your Azure Arc enabled logic app, run the command `az logicapp deploy` as follows.
-
-
-```azurecli
-az logicapp deploy --name MyLogicApp --resource-group MyResourceGroup
-```
-
 To deploy your logic app using Kudu's zip deployment, run the command `az logicapp deployment source config-zip`. For example:
 
 ```azurecli
-az logicapp deployment source config-zip --name MyLogicApp --resource-group MyResourceGroup --src C:\uploads\v22.zip
+az logicapp deployment source config-zip --name MyLogicAppName --resource-group MyResourceGroupName --src C:\uploads\v22.zip --subscription MySubscription
 ```
-
-> [!TIP]
-> By default, Kudu assumes that zip deployments don't require build-related actions, such as `npm install` or `dotnet publish`. To enable Kudu detection logic and build script generation process, include a `.deployment` file in your .zip file with this setting:
->
-> `[config] SCM_DO_BUILD_DURING_DEPLOYMENT = true`
 
 #### Start logic app
 
 To start your Azure Arc enabled logic app, run the command `az logicapp start` with the following required parameters:
 
 ```azurecli
-az logicapp start --name MyLogicApp --resource-group MyResourceGroup
+az logicapp start --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Stop logic app
@@ -180,17 +180,7 @@ az logicapp start --name MyLogicApp --resource-group MyResourceGroup
 To stop your Azure Arc enabled logic app, run the command `az logicapp stop` with the following required parameters:
 
 ```azurecli
-az logicapp stop --name MyLogicApp --resource-group MyResourceGroup
-```
-
-#### Update logic app
-
-To update your existing Azure Arc enabled Logic Apps workflow, run the command `az logicapp update`.
-
-There are no required parameters for this command.
-
-```azurecli
-az logicapp update --name MyLogicApp --resource-group MyResourceGroup
+az logicapp stop --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Restart logic app
@@ -198,7 +188,7 @@ az logicapp update --name MyLogicApp --resource-group MyResourceGroup
 To restart your Azure Arc enabled logic app, run the command `az logicapp restart` with the following required parameters:
 
 ```azurecli
-az logicapp restart --name MyLogicApp --resource-group MyResourceGroup
+az logicapp restart --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Delete logic app
@@ -208,7 +198,7 @@ To delete your Azure Arc enabled logic app, run the command `az logicapp delete`
 For example: 
 
 ```azurecli
-az logicapp delete --name MyLogicapp --resource-group MyResourceGroup
+az logicapp delete --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 ### [Visual Studio Code](#tab/visual-studio-code)
@@ -812,7 +802,15 @@ To change this maximum, use the Azure CLI (logic app create only) and Azure port
 
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
-`az logicapp create -g {resource-group} --name {appinsights} --storage-account {storage-account-name} --custom-location {custom-location} --functions-version 3 --plan {hosting-plan-name} --runtime node --runtime-version 12 --min-worker-count 1 --max-worker-count 4`
+```azurecli
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription  MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
+```
+
+To configure your maximum instance count, use the `--settings` parameter:
+
+```azurecli
+az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" --subscription MySubscription
+```
 
 #### Azure portal
 
@@ -835,13 +833,17 @@ To change this minimum, use the Azure CLI or the Azure portal.
 
 #### Azure CLI
 
-For a existing logic app resource, run the Azure CLI command, `az webapp scale`, for example:
+For a existing logic app resource, run the Azure CLI command, `az logicapp scale`, for example:
 
-`az webapp scale -g {resource-group} --name {appinsights} --number-of-workers 7`
+```azurecli
+az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName --instance-count 5 --subscription MySubscription
+```
 
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
-`az logicapp create -g {resource-group} --name {appinsights} --storage-account {storage-account-name} --custom-location {custom-location} --functions-version 3 --plan {hosting-plan-name} --runtime node --runtime-version 12 --min-worker-count 2 --max-worker-count 4`
+```azurecli
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
+```
 
 #### Azure portal
 
@@ -861,7 +863,19 @@ To get more information about your deployed logic apps, try the following option
 To access your app settings, run the following Azure CLI command: 
 
 ```azurecli
-az webapp config appsettings list --name logic-app-name -g resource-group-name 
+az logicapp config appsettings list --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+```
+
+To configure an app setting, run the command `az logicapp config appsettings set` as follows. Make sure to use the `--settings` parameter with your setting's name and value.
+
+```azurecli
+az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "MySetting=1" --subscription MySubscription
+```
+
+To delete an app setting, run the command `az logicapp config appsettings delete` as follows. Make sure to using the `--setting-names` parameter with the name of the setting you want to delete.
+
+```azurecli
+az logicapp config appsettings delete --name MyLogicAppName --resource-group MyResourceGroupName --setting-names MySetting --subscription MySubscription
 ```
 
 ### View logic app properties
@@ -869,7 +883,7 @@ az webapp config appsettings list --name logic-app-name -g resource-group-name
 To view your app's information and properties, run the following Azure CLI command: 
 
 ```azurecli
-az webapp show --name logic-app-name -g resource-group-name 
+az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 ### Monitor workflow activity
