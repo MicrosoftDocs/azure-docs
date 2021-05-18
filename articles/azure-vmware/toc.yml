@@ -66,8 +66,10 @@
       href: move-ea-csp-subscriptions.md
     - name: Move Azure VMware Solution across regions
       href: move-azure-vmware-solution-across-regions.md
-  - name: Configure on-premises DHCP to use on HCX networks
-    href: configure-dhcp-l2-stretched-vmware-hcx-networks.md
+  - name: Configure and manage DHCP
+    href: configure-dhcp-azure-vmware-solution.md
+  - name: Configure DHCP on L2 stretched VMware HCX networks
+    href: configure-l2-stretched-vmware-hcx-networks.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server

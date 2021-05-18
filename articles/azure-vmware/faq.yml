@@ -98,6 +98,9 @@ sections:
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
+        
+      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
+        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.          
 
   - name: Networking and interconnectivity
     questions:        
