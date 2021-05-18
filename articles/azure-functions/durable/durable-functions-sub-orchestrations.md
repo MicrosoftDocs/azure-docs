@@ -141,7 +141,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 
-# [JavaScript](#tab/python)
+# [Python](#tab/python)
 
 ```Python
 import azure.functions as func
