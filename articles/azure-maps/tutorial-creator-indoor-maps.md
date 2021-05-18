@@ -58,7 +58,7 @@ To upload the drawing package:
 7. Select the **POST** HTTP method and enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     >[!Important]
@@ -80,7 +80,7 @@ To upload the drawing package:
 
 13. Select **Send**. Allow the request to process. Once the request completes, proceed to the next step.
 
-14. Select the **Headers** tab in the response window. Copy the value of the **Location** key, which is the `status URL`. We'll use the `status URL` in the next section.
+14. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` in the next section.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URl in the Location key.":::
 
@@ -101,7 +101,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 6. Create a **GET** HTTP request on the `status URL` you copied in the previous section. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/e1981f40-d753-4c05-a2a0-1356ea25ee01?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/operations/e1981f40-d753-4c05-a2a0-1356ea25ee01?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. When the request completes successfully, it returns a `resourceLocation`. The `resourceLocation` URL contains the unique identifier (`udid`) of the drawing package resource. You'll need the `udid` in order to convert the drawing package in the next section.
@@ -118,7 +118,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 8. (Optional) To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL that was retrieved in step 7. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 9. When the **GET** HTTP request completes successfully, the response body contains the `udid` specified in the `resourceLocation` of step 7, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on. An example of the overall response is:
@@ -126,7 +126,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
     ```json
     {
         "udid": "{udid}",
-        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=1.0",
+        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
         "created": "5/18/2021 8:10:32 PM +00:00",
         "updated": "5/18/2021 8:10:37 PM +00:00",
         "sizeInBytes": 946901,
@@ -136,7 +136,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 ## Convert a Drawing package
 
- Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long running transaction that implements the pattern defined [here](creator-long-running-operation-v2.md).  When the operation completes, it returns a `conversionId`. We'll use the `conversionId` to access the converted data. 
+ Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long running transaction that implements the pattern defined [here](creator-long-running-operation-v2.md).  When the operation completes, it returns a `conversionId`. We'll use the `conversionId` to access the converted data.
 
 To convert a drawing package and retrieve a `conversionId`:
 
@@ -144,21 +144,23 @@ To convert a drawing package and retrieve a `conversionId`:
 
 2. In the **Create New** window, select **Request**.
 
-3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
+3. Enter a **Request name** for the request, such as *POST Convert Drawing Package*.
 
 4. Select the collection you previously created, and then select **Save**.
 
-5. Select the **POST** HTTP method and enter the following URL(replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and  `udid` with `udid` of the the uploaded package).
+5. Select the **POST** HTTP method and enter the following URL(replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package).
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
+    https://us.atlas.microsoft.com/conversions/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
 
     >[!IMPORTANT]
     > The API urls in this document may be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
     > If you receive an error with code `"RequiresCreatorResource"`, make sure that you have [provisioned an Azure Maps Creator resource](how-to-manage-creator.md) in you Azure Maps account.
 
-3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request. You will use this in the next step.
+6. Click  **Send**. Allow the request to process. Once the request completes, proceed to the next step.
+
+7. Select the **Headers** tab of the response. The value of the **Location** key.  is the `status URL` for the conversion request. You will use this in the next step.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copy the value of the location key":::
 
@@ -211,23 +213,29 @@ The sample Drawing package should be converted without errors or warnings. Howev
 
 The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
 
-1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
+1. Select **New** again.
 
-2. Make a **POST** request to the [Dataset Create API](/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *POST Dataset Create*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Make a **POST** request to the [Dataset Create API](/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Obtain the `statusURL` in the **Location** key of the response **Headers**.
+6. Obtain the `statusURL` in the **Location** key of the response **Headers**.
 
-4. Make a **GET** request at the `statusURL` to obtain the `datasetId`. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
+7. Make a **GET** request at the `statusURL` to obtain the `datasetId`. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-5. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You'll need to use the `datasetId` to create a tileset.
+8. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You'll need to use the `datasetId` to create a tileset.
 
     ```json
     {
