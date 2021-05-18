@@ -92,7 +92,7 @@ The shared image gallery service is an optional resource that you might not need
 
 - **You can save and manage versions of a template VM image**
 
-    It's useful to create a custom image or make changes (software, configuration, and so on) to an image from the public Azure Marketplace gallery.  For example, it's common for educators to require different software or tooling be installed. Rather than requiring students to manually install these prerequisites on their own, different versions of the template VM image can be exported to a shared image gallery. You can then use these image versions when you create new labs.
+    It's useful to create a custom image or make changes (software, configuration, and so on) to an image from the Azure Marketplace gallery.  For example, it's common for educators to require different software or tooling be installed. Rather than requiring students to manually install these prerequisites on their own, different versions of the template VM image can be exported to a shared image gallery. You can then use these image versions when you create new labs.
 
 - **You can share and reuse template VM images across labs**
 

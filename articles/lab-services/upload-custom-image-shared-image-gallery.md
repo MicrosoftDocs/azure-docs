@@ -60,14 +60,14 @@ Many options exist for creating a VHD from a physical lab environment. The below
 
 1. Upload the VHD to Azure to create a managed disk.
     1. You can use either Storage Explorer or AzCopy from the command line, as shown in [Upload a VHD to Azure or copy a managed disk to another region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).        
-	
-    > [!IMPORTANT]
-    > If your machine goes to sleep or locks, the upload process may get interrupted and fail.
 
-    1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal.  
+    1. After you've uploaded the VHD, you should now have a managed disk that you can see in the Azure portal. 
+    
+    > [!WARNING]
+    > If your machine goes to sleep or locks, the upload process may get interrupted and fail. 
     
     > [!IMPORTANT] 
-    > The Azure portal's **Size\Performance** tab allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
+    > The Azure portal's **Size+Performance** tab for the managed disk allows you to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
 1. Take a snapshot of the managed disk.
 	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as shown in [Create a snapshot using the portal or PowerShell](../virtual-machines/windows/snapshot-copy-managed-disk.md).
