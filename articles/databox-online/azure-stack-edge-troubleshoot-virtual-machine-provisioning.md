@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/17/2021
+ms.date: 05/18/2021
 ms.author: alkohli
 ---
 # Troubleshoot virtual machine provisioning in Azure Stack Edge Pro GPU
@@ -16,52 +16,50 @@ ms.author: alkohli
 
 This article describes how to troubleshoot issues that occur when provisioning a new virtual machine (VM) on an Azure Stack Edge Pro GPU device.
 
-## VM Console Connect
+This article provides guidance for investigating three of the most common causes of provisioning failure:
 
-You can access the console and troubleshoot any issues experienced when deploying a virtual machine on your device. You can connect to the virtual machine console even if your VM has failed to provision. For more information, see [Connect to the virtual machine console on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-connect-virtual-machine-console.md).
+* VM Provisioning timeouts<!--Add section links.-->
+* Network Interface creation failure
+* Image creation issues
 
 
 ## Collect guest VM logs for a failed VM from Minishell
 
-<!--This section is a prerequisite to the error descriptions.-->
-VM Provisioning failure can be diagnosed further by collecting provisioning logs from within a virtual machine. The following command will:
+<!--Is this discussion limited to Azure Stack Edge Mini R? Recast as "Prerequisite"-style section.-->
+Your first step when diagnosing any type of VM provisioning failure is to collect the provisioning logs from within the virtual machine.
 
-* Collect the in guest logs for the failed VMs and 
-* Include them in the support package.
+To collect these logs, you'll need to connect to the VM console on the virtual machine. You can connect to the console even if provisioning of the VM failed. For more information, see [Connect to the virtual machine console on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-connect-virtual-machine-console.md).<!--Revisit placement. I don't think it merits a full H2 section. However, it's a bit procedural for the introduction, and this procedure links to the minishell via PowerShell.-->
 
 To collect provisioning logs from within a virtual machine, do these steps:
 
 1. [Connect to the minishell of the appliance](azure-stack-edge-gpu-connect-powershell-interface.md).<!--Link to a specific section.-->
 
-2. Run the following commands from the minishell:
+2. Run the following commands to:
+   * Collect the in-guest logs for the failed VMs. 
+   * Include the in-guest logs in the support package.
 
    ```powershell
    Get-VMInGuestLogs -FailedVM
    Get-HcsNodeSupportPackage -Path “\\<network path>” -Include InGuestVMLogFiles -Credential “domain_name\user”
    ```
 
-3. Once you have the support package, you can check for the Guest logs under hcslogs\VmGuestLogs.
+3. Check the following guest logs, found in the `hcslogs\VmGuestLogs` folder, for details about VM provisioning history of a Linux or Windows virtual machine:
 
-   Details about VM provisioning can be found in following logs
-
-   **Linux:**
+   **Linux VM guest logs:**
    /var/log/cloud-init-output.log
    /var/log/cloud-init.log
    /var/log/waagent.log
 
-   **Windows:**
+   **Windows VM guest logs:**
    C:\Windows\Azure\Panther\WaSetup.xml
 
-In this document we will look at the common causes for:<!--Move this to the lead?-->
-* VM Provisioning timeout<!--Add section links.-->
-* Network Interface creation failure
-* Image creation issues
 
 ## VM Provisioning Timeout
 
 <!--Source provides a graphic of "Creation of virtual machine failed" error at this point.-->
+This section provides troubleshooting guidance for the three most common causes of a VM provisioning timeout:
 
-* IP assigned to the VM is already in use (in case of static IP allocation)
+* IP assigned to the VM is already in use (in case of static IP allocation)<!--Add section link-->
 * Image not prepared correctly
 * Other VM provisioning issues
 
@@ -69,7 +67,7 @@ In this document we will look at the common causes for:<!--Move this to the lead
 
 **Error description:**  XXX 
 
-1. Stop the VM from the portal (if it is running), and run the following commands:
+1. Stop the VM from the portal (if the VM is running), and run the following commands:<!--Link to stop VM instructions.-->
 
    ```powershell
    ping <ip>
@@ -77,17 +75,20 @@ In this document we will look at the common causes for:<!--Move this to the lead
    tnc <ip> -CommonTCPPort “RDP”
    ```
 
-   There should be no response for the above commands.
+   There should be no response to these commands.
 
 **Suggested solution:**
 
-Use a static IP address that is not in use, or use a dynamic IP address from the DHCP server.
+Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
+
 
 ### Image not prepared correctly
 
-**Error description:** The workflow requires you to create a virtual machine in Azure, customize the VM, generalize the VM, and then download the VHD corresponding to that VM.
+**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You create a virtual machine (VM) in Azure, customize the VM, and then generalize the VM. Then you'll download the VHD for that VM.<!--Final step is to upload the image to an Azure Storage account?-->
 
-**Suggested solution:** For more information, refer to the following documents: 
+**Suggested solution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. The procedures will vary depending on whether you start with a VHD from an existing Windows VM or want to use an ISO image to configure the VM, and whether you need to create a generalized image (to deploy new VMs) or a specialized image (to migrate or restore an existing VM).
+
+Use one of the following procedures: 
 
 * [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM image)
 * [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
@@ -96,28 +97,28 @@ Use a static IP address that is not in use, or use a dynamic IP address from the
 
 ### Other provisioning issues
 
-These include issues such as:
+Other issues may cause VM provisioning to fail:
 
 * The `cloud init` command did not run, or there were issues while `cloud init` was running. (Linux images only)
 * The Gateway and DNS server couldn't be reached from a guest VM.
-* Provisioning flags were set incorrectly `/etc/waagent.conf` (Linux images only)
+* Provisioning flags were set incorrectly `/etc/waagent.conf`. (Linux images only)<!--A bit cryptic.-->
 
-To troubleshoot these issues, review the in-guest logs for the VM:
+To troubleshoot these issues, review the in-guest logs for the VM.
 
 1. For issues while running `cloud init`:
 
-   You can console connect<!--"console connect? Will reword later.--> to the VM, and review the logs under the following files to check for errors in `cloud init` execution.
+   You can console connect<!--"console connect? Will reword later.--> to the VM, and review the logs under the following files to check for errors in `cloud init` execution.<!--Convert this step to a link to Section 1.-->
 
     /var/log/cloud-init-output.log
     /var/log/cloud-init.log
     /var/log/waagent/log
 
-1. Console connect to the VM, and validate that:
+1. Console connect to the VM, and validate that:<!--Issue 2-->
 
    1.	The default gateway can be pinged from the VM.
    1.	The DNS server can be reached from within the VM.
 
-3. For Linux images only, make sure the Provisioning flags in the file `/etc/waagent.conf` are set to:<!--Make a table.-->
+3. For Linux images only, make sure the Provisioning flags in the file `/etc/waagent.conf` are set to:<!--1) Issue 3. 3) Make a table!-->
 
    # Enable instance creation
    `Provisioning.Enabled=n`
@@ -127,7 +128,7 @@ To troubleshoot these issues, review the in-guest logs for the VM:
 
 ### Contact Support for the following logs
 
-If you see the following logs, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md).
+If you see the following logs, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.
 
 #### For Windows VMs
  
@@ -225,7 +226,7 @@ If Kubernetes is enabled before the VM is created, Kubernetes will grab all the 
 
 
 ## DHCP server issues
-<!--Can be a separate document.-->
+<!--Let's make this a separate troubleshooting article. Doesn't fit well in this one.-->
 
 ASE runs DHCP proxy for cloud VMs and VNFs in a tenant L2 network. This requires physical switch/router ports. Also, the DHCP server must allow the source MAC address to be different from the MAC address of the DHCP client. 
 
@@ -294,7 +295,8 @@ $nics[0] | remove-azurermnetworkinterface   (example: delete1st NIC in $nics arr
 
 
 
-On switch side run packet capture
+On switch side, run packet capture,
+
 From Physical Switch UX:
 Using Packet Capture to Troubleshoot Client-side DHCP Issues - Cisco Meraki
 Using Wireshark for Packet Captures - Cisco Meraki
@@ -302,31 +304,37 @@ Using Wireshark for Packet Captures - Cisco Meraki
 From Physical Switch Command-Line:
 https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/16-9/configuration_guide/nmgmt/b_169_nmgmt_9300_cg/configuring_packet_capture.html
    
+
 Reference:
 https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
 How to Prevent DHCP Spoofing (slideshare.net), page 9
 Security - Configuring DHCP Snooping  [Support] - Cisco Systems
 
 
-Gpu Extension failed to be deployed
+### Gpu Extension failed to be deployed
 Debugging steps:
 VM size is not Gpu vm size:
 Right now, we only support Standard_NC4as_T4_v3 and Standard_NC8as_T4_v3 VM sizes to create Gpu vms. If any other vm size is used, attempting to attach gpu extension will fail. 
 
-Image OS is not supported:
+### Image OS is not supported
 We only support Windows2019, Windows2016, Ubuntu18, and RHEL7.4 right now. Overview and deployment of GPU VMs on your Azure Stack Edge Pro device | Microsoft Docs
 
-Extension parameter is incorrect:
+### Extension parameter is incorrect
 Make sure the customer used the correct extension settings when deploying gpu extension. Overview and deployment of GPU VMs on your Azure Stack Edge Pro device | Microsoft Docs
 
-VM extension installation failed in downloading package:
-Extension provisioning could fail in extension installation or enable state. We need to check in guest log for the actual error:
-1.	For linux:
-a.	Check for errors in /var/log/waagent.log or /var/log/azure/nvidia-vmext-status
-2.	For Windows:
-a.	Check for the error status in C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status
-b.	Also look in C:\WindowsAzure\Logs\WaAppAgent.txt for the complete execution log.
-3.	If the install process failed in downloading the package. Then it means the vm is not able to reach to public network to download the driver. 
+## VM extension installation failed in downloading package
+Extension provisioning could fail in extension installation or enable state. 
+
+1. Check the guest log for the actual error:
+
+   On a Linux VM:
+   * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
+
+   For a Windows VM:
+   * Check for the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`
+   * Also look in `C:\WindowsAzure\Logs\WaAppAgent.txt for the complete execution log.`
+
+3.	If the install process failed in downloading the package, theb . Then it means the vm is not able to reach to public network to download the driver. 
 Resolution:
 1.	Move the compute port to public network (Port 2)
 2.	Deallocate the existing failed VM. 
