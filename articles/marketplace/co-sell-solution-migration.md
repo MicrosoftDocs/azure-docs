@@ -13,15 +13,6 @@ ms.date: 5/17/2021
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
-## Table of Contents
-
-- [Prerequisites to continue co-selling with Microsoft](#prerequisites-to-continue-co-selling-with-microsoft)
-- [Publishing updates for attaining co-sell-ready status](#publishing-updates-for-attaining-co-sell-ready-status)
-- [Begin the Migration of your solutions from OCP GTM](#begin-the-migration-of-your-solutions-from-ocp-gtm)
-- [Merge solution - Scenario 1 Similar offer does not exist in commercial marketplace please follow these steps](#step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps)
-- [Merge solution - Scenario 2 Similar offer exists in commercial marketplace please follow these steps](#scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps)
-- [Discard this solution](#discard-this-solution)
-
 Microsoft is moving the publishing experience. The [commercial marketplace](overview.md) provides simplified offer publishing to co-sell through Microsoft's three channels by centralizing offer creation and management in Partner Center, where you are already managing your relationship with Microsoft.
 
 As a Microsoft partner enrolled in the commercial marketplace, you can:
@@ -105,15 +96,15 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
    1. Select **+New Offer**
 
-        :::image type="content" source="media/co-sell-migrate/New_Offer.png" alt-text="New Offer display":::
+        :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="New Offer display":::
 
    2. Complete the required information in each tab.
          • The **Learn more** links and tooltips will guide you through the requirements and details.
          • Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
-        :::image type="content" source="media/co-sell-migrate/Offer_setup_nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
+        :::image type="content" source="media/co-sell-migrate/offer-setup-nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
    3. Select **Save Draft**.
-        - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type). 
+        - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](/azure/marketplace/publisher-guide-by-offer-type).
         - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
         - Review the publishing patterns for each online store for examples on how your solution maps to an offer type and configuration.
         - [Offer listing best practices - Microsoft commercial marketplace | Microsoft Docs](/azure/marketplace/gtm-offer-listing-best-practices)
@@ -128,7 +119,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
 1. Track the status of your submission on the Overview tab.
 
-    :::image type="content" source="media/co-sell-migrate/Overview-tab.png" alt-text="Dispalys overview tab":::
+    :::image type="content" source="media/co-sell-migrate/overview-tab.png" alt-text="Dispalys overview tab":::
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
 
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
