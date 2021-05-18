@@ -310,7 +310,7 @@ To create the request:
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-6. Select **Send**. 18 elevation data samples, one for each vertex of the grid, are returned in the response.
+6. Select **Send**.  The response returns 18 elevation data samples, one for each vertex of the grid.
 
     ```json
     {
