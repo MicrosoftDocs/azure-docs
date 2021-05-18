@@ -1,6 +1,6 @@
 {
     "$schema": "https://whatsnewapi.azurewebsites.net/schema",
-    "docSetProductName": "Sentinel",
+    "docSetProductName": "Azure Sentinel",
     "rootDirectory": "articles/sentinel/",
     "docLinkSettings": {
         "linkFormat": "relative",

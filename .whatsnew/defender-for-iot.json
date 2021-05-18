@@ -1,6 +1,6 @@
 {
     "$schema": "https://whatsnewapi.azurewebsites.net/schema",
-    "docSetProductName": "Defender for IoT",
+    "docSetProductName": "Azure Defender for IoT",
     "rootDirectory": "articles/defender-for-iot/",
     "docLinkSettings": {
         "linkFormat": "relative",

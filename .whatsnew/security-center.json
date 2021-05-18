@@ -1,6 +1,6 @@
 {
     "$schema": "https://whatsnewapi.azurewebsites.net/schema",
-    "docSetProductName": "Security Center",
+    "docSetProductName": "Azure Security Center",
     "rootDirectory": "articles/security-center/",
     "docLinkSettings": {
         "linkFormat": "relative",
