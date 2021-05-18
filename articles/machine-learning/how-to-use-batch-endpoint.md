@@ -52,9 +52,9 @@ az upgrade
 
 > [!NOTE]
 >
-> The `az upgrade` command was added in version 2.11.0 and will not work with versions prior to 2.11.0. Older versions can be updated by reinstalling as described in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/update-azure-cli).
+> The `az upgrade` command was added in version 2.11.0 and will not work with versions prior to 2.11.0. Older versions can be updated by reinstalling as described in [Install the Azure CLI](/cli/azure/update-azure-cli).
 >
-> This command will also update all installed extensions by default. For more `az upgrade` options, please refer to the [command reference page](https://docs.microsoft.com/cli/azure/reference-index#az_upgrade).
+> This command will also update all installed extensions by default. For more `az upgrade` options, please refer to the [command reference page](/cli/azure/reference-index#az_upgrade).
 
 Add and configure the Azure ML extension:
 
@@ -62,7 +62,7 @@ Add and configure the Azure ML extension:
 az extension add  ml
 ```
 
-For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
+For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
 * The example repository
 
@@ -72,7 +72,7 @@ Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples
 
 Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is called a "compute target." A compute target is a reusable virtual computer where you can run batch scoring workflows.
 
-Run the following code to create a general purpose [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
+Run the following code to create a general purpose [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```azurecli
 az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
@@ -116,7 +116,7 @@ Deployment Attributes:
 
 ## Check batch endpoint details
 
-After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](https://docs.microsoft.com/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
+After a batch endpoint is created, you can use `show` to check the details. Use the [`--query parameter`](/cli/azure/query-azure-cli) to get only specific attributes from the returned data.
 
 ```azurecli
 az ml endpoint show --name mybatchedp --type batch
