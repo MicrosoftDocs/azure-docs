@@ -125,7 +125,9 @@ To create the request:
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-8. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the follwoing coordinate point information.
+8. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
+
+1. In the **Body** field, provide the following coordinate point information:
 
      ```json
     [
