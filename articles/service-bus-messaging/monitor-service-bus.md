@@ -35,7 +35,7 @@ Platform metrics and the activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Service Bus are listed in [Azure Service Bus monitoring data reference](service-bus-metric-azure-monitor.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Service Bus are listed in [Azure Service Bus monitoring data reference](monitor-service-bus-metrics.md#resource-logs).
 
 ### Azure Storage 
 The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
@@ -92,7 +92,7 @@ The diagnostic logging information is stored in tables named **AzureDiagnostics*
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-resource-reference.md#metrics).
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
 
 ![Metrics Explorer with Service Bus namespace selected](./media/monitor-service-bus/metrics.png)
 
