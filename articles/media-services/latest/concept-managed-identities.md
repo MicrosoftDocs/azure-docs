@@ -29,7 +29,7 @@ In the first two scenarios, the Managed Identity is used to grant the *Media Ser
 > [!NOTE]
 > These scenarios can be combined. You could create Managed Identities for both the Media Services account (for example, to access customer managed keys) and the Azure Functions resource to access to Media Services account.
 
-## Tutorials and How Tos
+## Tutorials and How-tos
 
 Try these tutorials to get some hands-on experience with using a Managed Identity with Media Services.
 
