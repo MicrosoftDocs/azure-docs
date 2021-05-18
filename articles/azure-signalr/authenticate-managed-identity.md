@@ -67,7 +67,8 @@ After you've determined the appropriate scope for a role assignment, navigate to
 
 You can follow similar steps to assign a role scoped to resource group, or subscription. Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
-## Samples code while configuring your app server
+## Configure your app
+### App server
 
 Add following options when `AddAzureSignalR`:
 
@@ -76,6 +77,19 @@ services.AddSignalR().AddAzureSignalR(option =>
 {
     option.ConnectionString = "Endpoint=https://<name>.signalr.net;AuthType=aad;";
 });
+```
+
+### Azure Functions App
+
+On Azure portal, add an application setting with name `AzureSignalRConnectionString` and value `Endpoint=https://<name>.signalr.net;AuthType=aad;`.
+
+On local, in your `local.appsettings.json` file, add in the `Values` section:
+```json
+{
+    "Values": {
+        "AzureSignalRConnectionString": "Endpoint=https://<name>.signalr.net;AuthType=aad;"
+    }
+}
 ```
 
 ## Next steps
