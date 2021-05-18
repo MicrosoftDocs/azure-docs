@@ -93,7 +93,7 @@ Figure out what Azure Cosmos DB resources you will create. This means stepping t
 The following Azure Cosmos DB configuration choices cannot be modified or undone once you have created an Azure Cosmos DB resource; therefore it is important to get these right during pre-migration planning, before you kick off any migrations:
 * Follow [this guide](partitioning-overview.md) to choose the best shard key
 * Follow [this guide](modeling-data.md) to choose a data model
-* Follow [this guide](optimize-cost-throughput.md) to choose between dedicated and shared throughput for each resource that you will migrate
+* Follow [this guide](optimize-cost-throughput.md#optimize-by-provisioning-throughput-at-different-levels) to choose between dedicated and shared throughput for each resource that you will migrate
 * [Here](how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decisionmaking process
 
 ### Cost of ownership
