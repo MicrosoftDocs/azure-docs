@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/04/2021
+ms.date: 05/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -35,6 +35,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
 | [Force password reset](force-password-reset.md) | Preview | NA | |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
 
 ## OAuth 2.0 application authorization flows
 
