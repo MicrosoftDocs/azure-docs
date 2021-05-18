@@ -21,7 +21,7 @@
         href: quickstart-device-development.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
-      - name: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTOA1 to IoT Central
+      - name: ST Microelectronics B-L475E-IOT01A/B-L4S5I-IOTOA1
         href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
