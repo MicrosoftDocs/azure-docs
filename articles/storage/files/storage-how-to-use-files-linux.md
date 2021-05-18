@@ -12,7 +12,7 @@ ms.subservice: files
 # Use Azure Files with Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
+The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
 | | SMB 3.1.1 | SMB 3.0 |
 |-|-----------|---------|
@@ -22,14 +22,14 @@ The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By
 | [Debian](https://www.debian.org/releases/) | 10+ (Basic) | 10+ (AES-128-CCM encryption) |
 | [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | 15 SP2+ (AES-128-GCM encryption) | 12 SP2+ (AES-128-CCM encryption) |
 
-If you're using a Linux distribution not listed in the above table, you can check the Linux kernel version using the `uname` command:
+If your Linux distribution isn't listed in the above table, you can check the Linux kernel version with the `uname` command:
 
 ```bash
 uname -r
 ```
 
 > [!Note]  
-> SMB 2.1 support was added to Linux kernel version 3.7. If you are using any version of the Linux kernel after 3.7, it should support SMB 2.1, if desired.
+> SMB 2.1 support was added to Linux kernel version 3.7. If you are using a version of the Linux kernel after 3.7, it should support SMB 2.1.
 
 ## Prerequisites
 <a id="smb-client-reqs"></a>
@@ -91,10 +91,10 @@ uname -r
 
     If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
-## Mount the Azure file share on-demand with `mount`
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system, but by custom, the following example mounts under the `/mount` path. You can change this to whatever path you want by modifying the `$mntRoot` variable.
+## Mount the Azure file share on-demand with mount
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
 
-Remember to replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
+Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
 
 ```bash
 resourceGroupName="<resource-group-name>"
@@ -107,7 +107,7 @@ mntPath="$mntRoot/$storageAccountName/$fileShareName"
 sudo mkdir -p $mntPath
 ```
 
-Next, mount the file share using the `mount` command. In the example below, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key for the storage account. 
+Next, mount the file share using the `mount` command. In the following example, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key for the storage account. 
 
 # [SMB 3.1.1](#tab/smb311)
 ```bash
@@ -165,19 +165,19 @@ sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,pa
 
 ---
 
-You can use provide `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+You can use provide `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
-You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, you may use `sudo umount $mntPath` to unmount the share.
+You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system, but by custom, the following example mounts under the `/mount` path. You can change this to whatever path you want by modifying the `$mntRoot` variable.
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
 
 ```bash
 mntRoot="/mount"
 sudo mkdir -p $mntRoot
 ```
 
-To mount an Azure file share on Linux, you use the storage account name as the username of the file share, and the storage account key as the password. When you use the `mount` command to ad-hoc mount a file share, you supply the username and password as options to the `mount` command. When you automatically mount a file share, you can provide options as well, but since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
+To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. When you use the `mount` command to ad-hoc mount a file share, supply the username and password as options to the `mount` command. When you automatically mount a file share, you can provide options as well, but since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
@@ -211,10 +211,10 @@ fi
 sudo chmod 600 $smbCredentialFile
 ```
 
-To automatically mount a file share, you have a choice between using a static mount via the `/etc/fstab` utility or using a dynamically mounting via the `autofs` utility. 
+To automatically mount a file share, you have a choice between using a static mount via the `/etc/fstab` utility or using a dynamic mount via the `autofs` utility. 
 
-### Static mount with `/etc/fstab`
-Using the environment from above, create a folder for your storage account/file share under your mount folder. Remember to populate `<file-share-name>` with the appropriate name for your Azure file share.
+### Static mount with /etc/fstab
+Using the earlier environment, create a folder for your storage account/file share under your mount folder. Replace `<file-share-name>` with the appropriate name of your Azure file share.
 
 ```bash
 fileShareName="<file-share-name>"
@@ -244,7 +244,7 @@ sudo mount -a
 > [!Note]  
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. You can specify alternate protocol versions using the `vers` mount option (protocol versions are `3.1.1`, `3.0`, and `2.1`).
 
-### Dynamically mount with `autofs`
+### Dynamically mount with autofs
 To dynamically mount a file share with the `autofs` utility, install it using the package manager on the Linux distribution of your choice.  
 
 On **Ubuntu** and **Debian** distributions, use the `apt` package manager:
@@ -270,7 +270,7 @@ On **SUSE Linux Enterprise Server**, use the `zypper` package manager:
 sudo zypper install autofs
 ```
 
-Next, you will need to update the `autofs` configuration files. 
+Next, update the `autofs` configuration files. 
 
 ```bash
 fileShareName="<file-share-name>"
@@ -293,7 +293,7 @@ sudo systemctl restart autofs
 ```
 
 ## Securing Linux
-In order to mount an Azure file share on Linux, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
+Port 445 must be accessible to mount an Azure file share with SMB. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
 Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
 
