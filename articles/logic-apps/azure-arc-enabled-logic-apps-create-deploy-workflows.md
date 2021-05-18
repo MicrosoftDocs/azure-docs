@@ -72,7 +72,6 @@ Based on whether you want to use Azure CLI, Visual Studio Code, or the Azure por
 #### Prerequisites
 
 - The [Azure CLI installed](/cli/azure/install-azure-cli) on your local computer.
-- The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list) installed on your computer. To install this extension, use the Azure CLI command, `az extension add --name logicapp`. 
 - An [Azure resource group](#create-resource-group) where to create your logic app.
 
 Check your environment before you begin:
@@ -92,6 +91,14 @@ Check your environment before you begin:
    For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
 
 1. If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
+
+#### Install Logic Apps extension
+
+Install the preview version of the Logic Apps extension for the Azure CLI:
+
+```azurecli
+az extension add --yes --source "*<...>*"
+```
 
 #### Create resource group
 
