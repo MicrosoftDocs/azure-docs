@@ -5,12 +5,12 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/3/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
 ---
 # Overview of FHIR search
 
-The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of https://`<FHIRSERVERNAME>`.azurewebsites.net. In the examples, we will use the placeholder {{FHIR_URL}} for this URL. 
+The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<FHIRSERVERNAME>.azurewebsites.net`. In the examples, we will use the placeholder {{FHIR_URL}} for this URL. 
 
 FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all patients in the database, you could use the following request: 
 
@@ -111,7 +111,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 |  :type (reference) | Yes             | Yes                       | Yes                             | 
 |  :not         | Yes                  | Yes                       | Yes                             | 
 |  :below (uri) | Yes                  | Yes                       | Yes                             |  
-|  :above (uri) | No                   | No                        | No                              | 
+|  :above (uri) | Yes                  | Yes                       | Yes                             | 
 |  :in (token)  | No                   | No                        | No                              | 
 |  :below (token) | No                 | No                        | No                              | 
 |  :above (token) | No                 | No                        | No                              | 
@@ -124,7 +124,7 @@ To help manage the returned resources, there are search result parameters that y
 
 | **Search result parameters**  | **Supported - PaaS** | **Supported - OSS (SQL)** | **Supported - OSS (Cosmos DB)** | **Comments**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
-| _elements                     | Yes                  | Yes                       | Yes                             |  Issue [1256](https://github.com/microsoft/fhir-server/issues/1256)                              |
+| _elements                     | Yes                  | Yes                       | Yes                             |                                |
 | _count                        | Yes                  | Yes                       | Yes                             | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
 | _include                      | Yes                  | Yes                       | Yes                             | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
 | _revinclude                   | Yes                  | Yes                       | Yes                             |  Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
@@ -141,7 +141,7 @@ By default, the Azure API for FHIR is set to lenient handling. This means that t
 
 A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to search using a search parameter on a resource referenced by another resource. For example, if you want to find encounters where the patient’s name is Jane, use:
 
-`GET {{FHIR URL}}/Encounter?subject:Patient.name=Jane`
+`GET {{FHIR_URL}}/Encounter?subject:Patient.name=Jane`
 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 

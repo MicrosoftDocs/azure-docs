@@ -43,6 +43,10 @@ A common issue is that you think that the alert didn't fire the actions because 
 
 ![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
 
+### Alert scope resource has been moved, renamed, or deleted
+
+When you author an alert rule, Log Analytics creates a permission snapshot for your user ID. This snapshot is saved in the rule and contains the rule scope resource Azure Resource Manager ID. If the rule scope resource moves, gets renamed, or deleted, all log alert rules referring to that resource will break. Alert rules will need to be recreated using the new Azure Resource Manager ID to work.
+
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
 [Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) is a type of log alert that is based on summarized time series results. These rules allow grouping by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting won't work as expected. Choosing the grouping in the legacy API isn't supported.

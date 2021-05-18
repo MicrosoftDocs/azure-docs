@@ -16,7 +16,7 @@ ms.custom: references_regions
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, East US, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance and block blob storage accounts with premium performance tier in all public regions.
 
 It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
@@ -116,13 +116,14 @@ The status of items that appear in this tables will change over time as support 
 | [Append blobs](storage-blobs-introduction.md#blobs) | ✔️   |	⛔ | [Page blobs](storage-blobs-introduction.md#blobs) | ⛔ |	⛔ |
 | [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ | [Encryption scopes](encryption-scope-overview.md)  |	⛔ |	⛔ |
 | [Object replication for block blobs](object-replication-overview.md) | ⛔  |	⛔ | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
+| [Blob storage events](storage-blob-event-overview.md)| ⛔ |	⛔ 
 
   
 ## Known issues
 
 - NFS 3.0 support can't be enabled on existing storage accounts.
 
-- NFS 3.0 support cant' be disabled in a storage account after you've enabled it.
+- NFS 3.0 support can't be disabled in a storage account after you've enabled it.
 
 -  Files can't be viewed in either the Azure portal or Azure Storage Explorer. To list files and directories, either [mount a Blob Storage container by using the NFS 3.0 protocol](network-file-system-protocol-support-how-to.md), or use the [Blob service REST API](/rest/api/storageservices/blob-service-rest-api).
 

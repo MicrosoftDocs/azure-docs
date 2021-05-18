@@ -18,7 +18,7 @@ The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 VM Generation Support: Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | FPGA | FPGA memory: GiB | Max data disks | Max NICs/Expected network bandwidth (MBps) | 
@@ -33,6 +33,10 @@ VM Generation Support: Generation 1<br>
 
 
 ##  Frequently asked questions
+
+**Q:** How to request quota for NP VMs?
+
+**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
 
 **Q:** What version of Vitis should I use? 
 

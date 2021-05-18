@@ -33,4 +33,4 @@ To understand how many private DNS zones you can create in a subscription and ho
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.md).
+* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).

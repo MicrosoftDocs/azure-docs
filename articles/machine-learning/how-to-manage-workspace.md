@@ -248,7 +248,7 @@ from azureml.core import Workspace
 
 ### Download a configuration file
 
-If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.  The compute instance has already created a copy of this file for you.
+If you will be creating a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance has already created a copy of this file for you.
 
 # [Python](#tab/python)
 
@@ -387,8 +387,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Examples
 
 Examples of creating a workspace:
-* Use Azure portal to [create a workspace and compute instance](tutorial-1st-experiment-sdk-setup.md)
-* Use Python SDK to [create a workspace in your own environment](tutorial-1st-experiment-sdk-setup-local.md)
+* Use Azure portal to [create a workspace and compute instance](quickstart-create-resources.md)
 
 ## Next steps
 

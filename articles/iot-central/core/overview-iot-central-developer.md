@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
+# This article applies to device developers.
 ---
 
 # IoT Central device development guide
-
-*This article applies to device developers.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is intended for device developers who implement code to run on devices that connect to IoT Central.
 
@@ -72,6 +72,8 @@ Communication protocols that a device can use to connect to IoT Central include 
 ## Implement the device
 
 An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
+
+To learn more about best practices you edit a model, see [Edit an existing device template](howto-edit-device-template.md).
 
 > [!TIP]
 > You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
