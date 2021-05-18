@@ -73,7 +73,7 @@ Azure API for FHIR supports a secure export operation. Choose one of the two opt
 * Allowing Azure API for FHIR as a Microsoft Trusted Service to access the Azure storage account.
  
 * Allowing specific IP addresses associated with Azure API for FHIR to access the Azure storage account. 
-This option provides two different configurations, depending on whether the storage account is in the same or a different location from that of the Azure API for FHIR, the configurations are different.
+This option provides two different configurations depending on whether the storage account is in the same location as, or is in a different location from that of the Azure API for FHIR.
 
 ### Allowing Azure API for FHIR as a Microsoft Trusted Service
 
@@ -88,12 +88,12 @@ Under the **Exceptions** section, select the box **Allow trusted Microsoft servi
 
 :::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
 
-You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and is not publicly accessible. To access the files, you can either add the storage account to your virtual networks and create a Private Link endpoint, or you can enable all networks for the storage account for a limited period of time.
+You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and is not publicly accessible. To access the files, you can either enable and use private endpoints for the storage account, or enable all networks for the storage account for a short period of time.
 
 > [!IMPORTANT]
 > The user interface will be updated later to allow you to select the Resource type for Azure API for FHIR and a specific service instance.
 
-### When the Azure storage account is in a different region
+### Allowing specific IP addresses for the Azure storage account in a different region
 
 Select **Networking** of the Azure storage account from the
 portal. 
