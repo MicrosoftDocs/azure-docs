@@ -34,16 +34,16 @@ You can install the Video Analyzer player widget to playback video recordings. T
 
 NPM:
 ```
-npm install –-save @azure/video-analyzer/widgets
+npm install –-save @azure/video-analyzer-widgets
 ```
 YARN:
 ```
-yarn add @azure/video-analyzer/widgets 
+yarn add @azure/video-analyzer-widgets 
 ```
 Alternatively you can embed an existing pre-build script by adding type="module" to the script element referencing the pre-build location using the following example:
 
 ```
-<script async type="module" src="https://unpkg.com/@azure/video-analyzer/widgets"></script> 
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets"></script> 
 ``` 
 
 ## Recording and playback latencies
