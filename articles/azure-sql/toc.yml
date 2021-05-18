@@ -300,6 +300,8 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: vCore
+        href: database/service-tiers-sqldb-vcore.md
     - name: Plan and manage costs 
       href: database/cost-management.md
 
@@ -744,6 +746,8 @@
       href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
+    - name: Compute Hardware
+      href: managed-instance/service-tiers-sqldb-vcore.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
