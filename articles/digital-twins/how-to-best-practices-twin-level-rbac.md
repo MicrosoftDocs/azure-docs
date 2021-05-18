@@ -78,7 +78,7 @@ Once twins contain the Map property, you can now "tag" twins with the roles that
 
 ## Query
 
-Before accessing a resource, use the following code to fetch the roles associated with that tenant:
+[Earlier in this article](#create-custom-azure-rbac-roles), you made use of a service principal to associate tenants with roles, and then updated the Twins so that they would utilize marker tags to identify which role was allowed to access them. We can now see in action how this logic can enable us to check whether a tenant has access to a specific resource at runtime. Before accessing a resource, use the following code to fetch the roles associated with that tenant:
 
 ```C#
 var roles = "['role1', 'role2'..'rolen']";
