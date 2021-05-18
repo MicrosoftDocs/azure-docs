@@ -138,8 +138,8 @@ The following section describes the configuration of auditing on your managed in
 
      1. Click **OK** in the **Create Audit** dialog.
      
-      > [!NOTE]
-      > - When using SQL Server Management Studio UI to create audit, a credential to the container with SAS key will be automatically created. 
+        > [!NOTE]
+        > When using SQL Server Management Studio UI to create audit, a credential to the container with SAS key will be automatically created. 
      
      1.  <a id="createspec"></a>After you configure the blob container as target for the audit logs, create and enable a server audit specification or database audit specification as you would for SQL Server:
 
