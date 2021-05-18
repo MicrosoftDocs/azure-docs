@@ -197,12 +197,14 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 
 ## Run display name
 A run display name is an optional, non-unique, user-friendly property that can be added to a run to help annotate runs and provide more meaningful information to the run. 
-To edit the run display name, navigate to the **Run Details** page and select the **Edit** icon next to the run. By default, the run display name is set to the run ID. 
-The run ID is the unique identifier for the run and can be added as a column in the runs list view. 
+
+To edit the run display name, navigate to the **Run Details** page and select the **Edit** icon next to the run. By default, the run display name is set to the run ID. The run ID is the unique identifier for the run and can be added as a column in the runs list view. 
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: add a display name":::
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name-runs-list.gif" alt-text="Screenshot: display name in runs list":::
+The following image shows the edited run display name. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name-runs-list.png" alt-text="Screenshot: display name in runs list":::
 
 
 ## Run description 
