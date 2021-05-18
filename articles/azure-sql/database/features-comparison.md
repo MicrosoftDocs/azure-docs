@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 03/08/2021
+ms.date: 05/18/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -63,7 +63,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) |  No - see [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration. |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | Yes, with required RDBMS type. |
+| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No |
 | [Event notifications](/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](alerts-insights-configure-portal.md) | No |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events (XEvent)](/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](xevent-db-diff-from-svr.md) | Yes - see [Extended events differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
