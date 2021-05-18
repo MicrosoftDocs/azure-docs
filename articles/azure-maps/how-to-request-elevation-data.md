@@ -513,7 +513,7 @@ The following sample webpage describes how to use the map control to display ele
 
 ### Get elevation data by Polyline path
 
-The following sample web page describes how to use the map control to display elevation data along a path. The user defines the path by selecting the `Polyline` icon in the upper-left corner, and then drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right corner.
+The following sample webpage describes how to use the map control to display elevation data along a path. The user defines the path by selecting the `Polyline` icon in the upper-left corner, and then drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right corner.
 
 <br/>
 
