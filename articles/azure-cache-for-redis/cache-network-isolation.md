@@ -11,13 +11,13 @@ ms.date: 10/15/2020
 # Azure Cache for Redis network isolation options 
 In this article, you’ll learn how to determine the best network isolation solution for your needs. We’ll go through the basics of Azure Private Link, Azure Virtual Network (VNet) injection, and Azure Firewall Rules with their advantages and limitations.  
 
-## Azure Private Link (public preview) 
+## Azure Private Link
 Azure Private Link provides private connectivity from a virtual network to Azure PaaS services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. 
 
 ### Advantages
 * Supported on Basic, Standard, and Premium Azure Cache for Redis instances. 
 * By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. With this, cache instances are available from both within the VNet and publicly.  
-* Once a private endpoint is created, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link (Preview)](cache-private-link.md). 
+* Once a private endpoint is created, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md). 
 * All external cache dependencies won't affect the VNet's NSG rules.
 
 ### Limitations 
