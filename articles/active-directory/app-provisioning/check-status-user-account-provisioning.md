@@ -1,14 +1,14 @@
 ---
-title: Report automatic user account provisioning to SaaS applications
+title: Report automatic user account provisioning from Azure Active Directory to Software as a Service (SaaS) applications
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2018
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

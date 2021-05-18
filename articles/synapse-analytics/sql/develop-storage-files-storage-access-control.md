@@ -99,18 +99,19 @@ You can use the following combinations of authorization and Azure Storage types:
 
 \* SAS token and Azure AD Identity can be used to access storage that is not protected with firewall.
 
+## Firewall protected storage
 
-### Querying firewall protected storage
-
+You can configure storage accounts to allow access to specific serverless SQL pool by creating a [resource instance rule](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview).
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
 > [!NOTE]
 > The firewall feature on Storage is in public preview and is available in all public cloud regions. 
 
-#### User Identity
+
+### [User Identity](#tab/user-identity)
 
 To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
-#### Configuration via Azure portal
+### Configuration via Azure portal
 
 1. Search for your Storage Account in Azure portal.
 1. Go to Networking under section Settings.
@@ -119,7 +120,7 @@ To access storage that is protected with the firewall via User Identity, you can
 1. Select name of your workspace as an Instance name.
 1. Click Save.
 
-#### Configuration via PowerShell
+### Configuration via PowerShell
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
@@ -186,9 +187,20 @@ Follow these steps to configure your storage account firewall and add an excepti
         }
     ```
 
-#### Managed Identity
+### [Shared access signature](#tab/shared-access-signature)
+
+Shared access signatures cannot be used to access firewall-protected storage.
+
+### [Managed Identity](#tab/managed-identity)
+
 You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
 In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+
+### [Anonymous access](#tab/public-access)
+
+You cannot access firewall-protected storage using anonymous access.
+
+---
 
 ## Credentials
 

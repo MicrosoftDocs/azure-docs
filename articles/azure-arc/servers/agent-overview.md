@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 05/10/2021
+ms.date: 05/18/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -78,7 +78,7 @@ Arc enabled servers support the installation of the Connected Machine agent on a
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-- Windows Server 2008 R2, Windows Server 2012 R2 and higher (including Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2 and higher (including Server Core)
 - Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 - CentOS Linux 7 and 8  (x64)
 - SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
@@ -88,6 +88,17 @@ The following versions of the Windows and Linux operating system are officially 
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+
+> [!NOTE]
+> While Arc enabled servers supports Amazon Linux, the following do not support this distro:
+> * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
+> * Azure Automation Update Management
+> * VM insights
+
+### Software requirements
+
+* NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
+* Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### Required permissions
 

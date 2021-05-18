@@ -204,6 +204,13 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Create and deploy apps on Azure Spring Cloud
 
+1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
+
+    ```azurecli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>  
+    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+    ```
+
 1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
 
     ```azurecli
@@ -224,7 +231,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     az spring-cloud app list -o table
     ```
 
-    ```txt
+    ```azurecli
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
     api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
