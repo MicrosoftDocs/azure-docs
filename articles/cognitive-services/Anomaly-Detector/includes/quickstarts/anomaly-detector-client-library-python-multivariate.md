@@ -96,6 +96,8 @@ Each time series should be a CSV file with two (and only two) columns, "timestam
 Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
 ```python
+class MultivariateSample():
+
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
     self.sub_key = subscription_key
     self.end_point = anomaly_detector_endpoint
@@ -106,11 +108,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
     self.ad_client = AnomalyDetectorClient(AzureKeyCredential(self.sub_key), self.end_point)
     # </client>
 
-    if not data_source:
-        # Datafeed for test only
-        self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
-    else:
-        self.data_source = data_source
+    self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
 ```
 
 ## Train the model
@@ -187,6 +185,9 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
 ```
 
 ## Export model
+
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
 
 If you want to export a model use `export_model` and pass the model ID of the model you want to export:
 

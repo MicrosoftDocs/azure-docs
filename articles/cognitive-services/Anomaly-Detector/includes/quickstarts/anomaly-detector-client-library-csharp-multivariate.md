@@ -227,6 +227,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export the model you trained previously, create a `private async Task` named `exportAysnc`. You will use `ExportModelAsync` and pass the model ID of the model you wish to export.
 
 ```csharp
