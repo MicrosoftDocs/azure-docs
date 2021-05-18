@@ -18,9 +18,9 @@ The management SDKs allow you to interact with the resources exposed by Azure Re
 
 The following platforms are supported:
 
-- [.NET](https://aka.ms/sdk/mgt/net)
-- [Java](https://aka.ms/sdk/mgt/java)
-- [Python](https://aka.ms/sdk/mgt/python)
+- [.NET](https://aka.ms/ava/sdk/mgt/net)
+- [Java](https://aka.ms/ava/sdk/mgt/java)
+- [Python](https://aka.ms/ava/sdk/mgt/python)
 
 ## Client SDKs
 
@@ -28,10 +28,10 @@ The client SDKs allow you to interact with the [direct methods][docs-direct-meth
 
 The following platforms are supported:
 
-- [.NET](https://aka.ms/sdk/client/net)
-- [Python](https://aka.ms/sdk/client/python)
-- [Java](https://aka.ms/sdk/client/java)
-- [JavaScript](https://aka.ms/sdk/client/js)
+- [.NET](https://aka.ms/ava/sdk/client/net)
+- [Python](https://aka.ms/ava/sdk/client/python)
+- [Java](https://aka.ms/ava/sdk/client/java)
+- [JavaScript](https://aka.ms/ava/sdk/client/js)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
