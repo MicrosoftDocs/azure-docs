@@ -32,8 +32,17 @@ Events that indicate deviations of the learned network might reflect valid netwo
 
 - New legitimate scanning is carried out and the device should be defined as a scanning device.
 
+**To learn an event**: 
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="The Address Detected Scan window.":::
+1. Navigate to the **Alerts** tab.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
+
+1. Select an alert from the list of alerts.
+
+1. Select **Learn**.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/learn.png" alt-text="The Address Detected Scan window.":::
 
 Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
 
@@ -41,6 +50,20 @@ When you select **Learn**, the sensor considers traffic, configurations, or acti
 
 Learned events can be unlearned. When the sensor unlearns events, it will re-trigger alerts related to this event.
 
+>[!Note]
+> You must be logged in as a user with an Administrator role in order to unlearn an event.
+
+**To unlearn an event**
+
+1. Navigate to the **Alerts** tab.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
+
+1. Select an alert from the list of alerts.
+
+1. Select **Unlearn**.
+
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/unlearn.png" alt-text="Select Unlearn to unlearn an event.":::
 ## About acknowledging and unacknowledging events
 
 In certain situations, you might not want a sensor to learn a detected event, or the option might not be available. Instead, the incident might require mitigation. For example:
