@@ -1,6 +1,6 @@
 ---
 title: HTTP extension protocol - Azure
-description: Azure Video Analyzer allows you to extend the pipelines processing capabilities through a pipelineTopology node. If you use the HTTP extension processor as the extension node, then the communication between the Video Analyzer module and your AI or CV module is over HTTP protocol.
+description: Azure Video Analyzer allows you to enhance its processing capabilities through a pipeline extension node. HTTP extension processor enables extensibility scenarios using the HTTP protocol, where performance and/or optimal resource utilization is not the primary concern.
 ms.topic: reference
 ms.date: 03/30/2021
 
@@ -8,8 +8,7 @@ ms.date: 03/30/2021
 
 # Use the HTTP extension protocol 
 
-Azure Video Analyzer allows you to extend the pipelines processing capabilities through a pipelineTopology node. If you use the HTTP extension processor as the extension node, then the communication between the Video Analyzer module and your AI or CV module is over HTTP protocol.
-In this article, you will learn about using HTTP extension protocol to send messages between the Video Analyzer and your AI or CV module.
+Azure Video Analyzer allows you to enhance its processing capabilities through a [pipeline extension](pipeline-extension.md) node. HTTP extension processor node enables extensibility scenarios using the HTTP extension protocol, where performance and/or optimal resource utilization is not the primary concern. In this article, you will learn about using this protocol to send messages between the Video Analyzer and a HTTP REST endpoint, which would typically be wrapped around an AI inference server.
 
 The HTTP contract is defined between the following two components:
 
@@ -47,11 +46,11 @@ Content-Length: 519222
 
 ### Response
 
-Responses from your module to Video Analyzer module should be as follows:
+Responses from your inference server to the Video Analyzer module should be as follows:
 
 |Key|	Value|
 |---|----|
-|Status Codes|	200 OK - Inference results found<br/>204 No Content - No content found by the AI<br/>400 Bad Request - Not expected<br/>500 Internal Server Error - Not expected<br/>503 Server Busy - AMS will back-off based on "Retry-After" header or based on a default amount of time in case header not preset.|
+|Status Codes|	200 OK - Inference results found<br/>204 No Content - No result found by the AI<br/>400 Bad Request - Not expected<br/>500 Internal Server Error - Not expected<br/>503 Server Busy - Video Analyzer will back-off based on "Retry-After" header or based on a default amount of time in case header not preset.|
 |Content-Type	|application/json|
 |Content-Length	|Body length, in bytes|
 |Body|	JSON object with single "inferences" property.|
@@ -63,7 +62,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 468
 Server: Microsoft-HTTPAPI/2.0
-Date: Fri, 17 Apr 2020 04:44:01 GMT
+Date: Fri, 17 Apr 2021 04:44:01 GMT
 
 {
   "inferences": [
@@ -85,17 +84,17 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Video Analyzer module.
+It is strongly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components in Video Analyzer, such as the ability to track objects in live video, and overlay the inference metadata over video during playback, as demonstrated [here](record-stream-inference-data-with-video.md).
 
-If your module returns a response where the content type is not “application/json”, Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
+If your module returns a response where the content type is not "application/json", Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
-If your module returns a response with content type as “application/json” but the JSON schema doesn’t follow the inference metadata schema outlined below, the message payload will be forwarded through the pipeline, but interoperability will be reduced. Refer [Inference metadata schema](inference-metadata-schema.md) for detailed and up-to-date information regarding the inference metadata schema.
+If your module returns a response with content type as "application/json" but the JSON schema doesn’t follow the above inference metadata schema, the message payload will be forwarded through the pipeline, but interoperability will be reduced.
 
 > [!NOTE]
-> If your module doesn’t produce any result, it should return HTTP 204 Status Code (No Content) with an empty response body. Video Analyzer will understand this as an empty result and won’t forward the event throughout the pipeline.
+> If your inference server doesn’t produce any result for a given image, it must return HTTP 204 Status Code (No Content) with an empty response body. Video Analyzer will understand this as an empty result and won’t forward the event throughout the pipeline.
 
 ## Next steps
 
-[gRPC extension protocol](grpc-extension-protocol.md)
+[Read about the gRPC extension protocol](grpc-extension-protocol.md)
 
 
