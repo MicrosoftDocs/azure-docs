@@ -498,7 +498,7 @@ The following sample web page describes how to use the map control to display el
 
 ### Get elevation data by bounding box
 
-The following sample web page describes how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by selecting the `square` icon in the upper-left corner, and then drawing the square anywhere on the map. The map control then renders the elevation data in accordance with the colors that are specified in the key that's located in the upper-right corner.
+The following sample webpage describes how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by selecting the `square` icon in the upper-left corner, and then drawing the square anywhere on the map. The map control then renders the elevation data in accordance with the colors that are specified in the key that's located in the upper-right corner.
 
 <br/>
 
