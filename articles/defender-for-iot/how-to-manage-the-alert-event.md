@@ -50,9 +50,6 @@ When you select **Learn**, the sensor considers traffic, configurations, or acti
 
 Learned events can be unlearned. When the sensor unlearns events, it will re-trigger alerts related to this event.
 
->[!Note]
-> You must be logged in as a user with an Administrator role in order to unlearn an event.
-
 **To unlearn an event**
 
 1. Navigate to the **Alerts** tab.
