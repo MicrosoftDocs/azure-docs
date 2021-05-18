@@ -38,7 +38,7 @@ BareMetal Infrastructure (certified for SAP HANA workloads) service based on Rev
 
 ## List of available Azure Large Instances
 
-The following is a list of available Azure Large Instances.
+The following is a list of available Azure Large Instances (also known as BareMetal Infrastructure instances).
 
 > [!IMPORTANT]
 > Be aware of the first column that represents the status of HANA certification for each of the Large Instance types in the list. The column should correlate with the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for the Azure SKUs that start with the letter **S**.
