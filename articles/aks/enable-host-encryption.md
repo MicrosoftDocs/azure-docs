@@ -22,7 +22,7 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-- Ensure you have the CLI extension v2.20 or higher version installed.
+- Ensure you have the CLI extension v2.23 or higher version installed.
 
 ### Limitations
 
