@@ -207,4 +207,4 @@ Create the job and open in the studio:
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-
+- [Train models with REST (preview)][how-to-train-with-rest.md]
