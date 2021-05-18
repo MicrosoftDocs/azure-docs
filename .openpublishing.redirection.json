@@ -33719,6 +33719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
+      "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
