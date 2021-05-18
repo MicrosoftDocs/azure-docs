@@ -56,7 +56,7 @@ Kubernetes is aware of Azure availability zones since version 1.12. You can depl
 
 ## Azure Resource Manager Templates and availability zones
 
-When *creating* an AKS cluster, if you explicitly define a [null value in a template](arm-template-null), the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster and omit the availability zones property value in your template, availability zones are disabled.
+When *creating* an AKS cluster, if you explicitly define a [null value in a template][arm-template-null], the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster and omit the availability zones property value in your template, availability zones are disabled.
 You can't update settings for availability zones on an existing cluster, so the behavior is different.  If you explicitly set a null value in your template for availability zones and *update* your cluster, there are no changes made to your cluster for that property. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the resource manager template validation will attempt to disable availability zones on your existing cluster and fail.
 
 ## Overview of availability zones for AKS clusters
