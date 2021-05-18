@@ -84,8 +84,10 @@ External file formats define the structure of the files stored on external data 
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+Find more information in [this article](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)
 
 ## Explore your data
 
@@ -95,11 +97,11 @@ reads content of a remote data source (for example file) and returns the content
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
-The `OPENROWSET` function will give you information about the column in the external files or containers and enable you to define a schema of 
+The `OPENROWSET` function will give you information about the columns in the external files or containers and enable you to define a schema of 
 your external tables and views.
 
 ## Create external tables on Azure storage
