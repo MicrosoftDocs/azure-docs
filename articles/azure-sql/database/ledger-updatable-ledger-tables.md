@@ -41,7 +41,7 @@ An updatable ledger table needs to have the following `GENERATED ALWAYS` columns
 > [!NOTE]
 > If you do not specify the required `GENERATED ALWAYS` columns of the ledger table and ledger history table in the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement, the system will automatically add the columns, and it will use the below default names. For more information, see our examples of [Creating a updatable ledger table](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#x-creating-a-updatable-ledger-table).
 
-| Column name | Data type | Description |
+| Default column name | Data type | Description |
 | --- | --- | --- |
 | ledger_start_transaction_id | bigint | The ID of the transaction that created a row version. |
 | ledger_end_transaction_id | bigint | The ID of the transaction that deleted a row version. |
@@ -62,14 +62,14 @@ For example, if you wanted to track transaction history for a simple banking sce
 
 For an example on using the ledger view, see [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
 
-The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the system-generated columns are different than those of the updatable ledger and history tables.
+The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns are different than those of the updatable ledger and history tables.
 
 ### Ledger view schema
 
 > [!NOTE]
 > The ledger view column names can be customized when creating the table using the `<ledger_view_option>` parameter with the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement. For more information, see [ledger view options](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#ledger-view-options) and the corresponding examples in [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true).
 
-| Column name | Data type | Description |
+| Default column name | Data type | Description |
 | --- | --- | --- |
 | ledger_transaction_id | bigint | The ID of the transaction that created or deleted a row version. |
 | ledger_sequence_number | bigint | The sequence number of a row-level operation within the transaction on the table. |

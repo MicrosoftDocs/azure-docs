@@ -1,6 +1,6 @@
 ---
-title: "How to access the digests stored in ACL"
-description: How-to access the digests stored in ACL with Azure SQL Database ledger
+title: "How to access the digests stored in Azure Confidential Ledger (ACL)"
+description: How to access the digests stored in Azure Confidential Ledger (ACL) with Azure SQL Database ledger
 ms.custom: ""
 ms.date: "05/25/2021"
 ms.service: sql-database
@@ -13,46 +13,52 @@ ms.author: janders
 
 # How to access the digests stored in ACL
 
-# Overview
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article shows you how to access a SQL ledger digest or receipt that is stored in Azure Confidential Ledger to get end-to-end security and integrity guarantees. Through this document, we will explain how to access and verify integrity of the stored information.
+This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest or receipt that is stored in [Azure Confidential Ledger (ACL)](https://aka.ms/ACL-docs) to get end-to-end security and integrity guarantees. Through this article, we'll explain how to access and verify integrity of the stored information.
 
 ## Prerequisites
 
-* Python 2.7, 3.5.3, or later
-* A running instance of Azure Confidential Ledger.
+- Python 2.7, 3.5.3, or later
+- Have an existing Azure SQL Database with ledger enabled. See [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md) if you haven't already created an Azure SQL Database.
+- A running instance of [Azure Confidential Ledger](https://aka.ms/ACL-docs).
 
 ## How does the integration work?
 
-SQL Server calculates the digests of the SQL Ledger database(s) periodically and stores them in Azure Confidential Ledger. At any time, a user can validate the integrity of the data by downloading the digests from Azure Confidential Ledger. The following steps will explain it.
+Azure SQL server calculates the digests of the [ledger database(s)](ledger-overview.md#ledger-database) periodically and stores them in Azure Confidential Ledger. At any time, a user can validate the integrity of the data by downloading the digests from Azure Confidential Ledger. The following steps will explain it.
 
 ## Step 1 - Find the Digest location
 
-Using the SQL Server Management Studio, run the following query. The output shows the endpoint of the Azure Confidential Ledger instance where the digests are stored.
-  ```sql
-  SELECT * FROM sys.database_ledger_digest_locations WHERE is_current=1
-  ```
+Using the [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), run the following query. The output shows the endpoint of the Azure Confidential Ledger instance where the digests are stored.
+
+```sql
+SELECT * FROM sys.database_ledger_digest_locations WHERE is_current=1
+```
 
 ## Step 2 - Determine the Subledgerid
 
-Please replace instances of `"my-ledger-id"` in the example below with the appropriate Azure Confidential Ledger id.
+Replace instances of `my-ledger-id` in the example below with the appropriate Azure Confidential Ledger ID.
 
-We are interested in the value in the path column from the query output. It consists of two parts namely the host name and the subledgerid. As an example, in the Url `'https://my-ledger-id.confidential-ledger.azure.com/sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM'`, the host name is `'https://my-ledger-id.confidential-ledger.azure.com'` and the subledgerid is `'sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM'`. We will use it in Step 4 to download the digests.
+We're interested in the value in the path column from the query output. It consists of two parts, namely the `host name` and the `subledgerid`. As an example, in the Url `https://my-ledger-id.confidential-ledger.azure.com/sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`, the `host name` is `https://my-ledger-id.confidential-ledger.azure.com` and the `subledgerid` is `sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`. We'll use it in [Step 4](#step-4) to download the digests.
 
-## Step 3 - Obtain an AAD token.
+## Step 3 - Obtain an Azure AD token
 
-The Azure Confidential Ledger API accepts either a client certificate or an Azure Active Directory (AAD) Bearer token as caller identity (Security Principal). This Security Principal needs to be whitelisted via ARM during Ledger Provisioning. The user who had enabled Ledger in SQL Server is automatically given the Administrator access to Confidential Ledger. To obtain a token, user first needs to authenticate using [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with Azure Portal. Once the user has authenticated, they can use DefaultAzureCredentials() to retrieve bearer token and call Confidential Ledger API.
+The Azure Confidential Ledger API accepts either a client certificate or an Azure Active Directory (Azure AD) Bearer token as caller identity. This identity needs access to ACL via Azure Resource Manager during provisioning. The user who had enabled ledger in SQL Database is automatically given administrator access to Azure Confidential Ledger. To obtain a token, the user needs to authenticate using [Azure CLI](/cli/azure/install-azure-cli) with the same account that was used with Azure portal. Once the user has authenticated, they can use [DefaultAzureCredentials()](/dotnet/api/azure.identity.defaultazurecredential) to retrieve bearer token and call Azure Confidential Ledger API.
 
-```bash
+Log in to Azure AD using the identity with access to ACL.
+
+```azure-cli
 az login
 ```
+
+Retrieve the Bearer token.
 
 ```python
 from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 ```
 
-## Step 4 - Download the Digests from Azure Confidential Ledger
+## Step 4 - Download the digests from Azure Confidential Ledger
 
 The following Python script downloads the digests from the Azure Confidential Ledger service.
 
@@ -119,16 +125,21 @@ while(True):
 
 ## Step 5 - Download the Digests from the SQL Server
 
-Using the SQL Server Management Studio, run the following query. The query returns the digests of the blocks from Genesis.
-  ```sql
-  SELECT * FROM sys.database_ledger_blocks
-  ```
+Using [SSMS](/sql/ssms/download-sql-server-management-studio-ssms), run the following query. The query returns the digests of the blocks from Genesis.
+
+```sql
+SELECT * FROM sys.database_ledger_blocks
+```
+
 ## Step 6 - Comparison
 
-Compare the digest retrieved from the Azure Confidential Ledger to the digest returned from the SQL Server using the block_id as the key. For example, the digest of block_id 1 is the value of the previous_block_hash column in the block_id 2 row. Similarly, for block_id 3, it is the value of the previous_block_id column in the block_id 4 row. A mismatch in the hash value is an indicator of data being tampered.
+Compare the digest retrieved from the Azure Confidential Ledger to the digest returned from your SQL database using the `block_id` as the key. For example, the digest of `block_id` = `1` is the value of the `previous_block_hash` column in the `block_id`= `2` row. Similarly, for `block_id` = `3`, it's the value of the `previous_block_id` column in the `block_id` = `4` row. A mismatch in the hash value is an indicator of data being tampered.
 
-## See also
+## Next steps
 
+- [Azure SQL Database ledger Overview](ledger-overview.md)
 - [Database ledger](ledger-database-ledger.md)
 - [Digest management and database verification](ledger-digest-management-and-database-verification.md)
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md)
+- [Updatable ledger tables](ledger-updatable-ledger-tables.md)
+- [How to verify a ledger table to detect tampering](ledger-verifying-database.md)

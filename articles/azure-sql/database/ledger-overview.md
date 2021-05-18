@@ -62,8 +62,10 @@ For more information on how to create and use updatable ledger tables, see [Crea
 
 For more information on how to create and use append-only ledger tables, see [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md).
 
-### Ledger database.
+### Ledger database
+
 A ledger database is a database, in which all user data is tamper evident and stored in ledger tables. A ledger database can only contain ledger tables, and each table is by default created as an updatable ledger table. Ledger databases provide an easy-to-use solution for applications that require the integrity of all data to be protected. 
+
 ### Database ledger
 
 The database ledger consists of system tables that store the cryptographic hashes of transactions processed in the system. Since transactions are the unit of [atomicity](/windows/win32/cossdk/acid-properties) for the database engine, this is the unit of work being captured in the database ledger. Specifically, when a transaction commits, the SHA-256 hash of any rows modified by the transaction in the ledger table, together with some metadata for the transaction, such as the identity of the user that executed it and its commit timestamp, is appended as a *transaction entry* in the database ledger. Every 30 seconds, the transactions processed by the database are SHA-256 hashed together using a Merkle tree data structure, producing a root hash. This forms a block, which is then SHA-256 hashed using the root hash of the block along with the root hash of the previous block as input to the hash function, forming a blockchain.
@@ -86,10 +88,13 @@ For more information on ledger verification, see [Digest management and database
 
 ## Next steps
  
+- [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md)
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)   
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md)   
 - [Database ledger](ledger-database-ledger.md)   
 - [Digest management and database verification](ledger-digest-management-and-database-verification.md)   
 - [Limitations for Azure SQL Database ledger](ledger-limits.md)
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
-- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 
+- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md)
+- [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)
+- [How to verify a ledger table to detect tampering](ledger-verifying-database.md)

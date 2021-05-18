@@ -21,9 +21,8 @@ This article provides an overview of the limitations when using ledger tables wi
 
 | Function | Limitation |
 | :--- | :--- |
-| Enabling database-level ledger for [append-only ledger tables](ledger-append-only-ledger-tables.md) | When database-level ledger is enabled, all future tables created in the database will be [updatable ledger tables](ledger-updatable-ledger-tables.md). [Append-only ledger tables](ledger-append-only-ledger-tables.md) can be created using [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statements |
 | Disabling [ledger database](ledger-database-ledger.md)   | Once enabled, ledger database cannot be disabled. |
-| Maximum # of columns | When created, [updatable ledger tables](ledger-updatable-ledger-tables.md) add four system-generated columns to the ledger table and [append-only ledger tables](ledger-append-only-ledger-tables.md) add two columns to the ledger table. These new columns count against the maximum supported number of columns in Azure SQL Database (1024). |
+| Maximum # of columns | When created, [updatable ledger tables](ledger-updatable-ledger-tables.md) adds four [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns to the ledger table and [append-only ledger tables](ledger-append-only-ledger-tables.md) add two columns to the ledger table. These new columns count against the maximum supported number of columns in Azure SQL Database (1024). |
 | Restricted data types | XML, SqlVariant, User-defined type, and FILESTREAM data types aren't supported. |
 | In-memory tables | In-memory tables aren't supported. |
 | Sparse column sets | Sparse column sets aren't supported. |
@@ -33,6 +32,7 @@ This article provides an overview of the limitations when using ledger tables wi
 
 ## Remarks
 
+- When a ledger database is created, all new tables created by default (without specifying the `APPEND_ONLY = ON` clause) in the database will be [updatable ledger tables](ledger-updatable-ledger-tables.md). [Append-only ledger tables](ledger-append-only-ledger-tables.md) can be created using [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statements.
 - Ledger tables can't be a FILETABLE.
 - Ledger tables can't have full-text indexes.
 - Ledger tables can't be renamed.

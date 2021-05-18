@@ -45,6 +45,15 @@ landingContent:
 
 
   # Card 
+  - title: Ledger quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure SQL Database with ledger enabled
+            url: ledger-create-a-single-database-with-ledger-enabled.md
+
+
+  # Card 
   - title: Using ledger
     linkLists:
       - linkListType: how-to-guide
@@ -53,6 +62,10 @@ landingContent:
             url: ledger-how-to-append-only-ledger-tables.md
           - text: Create updatable ledger tables
             url: ledger-how-to-updatable-ledger-tables.md
+          - text: How to access the digests stored in Azure Confidential Ledger (ACL)
+            url: ledger-how-to-access-acl-digest.md
+          - text: How to verify a ledger table to detect tampering
+            url: ledger-verifying-database.md
 
 
   # Card

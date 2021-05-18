@@ -13,7 +13,9 @@ ms.date: 05/25/2021
 
 # Quickstart: Create an Azure SQL Database with ledger enabled
 
-In this quickstart, you create a [ledger database](ledger-overview.md#ledger-database) in Azure SQL Database and configure [automatic digest storage with Azure Blob storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) using the Azure Portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+In this quickstart, you create a [ledger database](ledger-overview.md#ledger-database) in Azure SQL Database and configure [automatic digest storage with Azure Blob storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) using the Azure portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
 
 ## Prerequisite
 
@@ -37,10 +39,10 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 1. For **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 
-1. For **Database name** enter *demo*.
+1. For **Database name**, enter *demo*.
 
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
-   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it is available or not.
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it's available or not.
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
@@ -60,15 +62,15 @@ To create a single database in the Azure portal, this quickstart starts at the A
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Next: Security** at the bottom of the page.
 
-   :::image type="content" source="media/ledger/ledger-create-database-networking-tab.png" alt-text="Networking tab of Create Database in Azure Portal":::
+   :::image type="content" source="media/ledger/ledger-create-database-networking-tab.png" alt-text="Networking tab of Create Database in Azure portal":::
 
 1. On the **Security** tab, in the **Ledger** section, select the **Configure ledger** option.
 
     :::image type="content" source="media/ledger/ledger-configure-ledger-security-tab.png" alt-text="Configure ledger in Security tab of Azure portal":::
 
-1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox. This ensures that all future tables in the database will be ledger tables, which means that all data in the database will be tamper evident. By default, new tables will be created as updatable ledger tables, even if you do not specify `LEDGER = ON` in [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). Alternatively, you can leave this un-selected, requiring you to enable ledger functionality on a per-table basis when creating new tables using Transact-SQL.
+1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox. This setting ensures that all future tables in the database will be ledger tables, which means that all data in the database will be tamper evident. By default, new tables will be created as updatable ledger tables, even if you don't specify `LEDGER = ON` in [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). Alternatively, you can leave this unselected, requiring you to enable ledger functionality on a per-table basis when creating new tables using Transact-SQL.
 
-1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure immutable blob storage account and container with a locked retention policy of 365 days. Un-select **Lock retention policy** and change the **Retention policy (Days)** to **1** if you plan to delete these resources after this Quickstart.
+1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure immutable blob storage account and container with a locked retention policy of 365 days. Unselect **Lock retention policy** and change the **Retention policy (Days)** to **1** if you plan to delete these resources after this Quickstart.
 
 1. Click the **Apply** button.
 

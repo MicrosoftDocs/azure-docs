@@ -19,7 +19,7 @@ This article shows you how to create an [updatable ledger table](ledger-updatabl
 
 ## Prerequisite
 
-- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md) if you haven't already created an Azure SQL Database.
+- Have an existing Azure SQL Database with ledger enabled. See [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md) if you haven't already created an Azure SQL Database.
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 
 ## Creating an updatable ledger table
@@ -95,7 +95,7 @@ We'll create an account balance table with the following schema.
    (4, 'Michaels', 'Mary', 200)
    ```
 
-1. View the `[Account].[Balance]` updatable ledger table, specifying the system-generated hidden columns added to the table.
+1. View the `[Account].[Balance]` updatable ledger table, specifying the [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns added to the table.
 
    ```sql
    SELECT * 
@@ -176,3 +176,4 @@ We'll create an account balance table with the following schema.
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
 - [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md) 
+- [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)

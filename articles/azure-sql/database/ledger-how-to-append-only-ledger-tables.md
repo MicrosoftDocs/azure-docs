@@ -21,7 +21,7 @@ For more information, see [Append-only ledger tables](ledger-append-only-ledger-
 
 ## Prerequisite
 
-- Have an existing Azure SQL Database. See [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md) if you haven't already created an Azure SQL Database.
+- Have an existing Azure SQL Database with ledger enabled. See [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md) if you haven't already created an Azure SQL Database.
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 
 ## Creating an append-only ledger table
@@ -61,7 +61,7 @@ We'll create a `KeyCardEvents` table with the following schema.
    VALUES ('43869', 'Building42', '2020-05-02T19:58:47.1234567')
    ```
 
-1. View the contents of your KeyCardEvents table, specifying the hidden columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
+1. View the contents of your KeyCardEvents table, specifying the [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
 
    ```sql
    SELECT *
@@ -89,3 +89,4 @@ We'll create a `KeyCardEvents` table with the following schema.
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
+- [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)

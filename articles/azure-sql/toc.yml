@@ -313,6 +313,9 @@
       - name: ARM template
         displayName: Resource Manager
         href: database/single-database-create-arm-template-quickstart.md
+      - name: With ledger and digest storage
+        displayName: Create Azure SQL Database with ledger
+        href: database/ledger-create-a-single-database-with-ledger-enabled.md
     - name: Configure
       items:
       - name: Server-level IP firewall rules
@@ -571,6 +574,11 @@
           href: database/ledger-how-to-append-only-ledger-tables.md
         - name: Create updatable ledger tables
           href: database/ledger-how-to-updatable-ledger-tables.md
+        - name: Access ACL digest
+          displayName: Access Azure Confidential Ledger digest
+          href: database/ledger-how-to-access-acl-digest.md
+        - name: Verify ledger database for tampering
+          href: database/ledger-verifying-database.md
       - name: vNet endpoints - PowerShell
         href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
 

@@ -116,3 +116,4 @@ When performing forensics activities with ledger-enabled tables, in addition to 
 
 - [Auditing for Azure SQL Database and Azure Synapse Analytics](auditing-overview.md)
 - [Azure SQL Database ledger Overview](ledger-overview.md)
+- [Quickstart: Create an Azure SQL Database with ledger enabled](ledger-create-a-single-database-with-ledger-enabled.md)
