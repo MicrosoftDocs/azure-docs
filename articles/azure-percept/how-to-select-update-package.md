@@ -46,12 +46,8 @@ Using the **model** and **swVersion** identified in the previous section, check 
 |PE-101     |2021.102.108.112, <br>         |OTA or USB        |[2021.104.110.103 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.104.110.103 OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.104.110.103 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |Public Preview major release         |
 |APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Latest monthly release (May)         |
 
-> [!NOTE]
-> For the dev kit identified by the model name PE-101, after it's applied with the required update that's described in the table, the model name changes to APDK-101 and the dev kit is unblocked for further updates.
-
 
 ## Next steps
 Update your dev kits via the methods and update packages determined in the previous section.
 - [Update your Azure Percept DK over-the-air](https://docs.microsoft.com/azure/azure-percept/how-to-update-over-the-air)
 - [Update your Azure Percept DK via USB](https://docs.microsoft.com/azure/azure-percept/how-to-update-via-usb)
-
