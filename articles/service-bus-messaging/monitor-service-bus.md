@@ -40,43 +40,30 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-You can configure the following logs for Azure Machine Learning:
-
-| Category | Description |
-|:---|:---|
-| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
-| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
-| AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
-
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
 
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-resource-reference.md#metrics).
 
-For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-resource-reference.md#metrics).
-
-All metrics for Azure Machine Learning are in the namespace **Machine Learning Service Workspace**.
-
-![Metrics Explorer with Machine Learning Service Workspace selected](./media/monitor-azure-machine-learning/metrics.png)
+![Metrics Explorer with Machine Learning Service Workspace selected](./media/monitor-service-bus/metrics.png)
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 > [!TIP]
 > Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
+
 ### Filtering and splitting
 
-For metrics that support dimensions, you can apply filters using a dimension value. For example, filtering **Active Cores** for a **Cluster Name** of `cpu-cluster`. 
+For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of a queue or a topic. 
 
 You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For example, splitting out the **Pipeline Step Type** to see a count of the types of steps used in the pipeline.
 
 For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
-<a id="analyzing-log-data"></a>
 ## Analyzing logs
-
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section.
 
 Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Machine Learning stores data in the following tables:
@@ -132,16 +119,8 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     ```
 
 ## Alerts
+You can access alerts for Azure Machine Learning by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
-You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
-
-The following table lists common and recommended metric alert rules for Azure Machine Learning:
-
-| Alert type | Condition | Description |
-|:---|:---|:---|
-| Model Deploy Failed | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When one or more model deployments have failed |
-| Quota Utilization Percentage | Aggregation type: Average, Operator: Greater than, Threshold value: 90| When the quota utilization percentage is greater than 90% |
-| Unusable Nodes | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When there are one or more unusable nodes |
 
 ## Next steps
 
