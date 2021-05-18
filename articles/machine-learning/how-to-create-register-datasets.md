@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
-ms.author: cgronlun
-author: cjgronlund
-manager: cgronlun
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 
