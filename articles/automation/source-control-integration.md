@@ -4,7 +4,8 @@ description: This article tells how to synchronize Azure Automation source contr
 services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use source control integration

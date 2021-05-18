@@ -9,8 +9,8 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 03/17/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.topic: how-to
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
 

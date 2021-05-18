@@ -1,22 +1,19 @@
 ---
 title: Deploy ElasticSearch on a development virtual machine in Azure 
-description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
+description: Install the Elastic Stack (ELK) onto a development Linux VM in Azure
 services: virtual-machines
-documentationcenter: virtual-machines
 author: rloutlaw
 manager: justhe
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: routlaw
 ---
 
-# Install the Elastic Stack on an Azure VM
+# Install the Elastic Stack (ELK) on an Azure VM
 
 This article walks you through how to deploy [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash), and [Kibana](https://www.elastic.co/products/kibana), on an Ubuntu VM in Azure. To see the Elastic Stack in action, you can optionally connect to Kibana  and work with some sample logging data. 
 
@@ -160,7 +157,7 @@ Test Logstash in interactive mode to make sure it's working correctly:
 sudo /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-This is a basic logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
+This is a basic Logstash [pipeline](https://www.elastic.co/guide/en/logstash/5.6/pipeline.html) that echoes standard input to standard output. 
 
 ```output
 The stdin plugin is now waiting for input:

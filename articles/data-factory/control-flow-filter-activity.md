@@ -1,8 +1,8 @@
 ---
 title: Filter activity in Azure Data Factory 
 description: The Filter activity filters the inputs. 
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual

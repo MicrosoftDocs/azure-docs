@@ -137,23 +137,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ## Architecture: Built-in Azure VM Backup
 
-1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
-1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the VMSnapshot extension is installed.
-    - For Linux VMs, the VMSnapshot Linux extension is installed.
-1. The extension takes a storage-level snapshot.
-    - For Windows VMs that are running, Backup coordinates with the Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM. By default, Backup takes full VSS backups. If Backup is unable to take an app-consistent snapshot, then it takes a file-consistent snapshot.
-    - For Linux VMs, Backup takes a file-consistent snapshot. For app-consistent snapshots, you need to manually customize pre/post scripts.
-    - Backup is optimized by backing up each VM disk in parallel. For each disk being backed up, Azure Backup reads the blocks on disk and stores only the changed data.
-1. After the snapshot is taken, the data is transferred to the vault.
-    - Only blocks of data that changed since the last backup are copied.
-    - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
-    - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](./backup-instant-restore-capability.md).
-
-You don't need to explicitly allow internet connectivity to back up your Azure VMs.
-
-![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## Architecture: Direct backup of on-premises Windows Server machines or Azure VM files or folders
 

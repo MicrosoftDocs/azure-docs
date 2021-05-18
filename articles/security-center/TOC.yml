@@ -68,6 +68,9 @@
     href: security-center-compliance-dashboard.md
   - name: Manage security policies
     href: tutorial-security-policy.md
+  - name: Investigate the health of your resources
+    href: investigate-resource-health.md
+
 
 - name: Concepts
   items:
@@ -300,7 +303,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
   - name: FAQ for Azure Security Center
     items:
     - name: General questions

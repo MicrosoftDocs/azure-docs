@@ -125,7 +125,7 @@ This app needs to be left running on a physical device or emulator while you exe
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to monitor the messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](/cli/azure/iot) to monitor the messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

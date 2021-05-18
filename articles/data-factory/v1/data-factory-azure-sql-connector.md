@@ -21,11 +21,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported scenarios
 You can copy data **from Azure SQL Database** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure SQL Database**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Supported authentication type
 Azure SQL Database connector supports basic authentication.

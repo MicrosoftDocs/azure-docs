@@ -5,13 +5,13 @@ description:  Learn how to make your data available to your local or remote comp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sihhu
-author: MayMSFT
+ms.author: yogipandey
+author: ynpandey
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 
@@ -230,9 +230,13 @@ When you **mount** a dataset, you attach the files referenced by the dataset to 
 
 When you **download** a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. 
 
+> [!NOTE]
+> The download path name should not be longer than 255 alpha-numeric characters for Windows OS. For Linux OS, the download path name should not be longer than 4,096 alpha-numeric characters. Also, for Linux OS the file name (which is the last segment of the download path `/path/to/file/{filename}`) should not be longer than 255 alpha-numeric characters.
+
 If your script processes all files referenced by the dataset, and your compute disk can fit your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services. If your data size exceeds the compute disk size,  downloading is not possible. For this scenario, we recommend mounting since only the data files used by your script are loaded at the time of processing.
 
 The following code mounts `dataset` to the temp directory at `mounted_path`
+
 
 ```python
 import tempfile
@@ -314,7 +318,7 @@ If you are using file share for other workloads, such as data transfer, the re
 
 ## Next steps
 
-* [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
+* [Auto train machine learning models](how-to-configure-auto-train.md#data-source-and-format) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
 

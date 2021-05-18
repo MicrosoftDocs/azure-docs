@@ -1,6 +1,6 @@
 ---
 title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
-description: Learn how to configure Azure Active Directory authentication for User VPN.
+description: Learn how to configure Azure Active Directory authentication for Virtual WAN User VPN (point-to-site).
 services: virtual-wan
 author: cherylmc
 

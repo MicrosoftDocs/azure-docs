@@ -34,14 +34,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Creates a storage account. |
-| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Creates an Azure storage container. |
-| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Generates an SAS token for an Azure storage container.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Creates an App Service app. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Creates a backup for an App Service app. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Gets a list of backups for an App Service app. |
+| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Creates a storage account. |
+| [`az storage container create`](/cli/azure/storage/container#az_storage_container_create) | Creates an Azure storage container. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az_storage_container_generate_sas) | Generates an SAS token for an Azure storage container.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Creates an App Service app. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az_webapp_config_backup_create) | Creates a backup for an App Service app. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Gets a list of backups for an App Service app. |
 
 ## Next steps
 

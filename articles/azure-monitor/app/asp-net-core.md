@@ -21,7 +21,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Deployment method**: Framework dependent or self-contained.
 * **Web server**: IIS (Internet Information Server) or Kestrel.
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
-* **.NET Core version**: All officially [supported](https://dotnet.microsoft.com/download/dotnet-core) .NET Core versions.
+* **.NET Core version**: All officially [supported .NET Core versions](https://dotnet.microsoft.com/download/dotnet-core) that are not in preview.
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]

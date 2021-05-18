@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/07/2021
 ms.author: jeedes
 ---
 
@@ -74,36 +74,39 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP**-initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** box, enter the URLs that corresponds to your region:
-
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.au/saml
-    ```
+    
+    | Identifier URL |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
     b. In the **Reply URL** box, enter the URLs that corresponds to your region:
 
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.com.au/saml
-    ```
+    | Reply URL |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
 1. Select **Set additional URLs** and take the following step if you want to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** box, enter the URLs that corresponds to your region:
 	
-    ```http
-    https://login.mypurecloud.com
-    https://login.mypurecloud.de
-    https://login.mypurecloud.jp
-    https://login.mypurecloud.ie
-    https://login.mypurecloud.com.au
-    ```
+    |Sign-on URL |
+    |---|
+    | https://login.mypurecloud.com |
+    | https://login.mypurecloud.de |
+    | https://login.mypurecloud.jp |
+    | https://login.mypurecloud.ie |
+    | https://login.mypurecloud.com.au |
+    |
 
 1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
 

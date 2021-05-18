@@ -88,7 +88,7 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
     
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
-1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
+1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  
 1. **Submit the training run.**
@@ -102,8 +102,6 @@ The following diagram illustrates this process.
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
-
-Learn how to use a [remote compute target](how-to-auto-train-remote.md).
 
 
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 03/10/2021
+ms.date: 04/21/2021
 
 ---
 
@@ -17,7 +17,6 @@ ms.date: 03/10/2021
 
 Generating SAS URIs for your VHDs has these requirements:
 
-- They only support unmanaged VHDs.
 - Only List and Read permissions are required. Don’t provide Write or Delete access.
 - The duration for access (expiry date) should be a minimum of three weeks from when the SAS URI is created.
 - To protect against UTC time changes, set the start date to one day before the current date. For example, if the current date is June 16, 2020, select 6/15/2020.

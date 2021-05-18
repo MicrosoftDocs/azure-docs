@@ -94,10 +94,6 @@ The setting for retention days is not yet supported, but you can delete logs man
 
 You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
 
-## Dremio support with premium-performance BlockBlobStorage storage accounts
-
-Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
-
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 
 Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 

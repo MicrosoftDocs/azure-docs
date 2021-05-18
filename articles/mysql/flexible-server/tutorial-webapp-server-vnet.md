@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to login to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property from the command output for the corresponding subscription name.
+You'll need to login to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **id** property from the command output for the corresponding subscription name.
 
 ```azurecli
 az login

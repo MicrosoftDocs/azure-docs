@@ -45,7 +45,7 @@ Using the Azure portal or Azure Resource Manager APIs with Communication Service
 
 ### Telephone number management
 
-Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use [Phone Number Administration APIs](/rest/api/communication/phonenumberadministration) to retrieve phone numbers and delete them:
+Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use [Phone Number Administration APIs](/rest/api/communication/phonenumbers) to retrieve phone numbers and delete them:
 
 - `Get All Phone Numbers`
 - `Release Phone Number`

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 04/29/2021
 ---
 
 # Build expressions in mapping data flow
@@ -66,7 +66,7 @@ When you have column names that include special characters or spaces, surround t
 
 ### Parameters
 
-Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md).
+Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
 
 ### Cached lookup
 
@@ -167,6 +167,12 @@ toLong(
     currentTimestamp() -
     toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS')
 ) * 1000l
+
+### Data flow time evaluation
+
+Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you will see *2018-07-31T20:00:00.217*  in output.
+In ADF portal,  timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you will run the data flow end to end, 217 (milliseconds part will be processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
+ 
 
 ## Next steps
 

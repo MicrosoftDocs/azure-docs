@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az_keyvault_certificate_download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az_keyvault_secret_download).
 
 # [PowerShell](#tab/azure-powershell)
 

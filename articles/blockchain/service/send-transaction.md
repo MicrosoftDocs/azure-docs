@@ -12,6 +12,8 @@ ms.reviewer: caleteet
 
 In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use the development kit to execute a smart contract function via a transaction.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 You use Azure Blockchain Development Kit for Ethereum to:
 
 > [!div class="checklist"]
@@ -85,7 +87,7 @@ The **HelloBlockchain** contract's **SendRequest** function changes the **Reques
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
-        
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {
@@ -141,7 +143,7 @@ Smart contract functions can return the current value of state variables. Let's 
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {

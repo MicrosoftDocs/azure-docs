@@ -85,6 +85,8 @@
     items:
     - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
+    - name: Stream live with Node.js
+      href: stream-live-tutorial-with-nodejs.md
   - name: Python
     items:
     - name: Python Basic Encoding

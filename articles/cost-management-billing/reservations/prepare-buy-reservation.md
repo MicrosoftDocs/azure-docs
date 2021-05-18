@@ -128,4 +128,8 @@ For customers with individual subscriptions:
 
 ## Next steps
 
+- [Learn more about Reservations permissions](view-reservations.md)
 - [Manage Reservations for Azure resources](manage-reserved-vm-instance.md)
+- [Automate using REST APIs](/rest/api/reserved-vm-instances/reservationorder)
+- [Automate using Azure PowerShell](/powershell/module/az.reservations)
+- [Automate using CLI](/cli/azure/reservations)

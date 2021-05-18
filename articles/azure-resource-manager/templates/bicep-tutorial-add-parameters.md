@@ -4,7 +4,8 @@ description: Add parameters to your Bicep file to make it reusable.
 author: mumian
 ms.date: 03/10/2021
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Add parameters to Azure Resource Manager Bicep file
