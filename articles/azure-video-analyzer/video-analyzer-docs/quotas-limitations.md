@@ -86,6 +86,10 @@ Following limits apply to the Client APIs at preview release:
 * Up to 50 requests within 10 seconds
 * Up to 600 requests per hour
 
+## Limitations - Video Analyzer player widgets
+
+At the time of the preview release, playback on iOS devices is not supported.
+
 ## Next steps
 
 [Overview](overview.md)
