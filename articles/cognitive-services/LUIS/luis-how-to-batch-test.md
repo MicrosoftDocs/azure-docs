@@ -84,7 +84,18 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 5. Name the dataset `pizza test` and select **Done**.
 
-6. Select the **Run** button. After the batch test runs, select **See results**. 
+6. Select the **Run** button. 
+
+7. After the batch test completes, you can see the following columns:
+
+| Column | Description |
+| State | Status of the test; `See results` is only visible after the test is completed. |
+| Name | The name you have given to the test. |
+| Size | Count of tests in this batch test file. |
+| Last Run | Date of last run of this batch test file. |
+| Last result | Count of successful predictions in the test. |
+
+8. To view detailed results of the test, select **See results**. 
 
     > [!TIP]
     > * Selecting **Download** will download the same file that you uploaded.
