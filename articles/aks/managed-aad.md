@@ -185,11 +185,12 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 
 ## Disable local accounts (preview)
 
-When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists- essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
+When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
 
-On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
+> [!NOTE]
+> On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
 
-### Register the `EnableUltraSSD` preview feature
+### Register the `DisableLocalAccountsPreview` preview feature
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -231,7 +232,7 @@ In the output, confirm local accounts have been disabled by checking the field `
 }
 ```
 
-Attempting to connect using admin credentials will fail with an error message indicating the feature is preventing access:
+Attempting to get admin credentials will fail with an error message indicating the feature is preventing access:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
@@ -257,7 +258,7 @@ In the output, confirm local accounts have been disabled by checking the field `
 }
 ```
 
-Attempting to connect using admin credentials will fail with an error message indicating the feature is preventing access:
+Attempting to get admin credentials will fail with an error message indicating the feature is preventing access:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
@@ -283,12 +284,12 @@ In the output, confirm local accounts have been re-enabled by checking the field
 }
 ```
 
-Attempting to connect using admin credentials will succeed:
+Attempting to get admin credentials will succeed:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group <resource-group> --name <cluster-name> --admin
 
-Merged "myAKSCluster-admin" as current context in C:\Users\<username>\.kube\config
+Merged "<cluster-name>-admin" as current context in C:\Users\<username>\.kube\config
 ```
 
 ## Use Conditional Access with Azure AD and AKS
@@ -434,3 +435,4 @@ Make sure the admin of the security group has given your account an *Active* ass
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update
