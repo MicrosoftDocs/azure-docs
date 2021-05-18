@@ -17,23 +17,21 @@ keywords: translator, text translation, machine translation, translation service
 
 Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md) and can be used for text translation with any operating system.
 
-This documentation contains the following article types:  
+This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart-translator.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
-
+* [**Quickstarts**](quickstart-translator.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.
+* [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
 ## About Microsoft Translator
 
 Translator powers many Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows.
 
-Speech translation, powered by Translator, is also available through the [Azure Speech service](../speech-service/index.yml). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. 
+Speech translation, powered by Translator, is also available through the [Azure Speech service](../speech-service/index.yml). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service.
 
 ## Language support
 
-Translator provides multi-language support for text translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](./reference/v3-0-languages.md).  
+Translator provides multi-language support for text translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](./reference/v3-0-languages.md).
 
 ## Microsoft Translator Neural Machine Translation
 
@@ -43,7 +41,7 @@ NMT provides better translations than SMT not only from a raw translation qualit
 
 NMT models are at the core of the API and are not visible to end users. The only noticeable difference is improved translation quality, especially for languages such as Chinese, Japanese, and Arabic.
 
-Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt).
+Learn more about [how NMT works](https://www.microsoft.com/translator/mt.aspx#nnt).
 
 ## Improve translations with Custom Translator
 
@@ -53,7 +51,7 @@ With Custom Translator, you can build translation systems to handle the terminol
 
 ## Next steps
 
-- [Create a Translator service](./translator-how-to-signup.md) to get your access keys and endpoint.
-- Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
-- [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
-- [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+* [Create a Translator service](./translator-how-to-signup.md) to get your access keys and endpoint.
+* Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
+* [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
+* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

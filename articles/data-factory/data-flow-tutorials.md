@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2021
+ms.date: 05/18/2021
 ---
 
 # Mapping data flow video tutorials
@@ -89,6 +89,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Parse transformation](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
 [Transform complex data types](https://youtu.be/Wk0C76wnSDE)
+
+[Output to next activity](http://youtu.be/r1m3Ya14qpE?hd=1)
 
 ## Source and sink
 
