@@ -43,7 +43,7 @@ The diagnostic logging information is stored in containers named **insights-logs
 Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
 ### Azure Event Hubs
-The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
+The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**.You can also select your own event hub. 
 
 ### Log Analytics 
 The diagnostic logging information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 

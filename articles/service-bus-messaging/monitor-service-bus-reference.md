@@ -137,4 +137,5 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 
 
 ## Next steps
-
+- For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
+- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
