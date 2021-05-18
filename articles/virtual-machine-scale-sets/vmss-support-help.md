@@ -18,7 +18,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
     <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>
 
-Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) and [Virtual Machine scale sets](overview.md).
+Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](./virtual-machines/) and [Virtual Machine scale sets](overview.md).
 
 -  [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
 - [Frequently asked questions about Azure Virtual Machine scale sets](virtual-machine-scale-sets-faq.md)
@@ -39,7 +39,7 @@ If you can't find an answer to your problem using search, submit a new question 
 |-------|----------------------|
 | [Azure Virtual Machine scale sets](overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 | [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure SQL Virtual Machines](../../azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine backup](../virtual-machines/backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
 | [Azure Virtual Machine extension](../virtual-machines/extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
 | [Azure Virtual Machine Images](../virtual-machines/shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
