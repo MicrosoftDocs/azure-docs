@@ -79,10 +79,8 @@ In this section, you'll run a Cloud Shell command to create an app registration 
 Run the following command to create the registration:
 
 ```azurecli-interactive
-az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --required-resource-accesses "@manifest.json"
+az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --native-app --required-resource-accesses "@manifest.json"
 ```
-
-<adds reply url as web-type. not sure if theres a way to add as another type? Does it NEED to be public client/native?>
 
 The output of the command is information about the app registration you have created. 
 
@@ -113,10 +111,8 @@ Directory (tenant) ID:
 It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
 Here are some common potential activities that an Owner/administrator on the subscription may need to perform.
-* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator can grant this using the [az ad app permission admin-consent](/cli/azure/ad/app/permission?view=azure-cli-latest&preserve-view=true#az_ad_app_permission_admin_consent) command.
-    - <Is this a valid CLI version of the portal step? Does it do the same thing?>
-* Activate public client access 
-    - <Can you do this with the CLI?>
+* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator may need to grant additional delegated or application permissions.
+* Activate public client access by appending `--set publicClient=true` to a create or update command for the registration.
 * Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
 * Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
 
