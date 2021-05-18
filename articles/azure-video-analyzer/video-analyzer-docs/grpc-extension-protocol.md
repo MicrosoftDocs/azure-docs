@@ -1,25 +1,24 @@
 ---
 title: gRPC extension protocol - Azure
-description: Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. If you use the gRPC extension processor as the extension node, then the communication between Video Analyzer module and your AI or CV module is over gRPC based, highly performant structured protocol.
+description: Azure Video Analyzer allows you to enhance its processing capabilities through a pipeline extension node. The gRPC extension processor enables extensibility scenarios using the highly performant, structured, gRPC-based protocol.
 ms.topic: reference
-ms.date: 03/30/2021
+ms.date: 05/15/2021
 
 ---
 
 # Use the gRPC extension protocol 
 
-Azure Video Analyzer allows you to extend the pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). If you use the gRPC extension processor as the extension node, then the communication between Azure Video Analyzer module and your AI or CV module is over gRPC based, high performing structured protocol.
+Azure Video Analyzer allows you to enhance its pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). The gRPC extension processor enables extensibility scenarios using a [highly performant, structured, gRPC-based protocol](pipeline-extension.md#grpc-extension-processor).
 
-In this article, you will learn about using gRPC extension protocol to send messages between Azure Video Analyzer module and your AI or CV custom extension.
-gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:
+In this article, you will learn about using gRPC extension protocol to send messages between Video Analyzer module and your gRPC server that processes those messages and returns results. gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:
 
-* the gRPC client (Azure Video Analyzer module) and
+* the gRPC client (Video Analyzer module) and
 * the gRPC server (your custom extension).
 
 A gRPC session is a single connection from the gRPC client to the gRPC server over the TCP/TLS port.
 In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
-It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Azure Video Analyzer module.
+It is strongly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and scenarios like recording and playback of video with inference metadata.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/ava-module.png":::
@@ -37,10 +36,9 @@ service MediaGraphExtension
     }
 ```
 
-When called, this will open a bi-directional stream for messages to flow between the gRPC extension and Azure Video Analyzer graph. The first message sent in this stream by each party will contain a MediaStreamDescriptor, which defines what information will be sent in the following 
-MediaSamples.
+When called, this will open a bi-directional stream for messages to flow between the gRPC extension and Video Analyzer live pipeline. The first message sent in this stream by each party will contain a MediaStreamDescriptor, which defines what information will be sent in the following MediaSamples.
 
-For example, the graph extension may send the message (expressed here in JSON) to indicate that it will send 416x416 rgb24-encoded frames embedded in the gRPC messages to the custom extension.
+For example, the extension may send the message (expressed here in JSON) to indicate that it will send 416x416 rgb24-encoded frames embedded in the gRPC messages to the custom extension.
 
 ```
  {
@@ -50,9 +48,9 @@ For example, the graph extension may send the message (expressed here in JSON) t
     {
         "graph_identifier": 
         {
-            "media_services_arm_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/microsoft.media/mediaservices/mediaAccountName",
-            "graph_instance_name": "mediaGraphName",
-            "graph_node_name": "grpcExtension"
+            "media_services_arm_id": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/videoanalyzers/{video-analyzer-account-name}",
+            "graph_instance_name": "{live-pipeline-name}",
+            "graph_node_name": "{grpc-extension-node-name}"
         },
         "media_descriptor": 
         {
@@ -86,10 +84,10 @@ The custom extension would, in response, send the following message to indicate 
 }
 ```
 
-Now that both sides have exchanged media descriptors, Azure Video Analyzer will start transmitting frames to the extension.
+Now that both sides have exchanged media descriptors, Video Analyzer will start transmitting frames to the gRPC server.
 
 > [!NOTE]
-> The gRPC server side implementation can be done in the programming language of your choice.
+> The gRPC server can be implemented using the programming language of your choice.
 
 ### Sequence numbers
 
@@ -127,10 +125,10 @@ The receiver then opens the file /dev/shm/inference_client_share_memory_21469890
 
 The receiver then reads the data from this location in the file.
 
-For the Azure Video Analyzer container to communicate over shared memory, the IPC mode of the container must be configured correctly. This can be done in many ways, but here are some recommended configurations.
+For Video Analyzer edge module to communicate over shared memory, the IPC mode of the container must be configured correctly. This can be done in many ways, but here are some recommended configurations.
 
 * When communicating with a gRPC inferencing engine running on the host device, the IPC mode should be set to host.
-* When communicating with a gRPC server running in another IoT Edge module, the IPC mode should be set to `shareable` for the Video Analyzer module and container:avaedge for the custom extension, where avaedge is the name of the Video Analyzer module.
+* When communicating with a gRPC server running in another IoT Edge module, the IPC mode should be set to `shareable` for the Video Analyzer module and `container:avaedge` for the custom extension, if `avaedge` is the name of the Video Analyzer module.
 
 Here's what this might look like in the device twin using the first option from above.
 
@@ -168,7 +166,7 @@ This section defines the gRPC contract that defines data flow.
 
 Implementers of custom extensions can validate the authenticity of incoming gRPC connections to be sure that they are coming from the gRPC extension node. The node will provide an entry in the request headers to validate against.
 
-Username/password credentials can be used to accomplish this. When creating a gRPC extension node, the credentials are provided like below:
+Username/password credentials can be used to accomplish this. When creating a gRPC extension node, the credentials are provided as follows:
 
 ```
 {
@@ -190,11 +188,14 @@ Username/password credentials can be used to accomplish this. When creating a gR
 ```
 
 When the gRPC request is sent, the following header will be included in the request metadata, mimicking HTTP Basic authentication.
+
+```
 x-ms-authentication: Basic (Base64 Encoded username:password)
+```
 
-## Configuring inference server for each MediaGraph over gRPC extension
+## Configuring inference server for each live pipeline over gRPC extension
 
-When configuring your inference server, you do not need to expose expose a node for every AI model that is packaged within the inference server. Instead, for a live pipeline, you can use the extensionConfiguration property of the GrpcExtension node and define how to select the AI model(s). During execution, AVA will pass this string to the inferencing server which can use it to invoke the desired AI model. This extensionConfiguration property is an optional property and is server specific. The property can be used like below:
+When configuring your inference server, you do not need to expose expose a node for every AI model that is packaged within the inference server. Instead, for a live pipeline, you can use the `extensionConfiguration` property of the **GrpcExtension** node and define how to select the AI model(s). During execution, Video Analyzer will pass this string to the inferencing server which can use it to invoke the desired AI model. This `extensionConfiguration property` is an optional property and is specific to your implementation of the gRPC server. The property can be used as follows:
 
 ```
 {
@@ -224,7 +225,7 @@ When configuring your inference server, you do not need to expose expose a node 
 
 ## Using gRPC over TLS
 
-A gRPC connection used for inferencing may be secured over TLS. This is useful in situations where the security of the network between Azure Video Analyzer and the inferencing engine cannot be guaranteed. TLS will encrypt any content embedded into the gRPC messages, causing additional CPU overhead when transmitting frames at a high rate.
+A gRPC connection used for inferencing may be secured over TLS. This is useful in situations where the security of the network between  Video Analyzer and the inferencing engine cannot be guaranteed. TLS will encrypt any content embedded into the gRPC messages, causing additional CPU overhead when transmitting frames at a high rate.
 
 The `IgnoreHostname` and `IgnoreSignature` verification options are not supported by gRPC, so the server certificate, which the inferencing engine presents must contain a Common Name (CN) that matches exactly with the IP address/hostname in the gRPC extension node’s endpoint URL.
 
