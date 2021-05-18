@@ -116,7 +116,6 @@ New-AzSubscriptionDeployment `
 
 For more detailed information about deployment commands and options for deploying ARM templates, see:
 
-* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
 * [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
 * [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
 * [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
