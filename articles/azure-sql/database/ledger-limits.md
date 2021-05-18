@@ -15,6 +15,9 @@ ms.author: janders
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Azure SQL Database ledger is currently in **public preview**.
+
 This article provides an overview of the limitations when using ledger tables with Azure SQL Database.  
 
 ## Limitations

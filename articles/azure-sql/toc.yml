@@ -476,7 +476,7 @@
           - name: Ledger digest management and database verification
             href: database/ledger-digest-management-and-database-verification.md
           - name: Ledger auditing
-            href: database/ledger-auditing.md
+            href: database/ledger-audit.md
           - name: Ledger limitations
             href: database/ledger-limits.md
         - name: Network access controls
@@ -578,7 +578,7 @@
           displayName: Access Azure Confidential Ledger digest
           href: database/ledger-how-to-access-acl-digest.md
         - name: Verify ledger database for tampering
-          href: database/ledger-verifying-database.md
+          href: database/ledger-verify-database.md
       - name: vNet endpoints - PowerShell
         href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
 

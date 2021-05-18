@@ -15,6 +15,9 @@ ms.author: janders
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Azure SQL Database ledger is currently in **public preview**.
+
 This article shows you how to access an [Azure SQL Database ledger](ledger-overview.md) digest stored in [Azure Confidential Ledger (ACL)](https://aka.ms/ACL-docs) to get end-to-end security and integrity guarantees. Through this article, we'll explain how to access and verify integrity of the stored information.
 
 ## Prerequisites
@@ -110,7 +113,7 @@ else:
 ## Step 5 - Download the Digests from the SQL Server
 
 > [!NOTE]
-> This is a way to confirm that the hashes stored in the Azure SQL Database ledger have not changed over time. For complete audit of the integrity of the Azure SQL Database ledger, see [How to verify a ledger table to detect tampering](ledger-verifying-database.md).
+> This is a way to confirm that the hashes stored in the Azure SQL Database ledger have not changed over time. For complete audit of the integrity of the Azure SQL Database ledger, see [How to verify a ledger table to detect tampering](ledger-verify-database.md).
 
 Using [SSMS](/sql/ssms/download-sql-server-management-studio-ssms), run the following query. The query returns the digests of the blocks from Genesis.
 
@@ -122,7 +125,7 @@ SELECT * FROM sys.database_ledger_blocks
 
 Compare the digest retrieved from the Azure Confidential Ledger to the digest returned from your SQL database using the `block_id` as the key. For example, the digest of `block_id` = `1` is the value of the `previous_block_hash` column in the `block_id`= `2` row. Similarly, for `block_id` = `3`, it's the value of the `previous_block_id` column in the `block_id` = `4` row. A mismatch in the hash value is an indicator of a potential data tampering.
 
-If data tampering is suspected, see [How to verify a ledger table to detect tampering](ledger-verifying-database.md) to perform a full audit of the Azure SQL Database ledger.
+If data tampering is suspected, see [How to verify a ledger table to detect tampering](ledger-verify-database.md) to perform a full audit of the Azure SQL Database ledger.
 
 ## Next steps
 
@@ -131,4 +134,4 @@ If data tampering is suspected, see [How to verify a ledger table to detect tamp
 - [Digest management and database verification](ledger-digest-management-and-database-verification.md)
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md)
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
-- [How to verify a ledger table to detect tampering](ledger-verifying-database.md)
+- [How to verify a ledger table to detect tampering](ledger-verify-database.md)

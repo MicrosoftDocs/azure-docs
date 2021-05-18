@@ -65,7 +65,7 @@ landingContent:
           - text: How to access the digests stored in Azure Confidential Ledger (ACL)
             url: ledger-how-to-access-acl-digest.md
           - text: How to verify a ledger table to detect tampering
-            url: ledger-verifying-database.md
+            url: ledger-verify-database.md
 
 
   # Card
@@ -76,7 +76,7 @@ landingContent:
           - text: Ledger digest management and database verification
             url: ledger-digest-management-and-database-verification.md
           - text: Ledger auditing
-            url: ledger-auditing.md
+            url: ledger-audit.md
 
 
   # Card

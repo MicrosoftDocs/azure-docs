@@ -15,11 +15,14 @@ ms.author: janders
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Azure SQL Database ledger is currently in **public preview**.
+
 Establishing trust around the integrity of data stored in database systems has been a long-standing problem for all organizations that manage financial, medical, or other sensitive data. The ledger feature of [Azure SQL Database](sql-database-paas-overview.md) provides tamper-evidence capabilities in your database, enabling the ability to cryptographically attest to other parties, such as auditors or other business parties, that your data hasn't been tampered.
 
 Ledger helps protect data from any attacker or high privileged user, including Database Administrators (DBAs), and system and cloud administrators. Just like a traditional ledger, historical data is preserved such that if a row is updated in the database, its previous value is maintained and protected in a history table. The ledger provides a chronicle of all changes made to the database over time. The ledger and the historical data are managed transparently, offering protection without any application changes. Historical data is maintained in a relational form to support SQL queries for auditing, forensics, and other purposes. Ledger provides cryptographic data integrity guarantees while maintaining the power, flexibility, and performance of Azure SQL Database.
 
-:::image type="content" source="media/ledger/ledger-table-architecture1.png" alt-text="ledger table architecture":::
+:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
 
 ## Use case for Azure SQL Database ledger 
 
@@ -97,4 +100,4 @@ For more information on ledger verification, see [Digest management and database
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
 - [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md)
 - [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)
-- [How to verify a ledger table to detect tampering](ledger-verifying-database.md)
+- [How to verify a ledger table to detect tampering](ledger-verify-database.md)

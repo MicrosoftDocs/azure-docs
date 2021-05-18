@@ -15,6 +15,9 @@ ms.date: 05/25/2021
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Azure SQL Database ledger is currently in **public preview**.
+
 In this quickstart, you create a [ledger database](ledger-overview.md#ledger-database) in Azure SQL Database and configure [automatic digest storage with Azure Blob storage](ledger-digest-management-and-database-verification.md#automatic-generation-and-storage-of-database-digests) using the Azure portal. For more information about ledger, see [Azure SQL Database ledger](ledger-overview.md).
 
 ## Prerequisite

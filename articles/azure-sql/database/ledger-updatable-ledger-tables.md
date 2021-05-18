@@ -15,9 +15,12 @@ ms.author: janders
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!NOTE]
+> Azure SQL Database ledger is currently in **public preview**.
+
 Updatable ledger tables are system-versioned tables that users can perform updates and deletes on while also providing tamper-evidence capabilities. When updates or deletes occur, all earlier versions of a row are preserved in a secondary table, known as the history table. The history table mirrors the schema of the updatable ledger table. When a row is updated, the latest version of the row remains in the ledger table, while its earlier version is inserted into the history table by the system, transparently to the application. 
 
-:::image type="content" source="media/ledger/ledger-table-architecture1.png" alt-text="ledger table architecture":::
+:::image type="content" source="media/ledger/ledger-table-architecture.png" alt-text="ledger table architecture":::
 
 ## Updatable ledger tables vs. temporal tables
 
@@ -26,8 +29,8 @@ Both updatable ledger tables and [temporal tables](/sql/relational-databases/tab
 You can use both technologies together by creating tables that are both updatable ledger tables and temporal tables. 
 Creating an updatable ledger table can be accomplished two ways:
 
-1. When creating a new database in the Azure Portal by selecting **Enable ledger on all future tables in this database** during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This creates a ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
-1. When creating a new table on a database where ledger isn't enabled at the database-level, by specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement.
+- When creating a new database in the Azure portal by selecting **Enable ledger on all future tables in this database** during ledger configuration, or through specifying the `LEDGER = ON` argument in your [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) statement. This creates a ledger database, ensuring all future tables created in your database are updatable ledger tables by default.
+- When creating a new table on a database where ledger isn't enabled at the database-level, by specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement.
 
 For details on options available when specifying the `LEDGER` argument in your T-SQL statement, see [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql).
 
@@ -50,7 +53,7 @@ An updatable ledger table needs to have the following `GENERATED ALWAYS` columns
 
 ## History table
 
-The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table mirrors that of the updatable ledger table it's associated with. 
+The history table is automatically created when an updatable ledger table is created. The history table captures the historical values of rows changed because of updates and deletes in the updatable ledger table. The schema of the history table mirrors that of the updatable ledger table it's associated with.
 
 When creating an updatable ledger table, you can either specify the name of the schema to contain your history table and the name of the history table, or you have the system generate the name of the history table and add it to the same schema as the ledger table. History tables with system-generated names are called anonymous history tables. The naming convention for an anonymous history table is `<schema>`.`<updatableledgertablename>`.MSSQL_LedgerHistoryFor_`<GUID>`.
 
