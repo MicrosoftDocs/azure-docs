@@ -18,58 +18,7 @@ See the [list of known issues](reference-known-issues.md) to learn about known b
 
 ## 2021-05-12
 
-New images for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) and [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview). 
-
-**Windows Server 2019**
-
-Version: 21.05.12
-
-Selected version updates are:
-- CUDA 11.1
-- Python 3.8
-- PyTorch 1.8.1
-- TensorFlow 2.4.1
-- Spark 3.1
-- Java 11
-- R 4.0.5
-- Julia 1.0.5
-- NodeJS 16.1.0
-- Visual Studio Code 1.56 incl. Azure ML extension
-- PyCharm Community Edition 2021.1.1
-- Jupyter Lab 2.2.6
-- RStudio 1.4.1106
-- Visual Studio Community Edition 2019 (version 16.9.4)
-- git 2.31
-- Azure CLI 2.22.1
-- Storage Explorer 1.19.1
-- azcopy 10.10
-- Power BI Desktop 2.92.1067.0 64-bit (April 2021)
-- Azure Data Studio 1.28.0
-- Microsoft Edge browser
-
-<br/>
-Added docker. To save resources, the docker service is not started by default. To start the docker service, either use
-the Services dialog in Windows (`services.msc`) or run the following command-line commands:
-
-```
-sc config docker start=demand
-sc start docker
-```
-
-> [!NOTE]
-> This Windows DSVM image supports only Windows docker images. This limitation cannot be worked around in this image but
-> will be solved in a later release of the DSVM. Until then, we recommend to use an Ubuntu image for running docker
-> images that base on a Linux operating system.
-
-<br/>
-Removed Firefox, Apache Drill and Microsoft Integration Runtime.
-
-<br/>
-Dark mode, changed icons on desktop, wallpaper background change.
-
-<br/>
-Enabled the image for use in a Gen2 virtual machine.
-
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview). 
 
 **Ubuntu 18.04**
 
@@ -109,12 +58,6 @@ sudo systemctl start docker
 > will run a Ubuntu 18.04 container with PyTorch pre-installed and all GPUs enabled. It will also make a local folder
 > *local_dir* available in the container under *container_dir*.
 >
-
-<br/>
-Removed Apache Drill.
-
-<br/>
-Removed some icons from desktop.
 
 
 ## 2020-02-24
