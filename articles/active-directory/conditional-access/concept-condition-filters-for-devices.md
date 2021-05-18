@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Filters for devices (preview)
 
-When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The preview condition *filters for devices give administrators this capability. Now you can target specific devices using [supported operators and device properties for filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The preview condition filters for devices give administrators this capability. Now you can target specific devices using [supported operators and device properties for filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creating a filter for device in Conditional Access policy conditions":::
 
