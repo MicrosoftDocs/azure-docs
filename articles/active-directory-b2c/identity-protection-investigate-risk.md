@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -15,8 +15,6 @@ manager: celested
 zone_pivot_groups: b2c-policy-type
 ---
 # Investigate risk with Identity Protection in Azure AD B2C
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in Azure AD B2C tenants. In this article, you learn how to investigate and mitigate risks.
 
@@ -89,7 +87,7 @@ An administrator can choose to dismiss a user's risk in the Azure portal or prog
 
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 
-1. Under **Security**, select **Risky users (Preview)**.
+1. Under **Security**, select **Risky users**.
 
    ![Risky users](media/identity-protection-investigate-risk/risky-users.png)
 
@@ -113,7 +111,7 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 ### Navigating the risk detections report
 
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Security**, select **Risk detections (Preview)**.
+1. Under **Security**, select **Risk detections**.
 
    ![Risk detections](media/identity-protection-investigate-risk/risk-detections.png)
 
