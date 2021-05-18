@@ -1,19 +1,16 @@
 ---
-title: Expand existing host pool with new session hosts - Azure
-description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop.
-services: virtual-desktop
+title: Expand existing Windows Virtual Desktop (classic) host pool with new session hosts - Azure
+description: How to expand an existing host pool with new session hosts in Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Expand an existing host pool with new session hosts
+# Expand an existing host pool with new session hosts in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../expand-existing-host-pool.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../expand-existing-host-pool.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
@@ -36,7 +33,7 @@ You'll also need the following information from when you first created the host 
 The next three sections are three methods you can use to expand the host pool. You can do either with whichever deployment tool you're comfortable with.
 
 >[!NOTE]
->During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. You can safely ignore these errors, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
+>During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. The session host whose name ends with "-0" must be running however you can safely ignore these errors for other session hosts, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
 
 ## Redeploy from Azure
 
@@ -52,12 +49,12 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
      - If you created the original host pool with the Azure Marketplace offering, select the deployment starting with **rds.wvd-provision-host-pool**.
      - If you created the original host pool with the GitHub Azure Resource Manager template, select the deployment named **Microsoft.Template**.
 6. Select **Redeploy**.
-     
+
      >[!NOTE]
      >If the template doesn't automatically redeploy when you select **Redeploy**, select **Template** in the panel on the left side of your browser, then select **Deploy**.
 
 7. Select the resource group that contains the current session host VMs in the existing host pool.
-     
+
      >[!NOTE]
      >If you see an error that tells you to select a different resource group even though the one you entered is correct, select another resource group, then select the original resource group.
 
@@ -91,9 +88,9 @@ All values in this section should match what you provided when you first created
 All parameter values in this section should match what you provided when you first created the host pool and session host VMs, except for the total number of VMs. The number of VMs you enter will be the number of VMs in your expanded host pool:
 
 1. Select the VM size that matches the existing session host VMs.
-    
+
     >[!NOTE]
-    >If the specific VM size you're looking for doesn't appear in the VM size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet. To request a VM size, create a request or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >If the specific VM size you're looking for doesn't appear in the VM size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet.
 
 2. Customize the *Usage Profile*, *Total users*, and *Number of virtual machines* parameters to select the total number of session hosts you would like to have in your host pool. For example, if you're expanding your host pool from five session hosts to eight, configure these options to get to 8 virtual machines.
 3. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.
@@ -125,7 +122,7 @@ Follow the instructions in [Run the Azure Resource Manager template for provisio
 
 Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
-- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)
 - [Connect with the Android client](connect-android-2019.md)
 - [Connect with the macOS client](connect-macos-2019.md)

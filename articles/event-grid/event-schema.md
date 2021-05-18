@@ -1,14 +1,8 @@
 ---
 title: Azure Event Grid event schema
 description: Describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/21/2020
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
 
 # Azure Event Grid event schema
@@ -89,6 +83,7 @@ All events have the same following top-level data:
 
 To learn about the properties in the data object, see the event source:
 
+* [Azure Policy](./event-schema-policy.md)
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)

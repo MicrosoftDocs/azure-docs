@@ -1,14 +1,12 @@
 ---
 title: Windows Virtual Desktop security best practices - Azure
 description: Best practices for keeping your Windows Virtual Desktop environment secure.
-services: virtual-desktop
 author: heidilohr
 
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Security best practices
 
@@ -59,7 +57,7 @@ To learn more, see [Onboard your Azure subscription to Security Center Standard]
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/security-center-secure-score.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/secure-score-security-controls.md).
 
 ## Windows Virtual Desktop security best practices
 
@@ -67,20 +65,20 @@ Windows Virtual Desktop has many built-in security controls. In this section, yo
 
 ### Require multi-factor authentication
 
-Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
+Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
 
 ### Enable Conditional Access
 
-Enabling [Conditional Access](../active-directory/conditional-access/best-practices.md) lets you manage risks before you grant users access to your Windows Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
+Enabling [Conditional Access](../active-directory/conditional-access/overview.md) lets you manage risks before you grant users access to your Windows Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
 
 ### Collect audit logs
 
 Enabling audit log collection lets you view user and admin activity related to Windows Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/platform/activity-log-collect.md)
+-   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/platform/agent-windows.md)
+-   [Session hosts](../azure-monitor/agents/agent-windows.md)
 -   [Windows Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
@@ -90,7 +88,7 @@ When choosing a deployment model, you can either provide remote users access to 
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Windows Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications.md) for the Windows Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Windows Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Windows Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ## Session host security best practices
 
@@ -98,7 +96,7 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 For profile solutions like FSLogix or other solutions that mount VHD files, we recommend excluding VHD file extensions.
 
@@ -132,7 +130,7 @@ Consider session hosts as an extension of your existing desktop deployment. We r
 
 ### Manage Office Pro Plus security
 
-In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for Enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
+In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
 
 ### Other security tips for session hosts
 
@@ -147,6 +145,52 @@ By restricting operating system capabilities, you can strengthen the security of
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
 - Prevent unwanted software from running on session hosts. You can enable App Locker for additional security on session hosts, ensuring that only the apps you allow can run on the host.
+
+## Windows Virtual Desktop support for Trusted Launch
+
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Windows Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+
+### Secure Boot
+
+Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed OSes and drivers to start up the machine. 
+
+### Monitor boot integrity using Remote Attestation
+
+Remote attestation is a great way to check the health of your VMs. Remote attestation verifies that Measured Boot records are present, genuine, and originate from the Virtual Trusted Platform Module (vTPM). As a health check, it provides cryptographic certainty that a platform started up correctly. 
+
+### vTPM
+
+A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
+
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Windows Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
+
+>[!NOTE]
+>BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
+
+### Virtualization-based Security
+
+Virtualization-based Security (VBS) uses the hypervisor to create and isolate a secure region of memory that's inaccessible to the OS. Hypervisor-Protected Code Integrity (HVCI) and Windows Defender Credential Guard both use VBS to provide increased protection from vulnerabilities. 
+
+#### Hypervisor-Protected Code Integrity
+
+HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mode processes against injection and execution of malicious or unverified code.
+
+#### Windows Defender Credential Guard
+
+Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
+
+### Deploy Trusted Launch in your Windows Virtual Desktop environment
+
+Windows Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Windows Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
+
+## Nested virtualization
+
+The following operating systems support running nested virtualization on Windows Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session.
 
 ## Next steps
 

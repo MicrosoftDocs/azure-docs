@@ -1,20 +1,21 @@
 ---
 title: Create template - Visual Studio Code
-description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
+description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Azure Resource Manager templates (ARM templates).
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
-ms.author: nepeters
+ms.author: nepeters 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
 ---
 
-# Quickstart: Create Azure Resource Manager templates with Visual Studio Code
+# Quickstart: Create ARM templates with Visual Studio Code
 
-The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates. In this quickstart, you use the extension to create an Azure Resource Manager template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
+The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates (ARM templates). In this quickstart, you use the extension to create an ARM template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installed and authenticated.
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -24,7 +25,7 @@ Create and open with Visual Studio Code a new file named *azuredeploy.json*. Ent
 
 Select `arm!` to create a template scoped for an Azure resource group deployment.
 
-![Image showing Azure Resource Manager scaffolding](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Image showing Azure Resource Manager scaffolding snippets](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 This snippet creates the basic building blocks for an ARM template.
 
@@ -52,7 +53,7 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ## Completion and validation
 
-One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action. 
+One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action.
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
 
@@ -66,7 +67,7 @@ To use the completion capabilities, remove `megaStorage`, place the cursor insid
 
 Now create and use a parameter to specify the storage account name.
 
-Place your cursor in the parameters block, add a carriage return, type `par`, and then select the `arm-param-value` snippet. This action adds a generic parameter to the template.
+Place your cursor in the parameters block, add a carriage return, type `"`, and then select the `new-parameter` snippet. This action adds a generic parameter to the template.
 
 ![Image showing a parameter being added to the ARM template](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
@@ -78,7 +79,7 @@ Azure storage account names have a minimum length of 3 characters and a maximum 
 
 ![Image showing minLength and maxLength being added to an ARM template parameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list. 
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list.
 
 ![Image showing auto-completion when using parameters in ARM template resources](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
@@ -100,7 +101,7 @@ Select `New` > `All Parameters` > Select a name and location for the parameter f
 
 This action creates a new parameter file and maps it with the template from which it was created. You can see and modify the current template/parameter file mapping in the Visual Studio Code status bar while the template is selected.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Image showing the template/parameter file mapping in the Visual Studio Code status bar.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Now that the parameter file has been mapped to the template, the extension validates both the template and parameter file together. To see this validation in practice, add a two-character value to the `storageAccountName` parameter in the parameter file and save the file.
 

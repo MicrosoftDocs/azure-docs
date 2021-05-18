@@ -4,6 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create even
 author: ggailey777
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
@@ -62,7 +63,8 @@ static void Main(string[] args)
 }
 ```
 
-Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names.
+> [!NOTE]
+> Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names. See [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### Host development settings
 
@@ -420,7 +422,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
+For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#host-json) article.
 
 ### Queue storage trigger configuration
 
@@ -521,7 +523,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
+For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) article.
 
 ### Configuration for other bindings
 
@@ -746,6 +748,9 @@ Some triggers have built-in support for concurrency management:
 
 You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired when the JobHost starts. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
 
+> [!NOTE]
+> See this [GitHub Repo](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) to learn more about how the SingletonMode.Function works.
+
 ### Scope values
 
 You can specify a *scope expression/value* on a singleton. The expression/value ensures that all executions of the function at a specific scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function while serializing other invocations as dictated by your requirements. For example, in the following code, the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in regions East, East, and West respectively, the messages that have region East are run serially while the message with region West is run in parallel with those in East.
@@ -786,7 +791,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### Viewing lease blobs
 
-The WebJobs SDK uses [Azure blob leases](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
+The WebJobs SDK uses [Azure blob leases](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
 
 ## Async functions
 
@@ -808,7 +813,7 @@ If you want to ensure that only one instance of a function runs even when there 
 
 ## Filters
 
-Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core filters](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## Logging and monitoring
 
@@ -953,7 +958,7 @@ In version 3.*x*, you no longer have to flush the [`TelemetryClient`] when the h
 
 #### Version 2.*x*
 
-In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
 The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
@@ -979,7 +984,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
+The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](../azure-monitor/app/sampling.md). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
 
 After you create the telemetry factory, you pass it in to the Application Insights logging provider:
 

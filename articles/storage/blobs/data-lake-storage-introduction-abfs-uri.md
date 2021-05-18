@@ -1,6 +1,6 @@
 ---
 title: Use the Azure Data Lake Storage Gen2 URI
-description: Use the Azure Data Lake Storage Gen2 URI
+description: Learn URI syntax for the abfs scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage Gen2).
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -43,4 +43,4 @@ However, if the account you wish to address is set as the default file system du
 
 ## Next steps
 
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

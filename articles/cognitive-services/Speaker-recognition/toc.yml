@@ -1,9 +1,9 @@
 - name: Speaker Recognition Documentation
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Overview
   items: 
   - name: Learn about Speaker Recognition
-    href: Home.md
+    href: ../speech-service/speaker-recognition-overview.md
 - name: Reference
   items: 
   - name: API Reference

@@ -9,8 +9,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: ozgun
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Determine which Azure Storage encryption key model is in use for the storage account
@@ -57,7 +58,7 @@ If the value of the **KeySource** property is `Microsoft.Storage`, then the acco
 
 # [Azure CLI](#tab/cli)
 
-To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, then check the **keySource** property for the account.
+To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, then check the **keySource** property for the account.
 
 ```azurecli-interactive
 key_source=$(az storage account show \
@@ -74,4 +75,4 @@ If the value of the **keySource** property is `Microsoft.Storage`, then the acco
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
-- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)

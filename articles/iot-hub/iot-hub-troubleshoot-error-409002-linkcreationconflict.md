@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
-# As a developer or operator for Azure IoT Hub, I want to resolve 409002 LinkCreationConflict errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 409002 LinkCreationConflict errors.
 ---
 
 # 409002 LinkCreationConflict
@@ -18,7 +18,7 @@ This article describes the causes and solutions for **409002 LinkCreationConflic
 
 ## Symptoms
 
-You see the error **409002 LinkCreationConflict** logged in diagnostic logs along with device disconnection or cloud-to-device message failure. 
+You see the error **409002 LinkCreationConflict** in logs along with device disconnection or cloud-to-device message failure.
 
 <!-- When using AMQP? -->
 

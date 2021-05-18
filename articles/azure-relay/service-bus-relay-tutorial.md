@@ -1,22 +1,11 @@
 ---
 title: Expose an on-prem WCF REST service to clients using Azure Relay
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-
+ms.custom: devx-track-dotnet
+ms.date: 06/23/2020
 ---
+
 # Tutorial: Expose an on-premises WCF REST service to external client by using Azure WCF Relay
 
 This tutorial describes how to build a WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
@@ -191,7 +180,7 @@ The configuration file is similar to a WCF configuration file. It includes the s
 1. Within the `<system.serviceModel>` tags, add a `<services>` element. You can define multiple relay applications in a single configuration file. However, this tutorial defines only one.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -519,7 +508,7 @@ In this step, you create an *App.config* file for a basic client application tha
 1. Within the `system.serviceModel` element, add a `<client>` element.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>

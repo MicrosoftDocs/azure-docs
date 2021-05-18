@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator availability and limitations foe Android in China | Microsoft Docs
+title: Microsoft Authenticator availability and limitations for Android in China | Microsoft Docs
 description: Learn about how to get the Microsoft Authenticator app - availability in China
 services: active-directory
 author: curtand
@@ -9,8 +9,8 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
-ms.date: 05/06/2020
+ms.topic: end-user-help
+ms.date: 01/27/2021
 ms.author: curtand
 ---
 
@@ -18,7 +18,6 @@ ms.author: curtand
 
 The Microsoft Authenticator app for Android is available for download in China. The Google Play Store isn't available in China, so the app must be downloaded from other Chinese app marketplaces. The Microsoft Authenticator app for Android is currently available in the following stores in China:
 
-- [Baidu](https://shouji.baidu.com/software/26638379.html)
 - [Lenovo](https://www.lenovomm.com/appdetail/com.azure.authenticator/20197724)
 - [Huawei](https://appgallery.cloud.huawei.com/uowap/index.html#/detailApp/C100262999?source=appshare&subsource=C100262999&shareTo=weixin&locale=zh_CN)
 - [Samsung Galaxy Store](http://apps.samsung.com/appquery/appDetail.as?appId=com.azure.authenticator)
@@ -40,7 +39,7 @@ If a user has previously managed to set up phone sign-in or multi-factor authent
 
 ## Multi-factor authentication workaround
 
-Instead of using push notifications for multi-factor authentication, users can set up their MFA to receive verification codes on their device that they can use to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
+Instead of using push notifications for multi-factor authentication, users can [set up their Authenticator app to receive verification codes](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) on their device that they can use for MFA to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
 
 ## Availability
 
@@ -53,6 +52,7 @@ MFA registration/authentication using TOTP/verification codes only | Yes
 Phone Sign-in Registration | No
 Existing Phone Sign-in using push notifications | No
 Existing Phone Sign-in verification by performing manual check for authentication requests | Yes
+Support for the Authenticator app for personal Microsoft accounts | No
 
 ## Next steps
 

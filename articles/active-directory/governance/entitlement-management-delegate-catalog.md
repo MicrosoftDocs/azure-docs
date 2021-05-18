@@ -3,16 +3,16 @@ title: Delegate access governance to catalog creators in Azure AD entitlement ma
 description: Learn how to delegate access governance from IT administrators to catalog creators and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/26/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ To delegate to users who aren't administrators, so that they can create their ow
 
 Follow these steps to assign a user to the catalog creator role.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

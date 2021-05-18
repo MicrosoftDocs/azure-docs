@@ -4,8 +4,9 @@ description: Learn how to achieve end-user authentication with Azure Data Lake S
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
+ms.custom: devx-track-java
 ms.author: twooley
 
 ---
@@ -34,35 +35,41 @@ In this article, you learn about how to use the Java SDK to do end-user authenti
 
 2. Add the following dependencies to your Maven **pom.xml** file. Add the following snippet before the **\</project>** tag:
    
-        <dependencies>
-          <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.2.3</version>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.21</version>
-          </dependency>
-        </dependencies>
+    ```xml
+    <dependencies>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-data-lake-store-sdk</artifactId>
+        <version>2.2.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-nop</artifactId>
+        <version>1.7.21</version>
+      </dependency>
+    </dependencies>
+    ```
    
     The first dependency is to use the Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen1 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
 
 3. Add the following import statements to your application.
 
-        import com.microsoft.azure.datalake.store.ADLException;
-        import com.microsoft.azure.datalake.store.ADLStoreClient;
-        import com.microsoft.azure.datalake.store.DirectoryEntry;
-        import com.microsoft.azure.datalake.store.IfExists;
-        import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
-        import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
+    ```java
+    import com.microsoft.azure.datalake.store.ADLException;
+    import com.microsoft.azure.datalake.store.ADLStoreClient;
+    import com.microsoft.azure.datalake.store.DirectoryEntry;
+    import com.microsoft.azure.datalake.store.IfExists;
+    import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
+    import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
+    ```
 
 4. Use the following snippet in your Java application to obtain token for the Active Directory native application you created earlier using the `DeviceCodeTokenProvider`. Replace **FILL-IN-HERE** with the actual values for the Azure Active Directory native application.
 
-        private static String nativeAppId = "FILL-IN-HERE";
+    ```java
+    private static String nativeAppId = "FILL-IN-HERE";
             
-        AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
+    AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
+    ```
 
 The Data Lake Storage Gen1 SDK provides convenient methods that let you manage the security tokens needed to talk to the Data Lake Storage Gen1 account. However, the SDK does not mandate that only these methods be used. You can use any other means of obtaining token as well, like using the [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java), or your own custom code.
 

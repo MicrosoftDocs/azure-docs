@@ -56,7 +56,7 @@ To use the relevant schema in Log Analytics for the Zimperium Mobile Threat Defe
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 

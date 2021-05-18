@@ -10,7 +10,10 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
-
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
 ---
 
 # Run background tasks with WebJobs in Azure App Service
@@ -59,6 +62,9 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> If you have source control configured with your application, the Webjobs should be deployed as part of the source control integration. Once source control is configured with your application a WebJob cannot be add from the Azure Portal.
+
 1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
@@ -71,7 +77,7 @@ when making changes in one don't forget the other two.
 
 3. Use the **Add WebJob** settings as specified in the table.
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Screenshot that shows the Add WebJob settings that you need to configure.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -109,7 +115,7 @@ when making changes in one don't forget the other two.
 
 3. Use the **Add WebJob** settings as specified in the table.
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Screenshot that shows the settings that need to be set for creating a manually triggered WebJob.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |

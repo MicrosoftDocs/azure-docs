@@ -1,6 +1,8 @@
 ---
 title: Design with models - LUIS
 description: Language understanding provides several types of models. Some models can be used in more than one way.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
 ---
@@ -31,9 +33,9 @@ The following utterance is a **positive example** for the `OrderBook` intent and
 
 ## Entities extract data
 
-An entity represents a unit of data you want extracted from the utterance. A machine-learned entity is a top-level entity containing subentities, which are also machine-learned entities.
+An entity represents a unit of data you want extracted from the utterance. A machine-learning entity is a top-level entity containing subentities, which are also machine-learning entities.
 
-An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
+An example of a machine-learning entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
 
 ## Intents versus entities
 
@@ -60,11 +62,11 @@ Model decomposition has the following parts:
 
 * [intents](#intents-classify-utterances)
     * [features](#features)
-* [machine-learned entities](reference-entity-machine-learned-entity.md)
-    * subentities (also machine-learned entities)
+* [machine-learning entities](reference-entity-machine-learned-entity.md)
+    * subentities (also machine-learning entities)
         * [features](#features)
             * [phrase list](luis-concept-feature.md)
-            * [non-machine-learned entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression.md), [lists](reference-entity-list.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
+            * [non-machine-learning entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression.md), [lists](reference-entity-list.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

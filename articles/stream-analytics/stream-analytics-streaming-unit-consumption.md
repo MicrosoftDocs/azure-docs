@@ -3,10 +3,10 @@ title: Streaming Units in Azure Stream Analytics
 description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 08/28/2020
 ---
 
 # Understand and adjust Streaming Units
@@ -15,19 +15,19 @@ Streaming Units (SUs) represents the computing resources that are allocated to e
 
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated to keep the jobs running 24/7.
 
-The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is low and input events get backlogged, your workload likely requires more compute resources, which requires you to increase the number of SUs. It’s best to keep the SU metric below 80% to account for occasional spikes. Microsoft recommends setting an alert on 80% SU Utilization metric to prevent resource exhaustion. For more information, see [Tutorial: Set up alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md).
+The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is high (above 80%), or if input events get backlogged (even with a low SU% utilization since it does not show CPU usage), your workload likely requires more compute resources, which requires you to increase the number of SUs. It's best to keep the SU metric below 80% to account for occasional spikes. To react to increased workloads and increase streaming units, consider setting an alert of 80%  on the SU Utilization metric. Also, you can use watermark delay and backlogged events metrics to see if there is an impact.
 
 ## Configure Stream Analytics Streaming Units (SUs)
 1. Sign in to [Azure portal](https://portal.azure.com/)
 
 2. In the list of resources, find the Stream Analytics job that you want to scale and then open it. 
 
-3. In the job page, under the **Configure** heading, select **Scale**. 
+3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 3 when creating a job.
 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
-5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
+5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
 
 ## Monitor job performance
 Using the Azure portal, you can track the throughput of a job:
@@ -40,7 +40,7 @@ Calculate the expected throughput of the workload. If the throughput is less tha
 
 Choosing the number of required SUs for a particular job depends on the partition configuration for the inputs and the query that's defined within the job. The **Scale** page allows you to set the right number of SUs. It is a best practice to allocate more SUs than needed. The Stream Analytics processing engine optimizes for latency and throughput at the cost of allocating additional memory.
 
-In general, the best practice is to start with 6 SUs for queries that don't use **PARTITION BY**. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU% Utilization metric. The maximum number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions in each step. You can learn more about the limits [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+In general, the best practice is to start with 6 SUs for queries that don't use **PARTITION BY**. Then determine the sweet spot by using a trial and error method in which you modify the number of SUs after you pass representative amounts of data and examine the SU% Utilization metric. The maximum number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions in each step. You can learn more about the limits [here](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job).
 
 For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
@@ -53,7 +53,7 @@ Temporal (time-oriented) query elements are the core set of stateful operators p
 
 Note that a job with complex query logic could have high SU% utilization even when it is not continuously receiving input events. This can happen after a sudden spike in input and output events. The job might continue to maintain state in memory if the query is complex.
 
-SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query is not [fully parallel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query is not [fully parallel](./stream-analytics-parallelization.md).
 
 While comparing utilization over a period of time, use [event rate metrics](stream-analytics-monitoring.md). InputEvents and OutputEvents metrics show how many events were read and processed. There are metrics that indicate number of error events as well, such as deserialization errors. When the number of events per time unit increases, SU% increases in most cases.
 
@@ -91,7 +91,7 @@ In order to mitigate any issues caused by high cardinality in the previous query
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of `clusterid` values coming into each node is reduced thereby reducing the cardinality of the group by operator. 
 
-Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. For more information, see [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. For more information, see [Event Hubs overview](../event-hubs/event-hubs-about.md). 
 
 ## Temporal joins
 The memory consumed (state size) of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiplied by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
@@ -150,4 +150,4 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
-[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png   
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png

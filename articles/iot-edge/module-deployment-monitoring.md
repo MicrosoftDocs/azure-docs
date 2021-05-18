@@ -12,6 +12,8 @@ services: iot-edge
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) in the device twin.
@@ -64,7 +66,7 @@ Examples of target conditions:
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
 
 Consider these constraints when you construct a target condition:

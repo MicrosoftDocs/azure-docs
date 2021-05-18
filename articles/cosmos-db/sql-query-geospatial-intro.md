@@ -3,22 +3,34 @@ title: Geospatial and GeoJSON location data in Azure Cosmos DB
 description: Understand how to create spatial objects with Azure Cosmos DB and the SQL API.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/25/2021
 ms.author: tisande
-
+ms.custom: devx-track-js
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article is an introduction to the geospatial functionality in Azure Cosmos DB. Currently storing and accessing geospatial data is supported by Azure Cosmos DB SQL API accounts only. After reading our documentation on geospatial indexing you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in Azure Cosmos DB. After reading our documentation on geospatial indexing you will be able to answer the following questions:
 
 * How do I store spatial data in Azure Cosmos DB?
-* How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
+* How can I query spatial data in Azure Cosmos DB in SQL and LINQ?
 * How do I enable or disable spatial indexing in Azure Cosmos DB?
+
+## Spatial Data Use Cases
+
+Geospatial data often involve proximity queries, for example, "find all coffee shops near my current location". Common use cases are:
+
+* Geolocation Analytics, driving specific located marketing initiatives.
+* Location based personalization, for multiple industries like Retail and Healthcare.
+* Logistics enhancement, for transport optimization.
+* Risk Analysis, especially for insurance and finance companies.
+* Situational awareness, for alerts and notifications.
 
 ## Introduction to spatial data
 
-Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for example, "find all coffee shops near my current location."
+Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake.
 
 Azure Cosmos DB's SQL API supports two spatial data types: the **geometry** data type and the **geography** data type.
 
@@ -103,9 +115,9 @@ A **Polygon** is a boundary of connected points that forms a closed LineString. 
     "type":"Polygon",
     "coordinates":[ [
         [ 31.8, -5 ],
-        [ 31.8, -4.7 ],
-        [ 32, -4.7 ],
         [ 32, -5 ],
+        [ 32, -4.7 ],
+        [ 31.8, -4.7 ],
         [ 31.8, -5 ]
     ] ]
 }
@@ -194,7 +206,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country/region, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
+If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country/region, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](/bingmaps/rest-services/).
 
 ## Next steps
 

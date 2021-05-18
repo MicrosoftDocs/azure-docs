@@ -1,11 +1,8 @@
 ---
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ---
@@ -30,7 +27,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
+* **An Azure SQL Database**.  See [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).  This article uses a database named **oozietest**.
 
 * The URI scheme for your clusters primary storage. `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -38,13 +35,15 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 The workflow used in this document contains two actions. Actions are definitions for tasks, such as running Hive, Sqoop, MapReduce, or other processes:
 
-![HDInsight oozie workflow diagram](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
+:::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png" alt-text="HDInsight oozie workflow diagram" border="false":::
 
 1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     The Hive script used in this document counts the total visits for each platform, such as Android or iPhone, and stores the counts to a new Hive table.
 
@@ -227,7 +226,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
+2. Edit the code below to replace `<serverName>` with your [logical SQL server](../azure-sql/database/logical-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -235,11 +234,13 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
     You receive output like the following text:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. At the `1>` prompt, enter the following lines:
 
@@ -263,8 +264,10 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
     You see output like the following text:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Exit the tsql utility by entering `exit` at the `1>` prompt.
 
@@ -296,9 +299,9 @@ The job definition describes where to find the workflow.xml. It also describes w
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
-    |serverName| Azure SQL database server name.|
-    |sqlLogin| Azure SQL database server login.|
-    |sqlPassword| Azure SQL database server login password.|
+    |serverName| Azure SQL Database server name.|
+    |sqlLogin| Azure SQL Database server login.|
+    |sqlPassword| Azure SQL Database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -419,20 +422,22 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     This returns information like the following text:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     This job has a status of `PREP`. This status indicates that the job was created, but not started.
 
@@ -444,7 +449,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
+6. Edit the code below to replace `<serverName>` with your server name, and `<sqlLogin>` with the server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -459,14 +464,16 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     The information returned is like the following text:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 For more information on the Oozie command, see [Apache Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
@@ -504,29 +511,29 @@ To access the Oozie web UI, complete the following steps:
 
 3. From the left side of the page, select **Oozie** > **Quick Links** > **Oozie Web UI**.
 
-    ![Apache Ambari oozie web ui steps](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png" alt-text="Apache Ambari oozie web ui steps" border="true":::
 
 4. The Oozie web UI defaults to display the running workflow jobs. To see all the workflow jobs, select **All Jobs**.
 
-    ![Oozie web console workflow jobs](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png" alt-text="Oozie web console workflow jobs" border="true":::
 
 5. To view more information about a job, select the job.
 
-    ![HDInsight Apache Oozie job info](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png" alt-text="HDInsight Apache Oozie job info" border="true":::
 
 6. From the **Job Info** tab, you can see the basic job information and the individual actions within the job. You can use the tabs at the top to view the **Job Definition**, **Job Configuration**, access the **Job Log**, or view a directed acyclic graph (DAG) of the job under **Job DAG**.
 
    * **Job Log**: Select the **Get Logs** button to get all logs for the job, or use the **Enter Search Filter** field to filter the logs.
 
-       ![HDInsight Apache Oozie job log](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png" alt-text="HDInsight Apache Oozie job log" border="true":::
 
    * **Job DAG**: The DAG is a graphical overview of the data paths taken through the workflow.
 
-       ![`HDInsight Apache Oozie job dag`](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png" alt-text="`HDInsight Apache Oozie job dag`" border="true":::
 
 7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunSqoopExport** action.
 
-    ![HDInsight oozie job action info](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png" alt-text="HDInsight oozie job action info" border="true":::
 
 8. You can see details for the action, such as a link to the **Console URL**. Use this link to view job tracker information for the job.
 
@@ -626,18 +633,18 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
 7. If you go to the Oozie web UI and select the **Coordinator Jobs** tab, you see information like in the following image:
 
-    ![Oozie web console coordinator jobs tab](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png" alt-text="Oozie web console coordinator jobs tab" border="true":::
 
     The **Next Materialization** entry contains the next time that the job runs.
 
 8. Like the earlier workflow job, if you select the job entry in the web UI it displays information on the job:
 
-    ![Apache Oozie coordinator job info](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png" alt-text="Apache Oozie coordinator job info" border="true":::
 
     > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
-    ![OOzie web console job info tab](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    :::image type="content" source="./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png" alt-text="OOzie web console job info tab" border="true":::
 
 ## Next steps
 

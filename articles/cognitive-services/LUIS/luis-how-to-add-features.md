@@ -1,16 +1,16 @@
 ---
-title: Features - LUIS
+title: Use features to improve LUIS word list
 titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 05/06/2020
-ms.author: diberry
+ms.topic: how-to
+ms.date: 05/17/2020
+
 ---
 
 # Use features to boost signal of word list
@@ -34,7 +34,7 @@ Review [concepts](luis-concept-feature.md) to understand when and why to use a f
 
     Once you have entered enough values for LUIS, suggestions appear. You can **+ Add all** of the proposed values, or select individual terms.
 
-1. Keep **These values are interchangeable** checked if the phrases can be used interchangeably.
+1. Keep **These values are interchangeable** checked if the phrases can be used interchangeably. Interchangeable phrase list feature serves as a list of synonyms for training. Non-interchangeable phrase list serves as separate features for training (meaning that features are similar but the intent changes when you swap phrases).
 
 1. The phrase list can apply to the entire app with the **Global** setting, or to a specific model (intent or entity). If you create the phrase list, as a _feature_ from an intent or entity, the toggle is not set for global. In this case, the meaning of the toggle is that the feature is local only to that model, therefore, _not global_ to the application.
 
@@ -44,8 +44,23 @@ Review [concepts](luis-concept-feature.md) to understand when and why to use a f
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > You can delete, or deactivate a phrase list from the contextual toolbar on the **ML Features** page.
+
+## Global phrase list applies to entire app
+
+A phrase list should be applied to the intent or entity it is intended to help but there may be times when a phrase list should be applied to the entire app as a **Global** feature.
+
+On the ML Features page, select the phrase list, then select **Make global** in the top contextual toolbar.
+
+## Model as a feature
+
+An entity can be a [feature to an intent or entity](luis-concept-feature.md).
+
+To add an entity as a feature to an intent, select the intent from the Intents page, then select **+ Add feature** above the contextual toolbar. The list will include all phrase lists and entities that can be applied as features.
+
+To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) or you can [add the feature](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) on the Entity detail page.
 
 ## Next steps
 

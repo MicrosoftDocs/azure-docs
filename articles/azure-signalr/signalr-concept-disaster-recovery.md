@@ -4,10 +4,11 @@ description: An overview on how to set up multiple SignalR service instances to 
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
 ---
-# Resiliency and disaster recovery
+# Resiliency and disaster recovery in Azure SignalR Service
 
 Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
 Your service instance is always running in one region and won't fail-over to another region when there is a region-wide outage.
@@ -35,15 +36,18 @@ But when a client is connected, it's always routed to the app server in the same
 
 Below is a diagram that illustrates such topology:
 
-![topology](media/signalr-concept-disaster-recovery/topology.png)
+![Diagram shows two regions each with an app server and a SignalR service, where each server is associated with the SignalR service in its region as primary and with the service in the other region as secondary.](media/signalr-concept-disaster-recovery/topology.png)
 
-## Configure app servers with multiple SignalR service instances
+## Configure multiple SignalR service instances
 
-Once you have SignalR service and app servers created in each region, you can configure your app servers to connect to all SignalR service instances.
+Multiple SignalR service instances are supported on both app servers and Azure Functions.
 
+Once you have SignalR service and app servers/Azure Functions created in each region, you can configure your app servers/Azure Functions to connect to all SignalR service instances.
+
+### Configure on app servers
 There are two ways you can do it:
 
-### Through config
+#### Through config
 
 You should already know how to set SignalR service connection string through environment variables/app settings/web.cofig, in a config entry named `Azure:SignalR:ConnectionString`.
 If you have multiple endpoints, you can set them in multiple config entries, each in the following format:
@@ -55,7 +59,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 Here `<name>` is the name of the endpoint and `<role>` is its role (primary or secondary).
 Name is optional but it will be useful if you want to further customize the routing behavior among multiple endpoints.
 
-### Through code
+#### Through code
 
 If you prefer to store the connection strings somewhere else, you can also read them in your code and use them as parameters when calling `AddAzureSignalR()` (in ASP.NET Core) or `MapAzureSignalR()` (in ASP.NET).
 
@@ -86,6 +90,9 @@ You can configure multiple primary or secondary instances. If there're multiple 
 
 1. If there is at least one primary instance online, return a random primary online instance.
 2. If all primary instances are down, return a random secondary online instance.
+
+### Configure on Azure Functions
+See [this article](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method).
 
 ## Failover sequence and best practice
 
@@ -133,3 +140,5 @@ You'll need to handle such cases at client side to make it transparent to your e
 In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
 
 For scaling scenarios such as sharding, that use multiple instances together to handle large number of connections, read [how to scale multiple instances](signalr-howto-scale-multi-instances.md).
+
+For details on how to configure Azure Functions with multiple SignalR service instances, read [multiple Azure SignalR Service instances support in Azure Functions](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md).

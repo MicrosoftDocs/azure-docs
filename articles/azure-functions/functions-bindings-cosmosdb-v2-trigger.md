@@ -1,13 +1,14 @@
 ---
-title: Azure Cosmos DB trigger for Functions 2.x
+title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
-# Azure Cosmos DB trigger for Azure Functions 2.x
+# Azure Cosmos DB trigger for Azure Functions 2.x and higher
 
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
 
@@ -85,6 +86,27 @@ Here's the C# script code:
     }
 ```
 
+# [Java](#tab/java)
+
+This function is invoked when there are inserts or updates in the specified database and collection.
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            createLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are added or modified.
@@ -112,6 +134,31 @@ Here's the JavaScript code:
 
       context.done();
     }
+```
+
+# [PowerShell](#tab/powershell)
+
+The following example shows how to run a function as data changes in Cosmos DB.
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "Documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+
+In the _run.ps1_ file, you have access to the document that triggers the function via the `$Documents` parameter.
+
+```powershell
+param($Documents, $TriggerMetadata) 
+
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # [Python](#tab/python)
@@ -145,27 +192,6 @@ Here's the Python code:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-# [Java](#tab/java)
-
-This function is invoked when there are inserts or updates in the specified database and collection.
-
-```java
-    @FunctionName("cosmosDBMonitor")
-    public void cosmosDbProcessor(
-        @CosmosDBTrigger(name = "items",
-            databaseName = "ToDoList",
-            collectionName = "Items",
-            leaseCollectionName = "leases",
-            createLeaseCollectionIfNotExists = true,
-            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
-            final ExecutionContext context ) {
-                context.getLogger().info(items.length + "item(s) is/are changed.");
-            }
-```
-
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
-
 ---
 
 ## Attributes and annotations
@@ -178,9 +204,8 @@ The attribute's constructor takes the database name and collection name. For inf
 
 ```csharp
     [FunctionName("DocumentUpdates")]
-    public static void Run(
-        [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-    IReadOnlyList<Document> documents,
+    public static void Run([CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+        IReadOnlyList<Document> documents,
         ILogger log)
     {
         ...
@@ -193,17 +218,21 @@ For a complete example, see [Trigger](#example).
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Cosmos DB.
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-From the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Cosmos DB.
 
 ---
 

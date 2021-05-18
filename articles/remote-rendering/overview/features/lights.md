@@ -1,5 +1,5 @@
 ---
-title: Lights
+title: Scene lighting
 description: Light source description and properties
 author: florianborn71
 ms.author: flborn
@@ -7,7 +7,7 @@ ms.date: 02/10/2020
 ms.topic: article
 ---
 
-# Lights
+# Scene lighting
 
 By default the remotely rendered objects are lit using a [sky light](sky.md). For most applications this is already sufficient, but you can add further light sources to the scene.
 
@@ -64,6 +64,17 @@ There are no additional properties.
 ## Performance considerations
 
 Light sources have a significant impact on rendering performance. Use them carefully and only if required by the application. Any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](sky.md), with no additional rendering cost.
+
+## API documentation
+
+* [C# LightComponentBase class](/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent class](/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent class](/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent class](/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C++ LightComponentBase class](/cpp/api/remote-rendering/lightcomponentbase)
+* [C++ PointLightComponent class](/cpp/api/remote-rendering/pointlightcomponent)
+* [C++ SpotLightComponent class](/cpp/api/remote-rendering/spotlightcomponent)
+* [C++ DirectionalLightComponent class](/cpp/api/remote-rendering/directionallightcomponent)
 
 ## Next steps
 

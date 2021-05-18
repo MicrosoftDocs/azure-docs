@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 :::row:::
@@ -20,11 +21,11 @@ ms.author: trbye
 
 ### System requirements
 
-The Speech SDK on Windows requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span></a> on the system.
+The Speech SDK on Windows requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 </a> on the system.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 </a>
 
 ### C#
 

@@ -1,12 +1,9 @@
 ---
 title: Set up failover of Hyper-V VMs to Azure in Azure Site Recovery 
 description: Learn how to fail over Hyper-V VMs to Azure with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
-ms.author: raynew
 ms.custom: MVC
 ---
 
@@ -22,8 +19,8 @@ This tutorial describes how to fail over Hyper-V VMs to Azure with [Azure Site R
 This tutorial is the fifth tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials.    
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
-3. Set up disaster recovery for [Hyper-V VMs](tutorial-hyper-v-to-azure.md), or for [Hyper-V VMs managed in System Center VMM clouds](tutorial-hyper-v-vmm-to-azure.md)
+2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
+3. Set up disaster recovery for [Hyper-V VMs](./hyper-v-azure-tutorial.md), or for [Hyper-V VMs managed in System Center VMM clouds](./hyper-v-vmm-azure-tutorial.md)
 4. [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
 [Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).

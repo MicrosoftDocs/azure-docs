@@ -1,8 +1,8 @@
 ---
 title: What's new? Release notes - Azure Active Directory | Microsoft Docs
-description: Learn what is new with Azure Active Directory, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+description: Learn what is new with Azure Active Directory; such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
-author: msmimart
+author: ajburnle
 manager: daveba
 featureFlags:
  - clicktale
@@ -12,8 +12,8 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.author: mimart
+ms.date: 4/30/2021
+ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # What's new in Azure Active Directory?
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure AD receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -31,967 +31,1028 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 - Deprecated functionality
 - Plans for changes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
+This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
 
-## April 2020
+## April 2021
 
-### Combined security info registration experience is now generally available
-
-**Type:** New feature
-
-**Service category:** Authentications (Logins)
-
-**Product capability:** Identity Security & Protection
-
-The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for MFA and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
-
----
-
-### Continuous Access Evaluation
-
-**Type:** New feature
-
-**Service category:** Authentications (Logins)
-
-**Product capability:** Identity Security & Protection
-
-Continuous Access Evaluation is a new security feature that enables near real-time enforcement of policies on relying parties consuming Azure AD Access Tokens when events happen in Azure AD (such as user account deletion). We are rolling this feature out first for Teams and Outlook clients. For more details, please read our [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) and  [documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation).
-
----
-
-### SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password
-
-**Type:** New feature
-
-**Service category:** Authentications (Logins)
-
-**Product capability:** User Authentication
-
-Office is launching a series of mobile-first business apps that cater to non-traditional organizations, and to employees in large organizations that don’t use email as their primary communication method. These apps target frontline employees, deskless workers, field agents, or retail employees that may not get an email address from their employer, have access to a computer, or to IT. This project will let these employees sign in to business applications by entering a phone number and roundtripping a code. For more details, please see our [admin documentation](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin) and [end user documentation](https://docs.microsoft.com/azure/active-directory/user-help/sms-sign-in-explainer).
-
----
-
-### Invite internal users to use B2B collaboration
-
-**Type:** New feature
-
-**Service category:** B2B
-
-**Product capability:**
-
-We're expanding B2B invitation capability to allow existing internal accounts to be invited to use B2B collaboration credentials going forward. This is done by passing the user object to the Invite API in addition to typical parameters like the invited email address. The user's object ID, UPN, group membership, app assignment, etc. remain intact, but going forward they'll use B2B to authenticate with their home tenant credentials rather than the internal credentials they used before the invitation. For details, see the [documentation](https://docs.microsoft.com/azure/active-directory/b2b/invite-internal-users).
-
----
-
-### Report-only mode for Conditional Access is now generally available
-
-**Type:** New feature
-
-**Service category:** Conditional Access
-
-**Product capability:** Identity Security & Protection
-
-[Report-only mode for Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode, with over 26M users already in scope of a report-only policy. With this announcement, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can also [manage report-only policies programmatically](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
-
----
-
-### Conditional Access insights and reporting workbook is generally available
-
-**Type:** New feature
-
-**Service category:** Conditional Access
-
-**Product capability:** Identity Security & Protection
-
-The Conditional Access [insights and reporting workbook](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) gives admins a summary view of Azure AD Conditional Access in their tenant. With the capability to select an individual policy, admins can better understand what each policy does and monitor any changes in real time. The workbook streams data stored in Azure Monitor, which you can set up in a few minutes [following these instructions](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). To make the dashboard more discoverable, we’ve moved it to the new insights and reporting tab within the Azure AD Conditional Access menu.
-
----
-
-### Policy details blade for Conditional Access is in public preview
-
-**Type:** New feature
-
-**Service category:** Conditional Access
-
-**Product capability:** Identity Security & Protection
-
-The new [policy details blade](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) displays which assignments, conditions, and controls were satisfied during conditional access policy evaluation. You can access the blade by selecting a row in the **Conditional Access** or **Report-only** tabs of the Sign-in details.
-
----
-
-### New Federated Apps available in Azure AD App gallery - April 2020
-
-**Type:** New feature
-
-**Service category:** Enterprise Apps
-
-**Product capability:** 3rd Party Integration
-
-In April 2020, we've added these 31 new apps with Federation support to the app gallery: 
-
-[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [Float](https://docs.microsoft.com/azure/active-directory/saas-apps/float-tutorial), [LMS365](https://lms.365.systems/), [IWT Procurement Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/iwt-procurement-suite-tutorial), [Lunni](https://lunni.fi/), [EasySSO for Jira](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-jira-tutorial), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki Dashboard](https://docs.microsoft.com/azure/active-directory/saas-apps/meraki-dashboard-tutorial), [Office 365 Mover](https://app.mover.io/login), [Speaker Engage](https://speakerengage.com/login.php), [Honestly](https://docs.microsoft.com/azure/active-directory/saas-apps/honestly-tutorial), [Ally](https://docs.microsoft.com/azure/active-directory/saas-apps/ally-tutorial), [DutyFlow](https://app.dutyflow.nl/), [AlertMedia](https://docs.microsoft.com/azure/active-directory/saas-apps/alertmedia-tutorial), [gr8 People](https://docs.microsoft.com/azure/active-directory/saas-apps/gr8-people-tutorial), [Pendo](https://docs.microsoft.com/azure/active-directory/saas-apps/pendo-tutorial), [HighGround](https://docs.microsoft.com/azure/active-directory/saas-apps/highground-tutorial), [Harmony](https://docs.microsoft.com/azure/active-directory/saas-apps/harmony-tutorial), [Timetabling Solutions](https://docs.microsoft.com/azure/active-directory/saas-apps/timetabling-solutions-tutorial), [SynchroNet CLICK](https://docs.microsoft.com/azure/active-directory/saas-apps/synchronet-click-tutorial), [empower](https://www.made-in-office.com/en/), [Fortes Change Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/fortes-change-cloud-tutorial), [Litmus](https://docs.microsoft.com/azure/active-directory/saas-apps/litmus-tutorial), [GroupTalk](https://recorder.grouptalk.com/), [Frontify](https://docs.microsoft.com/azure/active-directory/saas-apps/frontify-tutorial), [MongoDB Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/mongodb-cloud-tutorial), [TickitLMS Learn](https://docs.microsoft.com/azure/active-directory/saas-apps/tickitlms-learn-tutorial), [COCO](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [Nitro Productivity Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/nitro-productivity-suite-tutorial) , [Trend Micro Web Security(TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
-
----
-
-### Microsoft Graph delta query support for oAuth2PermissionGrant available for Public Preview
-
-**Type:** New feature
-
-**Service category:** MS Graph
-
-**Product capability:** Developer Experience
-
-Delta query for oAuth2PermissionGrant is available for public preview! You can now track changes without having to continuously poll Microsoft Graph. [Learn more.](https://docs.microsoft.com/graph/api/oAuth2PermissionGrant-delta?view=graph-rest-beta&tabs=http)
-
----
-
-### Microsoft Graph delta query support for organizational contact generally available
-
-**Type:** New feature
-
-**Service category:** MS Graph
-
-**Product capability:** Developer Experience
-
-Delta query for organizational contacts is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls orgContact data by delta query to significantly improve performance. [Learn more.](https://docs.microsoft.com/graph/api/orgcontact-delta?view=graph-rest-1.0&tabs=http)
-
----
-
-### Microsoft Graph delta query support for application generally available
-
-**Type:** New feature
-
-**Service category:** MS Graph
-
-**Product capability:** Developer Experience
-
-Delta query for applications is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls application data by delta query to significantly improve performance. [Learn more.](https://docs.microsoft.com/graph/api/application-delta?view=graph-rest-1.0)
-
----
-
-### Microsoft Graph delta query support for administrative units available for Public Preview
-
-**Type:** New feature
-
-**Service category:** MS Graph
-
-**Product capability:** Developer Experience
-Delta query for administrative units is available for public preview! You can now track changes without having to continuously poll Microsoft Graph. [Learn more.](https://docs.microsoft.com/graph/api/administrativeunit-delta?view=graph-rest-beta&tabs=http)
-
----
-
-### Manage authentication phone numbers and more in new Microsoft Graph beta APIs
-
-**Type:** New feature
-
-**Service category:** MS Graph
-
-**Product capability:** Developer Experience
-
-These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
-
-- Read, add, update, and remove a user’s authentication phones
-- Reset a user’s password
-- Turn on and off SMS-sign-in
-
-For more information, see [Azure AD authentication methods API overview](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
-
----
-
-### Administrative Units Public Preview
-
-**Type:** New feature
-
-**Service category:** RBAC
-
-**Product capability:** Access Control
-
-Administrative units allow you to grant admin permissions that are restricted to a department, region, or other segment of your organization that you define. You can use administrative units to delegate permissions to regional administrators or to set policy at a granular level. For example, a User account admin could update profile information, reset passwords, and assign licenses for users only in their administrative unit.
-
-Using administrative units, a central administrator could:
-
-- Create an administrative unit for decentralized management of resources
-- Assign a role with administrative permissions over only Azure AD users in an administrative unit
-- Populate the administrative units with users and groups as needed
-
-For more information, see [Administrative units management in Azure Active Directory (preview)](https://aka.ms/AdminUnitsDocs).
-
----
-
-### Printer Administrator and Printer Technician built-in roles
-
-**Type:** New feature
-
-**Service category:** RBAC
-
-**Product capability:** Access Control
-
-**Printer Administrator**: Users with this role can register printers and manage all aspects of all printer configurations in the Microsoft Universal Print solution, including the Universal Print Connector settings. They can consent to all delegated print permission requests. Printer Administrators also have access to print reports. 
-
-**Printer Technician**: Users with this role can register printers and manage printer status in the Microsoft Universal Print solution. They can also read all connector information. Key tasks a Printer Technician cannot do are set user permissions on printers and sharing printers. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#printer-administrator)
-
----
-
-### Hybrid Identity Admin built-in role
-
-**Type:** New feature
-
-**Service category:** RBAC
-
-**Product capability:** Access Control
-
-Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods&#8212;Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider)&#8212;and to deploy related on-premises infrastructure to enable them. On-premises infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and to access health and analytics for monitoring and troubleshooting purposes. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator)
-
----
-
-### Network Administrator built-in role
-
-**Type:** New feature
-
-**Service category:** RBAC
-
-**Product capability:** Access Control
-
-Users with this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture, which is generally user location-specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#network-administrator)
-
----
-
-### Bulk activity and downloads in the Azure AD admin portal experience
-
-**Type:** New feature
-
-**Service category:** User Management
-
-**Product capability:** Directory
-
-Now you can perform bulk activities on users and groups in Azure AD by uploading a CSV file in the Azure AD admin portal experience. You can create users, delete users, and invite guest users. And you can add and remove members from a group.
-
-You can also download lists of Azure AD resources from the Azure AD admin portal experience. You can download the list of users in the directory, the list of groups in the directory, and the members of a particular group.
-
-For more information, check out the following:
-
-- [Create users](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-add) or [invite guest users](https://docs.microsoft.com/azure/active-directory/b2b/tutorial-bulk-invite)
-- [Delete users](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-delete) or [restore deleted users](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-restore)
-- [Download list of users](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-download) or [Download list of groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download)
-- [Add (import) members](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-import-members) or [remove members](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-remove-members) or [Download list of members](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download-members) for a group
-
----
-
-### My Staff delegated user management
-
-**Type:** New feature
-
-**Service category:** User Management
-
-**Product capability:**
-
-My Staff enables Firstline Managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks, such as resetting passwords or changing phone numbers, to a Firstline Manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks, with no helpdesk or IT staff required. For more information, see the [Manage your users with My Staff (preview)](https://aka.ms/MyStaffAdminDocs) and [Delegate user management with My Staff (preview)](https://aka.ms/MyStaffUserDocs).
-
----
-
-### An upgraded end user experience in access reviews
-
-**Type:** Changed feature
-
-**Service category:** Access Reviews
-
-**Product capability:** Identity Governance
-
-We have updated the reviewer experience for Azure AD access reviews in the My Apps portal. At the end of April, your reviewers who are logged in to the Azure AD access reviews reviewer experience will see a banner that will allow them to try the updated experience in My Access. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). This public preview will last until the end of July 2020. At the end of July, reviewers who have not opted into the preview experience will be automatically directed to My Access to perform access reviews. If you wish to have your reviewers permanently switched over to the preview experience in My Access now, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
-
----
-
-### Workday inbound user provisioning and writeback apps now support the latest versions of Workday Web Services API
-
-**Type:** Changed feature
-
-**Service category:** App Provisioning
-
-**Product capability:** 
-
-Based on customer feedback, we have now updated the Workday inbound user provisioning and writeback apps in the enterprise app gallery to support the latest versions of the Workday Web Services (WWS) API. With this change, customers can specify the WWS API version that they would like to use in the connection string. This gives customers the ability to retrieve more HR attributes available in the releases of Workday. The Workday Writeback app now uses the recommended Change_Work_Contact_Info Workday web service to overcome the limitations of Maintain_Contact_Info.
-
-If no version is specified in the connection string, by default, the Workday inbound provisioning apps will continue to use WWS v21.1  To switch to the latest Workday APIs for inbound user provisioning, customers need to update the connection string as documented [in the tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles) and also update the XPATHs used for Workday attributes as documented in the [Workday attribute reference guide](https://docs.microsoft.com/azure/active-directory/app-provisioning/workday-attribute-reference#xpath-values-for-workday-web-services-wws-api-v30). 
-
-To use the new API for writeback, there are no changes required in the Workday Writeback provisioning app. On the Workday side, ensure that the Workday Integration System User (ISU) account has permissions to invoke the Change_Work_Contact business process as documented in the tutorial section, [Configure business process security policy permissions](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#configuring-business-process-security-policy-permissions). 
-
-We have updated our [tutorial guide](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) to reflect the new API version support.
-
----
-
-### Users with default access role are now in scope for provisioning
-
-**Type:** Changed feature
-
-**Service category:** App Provisioning
-
-**Product capability:** Identity Lifecycle Management
-
-Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. As of April 16, 2020, all new provisioning configurations allow users with the default access role to be provisioned. Gradually we will change the behavior for existing provisioning configurations to support provisioning users with this role. [Learn more.](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned)
-
----
-
-### Updated provisioning UI
-
-**Type:** Changed feature
-
-**Service category:** App Provisioning
-
-**Product capability:** Identity Lifecycle Management
-
-We've refreshed our provisioning experience to create a more focused management view. When you navigate to the provisioning blade for an enterprise application that has already been configured, you'll be able to easily monitor the progress of provisioning and manage actions such as starting, stopping, and restarting provisioning. [Learn more.](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
-
----
-
-### Dynamic Group rule validation is now available for Public Preview
-
-**Type:** Changed feature
-
-**Service category:** Group Management
-
-**Product capability:** Collaboration
-
-Azure Active Directory (Azure AD) now provides the means to validate dynamic group rules. On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When creating or updating dynamic group rules, administrators want to know whether a user or a device will be a member of the group. This helps evaluate whether a user or device meets the rule criteria and aids in troubleshooting when membership is not expected.
-
-For more information, see [Validate a dynamic group membership rule (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-rule-validation).
-
----
-
-### Identity Secure Score - Security Defaults and MFA improvement action updates
-
-**Type:** Changed feature
-
-**Service category:** N/A
-
-**Product capability:** Identity Security & Protection
-
-**Supporting security defaults for Azure AD improvement actions:** Microsoft Secure Score will be updating improvement actions to support [security defaults in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), which make it easier to help protect your organization with pre-configured security settings for common attacks. This will affect the following improvement actions:
-
-- Ensure all users can complete multi-factor authentication for secure access
-- Require MFA for administrative roles
-- Enable policy to block legacy authentication
- 
-**MFA improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multi-factor authentication and added two.
-
-Removed improvement actions:
-
-- Register all users for multi-factor authentication
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
-
-Added improvement actions:
-
-- Ensure all users can complete multi-factor authentication for secure access
-- Require MFA for administrative roles
-
-These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
-
----
-
-## March 2020
-
-### Unmanaged Azure Active Directory accounts in B2B update for March, 2021
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-**Beginning on March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure Active Directory (Azure AD) accounts and tenants for B2B collaboration scenarios. In preparation for this, we encourage you to opt in to [email one-time passcode authentication](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode).
-
----
-
-### Users with the default access role will be in scope for provisioning
-
-**Type:** Plan for change  
-**Service category:** App Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. We're working on deploying a change so that all new provisioning configurations will allow users with the default access role to be provisioned. Gradually, we'll change the behavior for existing provisioning configurations to support provisioning users with this role. No customer action is required. We'll post an update to our [documentation](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned) once this change is in place.
-
----
-
-### Azure AD B2B collaboration will be available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-The Azure AD B2B collaboration capabilities will be made available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants, enabling users in an Azure China 21Vianet tenant to collaborate seamlessly with users in other Azure China 21Vianet tenants. [Learn more about Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/b2b/).
-
----
- 
-### Azure AD B2B Collaboration invitation email redesign
-
-**Type:** Plan for change  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-The [emails](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) that are sent by the Azure AD B2B collaboration invitation service to invite users to the directory will be redesigned to make the invitation information and the user's next steps clearer.
-
----
-
-### HomeRealmDiscovery policy changes will appear in the audit logs
+### Bug fixed - Azure AD will no longer double-encode the state parameter in responses
 
 **Type:** Fixed  
-**Service category:** Audit  
-**Product capability:** Monitoring & Reporting
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
  
-We fixed a bug where changes to the [HomeRealmDiscovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) were not included in the audit logs. You will now be able to see when and how the policy was changed, and by whom. 
+Azure AD has identified, tested, and released a fix for a bug in the `/authorize` response to a client application.  Azure AD was incorrectly URL encoding the `state` parameter twice when sending responses back to the client.  This can cause a client application to reject the request, due to a mismatch in state parameters. [Learn more](../develop/reference-breaking-changes.md#bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice). 
 
 ---
 
-### New Federated Apps available in Azure AD App gallery - March 2020
+### Users can only create security and Microsoft 365 groups in Azure portal being deprecated
+
+**Type:** Plan for change  
+**Service category:** Group Management  
+**Product capability:** Directory
+ 
+Users will no longer be limited to create security and Microsoft 365 groups only in the Azure portal. The new setting will allow users to create security groups in the Azure portal, PowerShell, and API. Users will be required to verify and update the new setting. [Learn more](../enterprise-users/groups-self-service-management.md).
+
+---
+
+### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+External users can now use Email One-Time Passcode accounts to sign up or sign in to Azure AD 1st party and line-of-business applications. [Learn more](../external-identities/one-time-passcode.md).
+
+---
+
+### General Availability - External Identities Self-Service Sign Up
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Self-service sign-up for external users is now in general availability. With this new feature, external users can now self-service sign up to an application. 
+
+You can create customized experiences for these external users, including collecting information about your users during the registration process and allowing external identity providers like Facebook and Google. You can also integrate with third-party cloud providers for various functionalities like identity verification or approval of users. [Learn more](../external-identities/self-service-sign-up-overview.md).
+ 
+---
+
+### General availability - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+B2C Phone Sign-up and Sign-in using a built-in policy enable IT administrators and developers of organizations to allow their end-users to sign in and sign-up using a phone number in user flows. With this feature, disclaimer links such as privacy policy and terms of use can be customized and shown on the page before the end-user proceeds to receive the one-time passcode via text message. [Learn more](../../active-directory-b2c/phone-authentication-user-flows.md).
+ 
+---
+
+### New Federated Apps available in Azure AD Application gallery - April 2021
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
- 
-In March 2020, we've added these 51 new apps with Federation support to the app gallery: 
 
-[Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect), [Zoho One China](https://docs.microsoft.com/azure/active-directory/saas-apps/zoho-one-china-tutorial), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [Profit.co SAML App](https://docs.microsoft.com/azure/active-directory/saas-apps/profitco-saml-app-tutorial), [iPoint Service Provider](https://docs.microsoft.com/azure/active-directory/saas-apps/ipoint-service-provider-tutorial), [contexxt.ai SPHERE](https://contexxt-sphere.com/login), [Wisdom By Invictus](https://docs.microsoft.com/azure/active-directory/saas-apps/wisdom-by-invictus-tutorial), [Flare Digital Signage](https://spark-dev.pixelnebula.com/login), [Logz.io - Cloud Observability for Engineers](https://docs.microsoft.com/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial), [SpectrumU](https://docs.microsoft.com/azure/active-directory/saas-apps/spectrumu-tutorial), [BizzContact](https://bizzcontact.app/), [Elqano SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/elqano-sso-tutorial), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/crossknowledge-learning-suite-tutorial), [Netvision Compas](https://docs.microsoft.com/azure/active-directory/saas-apps/netvision-compas-tutorial), [FCM HUB](https://docs.microsoft.com/azure/active-directory/saas-apps/fcm-hub-tutorial), [RIB A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](https://docs.microsoft.com/azure/active-directory/saas-apps/golinks-tutorial), [Datadog](https://docs.microsoft.com/azure/active-directory/saas-apps/datadog-tutorial), [Zscaler B2B User Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-b2b-user-portal-tutorial), [LIFT](https://docs.microsoft.com/azure/active-directory/saas-apps/lift-tutorial), [Planview Enterprise One](https://docs.microsoft.com/azure/active-directory/saas-apps/planview-enterprise-one-tutorial), [WatchTeams](https://www.devfinition.com/), [Aster](https://demo.asterapp.io/login), [Skills Workflow](https://docs.microsoft.com/azure/active-directory/saas-apps/skills-workflow-tutorial), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx), [IP Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/ip-platform-tutorial), [InVision](https://docs.microsoft.com/azure/active-directory/saas-apps/invision-tutorial), [Pipedrive](https://docs.microsoft.com/azure/active-directory/saas-apps/pipedrive-tutorial), [Showcase Workshop](https://app.showcaseworkshop.com/), [Greenlight Integration Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/greenlight-integration-platform-tutorial), [Greenlight Compliant Access Management](https://docs.microsoft.com/azure/active-directory/saas-apps/greenlight-compliant-access-management-tutorial), [Grok Learning](https://docs.microsoft.com/azure/active-directory/saas-apps/grok-learning-tutorial), [Miradore Online](https://login.online.miradore.com/), [Khoros Care](https://docs.microsoft.com/azure/active-directory/saas-apps/khoros-care-tutorial), [AskYourTeam](https://docs.microsoft.com/azure/active-directory/saas-apps/askyourteam-tutorial), [TruNarrative](https://docs.microsoft.com/azure/active-directory/saas-apps/trunarrative-tutorial), [Smartwaiver](https://www.smartwaiver.com/m/user/sw_login.php?wms_login), [Bizagi Studio for Digital Process Automation](https://docs.microsoft.com/azure/active-directory/saas-apps/bizagi-studio-for-digital-process-automation-tutorial), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](https://docs.microsoft.com/azure/active-directory/saas-apps/britive-tutorial), [WhosOffice](https://docs.microsoft.com/azure/active-directory/saas-apps/whosoffice-tutorial), [E-days](https://docs.microsoft.com/azure/active-directory/saas-apps/e-days-tutorial), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [Playvox](https://my.playvox.com/login), [Korn Ferry 360](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-360-tutorial), [Campus Café](https://docs.microsoft.com/azure/active-directory/saas-apps/campus-cafe-tutorial), [Catchpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/catchpoint-tutorial), [Code42](https://docs.microsoft.com/azure/active-directory/saas-apps/code42-tutorial)
+In April 2021, we have added following 31 new applications in our App gallery with Federation support
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+[Zii Travel Azure AD Connect](http://ziitravel.com/), [Cerby](../saas-apps/cerby-tutorial.md), [Selflessly](https://app.selflessly.io/sign-in), [Apollo CX](https://apollo.cxlabs.de/sso/aad), [Pedagoo](https://account.pedagoo.com/), [Measureup](https://account.measureup.com/), [Wistec Education](https://wisteceducation.fi/login/index.php), [ProcessUnity](../saas-apps/processunity-tutorial.md), [Cisco Intersight](../saas-apps/cisco-intersight-tutorial.md), [Codility](../saas-apps/codility-tutorial.md), [H5mag](https://account.h5mag.com/auth/request-access/ms365), [Check Point Identity Awareness](../saas-apps/check-point-identity-awareness-tutorial.md), [Jarvis](https://jarvis.live/login), [desknet's NEO](../saas-apps/desknets-neo-tutorial.md), [SDS & Chemical Information Management](../saas-apps/sds-chemical-information-management-tutorial.md), [Wúru App](../saas-apps/wuru-app-tutorial.md), [Holmes](../saas-apps/holmes-tutorial.md), [Tide Multi Tenant](https://gallery.tideapp.co.uk/), [Telenor](https://admin.smartansatt.telenor.no/), [Yooz US](https://us1.getyooz.com/?kc_idp_hint=microsoft), [Mooncamp](https://app.mooncamp.com/#/login), [inwise SSO](https://app.inwise.com/defaultsso.aspx), [Ecolab Digital Solutions](https://ecolabb2c.b2clogin.com/account.ecolab.com/oauth2/v2.0/authorize?p=B2C_1A_Connect_OIDC_SignIn&client_id=01281626-dbed-4405-a430-66457825d361&nonce=defaultNonce&redirect_uri=https://jwt.ms&scope=openid&response_type=id_token&prompt=login), [Taguchi Digital Marketing System](https://login.taguchi.com.au/), [XpressDox EU Cloud](https://test.xpressdox.com/Authentication/Login.aspx), [EZSSH](https://docs.keytos.io/getting-started/registering-a-new-tenant/registering_app_in_tenant/), [EZSSH Client](https://portal.ezssh.io/signup), [Verto 365](https://www.vertocloud.com/Login/), [KPN Grip](https://www.grip-on-it.com/), [AddressLook](https://portal.bbsonlineservices.net/Manage/AddressLook), [Cornerstone Single Sign-On](../saas-apps/cornerstone-ondemand-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
 
 ---
 
-### Azure AD B2B Collaboration available in Azure Government tenants
+### New provisioning connectors in the Azure AD Application Gallery - April 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Bentley - Automatic User Provisioning](../saas-apps/bentley-automatic-user-provisioning-tutorial.md)
+- [Boxcryptor](../saas-apps/boxcryptor-provisioning-tutorial.md)
+- [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-provisioning-tutorial.md)
+- [Eletive](../saas-apps/eletive-provisioning-tutorial.md)
+- [Jostle](../saas-apps/jostle-provisioning-tutorial.md)
+- [Olfeo SAAS](../saas-apps/olfeo-saas-provisioning-tutorial.md)
+- [Proware](../saas-apps/proware-provisioning-tutorial.md)
+- [Segment](../saas-apps/segment-provisioning-tutorial.md)
+
+For more information about how to better secure your organization with automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### Introducing new versions of page layouts for B2C
+
+**Type:** Changed feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+The [page layouts](../../active-directory-b2c/page-layout.md) for B2C scenarios on the Azure AD B2C has been updated to reduce security risks by introducing the new versions of jQuery and Handlebars JS.
+ 
+---
+
+### Updates to Sign-in Diagnostic
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+The scenario coverage of the Sign-in Diagnostic tool has increased. 
+
+With this update, the following event-related scenarios will now be included in the sign-in diagnosis results: 
+- Enterprise Applications configuration problem events.
+- Enterprise Applications service provider (application-side) events.
+- Incorrect credentials events. 
+
+These results will show contextual and relevant details about the event and actions to take to resolve these problems. Also, for scenarios where we don't have deep contextual diagnostics, Sign-in Diagnostic will present more descriptive content about the error event.
+
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
+
+---
+### Azure AD Connect cloud sync general availability refresh 
+**Type:** Changed feature  
+**Service category:** Azure AD Connect Cloud Sync 
+**Product capability:** Directory
+
+Azure AD connect cloud sync now has an updated agent (version# - 1.1.359). For more details on agent updates, including bug fixes, check out the [version history](../cloud-sync/reference-version-history.md). With the updated agent, cloud sync customers can use GMSA cmdlets to set and reset their gMSA permission at a granular level. In addition that, we have changed the limit of syncing members using group scope filtering from 1499 to 50,000 (50K) members. 
+
+Check out the newly available [expression builder](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
+
+---
+
+## March 2021
+
+### Guidance on how to enable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation
+
+**Type:** Plan for change  
+**Service category:** N/A  
+**Product capability:** Standards
+
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions starting June 30, 2021:
+
+
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Affected environments include:
+
+- Azure Commercial Cloud
+- Office 365 GCC and WW
+
+For more information, see [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment).
+
+---
+
+### Public Preview - Azure AD Entitlement management now supports multi-geo SharePoint Online
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Entitlement Management
+ 
+For organizations using multi-geo SharePoint Online, you can now include sites from specific multi-geo environments to your Entitlement management access packages. [Learn more](../governance/entitlement-management-catalog-create.md#add-a-multi-geo-sharepoint-site-preview).
+
+---
+
+### Public Preview - Restore deleted apps from App registrations
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Developer Experience
+ 
+Customers can now view, restore, and permanently remove deleted app registrations from the Azure portal. This applies only to applications associated to a directory, not applications from a personal Microsoft account. [Learn more](../develop/howto-restore-app.md).
+ 
+---
+
+### Public preview - New "User action" in Conditional Access for registering or joining devices
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+ A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Multi-factor authentication (MFA) policies for Azure AD device registration. 
+
+Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+ 
+---
+
+### Public Preview - Optimize connector groups to use the closest Application Proxy cloud service
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+With this new capability, connector groups can be assigned to the closest regional Application Proxy service an application is hosted in. This can improve app performance in scenarios where apps are hosted in regions other than the home tenant’s region. [Learn more](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). 
+ 
+---
+
+### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
 
 **Type:** New feature  
 **Service category:** B2B  
 **Product capability:** B2B/B2C
- 
-The Azure AD B2B collaboration features are now available between some Azure Government tenants.  To find out if your tenant is able to use these capabilities, follow the instructions at [How can I tell if B2B collaboration is available in my Azure US Government tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
+
+External users will now be able to use Email One-Time Passcode accounts to sign up in to Azure AD 1st party and LOB apps. [Learn more](../external-identities/one-time-passcode.md).
 
 ---
 
-### Azure Monitor integration for Azure Logs is now available in Azure Government
+### Public Preview - Availability of AD FS Sign-Ins in Azure AD
 
 **Type:** New feature  
-**Service category:** Reporting  
+**Service category:** Authentications (Logins)  
 **Product capability:** Monitoring & Reporting
  
-Azure Monitor integration with Azure AD logs is now available in Azure Government. You can route Azure AD Logs (Audit and Sign-in Logs) to a storage account, Event Hub and Log Analytics. Please check out the [detailed documentation](https://aka.ms/aadlogsinamd) as well as [deployment plans for reporting and monitoring](https://docs.microsoft.com/azure/active-directory/reports-monitoring/plan-monitoring-and-reporting) for Azure AD scenarios.
+AD FS sign-in activity can now be integrated with Azure AD activity reporting, providing a unified view of hybrid identity infrastructure. Using the Azure AD Sign-Ins report, Log Analytics, and Azure Monitor Workbooks, it's possible to do in-depth analysis for both AAD and AD FS sign-in scenarios such as AD FS account lockouts, bad password attempts, and spikes of unexpected sign-in attempts.
+
+To learn more, visit [AD FS sign-ins in Azure AD with Connect Health](../hybrid/how-to-connect-health-ad-fs-sign-in.md).
 
 ---
 
-### Identity Protection Refresh in Azure Government
+### General availability - Staged rollout to cloud authentication
 
 **Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-We’re excited to share that we have now rolled out the refreshed [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) experience in the [Microsoft Azure Government portal](https://portal.azure.us/). For more information, see our [announcement blog post](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
-
----
-
-### Disaster recovery: Download and store your provisioning configuration
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** Identity Lifecycle Management
- 
-The Azure AD provisioning service provides a rich set of configuration capabilities. Customers need to be able to save their configuration so that they can refer to it later or roll back to a known good version. We've added the ability to download your provisioning configuration as a JSON file and upload it when you need it. [Learn more](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration).
-
----
- 
-### SSPR (self-service password reset) now requires two gates for admins in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) 
-
-**Type:** Changed feature  
-**Service category:** Self-Service Password Reset  
-**Product capability:** Identity Security & Protection
- 
-Previously in Microsoft Azure operated by 21Vianet (Azure China 21Vianet), admins using self-service password reset (SSPR) to reset their own passwords needed only one "gate" (challenge) to prove their identity. In public and other national clouds, admins generally must use two gates to prove their identity when using SSPR. But because we didn't support SMS or phone calls in Azure China 21Vianet, we allowed one-gate password reset by admins.
-
-We're creating SSPR feature parity between Azure China 21Vianet and the public cloud. Going forward, admins must use two gates when using SSPR. SMS, phone calls, and Authenticator app notifications and codes will be supported. [Learn more](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy#administrator-reset-policy-differences).
-
----
-
-### Password length is limited to 256 characters
-
-**Type:** Changed feature  
-**Service category:** Authentications (Logins)  
+**Service category:** AD Connect  
 **Product capability:** User Authentication
  
-To ensure the reliability of the Azure AD service, user passwords are now limited in length to 256 characters. Users with passwords longer than this will be asked to change their password on subsequent login, either by contacting their admin or by using the self-service password reset feature.
-
-This change was enabled on March 13th, 2020, at 10AM PST (18:00 UTC), and the error is AADSTS 50052, InvalidPasswordExceedsMaxLength. See the [breaking change notice](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#user-passwords-will-be-restricted-to-256-characters) for more details.
+Staged rollout to cloud authentication is now generally available. The staged rollout feature allows you to selectively test groups of users with cloud authentication methods, such as Passthrough Authentication (PTA) or Password Hash Sync (PHS). Meanwhile, all other users in the federated domains continue to use federation services, such as AD FS or any other federation services to authenticate users. [Learn more](../hybrid/how-to-connect-staged-rollout.md).
 
 ---
 
-### Azure AD sign-in logs are now available for all free tenants through the Azure portal
+### General Availability - User Type attribute can now be updated in the Azure admin portal
 
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
+**Type:** New feature  
+**Service category:** User Experience and Management  
+**Product capability:** User Management
  
-Starting now, customers who have free tenants can access the [Azure AD sign-in logs from the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) for up to 7 days. Previously, sign-in logs were available only for customers with Azure Active Directory Premium licenses. With this change, all tenants can access these logs through the portal.
-
-> [!NOTE]
-> Customers still need a premium license (Azure Active Directory Premium P1 or P2) to access the sign-in logs through Microsoft Graph API and Azure Monitor.
-
----
-
-### Deprecation of Directory-wide groups option from Groups General Settings on Azure portal
-
-**Type:** Deprecated  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-To provide a more flexible way for customers to create directory-wide groups that best meet their needs, we've replaced the **Directory-wide Groups** option from the **Groups** > **General** settings in the Azure portal with a link to [dynamic group documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). We've improved our documentation to include more instructions so administrators can create all-user groups that include or exclude guest users.
-
----
-
-## February 2020
-
-### Upcoming changes to custom controls
-
-**Type:** Plan for change  
-**Service category:** MFA  
-**Product capability:** Identity Security & Protection
+Customers can now update the user type of Azure AD users when they update their user profile information from the Azure admin portal. The user type can be updated from Microsoft Graph also. To learn more, see [Add or update user profile information](active-directory-users-profile-azure-portal.md).
  
-We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don't serve as MFA for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
-
-Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. We are working closely with customers and providers and will communicate the timeline as we get closer. [Learn more](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
-
 ---
 
-### Identity Secure Score - MFA improvement action updates
-
-**Type:** Plan for change  
-**Service category:** MFA  
-**Product capability:** Identity Security & Protection
- 
-To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score is removing three improvement actions centered around multi-factor authentication (MFA), and adding two.
-
-The following improvement actions will be removed:
-
-- Register all users for MFA
-- Require MFA for all users
-- Require MFA for Azure AD privileged roles
-
-The following improvement actions will be added:
-
-- Ensure all users can complete MFA for secure access
-- Require MFA for administrative roles
-
-These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
-
----
-
-### Azure AD Domain Services SKU selection
+### General Availability - Replica Sets for Azure Active Directory Domain Services
 
 **Type:** New feature  
 **Service category:** Azure AD Domain Services  
 **Product capability:** Azure AD Domain Services
  
-We've heard feedback that Azure AD Domain Services customers want more flexibility in selecting performance levels for their instances. Starting on February 1, 2020, we switched from a dynamic model (where Azure AD determines the performance and pricing tier based on object count) to a self-selection model. Now customers can choose a performance tier that matches their environment. This change also allows us to enable new scenarios like Resource Forests, and Premium features like daily backups. The object count is now unlimited for all SKUs, but we'll continue to offer object count suggestions for each tier.
+The capability of replica sets in Azure AD DS is now generally available. [Learn more](../../active-directory-domain-services/concepts-replica-sets.md).
+ 
+---
 
-**No immediate customer action is required.** For existing customers, the dynamic tier that was in use on February 1, 2020, determines the new default tier. There is no pricing or performance impact as the result of this change. Going forward, Azure AD DS customers will need to evaluate performance requirements as their directory size and workload characteristics change. Switching between service tiers will continue to be a no-downtime operation, and we will no longer automatically move customers to new tiers based on the growth of their directory. Furthermore, there will be no price increases, and new pricing will align with our current billing model. For more information, see the [Azure AD DS SKUs documentation](https://docs.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) and the [Azure AD Domain Services pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+### General availability - Collaborate with your partners using Email One-Time Passcode in the Azure Government cloud
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Organizations in the Microsoft Azure Government cloud can now enable their guests to redeem invitations with Email One-Time Passcode. This ensures that any guest users with no Azure AD, Microsoft, or Gmail accounts in the Azure Government cloud can still collaborate with their partners by requesting and entering a temporary code to sign in to shared resources. [Learn more](../external-identities/one-time-passcode.md#note-for-azure-us-government-customers).
 
 ---
- 
-### New Federated Apps available in Azure AD App gallery - February 2020
+
+### New Federated Apps available in Azure AD Application gallery - March 2021
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
  
-In February 2020, we've added these 31 new apps with Federation support to the app gallery: 
+In March 2021 we have added following 37 new applications in our App gallery with Federation support:
 
-[IamIP Patent Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/iamip-patent-platform-tutorial),
- [Experience Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/experience-cloud-tutorial),
- [NS1 SSO For Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/ns1-sso-azure-tutorial),
- [Barracuda Email Security Service](https://ess.barracudanetworks.com/sso/azure),
- [ABa Reporting](https://myaba.co.uk/client-access/signin/auth/msad),
- [In Case of Crisis - Online Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-online-portal-tutorial),
- [BIC Cloud Design](https://docs.microsoft.com/azure/active-directory/saas-apps/bic-cloud-design-tutorial),
- [Beekeeper Azure AD Data Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/beekeeper-azure-ad-data-connector-tutorial),
- [Korn Ferry Assessments](https://www.kornferry.com/solutions/kf-digital/kf-assess),
- [Verkada Command](https://docs.microsoft.com/azure/active-directory/saas-apps/verkada-command-tutorial),
- [Splashtop](https://docs.microsoft.com/azure/active-directory/saas-apps/splashtop-tutorial),
- [Syxsense](https://docs.microsoft.com/azure/active-directory/saas-apps/syxsense-tutorial),
- [EAB Navigate](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-tutorial),
- [New Relic (Limited Release)](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial),
- [Thulium](https://admin.thulium.com/login/instance),
- [Ticket Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/ticketmanager-tutorial),
- [Template Chooser for Teams](https://links.officeatwork.com/templatechooser-download-teams),
- [Beesy](https://www.beesy.me/index.php/site/login),
- [Health Support System](https://docs.microsoft.com/azure/active-directory/saas-apps/health-support-system-tutorial),
- [MURAL](https://app.mural.co/signup),
- [Hive](https://docs.microsoft.com/azure/active-directory/saas-apps/hive-tutorial),
- [LavaDo](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview),
- [Wakelet](https://wakelet.com/login),
- [Firmex VDR](https://docs.microsoft.com/azure/active-directory/saas-apps/firmex-vdr-tutorial),
- [ThingLink for Teachers and Schools](https://www.thinglink.com/),
- [Coda](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial),
- [NearpodApp](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product),
- [WEDO](https://docs.microsoft.com/azure/active-directory/saas-apps/wedo-tutorial),
- [InvitePeople](https://invitepeople.com/login),
- [Reprints Desk - Article Galaxy](https://docs.microsoft.com/azure/active-directory/saas-apps/reprints-desk-article-galaxy-tutorial),
- [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial)
+[Bambuser Live Video Shopping](https://lcx.bambuser.com/), [DeepDyve Inc](https://www.deepdyve.com/azure-sso), [Moqups](../saas-apps/moqups-tutorial.md), [RICOH Spaces Mobile](https://ricohspaces.app/welcome), [Flipgrid](https://auth.flipgrid.com/), [hCaptcha Enterprise](../saas-apps/hcaptcha-enterprise-tutorial.md), [SchoolStream ASA](https://jsd.schoolstreamk12.com/ASA/ASAlogin.aspx), [TransPerfect GlobalLink Dashboard](../saas-apps/transperfect-globallink-dashboard-tutorial.md), [SimplificaCI](https://app.simplificaci.com.br/), [Thrive LXP](../saas-apps/thrive-lxp-tutorial.md), [Lexonis TalentScape](../saas-apps/lexonis-talentscape-tutorial.md), [Exium](../saas-apps/exium-tutorial.md), [Sapient](../saas-apps/sapient-tutorial.md), [TrueChoice](../saas-apps/truechoice-tutorial.md), [RICOH Spaces](https://ricohspaces.app/welcome), [Saba Cloud](../saas-apps/learning-at-work-tutorial.md), [Acunetix 360](../saas-apps/acunetix-360-tutorial.md), [Exceed.ai](../saas-apps/exceed-ai-tutorial.md), [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-tutorial.md), [Enterprise Vault.cloud for Outlook](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile%20User.Read&client_id=7176efe5-e954-4aed-b5c8-f5c85a980d3a&nonce=4b9e1981-1bcb-4938-a283-86f6931dc8cb), [Smartlook](../saas-apps/smartlook-tutorial.md), [Accenture Academy](../saas-apps/accenture-academy-tutorial.md), [Onshape](../saas-apps/onshape-tutorial.md), [Tradeshift](../saas-apps/tradeshift-tutorial.md), [JuriBlox](../saas-apps/juriblox-tutorial.md), [SecurityStudio](../saas-apps/securitystudio-tutorial.md), [ClicData](https://app.clicdata.com/), [Evergreen](../saas-apps/evergreen-tutorial.md), [Patchdeck](https://patchdeck.com/ad_auth/authenticate/), [FAX.PLUS](../saas-apps/fax.plus-tutorial.md), [ValidSign](../saas-apps/validsign-tutorial.md), [AWS Single Sign-on](../saas-apps/aws-single-sign-on-tutorial.md), [Nura Space](https://dashboard.nuraspace.com/login), [Broadcom DX SaaS](../saas-apps/broadcom-dx-saas-tutorial.md), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [SendPro Enterprise](../saas-apps/sendpro-enterprise-tutorial.md), [FortiSASE SIA](../saas-apps/fortisase-sia-tutorial.md)
 
- 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
 
 ---
- 
-### New provisioning connectors in the Azure AD Application Gallery - February 2020
+
+### New provisioning connectors in the Azure AD Application Gallery - March 2021
 
 **Type:** New feature  
-**Service category:** Enterprise Apps  
+**Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
- 
+
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-- [Mixpanel](https://docs.microsoft.com/azure/active-directory/saas-apps/mixpanel-provisioning-tutorial)
-- [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-provisioning-tutorial)
-- [Azure Databricks](https://docs.microsoft.com/azure/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial)
-- [PureCloud by Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-provisioning-tutorial)
-- [Zapier](https://docs.microsoft.com/azure/active-directory/saas-apps/zapier-provisioning-tutorial)
+- [AWS Single Sign-on](../saas-apps/aws-single-sign-on-provisioning-tutorial.md)
+- [Bpanda](../saas-apps/bpanda-provisioning-tutorial.md)
+- [Britive](../saas-apps/britive-provisioning-tutorial.md)
+- [GitHub Enterprise Managed User](../saas-apps/github-enterprise-managed-user-provisioning-tutorial.md)
+- [Grammarly](../saas-apps/grammarly-provisioning-tutorial.md)
+- [LogicGate](../saas-apps/logicgate-provisioning-tutorial.md)
+- [SecureLogin](../saas-apps/secure-login-provisioning-tutorial.md)
+- [TravelPerk](../saas-apps/travelperk-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
 ---
- 
-### Azure AD support for FIDO2 security keys in hybrid environments
 
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
- 
-We're announcing the public preview of Azure AD support for FIDO2 security keys in Hybrid environments. Users can now use FIDO2 security keys to sign in to their Hybrid Azure AD joined Windows 10 devices and get seamless sign-on to their on-premises and cloud resources. Support for Hybrid environments has been the top most-requested feature from our passwordless customers since we initially launched the public preview for FIDO2 support in Azure AD joined devices. Passwordless authentication using advanced technologies like biometrics and public/private key cryptography provide convenience and ease-of-use while being secure. With this public preview, you can now use modern authentication like FIDO2 security keys to access traditional Active Directory resources. For more information, go to [SSO to on-premises resources](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). 
-
-To get started, visit [enable FIDO2 security keys for your tenant](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key) for step-by-step instructions. 
-
----
- 
-### The new My Account experience is now generally available
+### Introducing MS Graph API for Company Branding
 
 **Type:** Changed feature  
-**Service category:** My Profile/Account  
-**Product capability:** End User Experiences
- 
-My Account, the one stop shop for all end-user account management needs, is now generally available! End users can access this new site via URL, or in the header of the new My Apps experience. Learn more about all the self-service capabilities the new experience offers at [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+**Service category:** MS Graph  
+**Product capability:** B2B/B2C
+
+[MS Graph API for the Company Branding](/graph/api/resources/organizationalbrandingproperties)  is available for the Azure AD or Microsoft 365 login experience to allow the management of the branding parameters programmatically.
 
 ---
- 
-### My Account site URL updating to myaccount.microsoft.com
+
+### General availability - Header-based authentication SSO with Application Proxy
 
 **Type:** Changed feature  
-**Service category:** My Profile/Account  
-**Product capability:** End User Experiences
+**Service category:** App Proxy  
+**Product capability:** Access Control
  
-The new My Account end user experience will be updating its URL to `https://myaccount.microsoft.com` in the next month. Find more information about the experience and all the account self-service capabilities it offers to end users at [My Account portal help](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+Azure AD Application Proxy native support for header-based authentication is now in general availability. With this feature, you can configure the user attributes required as HTTP headers for the application without additional components needed to deploy. [Learn more](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
 
 ---
+
+### Two-way SMS for MFA Server is no longer supported
+
+**Type:** Deprecated  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
  
-## January 2020
+
+Two-way SMS for MFA Server was originally deprecated in 2018, and will not be supported after February 24, 2021. Administrators should enable another method for users who still use two-way SMS.
+
+Email notifications and Azure portal Service Health notifications were sent to affected admins on December 8, 2020 and January 28, 2021. The alerts went to the Owner, Co-Owner, Admin, and Service Admin RBAC roles tied to the subscriptions. [Learn more](../authentication/how-to-authentication-two-way-sms-unsupported.md).
  
-### The new My Apps portal is now generally available
+---
+ 
+## February 2021
+
+### Email one-time passcode authentication on by default starting October 2021
 
 **Type:** Plan for change  
-**Service category:** My Apps  
-**Product capability:** End User Experiences
+**Service category:** B2B  
+**Product capability:** B2B/B2C
  
-Upgrade your organization to the new My Apps portal that is now generally available! Find more information on the new portal and collections at [Create collections on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
+
+Starting October 31, 2021, Microsoft Azure Active Directory [email one-time passcode authentication](../external-identities/one-time-passcode.md) will become the default method for inviting accounts and tenants for B2B collaboration scenarios. At this time, Microsoft will no longer allow the redemption of invitations using unmanaged Azure Active Directory accounts. 
 
 ---
- 
-### Workspaces in Azure AD have been renamed to collections
 
-**Type:** Changed feature  
-**Service category:** My Apps   
-**Product capability:** End User Experiences
- 
-Workspaces, the filters admins can configure to organize their users' apps, will now be referred to as collections. Find more info on how to configure them at [Create collections on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
+### Unrequested but consented permissions will no longer be added to tokens if they would trigger Conditional Access
 
+**Type:** Plan for change  
+**Service category:** Authentications (Logins)  
+**Product capability:** Platform
+ 
+Currently, applications using [dynamic permissions](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent) are given all of the permissions they're consented to access. This includes applications that are unrequested and even if they trigger conditional access. For example, this can cause an app requesting only `user.read` that also has consent for `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
+
+To reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications. Apps will only trigger conditional access for permission they explicitly request. For more information, read [What's new in authentication](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
+ 
 ---
  
-### Azure AD B2C Phone sign-up and sign-in using custom policy (Public Preview)
+### Public Preview - Use a Temporary Access Pass to register Passwordless credentials
+
+**Type:** New feature  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+
+Temporary Access Pass is a time-limited passcode that serves as strong credentials and allows onboarding of Passwordless credentials and recovery when a user has lost or forgotten their strong authentication factor (for example, FIDO2 security key or Microsoft Authenticator) app and needs to sign in to register new strong authentication methods. [Learn more](../authentication/howto-authentication-temporary-access-pass.md).
+
+---
+
+### Public preview - Keep me signed in (KMSI) in next generation of user flows
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
- 
-With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, phone sign-up and sign-in allows developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication).
- 
----
- 
-### New provisioning connectors in the Azure AD Application Gallery - January 2020
 
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
-
-- [Promapp]( https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-provisioning-tutorial)
-- [Zscaler Private Access](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-private-access-provisioning-tutorial)
-
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-
----
- 
-### New Federated Apps available in Azure AD App gallery - January 2020
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-In January 2020, we've added these 33 new apps with Federation support to the app gallery: 
-
-[JOSA](https://docs.microsoft.com/azure/active-directory/saas-apps/josa-tutorial), [Fastly Edge Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/fastly-edge-cloud-tutorial), [Terraform Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/terraform-enterprise-tutorial), [Spintr SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/spintr-sso-tutorial), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [Upshotly](https://docs.microsoft.com/azure/active-directory/saas-apps/upshotly-tutorial), [LeaveBot](https://leavebot.io/#home), [DataCamp](https://docs.microsoft.com/azure/active-directory/saas-apps/datacamp-tutorial), [TripActions](https://docs.microsoft.com/azure/active-directory/saas-apps/tripactions-tutorial), [SmartWork](https://www.intumit.com/english/SmartWork.html), [Dotcom-Monitor](https://docs.microsoft.com/azure/active-directory/saas-apps/dotcom-monitor-tutorial), [SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE](https://docs.microsoft.com/azure/active-directory/saas-apps/ssogen-tutorial), [Hosted MyCirqa SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-mycirqa-sso-tutorial), [Yuhu Property Management Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/yuhu-property-management-platform-tutorial), [LumApps](https://sites.lumapps.com/login), [Upwork Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/upwork-enterprise-tutorial), [Talentsoft](https://docs.microsoft.com/azure/active-directory/saas-apps/talentsoft-tutorial), [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](https://docs.microsoft.com/azure/active-directory/saas-apps/presspage-tutorial), [ContractSafe Saml2 SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/contractsafe-saml2-sso-tutorial), [Maxient Conduct Manager Software](https://docs.microsoft.com/azure/active-directory/saas-apps/maxient-conduct-manager-software-tutorial), [Helpshift](https://docs.microsoft.com/azure/active-directory/saas-apps/helpshift-tutorial), [PortalTalk 365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [ PrinterLogic SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/printerlogic-saas-tutorial), [Taskize Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/taskize-connect-tutorial), [Sandwai](https://app.sandwai.com/), [EZRentOut](https://docs.microsoft.com/azure/active-directory/saas-apps/ezrentout-tutorial), [AssetSonar](https://docs.microsoft.com/azure/active-directory/saas-apps/assetsonar-tutorial), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+The next generation of B2C user flows now supports the [keep me signed in (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) functionality that allows customers to extend the session lifetime for the users of their web and native applications by using a persistent cookie.  feature keeps the session active even when the user closes and reopens the browser, and is revoked when the user signs out.
 
 ---
 
-### Two new Identity Protection detections
+### Public preview - External Identities Self-Service Sign-up in AAD using MSA accounts
 
 **Type:** New feature  
-**Service category:** Identity Protection  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+External users will can now use Microsoft Accounts to sign in to Azure AD first party and LOB apps. [Learn more](../external-identities/self-service-sign-up-overview.md).
+
+---
+
+### Public Preview - Reset redemption status for a guest user
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Customers can now reinvite existing external guest users to reset their redemption status, which allows the guest user account to remain without them losing any access. [Learn more](../external-identities/reset-redemption-status.md).
+ 
+---
+
+### Public Preview - /synchronization (provisioning) APIs now support application permissions
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true).
+ 
+---
+
+### General Availability - Authentication Policy Administrator built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. [Learn more](../roles/permissions-reference.md#authentication-policy-administrator).
+
+---
+
+### General availability - User collections on My Apps are available now!
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** End User Experiences
+ 
+Users can now create their own groupings of apps on the My Apps app launcher. They can also reorder and hide collections shared with them by their administrator. [Learn more](../user-help/my-apps-portal-user-collections.md).
+
+---
+
+### General availability - Autofill in Authenticator
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
  
-We've added two new sign-in linked detection types to Identity Protection: Suspicious inbox manipulation rules and Impossible travel. These offline detections are discovered by Microsoft Cloud App Security (MCAS) and influence the user and sign-in risk in Identity Protection. For more information on these detections, see our [sign-in risk types](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk).
+Microsoft Authenticator provides multi-factor authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
+
+To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
+
+---
+
+### General availability - Invite internal users to B2B collaboration
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Customers can now invite internal guests to use B2B collaboration instead of sending an invitation to an existing internal account. This allows customers to keep that user's object ID, UPN, group memberships, and app assignments. [Learn more](../external-identities/invite-internal-users.md).
+
+---
+
+### General Availability - Domain Name Administrator built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with this role can manage (read, add, verify, update, and delete) domain names. They can also read directory information about users, groups, and applications, as these objects have domain dependencies. 
+
+For on-premises environments, users with this role can configure domain names for federation so that associated users are always authenticated on-premises. These users can then sign into Azure AD-based services with their on-premises passwords via single sign-on. Federation settings need to be synced via Azure AD Connect, so users also have permissions to manage Azure AD Connect. [Learn more](../roles/permissions-reference.md#domain-name-administrator).
  
 ---
+
+### New Federated Apps available in Azure AD Application gallery - February 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
  
-### Breaking Change: URI Fragments will not be carried through the login redirect
+In February 2021 we have added following 37 new applications in our App gallery with Federation support:
+
+[Loop Messenger Extension](https://loopworks.com/loop-flow-messenger/), [Silverfort Azure AD Adapter](http://www.silverfort.com/), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [Nura Space](https://dashboard.nuraspace.com/login), [Yooz EU](https://eu1.getyooz.com/?kc_idp_hint=microsoft), [UXPressia](https://uxpressia.com/users/sign-in), [introDus Pre- and Onboarding Platform](http://app.introdus.dk/login), [Happybot](https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=34353e1e-dfe5-4d2f-bb09-2a5e376270c8&response_type=code&redirect_uri=https://api.happyteams.io/microsoft/integrate&response_mode=query&scope=offline_access%20User.Read%20User.Read.All), [LeaksID](https://app.leaksid.com/), [ShiftWizard](http://www.shiftwizard.com/), [PingFlow SSO](https://app.pingview.io/), [Swiftlane](https://admin.swiftlane.com/login), [Quasydoc SSO](https://www.quasydoc.eu/login), [Fenwick Gold Account](https://businesscentral.dynamics.com/), [SeamlessDesk](https://www.seamlessdesk.com/login), [Learnsoft LMS & TMS](http://www.learnsoft.com/), [P-TH+](https://p-th.jp/), [myViewBoard](https://api.myviewboard.com/auth/microsoft/), [Tartabit IoT Bridge](https://bridge-us.tartabit.com/), [AKASHI](../saas-apps/akashi-tutorial.md), [Rewatch](../saas-apps/rewatch-tutorial.md), [Zuddl](../saas-apps/zuddl-tutorial.md), [Parkalot - Car park management](../saas-apps/parkalot-car-park-management-tutorial.md), [HSB ThoughtSpot](../saas-apps/hsb-thoughtspot-tutorial.md), [IBMid](../saas-apps/ibmid-tutorial.md), [SharingCloud](../saas-apps/sharingcloud-tutorial.md), [PoolParty Semantic Suite](../saas-apps/poolparty-semantic-suite-tutorial.md), [GlobeSmart](../saas-apps/globesmart-tutorial.md), [Samsung Knox and Business Services](../saas-apps/samsung-knox-and-business-services-tutorial.md), [Penji](../saas-apps/penji-tutorial.md), [Kendis- Scaling Agile Platform](../saas-apps/kendis-scaling-agile-platform-tutorial.md), [Maptician](../saas-apps/maptician-tutorial.md), [Olfeo SAAS](../saas-apps/olfeo-saas-tutorial.md), [Sigma Computing](../saas-apps/sigma-computing-tutorial.md), [CloudKnox Permissions Management Platform](../saas-apps/cloudknox-permissions-management-platform-tutorial.md), [Klaxoon SAML](../saas-apps/klaxoon-saml-tutorial.md), [Enablon](../saas-apps/enablon-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
+
+--- 
+
+### New provisioning connectors in the Azure AD Application Gallery - February 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Atea](../saas-apps/atea-provisioning-tutorial.md)
+- [Getabstract](../saas-apps/getabstract-provisioning-tutorial.md)
+- [HelloID](../saas-apps/helloid-provisioning-tutorial.md)
+- [Hoxhunt](../saas-apps/hoxhunt-provisioning-tutorial.md)
+- [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
+- [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
+
+For more information, read [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+---
+
+### General Availability - 10 Azure Active Directory roles now renamed
 
 **Type:** Changed feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
+**Service category:** RBAC  
+**Product capability:** Access Control
  
-Starting on February 8, 2020, when a request is sent to login.microsoftonline.com to sign in a user, the service will append an empty fragment to the request.  This prevents a class of redirect attacks by ensuring that the browser wipes out any existing fragment in the request. No application should have a dependency on this behavior. For more information, see [Breaking changes](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#february-2020) in the Microsoft identity platform documentation.
+10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
+
+![Table showing role names in MS Graph API and the Azure portal, and the proposed final name across API, Azure portal, and Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
-## December 2019
+### New Company Branding in MFA/SSPR Combined Registration
 
-### Integrate SAP SuccessFactors provisioning into Azure AD and on-premises AD (Public Preview)
+**Type:** Changed feature  
+**Service category:** User Experience and Management  
+**Product capability:** End User Experiences
+ 
+In the past, company logos weren't used on Azure Active Directory sign-in pages. Company branding is now located to the top left of MFA/SSPR Combined Registration. Company branding is also included on My Sign-Ins and the Security Info page. [Learn more](../fundamentals/customize-branding.md).
+
+---
+
+### General Availability - Second level manager can be set as alternate approver
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+An extra option when you select approvers is now available in Entitlement Management. If you select "Manager as approver" for the First Approver, you will have another option, "Second level manager as alternate approver", available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager. [Learn more](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
+ 
+---
+
+### Authentication Methods Activity Dashboard
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+The refreshed Authentication Methods Activity dashboard gives admins an overview of authentication method registration and usage activity in their tenant. The report summarizes the number of users registered for each method, and also which methods are used during sign-in and password reset. [Learn more](../authentication/howto-authentication-methods-activity.md).
+ 
+---
+
+### Refresh and session token lifetimes configurability in Configurable Token Lifetime (CTL) are retired
+
+**Type:** Deprecated  
+**Service category:** Other  
+**Product capability:** User Authentication
+ 
+Refresh and session token lifetimes configurability in CTL are retired. Azure Active Directory no longer honors refresh and session token configuration in existing policies. [Learn more](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
+ 
+---
+ 
+## January 2021
+
+### Secret token will be a mandatory field when configuring provisioning
+
+**Type:** Plan for change  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+
+In the past, the secret token field could be kept empty when setting up provisioning on the custom / BYOA application. This function was intended to solely be used for testing. We'll update the UI to make the field required. 
+
+Customers can work around this requirement for testing purposes by using a feature flag in the browser URL. [Learn more](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
+ 
+---
+
+### Public Preview - Customize and configure Android shared devices for frontline workers at scale
+
+**Type:** New feature  
+**Service category:** Device Registration and Management  
+**Product capability:** Identity Security & Protection
+ 
+Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your frontline worker devices.
+
+The following preview capabilities will allow you to:
+- Provision Android shared devices at scale with Microsoft Endpoint Manager
+- Secure your access for shift workers using device-based conditional access
+- Customize sign-in experiences for the shift workers with Managed Home Screen
+
+To learn more, refer to [Customize and configure shared devices for frontline workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+
+---
+
+### Public preview - Provisioning logs can now be downloaded as a CSV or JSON
 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
 
-You can now integrate SAP SuccessFactors as an authoritative identity source in Azure AD. This integration helps you automate the end-to-end identity lifecycle, including using HR-based events, like new hires or terminations, to control provisioning of Azure AD accounts.
-
-For more information about how to set up SAP SuccessFactors inbound provisioning to Azure AD, see the [Configure SAP SuccessFactors automatic provisioning](https://aka.ms/SAPSuccessFactorsInboundTutorial) tutorial.
+Customers can download the provisioning logs as a CSV or JSON file through the UI and via graph API. To learn more, refer to [Provisioning reports in the Azure Active Directory portal](../reports-monitoring/concept-provisioning-logs.md).
 
 ---
 
-### Support for customized emails in Azure AD B2C (Public Preview)
+### Public preview - Assign cloud groups to Azure AD custom roles and admin unit scoped roles
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Customers can assign a cloud group to Azure AD custom roles or an admin unit scoped role. To learn how to use this feature, refer to [Use cloud groups to manage role assignments in Azure Active Directory](../roles/groups-concept.md).
+
+---
+
+### General Availability - Azure AD Connect cloud sync (previously known as cloud provisioning)
+
+**Type:** New feature  
+**Service category:** Azure AD Connect cloud sync  
+**Product capability:** Identity Lifecycle Management
+ 
+Azure AD Connect cloud sync is now generally available to all customers.
+
+Azure AD Connect cloud moves the heavy lifting of transform logic to the cloud, reducing your on-premises footprint. Additionally, multiple light-weight agent deployments are available for higher sync availability. [Learn more](https://aka.ms/cloudsyncGA).
+ 
+---
+### General Availability - Attack Simulation Administrator and Attack Payload Author built-in roles
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Two new roles in Role-Based Access Control are available to assign to users, Attack simulation Administrator and Attack Payload author. 
+
+Users in the [Attack Simulation Administrator](../roles/permissions-reference.md#attack-simulation-administrator) role have access for all simulations in the tenant and can:
+- create and manage all aspects of attack simulation creation
+- launch/scheduling of a simulation
+-  review simulation results. 
+
+Users in the [Attack Payload Author](../roles/permissions-reference.md#attack-payload-author) role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
+
+---
+
+### General Availability - Usage Summary Reports Reader built-in role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+Users with the Usage Summary Reports Reader role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score. However, they can't access any user level details or insights. 
+
+In the Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role adds an extra layer of protection to individual user identifiable data. [Learn more](../roles/permissions-reference.md#usage-summary-reports-reader).
+
+---
+
+### General availability - Require App protection policy grant in Azure AD Conditional Access
+
+**Type:** New Feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+Azure AD Conditional Access grant for "Require App Protection policy" is now GA. 
+
+The policy provides the following capabilities:
+- Allows access only when using a mobile application that supports Intune App protection
+- Allows access only when a user has an Intune app protection policy delivered to the mobile application
+
+Learn more on how to set up a conditional access policy for app protection [here](../conditional-access/app-protection-based-conditional-access.md).
+ 
+---
+
+### General availability - Email One-Time Passcode
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Email OTP enables organizations around the world to collaborate with anyone by sending a link or invitation via email. Invited users can verify their identity with the one-time passcode sent to their email to access their partner's resources. [Learn more](../external-identities/one-time-passcode.md). 
+ 
+---
+
+ ### New provisioning connectors in the Azure AD Application Gallery - January 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+- [Fortes Change Cloud](../saas-apps/fortes-change-cloud-provisioning-tutorial.md)
+- [Gtmhub](../saas-apps/gtmhub-provisioning-tutorial.md)
+- [monday.com](../saas-apps/mondaycom-provisioning-tutorial.md)
+- [Splashtop](../saas-apps/splashtop-provisioning-tutorial.md)
+- [Templafy OpenID Connect](../saas-apps/templafy-openid-connect-provisioning-tutorial.md)
+- [WEDO](../saas-apps/wedo-provisioning-tutorial.md)
+
+For more information, see [What is automated SaaS app user provisioning in Azure AD?](../app-provisioning/user-provisioning.md)
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - January 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In January 2021 we have added following 29 new applications in our App gallery with Federation support:
+
+[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest 
+
+---
+
+### Public preview - Second level manager can be set as alternate approver
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+An extra option when you select approvers is now available in Entitlement Management. If you select "Manager as approver" for the First Approver, you will have another option, "Second level manager as alternate approver", available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager. [Learn more](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+ 
+---
+
+### General availability - Navigate to Teams directly from My Access portal
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+You can now launch Teams directly from the My Access portal. 
+
+To do so, sign-in to My Access (https://myaccess.microsoft.com/), navigate to "Access packages", then go to the "Active" tab to see all of the access packages you already have access to. When you expand the selected access package and hover on Teams, you can launch it by clicking on the "Open" button. [Learn more](../governance/entitlement-management-request-access.md).
+ 
+---
+
+### Improved Logging & End-User Prompts for Risky Guest Users
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+ 
+
+The Logging and End-User Prompts for Risky Guest Users have been updated. Learn more in [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md).
+ 
+---
+ 
+## December 2020
+
+### Public preview - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+B2C Phone Sign-up and Sign-in using Built-in Policy enable IT administrators and developers of organizations to allow their end-users to sign in and sign up using a phone number in user flows. Read [Set up phone sign-up and sign-in for user flows (preview)](../../active-directory-b2c/phone-authentication-user-flows.md) to learn more.
+
+---
+
+### General Availability - Security Defaults now enabled for all new tenants by default
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Identity Security & Protection
+ 
+To protect user accounts, all new tenants created on or after November 12, 2020, will come with Security Defaults enabled. Security Defaults enforces multiple policies including:
+- Requires all users and admins to register for MFA using the Microsoft Authenticator App
+- Requires critical admin roles to use MFA every single time they sign-in. All other users will be prompted for MFA whenever necessary. 
+- Legacy authentication will be blocked tenant wide. 
+
+For more information, read [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md)
+
+---
+
+### General availability - Support for groups with up to 250K members in AADConnect
+
+**Type:** Changed feature  
+**Service category:** AD Connect  
+**Product capability:** Identity Lifecycle Management
+ 
+Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. When you use the new [V2 endpoint](../hybrid/how-to-connect-sync-endpoint-api-v2.md), you'll experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following scenarios:
+
+- Syncing groups with up to 250k members
+- Performance gains on export and import to Azure AD
+
+---
+
+### General availability - Entitlement Management available for tenants in Azure China cloud
+
+**Type:** New feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+ 
+
+The capabilities of Entitlement Management are now available for all tenants in the Azure China cloud. For information, visit our [Identity governance documentation](https://docs.azure.cn/zh-cn/active-directory/governance/) site.
+
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - December 2020
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
+- [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
+- [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
+- [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
+- [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### New Federated Apps available in Azure AD Application gallery - December 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In December 2020 we have added following 18 new applications in our App gallery with Federation support:
+
+[AwareGo](../saas-apps/awarego-tutorial.md), [HowNow SSO](https://gethownow.com/), [ZyLAB ONE Legal Hold](https://www.zylab.com/en/product/legal-hold), [Guider](http://www.guider-ai.com/), [Softcrisis](https://www.softcrisis.se/sv/), [Pims 365](http://www.omega365.com/pims), [InformaCast](../saas-apps/informacast-tutorial.md), [RetrieverMediaDatabase](../saas-apps/retrievermediadatabase-tutorial.md), [vonage](../saas-apps/vonage-tutorial.md), [Count Me In - Operations Dashboard](../saas-apps/count-me-in-operations-dashboard-tutorial.md), [ProProfs Knowledge Base](../saas-apps/proprofs-knowledge-base-tutorial.md), [RightCrowd Workforce Management](../saas-apps/rightcrowd-workforce-management-tutorial.md), [JLL TRIRIGA](../saas-apps/jll-tririga-tutorial.md), [Shutterstock](../saas-apps/shutterstock-tutorial.md), [FortiWeb Web Application Firewall](../saas-apps/linkedin-talent-solutions-tutorial.md), [LinkedIn Talent Solutions](../saas-apps/linkedin-talent-solutions-tutorial.md), [Equinix Federation App](../saas-apps/equinix-federation-app-tutorial.md), [KFAdvance](../saas-apps/kfadvance-tutorial.md)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Navigate to Teams directly from My Access portal
+
+**Type:** Changed feature  
+**Service category:** User Access Management 
+**Product capability:** Entitlement Management
+
+You can now launch Teams directly from My Access portal. To do so, sign-in to [My Access](https://myaccess.microsoft.com/), navigate to **Access packages**, then go to the **Active** Tab to see all access packages you already have access to. When you expand the access package and hover on Teams, you can launch it by clicking on the **Open** button. 
+
+To learn more about using the My Access portal, go to [Request access to an access package in Azure AD entitlement management](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### Public preview - Second level manager can be set as alternate approver
+
+**Type:** Changed feature  
+**Service category:** User Access Management  
+**Product capability:** Entitlement Management
+
+An extra option is now available in the approval process in Entitlement Management. If you select Manager as approver for the First Approver, you'll have another option, Second level manager as alternate approver, available to choose in the alternate approver field. When you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
+
+For more information, go to [Change approval settings for an access package in Azure AD entitlement management](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
+
+--- 
+
+## November 2020
+
+### Azure Active Directory TLS 1.0, TLS 1.1, and 3DES deprecation
+
+**Type:** Plan for change  
+**Service category:** All Azure AD applications  
+**Product capability:** Standards
+
+Azure Active Directory will deprecate the following protocols in Azure Active Directory worldwide regions starting June 30, 2021:
+
+- TLS 1.0
+- TLS 1.1
+- 3DES cipher suite (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Affected environments are:
+- Azure Commercial Cloud
+- Office 365 GCC and WW
+
+For guidance to remove deprecating protocols dependencies, please refer to [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment).
+
+---
+
+### New Federated Apps available in Azure AD Application gallery - November 2020
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In November 2020 we have added following 52 new applications in our App gallery with Federation support:
+
+[Travel & Expense Management](https://app.expenseonce.com/Account/Login), [Tribeloo](../saas-apps/tribeloo-tutorial.md), [Itslearning File Picker](https://pmteam.itslearning.com/), [Crises Control](../saas-apps/crises-control-tutorial.md), [CourtAlert](https://www.courtalert.com/), [StealthMail](https://stealthmail.com/), [Edmentum - Study Island](https://app.studyisland.com/cfw/login/), [Virtual Risk Manager](../saas-apps/virtual-risk-manager-tutorial.md), [TIMU](../saas-apps/timu-tutorial.md), [Looker Analytics Platform](../saas-apps/looker-analytics-platform-tutorial.md), [Talview - Recruit](https://recruit.talview.com/login), Real Time Translator, [Klaxoon](https://access.klaxoon.com/login), [Podbean](../saas-apps/podbean-tutorial.md), [zcal](https://zcal.co/signup), [expensemanager](https://api.expense-manager.com/), [Netsparker Enterprise](../saas-apps/netsparker-enterprise-tutorial.md), [En-trak Tenant Experience Platform](https://portal.en-trak.app/), [Appian](../saas-apps/appian-tutorial.md), [Panorays](../saas-apps/panorays-tutorial.md), [Builterra](https://portal.builterra.com/), [EVA Check-in](https://my.evacheckin.com/organization), [HowNow WebApp SSO](../saas-apps/hownow-webapp-sso-tutorial.md), [Coupa Risk Assess](../saas-apps/coupa-risk-assess-tutorial.md), [Lucid (All Products)](../saas-apps/lucid-tutorial.md), [GoBright](https://portal.brightbooking.eu/), [SailPoint IdentityNow](../saas-apps/sailpoint-identitynow-tutorial.md),[Resource Central](../saas-apps/resource-central-tutorial.md), [UiPathStudioO365App](https://www.uipath.com/product/platform), [Jedox](../saas-apps/jedox-tutorial.md), [Cequence Application Security](../saas-apps/cequence-application-security-tutorial.md), [PerimeterX](../saas-apps/perimeterx-tutorial.md), [TrendMiner](../saas-apps/trendminer-tutorial.md), [Lexion](../saas-apps/lexion-tutorial.md), [WorkWare](../saas-apps/workware-tutorial.md), [ProdPad](../saas-apps/prodpad-tutorial.md), [AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md), [AppSec Flow SSO](../saas-apps/appsec-flow-sso-tutorial.md), [Luum](../saas-apps/luum-tutorial.md), [Freight Measure](https://www.gpcsl.com/freight.html), [Terraform Cloud](../saas-apps/terraform-cloud-tutorial.md), [Nature Research](../saas-apps/nature-research-tutorial.md), [Play Digital Signage](https://login.playsignage.com/login), [RemotePC](../saas-apps/remotepc-tutorial.md), [Prolorus](../saas-apps/prolorus-tutorial.md), [Hirebridge ATS](../saas-apps/hirebridge-ats-tutorial.md), [Teamgage](https://www.teamgage.com/Account/ExternalLoginAzure), [Roadmunk](../saas-apps/roadmunk-tutorial.md), [Sunrise Software Relations CRM](https://cloud.relations-crm.com/), [Procaire](../saas-apps/procaire-tutorial.md), [Mentor® by eDriving: Business](https://www.edriving.com/), [Gradle Enterprise](https://gradle.com/)
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Public preview - Custom roles for enterprise apps
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+ [Custom RBAC roles for delegated enterprise application management](../roles/custom-available-permissions.md) is now in public preview. These new permissions build on the custom roles for app registration management, which allows fine-grained control over what access your admins have. Over time, additional permissions to delegate management of Azure AD will be released.
+
+Some common delegation scenarios:
+- assignment of user and groups that can access SAML based single sign-on applications
+- the creation of Azure AD Gallery applications
+- update and read of basic SAML Configurations for SAML based single sign-on applications
+- management of signing certificates for SAML based single sign-on applications
+- update of expiring sign in certificates notification email addresses for SAML based single sign-on applications
+- update of the SAML token signature and sign-in algorithm for SAML based single sign-on applications
+- create, delete, and update of user attributes and claims for SAML-based single sign-on applications
+- ability to turn on, off, and restart provisioning jobs
+- updates to attribute mapping
+- ability to read provisioning settings associated with the object
+- ability to read provisioning settings associated with your service principal
+- ability to authorize application access for provisioning
+
+---
+
+### Public preview - Azure AD Application Proxy natively supports single sign-on access to applications that use headers for authentication
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Azure Active Directory (Azure AD) Application Proxy natively supports single sign-on access to applications that use headers for authentication. You can configure header values required by your application in Azure AD. The header values will be sent down to the application via Application Proxy. To learn more, see [Header-based single sign-on for on-premises apps with Azure AD App Proxy](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md)
+ 
+---
+
+### General Availability - Azure AD B2C Phone Sign-up and Sign-in using Custom Policy
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
 
-You can now use Azure AD B2C to create customized emails when your users sign up to use your apps. By using DisplayControls (currently in preview) and a third-party email provider (such as, [SendGrid](https://sendgrid.com/), [SparkPost](https://sparkpost.com/), or a custom REST API), you can use your own email template, **From** address, and subject text, as well as support localization and custom one-time password (OTP) settings.
-
-For more information, see [Custom email verification in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-email).
-
+With phone number sign-up and sign-in, developers and enterprises can allow their customers to sign up and sign in using a one-time password sent to the user's phone number via SMS. This feature also lets the customer change their phone number if they lose access to their phone. With the power of custom policies, allow developers and enterprises to communicate their brand through page customization. Find out how to [set up phone sign-up and sign-in with custom policies in Azure AD B2C](../../active-directory-b2c/phone-authentication-user-flows.md).
+ 
 ---
 
-### Replacement of baseline policies with security defaults
-
-**Type:** Changed feature  
-**Service category:** Other  
-**Product capability:** Identity Security and Protection
-
-As part of a secure-by-default model for authentication, we're removing the existing baseline protection policies from all tenants. This removal is targeted for completion at the end of February. The replacement for these baseline protection policies is security defaults. If you've been using baseline protection policies, you must plan to move to the new security defaults policy or to Conditional Access. If you haven't used these policies, there is no action for you to take.
-
-For more information about the new security defaults, see [What are security defaults?](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) For more information about Conditional Access policies, see [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common).
-
----
-
-## November 2019
-
-### Support for the SameSite attribute and Chrome 80
-
-**Type:** Plan for change  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-As part of a secure-by-default model for cookies, the Chrome 80 browser is changing how it treats cookies without the `SameSite` attribute. Any cookie that doesn't specify the `SameSite` attribute will be treated as though it was set to `SameSite=Lax`, which will result in Chrome blocking certain cross-domain cookie sharing scenarios that your app may depend on. To maintain the older Chrome behavior, you can use the `SameSite=None` attribute and add an additional `Secure` attribute, so cross-site cookies can only be accessed over HTTPS connections. Chrome is scheduled to complete this change by February 4, 2020.
-
-We recommend all our developers test their apps using this guidance:
-
-- Set the default value for the **Use Secure Cookie** setting to **Yes**.
-
-- Set the default value for the **SameSite** attribute to **None**.
-
-- Add an additional `SameSite` attribute of **Secure**.
-
-For more information, see [Upcoming SameSite Cookie Changes in ASP.NET and ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) and [Potential disruption to customer websites and Microsoft products and services in Chrome version 79 and later](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
-
----
-
-### New hotfix for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2)
-
-**Type:** Fixed  
-**Service category:** Microsoft Identity Manager  
-**Product capability:** Identity Lifecycle Management
-
-A hotfix rollup package (build 4.6.34.0) is available for Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). This rollup package resolves issues and adds improvements that are described in the "Issues fixed and improvements added in this update" section.
-
-For more information and to download the hotfix package, see [Microsoft Identity Manager 2016 Service Pack 2 (build 4.6.34.0) Update Rollup is available](https://support.microsoft.com/help/4512924/microsoft-identity-manager-2016-service-pack-2-build-4-6-34-0-update-r).
-
----
-
-### New AD FS app activity report to help migrate apps to Azure AD (Public Preview)
+### New provisioning connectors in the Azure AD Application Gallery - November 2020
 
 **Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO
-
-Use the new Active Directory Federation Services (AD FS) app activity report, in the Azure portal, to identify which of your apps are capable of being migrated to Azure AD. The report assesses all AD FS apps for compatibility with Azure AD, checks for any issues, and gives guidance about preparing individual apps for migration.
-
-For more information, see [Use the AD FS application activity report to migrate applications to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity).
-
----
-
-### New workflow for users to request administrator consent (Public Preview)
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** Access Control
-
-The new admin consent workflow gives admins a way to grant access to apps that require admin approval. If a user tries to access an app, but is unable to provide consent, they can now send a request for admin approval. The request is sent by email, and placed in a queue that's accessible from the Azure portal, to all the admins who have been designated as reviewers. After a reviewer takes action on a pending request, the requesting users are notified of the action.
-
-For more information, see [Configure the admin consent workflow (preview)](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow).
-
----
-
-### New Azure AD App Registrations Token configuration experience for managing optional claims (Public Preview)
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Developer Experience
-
-The new **Azure AD App Registrations Token configuration** blade on the Azure portal now shows app developers a dynamic list of optional claims for their apps. This new experience helps to streamline Azure AD app migrations and to minimize optional claims misconfigurations.
-
-For more information, see [Provide optional claims to your Azure AD app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
-
----
-
-### New two-stage approval workflow in Azure AD entitlement management (Public Preview)
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Entitlement Management
-
-We've introduced a new two-stage approval workflow that allows you to require two approvers to approve a user's request to an access package. For example, you can set it so the requesting user's manager must first approve, and then you can also require a resource owner to approve. If one of the approvers doesn't approve, access isn't granted.
-
-For more information, see [Change request and approval settings for an access package in Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-request-policy).
-
----
-
-### Updates to the My Apps page along with new workspaces (Public Preview)
-
-**Type:** New feature  
-**Service category:** My Apps  
+**Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration
-
-You can now customize the way your organization's users view and access the refreshed My Apps experience. This new experience also includes the new workspaces feature, which makes it easier for your users to find and organize apps.
-
-For more information about the new My Apps experience and creating workspaces, see [Create workspaces on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
-
----
-
-### Google social ID support for Azure AD B2B collaboration (General Availability)
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** User Authentication
-
-New support for using Google social IDs (Gmail accounts) in Azure AD helps to make collaboration simpler for your users and partners. There's no longer a need for your partners to create and manage a new Microsoft-specific account. Microsoft Teams now fully supports Google users on all clients and across the common and tenant-related authentication endpoints.
-
-For more information, see [Add Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-
----
-
-### Microsoft Edge Mobile Support for Conditional Access and Single Sign-on (General Availability)
-
-**Type:** New feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
-
-Azure AD for Microsoft Edge on iOS and Android now supports Azure AD Single Sign-On and Conditional Access:
-
-- **Microsoft Edge single sign-on (SSO):** Single sign-on is now available across native clients (such as Microsoft Outlook and Microsoft Edge) for all Azure AD -connected apps.
-
-- **Microsoft Edge conditional access:** Through application-based conditional access policies, your users must use Microsoft Intune-protected browsers, such as Microsoft Edge.
-
-For more information about conditional access and SSO with Microsoft Edge, see the [Microsoft Edge Mobile Support for Conditional Access and Single Sign-on Now Generally Available](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Microsoft-Edge-Mobile-Support-for-Conditional-Access-and-Single/ba-p/988179) blog post. For more information about how to set up your client apps using [app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) or [device-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices), see [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/apps/app-configuration-managed-browser).
-
----
-
-### Azure AD entitlement management (General Availability)
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Entitlement Management
-
-Azure AD entitlement management is a new identity governance feature, which helps organizations manage identity and access lifecycle at scale. This new feature helps by automating access request workflows, access assignments, reviews, and expiration across groups, apps, and SharePoint Online sites.
-
-With Azure AD entitlement management, you can more efficiently manage access both for employees  and also for users outside your organization who need access to those resources.
-
-For more information, see [What is Azure AD entitlement management?](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview#license-requirements)
-
----
-
-### Automate user account provisioning for these newly supported SaaS apps
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration  
-
+ 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
 
-[SAP Cloud Platform Identity Authentication Service](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-provisioning-tutorial), [SpaceIQ](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-provisioning-tutorial), [Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-provisioning-tutorial), [Cloudgate](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-provisioning-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloudsuite-provisioning-tutorial), [OfficeSpace Software](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-software-provisioning-tutorial), [Priority Matrix](https://docs.microsoft.com/azure/active-directory/saas-apps/priority-matrix-provisioning-tutorial)
+- [Adobe Identity Management](../saas-apps/adobe-identity-management-provisioning-tutorial.md)
+- [Blogin](../saas-apps/blogin-provisioning-tutorial.md)
+- [Clarizen One](../saas-apps/clarizen-one-provisioning-tutorial.md)
+- [Contentful](../saas-apps/contentful-provisioning-tutorial.md)
+- [GitHub AE](../saas-apps/github-ae-provisioning-tutorial.md)
+- [Playvox](../saas-apps/playvox-provisioning-tutorial.md)
+- [PrinterLogic SaaS](../saas-apps/printer-logic-saas-provisioning-tutorial.md)
+- [Tic - Tac Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
+- [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-
+For more information, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
 ---
 
-### New Federated Apps available in Azure AD App gallery - November 2019
+### Public Preview - Email Sign-In with ProxyAddresses now deployable via Staged Rollout
 
 **Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Tenant administrators can now use Staged Rollout to deploy Email Sign-In with ProxyAddresses to specific Azure AD groups. This can help while trying out the feature before deploying it to the entire tenant via the Home Realm Discovery policy. Instructions for deploying Email Sign-In with ProxyAddresses via Staged Rollout are in the [documentation](../authentication/howto-authentication-use-email-signin.md).
+ 
+---
 
-In November 2019, we've added these 21 new apps with Federation support to the app gallery:
+### Limited Preview - Sign-in Diagnostic
 
-[Airtable](https://docs.microsoft.com/azure/active-directory/saas-apps/airtable-tutorial), [Hootsuite](https://docs.microsoft.com/azure/active-directory/saas-apps/hootsuite-tutorial), [Blue Access for Members (BAM)](https://docs.microsoft.com/azure/active-directory/saas-apps/blue-access-for-members-tutorial), [Bitly](https://docs.microsoft.com/azure/active-directory/saas-apps/bitly-tutorial), [Riva](https://docs.microsoft.com/azure/active-directory/saas-apps/riva-tutorial), [ResLife Portal](https://app.reslifecloud.com/hub5_signin/microsoft_azuread/?g=44BBB1F90915236A97502FF4BE2952CB&c=5&uid=0&ht=2&ref=), [NegometrixPortal Single Sign On (SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/negometrixportal-tutorial), [TeamsChamp](https://login.microsoftonline.com/551f45da-b68e-4498-a7f5-a6e1efaeb41c/adminconsent?client_id=ca9bbfa4-1316-4c0f-a9ee-1248ac27f8ab&redirect_uri=https://admin.teamschamp.com/api/adminconsent&state=6883c143-cb59-42ee-a53a-bdb5faabf279), [Motus](https://docs.microsoft.com/azure/active-directory/saas-apps/motus-tutorial), [MyAryaka](https://docs.microsoft.com/azure/active-directory/saas-apps/myaryaka-tutorial), [BlueMail](https://loginself1.bluemail.me/), [Beedle](https://teams-web.beedle.co/#/), [Visma](https://docs.microsoft.com/azure/active-directory/saas-apps/visma-tutorial), [OneDesk](https://docs.microsoft.com/azure/active-directory/saas-apps/onedesk-tutorial), [Foko Retail](https://docs.microsoft.com/azure/active-directory/saas-apps/foko-retail-tutorial), [Qmarkets Idea & Innovation Management](https://docs.microsoft.com/azure/active-directory/saas-apps/qmarkets-idea-innovation-management-tutorial), [Netskope User Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-user-authentication-tutorial), [uniFLOW Online](https://docs.microsoft.com/azure/active-directory/saas-apps/uniflow-online-tutorial), [Claromentis](https://docs.microsoft.com/azure/active-directory/saas-apps/claromentis-tutorial), [Jisc Student Voter Registration](https://docs.microsoft.com/azure/active-directory/saas-apps/jisc-student-voter-registration-tutorial), [e4enable](https://portal.e4enable.com/)
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Multi-Factor Authentication, and successful sign-in.
 
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md).
+ 
+---
+
+### Improved Unfamiliar Sign-in Properties
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+  Unfamiliar sign-in properties detections has been updated. Customers may notice more high-risk unfamiliar sign-in properties detections. For more information, see [What is risk?](../identity-protection/concept-identity-protection-risks.md)
+ 
+---
+
+### Public Preview refresh of Cloud Provisioning agent now available (Version: 1.1.281.0)
+
+**Type:** Changed feature  
+**Service category:** Azure AD Cloud Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+Cloud provisioning agent has been released in public preview and is now available through the portal. This release contains several improvements including, support for GMSA for your domains, which provides better security, improved initial sync cycles, and support for large groups. Check out the release version [history](../app-provisioning/provisioning-agent-release-version-history.md) for more details. 
+ 
+---
+
+### BitLocker recovery key API endpoint now under /informationProtection
+
+**Type:** Changed feature  
+**Service category:** Device Access Management  
+**Product capability:** Device Lifecycle Management
+ 
+Previously, you could recover BitLocker keys via the /bitlocker endpoint. We'll eventually be deprecating this endpoint, and customers should begin consuming the API that now falls under /informationProtection. 
+
+See [BitLocker recovery API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) for updates to the documentation to reflect these changes.
 
 ---
 
-### New and improved Azure AD application gallery
+### General Availability of Application Proxy support for Remote Desktop Services HTML5 Web Client
 
 **Type:** Changed feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Azure AD Application Proxy support for Remote Desktop Services (RDS) Web Client is now in General Availability. The RDS web client allows users to access Remote Desktop infrastructure through any HTLM5-capable browser such as Microsoft Edge, Internet Explorer 11, Google Chrome, and so on. Users can interact with remote apps or desktops like they would with a local device from anywhere. 
 
-We've updated the Azure AD application gallery to make it easier for you to find pre-integrated apps that support provisioning, OpenID Connect, and SAML on your Azure Active Directory tenant.
-
-For more information, see [Add an application to your Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal).
-
+By using Azure AD Application Proxy, you can increase the security of your RDS deployment by enforcing pre-authentication and Conditional Access policies for all types of rich client apps. To learn more, see [Publish Remote Desktop with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+ 
 ---
 
-### Increased app role definition length limit from 120 to 240 characters
+### New enhanced Dynamic Group service is in Public Preview
 
 **Type:** Changed feature  
-**Service category:** Enterprise Apps  
-**Product capability:** SSO
+**Service category:** Group Management  
+**Product capability:** Collaboration
+ 
+Enhanced dynamic group service is now in Public Preview. New customers that create dynamic groups in their tenants will be using the new service. The time required to create a dynamic group will be proportional to the size of the group that is being created instead of the size of the tenant. This update will improve performance for large tenants significantly when customers create smaller groups. 
 
-We've heard from customers that the length limit for the app role definition value in some apps and services is too short at 120 characters. In response, we've increased the maximum length of the role value definition to 240 characters.
-
-For more information about using application-specific role definitions, see [Add app roles in your application and receive them in the token](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
-
+The new service also aims to complete member addition and removal because of attribute changes within a few minutes. Also, single processing failures won't block tenant processing. To learn more about creating dynamic groups, see our [documentation](../enterprise-users/groups-create-rule.md).
+ 
 ---

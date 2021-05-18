@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Trelica | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trelica.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 577bdae2-dbab-4445-a07e-de0119b65d76
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Trelica
@@ -29,7 +23,7 @@ With this integration, you can:
 * Enable your users to be automatically signed in to Trelica with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -44,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Trelica supports IDP-initiated SSO.
 * Trelica supports just-in-time user provisioning.
-* After you configure Trelica, you can enforce session control. This control protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Trelica, you can enforce session control. This control protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Trelica from the gallery
 
@@ -87,10 +81,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     1. In the **Reply URL** box, enter a URL having the pattern
     `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
-    > [!NOTE]
-    > The **Reply URL** value isn't real. Update this value with the actual reply URL. Contact the [Trelica Client support team](mailto:support@trelica.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> [!NOTE]
+	> The Reply URL value is not real. Update this value with the actual Reply URL (also known as the ACS).
+    > You can find this by logging in to Trelica and going to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the copy button next to the **Assertion Consumer Service (ACS) URL** to put this onto the clipboard, ready for pasting into the **Reply URL** text box in Azure AD.
+    > Read the [Trelica help documentation](https://docs.trelica.com/admin/saml/azure-ad) or contact the [Trelica Client support team](mailto:support@trelica.com) if you have questions.
 
-1. On the **Set up Single Sign-on with SAML** page, go to the **SAML Signing Certificate** section. To the right of **App Federation Metadata Url**, select the copy button to copy the URL. Save the URL on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and save it on your computer.
 
     ![The SAML Signing Certificate section, with the copy button highlighted next to App Federation Metadata Url](common/copy-metadataurl.png)
 
@@ -126,11 +122,11 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ## Configure Trelica SSO
 
-To configure single sign-on on the **Trelica** side, send the copied **App Federation Metadata Url** value to the [Trelica support team](mailto:support@trelica.com). They configure this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Trelica** side, go to the [SAML identity providers configuration page](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Click on the **New** button. Enter **Azure AD** as the Name and choose **Metadata from url** for the Metadata type. Paste the **App Federation Metadata Url** you took from Azure AD into the **Metadata url** field in Trelica.
+
+Read the [Trelica help documentation](https://docs.trelica.com/admin/saml/azure-ad) or contact the [Trelica Client support team](mailto:support@trelica.com) if you have questions.
 
 ### Create a Trelica test user
-
-In this section, you create a user called B.Simon in Trelica.
 
 Trelica supports just-in-time user provisioning, which is enabled by default. There's no action for you to take in this section. If a user doesn't already exist in Trelica, a new one is created after authentication.
 
@@ -138,18 +134,18 @@ Trelica supports just-in-time user provisioning, which is enabled by default. Th
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select the Trelica tile in the My Apps portal, you're automatically signed in to the Trelica for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Trelica tile in the My Apps portal, you're automatically signed in to the Trelica for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Trelica with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Trelica with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Trelica with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

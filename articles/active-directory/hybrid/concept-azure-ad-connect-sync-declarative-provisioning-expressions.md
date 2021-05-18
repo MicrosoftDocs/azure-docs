@@ -23,7 +23,7 @@ Azure AD Connect sync builds on declarative provisioning first introduced in For
 
 An essential part of declarative provisioning is the expression language used in attribute flows. The language used is a subset of Microsoft® Visual Basic® for Applications (VBA). This language is used in Microsoft Office and users with experience of VBScript will also recognize it. The Declarative Provisioning Expression Language is only using functions and is not a structured language. There are no methods or statements. Functions are instead nested to express program flow.
 
-For more details, see [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+For more details, see [Welcome to the Visual Basic for Applications language reference for Office 2013](/office/vba/api/overview/language-reference).
 
 The attributes are strongly typed. A function only accepts attributes of the correct type. It is also case-sensitive. Both function names and attribute names must have proper casing or an error is thrown.
 
@@ -95,4 +95,3 @@ For example:
 **Reference topics**
 
 * [Azure AD Connect sync: Functions Reference](reference-connect-sync-functions-reference.md)
-

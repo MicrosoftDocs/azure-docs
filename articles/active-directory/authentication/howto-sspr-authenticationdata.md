@@ -1,55 +1,58 @@
 ---
-title: Azure AD SSPR data requirements - Azure Active Directory
-description: Data requirements for Azure AD self-service password reset and how to satisfy them
+title: Pre-populate contact information for self-service password reset - Azure Active Directory
+description: Learn how to pre-populate contact information for users of Azure Active Directory self-service password reset (SSPR) so they can use the feature without completing a registration process.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 10/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
-# Deploy password reset without requiring end-user registration
+# Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
-To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves. Other organizations prefer to synchronize with data that already exists in Active Directory. This synced data is made available to Azure AD and SSPR without requiring user interaction if you meet the following requirements:
+To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication contact information for a user must be present. Some organizations have users register their authentication data themselves. Other organizations prefer to synchronize from authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
-* Properly format the data in your on-premises directory.
-* Configure [Azure AD Connect by using the express settings](../hybrid/how-to-connect-install-express.md).
+You can pre-populate authentication contact information if you meet the following requirements:
 
-To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
+* You have properly formatted the data in your on-premises directory.
+* You have configured [Azure AD Connect](../hybrid/how-to-connect-install-express.md) for your Azure AD tenant.
+
+Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 4251234567*.
 
 > [!NOTE]
-> There needs to be a space between the country code and the phone number.
+> There must be a space between the country code and the phone number.
 >
-> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+> Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
 ## Fields populated
 
-If you use the default settings in Azure AD Connect, the following mappings are made:
+If you use the default settings in Azure AD Connect, the following mappings are made to populate authentication contact information for SSPR:
 
-| On-premises Active Directory | Azure AD |
-| --- | --- |
-| telephoneNumber | Office phone |
-| mobile | Mobile phone |
+| On-premises Active Directory | Azure AD     |
+|------------------------------|--------------|
+| telephoneNumber              | Office phone |
+| mobile                       | Mobile phone |
 
 After a user verifies their mobile phone number, the *Phone* field under **Authentication contact info** in Azure AD is also populated with that number.
 
 ## Authentication contact info
 
-On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information, as shown in the following example screenshot:
+On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
 
-![Authentication contact info on a user in Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Manage authentication methods from the Azure portal":::
 
-* If the **Phone** field is populated and **Mobile phone** is enabled in the SSPR policy, the user sees that number on the password reset registration page and during the password reset workflow.
-* The **Alternate phone** field isn't used for password reset.
-* If the **Email** field is populated and **Email** is enabled in the SSPR policy, the user sees that email on the password reset registration page and during the password reset workflow.
-* If the **Alternate email** field is populated and **Email** is enabled in the SSPR policy, the user **won't** see that email on the password reset registration page, but they see it during the password reset workflow.
+The following considerations apply for this authentication contact info:
+
+* If the *Phone* field is populated and *Mobile phone* is enabled in the SSPR policy, the user sees that number on the password reset registration page and during the password reset workflow.
+* If the *Email* field is populated and *Email* is enabled in the SSPR policy, the user sees that email on the password reset registration page and during the password reset workflow.
 
 ## Security questions and answers
 
@@ -63,19 +66,25 @@ When a user registers, the registration page sets the following fields:
 * **Authentication Email**
 * **Security Questions and Answers**
 
-If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they want to. After they register successfully, these values are persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+If you provided a value for *Mobile phone* or *Alternate email*, users can immediately use those values to reset their passwords, even if they haven't registered for the service.
+
+Users also see those values when they register for the first time, and can modify them if they want to. After they successfully register, these values are persisted in the *Authentication Phone* and *Authentication Email* fields, respectively.
 
 ## Set and read the authentication data through PowerShell
 
 The following fields can be set through PowerShell:
 
-* **Alternate email**
-* **Mobile phone**
-* **Office phone**: Can only be set if you're not synchronizing with an on-premises directory
+* *Alternate email*
+* *Mobile phone*
+* *Office phone*
+    * Can only be set if you're not synchronizing with an on-premises directory.
+
+> [!IMPORTANT]
+> There's a known lack of parity in command features between PowerShell v1 and PowerShell v2. The [Microsoft Graph REST API (beta) for authentication methods](/graph/api/resources/authenticationmethods-overview) is the current engineering focus to provide modern interaction.
 
 ### Use PowerShell version 1
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After you have it installed, you can use the steps that follow to configure each field.
+To get started, [download and install the Azure AD PowerShell module](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). After it's installed, use the following steps to configure each field.
 
 #### Set the authentication data with PowerShell version 1
 
@@ -83,10 +92,10 @@ To get started, you need to [download and install the Azure AD PowerShell module
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
-Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
-Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 4251234567"
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 4252345678"
 
-Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 4251234567" -PhoneNumber "+1 4252345678"
 ```
 
 #### Read the authentication data with PowerShell version 1
@@ -113,9 +122,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). After you have it installed, you can use the steps that follow to configure each field.
+To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/).
 
-To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
+To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 
 ```PowerShell
 Get-Module AzureADPreview
@@ -123,16 +132,18 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
+After the module is installed, use the following steps to configure each field.
+
 #### Set the authentication data with PowerShell version 2
 
 ```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
-Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 2345678901"
-Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 4251234567"
+Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 4252345678"
 
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
+Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 4251234567" -TelephoneNumber "+1 4252345678"
 ```
 
 #### Read the authentication data with PowerShell version 2
@@ -149,16 +160,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## Next steps
 
-* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
-* [Do you have a licensing question?](concept-sspr-licensing.md)
-* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
-* [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+Once authentication contact information is pre-populated for users, complete the following tutorial to enable self-service password reset:
 
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"
+> [!div class="nextstepaction"]
+> [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)

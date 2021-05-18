@@ -3,16 +3,16 @@ title: Create a new access package in entitlement management - Azure AD
 description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -53,7 +53,7 @@ Here are the high-level steps to create a new access package.
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -73,11 +73,11 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** drop-down list, select the catalog you want to create the access package in. For example, you might have a catalog owner that manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global administrator or User administrator, or you must be a catalog owner or access package manager in that catalog.
+    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global administrator, Identity Governance administrator or User administrator, or you must be a catalog owner or access package manager in that catalog.
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
 
     The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
 
@@ -97,13 +97,16 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pane.
+    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, check the **See all** check box at the top of the Select pane. If you only want to select resources that are currently in the selected catalog, leave the check box **See all** unchecked (default state).
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 
     ![Access package - Resource role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Click **Next**.
+
+>[!NOTE]
+>You can add dynamic groups to a catalog and to an access package. However, you will be able to select only the Owner role when managing a dynamic group resource in an access package.
 
 ## Requests
 
@@ -123,7 +126,7 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 1. Review the access package's settings
 
-    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
+    ![Access package - Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Click **Create** to create the access package.
 
@@ -133,14 +136,15 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 You can also create an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
 
-1. [List the accessPackageResources in the catalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) and [create an accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) for any resources that are not yet in the catalog.
-1. [List the accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
-1. [Create an accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
-1. [Create an accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Create an accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) for each resource role needed in the access package.
+1. [List the accessPackageResources in the catalog](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that are not yet in the catalog.
+1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when subsequently creating an accessPackageResourceRoleScope.
+1. [Create an accessPackage](/graph/tutorial-access-package-api).
+1. [Create an accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta&preserve-view=true).
+1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
 
 ## Next steps
 
 - [Share link to request an access package](entitlement-management-access-package-settings.md)
 - [Change resource roles for an access package](entitlement-management-access-package-resources.md)
 - [Directly assign a user to the access package](entitlement-management-access-package-assignments.md)
+- [Create an access review for an access package](entitlement-management-access-reviews-create.md)

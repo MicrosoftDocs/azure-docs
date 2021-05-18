@@ -3,12 +3,15 @@ title: INDEX_OF in Azure Cosmos DB query language
 description: Learn about SQL system function INDEX_OF in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # INDEX_OF (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.  
   
 ## Syntax

@@ -2,13 +2,15 @@
 title: Configure Blockchain Data Manager using Azure portal - Azure Blockchain Service
 description: Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
 #Customer intent: As a network operator, I want to use the Azure portal to configure Blockchain Data Manager.
 ---
 # Configure Blockchain Data Manager using the Azure portal
 
 Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data and send it to an Azure Event Grid Topic.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 To configure a Blockchain Data Manager instance, you:
 

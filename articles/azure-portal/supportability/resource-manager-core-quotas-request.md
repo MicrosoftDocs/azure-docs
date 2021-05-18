@@ -4,10 +4,8 @@ description: Azure Resource Manager vCPU quota increase requests
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
-ms.service: azure-supportability
+ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-
 ---
 
 # Quota increase requests
@@ -19,5 +17,7 @@ You can request an increase of the vCPUs quota limit for the VM series from Azur
 
 When a new subscription is created, the default Total Regional vCPUs may not be equal to the sum of default vCPU quotas for all individual VM series. This fact can result in a subscription with enough quota for each individual VM series that you want to deploy. It could lack enough quota for Total Regional vCPUs for all deployments. In this case, you'll need to submit a request to increase the Total Regional vCPUs limit explicitly. Total Regional vCPUs limit can't exceed the sum of approved quota across all VM series for the region.
 
-For more information about quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+> [!NOTE]
+> If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../../azure-resource-manager/templates/error-resource-quota.md#solution).
 
+For more information about quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

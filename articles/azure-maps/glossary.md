@@ -26,7 +26,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="altitude"></a> **Altitude**: The height or vertical elevation of a point above a reference surface. Altitude measurements are based on a given reference datum, such as mean sea level. See also elevation.
 
-<a name="ambiguous"></a> **Ambiguous**: A state of uncertainty in data classification that exists when an object may appropriately be assigned two or more values for a given attribute. For example, when geocoding "CA", two ambiguous results are returned: "Canada" and "California". "CA" is a country and a state code, for "Canada" and "California", respectively. 
+<a name="ambiguous"></a> **Ambiguous**: A state of uncertainty in data classification that exists when an object may appropriately be assigned two or more values for a given attribute. For example, when geocoding "CA", two ambiguous results are returned: "Canada" and "California". "CA" is a country/region and a state code, for "Canada" and "California", respectively. 
 
 <a name="annotation"></a> **Annotation**: Text or graphics displayed on the map to provide information to the user. Annotation may identify or describe a specific map entity, provide general information about an area on the map, or supply information about the map itself.
 
@@ -48,7 +48,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: The former name of Azure Maps when it was in preview.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft’s cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports role-based access control (RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft's cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports Azure role-based access control (Azure RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Azure Maps key**: See [Shared key authentication](#shared-key-authentication).
 
@@ -88,7 +88,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="coordinate-system"></a> **Coordinate system**: A reference framework used to define the positions of points in space in two or three dimensions.
 
-<a name="country-code"></a> **Country code**: A unique identifier for a country/region based on the ISO standard. ISO2 is a two-character code for a country (for example, US), which ISO3 represents a three-character code (for example, USA).
+<a name="country-code"></a> **Country code**: A unique identifier for a country/region based on the ISO standard. ISO2 is a two-character code for a country/region (for example, US), which ISO3 represents a three-character code (for example, USA).
 
 <a name="country-subdivision"></a> **Country subdivision**: A first-level subdivision of a country/region, commonly known as a state or province.
 
@@ -302,7 +302,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="radial-search"></a> **Radial search**: A spatial query that searches a fixed straight-line distance (as the crow flies) from a point. 
 
-<a name="raster-data"></a> **Raster data**: A matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as temperature. Raster’s include digital aerial photographs, imagery from satellites, digital pictures, and scanned maps.
+<a name="raster-data"></a> **Raster data**: A matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as temperature. Raster's include digital aerial photographs, imagery from satellites, digital pictures, and scanned maps.
 
 <a name="raster-layer"></a> **Raster layer**: A tile layer that consists of raster images.
 
@@ -342,7 +342,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="spatial-reference"></a> **Spatial reference**: A coordinate-based local, regional, or global system used to precisely locate geographical entities. It defines the coordinate system used to relate map coordinates to locations in the real world. Spatial references ensure spatial data from different layers, or sources, can be integrated for accurate viewing or analysis. Azure Maps uses the [EPSG:3857](https://epsg.io/3857) coordinate reference system and WGS 84 for input geometry data.
 
-<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
+<a name="sql-spatial"></a> **SQL spatial**: Refers to the spatial functionality built into SQL Azure and SQL Server 2008 and above. This spatial functionality is also available as a .NET library that can be used independently of SQL Server. For more information, see the [Spatial Data (SQL Server) documentation](/sql/relational-databases/spatial/spatial-data-sql-server) for more information.
 
 <a name="subscription-key"></a> **Subscription key**: See [Shared key authentication](#shared-key-authentication).
 
@@ -403,5 +403,4 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="zip-code"></a> **Zip code**: See [Postal code](#postal-code).
 
-<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In azure maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
-
+<a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map will often be visible. But, the map will show limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map will display an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.

@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 
@@ -19,13 +19,13 @@ As users connect to workloads using Azure Bastion, Bastion can log diagnostics o
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
-   ![diagnostics settings](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Screenshot that shows the "Diagnostics settings" page.](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
 
-   ![add diagnostic setting](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Screenshot that shows the "Diagnostics settings" page with the "Add diagnostic setting" button selected.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. On the **Diagnostics settings** page, select the type of storage account to be used for storing diagnostics logs.
 
-   ![select storage location](./media/diagnostic-logs/3add-storage-account.png)
+   ![Screenshot of the "Diagnostics settings" page with the section to select a storage location highlighted.](./media/diagnostic-logs/3add-storage-account.png)
 4. When you complete the settings, it will look similar to this example:
 
    ![example settings](./media/diagnostic-logs/4example-settings.png)

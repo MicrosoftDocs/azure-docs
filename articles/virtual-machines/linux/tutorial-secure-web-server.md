@@ -1,26 +1,18 @@
 ---
-title: "Tutorial: Secure a Linux web server with TLS/SSL certificates in Azure"
+title: "Tutorial: Secure a web server with TLS/SSL certificates"
 description: In this tutorial, you learn how to use the Azure CLI to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 04/30/2018
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS/SSL certificates so that I can protect my customer data on web applications that I build and run.
 ---
 
-# Tutorial: Secure a web server on a Linux virtual machine in Azure with TLS/SSL certificates stored in Key Vault
+# Tutorial: Use TLS/SSL certificates to secure a web server
 To secure web servers, a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate can be used to encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -29,7 +21,7 @@ To secure web servers, a Transport Layer Security (TLS), previously known as Sec
 > * Create a VM and install the NGINX web server
 > * Inject the certificate into the VM and configure NGINX with a TLS binding
 
-This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -68,7 +60,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare a certificate for use with a VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convert the certificate with [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convert the certificate with [az vm secret format](/cli/azure/vm/secret#az_vm_secret_format). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -156,4 +148,4 @@ In this tutorial, you secured an NGINX web server with a TLS/SSL certificate sto
 Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
+> [Linux virtual machine script samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

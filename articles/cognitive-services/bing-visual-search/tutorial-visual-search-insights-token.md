@@ -11,8 +11,14 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 # Tutorial: Find similar images from previous searches using an image insights token
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Visual Search client library enables you to find images online from previous searches that return an `ImageInsightsToken`. This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs and URLs of similar images found online.
 
@@ -33,7 +39,7 @@ The full source code for this tutorial can be found with additional error handli
 
 ## Get the ImageInsightsToken from the Bing Image Search client library
 
-This application uses an `ImageInsightsToken` obtained through the [Bing Image Search client library](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). In a new C# console application, create a client to call the API using `ImageSearchClient()`. Then use `SearchAsync()` with your query:
+This application uses an `ImageInsightsToken` obtained through the [Bing Image Search client library](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). In a new C# console application, create a client to call the API using `ImageSearchClient()`. Then use `SearchAsync()` with your query:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -118,14 +124,14 @@ Getting the actual image URLs from action types requires a cast that reads an `A
     }
 ```
 
-For more information about these data types, see [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+For more information about these data types, see [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 ## Returned URLs
 
 The complete application returns the following URLs:
 
-|ActionType  |URL  | |
-|---------|---------|---------|
+|ActionType  |URL  |
+|---------|---------|
 |MoreSizes -> WebSearchUrl     |         |
 |VisualSearch -> WebSearchUrl     |         |
 |ImageById -> WebSearchUrl    |         |

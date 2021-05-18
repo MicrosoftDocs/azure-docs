@@ -6,7 +6,8 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
+ms.custom: references_regions
+ms.date: 04/29/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
@@ -21,8 +22,10 @@ provisioning refers to the capacity available to the coordinator
 and worker nodes in your Hyperscale (Citus) server group. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
+
+### Standard tier
  
-|                       | Worker node           | Coordinator node      |
+| Resource              | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
 | Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memory per vCore, GiB | 8                     | 4                     |
@@ -75,13 +78,56 @@ following values:
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
+### Basic tier (preview)
+
+> [!IMPORTANT]
+> The Hyperscale (Citus) basic tier is currently in preview.  This preview
+> version is provided without a service level agreement, and it's not
+> recommended for production workloads. Certain features might not be supported
+> or might have constrained capabilities.
+>
+> You can see a complete list of other new features in [preview features for
+> Hyperscale (Citus)](hyperscale-preview-features.md).
+
+The Hyperscale (Citus) [basic tier](concepts-hyperscale-tiers.md) is a server
+group with just one node.  Because there isn't a distinction between
+coordinator and worker nodes, it's less complicated to choose compute and
+storage resources.
+
+| Resource              | Available options     |
+|-----------------------|-----------------------|
+| Compute, vCores       | 2, 4, 8               |
+| Memory per vCore, GiB | 4                     |
+| Storage size, GiB     | 128, 256, 512         |
+| Storage type          | General purpose (SSD) |
+| IOPS                  | Up to 3 IOPS/GiB      |
+
+The total amount of RAM in a single Hyperscale (Citus) node is based on the
+selected number of vCores.
+
+| vCores | GiB RAM |
+|--------|---------|
+| 2      | 8       |
+| 4      | 16      |
+| 8      | 32      |
+
+The total amount of storage you provision also defines the I/O capacity
+available to the basic tier node.
+
+| Storage size, GiB | Maximum IOPS |
+|-------------------|--------------|
+| 128               | 384          |
+| 256               | 768          |
+| 512               | 1,536        |
+
 ## Regions
 Hyperscale (Citus) server groups are available in the following Azure regions:
 
 * Americas:
+	* Brazil South
 	* Canada Central
 	* Central US
-	* East US
+	* East US *
 	* East US 2
 	* North Central US
 	* West US 2
@@ -91,9 +137,13 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* Korea Central
 	* Southeast Asia
 * Europe:
+	* France Central
 	* North Europe
+	* Switzerland North
 	* UK South
 	* West Europe
+
+(\* = supports [preview features](hyperscale-preview-features.md))
 
 Some of these regions may not be initially activated on all Azure
 subscriptions. If you want to use a region from the list above and don't see it

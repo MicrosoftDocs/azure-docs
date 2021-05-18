@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/10/2018
 ms.author: cynthn
 ---

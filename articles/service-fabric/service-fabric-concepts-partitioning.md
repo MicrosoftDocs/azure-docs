@@ -1,12 +1,15 @@
 ---
 title: Partitioning Service Fabric services 
-description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
-
+description: Learn how to partition Service Fabric stateless and stateful services
 ms.topic: conceptual
 ms.date: 06/30/2017
+ms.custom: devx-track-csharp
 ---
 # Partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. Partitioning enables data storage on the local machines so data and compute can be scaled together.
+
+> [!TIP]
+> A [complete sample](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) of the code in this article is available on GitHub.
 
 ## Partitioning
 Partitioning is not unique to Service Fabric. In fact, it is a core pattern of building scalable services. In a broader sense, we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well-known form of partitioning is [data partitioning][wikipartition], also known as sharding.
@@ -16,11 +19,11 @@ For stateless services, you can think about a partition being a logical unit tha
 
 ![Stateless service](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-There are really two types of stateless service solutions. The first one is a service that persists its state externally, for example in an Azure SQL database (like a website that stores the session information and data). The second one is computation-only services (like a calculator or image thumbnailing) that do not manage any persistent state.
+There are really two types of stateless service solutions. The first one is a service that persists its state externally, for example in a database in Azure SQL Database (like a website that stores the session information and data). The second one is computation-only services (like a calculator or image thumbnailing) that do not manage any persistent state.
 
 In either case, partitioning a stateless service is a very rare scenario--scalability and availability are normally achieved by adding more instances. The only time you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests.
 
-As an example, consider a case where users with IDs in a certain range should only be served by a particular service instance. Another example of when you could partition a stateless service is when you have a truly partitioned backend (e.g. a sharded SQL database) and you want to control which service instance should write to the database shard--or perform other preparation work within the stateless service that requires the same partitioning information as is used in the backend. Those types of scenarios can also be solved in different ways and do not necessarily require service partitioning.
+As an example, consider a case where users with IDs in a certain range should only be served by a particular service instance. Another example of when you could partition a stateless service is when you have a truly partitioned backend (e.g. a sharded database in SQL Database) and you want to control which service instance should write to the database shard--or perform other preparation work within the stateless service that requires the same partitioning information as is used in the backend. Those types of scenarios can also be solved in different ways and do not necessarily require service partitioning.
 
 The remainder of this walkthrough focuses on stateful services.
 
@@ -342,14 +345,14 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+The complete solution of the code used in this article is available here: https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions.
 
 ## Next steps
-For information on Service Fabric concepts, see the following:
+Learn more about Service Fabric services:
 
+* [Connect and communicate with services in Service Fabric](service-fabric-connect-and-communicate-with-services.md)
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
-* [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

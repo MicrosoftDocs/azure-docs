@@ -1,14 +1,10 @@
 ---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -70,9 +66,9 @@ The following table provides a list of compute environments supported by Data Fa
 | --- | --- |
 | [On-demand HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (classic)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
 
 ### How does Azure Data Factory compare with SQL Server Integration Services (SSIS)? 
 See the [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
@@ -92,13 +88,19 @@ Pipelines are supposed to bundle related activities. If the datasets that connec
 ### What are the supported data stores?
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
 ### What are the supported file formats?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+Azure Data Factory supports the following file format types:
+
+* [Text format](data-factory-supported-file-and-compression-formats.md#text-format)
+* [JSON format](data-factory-supported-file-and-compression-formats.md#json-format)
+* [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format)
+* [ORC format](data-factory-supported-file-and-compression-formats.md#orc-format)
+* [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format)
 
 ### Where is the copy operation performed?
 See [Globally available data movement](data-factory-data-movement-activities.md#global) section for details. In short, when an on-premises data store is involved, the copy operation is performed by the Data Management Gateway in your on-premises environment. And, when the data movement is between two cloud stores, the copy operation is performed in the region closest to the sink location in the same geography.
@@ -207,4 +209,4 @@ If you really want to stop all the executions immediately, the only way would be
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[hdinsight-alternate-storage-2]: /archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

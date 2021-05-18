@@ -11,7 +11,7 @@ manager: eliotgra
 ms.custom:  [amqp, mqtt]
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service
+# What is Azure IoT Hub Device Provisioning Service?
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service
@@ -74,14 +74,14 @@ DPS has many features, making it ideal for provisioning devices.
 
 * **Secure attestation** support for both X.509 and TPM-based identities.
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
-* **Multiple allocation policies** to control how DPS assigns devices to IoT hubs in support of your scenarios: Lowest latency, evenly weighted distribution (default), and static configuration via the enrollment list. Latency is determined using the same method as [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
+* **Multiple allocation policies** to control how DPS assigns devices to IoT hubs in support of your scenarios: Lowest latency, evenly weighted distribution (default), and static configuration via the enrollment list. Latency is determined using the same method as [Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#performance).
 * **Monitoring and diagnostics logging** to make sure everything is working properly.
 * **Multi-hub support** allows DPS to assign devices to more than one IoT hub. DPS can talk to hubs across multiple Azure subscriptions.
 * **Cross-region support** allows DPS to assign devices to IoT hubs in other regions.
 * **Encryption for data at rest** allows data in DPS to be encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
 
-You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
+You can learn more about the concepts and features involved in device provisioning by reviewing the [DPS terminology](concepts-service.md) topic along with the other conceptual topics in the same section.
 
 ## Cross-platform support
 Just like all Azure IoT services, DPS works cross-platform with a variety of operating systems. Azure offers open-source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. DPS supports the following protocols for connecting devices:
@@ -112,11 +112,13 @@ For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
-DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.
-> [!div class="nextstepaction"]
-> [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
-> [Create and provision a simulated device](quick-create-simulated-device.md)
-> [Set up device for provisioning](tutorial-set-up-device.md)
+
+[Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
+
+[Create and provision a simulated device](quick-create-simulated-device.md)
+
+[Set up device for provisioning](tutorial-set-up-device.md)

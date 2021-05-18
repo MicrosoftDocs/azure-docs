@@ -1,10 +1,10 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for MariaDB
 description: Create and manage Azure Database for MariaDB firewall rules using the Azure portal
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure portal

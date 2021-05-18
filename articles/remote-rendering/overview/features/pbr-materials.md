@@ -21,7 +21,7 @@ PBR materials are not a universal solution, though. There are materials that ref
 
 These properties are common to all materials:
 
-* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
+* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *:::no-loc text="vertex "::: colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
 
   > [!NOTE]
   > When a PBR material is fully transparent, like a perfectly clean piece of glass, it still reflects the environment. Bright spots like the sun are still visible in the reflection. This is different for [color materials](color-materials.md).
@@ -32,9 +32,17 @@ These properties are common to all materials:
 
 * **textureCoordinateScale** and **textureCoordinateOffset:** The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
-* **useVertexColor:** If the mesh contains vertex colors and this option is enabled, the meshes' vertex colors are multiplied into the *albedoColor* and *albedoMap*. By default vertex colors are disabled.
+* **useVertexColor:** If the mesh contains :::no-loc text="vertex"::: colors and this option is enabled, the meshes' :::no-loc text="vertex"::: color is multiplied into the *albedoColor* and *albedoMap*. By default *useVertexColor* is disabled.
 
-* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [Single-sided rendering](single-sided-rendering.md).
+* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** If the TransparencyWritesDepth flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material flag *transparent* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
+
+* **FresnelEffect:** This material flag enables the additive [fresnel effect](../../overview/features/fresnel-effect.md) on the respective material. The appearance of the effect is governed by the other fresnel parameters explained in the following. 
+
+* **FresnelEffectColor:** The fresnel color used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the base color of the fresnel shine (see [fresnel effect](../../overview/features/fresnel-effect.md) for a full explanation). Currently only the rgb-channel values are important and the alpha value will be ignored.
+
+* **FresnelEffectExponent:** The fresnel exponent used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the spread of the fresnel shine. The minimum value 0.01 causes a spread across the whole object. The maximum value 10.0 constricts the shine to only the most gracing edges visible.
 
 ## PBR material properties
 
@@ -50,7 +58,7 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
   If both a metalness value and a metalness map are supplied, the final value will be the product of the two.
 
-  ![metalness and roughness](./media/metalness-roughness.png)
+  ![Spheres rendered with different metalness and roughness values](./media/metalness-roughness.png)
 
   In the picture above, the sphere in the bottom-right corner looks like a real metal material, the bottom-left looks like ceramic or plastic. The albedo color is also changing according to physical properties. With increasing roughness, the material loses reflection sharpness.
 
@@ -58,13 +66,13 @@ The core idea of physically based rendering is to use *BaseColor*, *Metalness*, 
 
 * **occlusionMap** and **aoScale:** [Ambient occlusion](https://en.wikipedia.org/wiki/Ambient_occlusion) makes objects with crevices look more realistic by adding shadows to occluded areas. Occlusion value range from `0.0` to `1.0`, where `0.0` means darkness (occluded) and `1.0` means no occlusions. If a 2D texture is provided as an occlusion map, the effect is enabled and *aoScale* acts as a multiplier.
 
-  ![Occlusion Map](./media/boom-box-ao2.gif)
+  ![An object rendered with and without ambient occlusion](./media/boom-box-ao2.gif)
 
 * **transparent:** For PBR materials, there is only one transparency setting: it is enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering pipeline is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
 
   Transparent geometry is expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it is better to use alpha clipping instead.
 
-  ![Transparency](./media/transparency.png)
+  ![Spheres rendered with zero to full transparency](./media/transparency.png)
   Notice in the image above, how the right-most sphere is fully transparent, but the reflection is still visible.
 
   > [!IMPORTANT]
@@ -76,6 +84,13 @@ Azure Remote Rendering uses the Cook-Torrance micro-facet BRDF with GGX NDF, Sch
 
  An alternative to the *Metalness-Roughness* PBR model used in Azure Remote Rendering is the *Specular-Glossiness* PBR model. This model can represent a broader range of materials. However, it is more expensive, and usually does not work well for real-time cases.
  It is not always possible to convert from *Specular-Glossiness* to *Metalness-Roughness* as there are *(Diffuse, Specular)* value pairs that cannot be converted to *(BaseColor, Metalness)*. The conversion in the other direction is simpler and more precise, since all *(BaseColor, Metalness)* pairs correspond to well-defined *(Diffuse, Specular)* pairs.
+
+## API documentation
+
+* [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
+* [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## Next steps
 

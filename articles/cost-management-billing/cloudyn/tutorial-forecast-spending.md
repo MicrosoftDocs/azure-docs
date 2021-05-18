@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
@@ -64,4 +65,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to manage costs with cost allocation and showback reports.
 
 > [!div class="nextstepaction"]
-> [Manage costs with cost allocation and showback reports](../../cost-management/tutorial-manage-costs.md)
+> [Manage costs with cost allocation and showback reports](./tutorial-manage-costs.md)

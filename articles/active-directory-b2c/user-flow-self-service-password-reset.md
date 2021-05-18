@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/30/2018
+ms.topic: how-to
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 With the self-service password reset feature, your customers who have signed up for local accounts can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of customers using it on a regular basis. Currently, using a verified email address is the only supported recovery method.
 
 > [!NOTE]
-> This article applies to self-service password reset used in the context of the V1 **Sign in** user flow, which uses **Local Account SignIn** as the identity provider. If you need fully customizable password reset user flows invoked from your app, see [this article](user-flow-overview.md).
+> This article applies to self-service password reset used in the context of the standard **Sign in** user flow, which uses **Local Account SignIn** as the identity provider. If you need fully customizable password reset user flows invoked from your app, see [this article](user-flow-overview.md).
 >
 >
 

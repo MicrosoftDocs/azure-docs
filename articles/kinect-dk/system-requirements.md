@@ -1,14 +1,14 @@
 ---
 title: Azure Kinect Sensor SDK system requirements
 description: Understand the system requirements for the Azure Kinect Sensor SDK on Windows and Linux.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.custom: 
 - CI 115266
 - CSSTroubleshooting
 manager: dcscontentpm
 ms.prod: kinect-dk
-ms.date: 03/12/2020
+ms.date: 03/05/2021
 ms.topic: article
 keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements
 ---
@@ -47,7 +47,7 @@ The body tracking PC host requirement is more stringent than the general PC host
 
 - Seventh Gen Intel&reg; CoreTM i5 Processor (Quad Core 2.4 GHz or faster)
 - 4 GB Memory
-- NVIDIA GEFORCE GTX 1070 or better
+- NVIDIA GEFORCE GTX 1050 or equivalent
 - Dedicated USB3 port
 
 The recommended minimum configuration assumes K4A_DEPTH_MODE_NFOV_UNBINNED depth mode at 30fps tracking 5 people. Lower end or older CPUs and NVIDIA GPUs may also work depending on your use-case.

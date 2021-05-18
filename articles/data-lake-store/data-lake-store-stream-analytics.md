@@ -1,10 +1,10 @@
 ---
 title: Stream data from Stream Analytics to Data Lake Storage Gen1 - Azure
-description: Use Azure Stream Analytics to stream data into Azure Data Lake Storage Gen1.
+description: Learn how to use Azure Data Lake Storage Gen1 as an output for an Azure Stream Analytics job, with a simple scenario that reads data from an Azure Storage blob.
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 
@@ -38,11 +38,11 @@ You start by creating a Stream Analytics job that includes an input source and a
 
 1. Open the page for the Stream Analytics job, from the left pane click the **Inputs** tab, and then click **Add**.
 
-	![Add an input to your job](./media/data-lake-store-stream-analytics/create.input.1.png "Add an input to your job")
+	![Screenshot of the Stream Analytics Job blade with the Inputs option and the Add stream input option called out.](./media/data-lake-store-stream-analytics/create.input.1.png "Add an input to your job")
 
 2. On the **New input** blade, provide the following values.
 
-    ![Add an input to your job](./media/data-lake-store-stream-analytics/create.input.2.png "Add an input to your job")
+    ![Screenshot of the Blob storage - new input blade.](./media/data-lake-store-stream-analytics/create.input.2.png "Add an input to your job")
 
    * For **Input alias**, enter a unique name for the job input.
    * For **Source type**, select **Data stream**.
@@ -61,18 +61,18 @@ You start by creating a Stream Analytics job that includes an input source and a
 
 1. Open the page for the Stream Analytics job, click the **Outputs** tab, click **Add**, and select **Data Lake Storage Gen1**.
 
-	![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.1.png "Add an output to your job")
+	![Screenshot of the Stream Analytics Job blade with the Outputs option, Add option, and Data Lake Storage Gen 1 option called out.](./media/data-lake-store-stream-analytics/create.output.1.png "Add an output to your job")
 
 2. On the **New output** blade, provide the following values.
 
-    ![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.2.png "Add an output to your job")
+    ![Screenshot of the Data Lake Storage Gen 1 - new output blade with the Authorize option called out.](./media/data-lake-store-stream-analytics/create.output.2.png "Add an output to your job")
 
 	* For **Output alias**, enter a unique name for the job output. This is a friendly name used in queries to direct the query output to this Data Lake Storage Gen1 account.
 	* You will be prompted to authorize access to the Data Lake Storage Gen1 account. Click **Authorize**.
 
 3. On the **New output** blade, continue to provide the following values.
 
-	![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.3.png "Add an output to your job")
+	![Screenshot of the Data Lake Storage Gen 1 - new output blade.](./media/data-lake-store-stream-analytics/create.output.3.png "Add an output to your job")
 
    * For **Account name**, select the Data Lake Storage Gen1 account you already created where you want the job output to be sent to.
    * For **Path prefix pattern**, enter a file path used to write your files within the specified Data Lake Storage Gen1 account.

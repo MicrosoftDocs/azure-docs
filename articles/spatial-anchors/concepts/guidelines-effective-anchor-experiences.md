@@ -1,11 +1,11 @@
 ---
 title: Guidelines for effective anchor experiences
 description: Guidelines and considerations to create and locate anchors effectively by using Azure Spatial Anchors.
-author: mattwojo
-manager: jken
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: mattwoj
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 #Customer intent: Guidance for creating and locating Azure Spatial Anchors. This guidance targets mixed-reality developers.

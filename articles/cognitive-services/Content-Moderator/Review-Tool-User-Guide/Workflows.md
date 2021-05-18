@@ -80,4 +80,4 @@ Go to the **Image** tab under **Review** and verify that there is a newly create
 
 ## Next steps
 
-In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-workflow.md) to learn how to create workflows programmatically.
+In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [API console guide](../try-review-api-workflow.md) to learn how to create workflows programmatically.

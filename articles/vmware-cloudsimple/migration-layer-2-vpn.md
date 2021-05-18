@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Stretch a Layer 2 network on-premises to Private Cloud
 description: Describes how to set up a Layer 2 VPN between NSX-T on a CloudSimple Private Cloud and an on-premises standalone NSX Edge client
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -113,7 +113,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 3. Open an SSH session to the management IP address of the Edge VM. Run the ```get logical-router``` command with username **admin** and password **CloudSimple 123!**.
 
-    ![get logical-router output](media/l2vpn-fetch03.png)
+    ![Screenshot that shows an open SSH session.](media/l2vpn-fetch03.png)
 
 4. If you don't see an entry 'DR-Provider-LR', complete the following steps.
 
@@ -127,11 +127,11 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 7. Run the `get logical-router` command again on the SSH session of the Edge VM. The UUID of the 'DR-Provider-LR' logical router is displayed. Make a note of the UUID, which is required when configuring the L2VPN.
 
-    ![get logical-router output](media/l2vpn-fetch06.png)
+    ![Screenshot that shows the UUID for the logical router.](media/l2vpn-fetch06.png)
 
 ## Fetch the logical-switch ID needed for L2VPN
 
-1. Sign in to [NSX-T Manager](https://nsx-t-manager-ip-address).
+1. Sign in to NSX-T Manager (`https://nsx-t-manager-ip-address`).
 2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch\>** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
@@ -427,7 +427,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 2. Go to the folder with all the extracted files. Select all the vmdks (NSX-l2t-client-large.mf and NSX-l2t-client-large.ovf for large appliance size or NSX-l2t-client-Xlarge.mf and NSX-l2t-client-Xlarge.ovf for extra large size appliance size). Click **Next**.
 
     ![Select template](media/l2vpn-deploy-client02.png)
-    ![Select template](media/l2vpn-deploy-client03.png)
+    ![Screenshot that shows the selected vmdks files.](media/l2vpn-deploy-client03.png)
 
 3. Enter a name for the NSX-T standalone client and click **Next**.
 

@@ -19,7 +19,7 @@ Use other Azure services and tools. When you have connected your device to IoT H
 | [Manage IoT Hub messages](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code Azure IoT Hub extension|
 | [Manage your IoT device](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI and the IoT extension    |
 | [Manage your IoT device](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code Azure IoT Hub extension|
-| [Save IoT Hub messages to Azure storage](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure table storage                |
+| [Save IoT Hub messages to Azure storage](../articles/iot-hub/tutorial-routing.md#route-to-a-storage-account)  | Azure table storage                |
 | [Visualize sensor data](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualize sensor data](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |
 | [Forecast weather with sensor data](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
@@ -27,4 +27,4 @@ Use other Azure services and tools. When you have connected your device to IoT H
 
 ## Next steps
 
-When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide](../articles/iot-hub/iot-hub-devguide.md). 
+When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide](../articles/iot-hub/iot-hub-devguide.md).

@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-# As a developer or operator for Azure IoT Hub, I want to resolve 404001 DeviceNotFound errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 404001 DeviceNotFound errors.
 ---
 
 # 404001 DeviceNotFound

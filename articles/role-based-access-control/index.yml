@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 04/30/2020
+  ms.date: 02/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,7 +36,7 @@ landingContent:
     linkLists: 
       - linkListType: quickstart
         links: 
-          - text: View access for a user
+          - text: Check access for a user
             url: check-access.md
       - linkListType: tutorial
         links: 
@@ -47,16 +47,16 @@ landingContent:
       - linkListType: learn
         links: 
           - text: Secure your Azure resources with Azure RBAC
-            url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
+            url: /learn/modules/secure-azure-resources-with-rbac/
   # Card
-  - title: Manage access
+  - title: Assign roles
     linkLists: 
       - linkListType: how-to-guide
         links: 
           - text: Portal
             url: role-assignments-portal.md
-          - text: Portal - guest users
-            url: role-assignments-external-users.md
+          - text: Portal - Subscription admin
+            url: role-assignments-portal-subscription-admin.md
           - text: PowerShell
             url: role-assignments-powershell.md
           - text: Azure CLI

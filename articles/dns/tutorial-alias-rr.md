@@ -6,7 +6,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 ---

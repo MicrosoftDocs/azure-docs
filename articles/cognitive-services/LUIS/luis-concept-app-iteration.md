@@ -3,14 +3,14 @@ title: Iterative app design - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.author: diberry
+ms.date: 07/06/2020
+
 ---
 
 # Iterative app design for LUIS
@@ -102,15 +102,26 @@ You can publish to either the stage and/or production slots. Each slot can have 
 
 Trained versions aren't automatically available at your LUIS app's [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your LUIS app endpoint. You can publish to **Staging** and **Production**, giving you two versions of the app available at the endpoint. If more versions of the app need to be available at an endpoint, you should export the version and reimport it to a new app. The new app has a different app ID.
 
-### Import and export a version
+### Import a version
 
-A version can be imported at the app level. That version becomes the active version and uses the version ID in the `versionId` property of the app file. You can also import into an existing app, at the version level. The new version becomes the active version.
+A version can be **imported** as a new:
+* App, with a new app ID
+* Version of an existing app
 
-A version can be exported at the app or version level as well. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page.
+That version becomes the active version and uses the version ID in the `versionId` property of the app file.
+
+### Export a version
+
+A version can be **exported** from the LUIS portal at either the app level or version level:
+
+* App level - select app on **My apps** page, then select **Export**
+* Version level - select app link on **My apps** page, select **Manage**, select **Versions**
+
+The only difference is that the app-level, the exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page.
 
 The exported file **doesn't** contain:
 
-* Machine-learned information, because the app is retrained after it's imported
+* machine-learning information, because the app is retrained after it's imported
 * Contributor information
 
 In order to back up your LUIS app schema, export a version from the [LUIS portal](https://www.luis.ai/applications).
@@ -127,7 +138,7 @@ Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version) from a base v
 
 Each author makes changes to their own version of the app. When the author is satisfied with the model, export the new versions to JSON files.
 
-Exported apps, .json or .lu files, can be compared for changes. Combine the files to create a single file of the new version. Change the `versionId` property to signify the new merged version. Import that version into the original app.
+Exported apps, `.json` or `.lu` files, can be compared for changes. Combine the files to create a single file of the new version. Change the `versionId` property to signify the new merged version. Import that version into the original app.
 
 This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
 
@@ -145,4 +156,4 @@ When you are done with an iteration cycle, you can repeat the process. Start wit
 
 ## Next steps
 
-Learn concepts about [collaboration](luis-concept-keys.md).
+Learn concepts about [collaboration](luis-how-to-azure-subscription.md).

@@ -1,28 +1,30 @@
 ### YamlMime:Landing
 
 title: Anomaly Detector API Documentation 
-summary: Learn how to use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+summary: Learn how to use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
   titleSuffix: Azure Cognitive Services
-  description: Use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+  description: Use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
   services: cognitive-services
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 09/10/2019
-  ms.author: aahi
+  ms.date: 05/12/2021
+  ms.author: mbullwin
 
 landingContent:
-- title: About the Anomaly Detector API
+- title: About the Anomaly Detector APIs
   linkLists:
     - linkListType: overview
       links:
-        - text: What is the Anomaly Detector API?
+        - text: What is the Anomaly Detector univariate?
           url: overview.md
+        - text: What is the Anomaly Detector multivariate?
+          url: overview-multivariate.md
     - linkListType: get-started
       links:
         - text: Anomaly Detector demo
@@ -46,18 +48,26 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#
+        - text: Using C# (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
-        - text: Using JavaScript
+        - text: Using JavaScript (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
-        - text: Using Python
+        - text: Using Python (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+        - text: Using C# (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
+        - text: Using JavaScript (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript
+        - text: Using Python (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python
+        - text: Using Java (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
+
+
     - linkListType: tutorial
       links:
         - text: Visualize anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
-        - text: Detect Anomalies in streaming data using Azure Databricks
-          url: tutorials/anomaly-detection-streaming-databricks.md
     - linkListType: video
       links:
         - text: Anomaly detection on streaming data using Azure Databricks
@@ -86,6 +96,8 @@ landingContent:
           url: anomaly-detector-container-configuration.md
         - text: Deploy a container instance to Azure
           url: how-to/deploy-anomaly-detection-on-container-instances.md
+        - text: Deploy to IoT Edge
+          url: how-to/deploy-anomaly-detection-on-iot-edge.md
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support
@@ -99,6 +111,13 @@ landingContent:
           url: https://aka.ms/adadvisorsjoin
         - text: Featured user-generated content
           url: user-generated-content.md
+  
+- title: Help and feedback
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 
 - title: Reference
   linkLists:
@@ -115,6 +134,6 @@ landingContent:
         - text: Node.js SDK
           url: https://go.microsoft.com/fwlink/?linkid=2090788
         - text: Azure PowerShell
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          url: /powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
-          url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+          url: /cli/azure/cognitiveservices#az_cognitiveservices_list

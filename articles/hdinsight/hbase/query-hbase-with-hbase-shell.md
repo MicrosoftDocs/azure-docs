@@ -2,14 +2,11 @@
 title: 'Quickstart: Query Apache HBase in Azure HDInsight - HBase Shell'
 description: In this quickstart, you learn how to use Apache HBase Shell to run Apache HBase queries.
 keywords: hdinsight,hadoop,HBase
-author: hrasheed-msft
-ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.author: hrasheed
 #Customer intent: As a HBase user, I want learn HBase shell so that I can run queries.
 ---
 
@@ -29,11 +26,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For most people, data appears in the tabular format:
 
-![HDInsight Apache HBase tabular data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data" border="true":::
 
 In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtable/)), the same data looks like:
 
-![HDInsight Apache HBase BigTable data](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data" border="true":::
 
 You can use SSH to connect to HBase clusters, and then use Apache HBase Shell to create HBase tables, insert data, and query data.
 

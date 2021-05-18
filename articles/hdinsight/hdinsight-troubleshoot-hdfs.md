@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot HDFS in Azure HDInsight
 description: Get answers to common questions about working with HDFS and Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020 
@@ -114,7 +111,7 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 3. In the **Filter...** field, enter `fs.azure.write.request.size`.
 4. Change the value from 262144 (256 KB) to the new value. For example, 4194304 (4 MB).
 
-    ![Image of changing the value through Ambari Web UI](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
+    :::image type="content" source="./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png" alt-text="Image of changing the value through Ambari Web UI" border="false":::
 
 For more information on using Ambari, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
@@ -144,10 +141,4 @@ hdfs dfs -rm hdfs://mycluster/tmp/testfile
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

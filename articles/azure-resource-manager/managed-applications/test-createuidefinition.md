@@ -12,7 +12,7 @@ After [creating the createUiDefinition.json file](create-uidefinition-overview.m
 
 ## Prerequisites
 
-* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/100-marketplace-sample/createUiDefinition.json).
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -94,8 +94,8 @@ If the portal hangs at the summary screen, there might be a bug in the output se
 
 ## Test your solution files
 
-Now that you've verified your portal interface is working as expected, it's time to validate that your createUiDefinition file is properly integrated with your mainTemplate.json file. You can run a validation script test to test the content of your solution files, including the createUiDefinition file. The script validates the JSON syntax, checks for regex expressions on text fields, and makes sure the output values of the portal interface match the parameters of your template. For information on running this script, see [Run static validation checks for templates](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
+Now that you've verified your portal interface is working as expected, it's time to validate that your createUiDefinition file is properly integrated with your mainTemplate.json file. You can run a validation script test to test the content of your solution files, including the createUiDefinition file. The script validates the JSON syntax, checks for regex expressions on text fields, and makes sure the output values of the portal interface match the parameters of your template. For information on running this script, see [Run static validation checks for templates](https://aka.ms/arm-ttk).
 
 ## Next steps
 
-After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](publish-marketplace-app.md).
+After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](../../marketplace/create-new-azure-apps-offer.md).

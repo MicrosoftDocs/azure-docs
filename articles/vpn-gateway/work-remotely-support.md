@@ -1,19 +1,20 @@
 ---
-title: 'Remote work with P2S: Azure VPN Gateway'
-description: This page describes how you can leverage VPN Gateway to enable working remotely due to the COVID-19 pandemic.
+title: 'Remote work and Point-to-Site VPN gateways'
+titleSuffix: Azure VPN Gateway
+description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely due to the COVID-19 pandemic.
 services: vpn-gateway
-author: anzaman
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/29/2021
 ms.author: alzam
 
 ---
 # Remote work using Azure VPN Gateway Point-to-site
 
 >[!NOTE]
->This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
+>This article describes how you can leverage Azure VPN Gateway, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during the COVID-19 epidemic.
@@ -26,13 +27,13 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 The table below shows the client operating systems and the authentication options that are available to them. It would be helpful to select the authentication method based on the client OS that is already in use. For example, select OpenVPN with Certificate-based authentication if you have a mixture of client operating systems that need to connect. Also, please note that point-to-site VPN is only supported on route-based VPN gateways.
 
-![point-to-site](./media/working-remotely-support/ostable.png "OS")
+![Screenshot that shows client operating systems and available authentication options.](./media/working-remotely-support/ostable.png "OS")
 
 ## <a name="scenario1"></a>Scenario 1 - Users need access to resources in Azure only
 
 In this scenario, the remote users only need to access to resources that are in Azure.
 
-![point-to-site](./media/working-remotely-support/scenario1.png "Scenario 1")
+![Diagram that shows a point-to-site scenario for users that need access to resources in Azure only.](./media/working-remotely-support/scenario1.png "Scenario 1")
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
@@ -51,7 +52,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 
 In this scenario, the remote users need to access to resources that are in Azure and in the on premises data center(s).
 
-![point-to-site](./media/working-remotely-support/scenario2.png "Scenario 2")
+![Diagram that shows a point-to-site scenario for users that need access to resources in Azure.](./media/working-remotely-support/scenario2.png "Scenario 2")
 
 At a high level, the following steps are needed to enable users to connect to Azure resources securely:
 
@@ -61,7 +62,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 4. Configure the on-premises device to connect to Azure virtual network gateway.
 5. Download the point-to-site profile from the Azure portal and distribute to clients
 
-To learn how to set up a site-to-site VPN tunnel, see [this link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+To learn how to set up a site-to-site VPN tunnel, see [this link](./tutorial-site-to-site-portal.md).
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 

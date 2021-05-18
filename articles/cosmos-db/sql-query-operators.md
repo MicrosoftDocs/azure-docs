@@ -3,12 +3,14 @@ title: SQL query operators for Azure Cosmos DB
 description: Learn about SQL operators such as equality, comparison, and logical operators supported by Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
 
 ---
 # Operators in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article details the various operators supported by Azure Cosmos DB.
 
@@ -29,6 +31,14 @@ The following table shows the result of equality comparisons in the SQL API betw
 For comparison operators such as `>`, `>=`, `!=`, `<`, and `<=`, comparison across types or between two objects or arrays produces `Undefined`.  
 
 If the result of the scalar expression is `Undefined`, the item isn't included in the result, because `Undefined` doesn't equal `true`.
+
+For example, the following query's comparison between a number and string value produces `Undefined`. Therefore, the filter does not include any results.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## Logical (AND, OR and NOT) operators
 

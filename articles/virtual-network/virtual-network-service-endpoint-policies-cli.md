@@ -7,12 +7,12 @@ author: rdhillon
 manager: ''
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
+# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
@@ -33,11 +33,11 @@ In this article, you learn how to:
 * Confirm access to the allowed storage account from the subnet.
 * Confirm access is denied to the non-allowed storage account from the subnet.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a virtual network
 
@@ -110,7 +110,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -248,7 +248,7 @@ az storage account network-rule add \
 
 Azure Service Endpoint policies are only available for Azure Storage. So, we'll be enabling Service Endpoint for *Microsoft.Storage* on this subnet for this example setup.
 
-Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be whitelisted for this subnet
+Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be approved for this subnet
 
 Create a service endpoint policy
 

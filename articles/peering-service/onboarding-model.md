@@ -36,7 +36,7 @@ To onboard Peering Service connection, do the following:
 
 Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain Peering Service to connect your network with the Microsoft network.
 
-Ensure the connectivity providers are partnered with Microsoft for Peering Service. 
+Ensure the [connectivity providers](location-partners.md) are partnered with Microsoft for Peering Service. 
 
 ## Onboarding Peering Service connection telemetry
 

@@ -67,7 +67,7 @@ The four core elements of a threat model are:
 
 * External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
 
-All elements in the architectural diagram are subject to various threats; this article the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+All elements in the architectural diagram are subject to various threats; this article the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) to know more about the STRIDE elements.
 
 Different elements of the application diagram are subject to certain STRIDE threats:
 

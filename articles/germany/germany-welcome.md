@@ -1,37 +1,24 @@
 ---
 title: Azure Germany overview | Microsoft Docs
 description: This article provides an overview of the Azure Germany cloud capabilities and the trustworthy design and security that support compliance requirements for German data privacy regulations
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/12/2019
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Welcome to Azure Germany
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## Overview
 Microsoft Azure Germany delivers a cloud platform built on the [foundational principles of security, privacy, compliance, and transparency](https://azure.microsoft.com/overview/clouds/germany/). Azure Germany is a physically isolated instance of Microsoft Azure. It uses world-class security and [compliance services](https://azure.microsoft.com/support/trust-center/compliance/) that are critical to German data privacy regulations for all systems and applications built on its architecture. Operated by a data trustee, Azure Germany supports multiple hybrid scenarios for building and deploying solutions on-premises or in the cloud. You can also take advantage of the instant scalability and guaranteed uptime of a hyperscale cloud service.
 
 It brings data residency, in transit and at rest in Germany, and data replication across German datacenters for business continuity. Customer data in the two datacenters is managed under the control of a data trustee, T-Systems International. This trustee is an independent German company and a subsidiary of Deutsche Telekom. It provides additional controls for customers' data, because access is provided only with the permission of customers or the data trustee.
 
-Microsoft commercial cloud services in these new datacenters adhere to German data-handling regulations and give customers additional choices for how and where data is processed.
+Microsoft commercial cloud services in these datacenters adhere to German data-handling regulations and give customers additional choices for how and where data is processed.
 
 Azure Germany includes the core components of infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). These components include infrastructure, network, storage, data management, identity management, and many other services.
 
@@ -53,13 +40,10 @@ Most of the technical content that's currently available assumes that applicatio
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).
 
 If you're interested in learning more about Azure Germany, use the following links:
 
 * [Sign up for a trial](https://azure.microsoft.com/free/germany/)
 * [Sign in](https://portal.microsoftazure.de/) (if you already have an Azure Germany account)
-* [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) 
-
-
-
+* [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)

@@ -12,7 +12,7 @@ The following table includes links to PowerShell scripts samples that create and
 
 [!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
-| | |
+| Script | Description |
 |-|-|
 | **Create cluster** ||
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |

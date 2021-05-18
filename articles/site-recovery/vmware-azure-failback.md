@@ -24,7 +24,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 
 ## Run a failover to fail back
 
-1. Make sure that Azure VMs are reprotected and replicating to the on-premises site. 
+1. Make sure that Azure VMs are reprotected and replicating to the on-premises site.
     - A VM needs at least one recovery point in order to fail back.
     - If you fail back a recovery plan, then all machines in the plan should have at least one recovery point.
 2. In the vault > **Replicated items**, select the VM. Right-click the VM > **Unplanned Failover**.

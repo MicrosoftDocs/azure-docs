@@ -10,7 +10,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: anzaman
+ms.author: kumud
 ---
 
 # Customizing content models in Video Indexer

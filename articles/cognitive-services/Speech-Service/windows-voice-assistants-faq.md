@@ -26,7 +26,7 @@ The UWP Voice Assistant Sample is a voice assistant on Windows that serves to
 The documentation provided with the sample app walks through the code path of voice activation and agent management, from the prerequisites of startup through proper cleanup.
 
 > [!div class="nextstepaction"]
-> [Visit the Github repo for the UWP Sample](https://aka.ms/MVA/sample)
+> [Visit the GitHub repo for the UWP Sample](https://aka.ms/MVA/sample)
 
 ## Frequently asked questions
 

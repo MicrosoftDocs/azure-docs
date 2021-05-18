@@ -5,25 +5,27 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This tutorial provides instructions on using the Azure Cosmos DB's bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos container. After importing, you will bulk update some properties of a document. 
 
-Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. This article describes how to use bulk executor Java library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. This article describes how to use bulk executor Java library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). The bulk executor library described is available is only available for the [Azure Cosmos DB Java sync SDK v2](sql-api-sdk-java.md) and it is the current recommended solution for Java bulk support. It is currently not available for the 3.x, 4.x or other higher SDK versions.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 
-* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).  
+* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](./local-emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticate-requests).  
 
-* [Java Development Kit (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable)  
+* [Java Development Kit (JDK) 1.7+](/java/azure/jdk/)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  
 
   - Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
@@ -38,7 +40,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB SQL AP
 
 Now let's switch to working with code by downloading a sample Java application from GitHub. This application performs bulk operations on Azure Cosmos DB data. To clone the application, open a command prompt, navigate to the directory where you want to copy the application and run the following command:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -88,7 +90,7 @@ The cloned repository contains two samples "bulkimport" and "bulkupdate" relativ
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
    ```
-   The bulk import API accepts a collection of JSON-serialized documents and it has the following syntax, for more details, see the [API documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   The bulk import API accepts a collection of JSON-serialized documents and it has the following syntax, for more details, see the [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -119,23 +121,23 @@ The cloned repository contains two samples "bulkimport" and "bulkupdate" relativ
 
 5. After you have the bulk import application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. After the target dependencies are generated, you can invoke the bulk importer application by using the following command:  
 
-   ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   ```bash
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    The bulk importer creates a new database and a collection with the database name, collection name, and throughput values specified in the App.config file. 
 
 ## Bulk update data in Azure Cosmos DB
 
-You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, see [API documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
+You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, see [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Defines the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, see the [API documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
+1. Defines the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, see the [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -157,7 +159,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more details, see the [API documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more details, see the [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -179,18 +181,19 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |int getNumberOfDocumentsUpdated()  |   The total number of documents that were successfully updated out of the documents supplied to the bulk update API call.      |
    |double getTotalRequestUnitsConsumed() |  The total request units (RU) consumed by the bulk update API call.       |
    |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
-   |List\<Exception> getErrors()   |       Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
+   |List\<Exception> getErrors()   |       Gets the list of operational or networking issues related to the update operation.      |
+   |List\<BulkUpdateFailure> getFailedUpdates()   |       Gets the list of updates which could not be completed along with the specific exceptions leading to the failures.|
 
 3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. After the target dependencies are generated, you can invoke the bulk update application by using the following command:
 
-   ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   ```bash
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## Performance tips 
@@ -210,5 +213,3 @@ Consider the following points for better performance when using bulk executor li
     
 ## Next steps
 * To learn about maven package details and release notes of bulk executor Java library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-java.md).
-
-

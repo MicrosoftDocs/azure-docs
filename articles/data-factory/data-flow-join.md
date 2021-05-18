@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
+ms.date:  05/15/2020
 ---
 
 # Join transformation in mapping data flow
@@ -58,6 +58,12 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 ![Join Transformation](media/data-flow/join.png "Join")
 
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your join conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi join](media/data-flow/non-equi-join.png "Non-equi join")
+
 ## Optimizing join performance
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
@@ -97,7 +103,7 @@ The below example is a join transformation named `JoinMatchedData` that takes le
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script1.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner.](media/data-flow/join-script1.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 
@@ -119,7 +125,7 @@ The below example is a join transformation named `JoiningColumns` that takes lef
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script2.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross).](media/data-flow/join-script2.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 

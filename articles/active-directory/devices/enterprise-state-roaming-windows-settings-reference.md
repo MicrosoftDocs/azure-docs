@@ -5,7 +5,7 @@ description: Settings that will be roamed or backed up in Windows 10 with ESR
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 
 ms.author: joflore

@@ -9,7 +9,7 @@ ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
@@ -63,6 +63,6 @@ If your device isn't joined to your organization's network, you can do one of tw
 - **Register your personal device for work.** Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it can access your organization's restricted resources. For more information and step-by-step instructions, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
 ## Next steps
-- [What is the MyApps portal?](active-directory-saas-access-panel-introduction.md)
+- [What is the MyApps portal?](./my-apps-portal-end-user-access.md)
 
 - [Sign in with your phone, not your password](user-help-auth-app-sign-in.md)

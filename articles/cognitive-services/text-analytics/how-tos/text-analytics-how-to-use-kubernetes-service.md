@@ -14,15 +14,15 @@ ms.author: aahi
 
 # Deploy a Text Analytics container to Azure Kubernetes Service
 
-Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Azure Cognitive Services [Text Analytics](./text-analytics-how-to-install-containers.md) container image to Azure Kubernetes Service (AKS). This procedure shows how to create a Text Analytics resource, how to create an associated sentiment analysis image, and how to exercise this orchestration of the two from a browser. Using containers can shift your attention away from managing infrastructure to instead focusing on application development.
 
 ## Prerequisites
 
 This procedure requires several tools that must be installed and run locally. Don't use Azure Cloud Shell. You need the following:
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+* The [Azure CLI](/cli/azure/install-azure-cli) installed.
 * The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Azure Text Analytics** resource with F0 or standard pricing tiers only.
@@ -55,4 +55,4 @@ This procedure requires several tools that must be installed and run locally. Do
 ## Next steps
 
 * Use more [Cognitive Services containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use the [Text Analytics Connected Service](../index.yml)

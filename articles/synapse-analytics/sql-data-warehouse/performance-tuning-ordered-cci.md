@@ -1,13 +1,13 @@
 ---
 title: Performance tuning with ordered clustered columnstore index 
-description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance. 
+description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance in dedicated SQL pools.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 09/05/2019
+ms.subservice: sql-dw 
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
@@ -15,13 +15,13 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Performance tuning with ordered clustered columnstore index  
 
-When users query a columnstore table in Synapse SQL pool, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
+When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
 ## Ordered vs. non-ordered clustered columnstore index
 
 By default, for each table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment's value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
 
-When creating an ordered CCI, the Synapse SQL engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Due to large tables in data warehouses, this scenario doesn't happen often.  
+When creating an ordered CCI, the dedicated SQL pool engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Due to large tables in data warehouses, this scenario doesn't happen often.  
 
 To check the segment ranges for a column, run the following command with your table name and column name:
 
@@ -39,13 +39,13 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
 JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
 WHERE o.name = '<Table Name>' and cols.name = '<Column Name>'  and TMap.physical_name  not like '%HdTable%'
-ORDER BY o.name, pnp.distribution_id, cls.min_data_id 
+ORDER BY o.name, pnp.distribution_id, cls.min_data_id;
 
 
 ```
 
 > [!NOTE] 
-> In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In Synapse SQL, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
+> In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In dedicated SQL pool, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
 
 ## Query performance
 
@@ -61,7 +61,7 @@ In this example, table T1 has a clustered columnstore index ordered in the seque
 ```sql
 
 CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
-ORDER (Col_C, Col_B, Col_A)
+ORDER (Col_C, Col_B, Col_A);
 
 ```
 
@@ -90,7 +90,7 @@ The performance of data loading into an ordered CCI table is similar to a partit
 
 Here is an example performance comparison of loading data into tables with different schemas.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Bar graph that shows the performance comparison of loading data into tables with different schemas.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Here is an example query performance comparison between CCI and ordered CCI.
@@ -129,6 +129,13 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 5.    Repeat step 3 and 4 for each partition in Table_A.
 6.    Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
+>[!TIP]
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REBUILD will re-sort the data using tempdb. Monitor tempdb during rebuild operations. If you need more tempdb space, scale up the pool. Scale back down once the index rebuild is complete.
+>
+> For a dedicated SQL pool table with an ordered CCI, ALTER INDEX REORGANIZE does not re-sort the data. To resort data, use ALTER INDEX REBUILD.
+>
+> For more information on ordered CCI maintenance, see [Optimizing clustered columnstore indexes](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+
 ## Examples
 
 **A. To check for ordered columns and order ordinal:**
@@ -137,15 +144,15 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
 JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
-WHERE column_store_order_ordinal <>0
+WHERE column_store_order_ordinal <>0;
 ```
 
 **B. To change column ordinal, add or remove columns from the order list, or to change from CCI to ordered CCI:**
 
 ```sql
-CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
+CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON dbo.InternetSales
 ORDER (ProductKey, SalesAmount)
-WITH (DROP_EXISTING = ON)
+WITH (DROP_EXISTING = ON);
 ```
 
 ## Next steps

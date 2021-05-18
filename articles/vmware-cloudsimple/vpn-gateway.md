@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up a VPN gateway
 description: Describes how to set up Point-to-Site VPN gateway and Site-to-Site VPN gateway and create connections between your on-premises network and your CloudSimple Private Cloud
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

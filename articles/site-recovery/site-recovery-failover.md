@@ -41,12 +41,13 @@ Run the recovery plan failover as follows:
 1. In the Site Recovery vault, select **Recovery Plans** > *recoveryplan_name*.
 2. Click **Failover**.
 
-    ![Failover](./media/site-recovery-failover/Failover.png)
+    ![Screenshot from Azure Site Recovery showing the ADRP pane with Failover selected from the More menu.](./media/site-recovery-failover/Failover.png)
 
 3. In **Failover** > **Failover direction**, leave the default if you're replicating to Azure.
 4. In **Failover**, select a **Recovery Point** to which to fail over.
 
     - **Latest**: Use the latest point. This processes all the data that's been sent to Site Recovery service, and creates a recovery point for each machine. This option provides the lowest RPO (Recovery Point Objective) because the VM created after failover has all the data that's been replicated to Site Recovery when the failover was triggered.
+    Please note that when the source region goes down, there is no more log processing possible. So, you will have to failover to Latest Processed recovery point. See the next point to understand more.
    - **Latest processed**: Use this option to fail over VMs to the latest recovery point already processed by Site Recovery. You can see the latest processed recovery point in the VM **Latest Recovery Points**. This option provides a low RTO as no time is spent to processing the unprocessed data
    - **Latest app-consistent**: Use this option to fail VMs over to the latest application consistent recovery point that's been processed by Site Recovery.
    - **Latest multi-VM processed**:  With this option VMs that are part of a replication group failover to the latest common multi-VM consistent recovery point. Other virtual machines fail over to their latest processed recovery point. This option is only for recovery plans that have at least one VM with multi-VM consistency enabled.
@@ -75,7 +76,7 @@ You can run a planned failover for Hyper-V VMs.
 
 There are a number of jobs associated with failover.
 
-![Failover](./media/site-recovery-failover/FailoverJob.png)
+![Screenshot of the Jobs page showing a list of Jobs with Group 1: Start(1) expanded in the Name column. The line for the SQLServer job is highlighted.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Prerequisites check**: Ensures that all conditions required for failover are met.
 - **Failover**: Processes the data so that an Azure VM can be created from it. If you have chosen **Latest** recovery point, a recovery point is created from the data that's been sent to the service.
@@ -121,8 +122,8 @@ If you want to connect to Azure VMs that are created after failover using RDP or
 
 **Failover** | **Location** | **Actions**
 --- | --- | ---
-**Azure VM running Windows** | Azure VM after failover |  [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM.<br/><br/> If you can't connect, check that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](https://aka.ms/addpublicip) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
+**Azure VM running Windows** | Azure VM after failover |  [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the RDP port.<br/><br/> Check **Boot diagnostics** to verify a screenshot of the VM.<br/><br/> If you can't connect, check that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM (and the Azure subnet to which it is connected) need to allow incoming connections to the SSH port.<br/><br/> [Add a public IP address](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) for the VM.<br/><br/> Check **Boot diagnostics** for a screenshot of the VM.<br/><br/>
 
 Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.md) to troubleshoot any connectivity issues post failover.
 
@@ -143,4 +144,3 @@ After you've failed over, you need to reprotect to start replicating the Azure V
 - [Prepare](vmware-azure-reprotect.md) for VMware reprotection and failback.
 - [Fail back](hyper-v-azure-failback.md) Hyper-V VMs.
 - [Learn about](physical-to-azure-failover-failback.md) the failover and failback process for physical servers.
-

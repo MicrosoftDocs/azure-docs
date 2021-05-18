@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -27,7 +27,7 @@ Alternatively, launch Cloud Shell from Azure portal using the following icon:
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
 choose to use another environment, please ensure the following command-line tools are installed:
 
-* `az` - Azure CLI: [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` - Azure CLI: [installation instructions](/cli/azure/install-azure-cli)
 * `kubectl` - Kubernetes command-line tool: [installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` - Kubernetes package manager: [installation instructions](https://github.com/helm/helm/releases/latest)
 * `jq` - command-line JSON processor: [installation instructions](https://stedolan.github.io/jq/download/)
@@ -35,9 +35,9 @@ choose to use another environment, please ensure the following command-line tool
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (AAD) [service principal object](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
+Follow the steps below to create an Azure Active Directory (AAD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
 
-1. Create AD service principal ([Read more about RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
+1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
@@ -63,16 +63,16 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
     }
     EOF
     ```
-    To deploy an **RBAC** enabled cluster, set the `aksEnabledRBAC` field to `true`
+    To deploy an **Kubernetes RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
 
 ## Deploy Components
 This step will add the following components to your subscription:
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview) v2
-- [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) with 2 [subnets](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
-- [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Application Gateway](./overview.md) v2
+- [Virtual Network](../virtual-network/virtual-networks-overview.md) with 2 [subnets](../virtual-network/virtual-networks-overview.md)
+- [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
+- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
     ```bash
@@ -89,7 +89,7 @@ This step will add the following components to your subscription:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -98,7 +98,7 @@ This step will add the following components to your subscription:
 
 1. Once the deployment finished, download the deployment output into a file named `deployment-outputs.json`.
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## Set up Application Gateway Ingress Controller
@@ -111,7 +111,7 @@ Kubernetes infrastructure.
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we will use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We will use `az` CLI to obtain credentials for Kubernetes.
 
-Get credentials for your newly deployed AKS ([read more](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)):
+Get credentials for your newly deployed AKS ([read more](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)):
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
@@ -122,7 +122,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 ### Install AAD Pod Identity
   Azure Active Directory Pod Identity provides token-based access to
-  [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+  [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
   [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
@@ -132,25 +132,25 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
 
 To install AAD Pod Identity to your cluster:
 
-   - *RBAC enabled* AKS cluster
+   - *Kubernetes RBAC enabled* AKS cluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
      ```
 
-   - *RBAC disabled* AKS cluster
+   - *Kubernetes RBAC disabled* AKS cluster
 
      ```bash
      kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
      ```
 
 ### Install Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) is a package manager for
+[Helm](../aks/kubernetes-helm.md) is a package manager for
 Kubernetes. We will leverage it to install the `application-gateway-kubernetes-ingress` package:
 
-1. Install [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
-    - *RBAC enabled* AKS cluster
+    - *Kubernetes RBAC enabled* AKS cluster
 
         ```bash
         kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -158,7 +158,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
         helm init --tiller-namespace kube-system --service-account tiller-sa
         ```
 
-    - *RBAC disabled* AKS cluster
+    - *Kubernetes RBAC disabled* AKS cluster
 
         ```bash
         helm init
@@ -230,7 +230,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

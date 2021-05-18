@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Reward Gateway | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Reward Gateway.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 34336386-998a-4d47-ab55-721d97708e5e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Reward Gateway
 
@@ -27,7 +21,7 @@ Integrating Reward Gateway with Azure AD provides you with the following benefit
 * You can enable your users to be automatically signed-in to Reward Gateway (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -102,22 +96,18 @@ To configure Azure AD single sign-on with Reward Gateway, perform the following 
     ![Reward Gateway Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	| `https://<companyname>.rewardgateway.com`|
-	| `https://<companyname>.rewardgateway.co.uk/`|
-	| `https://<companyname>.rewardgateway.co.nz/`|
-	| `https://<companyname>.rewardgateway.com.au/`|
+
+    - `https://<companyname>.rewardgateway.com`
+    - `https://<companyname>.rewardgateway.co.uk/`
+    - `https://<companyname>.rewardgateway.co.nz/`
+    - `https://<companyname>.rewardgateway.com.au/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	|  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>`|
-	| `https://<companyname>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>`|
-	| `https://<companyname>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>`|
-	| `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
+
+    - `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.co.nz/Authentication/EndLogin?idp=<Unique Id>`
+    - `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. To get these values start setting up an Integration on the Reward Manager Portal. Details can be found on https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
@@ -199,12 +189,12 @@ In this section, you create a user called Britta Simon in Reward Gateway. Work w
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Reward Gateway tile in the Access Panel, you should be automatically signed in to the Reward Gateway for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Reward Gateway tile in the Access Panel, you should be automatically signed in to the Reward Gateway for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

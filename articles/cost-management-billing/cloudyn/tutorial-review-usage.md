@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
@@ -124,4 +125,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Forecast future spending](../../cost-management/tutorial-forecast-spending.md)
+> [Forecast future spending](./tutorial-forecast-spending.md)

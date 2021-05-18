@@ -74,10 +74,13 @@ The **Overview of your top roles** section lists the top five roles in your orga
 
 ## Email timing for activation approvals
 
-When users activates their role and the role setting requires approval, approvers will receive three emails for each approval:
+When users activate their role and the role setting requires approval, approvers will receive two emails for each approval:
 
 - Request to approve or deny the user's activation request (sent by the request approval engine)
 - The user's request is approved (sent by the request approval engine)
+
+Also, Global administrators and Privileged Role administrators receive an email for each approval:
+
 - The user's role is activated (sent by Privileged Identity Management)
 
 The first two emails sent by the request approval engine can be delayed. Currently, 90% of emails take three to ten minutes, but for 1% customers it can be much longer, up to fifteen minutes.

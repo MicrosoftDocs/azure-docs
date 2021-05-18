@@ -2,7 +2,8 @@
 title: View Azure activity logs to monitor resources
 description: Use the activity logs to review user actions and errors. Shows Azure portal PowerShell, Azure CLI, and REST.
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/13/2019 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # View activity logs to monitor actions on resources
 
@@ -14,7 +15,7 @@ Through activity logs, you can determine:
 * the status of the operation
 * the values of other properties that might help you research the operation
 
-The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 Activity logs are kept for 90 days. You can query for any range of dates, as long as the starting date isn't more than 90 days in the past.
 
@@ -134,7 +135,7 @@ You can use Resource Graph to see the change history for a resource. For more in
 
 ## Azure CLI
 
-To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command with an offset to indicate the time span.
+To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) command with an offset to indicate the time span.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d
@@ -185,8 +186,8 @@ The REST operations for working with the activity log are part of the [Insights 
 ## Next steps
 
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* To learn about setting security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+* To learn about setting security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * To learn about the commands for viewing deployment operations, see [View deployment operations](../templates/deployment-history.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](lock-resources.md).
-* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md)
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md)

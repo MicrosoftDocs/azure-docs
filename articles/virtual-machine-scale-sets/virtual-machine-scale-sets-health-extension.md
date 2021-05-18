@@ -136,7 +136,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### Azure CLI 2.0
 
-Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
+Use [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 
@@ -168,7 +168,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 The logs also periodically capture the application health status.

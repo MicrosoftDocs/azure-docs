@@ -32,7 +32,7 @@ When the user speaks a keyword, the software or hardware keyword spotter on the 
 
 ### Registration
 
-The first time a voice activated application is run, it registers its app ID and keyword information through the ConversationalAgent APIs. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword. The application also [registers with the Background Service](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+The first time a voice activated application is run, it registers its app ID and keyword information through the ConversationalAgent APIs. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword. The application also [registers with the Background Service](/windows/uwp/launch-resume/register-a-background-task).
 
 Note that this means an application cannot be activated by voice until it has been run once and registration has been allowed to complete.
 
@@ -40,7 +40,7 @@ Note that this means an application cannot be activated by voice until it has be
 
 Upon receiving the request from AAR, the Background Service launches the application. The application receives a signal through the OnBackgroundActivated life-cycle method in `App.xaml.cs` with a unique event argument. This argument tells the application that it was activated by AAR and that it should start keyword verification.
 
-If the application successfully verifies the keyword, it can make a request to be shown in the foreground. When this request succeeds, the application displays UI and continues its interaction with the user.
+If the application successfully verifies the keyword, it can make a request that appears in the foreground. When this request succeeds, the application displays UI and continues its interaction with the user.
 
 AAR still signals active applications when their keyword is spoken. Rather than signaling through the life-cycle method in `App.xaml.cs`, though, it signals through an event in the ConversationalAgent APIs.
 

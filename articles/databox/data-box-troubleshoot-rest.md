@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
-ms.date: 04/19/2019
+ms.topic: troubleshooting
+ms.date: 01/25/2021
 ms.author: alkohli
 ---
 
@@ -31,8 +31,8 @@ This section details some of the issues faced when using AzCopy for Windows with
 
 |Error message  |Recommended action |
 |---------|---------|
-|AzCopy command appears to hang for a minute before displaying this error: <br>Failed to enumerate directory https://… The remote name could not be resolved `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Check that the endpoint name `<accountname>.blob.<serialnumber>.microsoftdatabox.com` is added to the hosts file at: `C:\Windows\System32\drivers\etc\hosts`.|
-|AzCopy command appears to hang for a minute before displaying this error: <br>Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy command appears to stop responding for a minute before displaying this error: <br>Failed to enumerate directory https://… The remote name could not be resolved `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Check that the endpoint name `<accountname>.blob.<serialnumber>.microsoftdatabox.com` is added to the hosts file at: `C:\Windows\System32\drivers\etc\hosts`.|
+|AzCopy command appears to stop responding for a minute before displaying this error: <br>Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
 ## Errors seen in AzCopy for Linux
@@ -41,8 +41,8 @@ This section details some of the issues faced when using AzCopy for Linux with D
 
 |Error message  |Recommended action |
 |---------|---------|
-|AzCopy command appears to hang for 20 minutes before displaying this error: <br>Error parsing source location `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No such device or address|Check that the endpoint name `<accountname>.blob.<serialnumber>.microsoftdatabox.com` is added to the hosts file at: `/etc/hosts`.|
-|AzCopy command appears to hang for 20 minutes before displaying this error: <br>Error parsing source location… The SSL connection could not be established.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy command appears to stop responding for 20 minutes before displaying this error: <br>Error parsing source location `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No such device or address|Check that the endpoint name `<accountname>.blob.<serialnumber>.microsoftdatabox.com` is added to the hosts file at: `/etc/hosts`.|
+|AzCopy command appears to stop responding for 20 minutes before displaying this error: <br>Error parsing source location… The SSL connection could not be established.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## Errors seen in Azure Storage library for Python
 
@@ -61,6 +61,7 @@ These errors are not specific to any application.
 |Error message  |Recommended action |
 |---------|---------|
 |The connection times out. |Sign into the Data Box device and check that it is unlocked. Any time the device restarts, it stays locked until someone signs in.|
+|The REST API authentication fails with the error: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature. ErrorCode:AuthenticationFailed. |One of the reasons why this could happen is when the device time is not synced with that of Azure. If there is a large time skew, the REST API authentication will break when you are trying to copy data to the Data Box via the REST API. In this situation, you can open the outbound UDP 123 port to allow access to `time.windows.com`. Once the device time is synced with that of Azure, authentication should succeed. |
 
 ## Next steps
 

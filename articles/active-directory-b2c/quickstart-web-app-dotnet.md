@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C

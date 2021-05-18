@@ -1,9 +1,9 @@
 ---
-title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Peview)
-description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge (Preview) 
+title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
+description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge 
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -24,4 +24,3 @@ DROP EXTERNAL STREAM {external_stream_name}
 ## See also
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md) 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 

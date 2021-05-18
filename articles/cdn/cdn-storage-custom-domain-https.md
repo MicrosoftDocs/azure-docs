@@ -1,17 +1,10 @@
 ---
-title: Access storage blobs using an Azure CDN custom domain over HTTPS
+title: 'Tutorial: Access storage blobs using an Azure CDN custom domain over HTTPS'
 description: Learn how to add an Azure CDN custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
@@ -34,7 +27,7 @@ When you create a CDN endpoint in your profile, the endpoint name, which is a su
 By using the HTTPS protocol on your custom domain, you ensure that your data is delivered securely on the internet via TLS/SSL encryption. When your web browser is connected to a web site via HTTPS, it validates the web site’s security certificate and verifies it’s issued by a legitimate certificate authority. To configure HTTPS on your custom domain, follow the instructions in this tutorial: [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
 
 ## Shared Access Signatures
-If your blob storage endpoint is configured to disallow anonymous read access, you should provide a [Shared Access Signature (SAS)](cdn-sas-storage-support.md) token in each request you make to your custom domain. By default, blob storage endpoints disallow anonymous read access. For more information about SAS, see [Managing anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
+If your blob storage endpoint is configured to disallow anonymous read access, you should provide a [Shared Access Signature (SAS)](cdn-sas-storage-support.md) token in each request you make to your custom domain. By default, blob storage endpoints disallow anonymous read access. For more information about SAS, see [Managing anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 Azure CDN ignores any restrictions added to the SAS token. For example, all SAS tokens have an expiration time, which means that content can still be accessed with an expired SAS until that content is purged from the CDN point-of-presence (POP) servers. You can control how long data is cached on Azure CDN by setting the cache response header. For more information, see [Managing expiration of Azure Storage blobs in Azure CDN](cdn-manage-expiration-of-blob-content.md).
 
@@ -58,7 +51,3 @@ If, for example, you have a storage account in the United States that's being ac
 
 ## Next steps
 [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md)
-
-
-
-

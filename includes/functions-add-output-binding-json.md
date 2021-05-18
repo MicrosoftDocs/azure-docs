@@ -20,4 +20,4 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 
 A binding is added to the `bindings` array in your function.json, which should look like the following:
 
-:::code language="son" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::
