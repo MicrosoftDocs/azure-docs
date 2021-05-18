@@ -41,7 +41,7 @@ Some workloads should not consider the integrated cache, including:
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
 
-## Item cache:
+## Item cache
 
 You can use the item cache for point reads (in other words, key/value look ups based on the Item ID and partition key).
 
@@ -86,43 +86,24 @@ The easiest way to configure eventual consistency for all reads is to [set it at
 
 ## Integrated cache retention time
 
-The cache retention time is the maximum retention for cached data. You can set the cache retention time by configuring the `MaxIntegratedCacheStaleness` for each request. 
-
-Your `MaxIntegratedCacheStaleness` is the maximum time in which you are willing to tolerate stale cached data. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if it is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
-
-> [!NOTE]
-> When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
-
-To better understand the `MaxIntegratedCacheStaleness` parameter, consider the following example:
-
-| Time       | Request                                         | Response                                                     |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| t = 0 sec  | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from backend database (normal RU charges) and populate cache     |
-| t = 0 sec  | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from backend database (normal RU charges) and populate cache     |
-| t = 20 sec | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from integrated cache (0 RU charge)           |
-| t = 20 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
-| t = 40 sec | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from backend database (normal RU charges) and refresh cache |
-| t = 40 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
-| t = 50 sec | Run Query B with MaxIntegratedCacheStaleness = 20 seconds | Return results from backend database (normal RU charges) and refresh cache |
-
-> [!NOTE]
-> Customizing `MaxIntegratedCacheStaleness` is only supported in the latest .NET and Java SDK's
-
-[Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
+The cache retention time is the maximum retention for cached data. During the preview, the `MaxIntegratedCacheStaleness` is always set to 5 minutes and isn't possible to customize.
 
 ## Metrics
 
-When using the integrated cache, it is helpful to monitor a few key metrics. Useful integrated cache metrics include:
+When using the integrated cache, it is helpful to monitor a few key metrics. The integrated cache metrics include:
 
-- `DedicatedGatewayRequests` - The total number of requests routed through a dedicated gateway
-- `IntegratedCacheEvictedEntriesSize` – The total amount of data evicted from the cache
-- `IntegratedCacheTTLExpirationCount`  - The amount of data evicted from the cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheHitRate` – The number of requests that used the cache.
-- `IntegratedCacheSize` – The amount of data in the cache.
+- `DedicatedGatewayCpuUsage` - CPU usage by each dedicated gateway node
+- `DedicatedGatewayMemoryUsage` - Memory usage by each dedicated gateway node for both routing requests and caching
+- `DedicatedGatewayRequests` - The number of requests routed through each dedicated gateway node
+- `IntegratedCacheEvictedEntriesSize` – The amount of data evicted from the integrated cache
+- `IntegratedCacheTTLExpirationCount`  - The number of entries evicted from the integrated cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheHitRate` – The ratio of point reads and queries that used the integrated cache (out of all dedicated gateway requests that tried to use the integrated cache).
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
    :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="An image that shows the location of integrated cache metrics" border="false":::
+
+All metrics are exposed as an average across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the average value across all five nodes.
 
 ## Troubleshooting common issues
 
@@ -136,19 +117,19 @@ Check the `DedicatedGatewayRequests`. This metric includes all requests that use
 
 Check the `IntegratedCacheHitRate`. If this value is zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, connecting with gateway mode, and have set eventual consistency.
 
-### I want to understand if my integrated cache is too small
+### I want to understand if my dedicated gateway is too small
 
-Check the `IntegratedCacheHitRate`. If this value is high (for example, above 0.6-0.7), this is a good sign that the integrated cache is large enough.
+Check the `IntegratedCacheHitRate`. If this value is high (for example, above 0.5-0.6), this is a good sign that the dedicated gateway is large enough.
 
-If the `IntegratedCacheHitRate` is low, compare the `IntegratedCacheEvictedEntriesSize` and `IntegratedCacheTTLExpirationCount`. If `IntegratedCacheTTLExpirationCount` is much smaller than the `IntegratedCacheEvictedEntriesSize`, it may mean that you could achieve a higher `IntegratedCacheHitRate` with a larger instance size.
+If the `IntegratedCacheHitRate` is low, look at the `IntegratedCacheEvictedEntriesSize`. If the `IntegratedCacheEvictedEntriesSize` is high, it may mean that a larger dedicated gateway size would be beneficial.
 
-### I want to understand if my cache is too large
+### I want to understand if my dedicated gateway is too large
 
 This is tougher to measure. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheHitRate` stops improving.
 
 If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheStaleness`, rather than LRU, your cache might be larger than required. Check if `IntegratedCacheTTLExpirationCount` is nearly as large as `IntegratedCacheEvictedEntriesSize`. If so, you can experiment with a smaller dedicated gateway size and compare performance.
 
-Check the `IntegratedCacheSize`. Is this similar in size to the total integrated cache size? Approx. 70% of dedicated gateway memory can be used for caching. Therefore, if you have a 16 GB dedicated gateway node, you will have approximately 11 GB of memory available for caching.
+Check the `DedicatedGatewayMemoryUsage` and compare to the dedicated gateway size. If the `DedicatedGatewayMemoryUsage` is less than the dedicated gateway size, then you should try a smaller dedicated gateway size.
 
 ## Next steps
 
