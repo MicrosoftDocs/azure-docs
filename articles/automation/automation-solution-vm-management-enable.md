@@ -3,7 +3,7 @@ title: Enable Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to enable the Start/Stop VMs during off-hours feature for your Azure VMs.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/18/2020
+ms.date: 05/18/2021
 ms.topic: conceptual
 ---
 
