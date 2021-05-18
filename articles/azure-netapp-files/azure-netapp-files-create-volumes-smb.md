@@ -88,7 +88,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * Select your **Active Directory** connection from the drop-down list.  
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
-        - It must be unique within each subnet and each region. 
+        - It must be unique within each subnet in the region. 
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
