@@ -24,13 +24,13 @@ Creating eligible authorizations requires an Enterprise Mobility + Security E5 (
 
 The EMS E5 or Azure AD Premium P2 license must be held by the managing tenant, not the customer tenant.
 
-Any additional costs associated with an eligible role will apply only during the period of time in which the user elevates their access to that role.
+Any extra costs associated with an eligible role will apply only during the period of time in which the user elevates their access to that role.
 
 For information about licenses for users, see [License requirements to use Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements).
 
 ## How eligible authorizations work
 
-An eligible authorization defines a role assignment that requires the user to activate the role when they need to perform privileged tasks. When they do this, they'll have the full access granted by that role for the specified period of time.
+An eligible authorization defines a role assignment that requires the user to activate the role when they need to perform privileged tasks. When they activate the eligible role, they'll have the full access granted by that role for the specified period of time.
 
 Users in the customer tenant can review all role assignments, including those in eligible authorizations, before the onboarding process.
 
@@ -48,7 +48,7 @@ More about these elements, and how to define them, is explained below.
 
 ## Create eligible authorizations using Azure Resource Manager templates
 
-To onboard your customer to Azure Lighthouse, you use an [Azure Resource Manager template along with a corresponding parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
+To onboard your customer to Azure Lighthouse, you use an [Azure Resource Manager template along with a corresponding parameters file](onboard-customer.md#create-an-azure-resource-manager-template) that you modify. The template you choose will depend on whether you're onboarding an entire subscription, a resource group, or multiple resource groups within a subscription.
 
 > [!NOTE]
 > While you can also onboard customers using Managed Service offers in Azure Marketplace, you can't currently include eligible authorizations in those offers.
@@ -223,10 +223,10 @@ Each of your eligible authorizations must be defined in the `eligibleAuthorizati
 }
 ```
 
-Within the `eligibleAuthorizations` parameter, the `principalId` specifies the ID for the Azure AD user or group to whom this eligible authorization will apply. Be sure not to use the ID for a service principal account here, since there is currently no way for a service principal account to elevate access and use the role granted here.
+Within the `eligibleAuthorizations` parameter, the `principalId` specifies the ID for the Azure AD user or group to which this eligible authorization will apply. Don't use an ID of a service principal account, since there's currently no way for a service principal account to elevate its access and use an eligible role.
 
 > [!IMPORTANT]
-> Be sure to include the same `principalId` in the `authorizations` section of your template with a different role from the eligible authorization, such as Reader (or another Azure built-in role that includes Reader access). If you don't, the user will not be able to elevate their role in the Azure portal.
+> Be sure to include the same `principalId` in the `authorizations` section of your template with a different role from the eligible authorization, such as Reader (or another Azure built-in role that includes Reader access). If you don't, the user won't be able to elevate their role in the Azure portal.
 
 The `roleDefinitionId` contains the role definition ID for an [Azure built-in role](/azure/role-based-access-control/built-in-roles) that the user will be eligible to use on a just-in-time basis.
 
@@ -236,15 +236,15 @@ The `justInTimeAccessPolicy` specifies two elements:
 - `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours).
 
 > [!NOTE]
-> Note: Just-in-time access does not apply to `delegatedRoleDefinitionIds` that a User Access Administrator can [assign to managed identities](deploy-policy-remediation.md). These role assignments cannot be created as eligible authorizations. Similarly, you can’t create an eligible authorization for the User Access Administrator role itself.
+> Note: Just-in-time access does not apply to `delegatedRoleDefinitionIds` that a User Access Administrator can [assign to managed identities](deploy-policy-remediation.md). These role assignments can't be created as eligible authorizations. Similarly, you can’t create an eligible authorization for the User Access Administrator role itself.
 
 ## Elevation process for users
 
-After you have onboarded a customer for Azure delegated resource management, any eligible roles you included will be available to the specified user (or to users in any specified groups).
+After you onboard a customer to Azure Lighthouse, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
 Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **Manage eligible roles** button. After that, they can follow the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) in Azure AD Privileged Identity Management.
 
-Once the eligible role has been activated, the user will be able to use that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
+Once the eligible role has been activated, the user will have that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
 ## Next steps
 
