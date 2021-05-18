@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Creating twin-level RBAC with marker tags
+title: Create twin-level RBAC with marker tags
 titleSuffix: Azure Digital Twins
 description: Understand how to create twin-level RBAC using marker tags.
 author: jackiebecker
 ms.author: jabecker # Microsoft employees only
 ms.date: 5/12/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Leveraging marker tags for twin-level RBAC
+# Use marker tags for twin-level RBAC
 
 While [Azure Digital Twins security](concepts-security.md) currently only supports instance-level role-based access control (RBAC), there are a few ways to implement twin-level RBAC in your solution. One method leverages **marker tags**, which are a flexible way of adding information at runtime when a twin is created. You can read more about marker tags in [How-to: Add tags to digital twins](how-to-use-tags.md). 
 
@@ -35,7 +35,6 @@ After completing these steps, you will have an Azure Digital Twins flow which in
 This article uses a sample scenario to explain the marker tag strategy. 
 
 Imagine that you have an Azure Digital Twins instance which contains assets from three tenants represented in its graph: Earth Group, Fire Group, and Wind Group. The Earth and Fire groups should each respectively have access to a subset of twins, while the Wind group should have access to all twins in the graph.
-
 
 :::image type="content" source="media/concepts-best-practices-twin-level-rbac/example-scenario.png" alt-text="Graphic of digital twins organized into groups. The Earth Group contains twins A, 1, and 2; Fire group contains twins B and 3; and Wind Group contains all twins in both Earth and Fire groups.":::
 
@@ -97,7 +96,7 @@ You should find that the query results are now scoped to the specified roles.
 
 ## Next steps
 
-Read more about related concepts:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+Read more about the concepts discussed in this article:
 * [Azure RBAC](../role-based-access-control/overview.md)
+* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
 * [How-to: Add tags to digital twins](how-to-use-tags.md)
