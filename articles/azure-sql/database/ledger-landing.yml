@@ -95,8 +95,8 @@ landingContent:
         links:
           - text: sys.database_ledger_blocks (Transact-SQL)
             url: /sql/relational-databases/system-catalog-views/sys-database-ledger-blocks-transact-sql
-          - text: sys.database_ledger_transaction (Transact-SQL)
-            url: /sql/relational-databases/system-catalog-views/sys-database-ledger-transaction-transact-sql
+          - text: sys.database_ledger_transactions (Transact-SQL)
+            url: /sql/relational-databases/system-catalog-views/sys-database-ledger-transactions-transact-sql
           - text: sys.database_ledger_digest_locations (Transact-SQL)
             url: /sql/relational-databases/system-catalog-views/sys-database-ledger-digest-locations-transact-sql
           - text: sys.ledger_table_history (Transact-SQL)
