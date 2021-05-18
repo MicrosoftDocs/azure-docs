@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Spring Cloud Reference Architecture](https://github.com/Azure/azure-spring-cloud-reference-architecture/).
 
-:::code language="json" source="azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploy.json":::
+:::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
