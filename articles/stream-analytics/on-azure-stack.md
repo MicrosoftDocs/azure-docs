@@ -58,7 +58,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | --- | --- |
    | Name | Provide a unique name for your storage account. |
    | Location | Choose a location close to you.|
-   | Subscription | Choose the same subscription as your IoT Hub.|
+   | Subscription | Choose the same subscription as your IoT hub.|
    | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](../iot-edge/quickstart.md) and tutorials. For example, **IoTEdgeResources**. |
 
 3. Keep the default values for the other fields and select **Create**.
@@ -72,7 +72,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | Field | Value |
    | --- | --- |
    | Job Name | Provide a name for your job. For example, **IoTEdgeJob** |
-   | Subscription | Choose the same subscription as your IoT Hub.|
+   | Subscription | Choose the same subscription as your IoT hub.|
    | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](../iot-edge/quickstart.md) and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Hosting Environment | Select **Edge**. |
