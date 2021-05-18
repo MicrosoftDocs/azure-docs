@@ -58,17 +58,17 @@ When encountering high compute utilization, mitigation options include:
 
 ### Storage
 
-When database space used reaches the maximum data size limit, database inserts and updates that increase data size fail and clients receive an [error message](troubleshoot-common-errors-issues.md). SELECT and DELETE statements continue to succeed.
+When database space used reaches the maximum data size limit, database inserts and updates that increase data size fail and clients receive an [error message](troubleshoot-common-errors-issues.md). SELECT and DELETE statements remain unaffected.
 
 In Premium and Business Critical service tiers, clients also receive an error message if combined storage consumption by data, transaction log, and tempdb exceeds maximum local storage size. For more information, see [Storage space governance](#storage-space-governance).
 
 When encountering high space utilization, mitigation options include:
 
-- Increase maximum data size of the database or elastic pool, or adding more storage. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Increase maximum data size of the database or elastic pool, or scale up to a service objective with a higher maximum data size limit. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space isn't shared with other databases.
-- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
+- Shrink a database to reclaim unused space. In elastic pools, shrinking a database provides more storage for other databases in the pool. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 - Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
-- For large databases in Premium and Business Critical service tiers, you may receive an out-of-space error message even though used space in the database is below its maximum size limit. This may happen if tempdb or transaction log consume a large amount of storage toward maximum local storage. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) the transaction log to reduce local storage consumption.
+- For large databases in Premium and Business Critical service tiers, you may receive an out-of-space error error even though used space in the database is below its maximum size limit. This may happen if tempdb or transaction log consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
 
 ### Sessions and workers (requests)
 
@@ -175,9 +175,9 @@ When encountering a log rate limit that is hampering desired scalability, consid
 
 ### Storage space governance
 
-In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD volume of the machine hosting the database or elastic pool. Using local SSD storage provides high IOPS and throughput, and low IO latency. The size of this local volume is finite and depends on hardware capabilities. In addition to customer data, local volume space is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
+In Premium and Business Critical service tiers, customer data including *data files*, *transaction log files*, and *tempdb files* is stored on the local SSD storage of the machine hosting the database or elastic pool. Local SSD storage provides high IOPS and throughput, and low IO latency. In addition to customer data, local storage is used for the operating system, management software, monitoring data and logs, and other files necessary for system operation.
 
-Hardware capabilities dictate the size of **maximum local storage** that can be set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value for each service objective, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
+The size of local storage is finite and depends on hardware capabilities, which determine the **maximum local storage** limit, or local storage set aside for customer data. This limit is set to maximize customer data storage, while ensuring safe and reliable system operation. To find the **maximum local storage** value for each service objective, see resource limits documentation for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 
 You can also find this value, and the amount of local storage currently used by a given database or elastic pool, using the following query:
 
@@ -193,22 +193,22 @@ WHERE database_id = DB_ID();
 |`database_name`|Database name|
 |`slo_name`|Service objective name, including hardware generation|
 |`user_data_directory_space_quota_mb`|**Maximum local storage**, in MB|
-|`user_data_directory_space_usage_mb`|Current local storage consumption by data, transaction log, and tempdb files, in MB. Updated every five minutes.|
+|`user_data_directory_space_usage_mb`|Current local storage consumption by data files, transaction log files, and tempdb files, in MB. Updated every five minutes.|
 |||
 
 This query should be executed in the user database, not in the master database. For elastic pools, the query can be executed in any database in the pool. Reported values apply to the entire pool.
 
 > [!IMPORTANT]
-> In Premium and Business Critical service tiers, if the workload attempts to increase combined storage consumption by data, transaction log, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
+> In Premium and Business Critical service tiers, if the workload attempts to increase combined local storage consumption by data files, transaction log files, and tempdb files over the **maximum local storage** limit, an out-of-space error will occur.
 
-As databases are created, deleted, and increase or decrease their space usage, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low and a database or elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
+As databases are created, deleted, and increase or decrease in size, local storage consumption on a machine fluctuates over time. If the system detects that available local storage on a machine is low, and a database or an elastic pool is at risk of running out of space, it will move the database or elastic pool to a different machine with sufficient local storage available.
 
 This move occurs in an online fashion, similarly to a database scaling operation, and has a similar [impact](single-database-scale.md#impact), including a short (seconds) failover at the end of the operation. This failover terminates open connections and rolls back transactions, potentially impacting applications using the database at that time.
 
 Because all data is copied to a local storage volume on a different machine, moving larger databases may require a substantial amount of time. During that time, if local space consumption by the database or elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
 
 > [!NOTE]
-> Database movement in case of insufficient local storage described above only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored on local storage.
+> Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored on local storage.
 
 ## Next steps
 

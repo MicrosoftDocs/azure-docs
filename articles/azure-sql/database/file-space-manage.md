@@ -50,7 +50,7 @@ Azure SQL Database does not automatically shrink data files to reclaim unused al
 
 Unlike data files, Azure SQL Database automatically shrinks transaction log file to avoid excessive space usage that can lead to out-of-space errors. It is usually not necessary for customers to shrink the transaction log file.
 
-In Premium and Business Critical service tiers, if the transaction log is large and significantly contributes to the total space usage toward [maximum local storage](resource-limits-logical-server.md#storage-space-governance), it may be shrunk using the [DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql) command as shown in the following example, to avoid waiting for the periodic automatic shrink operation.
+In Premium and Business Critical service tiers, if the transaction log becomes large, it may significantly contribute to local storage consumption toward the [maximum local storage](resource-limits-logical-server.md#storage-space-governance) limit. If local storage consumption is close to the limit, customers may choose to shrink transaction log using the [DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql) command as shown in the following example. This releases local storage as soon as the command completes, without waiting for the periodic automatic shrink operation.
 
 ```tsql
 DBCC SHRINKFILE (2);
@@ -226,7 +226,7 @@ For more information about this command, see [SHRINKDATABASE](/sql/t-sql/databas
 
 Alternatively, auto-shrink can be enabled for a database.  Auto-shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`. Auto-shrink can be particularly helpful in managing elastic pools with many databases that experience significant growth and reduction in space used. However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
 
-By default, auto-shrink is disabled, which is recommended for most databases. If it becomes necessary to enable auto-shrink, it is recommended to disable it once the shrink goals have been achieved, instead of keeping it enabled permanently. For more information, see [Considerations for AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+By default, auto-shrink is disabled, which is recommended for most databases. If it becomes necessary to enable auto-shrink, it is recommended to disable it once space management goals have been achieved, instead of keeping it enabled permanently. For more information, see [Considerations for AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
 
 To enable auto-shrink, execute the following command in your database (not in the master database).
 
@@ -239,7 +239,7 @@ For more information about this command, see [DATABASE SET](/sql/t-sql/statement
 
 ### Rebuild indexes
 
-After database data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, then consider rebuilding database indexes. For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+After data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, consider rebuilding database indexes. For more information on fragmentation and index maintenance, see [Optimize index maintenance to improve query performance and reduce resource consumption](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 
