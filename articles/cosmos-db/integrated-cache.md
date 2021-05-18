@@ -41,7 +41,7 @@ Some workloads should not consider the integrated cache, including:
 -	Write-heavy workloads
 -  Rarely repeated point reads or queries
 
-## Item cache:
+## Item cache
 
 You can use the item cache for point reads (in other words, key/value look ups based on the Item ID and partition key).
 
@@ -86,7 +86,7 @@ The easiest way to configure eventual consistency for all reads is to [set it at
 
 ## Integrated cache retention time
 
-The cache retention time is the maximum retention for cached data. In the future, you'll be able to customize the cache retention time by configuring the `MaxIntegratedCacheStaleness` for each request. During the preview, the `MaxIntegratedCacheStaleness` is always set to 5 minutes and isn't possible to customize.
+The cache retention time is the maximum retention for cached data. During the preview, the `MaxIntegratedCacheStaleness` is always set to 5 minutes and isn't possible to customize.
 
 ## Metrics
 
