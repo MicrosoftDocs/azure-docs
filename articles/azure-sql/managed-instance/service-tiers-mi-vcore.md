@@ -21,7 +21,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Managed Instance pro
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
 
-## Service tiers
+## <a id="compute-tiers">Service tiers</a>
 
 Service tier options in the vCore model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 

@@ -747,7 +747,7 @@
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Compute Hardware
-      href: managed-instance/service-tiers-sqldb-vcore.md
+      href: managed-instance/service-tiers-mi-vcore.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
