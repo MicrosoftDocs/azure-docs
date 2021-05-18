@@ -78,7 +78,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
     
 ## Integrate the bot with channels
 
-After creating the bot, you can light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels). Click on **Channels** in the Bot service resource. You can embed the bot in your application or integrate the bot with many channels such as Teams, Alexa etc.
+Click on **Channels** in the Bot service resource that you have created. You can light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
 
    >[!div class="mx-imgBorder"]
    >![Screenshot of integration with teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
