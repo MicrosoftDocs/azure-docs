@@ -43,7 +43,7 @@ When you host your Apache Ambari DB in an external database, remember the follow
 
 ## Deploy clusters with a custom Ambari DB
 
-To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
+To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db).
 
 Edit the parameters in the `azuredeploy.parameters.json` to specify information about your new cluster and the database that will hold Ambari.
 
