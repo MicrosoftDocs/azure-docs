@@ -90,7 +90,7 @@ If you need help with the language and tools used to develop and manage Azure Vi
     <img alt='UserVoice' src='./media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machines.
+To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machine scale sets.
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
@@ -104,7 +104,7 @@ To request new features, post them on Azure Feedback. Share your ideas for impro
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure Virtual Machines is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
+News and information about Azure Virtual Machine scale sets is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
 
 
 ## Next steps
