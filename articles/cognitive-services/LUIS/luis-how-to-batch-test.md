@@ -90,11 +90,11 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
     | Column | Description |
     | -------- | ------------- |
-    | State | Status of the test; `See results` is only visible after the test is completed. |
+    | State | Status of the test. **See results** is only visible after the test is completed. |
     | Name | The name you have given to the test. |
-    | Size | Count of tests in this batch test file. |
+    | Size | Number of tests in this batch test file. |
     | Last Run | Date of last run of this batch test file. |
-    | Last result | Count of successful predictions in the test. |
+    | Last result | Number of successful predictions in the test. |
 
 8. To view detailed results of the test, select **See results**. 
 
