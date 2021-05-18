@@ -43,8 +43,6 @@
           items:
             - name: What is Custom Speech?
               href: custom-speech-overview.md
-            - name: Test a model using audio files in Speech Studio
-              href: quickstarts/speech-studio-test-model.md
             - name: Prepare data for Custom Speech
               href: how-to-custom-speech-test-and-train.md
             - name: Inspect Custom Speech data
@@ -73,7 +71,7 @@
           href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: 'Go'
           displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
-          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -122,14 +120,14 @@
               items:
                 - name: What is Custom Neural Voice?
                   href: custom-neural-voice.md
-                - name: Get started with Custom Voice
+                - name: Get started with Custom Neural Voice
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: Prepare data
+                - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use Custom Voice models
+                - name: Create and use your voice model
                   href: how-to-custom-voice-create-voice.md
-                - name: Record voice samples
+                - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
               items:
@@ -297,12 +295,16 @@
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
-- name: Custom Keyword
+- name: Keyword recognition
   items:
-    - name: Custom keyword overview
-      href: custom-keyword-overview.md
-    - name: Custom keyword basics
+    - name: Keyword recognition overview
+      href: keyword-recognition-overview.md
+    - name: Custom Keyword quickstart
       href: custom-keyword-basics.md
+    - name: Recommendations and guidelines
+      href: keyword-recognition-guidelines.md
+    - name: Region support
+      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -586,9 +588,7 @@
     - name: Speech Studio
       items:
         - name: Speech Studio overview
-          href: https://speech.microsoft.com
-        - name: Create a Custom Commands app with Speech Studio
-          href: ./quickstart-custom-commands-application.md
+          href: speech-studio-overview.md
     - name: Enterprise readiness
       items:
       - name: Region support

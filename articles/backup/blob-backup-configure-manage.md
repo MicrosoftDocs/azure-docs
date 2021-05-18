@@ -1,6 +1,6 @@
 ---
 title: Configure operational backup for Azure Blobs
-description: Learn how to configure and manage operational backup for Azure Blobs (in preview)
+description: Learn how to configure and manage operational backup for Azure Blobs.
 ms.topic: conceptual
 ms.date: 05/05/2021
 
@@ -229,7 +229,7 @@ You can use Backup Center as your single pane of glass for managing all your bac
 
     ![Backup Center](./media/blob-backup-configure-manage/backup-center.png)
 
-For more information, see [Overview of Backup Center (Preview)](backup-center-overview.md).
+For more information, see [Overview of Backup Center](backup-center-overview.md).
 
 ## Stopping protection
 

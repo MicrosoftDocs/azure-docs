@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 05/14/2021
 ---
 
 # Prepare data with data wrangling
@@ -32,7 +32,7 @@ The other method is in the activities pane of the pipeline canvas. Open the **Po
 
 ## Author a Power Query data wrangling activity
 
-Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. You can also select a sink dataset. You can choose one or more source datasets, but only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
+Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. After you have saved your mash-up, you can then add the Power Query data wrangling activity to your pipeline and select a sink dataset to tell ADF where to land your data. While you can choose one or more source datasets, only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
 
 ![Wrangling](media/wrangling-data-flow/tutorial4.png)
 
@@ -48,7 +48,7 @@ Author your wrangling Power Query using code-free data preparation. For the list
 
 To execute a pipeline debug run of a Power Query activity, click **Debug** in the pipeline canvas. Once you publish your pipeline, **Trigger now** executes an on-demand run of the last published pipeline. Power Query pipelines can be schedule with all existing Azure Data Factory triggers.
 
-![Screenshot that shows how to add a Power Query data wrangling activity.](media/wrangling-data-flow/tutorial3.png)
+![Screenshot that shows how to add a Power Query data wrangling activity.](media/data-flow/pq-activity-001.png)
 
 Go to the **Monitor** tab to visualize the output of a triggered Power Query activity run.
 

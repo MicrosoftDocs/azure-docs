@@ -1,11 +1,11 @@
 ---
 title: Copy data from Hive using Azure Data Factory 
 description: Learn how to copy data from Hive to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
