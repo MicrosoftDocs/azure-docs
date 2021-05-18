@@ -65,7 +65,7 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 
 ### Ubuntu
 
-To use SQL Server Developer Edition on an Ubuntu DSVM, you need to install it first. [Quickstart: Install SQL Server and create a database on Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu) tells you how.
+To use SQL Server Developer Edition on an Ubuntu DSVM, you need to install it first. [Quickstart: Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu) tells you how.
 
 
 
