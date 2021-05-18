@@ -122,7 +122,7 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specificlaly, create a role definitation, and assign the role to the service principle via service principle object ID. 
+2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principle via service principle object ID. 
 
 These properties are supported for the linked service:
 
@@ -207,7 +207,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 
 1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
 
-2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specificlaly, create a role definitation, and assign the role to the managed identity.
+2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity.
 
 These properties are supported for the linked service:
 
