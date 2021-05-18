@@ -155,7 +155,7 @@ Finally, we'll use the [Post Data For Polyline API](/rest/api/maps/elevation/pos
 Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
- >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data For Points API.
+ >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline-delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data For Points API.
 
 To create the request:
 
