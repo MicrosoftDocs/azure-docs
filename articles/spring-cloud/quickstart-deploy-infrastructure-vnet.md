@@ -100,12 +100,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-<!-- 
-Make the next steps similar to other quickstarts and use a blue button to link to the next article for your service. Or direct readers to the article: "Tutorial: Create and deploy your first ARM template" to follow the process of creating a template.
-
-To include additional links for more information about the service, it's acceptable to use a paragraph and bullet points.
--->
-
 In this quickstart, you created an Azure Spring Cloud instance into an existing Virtual Network using an ARM template and validated the deployment. To learn more about Azure Spring Cloud and Azure Resource Manager, continue on to the articles below.
 
 - Deploy one of the following sample applications from the locations below:
