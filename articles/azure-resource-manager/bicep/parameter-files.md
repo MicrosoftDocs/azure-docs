@@ -116,7 +116,7 @@ Check the Bicep file for parameters with a default value. If a parameter has a d
       "value": "" // This value must be provided.
     },
     "storageAccountType": {
-      "value": "" // This value is optional. Template will use default value if not provided.
+      "value": "" // This value is optional. Bicep will use default value if not provided.
     }
   }
 }
@@ -200,15 +200,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 For more information, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md#pass-parameter-values). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or higher.
 
-> [!NOTE]
-> It's not possible to use a parameter file with the custom template blade in the portal.
-
-> [!TIP]
-> If you're using the [Azure Resource Group project in Visual Studio](../templates/create-visual-studio-deployment-project.md), make sure the parameter file has its **Build Action** set to **Content**.
-
 ## File name
 
-The general naming convention for the parameter file is to include _parameters_ in the template name. For example, if your template is named _azuredeploy.json_, your parameter file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the template and the parameters.
+The general naming convention for the parameter file is to include _parameters_ in the Bicep file name. For example, if your Bicep file is named _azuredeploy.bicep_, your parameter file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the Bicep file and the parameters.
 
 To deploy to different environments, you create more than one parameter file. When you name the parameter files, identify their use such as development and production. For example, use _azuredeploy.parameters-dev.json_ and _azuredeploy.parameters-prod.json_ to deploy resources.
 
@@ -220,9 +214,9 @@ It's possible to use an external parameter file, by providing the URI to the fil
 
 ## Parameter name conflicts
 
-If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix `FromTemplate`. For example, a parameter named `ResourceGroupName` in your template conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for `ResourceGroupNameFromTemplate`. To avoid this confusion, use parameter names that aren't used for deployment commands.
+If your Bicep file includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your Bicep file with the postfix `FromTemplate`. For example, a parameter named `ResourceGroupName` in your Bicep file conflicts with the `ResourceGroupName` parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for `ResourceGroupNameFromTemplate`. To avoid this confusion, use parameter names that aren't used for deployment commands.
 
 ## Next steps
 
-- For more information about how to define parameters in a template, see [Parameters in Bicep](./parameters.md).
-- For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md).
+- For more information about how to define parameters in a Bicep file, see [Parameters in Bicep](./parameters.md).
+- For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
