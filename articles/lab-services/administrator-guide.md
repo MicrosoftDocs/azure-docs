@@ -107,8 +107,6 @@ To logically group shared images, you can do either of the following:
 - Create multiple shared image galleries. Each lab account can connect to only one shared image gallery, so this option also requires you to create multiple lab accounts.
 - Use a single shared image gallery that's shared by multiple lab accounts. In this case, each lab account can enable only images that are applicable to the labs in that account.
 
-You also have flexibility to share images across multiple subscriptions that are associated with the same Azure AD tenant.  For example, a shared image gallery in one subscription can be attached to a lab account that is in a different subscription.  However, this requires that both subscriptions use the same Azure AD tenant.  To attach a shared image gallery to lab account from a different subscription, you must use [Lab Services' PowerShell module](https://techcommunity.microsoft.com/t5/azure-lab-services/labservices-powershell-module/ba-p/1297089).
-
 ## Naming
 
 As you get started with Azure Lab Services, we recommend that you establish naming conventions for resource groups, lab accounts, labs, and the shared image gallery. Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
