@@ -18,7 +18,9 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 
 > [!WARNING]
-> Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. Also note that communication resources cannot be transferred to a different subscription during public preview.
+> Note that while Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'.
+>
+> Also note it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already must be used.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
