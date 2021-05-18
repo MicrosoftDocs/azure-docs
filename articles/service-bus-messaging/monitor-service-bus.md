@@ -28,7 +28,7 @@ The following sections build on this article by describing the specific data gat
 ## Monitoring data from Azure Service Bus
 Azure Service Bus collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
-See [Azure Service Bus monitoring data reference](service-bus-metrics-azure-monitor.md) for a detailed reference of the logs and metrics created by Azure Service Bus.
+See [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md) for a detailed reference of the logs and metrics created by Azure Service Bus.
 
 ## Collection and routing
 Platform metrics and the activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  

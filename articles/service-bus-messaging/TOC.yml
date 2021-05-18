@@ -222,8 +222,6 @@
       href: service-bus-diagnostic-logs.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
-    - name: Azure Service Bus monitoring data reference
-      href: service-bus-metrics-azure-monitor.md   
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
