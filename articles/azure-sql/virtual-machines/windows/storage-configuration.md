@@ -249,3 +249,4 @@ In Windows Server 2008 to 2012 R2, the default value for `-StorageSubsystemFrien
 ## Next steps
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
+
