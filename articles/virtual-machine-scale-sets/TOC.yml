@@ -437,9 +437,9 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Common CLI commands
-    href: ./linux/cli-manage.md
+    href: ..virtual-machines/linux/cli-manage.md
   - name: Common PowerShell commands
-    href: ./windows/ps-common-ref.md
+    href: ../virtual-machines/windows/ps-common-ref.md
   - name: Common networking PowerShell commands
     href: ./windows/ps-common-network-ref.md
   - name: VM template description
