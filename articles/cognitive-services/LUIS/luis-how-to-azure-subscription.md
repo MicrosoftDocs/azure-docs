@@ -279,7 +279,7 @@ If you want to know when you reach a certain transaction threshold, for example 
 
 6. To send notifications or invoke actions when the alert rule triggers go to the **Actions** section and add your action group.
 
-    :::image type="content" source="./media/luis-usage-tiers/alerts-4.png" alt-text="Screenshot that shows the actions page for alerts." lightbox="./media/luis-usage-tiers/alerts-4.png":::
+    :::image type="content" source="./media/luis-usage-tiers/alerts-5.png" alt-text="Screenshot that shows the actions page for alerts." lightbox="./media/luis-usage-tiers/alerts-5.png":::
 
 ### Reset an authoring key
 
