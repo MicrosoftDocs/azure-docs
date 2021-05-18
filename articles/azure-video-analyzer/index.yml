@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
 title: Azure Video Analyzer documentation # < 60 chars
-summary: Azure Video Analyzer is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
+summary: Azure Video Analyzer is a collection of cloud and edge media workflow services that enable you to build solutions for applying AI to live and recorded video. Azure Video Analyzer for Media is a cloud service that enables you to extract deep insights from video files, with no need for data analysis or coding skills, using machine learning models based on multiple channels (voice, vocals, visual) Azure Video Analyzer provides a platform to build intelligent applications for live video that span the edge and the cloud. This platform consists of an IoT Edge module, and an associated Azure service. It offers the capability to capture, record, and analyze live video along with publishing the results - video and/or video analytics. 
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
   title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Video Analyzer is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
+  description: Azure Video Analyzer is a collection of cloud and edge media workflow services that enable you to build solutions for applying AI to live and recorded video. Azure Video Analyzer for Media is a cloud service that enables you to extract deep insights from video files, with no need for data analysis or coding skills, using machine learning models based on multiple channels (voice, vocals, visual) Azure Video Analyzer provides a platform to build intelligent applications for live video that span the edge and the cloud. This platform consists of an IoT Edge module, and an associated Azure service. It offers the capability to capture, record, and analyze live video along with publishing the results - video and/or video analytics. 
   services: azure-video-analyzer 
   ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: hub-page # Required
