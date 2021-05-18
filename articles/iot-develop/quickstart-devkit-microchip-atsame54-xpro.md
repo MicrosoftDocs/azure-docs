@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 05/17/2021
 ---
 
-# Quickstart: Connect a Microchip ATSAME54-XPro evaluation kit to IoT Central
+# Quickstart: Connect a Microchip ATSAME54-XPro Evaluation kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  45 minutes
