@@ -64,7 +64,7 @@ Create your first web app.
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET (on Windows)](quickstart-dotnet-framework.md)
+> [ASP.NET (on Windows)](./quickstart-dotnetcore.md?tabs=netframework48)
 
 > [!div class="nextstepaction"]
 > [PHP (on Windows or Linux)](quickstart-php.md)

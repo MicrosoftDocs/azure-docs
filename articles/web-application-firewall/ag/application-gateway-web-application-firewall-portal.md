@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 05/17/2021
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -62,7 +62,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.21.0.0/24, enter *10.21.1.0/24* for the address range of *myBackendSubnet*.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 

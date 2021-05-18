@@ -75,7 +75,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - For **Windows** servers, configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
     - For **on-premises** machines, connect it to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
-    - For **Windows Server 2019** and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) machines, confirm that your machines are running the Log Analytics agent and have the MicrosoftMonitoringAgent extension.
+    - For **Windows Server 2019** and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) machines, confirm that your machines have the MicrosoftMonitoringAgent extension.
     
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).

@@ -145,7 +145,7 @@
     - name: Accessing protected content
       href: search-indexer-securing-resources.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/cognitive-search-security-baseline
+      href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
   - name: Management
@@ -172,6 +172,8 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
+    - name: Troubleshoot issues with creating Shared Private Link Resources
+      href: troubleshoot-shared-private-link-resources.md
   - name: Development
     items:
     - name: API versions

@@ -70,8 +70,8 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.md).
+* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).
 
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

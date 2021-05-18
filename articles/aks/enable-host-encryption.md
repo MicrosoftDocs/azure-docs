@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 04/26/2021 
 ms.custom: devx-track-azurepowershell
 
+
 ---
 
 # Host-based encryption on Azure Kubernetes Service (AKS)
@@ -22,7 +23,9 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
+
 - Ensure you have the CLI extension v2.23 or higher version installed.
+
 
 ### Limitations
 

@@ -12,7 +12,7 @@ This article describes how to move virtual networks and other networking resourc
 ## Dependent resources
 
 > [!NOTE]
-> Please note that VPN Gateways associated with public IP addresses are not currently able to move between resource groups or subscriptions.
+> Please note that VPN Gateways associated with Public IP Standard SKU addresses are not currently able to move between resource groups or subscriptions.
 
 When moving a resource, you must also move its dependent resources (e.g. public IP addresses, virtual network gateways, all associated connection resources). Local network gateways can be in a different resource group.
 

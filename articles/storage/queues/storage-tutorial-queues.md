@@ -116,6 +116,7 @@ Create a .NET Core application named `QueueApp`. For simplicity, this app will b
    ```console
    dotnet add package Microsoft.Azure.Storage.Queue
    ```
+
    ---
 
 ### Add using statements

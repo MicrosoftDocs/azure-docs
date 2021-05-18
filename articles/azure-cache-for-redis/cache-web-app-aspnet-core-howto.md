@@ -425,7 +425,7 @@ After a few moments, the resource group and all of its resources are deleted.
 For information on deploying to Azure, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](/azure/app-service/tutorial-dotnetcore-sqldb-app)
+> [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md)
 
 For information about storing the cache connection secret in Azure Key Vault, see:
 

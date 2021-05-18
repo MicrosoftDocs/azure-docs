@@ -55,7 +55,7 @@ Now that you have a Batch account, create a sample pool of Windows compute nodes
   
    |Setting  |Value  |
    |---------|---------|
-   |**Node pricing tier**     |Standard A1|
+   |**Node pricing tier**     |Standard_A1_v2|
    |**Target dedicated nodes**     |2|
 
 1. Keep the defaults for remaining settings, and select **OK** to create the pool.

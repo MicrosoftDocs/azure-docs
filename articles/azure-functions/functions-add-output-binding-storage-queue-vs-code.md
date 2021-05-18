@@ -168,7 +168,7 @@ Because you are using the storage connection string, your function connects to t
 
 Skip this section if you have already installed Azure Storage Explorer and connected it to your Azure account.
 
-1. Run the [Azure Storage Explorer] tool, select the connect icon on the left, and select **Add an account**.
+1. Run the [Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, and select **Add an account**.
 
     ![Add an Azure account to Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 

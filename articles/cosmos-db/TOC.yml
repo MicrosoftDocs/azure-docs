@@ -41,7 +41,7 @@
             - name: Autoscale introduction
               href: provision-throughput-autoscale.md
             - name: Autoscale FAQ
-              href: autoscale-faq.md
+              href: autoscale-faq.yml
         - name: Serverless
           href: serverless.md
         - name: Choose between autoscale and standard (manual) throughput
@@ -65,7 +65,7 @@
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Cosmos DB
@@ -87,7 +87,7 @@
           - name: Continuous backup - Introduction
             href: continuous-backup-restore-introduction.md
           - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
+            href: continuous-backup-restore-frequently-asked-questions.yml
           - name: Continuous backup - Resource model
             href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
@@ -116,6 +116,8 @@
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
+        - name: Optimize using rate limiting
+          href: rate-limiting-requests.md
     - name: Change feed overview
       href: change-feed.md
     - name: Built-in Jupyter notebooks
@@ -637,21 +639,6 @@
           href: sql-sdk-connection-modes.md
     - name: How-to guides
       items:
-        - name: Manage Azure Cosmos DB resources
-          items:
-            - name: Manage an Azure Cosmos account
-              href: how-to-manage-database-account.md
-            - name: Using PowerShell
-              href: manage-with-powershell.md
-            - name: Using Azure CLI
-              href: manage-with-cli.md
-            - name: Using Resource Manager templates
-              href: manage-with-templates.md
-              displayName: ARM
-            - name: Move between regions
-              href: how-to-move-regions.md
-            - name: Prevent changes or deletion
-              href: resource-locks.md
         - name: Global distribution
           items:
             - name: Configure multi-region writes
@@ -676,7 +663,7 @@
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
                   href: how-to-provision-autoscale-throughput.md
-                - name: Estimate RU/s with Cosmos capacity planner
+                - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: estimate-ru-with-capacity-planner.md
                 - name: Scale using Azure Functions timer
@@ -924,7 +911,7 @@
             - name: Java bulk executor library v2
               href: sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/cosmosdb
+          href: /cli/azure/azure-cli-reference-for-cosmos-db           
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -932,7 +919,7 @@
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/sqlresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
@@ -979,7 +966,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Partitioning
@@ -1050,16 +1037,18 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/cassandraresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: MongoDB API
   items:
     - name: Overview
       items:
-        - name: What is MongoDB API in Cosmos DB?
+        - name: What is the API for MongoDB in Cosmos DB?
           href: mongodb-introduction.md
     - name: Quickstarts
       items:
@@ -1069,8 +1058,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1112,7 +1099,7 @@
         - name: API version 3.2
           href: mongodb-feature-support.md
         - name: FAQ
-          href: mongodb-api-faq.md
+          href: mongodb-api-faq.yml
         - name: Mapping consistency levels
           href: mongodb-consistency.md
     - name: How-to guides
@@ -1152,6 +1139,9 @@
           href: mongodb-indexing.md
         - name: Use multi-document transactions
           href: use-multi-document-transactions.md
+        - name: Estimate RU/s with capacity planner
+          displayName: request units, RUs, RU, capacity
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
@@ -1181,11 +1171,13 @@
     - name: Reference
       items:
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/mongodbresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: Gremlin API
   displayName: graph, graph database
   items:
@@ -1216,7 +1208,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: gremlin-api-faq.md
+          href: gremlin-api-faq.yml
         - name: Response headers
           href: gremlin-headers.md
         - name: Limits
@@ -1263,9 +1255,11 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: Table API
   items:
     - name: Overview
@@ -1315,7 +1309,7 @@
     - name: Concepts
       items:
         - name: FAQ
-          href: table-api-faq.md
+          href: table-api-faq.yml
     - name: How-to guides
       items:
         - name: Build apps with Table API
@@ -1350,8 +1344,25 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db          
 - name: How-to guides
   items:
+    - name: Manage Azure Cosmos DB resources
+      items:
+        - name: Manage an Azure Cosmos account
+          href: how-to-manage-database-account.md
+        - name: Using PowerShell
+          href: manage-with-powershell.md
+        - name: Using Azure CLI
+          href: manage-with-cli.md
+        - name: Using Resource Manager templates
+          href: manage-with-templates.md
+          displayName: ARM
+        - name: Move between regions
+          href: how-to-move-regions.md
+        - name: Prevent changes or deletion
+          href: resource-locks.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
@@ -1470,7 +1481,7 @@
     - name: SQL playground
       href: https://www.documentdb.com/sql/demo
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: Whitepapers
       href: whitepapers.md
     - name: Partners

@@ -209,7 +209,7 @@
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline
-      href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+      href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline?toc=/azure/virtual-machine-scale-sets/TOC.json
     maintainContext: true
   - name: Monitoring
     href: ../azure-monitor/vm/monitor-vm-azure.md
@@ -348,6 +348,8 @@
         href: ../virtual-machines/dedicated-hosts-portal.md
     - name: Azure Spot Virtual Machines
       href: use-spot.md
+    - name: Azure Hybrid Benefit for Linux
+      href: azure-hybrid-benefit-linux.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -413,11 +415,4 @@
     displayName: samples, policies, definitions
     href: ./policy-reference.md
 - name: Resources
-- name: Instances
-  items:
-    - name: Purchasing options
-      items:
-    - name: Azure Hybrid Benefit
-      items:
-      - name: Linux
-        href: azure-hybrid-benefit-linux.md
+  items: 

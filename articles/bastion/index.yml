@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Azure Bastion FAQ
             url: bastion-faq.md
+      - linkListType: video
+        links:
+          - text: Azure Bastion
+            url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
   # Card
   - title: Get started
     linkLists:

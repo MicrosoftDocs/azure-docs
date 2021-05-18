@@ -175,7 +175,7 @@ To learn about managing rights and permissions to the workbook, see [Access cont
 Here are some suggestions to optimize your Log Analytics settings to manage data ingestion:
 
 - Use a designated Log Analytics workspace for your Windows Virtual Desktop resources to ensure that Log Analytics only collects performance counters and events for the virtual machines in your Windows Virtual Desktop deployment.
-- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Manage usage and costs for Azure Monitor Logs](../azure-monitor/platform/manage-cost-storage.md).
+- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Manage usage and costs for Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md).
 
 ### Remove excess data
 
@@ -203,7 +203,7 @@ Perf
 
 This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Monitor for Windows Virtual Desktop. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
 
-You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters).
+You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
 
 ### Manage Windows Event Logs
 

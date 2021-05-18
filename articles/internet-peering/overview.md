@@ -48,4 +48,4 @@ For frequently asked questions about peering, see [Internet peering - FAQs](faqs
 
 * To learn about steps to set up Direct peering with Microsoft, follow [Direct peering walkthrough](walkthrough-direct-all.md)
 * To learn about steps to set up Exchange peering with Microsoft, follow [Exchange peering walkthrough](walkthrough-exchange-all.md)
-* Learn about some of the other Azure key [networking capabilities](../networking/networking-overview.md).
+* Learn about some of the other Azure key [networking capabilities](../networking/fundamentals/networking-overview.md).

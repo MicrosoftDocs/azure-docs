@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/20/2021
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Renew Application Gateway certificates

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
 ---
 
@@ -71,7 +71,11 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## Supported ID types
+## Supported locales
+
+ **Pre-built ID v2.1-preview.3** (preview) supports identity documents in the **en-us** locale.
+
+## Supported Identity document types
 
 * **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses.
 
@@ -80,7 +84,7 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
   >
   > Currently supported ID types include worldwide passport and U.S. Driver's Licenses. We are actively seeking to expand our ID support to other identity documents around the world.
 
-## POST Analyze Id Document
+## POST Analyze ID Document
 
 The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) operation takes an image or PDF of an ID as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 

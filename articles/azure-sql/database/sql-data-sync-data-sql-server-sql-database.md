@@ -147,6 +147,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
+- Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 
 #### Unsupported data types
 

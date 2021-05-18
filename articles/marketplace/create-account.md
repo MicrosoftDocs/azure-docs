@@ -51,7 +51,7 @@ Sign in with a work account so that you can link your company's work email accou
 
 #### Agree to the terms and conditions
 
-As part of the commercial marketplace registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). If you’re new to Microsoft Partner Network, you also need to agree to the terms and conditions in the Microsoft Partner Network Agreement.
+As part of the commercial marketplace registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). If you’re new to Microsoft Partner Network, you also need to agree to the terms and conditions in the Microsoft Partner Network Agreement.
 
 You've now created a commercial marketplace account in Partner Center. Continue to [Add new publishers to the commercial marketplace](add-publishers.md).
 
@@ -88,7 +88,7 @@ You can then assign the appropriate user roles and permissions to your users, so
 
 1. Select the MPN ID you want to link to your publisher account and enter your company name.
 
-1. Read the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
+1. Read the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement), and then select **Accept and continue** to complete your enrollment.
 
     > [!IMPORTANT]
     > To accept these terms, you must be authorized to act on your company's behalf.
@@ -114,7 +114,7 @@ When you register for the commercial marketplace program with the same account a
 1. In the top-right, select **Settings** > **Account settings** > **Programs**.
 1. Under **Commercial Marketplace**, select **Get Started**, and enter your work email address.
 1. Complete the details on the **Publisher profile** page.
-1. Read the terms and conditions in the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
+1. Read the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement), and then select **Accept and continue** to complete your enrollment.
 
     >[!Important]
     > To accept these terms, you must be authorized to act on your company's behalf.
