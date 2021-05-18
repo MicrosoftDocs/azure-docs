@@ -163,7 +163,7 @@ To create the request:
 
 2. In the **Create New** window, select **Request**.
 
-3. Enter a **Request name** and then select a collection.
+3. Enter a **Request name**, and then select a collection.
 
 4. Select **Save**.
 
