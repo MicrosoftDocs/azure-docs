@@ -377,6 +377,8 @@
         href: sap-solution-security-content.md
 - name: Resources
   items:
+  - name: Archived what's new (older than six months)
+    href: whats-new-archive.md
   - name: Useful resources
     href: resources.md
   - name: Azure Sentinel blog
