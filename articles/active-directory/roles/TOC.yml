@@ -32,6 +32,8 @@
       href: security-emergency-access.md
 - name: How-to guides
   items:
+  - name: Prerequisites
+    href: prerequisites.md
   - name: List role definitions
     href: role-definitions-list.md
   - name: List role assignments
