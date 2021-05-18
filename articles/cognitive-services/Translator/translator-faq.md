@@ -9,13 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 05/18/2021
 ms.author: lajanuar
 ---
 
-## How does the Translator API count characters?
+# Frequently asked questions—Translator API
 
-The Translator counts every code point defined in Unicode as a character. Each translation counts as a separate translation, even if the request was made in a single API call translating to multiple languages. The length of the response doesn't matter and the number of requests, words, bytes, or sentences isn't relevant to character count.
+## How does Translator count characters?
+
+Translator counts every code point defined in Unicode as a character. Each translation counts as a separate translation, even if the request was made in a single API call translating to multiple languages. The length of the response doesn't matter and the number of requests, words, bytes, or sentences isn't relevant to character count.
 
 Translator counts the following input:
 
