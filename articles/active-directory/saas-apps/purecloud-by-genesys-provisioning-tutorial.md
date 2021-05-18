@@ -95,27 +95,36 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to PureCloud by Genesys in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in PureCloud by Genesys for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the PureCloud by Genesys API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-     |Attribute|Type|
-     |---|---|
-     |userName|String|
+     |Attribute|Type|Supported for filtering|
+     |---|---|---|
+     |userName|String|&check;|
 	 |active|Boolean|
 	 |displayName|String|
 	 |emails[type eq "work"].value|String|
 	 |title|String|
 	 |phoneNumbers[type eq "mobile"].value|String|
 	 |phoneNumbers[type eq "work"].value|String|
+	 |phoneNumbers[type eq "work2"].value|String|
+	 |phoneNumberss[type eq "work3"].value|String|
+	 |phoneNumbers[type eq "work4"].value|String|
+	 |phoneNumbers[type eq "home"].value|String|
+	 |phoneNumbers[type eq "microsoftteams"].value|String|
+	 |roles|String|
 	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-	 
+	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’].value|String|	 
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’].value|String|	 
+	 |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone].value|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to PureCloud by Genesys**.
 
 11. Review the group attributes that are synchronized from Azure AD to PureCloud by Genesys in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in PureCloud by Genesys for update operations. Select the **Save** button to commit any changes. PureCloud by Genesys does not support group creation or deletion and only supports updating of groups.
 
-      |Attribute|Type|
-      |---|---|
-      |displayName|String|
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;|
       |externalId|String|
       |members|Reference|
 
@@ -144,7 +153,9 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 
-09/10 - Added support for enterprise attribute "employeeNumber".
+* 09/10/2020 - Added support for extension enterprise attribute "employeeNumber".
+* 05/18/2021 - Added support for core attributes"phoneNumbers[type eq "work2"]", "phoneNumbers[type eq "work3"]", "phoneNumbers[type eq "work4"]", "phoneNumbers[type eq "home"]","phoneNumbers[type eq "microsoftteams"]" and roles.And also added support for custom extension attributes "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’]", "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone]" and "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’]".
+
 
 ## Additional resources
 
