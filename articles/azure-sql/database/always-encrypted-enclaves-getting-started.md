@@ -38,13 +38,13 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 Make sure the following PowerShell modules are installed on your machine.
 
-1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
+1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az
     ```
 
-1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see quick[Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
+1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az.Attestation
