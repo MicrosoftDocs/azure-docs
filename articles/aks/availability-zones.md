@@ -54,6 +54,11 @@ Volumes that use Azure managed disks are currently not zone-redundant resources.
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes will take care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
 
+## Azure Resource Manager Templates and availability zones
+
+When *creating* an AKS cluster, if you explicitly define a [null value in a template](arm-template-null), the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster and omit the availability zones property value in your template, availability zones are disabled.
+You can't update settings for availability zones on an existing cluster, so the behavior is different.  If you explicitly set a null value in your template for availability zones and *update* your cluster, there are no changes made to your cluster for that property. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the resource manager template validation will attempt to disable availability zones on your existing cluster and fail.
+
 ## Overview of availability zones for AKS clusters
 
 Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's always more than one zone in all zone enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures.
@@ -201,6 +206,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
+[arm-template-null]: ../azure-resource-manager/templates/template-expressions#null-values
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
