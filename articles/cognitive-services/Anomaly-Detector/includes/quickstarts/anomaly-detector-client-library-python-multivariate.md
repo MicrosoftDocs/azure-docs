@@ -58,6 +58,9 @@ from azure.core.exceptions import HttpResponseError
 
 Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. 
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```python
 subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"

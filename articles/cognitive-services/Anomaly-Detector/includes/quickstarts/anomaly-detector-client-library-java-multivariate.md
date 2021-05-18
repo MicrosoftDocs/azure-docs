@@ -100,6 +100,9 @@ import java.util.stream.Collectors;
 
 Create variables your resource's Azure endpoint and key. Create another variable for the example data file.
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```java
 String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";

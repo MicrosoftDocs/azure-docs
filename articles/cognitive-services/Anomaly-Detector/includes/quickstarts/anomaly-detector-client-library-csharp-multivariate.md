@@ -83,6 +83,9 @@ using NUnit.Framework;
 
 In the application's `main()` method, create variables for your resource's Azure endpoint, your API key, and a custom datasource.
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```csharp
 string endpoint = "YOUR_API_KEY";
 string apiKey =  "YOUR_ENDPOINT";
