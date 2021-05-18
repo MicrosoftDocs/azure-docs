@@ -20,7 +20,7 @@ This topic explains how eligible authorizations work and how to create them when
 
 ## License requirements
 
-Using eligible authorizations requires an Enterprise Mobility + Security E5 (EMS E5) or Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Creating eligible authorizations requires an Enterprise Mobility + Security E5 (EMS E5) or Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 The EMS E5 or Azure AD Premium P2 license must be held by the managing tenant, not the customer tenant.
 
@@ -32,13 +32,13 @@ For information about licenses for users, see [License requirements to use Privi
 
 An eligible authorization defines a role assignment that requires the user to activate the role when they need to perform privileged tasks. When they do this, they'll have the full access granted by that role for the specified period of time.
 
-Users in the customer tenant can review all role assignments, including eligible authorizations, before the onboarding process.
+Users in the customer tenant can review all role assignments, including those in eligible authorizations, before the onboarding process.
 
-Once a user successfully activates their role, they will have the elevated role on the delegated scope for a pre-configured time period, in addition to their permanent role assignment(s) for that scope.
+Once a user successfully activates an eligible role, they will have that elevated role on the delegated scope for a pre-configured time period, in addition to their permanent role assignment(s) for that scope.
 
 Administrators in the managing tenant can review all Privileged Identity Management activities by viewing the audit log in the managing tenant. Customers can view these actions in the Azure activity log for the delegated subscription.
 
-When creating an eligible authorization, you must define three elements: the user, the role, and the access policy.
+When creating an eligible authorization, you define three elements: the user, the role, and the access policy.
 
 - The **user** can be either an individual user in the managing tenant, or an Azure AD group in the managing tenant. If a group is defined, any member of that group will be able to elevate their own individual access to the role per the access policy. You can't use eligible authorizations with service principals.
 - The **role** can be any Azure built-in role that is supported for Azure delegated resource management except for User Access Administrator.
@@ -240,13 +240,14 @@ The `justInTimeAccessPolicy` specifies two elements:
 
 ## Elevation process for users
 
-After you have onboarded a customer for Azure delegated resource management, any eligible authorizations you created will be available to the specified user (or to users in any specified groups).
+After you have onboarded a customer for Azure delegated resource management, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
-Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **View eligible roles in PIM** button. After that, they can follow the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) in Azure AD Privileged Identity Management.
+Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting the **Manage eligible roles** button. After that, they can follow the [steps to activate the role](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role) in Azure AD Privileged Identity Management.
 
-Once the eligible role has been activated, the user will be able to use that elevated role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
+Once the eligible role has been activated, the user will be able to use that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
 ## Next steps
 
 - Learn how to [onboard customers to Azure Lighthouse using ARM templates](onboard-customer.md).
 - Learn more about [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure).
+- Learn more about [tenants, users, and roles in Azure Lighthouse](../concepts/tenants-users-roles.md).

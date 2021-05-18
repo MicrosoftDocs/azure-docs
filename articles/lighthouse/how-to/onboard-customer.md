@@ -70,7 +70,7 @@ To make management easier, we recommend using Azure AD user groups for each role
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For information about supported roles and best practices, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
 > [!TIP]
-> You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. This feature is currently in public preview and has licensing requirements. For more information, see [Create eligible authorizations](create-eligible-authorizations.md).
+> You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. This feature is currently in public preview and has specific licensing requirements. For more information, see [Create eligible authorizations](create-eligible-authorizations.md).
 
 To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the service provider tenant to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them by running the commands below from within the service provider tenant.
 
