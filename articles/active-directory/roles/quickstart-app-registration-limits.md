@@ -23,6 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
+- Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
