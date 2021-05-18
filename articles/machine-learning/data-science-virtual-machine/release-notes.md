@@ -55,7 +55,7 @@ sudo systemctl start docker
 >
 > `sudo docker run --gpus all -it --rm -v local_dir:container_dir nvcr.io/nvidia/pytorch:18.04-py3`
 >
-> will run a Ubuntu 18.04 container with PyTorch pre-installed and all GPUs enabled. It will also make a local folder
+> will run an Ubuntu 18.04 container with PyTorch pre-installed and all GPUs enabled. It will also make a local folder
 > *local_dir* available in the container under *container_dir*.
 >
 
