@@ -33,6 +33,9 @@ Configuring automatic generation and storage of database digests can be done thr
 
 :::image type="content" source="media/ledger/automatic-digest-management.png" alt-text="enable digest storage"::: 
 
+> [!IMPORTANT]
+> An [immutability policy](../../storage/blobs/storage-blob-immutability-policies-manage.md) should be configured on your container after provisioning to ensure database digests are protected from tampering.
+
 ### Manual generation and storage of database digests
 
 Azure SQL Database ledger also allows users to generate a database digest on demand so that they can manually store the digest in any service or device that they consider a trusted storage destination, such as an on-premises write once read many (WORM) device. Manually generating a database digest is done through executing the [sys.sp_generate_database_ledger_digest](/sql/relational-databases/system-stored-procedures/sys-sp-generate-database-ledger-digest-transact-sql) stored procedure in either [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).

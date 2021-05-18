@@ -48,6 +48,10 @@ Both **updatable ledger tables** and **append-only ledger tables** provide tampe
 
 There are some limitations of ledger tables that you should be aware of. For details on limitations with ledger tables, see [Limitations for Azure SQL Database ledger](ledger-limits.md).
 
+### Ledger database
+
+A ledger database is a database, in which all user data is tamper evident and stored in ledger tables. A ledger database can only contain ledger tables, and each table is by default created as an updatable ledger table. Ledger databases provide an easy-to-use solution for applications that require the integrity of all data to be protected. 
+
 ### Updatable ledger tables
 
 [Updatable ledger tables](ledger-updatable-ledger-tables.md) are ideal for application patterns that expect to issue updates and deletes to tables in your database, such as System of Record (SOR) applications. This means that existing data patterns for your application don't need to change to enable ledger functionality.  
@@ -61,10 +65,6 @@ For more information on how to create and use updatable ledger tables, see [Crea
 [Append-only ledger tables](ledger-append-only-ledger-tables.md) are ideal for application patterns that are insert-only, such as Security Information and Event Management (SEIM) applications. Append-only ledger tables block updates and deletes at the Application Programming Interface (API) level, providing further tampering protection from privileged users such as systems administrators and DBAs. Since only inserts are allowed into the system, append-only ledger tables don't have a corresponding history table as there's no history to capture. Like updatable ledger tables, a ledger view is created providing insights into the transaction that inserted rows into the append-only table, and the user that performed the insert.
 
 For more information on how to create and use append-only ledger tables, see [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md).
-
-### Ledger database
-
-A ledger database is a database, in which all user data is tamper evident and stored in ledger tables. A ledger database can only contain ledger tables, and each table is by default created as an updatable ledger table. Ledger databases provide an easy-to-use solution for applications that require the integrity of all data to be protected. 
 
 ### Database ledger
 
