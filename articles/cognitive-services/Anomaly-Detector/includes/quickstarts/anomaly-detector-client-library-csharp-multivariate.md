@@ -83,6 +83,9 @@ using NUnit.Framework;
 
 In the application's `main()` method, create variables for your resource's Azure endpoint, your API key, and a custom datasource.
 
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+
 ```csharp
 string endpoint = "YOUR_API_KEY";
 string apiKey =  "YOUR_ENDPOINT";
@@ -224,6 +227,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export the model you trained previously, create a `private async Task` named `exportAysnc`. You will use `ExportModelAsync` and pass the model ID of the model you wish to export.
 
 ```csharp
@@ -343,7 +349,14 @@ Run the application with the `dotnet run` command from your application director
 ```dotnetcli
 dotnet run
 ```
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
-* [Anomaly Detector multivariate best practices](../../concepts/best-practices-multivariate.md)
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
