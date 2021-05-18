@@ -302,10 +302,9 @@ To learn how to modify this template or create new ones, see:
 
 ## Delete a storage account
 
-Deleting a storage account deletes the entire account, including all data in the account. Usually, this operation can't be undone. The recovery of a storage account is only possible under certain circumstances and is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
 
-> [!WARNING]
-> Be sure to back up anything you want to save before you delete the account. It's usually not possible to restore a deleted storage account or retrieve any of the resources that it contained before deletion.
+Under certain circumstances, a deleted storage account may be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
 
 If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
