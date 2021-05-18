@@ -54,7 +54,7 @@ Volumes that use Azure managed disks are currently not zone-redundant resources.
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes will take care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
 
-## Azure Resource Manager Templates and availability zones
+### Azure Resource Manager templates and availability zones
 
 When *creating* an AKS cluster, if you explicitly define a [null value in a template][arm-template-null], the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster and omit the availability zones property value in your template, availability zones are disabled.
 
