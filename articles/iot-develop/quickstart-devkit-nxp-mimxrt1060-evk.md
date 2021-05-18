@@ -201,7 +201,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
 
@@ -234,7 +234,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this tutorial you built a custom image that contains Azure RTOS sample code, and then flashed the image to the NXP EVK device. You also used the IoT Central portal to create Azure resources, connect the NXP EVK securely to Azure, view telemetry, and send messages.
+In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the NXP EVK device. You also used the IoT Central portal to create Azure resources, connect the NXP EVK securely to Azure, view telemetry, and send messages.
 
 * For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
