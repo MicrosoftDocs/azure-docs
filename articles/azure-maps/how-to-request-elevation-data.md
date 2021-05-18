@@ -290,7 +290,7 @@ To create the request:
 
 Now we'll use the [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier in Washington state. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area is defined by two sets of latitude/longitude coordinates (south latitude, west longitude | north latitude, east longitude) and is divided into rows and columns. The edges of the bounding box account for two of the rows and two of the columns. Elevations are returned for the grid vertices created at row and column intersections. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll specify rows=3 and columns=6. 18 elevation values are returned in the response. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they're returned.
+In this example, we'll specify rows=3 and columns=6. The response returns 18 elevation values. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they're returned.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Bounding box coordinates at NE and SE corners.":::
 
