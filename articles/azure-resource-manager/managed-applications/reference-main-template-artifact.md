@@ -48,7 +48,7 @@ The following JSON shows an example of *mainTemplate.json* file for Azure Manage
     },
     "zipFileBlobUri": {
       "type": "string",
-      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
       "metadata": {
         "description": "The Uri to the uploaded function zip file"
       }
