@@ -45,7 +45,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    :::image type="content" source="media/ledger/ledger-portal-run-query-editor.png" alt-text="Azure portal run query editor to verify the database":::
 
-1. Successful verification will return the following results in the **Results** window.
+1. Successful verification will return the following in the **Results** window.
 
    - If there was no tampering in your database, the message will be as follows:
 
