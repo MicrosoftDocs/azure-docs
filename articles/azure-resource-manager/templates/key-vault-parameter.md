@@ -376,9 +376,6 @@ The following template dynamically creates the key vault ID and passes it as a p
 }
 ```
 
-> [!NOTE]
-> As of Bicep version 0.3.539, you can use an **existing** key vault secret. The key vault and secret must exist before a deployment begins. For more information, see the [Bicep spec](https://github.com/Azure/bicep/blob/main/docs/spec/modules.md#using-existing-key-vaults-secret-as-input-for-secure-string-module-parameter).
-
 ## Next steps
 
 - For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
