@@ -10,46 +10,49 @@ ms.date: 05/05/2020
 ---
 
 # Monitoring Azure virtual machines with Azure Monitor - Onboard
-
+This article describes how to configure virtual machine monitoring in Azure Monitor. 
 
 ## Configuration overview
-To enable all features of Azure Monitor for monitoring a virtual machine, you need to collect monitoring data from the virtual machine host and guest operating system to both [Azure Monitor Metrics](../logs/data-platform-logs.md) and [Azure Monitor Logs](../logs/data-platform-logs.md). The following table lists the configuration that must be performed to enable this collection. You may choose to not perform all of these steps depending on your particular requirements.
+The following table lists the steps that must be performed for this configuration. 
 
 | Configuration step | Actions completed | Features enabled |
 |:---|:---|:---|
-| No configuration | - Host platform metrics collected to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
+| No configuration | - Host platform metrics sent to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
+| Create Log Analytics workspace | | |
 | [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
-| [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
-| [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
+| [Configure additional data collection](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
 | [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
 
+### Optional
 
-## Agent summary
-An agent is required to collect telemetry from the guest operating system of a virtual machine. Azure Monitor has multiple agents that collect different types of data and support different features.
+| Configuration step | Actions completed | Features enabled |
+|:---|:---|:---|
+| [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
+
 
 ## Create Log Analytics workspace
 The first step in any Azure Monitor implementation is creating one or more Log Analytics workspaces. The number that you create, their location, and their configuration will depend on your particular environment and business requirements.
 
-Enable VM insights
-You need to enable VM insights on each workspace. You can do this through the portal or an ARM template. It only needs to be done once per workspace though, so if you have a small number of workspaces, the portal may be the easiest method.
 
 
 ## Collect Activity log
 You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into the same Log Analytics workspace as VM insights to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../essentials/diagnostic-settings.md). Collect the Activity log with a [diagnostic setting for the subscription](../essentials/diagnostic-settings.md#create-in-azure-portal).
 
 ## Enable VM insights
-[VM insights](../vm/vminsights-overview.md) is an [insight](../monitor-reference.md) in Azure Monitor that is the primary tool for monitoring virtual machines in Azure Monitor. It provides the following additional value over standard Azure Monitor features.
+[VM insights](../vm/vminsights-overview.md) is the feature in Azure Monitor for monitoring virtual machines It provides the following additional value over standard Azure Monitor features.
 
 - Simplified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
 - Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
 - Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
 
 
+
+You need to enable VM insights on each workspace. You can do this through the portal or an ARM template. It only needs to be done once per workspace though, so if you have a small number of workspaces, the portal may be the easiest method.
 Enable VM insights from the **Insights** option in the virtual machine menu of the Azure portal. See [Enable VM insights overview](vminsights-enable-overview.md) for details and other configuration methods.
 
 ![Enable VM insights](media/monitor-vm-azure/enable-vminsights.png)
 
-### Configure Log Analytics workspace
+## Configure additional data collection
 The Log Analytics agent used by VM insights sends data to a [Log Analytics workspace](../logs/data-platform-logs.md). You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It only needs to be configured once, since any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
 
 You can access the configuration for the workspace directly from VM insights by selecting **Workspace configuration** from the **Get Started**. Click on the workspace name to open its menu.

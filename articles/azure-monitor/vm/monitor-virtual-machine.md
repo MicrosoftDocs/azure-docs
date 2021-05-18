@@ -9,24 +9,41 @@ ms.date: 05/01/2021
 
 ---
 
-# Monitoring Azure virtual machines with Azure Monitor
-This article describes how to use Azure Monitor to collect and analyze monitoring data from virtual machines and the workloads running on them to maintain their health and performance. It includes collection of telemetry critical for monitoring, configuring alerting to be proactively notified of critical issues, and analysis and visualization of collected data to identify trends.
+# Monitoring virtual machines with Azure Monitor
+This scenario describes how to use Azure Monitor to collect and analyze monitoring data from virtual machines and the workloads running on them to maintain their health and performance. It includes collection of telemetry critical for monitoringanalysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
 
+This article provides concepts for monitoring virtual machines in Azure Monitor and guidance to the available content. If you want to jump right into some procedures, see the articles below.
 
+| Article | Description |
+|:---|:---|
+| Enable | Enable VM insights feature of Azure Monitor and onboard virtual machines for monitoring. This includes Azure virtual machines and hybrid machines in other clouds and on-premises. |
+| Analyze | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications. |
+| Alert   | Create alerts based on performance and other data on the virtual machine.
+
+> [!IMPORTANT]
+> This scenario does not include features that are in public preview but not generally available. This includes features such as [Azure Monitor Agent]() and [virtual machine guest health]() that have the potential to significantly modify the recommendations made here. The scenario will be updated as preview features move into general availability.
 
 
 ## Layers of monitoring
+There are fundamentally three layers to a virtual machine that require monitoring. Each layer has a distinct set of telemetry and monitoring requirements.
 
+:::image type="content" source="media/monitor-virtual-machines/virtual-machine-layers.png" alt-text="Virtual machine layers":::
+
+
+| Layer | Requirements | Data collected | Alerting requirements |
+|:---|:---|:---|:---|
+| Virtual machine host | None for Azure virtual machines<br>Azure Arc required for hybrid machines | Platform metrics<br>Activity log | Typically not useful for alerting since performance metrics are collected from the guest operating system. Virtual machine status could be done with the Activity log for the host machine, but this is considered a beginner scenario as opposed to heartbeat from the guest operating system which is a more useful alerting mechanism.  |
+| Guest operating system | Agent installed on guest operating system | Performance data | Performance metrics from the guest operating system such as CPU, memory, and disk. |
+| Applications | Agent installed on guest operating system<br>Application Insights for synthetic transactions | | These are the workloads running on the VM that support your business applications. For customer using SCOM, these workloads are typically being monitored by packaged or custom management packs. There are a variety of different alerting strategies that can be used to alert on these workloads such as service up/down, events, and synthetic transactions. |
 
 ### Virtual machine host
 Virtual machines in Azure generate the following data for the virtual machine host the same as other Azure resources as described in [Monitoring data](../essentials/monitor-azure-resource.md#monitoring-data).
 
-- [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are collected for the virtual machine host, but you require the diagnostics extension to collect metrics for the guest operating system.
-- [Activity log](../essentials/platform-logs-overview.md) - Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane). For a virtual machine, this includes such information as when it was started and any configuration changes.
 
 
-### Guest operating system
-To collect data from the guest operating system of a virtual machine, you require an agent, which runs locally on each virtual machine and sends data to Azure Monitor. Multiple agents are available for Azure Monitor with each collecting different data and writing data to different locations. Get a detailed comparison of the different agents at [Overview of the Azure Monitor agents](../agents/agents-overview.md). 
+
+## Agents
+You require an agent which runs locally on each virtual machine and sends data to Azure Monitor to collect data from the guest operating system of a virtual machine. Multiple agents are available for Azure Monitor with each collecting different data and writing data to different locations. Get a detailed comparison of the different agents at [Overview of the Azure Monitor agents](../agents/agents-overview.md). 
 
 - [Log Analytics agent](../agents/agents-overview.md#log-analytics-agent) - Available for virtual machines in Azure, other cloud environments, and on-premises. Collects data to Azure Monitor Logs. Supports VM insights and monitoring solutions. This is the same agent used for System Center Operations Manager.
 - [Dependency agent](../agents/agents-overview.md#dependency-agent) - Collects data about the processes running on the virtual machine and their dependencies. Relies on the Log Analytics agent to transmit data into Azure and supports VM insights, Service Map, and Wire Data 2.0 solutions.
@@ -34,18 +51,8 @@ To collect data from the guest operating system of a virtual machine, you requir
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) - Collect performance data from Linux VMs into Azure Monitor Metrics.
 
 
-## Features of Azure Monitor
 
 
-
-### Enable diagnostics extension and Telegraf agent
-VM insights is based on the Log Analytics agent that sends data to a Log Analytics workspace. This supports multiple features of Azure Monitor such as [log queries](../logs/log-query-overview.md), [log alerts](../alerts/alerts-log.md), and [workbooks](../visualize/workbooks-overview.md). The [diagnostics extension](../agents/diagnostics-extension-overview.md) collects performance data from the guest operating system of Windows virtual machines to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md). For Linux virtual machines, the [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) is required to send data to Azure Metrics.  This enables other features of Azure Monitor such as [metrics explorer](../essentials/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
-
-Install the diagnostics extension for a single Windows virtual machine in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple virtual machines, see [Installation and configuration](../agents/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each virtual machine.
-
-![Diagnostic setting](media/monitor-vm-azure/diagnostic-setting.png)
-
-See [Install and configure Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) for details on configuring the Telegraf agents on Linux virtual machines. The **Diagnostic setting** menu option is available for Linux, but it will only allow you to send data to Azure storage.
 
 ### Collect platform metrics and Activity log
 You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into the same Log Analytics workspace as VM insights to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../essentials/diagnostic-settings.md). Collect the Activity log with a [diagnostic setting for the subscription](../essentials/diagnostic-settings.md#create-in-azure-portal).

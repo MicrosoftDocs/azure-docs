@@ -19,6 +19,12 @@ The basic types of data collected from virtual machines include the following:
 
 | Data | Contents |
 |:---|:---|
+
+| [Activity log](../essentials/platform-logs-overview.md) | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane). For a virtual machine, this includes such information as when it was started and any configuration changes. |
+| [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are collected for the virtual machine host, but you require the diagnostics extension to collect metrics for the guest operating system.
+
+
+
 | Activity log | Information about changes to virtual machines including creation, configuration changes, and start/stop. |
 | Metrics | Performance data collected for the host machine.  Includes performance data from guest operating system only if the diagnostic extension is installed. View this data in Metrics explorer. |
 | Logs | Event and performance data collected from VM insights and from any data sources configured on the workspace. View this data in VM insights or create custom queries using Log Analytics. |
@@ -73,6 +79,13 @@ VM insights enables the collection of a predetermined set of performance counter
 | Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
 | Data sources from the guest operating system | Enable Log Analytics agent and configure data sources. | See documentation for each data source. |
 
+
+| Table | Description | Source|
+|:---|:---|:---|
+| [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) | Traffic for open server ports on the monitored machine. | VM Insights |
+| [VMComputer](/azure/azure-monitor/reference/tables/vmcomputer) | Inventory data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
+| [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) | Traffic for inbound and outbound connections to and from monitored computers. | VM insights |
+| [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) | Process data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
 
 > [!NOTE]
 > Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
