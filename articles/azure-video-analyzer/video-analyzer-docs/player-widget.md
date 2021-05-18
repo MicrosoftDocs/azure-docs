@@ -280,10 +280,6 @@ Then you must add it to the HTML:
 document.firstElementChild.appendChild(avaPlayer);
 ```
 
-## Demo
-
-You test the player widget in the [demo page](https://aka.ms/ava-widgets-demo)
-
 ## Next steps
 
-* Learn more about the [widget API](https://github.com/video-analyzer/widgets)
+* Learn more about the [widget API](https://github.com/Azure/video-analyzer/widgets)
