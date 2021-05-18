@@ -231,7 +231,7 @@ successfully acquired a token, userAssignedID MSI, msiEndpoint(http://169.254.16
 successfully made GET on instance metadata
 ...
 ```
-# Run an application with multiple identities
+## Run an application with multiple identities
 
 ## Create multiple identities
 
