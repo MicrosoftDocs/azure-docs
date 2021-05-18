@@ -7,7 +7,8 @@ ms.topic: sample
 ms.date: 07/08/2020
 ms.author: ericg
 ms.service: app-service
-ms.workload: web
+ms.workload: web 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an App Service app and deploy a private endpoint by using an Azure Resource Manager template
@@ -26,7 +27,7 @@ This template creates a private endpoint for an Azure web app.
 
 ### Review the template
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/private-endpoint-webapp/azuredeploy.json" :::
 
 ### Deploy the template
 

@@ -53,7 +53,7 @@ When prompted to choose a **DSL**, select **Kotlin**.
 
 ## Install the client library
 
-Find *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator client library as well as the GSON sdk for JSON serialization.
+Find *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator client library and the GSON sdk for JSON serialization.
 
 ```kotlin
 plugins {
@@ -98,9 +98,9 @@ In the application's **ContentModeratorQuickstart** class, create variables for 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Content Moderator resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
-In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later.
+In the application's **main** method, add calls for the methods used in this quickstart. You'll define these methods later.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_maincalls)]
 

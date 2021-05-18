@@ -10,7 +10,7 @@ zone_pivot_groups: anomaly-detector-quickstart-multivariate
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/01/2020
+ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
 ---

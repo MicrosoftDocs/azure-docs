@@ -143,7 +143,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
     > To obtain the region name that is supported by our command line tools, please use `az account list-locations --query "[].{Region:name}" --out table`
     >
 
-2. Create a new resource group by using the [az group create](/cli/azure/group#az-group-create) command:
+2. Create a new resource group by using the [az group create](/cli/azure/group#az_group_create) command:
 
     ```azurecli-interactive
     az group create \
@@ -151,7 +151,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
         --location $LOCATION
     ```
 
-3. Create Azure NetApp Files account with [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create) command:
+3. Create Azure NetApp Files account with [az netappfiles account create](/cli/azure/netappfiles/account#az_netappfiles_account_create) command:
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -222,7 +222,7 @@ The following code snippet shows how to create a NetApp account in an Azure Reso
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. Create a new capacity pool by using the [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create)
+2. Create a new capacity pool by using the [az netappfiles pool create](/cli/azure/netappfiles/pool#az_netappfiles_pool_create)
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -339,7 +339,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. Create virtual network without subnet by using the [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command.
+1. Create virtual network without subnet by using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command.
 
     ```azurecli-interactive
     az network vnet create \
@@ -350,7 +350,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
     ```
 
-2. Create a delegated subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command.
+2. Create a delegated subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) command.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -361,7 +361,7 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) command.
+3. Create the volume by using the [az netappfiles volume create](/cli/azure/netappfiles/volume#az_netappfiles_volume_create) command.
 
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -445,7 +445,7 @@ When you are done and if you want to, you can delete the resource group. The act
 > [!IMPORTANT]
 > All resources within the resource groups will be permanently deleted and cannot be undone.
 
-1. Delete resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
+1. Delete resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
 
     ```azurecli-interactive
     az group delete \

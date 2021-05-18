@@ -183,7 +183,7 @@ settings:
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. 
 
 > [!TIP]
-> Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export). 
+> Learn more about the [export command](/cli/azure/appconfig/kv#az_appconfig_kv_export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml

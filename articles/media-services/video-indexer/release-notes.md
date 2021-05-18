@@ -26,7 +26,6 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
-
 ## March 2021
 
 ### Audio analysis 

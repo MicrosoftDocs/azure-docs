@@ -30,16 +30,16 @@ The default configuration comes with one client IP interface (eth1), connecting 
 
 | **NIC logical interface** | **Name with RHEL OS** | **Use case** |
 | --- | --- | --- |
-| A | eth1.tenant | Client to BareMetal instance |
-| C | eth2.tenant | Node-to-storage; supports the coordination and access to the storage controllers for management of the storage environment. |
-| B | eth3.tenant | Node-to-node (Private interconnect) |
-| C | eth4.tenant | Reserved/ iSCSI |
-| C | eth5.tenant | Reserved/ Log Backup |
-| C | eth6.tenant | Node-to-storage_Data Backup (RMAN, Snapshot) |
-| C | eth7.tenant | Node-to-storage_dNFS-Pri; provides connectivity with the NetApp storage array. |
-| C | eth8.tenant | Node-to-storage_dNFS-Sec; provides connectivity with the NetApp storage array. |
-| D | eth9.tenant | DR connectivity for Global reach setup for accessing BMI in another region. |
-| A | \*eth10.tenant | \* Client to BareMetal instance
+| A | net1.tenant | Client to BareMetal instance |
+| C | net2.tenant | Node-to-storage; supports the coordination and access to the storage controllers for management of the storage environment. |
+| B | net3.tenant | Node-to-node (Private interconnect) |
+| C | net4.tenant | Reserved/ iSCSI |
+| C | net5.tenant | Reserved/ Log Backup |
+| C | net6.tenant | Node-to-storage_Data Backup (RMAN, Snapshot) |
+| C | net7.tenant | Node-to-storage_dNFS-Pri; provides connectivity with the NetApp storage array. |
+| C | net8.tenant | Node-to-storage_dNFS-Sec; provides connectivity with the NetApp storage array. |
+| D | net9.tenant | DR connectivity for Global reach setup for accessing BMI in another region. |
+| A | \*net10.tenant | \* Client to BareMetal instance
  |
 
 If necessary, you can define more network interface controller (NIC) cards on your own. However, the configurations of existing NICs *can't* be changed.
@@ -53,7 +53,7 @@ For BareMetal instances, the default will have nine assigned IP addresses on the
 - Ethernet "C" should have an assigned IP address that is used for communication to NFS storage. This type of address shouldn't be maintained in the etc/hosts directory.
 - Ethernet "D" should be used exclusively for global reach setup towards accessing BareMetal instances in your DR region.
 
-## Next step
+## Next steps
 
 Learn more about BareMetal Infrastructure for Oracle architecture.
 

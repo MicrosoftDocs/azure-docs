@@ -219,7 +219,7 @@ This section illustrates how you can use the [Azure portal][http-azure-portal-li
 
 ## PowerShell alternative
 
-A script can also create virtual network rules by using the PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** or [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). If you're interested, see [PowerShell to create a virtual network service endpoint and rule for SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+A script can also create virtual network rules by using the PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** or [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). If you're interested, see [PowerShell to create a virtual network service endpoint and rule for SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## REST API alternative
 

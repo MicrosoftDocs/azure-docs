@@ -2,7 +2,7 @@
 title: Azure Arc enabled servers Overview
 description: Learn how to use Azure Arc enabled servers to manage servers hosted outside of Azure like an Azure resource.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/18/2021
+ms.date: 04/21/2021
 ms.topic: overview
 ---
 
@@ -20,9 +20,9 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) and [Azure Security Center File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md), for servers enabled with [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md).
 
-- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md).
+- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
 
-- Simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
+- Simplify deployment using other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace, using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
 
 - Use [Update Management](../../automation/update-management/overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
 

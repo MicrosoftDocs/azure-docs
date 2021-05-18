@@ -22,4 +22,4 @@ With Azure App Service Migration Assistant, you can quickly:
 
 [Watch how to migrate web apps to Azure App service](https://www.youtube.com/watch?v=9LBUmkUhmXU).
 
-Next step:  [Migrate an on-premise web application to Azure App Service](https://docs.microsoft.com/learn/modules/migrate-app-service-migration-assistant/)
+Next step:  [Migrate an on-premise web application to Azure App Service](/learn/modules/migrate-app-service-migration-assistant/)

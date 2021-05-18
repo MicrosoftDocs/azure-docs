@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 ---
 # Samples
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-android-ios.md)]
-
 Azure Communication Services has many samples available, which you can use to test out ACS services and features before creating your own application or use case.
 
 ## Application samples
@@ -32,6 +30,7 @@ Azure Communication Services has many samples available, which you can use to te
 Access code samples for quickstarts found on our documentation.
  - [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/)
  - [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/)
+ - [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts)
  - [iOS](https://github.com/Azure-Samples/communication-services-ios-quickstarts/)
  - [Android](https://github.com/Azure-Samples/communication-services-android-quickstarts/)
  - [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/)

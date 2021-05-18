@@ -160,6 +160,19 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
+The following C# code shows how to load a private certificate in a Linux app.
+
+```csharp
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
+...
+var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Java, or Ruby, see the documentation for the respective language or web platform.
 
 ## More resources

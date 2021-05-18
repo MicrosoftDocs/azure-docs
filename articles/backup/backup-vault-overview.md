@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ---
 # Backup vaults overview
 
@@ -22,7 +22,8 @@ A Backup vault is an entity that stores the backups and recovery points created 
 
 ## Encryption settings in the Backup vault
 
-This section discusses the options available for encrypting your backup data stored in the Backup vault.
+This section discusses the options available for encrypting your backup data stored in the Backup vault. Azure Backup service uses the **Backup Management Service** app to access Azure Key Vault, but not the managed identity of the Backup vault.
+
 
 ### Encryption of backup data using platform-managed keys
 
@@ -81,7 +82,7 @@ The following operation is destructive and can't be undone. All backup data and 
 
 To properly delete a vault, you must follow the steps in this order:
 
-- You must check to verify if there are any protected items:
+- Verify if there are any protected items:
   - Go to **Backup Instances** in the left navigation bar. All items listed here must be deleted first.
 
 After you've completed these steps, you can continue to delete the vault.

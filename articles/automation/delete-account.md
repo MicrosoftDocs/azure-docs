@@ -5,7 +5,8 @@ services: automation
 ms.service: automation
 ms.subservice: process-automation
 ms.date: 04/15/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to delete your Azure Automation account

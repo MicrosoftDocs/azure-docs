@@ -33,7 +33,7 @@ You need to address two key areas for Azure services in IL5 scope: storage isola
 
 ### Compute isolation
 
-IL5 separation requirements are stated in the SRG [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all IL5 virtual machines should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in the SRG [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, all IL5 virtual machines should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
@@ -673,11 +673,11 @@ Azure Archive Storage can be used in Azure Government to support Impact Level 5 
 
 The target storage account for Archive Storage can be located in any Azure Government or Azure Government for DoD region.
 
-### [Azure File Sync](../storage/files/storage-sync-files-planning.md)
+### [Azure File Sync](../storage/file-sync/file-sync-planning.md)
 
 Azure File Sync supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/files/storage-sync-files-planning.md#azure-file-share-encryption-at-rest).
+- Configure encryption at rest of content in Azure File Sync by [using customer-managed keys in Azure Key Vault](../storage/file-sync/file-sync-planning.md#azure-file-share-encryption-at-rest).
 
 ### [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/)
 

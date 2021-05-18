@@ -170,7 +170,7 @@ For more information about Azure Container Registry authentication, see [Authent
 [cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az-container-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-create]: /cli/azure/container#az_container_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set

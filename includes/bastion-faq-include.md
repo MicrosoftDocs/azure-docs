@@ -46,7 +46,7 @@ This feature doesn't work with AADJ VM extension-joined machines using Azure AD 
 
 ### <a name="browsers"></a>Which browsers are supported?
 
-Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
+The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 

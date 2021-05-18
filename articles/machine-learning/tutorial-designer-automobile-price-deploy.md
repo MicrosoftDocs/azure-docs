@@ -136,6 +136,8 @@ For more information on consuming your web service, see [Consume a model deploye
 
 ## Limitations
 
+### Update inference pipeline
+
 If you make some modifications in your training pipeline, you should resubmit the training pipeline, **Update** the inference pipeline and run the inference pipeline again.
 
 Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
@@ -149,6 +151,10 @@ Then manually replace the **TD-** module in inference pipeline with the register
 ![Screenshot showing how to replace transformation module](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 Then you can submit the inference pipeline with the updated model and transformation, and deploy.
+
+### Deploy real-time endpoint
+
+Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** module, they will be auto-removed when deploy to real-time endpoint.
 
 ## Clean up resources
 

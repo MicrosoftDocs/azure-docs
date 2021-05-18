@@ -60,7 +60,7 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 #### Azure Private Link integration
 
 > [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
 
 | Resource | Limit |
 | -------- | -----:|

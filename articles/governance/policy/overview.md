@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -35,9 +35,9 @@ that assignment. Subscopes can be excluded, if necessary. For more information, 
 [Scope in Azure Policy](./concepts/scope.md).
 
 Azure Policy uses a [JSON format](./concepts/definition-structure.md) to form the logic the
-evaluation uses to determine if a resource is compliant or not. Definitions include metadata and the
-policy rule. The defined rule can use functions, parameters, logical operators, conditions, and
-property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
+evaluation uses to determine whether a resource is compliant or not. Definitions include metadata
+and the policy rule. The defined rule can use functions, parameters, logical operators, conditions,
+and property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
 want. The policy rule determines which resources in the scope of the assignment get evaluated.
 
 ### Understand evaluation outcomes
@@ -208,7 +208,7 @@ For more information about policy parameters, see
 
 ### Initiative definition
 
-An initiative definition is a collection of policy definitions that are tailored towards achieving
+An initiative definition is a collection of policy definitions that are tailored toward achieving
 a singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
 create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
@@ -220,11 +220,11 @@ all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 
-- **Monitor unencrypted SQL Database in Security Center** – For monitoring unencrypted SQL databases
+- **Monitor unencrypted SQL Database in Security Center** - For monitoring unencrypted SQL databases
   and servers.
-- **Monitor OS vulnerabilities in Security Center** – For monitoring servers that don't satisfy the
+- **Monitor OS vulnerabilities in Security Center** - For monitoring servers that don't satisfy the
   configured baseline.
-- **Monitor missing Endpoint Protection in Security Center** – For monitoring servers without an
+- **Monitor missing Endpoint Protection in Security Center** - For monitoring servers without an
   installed endpoint protection agent.
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing
@@ -245,8 +245,8 @@ options:
 - Use the parameters of the policy definitions within this initiative: In this example,
   _allowedLocations_ and _allowedSingleLocation_ become initiative parameters for **initiativeC**.
 - Provide values to the parameters of the policy definitions within this initiative definition. In
-  this example, you can provide a list of locations to **policyA**'s parameter –
-  **allowedLocations** and **policyB**'s parameter – **allowedSingleLocation**. You can also provide
+  this example, you can provide a list of locations to **policyA**'s parameter -
+  **allowedLocations** and **policyB**'s parameter - **allowedSingleLocation**. You can also provide
   values when assigning this initiative.
 - Provide a list of _value_ options that can be used when assigning this initiative. When you assign
   this initiative, the inherited parameters from the policy definitions within the initiative, can
@@ -272,7 +272,7 @@ networking resources. You could exclude a resource group in that subscription th
 networking infrastructure. You then grant access to this networking resource group to users that you
 trust with creating networking resources.
 
-In another example, you might want to assign a resource type allow list definition at the management
+In another example, you might want to assign a resource type allowlist definition at the management
 group level. Then you assign a more permissive policy (allowing more resource types) on a child
 management group or even directly on subscriptions. However, this example wouldn't work because
 Azure Policy is an explicit deny system. Instead, you need to exclude the child management group or
