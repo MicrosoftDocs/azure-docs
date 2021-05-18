@@ -62,9 +62,9 @@ The following scenarios are not supported right now:
 
 We are fixing these issues.
 
-## Required license plan
+## License requirements
 
-Using this feature requires you to have an available Azure AD Premium P1 license in your Azure AD organization. To use also Privileged Identity Management for just-in-time role activation requires you to have an available Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium plans](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses).
+Using this feature requires an Azure AD Premium P1 license. To also use Privileged Identity Management for just-in-time role activation requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Next steps
 
