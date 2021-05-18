@@ -24,7 +24,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 * Release of the new API v3.1-preview.5 which includes 
   * Asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) now supports Sentiment Analysis (SA) and Opinion Mining (OM).
   * A new query parameter, `LoggingOptOut`, is now available for customers who wish to opt out of logging input text for incident reports.  Learn more about this parameter in the [data privacy](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context) article.
-* Text Analytics for health and Asynchronous operation is now available in all regions
+* Text Analytics for health and the Analyze asynchronous operations are now available in all regions
 
 ## March 2021
 
