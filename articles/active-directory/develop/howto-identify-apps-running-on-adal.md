@@ -29,11 +29,11 @@ The following article is recommended before going through this article:
 
 ## Identify apps using ADAL in your tenant
 
-Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication.  The Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema), but the workbook helps you collect and visualize the information in one view.  
+Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication.  The Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md), but the workbook helps you collect and visualize the information in one view.  
 
 ## Accessing the workbook
 
-If your organization is new to Azure Monitor workbooks, [integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics) before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. You can use the workbook to assess past insights if your Azure AD sign-in and audit logs is already integrated with Azure Monitor.
+If your organization is new to Azure Monitor workbooks, [integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. You can use the workbook to assess past insights if your Azure AD sign-in and audit logs is already integrated with Azure Monitor.
 
 To access the workbook: 
 
