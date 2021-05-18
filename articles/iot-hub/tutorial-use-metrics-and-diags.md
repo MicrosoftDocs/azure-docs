@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Set up and use metrics and logs with an Azure IoT hub
-description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
+title: Tutorial - Set up and use metrics and logs with an Azure IoT Hub
+description: Tutorial - Learn how to set up and use metrics and logs with an Azure IoT Hub. This will provide data to analyze to help diagnose problems your hub may be having.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
-#Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
+#Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT Hub. 
 # 4.17/2021 Updated this to "guide the new alerts experience" at request of John Lian. 1577857. They added metrics
 # as a supported signal, and fixed connected Device Count and Total Device Count.
 # "IoT Hub supports the new Azure Metric metric alerts.
