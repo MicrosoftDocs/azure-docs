@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 05/18/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,17 +22,17 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 
 1. Create a web application registration in your Azure AD B2C tenant
 1. Configure an Azure Repo
-1. Configure an Azure Pipeline
+1. Configure Azure Pipelines
 
 > [!IMPORTANT]
-> Managing Azure AD B2C custom policies with an Azure Pipeline currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
+> Managing Azure AD B2C custom policies with Azure Pipelines currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
 
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role
 * [Custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) uploaded to your tenant
 * [Management app](microsoft-graph-get-started.md) registered in your tenant with the Microsoft Graph API permission *Policy.ReadWrite.TrustFramework*
-* [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
 
 ## Client credentials grant flow
 
@@ -103,7 +103,7 @@ With a management application registered, you're ready to configure a repository
     exit 0
     ```
 
-## Configure your Azure pipeline
+## Configure Azure Pipelines
 
 With your repository initialized and populated with your custom policy files, you're ready to set up the release pipeline.
 
