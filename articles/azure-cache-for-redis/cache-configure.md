@@ -228,7 +228,7 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 
 ### Schedule updates
 
-The **Schedule updates on the left allow you to choose a maintenance window for Redis server updates for your cache.
+The Schedule updates on the left allow you to choose a maintenance window for Redis server updates for your cache.
 
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
