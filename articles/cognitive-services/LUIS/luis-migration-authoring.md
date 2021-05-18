@@ -28,7 +28,7 @@ Migration is the process of changing authoring authentication from an email acco
 Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level. Migrating your account can't be reversed.
 
 > [!Note]
-> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-luis-resources) to create it.
 > * See the [migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
 > * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
