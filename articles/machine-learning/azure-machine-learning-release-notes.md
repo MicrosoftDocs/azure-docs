@@ -27,7 +27,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
   + **Breaking changes**
-    + Dropped support for Python 3.5 in azureml-sdk.
+    + Dropped support for Python 3.5.
   + **azureml-automl-runtime**
     + Fixed a bug where the STLFeaturizer failed if the time-series length was shorter than the seasonality. This error manifested as an IndexError. The case is handled now without error, though the seasonal component of the STL will just consist of zeros in this case.
   + **azureml-contrib-automl-dnn-vision**
