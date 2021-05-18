@@ -776,8 +776,10 @@ const dominantSpeakersChangedHandler = async () => {
 			}
 		}
 	
+		// Set the new dominant remote participant obj
 		dominantRemoteParticipant = newDominantRemoteParticipant
 
+		// Render the new dominant remote participant's streams
 		for (const view of streamViewsToRender) {
 			htmlElement.appendChild(view.target);
 		}
