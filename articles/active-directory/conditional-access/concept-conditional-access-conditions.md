@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 05/18/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -196,7 +196,7 @@ For example, *All users* accessing the *Microsoft Azure Management* cloud app in
 
 ## Filters for devices (preview)
 
-There is a new optional condition in Conditional Access called filters for devices. When configuring filters for devices as a condition, organizations can choose to include or exclude devices based on filters using a rule expression on device properties. The rule expression for filters for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, 
+There is a new optional condition in Conditional Access called filters for devices. When configuring filters for devices as a condition, organizations can choose to include or exclude devices based on filters using a rule expression on device properties. The rule expression for filters for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information see the article, [Conditional Access: Filters for devices (preview)](concept-condition-filters-for-devices.md).
 
 ## Next steps
 
