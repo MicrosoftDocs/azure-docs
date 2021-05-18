@@ -236,7 +236,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Yiddish|`yi`|✓||
 |Yoruba|`yo`|✓|2021-01-05|
 |Zulu|`zu`|✓|2021-01-05|
-|Yucatec Maya| ✓| |
+|Yucatec Maya| `yua` | ✓| |
 
 ---
 
