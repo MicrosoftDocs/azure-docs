@@ -80,7 +80,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 1. Under **Conditions**, **Filters for devices (Preview)**.
    1. Toggle **Configure** to **Yes**.
    1. Set **Devices matching the rule** to **Exclude filtered devices from policy**.
-   1. Set the property to `ExtensionAttribute1`, the operator to `Not equals` and the value to `SAW`.
+   1. Set the property to `ExtensionAttribute1`, the operator to `Equals` and the value to `SAW`.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
