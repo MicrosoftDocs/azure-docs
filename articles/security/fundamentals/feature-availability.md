@@ -13,7 +13,8 @@ ms.date: 04/29/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- Azure Sentinel
+- [Azure Key Vault](#azure-key-vault)
+- [Azure Sentinel](#azure-sentinel)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -44,6 +45,27 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
+## Azure Key Vault
+
+Azure Key Vault helps solve the following problems:
+
+- Secrets Management - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets.
+- Key Management - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
+- Certificate Management - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
+- Managed HSM - Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs.
+
+For more information, see the [Azure Key Vault product documentation](../../key-vault/general/overview.md).
+
+The following tables display the current Azure Key Vault feature availability in Azure and Azure Government.
+
+| Feature | Azure | Azure Government  |
+| ----- | ----- | ---- |
+| - [Certificates](../../key-vault/certificates/overview.md) | GA | GA |
+| - [Keys](../../key-vault/keys/overview.md) | GA | GA |
+| - [Managed HSM](../../key-vault/managed-hsm/overview.md) | GA | GA |
+| - [Secrets](../../key-vault/secrets/overview.md) | GA | GA |
+
 ## Azure Sentinel
 
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
