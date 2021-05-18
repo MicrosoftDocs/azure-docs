@@ -5029,6 +5029,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
+      "redirect_url": "/azure/logic-apps/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
       "redirect_document_id": false
