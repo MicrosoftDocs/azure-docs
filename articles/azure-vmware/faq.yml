@@ -100,7 +100,10 @@ sections:
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
         
       - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
-        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.          
+        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.       
+
+      - question: Does Azure VMware Solution support running ESXi/ESX as a nested virtualization solution?
+        answer: No. VMware does not officially support nested virtualization.    
 
   - name: Networking and interconnectivity
     questions:        
