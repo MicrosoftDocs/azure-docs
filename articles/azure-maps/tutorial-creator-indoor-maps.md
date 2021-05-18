@@ -155,7 +155,7 @@ To convert a drawing package and retrieve a `conversionId`:
     ```
 
     >[!IMPORTANT]
-    > The API urls in this document may have to be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
+    > The API urls in this document may be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
     > If you receive an error with code `"RequiresCreatorResource"`, make sure that you have [provisioned an Azure Maps Creator resource](how-to-manage-creator.md) in you Azure Maps account.
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request. You will use this in the next step.
