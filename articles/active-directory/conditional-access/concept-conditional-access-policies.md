@@ -52,7 +52,7 @@ The assignments portion controls the who, what, and where of the Conditional Acc
 
 ### Cloud apps or actions
 
-[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications or user actions that will be subject to the policy.
+[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications, user actions, or authentication contexts that will be subjected to the policy.
 
 ### Conditions
 
