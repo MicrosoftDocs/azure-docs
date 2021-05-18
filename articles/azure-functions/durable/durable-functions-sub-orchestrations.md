@@ -63,9 +63,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    deviceId = context.get_input()
+
+    # Step 1: Create an installation package in blob storage and return a SAS URL.
+    sasUrl = yield context.call_activity"CreateInstallationPackage", deviceId)
+
+    # Step 2: Notify the device that the installation package is ready.
+    yield context.call_activity("SendPackageUrlToDevice", { "id": deviceId, "url": sasUrl })
+
+    # Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.call_activity("DownloadCompletedAck")
+
+    # Step 4: ...
+```
+
 ---
 
-This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript) API.
+This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET), `callSubOrchestrator` (JavaScript), or `call_sub_orchestrator` (Python) API.
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
 
@@ -119,6 +140,30 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+
+# [JavaScript](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+
+    deviceIds = yield context.call_activity("GetNewDeviceIds")
+
+    # Run multiple device provisioning flows in parallel
+    provisioningTasks = []
+    id_ = 0
+    for deviceId in deviceIds:
+        child_id = context.df.instanceId + ":" + id_
+        provisionTask = context.call_sub_orchestrator("DeviceProvisioningOrchestration", deviceId, child_id)
+        provisioningTasks.append(provisionTask)
+        id_ += 1
+
+    yield context.task_all(provisioningTasks)
+
+    # ...
+```
 ---
 
 > [!NOTE]
