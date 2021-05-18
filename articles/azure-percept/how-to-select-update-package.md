@@ -47,7 +47,7 @@ Using the **model** and **swVersion** identified in the previous section, check 
 |APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Latest monthly release (May)         |
 
 > [!NOTE]
-> For devkit identified as "PE-101" by the model name, once it is applied with the required update from the table above, the model name will be changed to "APDK-101" and unblocked the devkit to take further updates.
+> For the dev kit identified by the model name PE-101, after it's applied with the required update that's described in the table, the model name changes to APDK-101 and the dev kit is unblocked for further updates.
 
 
 ## Next steps
