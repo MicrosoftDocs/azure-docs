@@ -29,7 +29,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
   + **Breaking changes**
-    + Dropped support for Python 3.5. on azureml-sdk 
+    + Dropped support for Python 3.5 in azureml-sdk.
   + **azureml-automl-runtime**
     + Fixed a bug where the STLFeaturizer failed if the time-series length was shorter than the seasonality. This error manifested as an IndexError. The case is handled now without error, though the seasonal component of the STL will just consist of zeros in this case.
   + **azureml-contrib-automl-dnn-vision**
@@ -39,9 +39,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-contrib-k8s**
     + Removed ArcKubernetesCompute and CmAksCompute. Instead, customers should stick with the existing KubernetesCompute. This change also includes a warning when using KubernetesCompute, which suggested users to switch to azureml.core because the azureml.contrib.k8s package is deprecated
   + **azureml-core**
-    + 1. Corrected explanation of parameter "create_if_not_exists" in method "register_azure_blob_container" of class "Datastore"; 2. Sample codes in class "DatasetConsumptionConfig"
+    + Corrected explanation of parameter create_if_not_exists in Datastore.register_azure_blob_container.
+    + Added sample code to DatasetConsumptionConfig class.
     + Added support for step as an alternative axis for scalar metric values in run.log()
-    + CLI doc string improvements.
   + **azureml-dataprep**
     + Limit partition size accepted in `_with_partition_size()` to 2GB
   + **azureml-interpret**
