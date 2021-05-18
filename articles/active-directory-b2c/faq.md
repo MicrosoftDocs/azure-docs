@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 05/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -91,7 +91,7 @@ You can use the Microsoft Graph API to write your migration tool. See the [User 
 
 The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more details, see [Password policies and restrictions in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
-For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
+For information about account lockouts and passwords, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 

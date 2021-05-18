@@ -908,7 +908,7 @@ As an example, you might want to know the time offset of each flower word as fol
 You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
 
 > [!NOTE]
-> `BookmarkReached` event is only available since Speech SDK version 1.16.0.
+> `BookmarkReached` event is only available since Speech SDK version 1.16.
 
 `BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
 
