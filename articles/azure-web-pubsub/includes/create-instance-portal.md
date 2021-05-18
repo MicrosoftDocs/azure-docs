@@ -16,7 +16,9 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 Your application will connect to a Web PubSub service instance in Azure.
 
-1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter.
+1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter. (You could also search the Azure Web PubSub from the `Web` category.)
+
+:::image type="content" source="../media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Search the Azure Web PubSub in portal.":::
 
 1. Select **Web PubSub** from the search results, then select **Create**.
 

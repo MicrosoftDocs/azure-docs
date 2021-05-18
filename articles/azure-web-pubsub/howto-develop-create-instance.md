@@ -16,7 +16,9 @@ To build an application with Azure Web PubSub service, you need to create the We
 
 The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. You could also create Azure Web PubSub service instance with Azure portal.
 
-1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter.
+1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter. (You could also search the Azure Web PubSub from the `Web` category.)
+
+:::image type="content" source="media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Search the Azure Web PubSub in portal.":::
 
 1. Select **Web PubSub** from the search results, then select **Create**.
 
@@ -30,6 +32,8 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
     | **Location** | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-pubsub/). |
     | **Unit count** |  Unit count specifies how many connections your Web PubSub service instance can accept. Each unit supports 1,000 concurrent connections at most. It is only configurable in the Standard tier. |
+
+:::image type="content" source="media/howto-develop-create-instance/create-awps-instance.png" alt-text="Create the Azure Web PubSub instance in portal.":::
 
 1. Select **Create** to start deploying the Web PubSub service instance.
 
