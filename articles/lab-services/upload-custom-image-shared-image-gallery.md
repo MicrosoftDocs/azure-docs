@@ -9,8 +9,8 @@ ms.topic: how-to
 
 You can use shared image gallery to bring your own Windows custom images and use these images to create labs in Azure Lab Services.  This article shows how to bring a custom image from:
 
-* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#upload-custom-image-from-a-physical-lab-environment).
-* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#upload-custom-image-from-an-azure-virtual-machine).
+* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#bring-windows-custom-image-from-a-physical-lab-environment).
+* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#bring-windows-custom-image-from-an-azure-virtual-machine).
 
 This task is typically performed by a school's IT department.
 
@@ -95,7 +95,7 @@ Many options exist for creating a VHD from a physical lab environment. The below
     - Log into the lab's template VM and follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). 
 
 ## Bring a Windows custom image from an Azure virtual machine
-Another approach is to set up your Windows image using an [Azure virtual machine](../virtual-machines/windows/overview.md).  Using an Azure virtual machine (VM) gives you flexibility to create either a specialized or generalized image to use with your labs.  The process to prepare an image from an Azure VM are simpler compared to [creating an image from a VHD](upload-custom-image-shared-image-gallery.md#bring-custom-image-from-a-physical-lab-environment) because the image is already prepared to run in Azure.
+Another approach is to set up your Windows image using an [Azure virtual machine](../virtual-machines/windows/overview.md).  Using an Azure virtual machine (VM) gives you flexibility to create either a specialized or generalized image to use with your labs.  The process to prepare an image from an Azure VM are simpler compared to [creating an image from a VHD](upload-custom-image-shared-image-gallery.md#bring-windows-custom-image-from-a-physical-lab-environment) because the image is already prepared to run in Azure.
 
 You will need permission to create an Azure VM in your school's Azure subscription to complete the below steps:
 
