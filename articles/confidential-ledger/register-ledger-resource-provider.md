@@ -11,6 +11,10 @@ ms.author: mbaldwin
 ---
 # Register the Confidential Ledger resource provider
 
+Before using Azure Confidential Ledger, you must first register the Confidential Ledger resource provider.
+
+## How to register
+
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
 ## Next Steps

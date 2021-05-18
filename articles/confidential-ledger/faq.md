@@ -27,10 +27,8 @@ Not necessarily. Some solutions today require users to maintain write receipts f
 
 ## How do I verify Ledger's authenticity?
 
-Ledger's authenticity verification can be broken down into two broad categories:
+You can verify that the Ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating Confidential Ledger Nodes](authenticate-ledger-nodes.md).
 
-- Verifying that Ledger server nodes that your client is communicating with are authentic. For details, see [Authenticating Confidential Ledger Nodes](authenticate-ledger-nodes.md).
-- Verifying that the Ledger blocks, containing all of a user's transactions, have not been tampered with. For details, see [Offline Ledger verification](offline-ledger-verification.md).
 
 
 ## Next steps
