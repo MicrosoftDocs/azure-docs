@@ -102,7 +102,7 @@
     - name: Query the twin graph
       href: how-to-query-graph.md
     - name: Create twin-level RBAC with marker tags
-      href: how-to-best-practices-twin-level-rbac.md
+      href: how-to-create-twin-level-role-based-access-control.md
   - name: Develop client apps
     items:
     - name: Make requests with Postman
