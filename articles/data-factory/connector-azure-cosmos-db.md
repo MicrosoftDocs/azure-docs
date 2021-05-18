@@ -128,7 +128,7 @@ These properties are supported for the linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureBlobFS**. |Yes |
+| type | The type property must be set to **CosmosDb**. |Yes |
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB. | Yes |
 | database | Specify the name of the database. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
@@ -213,7 +213,7 @@ These properties are supported for the linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **AzureBlobFS**. |Yes |
+| type | The type property must be set to **CosmosDb**. |Yes |
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB. | Yes |
 | database | Specify the name of the database. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
