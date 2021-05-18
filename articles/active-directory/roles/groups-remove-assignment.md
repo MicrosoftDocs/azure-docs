@@ -22,6 +22,7 @@ This article describes how an IT admin can remove Azure AD roles assigned to gro
 
 ## Prerequisites
 
+- Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API

@@ -22,6 +22,7 @@ This section describes how an IT admin can assign Azure Active Directory (Azure 
 
 ## Prerequisites
 
+- Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API

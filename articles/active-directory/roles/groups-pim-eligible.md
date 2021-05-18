@@ -26,6 +26,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 ## Prerequisites
 
+- Azure AD Premium P2 license
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
