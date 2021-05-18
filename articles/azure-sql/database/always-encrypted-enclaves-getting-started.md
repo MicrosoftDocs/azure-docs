@@ -44,7 +44,7 @@ Make sure the following PowerShell modules are installed on your machine.
     Get-InstalledModule -Name Az
     ```
 
-1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
+1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see quick[Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az.Attestation
