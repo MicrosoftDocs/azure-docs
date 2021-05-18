@@ -290,7 +290,8 @@ For syslog on Linux, you can choose Facilities and log level for each facility t
 ### Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
 Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
 
-
+### Does the new Azure Monitor agent have hardening support for Linux?
+This is not available currently for the agent in preview, and is planned to be added post GA.
 
 
 ## Visualizations
