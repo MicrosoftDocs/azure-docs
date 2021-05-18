@@ -119,7 +119,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](/azure/marketplace/review-publish-offer).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
 1. Track the status of your submission on the Overview tab.
 
-    :::image type="content" source="media/co-sell-migrate/overview-tab.png" alt-text="Dispalys overview tab":::
+    :::image type="content" source="media/co-sell-migrate/offer-overview-tab.png" alt-text="Dispalys overview tab":::
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
 
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).
