@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Synapse workspace using Azure PowerShell'
 description: Create an Azure Synapse workspace using Azure PowerShell by following the steps in this guide.
 services: synapse-analytics
-author: alehall
+author: lenadroid
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
