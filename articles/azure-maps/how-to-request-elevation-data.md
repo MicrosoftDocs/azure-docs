@@ -167,7 +167,7 @@ To create the request:
 
 4. Select **Save**.
 
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
