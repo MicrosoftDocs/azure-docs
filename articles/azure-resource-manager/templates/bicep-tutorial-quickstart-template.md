@@ -34,7 +34,7 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 1. In **Search**, enter _deploy linux web app_.
-1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/en-us/resources/templates/webapp-basic-linux/).
 1. Select **Browse on GitHub**.
 1. Select _azuredeploy.json_. This is the template you can use.
 1. Select **Raw**, and then make a copy of the URL.
