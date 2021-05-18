@@ -239,6 +239,9 @@ while (true) {
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export your trained model use the `exportModelWithResponse`.
 
 ```java
