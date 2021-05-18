@@ -220,8 +220,8 @@
       href: service-bus-end-to-end-tracing.md
     - name: Diagnostic logs
       href: service-bus-diagnostic-logs.md
-    - name: Azure Monitor metrics
-      href: service-bus-metrics-azure-monitor.md   
+    - name: Monitoring Azure Service Bus
+      href: monitor-service-bus.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
@@ -281,6 +281,8 @@
       href: service-bus-resource-manager-exceptions.md
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-service-bus-reference.md
   - name: .NET
     items:
     - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
