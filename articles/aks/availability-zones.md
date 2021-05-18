@@ -207,7 +207,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
-[arm-template-null]: ../azure-resource-manager/templates/template-expressions#null-values
+[arm-template-null]: ../azure-resource-manager/templates/template-expressions.md#null-values
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
