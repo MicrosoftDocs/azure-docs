@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/18/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Windows VMs to another Azure region.
@@ -78,6 +78,9 @@ You can optionally enable disaster recovery when you create a VM.
     :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page."
 
 8. Finish creating the VM.
+
+>[!NOTE]
+> When you enable replication while creating a Windows VM, only the OS disk gets replicated. Data disks need to be initialized by you, after which, Azure Site Recovery automatically replicates them. 
 
 ## Enable disaster recovery for an existing VM
 
