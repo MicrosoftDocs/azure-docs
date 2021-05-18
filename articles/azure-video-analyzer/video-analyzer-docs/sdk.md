@@ -19,6 +19,7 @@ The management SDKs allow you to interact with the resources exposed by Azure Re
 The following platforms are supported:
 
 - [.NET](https://aka.ms/sdk/mgt/net)
+- [Java](https://aka.ms/sdk/mgt/java)
 - [Python](https://aka.ms/sdk/mgt/python)
 
 ## Client SDKs
