@@ -136,7 +136,7 @@ Next, specify the object(s) that you want to migrate.
 
    When you've added the objects, they'll appear under **Objects to Migrate**, as shown in the screenshot below.
 
-    :::image type="content" source="./media/how-to-migrate-rds-mysql-workbench/source-objects.png" alt-text="Schemas selection page":::
+    :::image type="content" source="./media/how-to-migrate-rds-mysql-workbench/source-objects.png" alt-text="Source objects selection page":::
 
    In this scenario, we’ve selected all table objects.
 
