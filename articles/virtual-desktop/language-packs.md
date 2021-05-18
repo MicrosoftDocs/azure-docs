@@ -28,16 +28,17 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004 or 20H2 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004, 20H2 or 21H1 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004 or 20H2 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004, 20H2 or 21H1 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
         - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10, version 21H1 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
      - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
         - If you're using Windows 10, version 1903 or 1909:
@@ -50,6 +51,7 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
           - [Windows 10, version 2004 or 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
           - [Windows 10, version 2004 or 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
           - [Windows 10, version 2004 or 20H2 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
+          - [Windows 10, version 2004 or 20H2 **4C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2104C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
