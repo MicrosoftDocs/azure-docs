@@ -34,8 +34,6 @@ This section defines the security protections for the Ledger. The Ledger APIs us
 
 The data to the Ledger is sent through TLS 1.2 connection and the TLS 1.2 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves). This ensures that no one can intercept the connection between a customer's client and the Confidential Ledger server nodes.
 
-You can also perform [offline Ledger verification](offline-ledger-verification.md)
-
 ### Ledger storage
 
 Confidential Ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored as encrypted or in plaintext depending on your needs. When you create a Ledger, you will associate a Storage Account using the steps described in [Register a Confidential Ledger Service Principal](register-ledger-service-principal.md).
