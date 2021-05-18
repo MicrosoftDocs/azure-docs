@@ -130,7 +130,7 @@ Azure API for FHIR service is provisioned.
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
 
-### When the Azure storage account is in the same region
+### Allowing specific IP addresses for the Azure storage account in the same region
 
 The configuration process is the same as above except a specific IP
 address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
