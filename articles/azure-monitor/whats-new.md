@@ -2,7 +2,7 @@
 title: "Azure Monitor docs: What's new for April 2021"
 description: "What's new in the Azure Monitor docs for April 2021"
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 05/01/2021
 ---
 
 # Azure Monitor docs: What's new for April 2021
