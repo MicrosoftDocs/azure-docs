@@ -105,23 +105,35 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
+If you are using Windows Subsystem for Linux (WSL), run the following command to get `ifconfig`:
+
+```bash
+sudo apt-get install net-tools
+```
+
 Use the following steps to run the emulator on Linux:
 
 [!INCLUDE[linux-emulator-instructions](includes/linux-emulator-instructions.md)]
 
-4. Next, download the certificate for the emulator. Alternatively, the endpoint below which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
+4. After the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
+
+    ```bash
+    ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
+    ```
+
+5. Next, download the certificate for the emulator. Alternatively, the endpoint below which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
-5. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
+6. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it is located on `/usr/local/share/ca-certificates/`.
 
    ```bash
    cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
    ```
 
-6. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
+7. Update the TLS/SSL certificates, which will update the `/etc/ssl/certs/` folder.
 
    ```bash
    update-ca-certificates
