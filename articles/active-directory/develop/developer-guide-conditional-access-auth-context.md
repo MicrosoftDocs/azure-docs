@@ -27,7 +27,7 @@ Use the Azure AD Conditional access engine’s new auth context feature to trigg
 
 ## Problem statement
 
-IT administrators and regulators often struggle between balancing prompting their users with extra factors of authentication too frequently and achieving adequate security and policy adherence for applications and services where parts of them contain sensitive data and operations. Users being prompted too often and worse too many times make up for degraded user experiences while not doing so can potentially degrade the security posture. 
+IT administrators and regulators often struggle between balancing prompting their users with extra factors of authentication too frequently and achieving adequate security and policy adherence for applications and services where applications contain sensitive data or operations. Users being prompted too often and worse too many times make up for degraded user experiences while not doing so can potentially degrade the security posture. 
 
 So, what if apps were able to mix both, where they can function with a relatively lesser security and less frequent prompts for most users and operations and yet conditionally stepping up the security requirement when the users accessed more sensitive parts? 
 
@@ -105,7 +105,7 @@ Third: Your application, and for this example, we’d assume it’s a web API, t
 1. In a sensitive and protected by auth context operation, evaluate the values in the acrs claim against the auth context ID mapping saved earlier and raise a claims challenge as provided in the code snippet below. 
 1. The following diagram shows the interaction between the user, client app, and the web API.
 
-   :::image type="content" source="media/developer-guide-conditional-access-auth-context/authentication-context-application-flow.png" alt-text="Diagram showing of interation of user, web app, API, and Azure AD":::
+   :::image type="content" source="media/developer-guide-conditional-access-auth-context/authentication-context-application-flow.png" alt-text="Diagram showing the interaction of user, web app, API, and Azure AD":::
 
    The code snippet that follows is from the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md). The first method, EnsureUserHasElevatedScope() in the API checks if the action being called,
 
@@ -221,11 +221,11 @@ Third: Your application, and for this example, we’d assume it’s a web API, t
    return RedirectToAction("Index");
    ```
    
-1. (Optional) Declare client capability. Client capabilities help resources providers (RP) like our Web API above to detect if the calling client application understands the claims challenge and can then customize its response accordingly. This capability could be useful where not all of the APIs clients are capable of handling claim challenges and some older ones still expect a different response. For more information see the section [Client capabilities](claims-challenge.md#client-capabilities).
+1. (Optional) Declare client capability. Client capabilities help resources providers (RP) like our Web API above to detect if the calling client application understands the claims challenge and can then customize its response accordingly. This capability could be useful where not all of the APIs clients are capable of handling claim challenges and some older ones still expect a different response. For more information, see the section [Client capabilities](claims-challenge.md#client-capabilities).
 
 ## Caveats and recommendations
 
-Do not hardcode auth context values in your app. Apps should read and apply auth context using MS Graph calls [Link to auth context APIs]. This practice is critical in [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The auth context values will vary between Azure AD tenants and are not available in Azure AD free edition. See code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md) for more information on how an app should query, set, and use auth context in their code. 
+Do not hardcode auth context values in your app. Apps should read and apply auth context using MS Graph calls [Link to auth context APIs]. This practice is critical in [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The auth context values will vary between Azure AD tenants and are not available in Azure AD free edition. For more information on how an app should query, set, and use auth context in their code, see the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md). 
 
 Do not use auth context where the app itself is going to be a target of Conditional Access policies. The feature works best when parts of the application require the user to meet a higher bar of authentication.
 
