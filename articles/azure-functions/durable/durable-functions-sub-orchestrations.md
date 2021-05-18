@@ -70,13 +70,13 @@ import azure.functions as func
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    deviceId = context.get_input()
+    device_id = context.get_input()
 
     # Step 1: Create an installation package in blob storage and return a SAS URL.
-    sasUrl = yield context.call_activity"CreateInstallationPackage", deviceId)
+    sas_url = yield context.call_activity"CreateInstallationPackage", device_id)
 
     # Step 2: Notify the device that the installation package is ready.
-    yield context.call_activity("SendPackageUrlToDevice", { "id": deviceId, "url": sasUrl })
+    yield context.call_activity("SendPackageUrlToDevice", { "id": device_id, "url": sas_url })
 
     # Step 3: Wait for the device to acknowledge that it has downloaded the new package.
     yield context.call_activity("DownloadCompletedAck")
@@ -149,18 +149,18 @@ import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
 
-    deviceIds = yield context.call_activity("GetNewDeviceIds")
+    device_IDs = yield context.call_activity("GetNewDeviceIds")
 
     # Run multiple device provisioning flows in parallel
-    provisioningTasks = []
+    provisioning_tasks = []
     id_ = 0
-    for deviceId in deviceIds:
-        child_id = context.df.instanceId + ":" + id_
-        provisionTask = context.call_sub_orchestrator("DeviceProvisioningOrchestration", deviceId, child_id)
-        provisioningTasks.append(provisionTask)
+    for device_id in device_IDs:
+        child_id = context.instance_id + ":" + id_
+        provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id, child_id)
+        provisioning_tasks.append(provision_task)
         id_ += 1
 
-    yield context.task_all(provisioningTasks)
+    yield context.task_all(provisioning_tasks)
 
     # ...
 ```
