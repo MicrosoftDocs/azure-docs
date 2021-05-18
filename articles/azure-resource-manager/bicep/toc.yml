@@ -89,8 +89,6 @@
         href: test-cases.md
     - name: Deployment commands
       items:
-      - name: Deploy - portal
-        href: deploy-portal.md
       - name: Deploy - CLI
         href: deploy-cli.md
       - name: Deploy - PowerShell

@@ -31,7 +31,7 @@ To deploy local Bicep files, you need two components:
   - [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
 
   > [!NOTE]
-  > Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](./deploy-cli.md#deploy-remote-template). For more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell]( ./deploy-powershell.md#deploy-remote-template).
+  > Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](./deploy-cli.md#deploy-remote-bicep-file). For more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell]( ./deploy-powershell.md#deploy-remote-bicep-file).
 
 - **Bicep CLI**. Bicep CLI is needed to compile Bicep files to JSON templates before deployment. For the installation instructions, see [Install Bicep CLI](#install-bicep-cli).
 

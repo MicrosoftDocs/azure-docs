@@ -1,21 +1,21 @@
 ---
-title: Deploy resources with Azure CLI and template (Bicep)
-description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file. (Bicep)
+title: Deploy resources with Azure CLI and Bicep files
+description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/14/2021
 ---
 
-# Deploy resources with ARM templates and Azure CLI (Bicep)
+# Deploy resources with Bicep and Azure CLI
 
-This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](overview.md).
+This article explains how to use Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Bicep overview](./overview.md).
 
-The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later. To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
+To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
+If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
 ## Deployment scope
 
@@ -24,13 +24,13 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-bicep>
   ```
 
 * To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment sub create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
@@ -38,7 +38,7 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment mg create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
@@ -46,16 +46,16 @@ You can target your deployment to a resource group, subscription, management gro
 * To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
+  az deployment tenant create --location <location> --template-file <path-to-bicep>
   ```
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
-For every scope, the user deploying the template or the Bicep file must have the required permissions to create resources.
+For every scope, the user deploying the Bicep file must have the required permissions to create resources.
 
-## Deploy local template or Bicep file
+## Deploy local Bicep file
 
-You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
+You can deploy a Bicep file from your local machine or one that is stored externally. This section describes deploying a local Bicep file.
 
 If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
@@ -63,13 +63,13 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 az group create --name ExampleGroup --location "Central US"
 ```
 
-To deploy a local template or Bicep file, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value.
+To deploy a local Bicep file, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -79,48 +79,13 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 "provisioningState": "Succeeded",
 ```
 
-## Deploy remote template
+## Deploy remote Bicep file
 
-> [!NOTE]
-> Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
-
-Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
-
-[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
-
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-```
-
-To deploy an external template, use the `template-uri` parameter.
-
-```azurecli-interactive
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
-
-To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
-
-```azurecli-interactive
-az deployment group create \
-  --name linkedTemplateWithRelativePath \
-  --resource-group myResourceGroup \
-  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
-  --query-string $sasToken
-```
-
-For more information, see [Use relative path for linked templates](../templates/linked-templates.md#linked-template).
+Currently, Azure CLI doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Deployment name
 
-When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep file named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -146,39 +111,11 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Deploy template spec
 
-> [!NOTE]
-> Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
-
-Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec.
-
-The following examples show how to create and deploy a template spec.
-
-First, create the template spec by providing the ARM template.
-
-```azurecli
-az ts create \
-  --name storageSpec \
-  --version "1.0" \
-  --resource-group templateSpecRG \
-  --location "westus2" \
-  --template-file "./mainTemplate.json"
-```
-
-Then, get the ID for template spec and deploy it.
-
-```azurecli
-id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
-
-az deployment group create \
-  --resource-group demoRG \
-  --template-spec $id
-```
-
-For more information, see [Azure Resource Manager template specs](template-specs.md).
+Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the Bicep file makes the changes that you expect. What-if also validates the Bicep file for errors.
 
 ## Parameters
 
@@ -186,12 +123,12 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 
 ### Inline parameters
 
-To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template in a Bash shell, use:
+To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a Bicep file in a Bash shell, use:
 
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -202,7 +139,7 @@ You can also get the contents of file and provide that content as an inline para
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-template-or-bicep> \
+  --template-file <path-to-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -217,7 +154,7 @@ The _arrayContent.json_ format is:
 ]
 ```
 
-To pass in an object, for example, to set tags, use JSON. For example, your template might include a parameter like this one:
+To pass in an object, for example, to set tags, use JSON. For example, your Bicep file might include a parameter like this one:
 
 ```json
     "resourceTags": {
@@ -233,7 +170,7 @@ In this case, you can pass in a JSON string to set the parameter as shown in the
 ```bash
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
---template-file $templateFile \
+--template-file $bicepFile \
 --parameters resourceName=abcdef4556 resourceTags="$tags"
 ```
 
@@ -241,9 +178,9 @@ Use double quotes around the JSON that you want to pass into the object.
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Both ARM template and Bicep file use JSON parameter files.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Bicep file uses JSON parameter files.
 
-For more information about the parameter file, see [Create Resource Manager parameter file](parameter-files.md).
+For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
 To pass a local parameter file, use `@` to specify a local file named _storage.parameters.json_.
 
@@ -251,35 +188,13 @@ To pass a local parameter file, use `@` to specify a local file named _storage.p
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file storage.bicep \
   --parameters @storage.parameters.json
-```
-
-## Handle extended JSON format
-
-To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
-  "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[
-    parameters('location')
-    ]", //defaults to resource group location
-  /*
-    storage account and network interface
-    must be deployed first
-  */
-  "dependsOn": [
-    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-  ],
 ```
 
 ## Next steps
 
 * To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
+* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](./deployment-modes.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).
