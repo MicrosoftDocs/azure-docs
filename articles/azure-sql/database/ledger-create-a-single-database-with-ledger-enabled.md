@@ -23,7 +23,7 @@ In this quickstart, you create a [ledger database](ledger-overview.md#ledger-dat
 
 ## Create a ledger database and configure digest storage
 
-Create a single ledger database in the [serverless compute tier](serverless-tier-overview.md) and configure uploading ledger digests to an Azure Storage account configured with an immutability policy on the container.
+Create a single ledger database in the [serverless compute tier](serverless-tier-overview.md) and configure uploading ledger digests to an Azure Storage account.
 
 ### Using the Azure portal
 
@@ -70,7 +70,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 1. On the **Configure ledger** pane, in the **Ledger** section, select the **Enable for all future tables in this database** checkbox. This setting ensures that all future tables in the database will be ledger tables, which means that all data in the database will be tamper evident. By default, new tables will be created as updatable ledger tables, even if you don't specify `LEDGER = ON` in [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql). Alternatively, you can leave this unselected, requiring you to enable ledger functionality on a per-table basis when creating new tables using Transact-SQL.
 
-1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure immutable blob storage account and container with a locked retention policy of 365 days. Unselect **Lock retention policy** and change the **Retention policy (Days)** to **1** if you plan to delete these resources after this Quickstart.
+1. In the **Digest storage** section, **Enable automatic digest storage** will be automatically selected, subsequently creating a new Azure Storage account and container where your digests will be stored.
 
 1. Click the **Apply** button.
 
@@ -102,4 +102,3 @@ Connect and query your database using different tools and languages:
 
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
 - [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 
-

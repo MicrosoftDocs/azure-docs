@@ -45,13 +45,12 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    :::image type="content" source="media/ledger/ledger-portal-run-query-editor.png" alt-text="Azure portal run query editor to verify the database":::
 
-1. Successful verification will return the following results in the **Messages** windows.
+1. Successful verification will return the following results in the **Results** window.
 
    - If there was no tampering in your database, the message will be as follows:
 
    ```output
-   Query succeeded: Affected rows: 0
-   ```
+   Ledger verification successful
    - If there was tampering in your database, the following error will be in the **Messages** window.
   
    ```
@@ -118,4 +117,3 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md)
 - [Updatable ledger tables](ledger-updatable-ledger-tables.md)
 - [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)
-
