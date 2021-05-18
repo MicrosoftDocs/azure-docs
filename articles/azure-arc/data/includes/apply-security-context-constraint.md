@@ -1,10 +1,11 @@
 ---
-author: MikeRayMSFT
+
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: include
 ms.date: 03/02/2021
-ms.author: mikeray
+ms.author: dinethi
+author: dnethi
 ---
 
 This section explains how to apply a security context constraint (SCC). For the preview release, these relax the security constraints. 

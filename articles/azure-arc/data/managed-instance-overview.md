@@ -4,8 +4,8 @@ description: Azure Arc enabled SQL Managed Instance Overview
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: MikeRayMSFT
-ms.author: mikeray
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: overview
