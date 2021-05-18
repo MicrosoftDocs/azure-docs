@@ -82,7 +82,7 @@ The reference for the endpoint YAML format is below. To understand how to specif
 | name       | Name of the endpoint. Needs to be unique at Azure region level.|
 | traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
 | auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint list-keys` command). |
-| deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. |
+| deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. For more on multiple deployments, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
 
 Attributes of the `deployment`:
 
@@ -302,3 +302,8 @@ Note that it might take up to an hour for the logs to be connected. Send some sc
 If you aren't going use the deployment, you should delete it with the below command (it deletes the endpoint and all the underlying deployments):
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+
+## Next steps
+
+- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
+- [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

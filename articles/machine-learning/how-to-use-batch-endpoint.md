@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # Use batch endpoints (preview) for batch scoring
 
-In this article, you learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API.
+In this article, you learn how to use batch endpoints (preview) to do batch scoring. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. After you create a batch endpoint, you can trigger batch scoring jobs with the Azure CLI or from any platform using an HTTP library and the REST API. For more, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 In this article, you learn to do the following tasks:
 
