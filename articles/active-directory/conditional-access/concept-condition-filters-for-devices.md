@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Filters for devices (preview)
 
-When creating a Conditional Access policy administrators have asked for the ability to target or exclude specific devices in their environment. The preview condition *filters for devices* gives administrators this capability. Now you can target specific devices using [supported operators and device properties for filters](#supported-operators-and-device-properties-for-filters) and the other available assignemtn conditions in your Conditional Access policies.
+When creating Conditional Access policies, administrators have asked for the ability to target or exclude specific devices in their environment. The preview condition *filters for devices give administrators this capability. Now you can target specific devices using [supported operators and device properties for filters](#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
 :::image type="content" source="media/concept-condition-filters-for-devices/create-filter-for-devices-condition.png" alt-text="Creating a filter for device in Conditional Access policy conditions":::
 
@@ -31,7 +31,7 @@ There are multiple scenarios that organizations can now enable using filters for
 
 - Restrict access to privileged resources like Microsoft Azure Management, to privileged users, accessing from [privileged or secure admin workstations](/security/compass/privileged-access-devices). For this scenario, organizations would create two Conditional Access policies:
    - Policy 1: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multi-factor authentication and require device to be marked as compliant.
-   - Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding filters for devices using rule expression device.extensionAttribute1 not equals SAW and for Access controls, Block.
+   - Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding filters for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block.
 - Block access to organization resources from devices running an unsupported Operating System version like Windows 7. For this scenario, organizations would create the following two Conditional Access policies:
    - Policy 1:  All users, accessing all cloud apps and for Access controls, Grant access, but require device to be marked as compliant or require device to be hybrid Azure AD joined.
    - Policy 2: All users, accessing all cloud apps, including filters for devices using rule expression device.operatingSystem equals Windows and device.operatingSystemVersion startsWith "6.1" and for Access controls, Block.
