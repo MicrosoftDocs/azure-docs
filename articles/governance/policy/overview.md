@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -272,7 +272,7 @@ networking resources. You could exclude a resource group in that subscription th
 networking infrastructure. You then grant access to this networking resource group to users that you
 trust with creating networking resources.
 
-In another example, you might want to assign a resource type allow list definition at the management
+In another example, you might want to assign a resource type allowlist definition at the management
 group level. Then you assign a more permissive policy (allowing more resource types) on a child
 management group or even directly on subscriptions. However, this example wouldn't work because
 Azure Policy is an explicit deny system. Instead, you need to exclude the child management group or

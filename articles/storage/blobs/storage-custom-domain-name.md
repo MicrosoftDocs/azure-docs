@@ -53,7 +53,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 2. In the menu pane, under **Settings**, select **Properties**.  
 
-3. Copy the value of the **Primary Blob Service Endpoint** or the **Primary static website endpoint** to a text file. 
+3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file. 
   
    > [!NOTE]
    > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
@@ -95,14 +95,12 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.
+2. In the menu pane, under **Settings**, select **Networking**.
+
+3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
-
-   ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
-
-   The **Custom domain** pane opens.
 
 3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain  
    
@@ -189,7 +187,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 2. In the menu pane, under **Settings**, select **Properties**.  
 
-3. Copy the value of the **Primary Blob Service Endpoint** or the **Primary static website endpoint** to a text file. 
+3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.  
 
    > [!NOTE]
    > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
@@ -233,14 +231,12 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.
+2. In the menu pane, under **Settings**, select **Networking**.
+
+3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
    > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
-
-   ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
-
-   The **Custom domain** pane opens.
 
 3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain  
    
@@ -326,12 +322,13 @@ To remove a custom domain mapping, deregister the custom domain. Use one of the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.  
-   The **Custom domain** pane opens.
+2. In the menu pane, under **Settings**, select **Networking**.
 
-3. Clear the contents of the text box that contains your custom domain name.
+3. In the **Networking** page, choose the **Custom domain** tab.
 
-4. Select the **Save** button.
+4. Clear the contents of the text box that contains your custom domain name.
+
+5. Select the **Save** button.
 
 After the custom domain has been removed successfully, you will see a portal notification that your storage account was successfully updated.
 

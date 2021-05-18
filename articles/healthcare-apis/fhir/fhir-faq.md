@@ -99,7 +99,7 @@ Some examples of this are below:
 
 ### What is the default sort when searching for resources in Azure API for FHIR?
 
-We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, check out our [supported features page](fhir-features-supported.md#search).
+We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, see [Overview of FHIR Search](overview-of-search.md).
 
 ### Does the Azure API for FHIR support $everything? 
 

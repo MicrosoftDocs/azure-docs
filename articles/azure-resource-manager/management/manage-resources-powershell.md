@@ -4,7 +4,8 @@ description: Use Azure PowerShell and Azure Resource Manager to manage your reso
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 # Manage Azure resources by using Azure PowerShell
 

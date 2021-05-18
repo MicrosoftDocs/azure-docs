@@ -484,6 +484,8 @@
     href: site-recovery-runbook-automation.md
   - name: ARM Templates
     href: asr-arm-templates.md
+  - name: Deprecation of parameters - New-AzRecoveryServicesAsrVMNicConfig cmdlet
+    href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
   - name: Common questions about monitoring

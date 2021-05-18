@@ -6,8 +6,6 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
-    - name: Known issues
-      href: known-issues.md
 - name: Quickstarts
   items:
     - name: Create data controller
@@ -48,7 +46,7 @@
           items: 
           - name: Azure Data Studio
             href: create-data-controller-azure-data-studio.md
-          - name: Azure portal
+          - name: Portal
             href: create-data-controller-resource-in-azure-portal.md
           - name: Azure Data CLI (azdata)
             href: create-data-controller-using-azdata.md
@@ -114,6 +112,8 @@
           href: supported-versions-postgres-hyperscale.md
         - name: Create Postgres Hyperscale server group (CLI)
           href: create-postgresql-hyperscale-server-group.md
+        - name: Create Postgres Hyperscale server group (portal)
+          href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Create Postgres Hyperscale server group (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Create Postgres Hyperscale server group - Kubernetes native tools
@@ -148,7 +148,7 @@
               href: delete-postgresql-hyperscale-server-group.md
             - name: List server groups
               href: list-server-groups-postgres-hyperscale.md
-            - name: Monitoring, log analytics, billing information, Azure portal
+            - name: Monitoring, log analytics, billing information (portal)
               href: monitoring-log-analytics-azure-portal-postgresql.md
             - name: Secure
               href: configure-security-postgres-hyperscale.md
@@ -188,7 +188,7 @@
           items:
             - name: Configure
               href: configure-managed-instance.md
-            - name: Monitoring, log analytics, billing information, Azure portal
+            - name: Monitoring, log analytics, billing information, (portal)
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: High availability
               href: managed-instance-high-availability.md

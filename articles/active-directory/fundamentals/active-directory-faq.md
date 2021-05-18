@@ -115,7 +115,7 @@ For more information, see [Getting started with password management](../authenti
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.yml).
 ---
 **Q:  What can I do if I can't remember my existing Microsoft 365/Azure AD password while trying to change my password?**
 

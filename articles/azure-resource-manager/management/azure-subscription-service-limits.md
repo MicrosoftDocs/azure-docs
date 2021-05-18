@@ -361,7 +361,7 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 ## Azure Synapse Analytics limits
 
-For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+[!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
 
 ## Azure Files and Azure File Sync
 To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).

@@ -345,4 +345,4 @@ This section performs the prerequisite checks for the provisioning of Windows He
 
 ## Next steps
 
-For questions, see the [device management FAQ](faq.yml)
+- [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)

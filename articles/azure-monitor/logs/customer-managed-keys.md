@@ -4,7 +4,8 @@ description: Information and steps to configure Customer-managed key to encrypt 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/21/2021
+ms.date: 04/21/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 

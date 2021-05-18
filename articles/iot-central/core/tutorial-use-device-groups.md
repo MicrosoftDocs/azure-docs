@@ -32,15 +32,13 @@ Before you create a device group, add at least five simulated devices based on t
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices":::
 
-For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso*:
+For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso* and select **Save**.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property":::
 
 ## Create a device group
 
-To create a device group:
-
-1. Choose **Device groups** on the left pane.
+1. Select **Device groups** on the left pane to navigate to device groups page.
 
 1. Select **+ New**.
 

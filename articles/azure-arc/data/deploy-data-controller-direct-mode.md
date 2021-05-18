@@ -15,7 +15,7 @@ ms.topic: overview
 
 This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
 
-Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md).
+Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Release notes](release-notes.md).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 

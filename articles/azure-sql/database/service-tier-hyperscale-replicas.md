@@ -8,10 +8,10 @@ ms.topic: overview
 author: yorek
 ms.author: damauri
 ms.reviewer: 
-ms.date: 3/29/2021
+ms.date: 6/9/2021
 ---
 
-# Hyperscale Secondary Replicas
+# Hyperscale secondary replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 As described in [Distributed functions architecture](service-tier-hyperscale.md), Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as "replicas".
@@ -19,7 +19,7 @@ As described in [Distributed functions architecture](service-tier-hyperscale.md)
 - Secondary: provides read scale-out, high availability and geo-replication
 A secondary replica can be of three different types. Each type has a different architecture, feature set, purpose, and cost. Based on the features you need, you may use just one or even all of the three together.
 
-## High Availability Replica
+## High Availability replica
 
 A High Availability (HA) replica uses the same page servers as the primary replica, so no data copy is required to add an HA replica. HA replicas are mainly used to provide High Availability as they act as a hot standby for failover purposes. If the primary replica becomes unavailable, failover to one of the existing HA replicas is automatic. Connection string doesn't need to change; during failover applications may experience minimum downtime due to active connections being dropped. As usual for this scenario, proper connection retry logic is recommended. Several drivers already provide some degree of automatic retry logic. 
 
@@ -110,7 +110,7 @@ To remove a named replica, you drop it just like you would do with a regular dat
 
 # [T-SQL](#tab/tsql)
 ```sql
-DROP DATABASE [WideWorldImporters_NR]
+DROP DATABASE [WideWorldImporters_NR];
 ```
 # [PowerShell](#tab/azure-powershell)
 ```azurepowershell
@@ -125,27 +125,33 @@ az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 > [!NOTE]
 > Named replicas will also be removed when the primary replica from which they have been created is deleted.
 
-### Frequently Asked Questions
-#### Can a named replica be used as a failover target?
+### Known issues
+
+#### Partially incorrect data returned from sys.databases
+During Public Preview, row values returned from `sys.databases`, for named replicas, in columns other than `name` and `database_id`, may be inconsistent and incorrect. For example, the `compatibility_level` column for a named replica could be reported as 140 even if the primary database from which the named replica has been created is set to 150. A workaround, when possible, is to get the same data using the system function `databasepropertyex`, that will return the correct data instead. 
+
+## Frequently asked questions
+
+### Can a named replica be used as a failover target?
 No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
 
-#### How can I distribute the read-only workload across my named replicas?
+### How can I distribute the read-only workload across my named replicas?
 Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have eight named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replicas 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 
-#### Can a named replica be in a region different from the region of the primary replica?
+### Can a named replica be in a region different from the region of the primary replica?
 No, as named replicas use the same page servers of the primary replica, they must be in the same region.
 
-#### Can a named replica impact availability or performance of the primary replica?
-A named replica cannot impact the availability of the primary replica. Named replicas, under normal circumstances, are unlikely to impact primary's performances, but it can happen if there are extremely intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start to ask to the primary replica to slow down (throttle) its log generation, so that it can catch up. While this behavior will not impact primary's availability, it will impact its performances. To avoid this situation, make sure that your named replicas have enough free resources – mainly CPU – so that they can process the transaction log without delay. For example, if the primary is processing numerous data changes, it is recommended to have the named replica with at least the same Service Level Objective of the primary, to avoid bottlenecking the CPU on the replicas and thus forcing the primary to slow down.
+### Can a named replica impact availability or performance of the primary replica?
+A named replica cannot impact the availability of the primary replica. Named replicas, under normal circumstances, are unlikely to impact primary's performances, but it can happen if there are intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start to ask to the primary replica to slow down (throttle) its log generation, so that it can catch up. While this behavior will not impact primary's availability, it will impact its performances. To avoid this situation, make sure that your named replicas have enough free resources – mainly CPU – so that they can process the transaction log without delay. For example, if the primary is processing numerous data changes, it is recommended to have the named replica with at least the same Service Level Objective of the primary, to avoid bottlenecking the CPU on the replicas and thus forcing the primary to slow down.
 
-#### What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
+### What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
 Named replicas will still be available for read-only access, as usual.
 
-#### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
+### How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
 You can execute the following T-SQL query:
 
 ```sql
-SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
+SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 ```
 
 The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. The database context must be set to the name of the Hyperscale database, not to the `master` database.
@@ -158,7 +164,7 @@ You can still create and use temporary tables to store temporary data.
 ### How much delay is there going to be between the primary and secondary compute replicas
 Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
 
-## Geo Replica  (in Preview)
+## Geo-replica (in Preview)
 
 With [active geo-replication](active-geo-replication-overview.md), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.
 
@@ -175,3 +181,9 @@ Geo-replication for Hyperscale databases is currently in preview, with the follo
 - Point in time restore of the geo-replica is not supported
 - Creating a database copy of the geo-replica is not supported. 
 - Secondary of a secondary (also known as "geo-replica chaining") is not supported. 
+
+## See also
+
+- [Hyperscale service tier](service-tier-hyperscale.md)
+- [Active geo-replication](active-geo-replication-overview.md)
+- [Configure Security to allow isolated access to Azure SQL Database Hyperscale Named Replicas](hyperscale-named-replica-security-configure.md)
