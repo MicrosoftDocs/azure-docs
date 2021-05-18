@@ -469,6 +469,8 @@
             href: database/ledger-landing.yml
           - name: Ledger overview
             href: database/ledger-overview.md
+          - name: Database ledger
+            href: database/ledger-database-ledger.md
           - name: Updatable ledger tables
             href: database/ledger-updatable-ledger-tables.md
           - name: Append-only ledger tables
