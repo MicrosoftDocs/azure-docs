@@ -9,8 +9,8 @@ ms.topic: how-to
 
 You can use shared image gallery to bring your own Windows custom images and use these images to create labs in Azure Lab Services.  This article shows how to bring a custom image from:
 
-* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#bring-windows-custom-image-from-a-physical-lab-environment).
-* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#bring-windows-custom-image-from-an-azure-virtual-machine).
+* Your [physical lab environment](upload-custom-image-shared-image-gallery.md#bring-a-windows-custom-image-from-a-physical-lab-environment).
+* An [Azure virtual machine](upload-custom-image-shared-image-gallery.md#bring-a-windows-custom-image-from-an-azure-virtual-machine).
 
 This task is typically performed by a school's IT department.
 
