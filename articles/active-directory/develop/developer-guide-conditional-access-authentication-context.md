@@ -80,7 +80,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 - Allow IT admins to select sensitive/ high-privileged operations and assign them against the available auth contexts. 
 - Save this mapping information in your database, per tenant, unless your application is going to ever be used in a single tenant.
 
-:::image type="content" source="media/developer-guide-conditional-access-auth-context/configure-conditional-access-auth-context.png" alt-text="Setup flow for creating an authentication context":::
+:::image type="content" source="media/developer-guide-conditional-access-authentication-context/configure-conditional-access-authentication-context.png" alt-text="Setup flow for creating an authentication context":::
 
 Third: Your application, and for this example, we’d assume it’s a web API, then needs to evaluate calls against the saved mapping and accordingly raise claim challenges for its client apps. To prepare for this action, the following steps are to be taken:
 
@@ -105,7 +105,7 @@ Third: Your application, and for this example, we’d assume it’s a web API, t
 1. In a sensitive and protected by auth context operation, evaluate the values in the acrs claim against the auth context ID mapping saved earlier and raise a claims challenge as provided in the code snippet below. 
 1. The following diagram shows the interaction between the user, client app, and the web API.
 
-   :::image type="content" source="media/developer-guide-conditional-access-auth-context/authentication-context-application-flow.png" alt-text="Diagram showing the interaction of user, web app, API, and Azure AD":::
+   :::image type="content" source="media/developer-guide-conditional-access-authentication-context/authentication-context-application-flow.png" alt-text="Diagram showing the interaction of user, web app, API, and Azure AD":::
 
    The code snippet that follows is from the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md). The first method, EnsureUserHasElevatedScope() in the API checks if the action being called,
 
