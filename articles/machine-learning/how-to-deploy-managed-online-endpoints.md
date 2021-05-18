@@ -302,3 +302,8 @@ Note that it might take up to an hour for the logs to be connected. Send some sc
 If you aren't going use the deployment, you should delete it with the below command (it deletes the endpoint and all the underlying deployments):
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+
+## Next steps
+
+- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
+- [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
