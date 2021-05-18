@@ -65,7 +65,7 @@ This section describes the common prerequisites across all the approaches and to
     1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure portal, follow these steps:
-    1. Use the [Azure portal](../active-directory/develop/quickstart-register-app.md) to create a new AAD 
+    1. Create a new Azure AD app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
     2. Once created navigate to the new app registration within the portal 
     3. From the overview page, save the client ID, Tenant ID and client secret values
     4. To find the object ID, click on your app registrations name next to the **Managed application in local directory** field. Copy the Object ID from the properties view. 
