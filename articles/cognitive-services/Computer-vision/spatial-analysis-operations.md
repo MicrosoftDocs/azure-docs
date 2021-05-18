@@ -65,6 +65,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | INPUT_VIDEO_WIDTH | Input video/stream's frame width (e.g. 1920). This is an optional field and if provided, the frame will be scaled to this dimension while preserving the aspect ratio.|
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. It should be in the following format: `"{ \"gpu_index\": 0 }",`|
+| TRACKER_NODE_CONFIG | JSON indicating whether to compute speed in the tracker node or not. It should be in the following format: `"{ \"enable_speed\": false }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to the [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
