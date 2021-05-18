@@ -8,7 +8,7 @@ ms.reviewer: antonfr
 ---
 
 >[!NOTE]
->You can migrate smart detection on your Application Insights resource to be based on alerts. The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
 > See [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md) for more details on the migration process and the behavior of smart detection after the migration.
 
