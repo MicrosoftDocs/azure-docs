@@ -18,7 +18,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 
 |Feature  |NFS (preview)  |SMB  |
 |---------|---------|---------|
-|Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0         |
+|Access protocols     |NFS 4.1         |SMB 3.1.1, SMB 3.0, SMB 2.1         |
 |Recommended OS     |Linux kernel version 4.3+         |Windows 2008 R2+, Linux kernel version 4.11+         |
 |[Available tiers](storage-files-planning.md#storage-tiers)     |Premium storage         |Premium storage, transaction optimized, hot, cool         |
 |Billing Model         |[Pay for provisioned capacity](./understanding-billing.md#provisioned-model)         |[Pay for provisioned capacity for Premium Tier](./understanding-billing.md#provisioned-model), [Pay-as-you-go for Standard Tier](./understanding-billing.md#pay-as-you-go-model)         |
