@@ -32,7 +32,7 @@ Follow these steps to perform a thorough pre-migration
 
 Then, execute your migration in accordance with your pre-migration plan.
 
-Finally, perform the critical [post-migration steps of cut-over and optimization](mongodb-post-migration).
+Finally, perform the critical [post-migration steps of cut-over and optimization](mongodb-post-migration.md).
 
 All of the above steps are critical for ensuring a successful migration.
 
@@ -93,10 +93,10 @@ Figure out what Azure Cosmos DB resources you will create. This means stepping t
 ### Immutable decisions
 
 Make all of the *immutable decisions* about your Azure Cosmos DB configuration up-front. The following Azure Cosmos DB configuration choices cannot be modified or undone once you have created an Azure Cosmos DB resource; therefore it is important to get these right through pre-migration planning:
-* Follow [this guide](partitioning-overview) to choose the best shard key
-* Follow [this guide](model-data) to choose a data model
-* Follow [this guide](optimize-cost-throughput) to choose between dedicated and shared throughput for each resource that you will migrate
-* [Here](how-to-model-partition-example) is a real-world example of sharding and data modeling to aid you in your decisionmaking process
+* Follow [this guide](partitioning-overview.md) to choose the best shard key
+* Follow [this guide](model-data.md) to choose a data model
+* Follow [this guide](optimize-cost-throughput.md) to choose between dedicated and shared throughput for each resource that you will migrate
+* [Here](how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decisionmaking process
 
 ### Cost of ownership
 
