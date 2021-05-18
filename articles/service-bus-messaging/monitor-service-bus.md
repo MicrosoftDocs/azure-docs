@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 05/17/2020
+ms.date: 05/18/2021
 ---
 
 # Monitor Azure Service Bus
@@ -43,7 +43,7 @@ The diagnostic logging information is stored in containers named **insights-logs
 Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
 ### Azure Event Hubs
-The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**.You can also select your own event hub. 
+The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
 
 ### Log Analytics 
 The diagnostic logging information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 
@@ -102,12 +102,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 > Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 
 ### Filtering and splitting
-
-For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of a queue or a topic. 
-
-You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For example, splitting out the **Pipeline Step Type** to see a count of the types of steps used in the pipeline.
-
-For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
+For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of a queue or a topic. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
 ## Analyzing logs
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Service Bus stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.

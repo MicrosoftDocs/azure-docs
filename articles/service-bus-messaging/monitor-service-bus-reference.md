@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 05/17/2020
+ms.date: 05/18/2021
 ---
 
 
@@ -115,7 +115,7 @@ Here's an example of an operational log JSON string:
 ```
 
 ### Events and operations captured in operational logs
-Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations are not captured, because of the high volume of data operations that are conducted on Azure Service Bus.
+Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Service Bus.
 
 > [!NOTE]
 > To help you better track data operations, we recommend using client-side tracing.
@@ -130,7 +130,7 @@ The following management operations are captured in operational logs:
 | Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
 
 > [!NOTE]
-> Currently, *Read* operations are not tracked in the operational logs.
+> Currently, *Read* operations aren't tracked in the operational logs.
 
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
