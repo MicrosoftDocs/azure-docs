@@ -43,11 +43,11 @@ The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
 1. Navigate to your Translator resource Overview page.
 1. Select the **subscription** for your Translator resource.
 
-:::image type="content" source="media/azure-portal-overview.png" alt-text="Location of subscription link on overview page in the Azure portal.":::
+    :::image type="content" source="media/azure-portal-overview.png" alt-text="Screenshot of the subscription link on overview page in the Azure portal.":::
 
-4. In the left rail, make your selection under **Cost Management**:
+2. In the left rail, make your selection under **Cost Management**:
 
-:::image type="content" source="media/azure-portal-cost-management.png" alt-text="Location of cost management resources in the Azure portal.":::
+    :::image type="content" source="media/azure-portal-cost-management.png" alt-text="Screenshot of the cost management resources links in the Azure portal.":::
 
 ## Is attribution required when using Translator?
 
