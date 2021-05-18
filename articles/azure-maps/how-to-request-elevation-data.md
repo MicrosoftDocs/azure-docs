@@ -78,7 +78,7 @@ To request elevation data in GeoJSON format, use the Elevation service APIs. Thi
 In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
- >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data for Points API.
+ >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline-delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data for Points API.
 
 To create the request:
 
