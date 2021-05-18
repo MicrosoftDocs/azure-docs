@@ -12,7 +12,7 @@ ms.date: 02/01/2020
 ms.author: trbye
 ---
 
-# What is custom neural voice?
+# What is Custom Neural Voice?
 
 Custom Neural Voice is a
 [text-to-Speech](./text-to-speech.md)
@@ -64,7 +64,7 @@ virtual assistant) or generate audio content offline (e.g., used as in
 audio book or instructions in e-learning applications) with the text
 input provided by the user. This is made available via the [REST API](./rest-text-to-speech.md), the
 [Speech SDK](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall),
-or a [web portal](https://speech.microsoft.com/audiocontentcreation).
+or the [web portal](https://speech.microsoft.com/audiocontentcreation).
 
 ## Terms and definitions
 
@@ -84,5 +84,5 @@ To learn how to use Custom Neural Voice responsibly, see the [transparency note]
 
 ## Next steps
 
-* [Get started with Custom Voice](how-to-custom-voice.md)
-* [Create and use a Custom Voice endpoint](how-to-custom-voice-create-voice.md)
+* [Get started with Custom Neural Voice](how-to-custom-voice.md)
+* [Create and use your voice model](how-to-custom-voice-create-voice.md)
