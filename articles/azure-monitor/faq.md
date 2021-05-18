@@ -380,6 +380,10 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
+### Should I use connection strings or instrumentation keys?
+
+[Connection Strings](./app/sdk-connection-string.md) are recommended over instrumentation keys.
+
 ### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
 
 We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.

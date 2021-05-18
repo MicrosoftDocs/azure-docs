@@ -18,7 +18,7 @@ ms.custom: seodec18
 ## Speech SDK 1.17.0: 2021-May release
 
 >[!NOTE]
->The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+>Get started with the Speech SDK [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk).
 
 **Highlights summary**
 
@@ -30,8 +30,8 @@ ms.custom: seodec18
 
 #### New features
 
-- **C++/C#**: New stand-alone Single-Shot/at-start and Continuous Language Detection via the `SourceLanguageRecognizer` API.
-- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Detection. See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
+- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Detection via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
+- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Detection so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
 - **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency).
@@ -44,7 +44,10 @@ ms.custom: seodec18
 
 - Linux and Android Speech SDK binaries have been updated to use the latest version of OpenSSL (1.1.1k)
 - Code Size improvements:
-	- Language Understanding is now split into a separate "lu" library
+	- Language Understanding is now split into a separate "lu" library.
+	- Windows x64 core binary size decreased by 14.4%. 
+	- Android ARM64 core binary size decreased by 13.7%.
+	- other components also decreased in size.
 
 #### Bug fixes
 
@@ -75,7 +78,7 @@ ms.custom: seodec18
 - SPX now supports Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the SPX command line.
 - We also added Dialog support - Try `spx dialog` from the SPX command line.
 - SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
-- We've decreased the size of the SPX .NET tool install .
+- We've decreased the size of the SPX .NET tool install.
 
 **COVID-19 abridged testing**:
 
