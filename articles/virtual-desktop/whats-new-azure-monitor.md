@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop Azure Monitor?
 description: New features and product updates for the Windows Virtual Desktop agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 05/10/2021
+ms.date: 05/18/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -16,9 +16,9 @@ If you're not sure which version of Azure Monitor you're currently using, you ca
 
 ## How to read version numbers
 
-Azure Monitor version numbers usually consist of three numbers. Here's what each number means:
+There are three numbers in each version of Azure Monitor for Windows Virtual Desktop. Here's what each number means:
 
-- The first number is the major version, and is usually used for major releases or releases that fix huge mistakes. Usually, non-preview versions start at 1.
+- The first number is the major version, and is usually used for major releases.
 
 - The second number is the minor version. Minor versions are for backwards-compatible changes such as new features and deprecation notices.
 
