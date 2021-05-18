@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 05/18/2021
 ms.author: jeedes
 
 ---
@@ -94,13 +94,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Cerby Client support team](mailto:help@cerby.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. Your Cerby application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Name** is **user.userprincipalname** but Cerby expects this to be mapped with the user's givenname. For that you can use **user.givenname** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![image](common/default-attributes.png)
 
-1. On the **Set up Cerby** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -127,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Cerby SSO
 
-To configure single sign-on on **Cerby** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cerby support team](mailto:help@cerby.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Cerby side, you need to send the **App Federation Metadata Url** to [Cerby support team](mailto:help@cerby.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cerby test user
 
