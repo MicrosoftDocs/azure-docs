@@ -413,7 +413,7 @@
     href: /azure/templates/microsoft.compute/virtualmachinescalesets
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../virtual-machines/policy-reference.md
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -441,14 +441,14 @@
   - name: Common PowerShell commands
     href: ../virtual-machines/windows/ps-common-ref.md
   - name: Common networking PowerShell commands
-    href: ./windows/ps-common-network-ref.md
+    href: ../virtual-machines/windows/ps-common-network-ref.md
   - name: VM template description
-    href: ./windows/template-description.md
+    href: ..virtual-machines/windows/template-description.md
   - name: FAQ
     items:
     - name: Linux
-      href: ./linux/faq.md
+      href: ../virtual-machines/linux/faq.md
     - name: Windows
-      href: ./windows/faq.md
+      href: ../virtual-machines/windows/faq.md
 - name: Support and troubleshooting
   href: vmss-support-help.md
