@@ -44,7 +44,7 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application and then enable the feature.
 
-1. Create an App Services instance in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
+1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one 
 
 1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 

@@ -48,16 +48,19 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 1. Select the **Create a resource** option in the upper-left corner of the Azure portal:
 
     ![Screenshot shows the Create a resource option in the Azure portal.](./media/quickstarts/search-services.png)
-1. In the search box, enter **Key Vault**.
+1. In the search box, type **Key Vault** and select **Key Vault** from the drop-down.
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
+    ![The Create Key Vault page showing a description of the service a button labeled "Create".](./media/create-key-vault.png)
 1. On the right in **Create key vault**, provide the following information:
     - Select **Subscription** to choose a subscription.
-    - In **Resource Group**, select **Create new** and enter a resource group name.
-    - In **Key vault name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
+    - In **Resource Group**, enter an existing resource group name or select **Create new** and enter a resource group name.
+    - In **Key vault name**, a unique name is required.
     - In the **Region** drop-down list, choose a location.
 1. Leave the other **Create key vault** options with their default values.
-1. Select **Create**.
+1. Click **Review + Create**.
+    ![The Create Key Vault form with values filled in, showing the "Review + Create" button.](./media/create-key-vault-form.png)
+1. The system will validate and display the data you entered. Click **Create**.
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
