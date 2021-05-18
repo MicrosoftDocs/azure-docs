@@ -746,31 +746,41 @@ function getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier) {
 }
 // Handler function for when the dominant speaker changes
 const dominantSpeakersChangedHandler = async () => {
-	if (dominantRemoteParticipant) {
-		// Remove the old dominant speaker's video streams by disposing of their associated renderers
-		dominantRemoteParticipant.videoStreams.forEach(async stream => {
-			const renderer = streamRenderersMap.get(stream);
-			if (renderer) {
-				streamRenderersMap.delete(stream);
-				renderer.dispose();
-			}
-		});
-	}
 
 	// Get the new dominant speaker's identifier
 	const newDominantSpeakerIdentifier = currentCall.api(SDK.Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+	
 	 if (newDominantSpeakerIdentifier) {
-		// Get the remote participant object that matches newDominantSpeakerIdentifier, and set the new dominant speaker
-		dominantRemoteParticipant = getRemoteParticipantForDominantSpeaker(newDominantSpeakerIdentifier);
-		// Renderer the new dominant speaker's streams
-		dominantRemoteParticipant.videoStreams.forEach(async stream => {
+		// Get the remote participant object that matches newDominantSpeakerIdentifier
+		const newDominantRemoteParticipant = getRemoteParticipantForDominantSpeaker(newDominantSpeakerIdentifier);
+		
+		// Create the new dominant speaker's stream renderers
+		const streamViews = [];
+		for (const stream of newDominantRemoteParticipant.videoStreams) {
 			if (stream.isAvailable && !streamRenderersMap.get(stream)) {
 				const renderer = new VideoStreamRenderer(stream);
 				streamRenderersMap.set(stream, renderer);
 				const view = await videoStreamRenderer.createView();
-				htmlElement.appendChild(view.target);
+				streamViews.push(view);
 			}
-		});
+		}
+
+		// Remove the old dominant speaker's video streams by disposing of their associated renderers
+		if (dominantRemoteParticipant) {
+			for (const stream of dominantRemoteParticipant.videoStreams) {
+				const renderer = streamRenderersMap.get(stream);
+				if (renderer) {
+					streamRenderersMap.delete(stream);
+					renderer.dispose();
+				}
+			}
+		}
+	
+		dominantRemoteParticipant = newDominantRemoteParticipant
+
+		for (const view of streamViewsToRender) {
+			htmlElement.appendChild(view.target);
+		}
 	 }
 };
 
