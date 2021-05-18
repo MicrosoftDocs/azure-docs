@@ -13,7 +13,7 @@ ms.author: jgol
 > [!CAUTION]
 > This document applies to Application Insights Java 2.x which is no longer recommended.
 >
-> Documentation for the latest version can be found at [Application Insights Java 3.0](./java-in-process-agent.md).
+> Documentation for the latest version can be found at [Application Insights Java 3.x](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
@@ -27,7 +27,7 @@ Application Insights is an extensible analytics service for web developers that 
 ## Get an Application Insights instrumentation key
 
 > [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=java) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection Strings](./sdk-connection-string.md?tabs=java) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
@@ -82,7 +82,7 @@ Then refresh the project dependencies to get the binaries downloaded.
   * `applicationinsights-core` gives you just the bare API, for example, if your application isn't servlet-based.
   
 * *How should I update the SDK to the latest version?*
-  * As of November 2020, for monitoring Java applications we recommend auto-instrumentation using the Azure Monitor Application Insights Java 3.0 agent. For more information on how to get started, see [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+  * As of November 2020, for monitoring Java applications we recommend using Application Insights Java 3.x. For more information on how to get started, see [Application Insights Java 3.x](./java-in-process-agent.md).
 
 ## Add an *ApplicationInsights.xml* file
 Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
@@ -189,7 +189,8 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 ## Azure App Service, AKS, VMs config
 
-The best and easiest approach to monitor your applications running on any of Azure resource providers is to use Application Insights auto-instrumentation via [Java 3.0 agent](./java-in-process-agent.md).
+The best and easiest approach to monitor your applications running on any of Azure resource providers is to use
+[Application Insights Java 3.x](./java-in-process-agent.md).
 
 
 ## Exceptions and request failures
