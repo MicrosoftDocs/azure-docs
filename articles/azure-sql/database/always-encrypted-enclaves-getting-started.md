@@ -67,7 +67,7 @@ The required minimum version of SSMS is 18.8.
 
 ## Step 1: Create and configure a server and a DC-series database
 
-In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sqldb-vcore.md#dc-series).
 
 1. Open a PowerShell console and import the required version of Az.
 
@@ -86,7 +86,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 3. Create a new resource group. 
 
   > [!IMPORTANT]
-  > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+  > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sqldb-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
 
   ```powershell
   $resourceGroupName = "<your new resource group name>"
@@ -201,7 +201,7 @@ In this step, You'll create and configure an attestation provider in Microsoft A
 
   ```powershell
   $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
-  $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
+  $attestationUrl = $attestationProvider.AttestUri + "/attest/SgxEnclave"
   Write-Host
   Write-Host "Your attestation URL is: $attestationUrl"
   ```
@@ -363,6 +363,6 @@ After completing this tutorial, you can go to one of the following tutorials:
 - [Tutorial: Develop a .NET Framework application using Always Encrypted with secure enclaves](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
 - [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
-## See Also
+## See also
 
 - [Configure and use Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

@@ -88,7 +88,7 @@ This is a current limitation on underlying component that verifies subnet name a
 
 **How can I scale my managed instance?**
 
-You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+You can scale your managed instance from [Azure portal](../managed-instance/service-tiers-mi-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Can I move my Managed Instance from one region to another?**
 

@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: service
 ms.topic: conceptual
 ms.custom: sqldbrb=1
-author: stevestein
-ms.author: sstein
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 02/09/2021
 ---
@@ -103,12 +103,12 @@ Besides the number of vCores (logical CPUs) and the hardware generation, several
 - If migrating databases with intermittent or unpredictable usage patterns, consider the use of [Serverless](serverless-tier-overview.md) compute tier. Note that the max number of concurrent workers (requests) in serverless is 75% the limit in provisioned compute for the same number of max vcores configured. Also, the max memory available in serverless is 3 GB times the maximum number of vcores configured; for example, max memory is 120 GB when 40 max vcores are configured.   
 - In the vCore model, the supported maximum database size may differ depending on hardware generation. For large databases, check supported maximum sizes in the vCore model for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).
 - For elastic pools, the [DTU](resource-limits-dtu-elastic-pools.md) and [vCore](resource-limits-vcore-elastic-pools.md) models have differences in the maximum supported number of databases per pool. This should be considered when migrating elastic pools with many databases.
-- Some hardware generations may not be available in every region. Check availability under [Hardware Generations](service-tiers-vcore.md#hardware-generations).
+- Some hardware generations may not be available in every region. Check availability under [Hardware generations for SQL Database](./service-tiers-sqldb-vcore.md#hardware-generations) or [Hardware generations for SQL Managed Instance](../managed-instance/service-tiers-mi-vcore.md#hardware-generations).
 
 > [!IMPORTANT]
 > The DTU to vCore sizing guidelines above are provided to help in the initial estimation of the target database service objective.
 >
-> The optimal configuration of the target database is workload-dependent. Thus, achieving the optimal price/performance ratio after migration may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](service-tiers-vcore.md#hardware-generations), the [service](service-tiers-vcore.md#service-tiers) and [compute](service-tiers-vcore.md#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> The optimal configuration of the target database is workload-dependent. Thus, achieving the optimal price/performance ratio after migration may require leveraging the flexibility of the vCore model to adjust the number of vCores, the hardware generation, the service and compute tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 > 
 
 ### DTU to vCore migration examples
