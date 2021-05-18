@@ -14,13 +14,13 @@ ms.subservice: files
 
 The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
 
-| | SMB 3.1.1 | SMB 3.0 |
+| Distribution | SMB 3.1.1 | SMB 3.0 |
 |-|-----------|---------|
-| Linux kernel | <ul><li>**Basic 3.1.1 support**: 4.17</li><li>**Default protocol version**: 5.0</li><li>**AES-128-GCM encryption**: 5.3</li></ul> | <ul><li>**Basic 3.0 support**: 3.12</li><li>**AES-128-CCM encryption**: 4.11</li></ul> |
-| [Ubuntu](https://wiki.ubuntu.com/Releases) | 18.04.5 LTS+ (AES-128-GCM encryption) | 16.04.4 LTS+ (AES-128-CCM encryption) |
-| [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | 8+ (Basic) | 7.5+ |
-| [Debian](https://www.debian.org/releases/) | 10+ (Basic) | 10+ (AES-128-CCM encryption) |
-| [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | 15 SP2+ (AES-128-GCM encryption) | 12 SP2+ (AES-128-CCM encryption) |
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
+| [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
+| [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
+| [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | AES-128-GCM encryption: 15 SP2+ | AES-128-CCM encryption: 12 SP2+ |
 
 If your Linux distribution isn't listed in the above table, you can check the Linux kernel version with the `uname` command:
 
@@ -64,7 +64,7 @@ uname -r
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
+* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions in this article are for the Azure CLI.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace `<your-resource-group>` and `<your-storage-account>` then run the following script:
 
@@ -107,9 +107,12 @@ mntPath="$mntRoot/$storageAccountName/$fileShareName"
 sudo mkdir -p $mntPath
 ```
 
-Next, mount the file share using the `mount` command. In the following example, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key for the storage account. 
+Next, mount the file share using the `mount` command. In the following example, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key. 
 
 # [SMB 3.1.1](#tab/smb311)
+> [!Note]  
+> Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.  
+
 ```bash
 # This command assumes you have logged in with az login
 httpEndpoint=$(az storage account show \
@@ -125,9 +128,6 @@ storageAccountKey=$(az storage account keys list \
 
 sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
 ```
-
-> [!Note]  
-> Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel prior to 5.0, specify `vers=3.1.1` in the mount options list.  
 
 # [SMB 3.0](#tab/smb30)
 ```bash
@@ -165,7 +165,7 @@ sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,pa
 
 ---
 
-You can use provide `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
+You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
 You can also mount the same Azure file share to multiple mount points if desired. When you are done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
@@ -177,7 +177,7 @@ mntRoot="/mount"
 sudo mkdir -p $mntRoot
 ```
 
-To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. When you use the `mount` command to ad-hoc mount a file share, supply the username and password as options to the `mount` command. When you automatically mount a file share, you can provide options as well, but since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
+To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Since the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
