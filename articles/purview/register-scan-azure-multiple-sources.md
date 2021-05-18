@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
+ms.date: 05/08/2021
 ---
 
 # Register and scan multiple sources in Azure Purview
@@ -68,7 +68,7 @@ To register new multiple sources in your data catalog, do the following:
 
       :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Screenshot that shows the boxes for selecting a subscription and resource group.":::
    1. In the **Select a collection** box, select a collection or create a new one (optional).
-   1. Select **Finish** to register the data source.
+   1. Select **Register** to register the data sources.
 
 
 ## Create and run a scan

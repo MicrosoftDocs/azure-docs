@@ -114,8 +114,6 @@
         href: self-service-sign-up-add-approvals.md
     - name: Manage guest user accounts
       items:
-      - name: Add a B2B user to a role
-        href: add-guest-to-role.md
       - name: Dynamic groups and B2B users
         href: use-dynamic-groups.md
       - name: Understand the B2B user

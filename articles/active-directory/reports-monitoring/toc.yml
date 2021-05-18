@@ -16,8 +16,6 @@
     href: quickstart-download-sign-in-report.md
   - name: Download an audit report
     href: quickstart-download-audit-report.md
-  - name: Configure named locations
-    href: quickstart-configure-named-locations.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -112,7 +110,5 @@
     href: reference-reports-latencies.md
   - name: Frequently asked questions
     href: reports-faq.md
-  - name: Audit log schema
-    href: reference-azure-monitor-audit-log-schema.md
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
