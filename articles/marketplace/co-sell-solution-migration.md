@@ -52,7 +52,7 @@ Follow these steps before importing your solutions from OCP GTM:
             - Step 3. [Request merge the solution in OCP GTM GTM to newly published marketplace offer](#begin-the-migration-of-your-solutions-from-ocp-gtm).
         - If there is already a similar offer in Commercial marketplace
             - Step 1. [Request merge of solution in OCP GTM to published marketplace offer](#begin-the-migration-of-your-solutions-from-ocp-gtm)
-    1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution
+    1. If you have a solution in OCP GTM that is no longer relevant, then discard this solution.
 
 > [!IMPORTANT]
 > On May 17, 2021, the migrate option below was removed.  If you previously used the Migration option and have an offer that was migrated to the commercial marketplace as a draft offer, it is important that you complete the publishing process in the commercial marketplace.  
