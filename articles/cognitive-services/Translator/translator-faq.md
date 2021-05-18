@@ -13,24 +13,6 @@ ms.date: 05/17/2021
 ms.author: lajanuar
 ---
 
-# Translator API Frequently Asked Questions (FAQ)
-
-## Can I use Translator for free or test it before I buy a monthly subscription?
-
-Yes—Translator offers a [subscription plan](https://www.microsoft.com/translator/business/trial/) at no charge. New Azure portal users can sign up for a [free 30-day Azure Account](https://azure.microsoft.com/free/) that includes a $200 USD credit to spend towards any Azure service including the Microsoft Translator API.
-
- Subscription plan information is outlined in the [Translator pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
-
-## How do I calculate my monthly usage?
-
-For Translator text translation, your bill is determined using the number of characters per translation.  This calculation includes the text you pass into the following methods:
-
-* [Translate](reference/v3-0-translate.md)
-* [Transliterate](reference/v3-0-transliterate.md)
-* [Dictionary Lookup](reference/v3-0-dictionary-lookup.md),
-* [Dictionary Examples](reference/v3-0-dictionary-examples.md)
-* [Languages](reference/v3-0-languages.md) methods
-
 ## How does the Translator API count characters?
 
 The Translator counts every code point defined in Unicode as a character. Each translation counts as a separate translation, even if the request was made in a single API call translating to multiple languages. The length of the response doesn't matter and the number of requests, words, bytes, or sentences isn't relevant to character count.
@@ -38,8 +20,8 @@ The Translator counts every code point defined in Unicode as a character. Each t
 Translator counts the following input:
 
 * Text passed to Translator in the body of a request.
-  * `Text` when using the Translate, Transliterate, and Dictionary Lookup methods
-  * `Text` and `Translation` when using the Dictionary Examples method
+  * `Text` when using the [Translate](reference/v3-0-translate.md), [Transliterate](reference/v3-0-transliterate.md), and [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) methods
+  * `Text` and `Translation` when using the [Dictionary Examples](reference/v3-0-dictionary-examples.md) method.
 
 * All markup: HTML, XML tags, etc. within the request body text field. JSON notation used to build the request (for instance the key "Text:") is **not** counted.
 * An individual letter.

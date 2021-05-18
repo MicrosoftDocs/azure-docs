@@ -78,7 +78,37 @@
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
-- name: Custom Translation
+- name: Document Translation
+  items:
+    - name: What is Document Translation?
+      href: document-translation/overview.md
+    - name: Quickstart
+      href: document-translation/get-started-with-document-translation.md
+    - name: How-to guides
+      items:
+      - name: Create SAS tokens for Document Translation
+        href: document-translation/create-sas-tokens.md
+    - name: Reference
+      items:
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
+      - name: Get supported storage sources
+        href: document-translation/reference/get-supported-storage-sources.md
+      - name: Start translation
+        href: document-translation/reference/start-translation.md
+      - name: Get documents status
+        href: document-translation/reference/get-documents-status.md
+      - name: Get document status
+        href: document-translation/reference/get-document-status.md
+      - name: Get translations status
+        href: document-translation/reference/get-translations-status.md
+      - name: Get translation status
+        href: document-translation/reference/get-translation-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
+- name: Custom Translator
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
@@ -132,36 +162,6 @@
       href: custom-translator/what-is-bleu-score.md
     - name: Customer-managed keys
       href: encrypt-data-at-rest.md
-- name: Document Translation
-  items:
-    - name: What is Document Translation?
-      href: document-translation/overview.md
-    - name: Quickstart
-      href: document-translation/get-started-with-document-translation.md
-    - name: How-to guides
-      items:
-      - name: Create SAS tokens for Document Translation
-        href: document-translation/create-sas-tokens.md
-    - name: Reference
-      items:
-      - name: Get supported document formats
-        href: document-translation/reference/get-supported-document-formats.md
-      - name: Get supported glossary formats
-        href: document-translation/reference/get-supported-glossary-formats.md
-      - name: Get supported storage sources
-        href: document-translation/reference/get-supported-storage-sources.md
-      - name: Start translation
-        href: document-translation/reference/start-translation.md
-      - name: Get documents status
-        href: document-translation/reference/get-documents-status.md
-      - name: Get document status
-        href: document-translation/reference/get-document-status.md
-      - name: Get translations status
-        href: document-translation/reference/get-translations-status.md
-      - name: Get translation status
-        href: document-translation/reference/get-translation-status.md
-      - name: Cancel translation
-        href: document-translation/reference/cancel-translation.md
 - name: Resources
   items:
   - name: Compliance and certification
