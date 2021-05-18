@@ -72,7 +72,7 @@ Based on the sample scenario for this article, the addition to a twin model may 
 }
 ```
 
-For instructions on how to update an existing model in your instance, see [How-to: Mange models](how-to-manage-model.md#update-models).
+For instructions on how to update an existing model in your instance, see [How-to: Manage models](how-to-manage-model.md#update-models).
 
 Once twins contain the Map property, you can now "tag" twins with the roles that are allowed to access them. For instructions on updating twin property values, see [How-to: Manage digital twins](how-to-manage-twin.md#update-a-digital-twin).
 
