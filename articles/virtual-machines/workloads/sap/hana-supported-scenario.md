@@ -69,7 +69,7 @@ Each provisioned server comes preconfigured with sets of Ethernet interfaces. Th
 
 You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
 
-If necessary, you can define additional NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
+If necessary, you can define more NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
 
 >[!NOTE]
 >You might find additional interfaces that are physical interfaces or bonding. 
