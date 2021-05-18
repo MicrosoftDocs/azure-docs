@@ -45,7 +45,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 ### Add an Azure RBAC role
 
-Now that you've created the key vault and the key, you must add an Azure RBAC role to it, so you can use your Azure key vault with your disk encryption set.
+Now that you've created the Azure key vault and a key, you must add an Azure RBAC role, so you can use your Azure key vault with your disk encryption set.
 
 1. Select **Access control (IAM)** and add a role.
 1. Add either the **Key Vault Administrator**, **Owner**, or **Contributor** roles.
@@ -58,13 +58,13 @@ Now that you've created the key vault and the key, you must add an Azure RBAC ro
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
-1. For **Encryption type** select **Encryption at-rest with a customer-managed key**.
+1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
 
     > [!NOTE]
     > Once you create a disk encryption set with a particular encryption type, it cannot be changed. If you want to use a different encryption type, you must create a new disk encryption set.
 
 1. Select **Click to select a key**.
-1. Select the key vault and key you created previously, as well as the version.
+1. Select the key vault and key you created previously, and the version.
 1. Press **Select**.
 1. Select **Review + Create** and then **Create**.
 
