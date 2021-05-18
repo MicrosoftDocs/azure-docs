@@ -377,8 +377,6 @@
         href: sap-solution-security-content.md
 - name: Resources
   items:
-  - name: Archived what's new (older than six months)
-    href: whats-new-archive.md
   - name: Useful resources
     href: resources.md
   - name: Azure Sentinel blog
@@ -389,3 +387,5 @@
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   - name: Feature availability for US Government clouds
     href: /azure/security/fundamentals/feature-availability
+  - name: Archived what's new (older than six months)
+    href: whats-new-archive.md
