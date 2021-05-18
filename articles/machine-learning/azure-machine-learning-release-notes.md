@@ -24,8 +24,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
-## 2021-05-24
-
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**
   + **Breaking changes**
@@ -36,8 +34,6 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Added a method for batch inferencing with file paths.
   + **azureml-contrib-gbdt**
     + The azureml-contrib-gbdt package has been deprecated and might not receive future updates and will be removed from the distribution altogether.
-  + **azureml-contrib-k8s**
-    + Removed ArcKubernetesCompute and CmAksCompute. Instead, customers should stick with the existing KubernetesCompute. This change also includes a warning when using KubernetesCompute, which suggested users to switch to azureml.core because the azureml.contrib.k8s package is deprecated
   + **azureml-core**
     + Corrected explanation of parameter create_if_not_exists in Datastore.register_azure_blob_container.
     + Added sample code to DatasetConsumptionConfig class.
