@@ -59,9 +59,16 @@ This section describes the common prerequisites across all the approaches and to
   > [!NOTE]
   > Managed identity support is currently unavailable for Azure Arc enabled Logic Apps.
 
-  1. To create the app registration, use either the [Azure portal](../active-directory/develop/quickstart-register-app.md) or [Azure CLI](/cli/azure/ad/app#az_ad_app_create).
+  To create an AAD app registration via the Azure CLI:
+    1. Create an app registration use the [az ad sp create](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create) command 
+    2. To show all details use the [az ad sp show](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_show) command
+    3. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
-  1. From the app registration, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
+  To create an AAD app registration via the Azure portal: 
+    1. Use the [Azure portal](../active-directory/develop/quickstart-register-app.md) to create a new AAD 
+    2. Once created navigate to the new app registration within the portal 
+    3. From the overview page, save the client ID, Tenant ID and client secret values
+    4. To find the object ID, click on your app registrations name next to the **Managed application in local directory** field. Copy the Object ID from the properties view. 
 
 ## Create and deploy logic apps
 
@@ -277,10 +284,9 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
       "type": "ActiveDirectoryOAuth",
       "audience": "https://management.core.windows.net/",
       "credentialType": "Secret",
-      "clientId": "@appsetting('<my-client-ID>')",
-      "objectId": "@appsetting('<my-object-ID>')",
-      "tenant": "@appsetting('<my-tenant-ID>')",
-      "secret": "@appsetting('<my-client-secret>')"
+      "clientId": "@appsetting('WORKFLOWAPP_AAD_CLIENTID')",
+      "tenant": "@appsetting('WORKFLOWAPP_AAD_TENANTID')",
+      "secret": "@appsetting('WORKFLOWAPP_AAD_CLIENTSECRET')"
    } 
    ```
  
