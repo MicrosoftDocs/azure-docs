@@ -27,7 +27,7 @@ The following article is recommended before going through this article:
 
 - [MSAL overview](./msal-overview.md)
 
-## Identify apps using ADAL in your tenant.
+## Identify apps using ADAL in your tenant
 
 Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication.  The Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema), but the workbook helps you collect and visualize the information in one view.  
 
