@@ -5,7 +5,7 @@ description: Learn how to disable access key authentication for an Azure App Con
 ms.service: azure-app-configuration
 author: jimmyca15
 ms.author: jimmyca
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/14/2021
 ---
 
@@ -20,7 +20,7 @@ When you disable access key authentication for an Azure App Configuration resour
 Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication they will begin to fail once access key authentication is disabled. Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
 
 > [!WARNING]
-> If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to Azure AD before disabling access key authentication.
+> If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Azure AD](./concept-enable-rbac.md) before disabling access key authentication.
 > Additionally, it is recommended to read the [limitations](#limitations) section below to verify the limitations won't affect the intended usage of the resource.
 
 # [Azure portal](#tab/portal)
