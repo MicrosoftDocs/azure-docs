@@ -1,14 +1,13 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Setup requirements for Azure disk pools
+description: Learn how to setup an Azure disk pool.
+author: roygara
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 05/18/2021
+ms.author: rogarana
+ms.subservice: disks
 ---
-
 # Getting started
 
 ## Register the feature
@@ -21,7 +20,7 @@ Register your subscription to the Microsoft.StoragePool provider in order to use
 1. On the left menu, under Settings, select Resource providers.
 1. Find the resource provider Microsoft.StoragePool and select Register.
 
-## Delete subnet permission
+## Delegate subnet permission
 
 Once your subscription has been registered, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the Microsoft.StoragePool/diskPools resource provider.
 

@@ -1,12 +1,12 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 05/11/2021
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Azure managed disk pools overview
+description: Learn about Azure disk pools.
+author: roygara
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 05/18/2021
+ms.author: rogarana
+ms.subservice: disks
 ---
 
 # Azure managed disk pools (preview)
