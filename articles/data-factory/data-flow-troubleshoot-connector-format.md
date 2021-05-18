@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 04/27/2021
+ms.date: 05/18/2021
 ---
 
 
@@ -58,7 +58,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 #### Symptoms 
 You may encounter an issue that the final name of the model.json file contains special characters.  
 
-#### Error Message  
+#### Error message  
 `at Source 'source1': java.lang.IllegalArgumentException: java.net.URISyntaxException: Relative path in absolute URI: PPDFTable1.csv@snapshot=2020-10-21T18:00:36.9469086Z. ` 
 
 #### Recommendation  
@@ -163,7 +163,7 @@ You may face the issue that the delta sink in mapping data flows does not supp
 
 If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
 
-#### Error Message
+#### Error message
 `DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
 
 #### Cause
@@ -336,7 +336,7 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 
 ![Screenshots that shows the service identity error.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
 
-#### Error Message
+#### Error message
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
 
 #### Cause
