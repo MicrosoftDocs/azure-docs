@@ -93,6 +93,7 @@ The following versions of the Windows and Linux operating system are officially 
 > While Arc enabled servers supports Amazon Linux, the following do not support this distro:
 > * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
 > * Azure Automation Update Management
+> * VM insights
 
 ### Software requirements
 
