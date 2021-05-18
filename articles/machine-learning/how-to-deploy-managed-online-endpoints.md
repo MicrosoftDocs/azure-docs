@@ -229,7 +229,7 @@ To use a REST client, you'll need the `scoring_uri` and the auth key/token. The 
  
 ::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
 
-Note how we're using the `--query` to filter attributes to only what are needed. You can learn more about `--query` at [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli).
+Note how we're using the `--query` to filter attributes to only what are needed. You can learn more about `--query` at [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
 Retrieve the necessary credentials using the `get-credentials` command:
 
@@ -271,7 +271,7 @@ az ml endpoint delete -n $ENDPOINT_NAME --deployment blue
 The `update` command works with local endpoints as well. Use the same `az ml endpoint update` command with the flag `--local`.
 
 > [!Tip]
-> With the `az ml endpoint update` command, you may use the [`--set` parameter available in Azure CLI](https://docs.microsoft.com/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML **or** for setting specific attributes without passing the YAML file. Use of `--set` for single attributes is especially valuable in dev/test scenarios. For example, to scale up the `instance_count` of the first deployment, you could use the flag `--set deployments[0].scale_settings.instance_count=2`. However, since the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+> With the `az ml endpoint update` command, you may use the [`--set` parameter available in Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML **or** for setting specific attributes without passing the YAML file. Use of `--set` for single attributes is especially valuable in dev/test scenarios. For example, to scale up the `instance_count` of the first deployment, you could use the flag `--set deployments[0].scale_settings.instance_count=2`. However, since the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
 ### [Optional] Monitor SLA using Azure Monitor
 
@@ -279,7 +279,7 @@ You can view metrics and set alerts based on your SLA by following instructions 
 
 ### [Optional] Integrate with Log Analytics
 
-The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) to create a Log Analytics workspace.
+The `get-logs` command will only provide the last few-hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to store and analyze logs durably. First, follow the steps in [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace#create-a-workspace) to create a Log Analytics workspace.
 
 Then, in the Azure portal:
 
