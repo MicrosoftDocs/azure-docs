@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 04/27/2021
+ms.date: 05/18/2021
 ms.topic: conceptual
 ---
 
@@ -229,7 +229,10 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 ## Remove the agent
 
-Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. Unregister the machine and remove the installed VM extensions separately when you no longer need to manage the machine in Azure, and those steps should be completed prior to uninstalling the agent.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc enabled servers or remove the Azure VM extensions installed. For servers or machines you no longer want to manage with Azure Arc enabled servers, it is necessary to follow these steps to successfully stop managing it: 
+
+1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extension), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension) that you don't want to remain on the machine.
+1. Unregister the machine by running `azcmagent disconnect` to delete the Arc enabled servers resource in Azure. If that fails, you can delete the resource manually in Azure. Otherwise, if the resource was deleted in Azure, you'll need to run `azcmagent disconnect --force-local-only` on the server to remove the local configuration.
 
 ### Windows agent
 

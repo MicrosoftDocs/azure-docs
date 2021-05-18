@@ -94,24 +94,6 @@ Monitor your Windows Virtual Desktop service's usage and availability with [Azur
 
 Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Windows Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
 
-### Enable screen capture protection (preview)
-
-The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. It will also be hidden from malicious software that may be continuously capturing your screen's content. We recommend you disable clipboard redirection to prevent copying of remote content to endpoints while using this feature.
-
-This policy is enforced at the host level by configuring a registry key. To enable this policy, open PowerShell and set the **fEnableScreenCaptureProtection** registry key by running this cmdlet:
-
-```powershell
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
-```
-
-To test this new feature:
-
-- Make sure your host pools are provisioned in the validation environment.
-- Make sure you've downloaded and installed the Windows Desktop client, version 1.2.1526 or later.
-
->[!NOTE]
->During preview, only full desktop connections from Windows 10 endpoints support this feature.
-
 ### Enable endpoint protection
 
 To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
