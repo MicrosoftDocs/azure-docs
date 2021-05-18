@@ -35,12 +35,12 @@ Perform the steps in this topic in sequence to enable the Start/Stop VMs during 
 
    ![VM management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-6. On the **Add Solution** page, select **Workspace**. Select an existing Log Analytics workspace from the list. If there isn't an Automation account in the same resource group as the workspace, you can create a new Automation account in the next step. 
+6. On the **Add Solution** page, select **Workspace**. Select an existing Log Analytics workspace from the list. If there isn't an Automation account in the same supported region as the workspace, you can create a new Automation account in the next step. 
 
    > [!NOTE]
    > When enabling features, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md).
 
-7. On the **Add Solution page** if there isn't an Automation account available in the same resource group as the workspace, select **Automation account**. You can create a new Automation account to associate with it by selecting **Create an Automation account**, and on the **Add Automation account** page, provide the the name of the Automation account in the **Name** field.
+7. On the **Add Solution page** if there isn't an Automation account available in the supported region as the workspace, select **Automation account**. You can create a new Automation account to associate with it by selecting **Create an Automation account**, and on the **Add Automation account** page, provide the the name of the Automation account in the **Name** field.
 
     All other options are automatically populated, based on the Log Analytics workspace selected. You can't modify these options. An Azure Run As account is the default authentication method for the runbooks included with the feature. 
     
