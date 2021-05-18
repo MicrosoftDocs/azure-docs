@@ -31,9 +31,10 @@ This release is the first public preview release of Azure Video Analyzer. The re
 ### Supported functionalities
 
 * Analyze live video streams using AI modules of your choice and optionally record video on the edge device or in the cloud
+* Record video along with inference metadata in the cloud
 * Trigger events when objects cross a line using your own object detection model
 * Track objects detected by your own detection model 
-* Use Widgets to play back recorded video and inference metadata
+* Use Video Analyzer player widgets (web components) to play back recorded video and inference metadata
 * Deploy and configure the module via the IoT Hub using Azure portal or Visual Studio Code
 * Manage [pipeline topologies](pipeline.md#pipeline-topologies) remotely or locally using [direct method](direct-methods.md) calls
 
