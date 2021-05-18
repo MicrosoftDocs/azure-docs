@@ -66,14 +66,14 @@ When users can create groups, all users in your organization are allowed to crea
 
 ## Groups setting change
 
-The current security groups and Microsoft 365 groups settings are being deprecated and replaced. The current settings are being replaced because they only control group creation in Azure portals. The new settings control group creation in Azure portals, and also API and PowerShell.
+The current security groups and Microsoft 365 groups settings are being deprecated and replaced. The current settings are being replaced because they only control group creation in Azure portals and do not apply to API or PowerShell. The new settings control group creation in Azure portals, and also API and PowerShell.
 
 | Deprecated setting | New setting |
 | --- | --- |
 | Users can create security groups in Azure portals | Users can create security groups in Azure portals, API or PowerShell |
 | Users can create Microsoft 365 groups in Azure portals | Users can create Microsoft 365 groups in Azure portals, API or PowerShell |
 
-Until the current setting is fully deprecated, both settings will appear in the Azure portals. You should configure this new setting before the end of **May 2021**. To configure the security groups settings, you must be assigned the Global Administrator or Privileged Role Administrator role. Once you configure the new setting, it can take about 15 minutes for the change to take effect. 
+Until the current setting is fully deprecated, both settings will appear in the Azure portals. You should configure this new setting before the end of **May 2021**. To configure the security groups settings, you must be assigned the Global Administrator or Privileged Role Administrator role. 
 
 ![Azure Active Directory security groups setting change](./media/groups-self-service-management/security-groups-setting.png)
 
@@ -81,8 +81,8 @@ The following table helps you decide which values to choose.
 
 | If you want this ... | Choose these values |
 | --- | --- |
-| Users can create groups using Azure portals, API or PowerShell | Set both settings to **Yes**. This will take effect immediately. |
-| Users **can't** create groups using Azure portals, API or PowerShell | Set both settings to **No**. This will take effect immediately. |
+| Users can create groups using Azure portals, API or PowerShell | Set both settings to **Yes**. Changes can take up to 15 minutes to take effect. |
+| Users **can't** create groups using Azure portals, API or PowerShell | Set both settings to **No**. Changes can take up to 15 minutes to take effect. |
 | Users can create groups using Azure portals, but not using API or PowerShell | Not supported |
 | Users can create groups using API or PowerShell, but not using Azure portals | Not supported |
 
@@ -90,10 +90,10 @@ The following table lists what happens for different values for these settings. 
 
 | Users can create groups using Azure portals | Users can create groups using Azure portals, API or PowerShell | Effect on your tenant |
 | :---: | :---: | --- |
-| Yes | Yes | Users can create groups using Azure portals, API or PowerShell immediately.|
-| No | No | Users **can't** create groups using Azure portals, API or PowerShell immediately. |
-| Yes | No | Users **can't** create groups using Azure portals, API or PowerShell immediately. It's not recommended to have these settings set to different values. |
-| No | Yes | Starting sometime in **June 2021**, users can create groups using Azure portals, API or PowerShell. Until then, users can create groups using API or PowerShell, but not Azure portals. It's not recommended to have these settings set to different values. |
+| Yes | Yes | Users can create groups using Azure portals, API or PowerShell. Changes can take up to 15 minutes to take effect.|
+| No | No | Users **can't** create groups using Azure portals, API or PowerShell. Changes can take up to 15 minutes to take effect. |
+| Yes | No | Users **can't** create groups using Azure portals, API or PowerShell. It's not recommended to have these settings set to different values. Changes can take up to 15 minutes to take effect. |
+| No | Yes | Until the **Users can create groups using Azure portals** setting is fully deprecated in **June 2021**, users can create groups using API or PowerShell, but not Azure portals. Starting sometime in **June 2021**, the **Users can create groups using Azure portals, API or PowerShell** setting will take effect and users can create groups using Azure portals, API or PowerShell. |
 
 ## Next steps
 
