@@ -71,7 +71,7 @@
           href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: 'Go'
           displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
-          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -120,14 +120,14 @@
               items:
                 - name: What is Custom Neural Voice?
                   href: custom-neural-voice.md
-                - name: Get started with Custom Voice
+                - name: Get started with Custom Neural Voice
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: Prepare data
+                - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use Custom Voice models
+                - name: Create and use your voice model
                   href: how-to-custom-voice-create-voice.md
-                - name: Record voice samples
+                - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
               items:
