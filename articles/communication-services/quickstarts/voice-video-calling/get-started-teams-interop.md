@@ -15,10 +15,13 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-> [!IMPORTANT]
-> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
-
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript SDK.
+
+## Enable Teams interoperability 
+
+A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../voice-video-calling/get-started-teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
+
+You must be a member of the owning organization of both entities to use this feature.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
