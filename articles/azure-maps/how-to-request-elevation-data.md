@@ -37,7 +37,7 @@ To request elevation data in raster tile format using the Postman app:
 
 2. In the **Create New** window, select **Collection**.  
 
-3. Name the collection and then select the **Create** button.
+3. To rename the collection, right click on your collection, and select **Rename**.
 
 4. Select **New** again.
 
@@ -82,7 +82,7 @@ In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevatio
 
 To create the request:
 
-1. In the Postman app, select **New** again. 
+1. In the Postman app, select **New** again.
 
 2. In the **Create New** window, select **Request**.
 
