@@ -60,7 +60,7 @@ This section describes the common prerequisites across all the approaches and to
   > Managed identity support is currently unavailable for Azure Arc enabled Logic Apps.
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
-    1. Create an app registration use the [az ad sp create](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create) command 
+    1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az_ad_sp_create) command.
     2. To show all details use the [az ad sp show](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_show) command
     3. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
