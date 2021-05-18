@@ -217,7 +217,7 @@ To create the request:
     }
     ```
 
-7. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, copy the following coordinate array for the value of the `lines` query key.
+7. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** field, enter the following coordinate array for the value of the `lines` query key.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
