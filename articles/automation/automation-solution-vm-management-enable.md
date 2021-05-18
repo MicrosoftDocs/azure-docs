@@ -74,7 +74,7 @@ Perform the steps in this topic in sequence to enable the Start/Stop VMs during 
 
 ## Create alerts
 
-Start/Stop VMs during off-hours doesn't include a predefined set of Automation job alerts. Review [Forward job data to Azure Monitor Logs](automation-manage-send-joblogs-log-analytics#azure-monitor-log-records) to learn about log data forwarded from the Automation account related to the runbook job results and how to create job failed alerts to support your DevOps or operational processes and procedures.
+Start/Stop VMs during off-hours doesn't include a predefined set of Automation job alerts. Review [Forward job data to Azure Monitor Logs](automation-manage-send-joblogs-log-analytics.md#azure-monitor-log-records) to learn about log data forwarded from the Automation account related to the runbook job results and how to create job failed alerts to support your DevOps or operational processes and procedures.
 
 ## Next steps
 
