@@ -61,10 +61,10 @@ The following tables display the current Azure Key Vault feature availability in
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
-| - [Certificates](../../key-vault/certificates/overview.md) | GA | GA |
-| - [Keys](../../key-vault/keys/overview.md) | GA | GA |
+| - [Certificates](../../key-vault/certificates/about-certificates.md) | GA | GA |
+| - [Keys](../../key-vault/keys/about-keys.md) | GA | GA |
 | - [Managed HSM](../../key-vault/managed-hsm/overview.md) | GA | GA |
-| - [Secrets](../../key-vault/secrets/overview.md) | GA | GA |
+| - [Secrets](../../key-vault/secrets/about-secrets.md) | GA | GA |
 
 ## Azure Sentinel
 
