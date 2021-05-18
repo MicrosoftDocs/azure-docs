@@ -144,7 +144,7 @@ To create the request:
 
 ### Request elevation data samples along a Polyline
 
-In this example, we'll use the [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline) API to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in longitude/latitude format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
+In this example, we'll use the [Get Data for Polyline API](/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in longitude/latitude format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
 
 Then, we'll use the Get Data for Polyline API to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three longitude/latitude  coordinate pairs.
 
