@@ -13,9 +13,11 @@ ms.date: 05/25/2021
 ms.reviewer: laobri
 ---
 
-# Install, set up, and use the 2.0 CLI
+# Install, set up, and use the 2.0 CLI (preview)
 
-The `ml` extension to the [Azure CLI](/cli/azure/) is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
