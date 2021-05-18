@@ -11,6 +11,11 @@ ms.author: cshoe
 
 # API support in Azure Static Web Apps with Azure Functions
 
+Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
+
+- **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
+- **Seamless routing** that makes the _api_ route available to the web app securely without requiring custom CORS rules.
+
 Azure Static Web Apps APIs are supported by two possible configurations:
 
 - **Managed functions**:  By default, the API of a static web app is an Azure Functions application managed and deployed by Azure Static Web Apps associated with some restrictions.
@@ -30,12 +35,6 @@ The following table contrasts the differences between using managed and existing
 | [Managed identity](../app-service/overview-managed-identity.md) | | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | | ✔ |
 | API functions available outside Azure Static Web Apps |  | ✔ |
-
-Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
-
-- **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
-- **Seamless routing** that makes the _api_ route available to the web app securely without requiring custom CORS rules.
-- **HTTP triggers** and input/output bindings.
 
 ## Configuration
 
