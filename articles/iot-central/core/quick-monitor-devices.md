@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Monitor your devices in Azure IoT Central
-description: Quickstart - As an operator, learn how to use your Azure IoT Central application to monitor your devices.
+description: Quickstart - Learn how to use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -12,9 +12,7 @@ ms.custom: mvc
 
 # Quickstart: Use Azure IoT Central to monitor your devices
 
-*This article applies to operators, builders, and administrators.*
-
-This quickstart shows you, as an operator, how to use your Azure IoT Central application to monitor your devices and change settings.
+This quickstart shows you how to use your Azure IoT Central application to monitor your devices and change settings.
 
 ## Prerequisites
 

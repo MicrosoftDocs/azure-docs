@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/18/2020
+ms.date: 05/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -102,6 +102,18 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 1. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+### Diagnostics for support
+
+If you need to gather diagnostics information when working with Microsoft support, use the following steps:
+
+1. Add a __Network rule__ to allow traffic to and from the `AzureMonitor` tag.
+1. Add __Application rules__ for the following hosts. Select __http, https__ for the __Protocol:Port__ for these hosts:
+
+    + **dc.applicationinsights.azure.com**
+    + **dc.applicationinsights.microsoft.com**
+    + **dc.services.visualstudio.com**
+
+    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
@@ -126,10 +138,6 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.com | ml.azure.us | studio.ml.azure.cn |
 | API |\*.azureml.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Experimentation, History, Hyperdrive, labeling | \*.experiments.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| Model management | \*.modelmanagement.azureml.net | \*.ml.azure.us | \*.ml.azure.cn |
-| Pipeline | \*.aether.ms | \*.ml.azure.us | \*.ml.azure.cn |
-| Designer (studio service) | \*.studioservice.azureml.com | \*.ml.azure.us | \*.ml.azure.cn |
 | Integrated notebook | \*.notebooks.azure.net | \*.notebooks.usgovcloudapi.net |\*.notebooks.chinacloudapi.cn |
 | Integrated notebook | \*.file.core.windows.net | \*.file.core.usgovcloudapi.net | \*.file.core.chinacloudapi.cn |
 | Integrated notebook | \*.dfs.core.windows.net | \*.dfs.core.usgovcloudapi.net | \*.dfs.core.chinacloudapi.cn |
@@ -145,6 +153,9 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | Compute cluster/instance | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Compute instance | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Compute instance | \*.instances.azureml.ms |  |  |
+
+> [!IMPORTANT]
+> Your firewall must allow communication with \*.instances.azureml.ms over __TCP__ port __18881__.
 
 **Associated resources used by Azure Machine Learning**
 
@@ -163,6 +174,8 @@ Also, use the information in [forced tunneling](how-to-secure-training-vnet.md#f
 
 For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+> [!TIP]
+> If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 

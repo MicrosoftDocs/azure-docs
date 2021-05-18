@@ -43,7 +43,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
   To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
-  To learn about template specs, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+  To learn about template specs, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Creating and testing templates
 
@@ -99,10 +99,6 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 ## Template Specs
 
-* **How can I get started with the preview release of Template Specs?**
-
-  Install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
-
 * **How are template specs and Azure Blueprints related?**
 
   Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We'll provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
@@ -119,7 +115,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Can I include a script in my template to do tasks that aren't possible in a template?**
 
-  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates. The feature is in preview.
+  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates.
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 

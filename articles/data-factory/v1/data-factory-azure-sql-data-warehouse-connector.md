@@ -24,11 +24,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported scenarios
 You can copy data **from Azure Synapse Analytics** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure Synapse Analytics**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > When copying data from SQL Server or Azure SQL Database to Azure Synapse Analytics, if the table does not exist in the destination store, Data Factory can automatically create the table in Azure Synapse Analytics by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details.
@@ -319,7 +319,7 @@ Data Factory creates the table in the destination store with the same table name
 | NVarChar | NVarChar (up to 4000) |
 | Xml | Varchar (up to 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## Type mapping for Azure Synapse Analytics
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:

@@ -17,17 +17,19 @@ Before you begin configuring SNMP monitoring, you need to open the port UDP 161 
 
 | Management console and sensor | OID | Format | Description |
 |--|--|--|--|
-| Appliance name | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | Appliance name for the on-premises management console |
-| Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Microsoft Support (support.microsoft.com) |
-| Platform | 1.3.6.1.2.1.1.1.0 | DISPLAYSTRING | Sensor or on-premises management console |
-| Serial number | 1.3.6.1.4.1.9.9.53313.1 | DISPLAYSTRING | String that the license uses |
-| Software version | 1.3.6.1.4.1.9.9.53313.2 | DISPLAYSTRING | Xsense full-version string and management full-version string |
-| CPU usage | 1.3.6.1.4.1.9.9.53313.3.1 | GAUGE32 | Indication for zero to 100 |
-| CPU temperature | 1.3.6.1.4.1.9.9.53313.3.2 | DISPLAYSTRING | Celsius indication for zero to 100 based on Linux input |
-| Memory usage | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indication for zero to 100 |
-| Disk Usage | 1.3.6.1.4.1.9.9.53313.3.4 | GAUGE32 | Indication for zero to 100 |
-| Service Status | 1.3.6.1.4.1.9.9.53313.5 | DISPLAYSTRING | Online or offline if one of the four crucial components is down |
-| Bandwidth | Out of scope for 2.4 |  | The bandwidth received on each monitor interface in Xsense |
+| Appliance name | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
+| Vendor | 1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
+| Platform | 1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
+| Serial number | 1.3.6.1.4.1.53313.1 |STRING | String that the license uses |
+| Software version | 1.3.6.1.4.1.53313.2 | STRING | Xsense full-version string and management full-version string |
+| CPU usage | 1.3.6.1.4.1.53313.3.1 | GAUGE32 | Indication for zero to 100 |
+| CPU temperature | 1.3.6.1.4.1.53313.3.2 | STRING | Celsius indication for zero to 100 based on Linux input. "No sensors found" will be returned from any machine that has no actual physical temperature sensor (for example VMs)|
+| Memory usage | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indication for zero to 100 |
+| Disk Usage | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
+| Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
+| Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
+| Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Indicates if the sensor is connected to the Defender for IoT portal or managed on-premises only |
+| License status | 1.3.6.1.4.1.53313.5  |STRING | Indicates if activation file expired or not |
 
    - Non-existing keys respond with null, HTTP 200, based on [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     

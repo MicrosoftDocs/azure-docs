@@ -217,7 +217,7 @@ The following technical profile validates the token and extracts the claims. Cha
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, subject-rbac-steps
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -59,7 +59,7 @@ If you do want to configure more details for your instance, the next section des
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
 * **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a [system-managed identity](../active-directory/managed-identities-azure-resources/overview.md) for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For instructions, see [How-to: Enable managed identities for routing events (preview)](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
+* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -109,24 +109,21 @@ In that case, you can still continue to successfully create the Azure Digital Tw
 
 You can also assign the **Azure Digital Twins Data Owner** role using the access control options in Azure Identity Management (IAM).
 
-First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  **+ Add** button to add a new role assignment.
+1. First, open the page for your Azure Digital Twins instance in the Azure portal. 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
+1. Select **Access control (IAM)**.
 
-On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
-* **Role**: Select **Azure Digital Twins Data Owner** from the dropdown menu
-* **Assign access to**: Use *User, group or service principal*
-* **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-When you're finished entering the details, select the *Save* button.
+1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner) |
+    | Assign access to | User, group, or service principal |
+    | Members | Search for the name or email address of the user to assign. |
+    
+    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Verify success
 
@@ -139,8 +136,8 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt)
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
 * [How-to: Write app authentication code](how-to-authenticate-client.md)
