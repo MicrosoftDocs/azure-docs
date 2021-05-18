@@ -50,6 +50,7 @@ import com.azure.communication.phonenumbers.*;
 import com.azure.communication.phonenumbers.models.*;
 import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
+import com.azure.core.util.polling.LongRunningOperationStatus;
 import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
 import java.io.*;
