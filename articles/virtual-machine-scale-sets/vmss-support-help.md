@@ -11,7 +11,7 @@ ms.custom: support-help-page
 
 # Support and troubleshooting for Azure virtual machine scale sets
 
-Here are suggestions for where you can get help when developing your Azure virtual machine scale set solutions.
+Here are suggestions for where you can get help when developing your Azure virtual machine scale sets solutions.
 
 ## Self help troubleshooting
 <div class='icon is-large'>
