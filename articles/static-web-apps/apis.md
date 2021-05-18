@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # API support in Azure Static Web Apps with Azure Functions
 
-Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
+Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By using Azure Functions, APIs dynamically scale based on demand, and include the following features:
 
 - **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
 - **Seamless routing** that makes the _api_ route available to the web app securely without requiring custom CORS rules.
@@ -62,7 +62,7 @@ Managed functions and bring your own functions each come with a different set of
   - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
 
 - For bring you own functions:
-  - The Azure Functions app must either be a Node.js 12, .NET Core 3.1, or Python 3.8 app.
+  - The Azure Functions app must either be in Node.js 12, .NET Core 3.1, or Python 3.8.
   - You are responsible to manage deployment of the Functions app.
 
 ## Next steps
