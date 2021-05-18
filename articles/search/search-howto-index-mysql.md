@@ -19,9 +19,6 @@ ms.date: 05/17/2021
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no .NET SDK support and no portal.
 
-> ![!NOTE]
-> The preview does not support geometry types and blobs.
-
 The Azure Cognitive Search indexer for MySQL will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. The indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in Azure Cognitive Search.
 
 ## Create an Azure MySQL indexer
@@ -154,10 +151,7 @@ To use this policy, create or update your data source like this:
     }
 ```
 
-When using MySQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the MySQL table. 
-
-> [!NOTE]  
-> When using [TRUNCATE TABLE](/MySQL/t-MySQL/statements/truncate-table-transact-MySQL) to remove a large number of rows from a MySQL table, the indexer needs to be [reset](/rest/api/searchservice/reset-indexer) to reset the change tracking state to pick up row deletions.
+When using MySQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the MySQL table.
 
 <a name="HighWaterMarkPolicy"></a>
 
@@ -171,9 +165,6 @@ This change detection policy relies on a "high water mark" column capturing the 
 * All updates to an item also change the value of the column.
 * The value of this column increases with each insert or update.
 * Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
-
-> [!IMPORTANT] 
-> We strongly recommend using the [rowversion](/MySQL/t-MySQL/data-types/rowversion-transact-MySQL) data type for the high water mark column. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
 
 #### Usage
 
@@ -195,26 +186,6 @@ To use a high water mark policy, create or update your data source like this:
 > [!WARNING]
 > If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
 >
->
-
-<a name="convertHighWaterMarkToRowVersion"></a>
-
-##### convertHighWaterMarkToRowVersion
-
-If you're using a [rowversion](/MySQL/t-MySQL/data-types/rowversion-transact-MySQL) data type for the high water mark column, consider using the `convertHighWaterMarkToRowVersion` indexer configuration setting. `convertHighWaterMarkToRowVersion` does two things:
-
-* Use the rowversion data type for the high water mark column in the indexer MySQL query. Using the correct data type improves indexer query performance.
-* Subtract 1 from the rowversion value before the indexer query runs. Views with 1 to many joins may have rows with duplicate rowversion values. Subtracting 1 ensures the indexer query doesn't miss these rows.
-
-To enable this feature, create or update the indexer with the following configuration:
-
-```
-    {
-      ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
-    }
-```
 
 <a name="queryTimeout"></a>
 
@@ -267,6 +238,10 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 <a name="TypeMapping"></a>
 
 ## Mapping between MySQL and Azure Cognitive Search data types
+
+> [!NOTE]
+> The preview does not support geometry types and blobs.
+
 | MySQL data type | Allowed target index field types | Notes |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
