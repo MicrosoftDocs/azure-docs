@@ -75,7 +75,7 @@ To enable VMs for the Start/Stop VMs during off-hours feature using an existing 
 
 ### Permissions for new Automation account and new Log Analytics workspace
 
-You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the preceding section as well as the permissions defined in this section. You also require the following roles:
+You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the previous section and the permissions defined in this section. You also require the following roles:
 
 - Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
 - Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](automation-security-overview.md#permissions).
@@ -95,7 +95,7 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 
 ## Components
 
-The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
+The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor Logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 
