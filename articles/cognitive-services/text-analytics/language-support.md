@@ -227,7 +227,13 @@ If you have content expressed in a less frequently used language, you can try La
 |Tongan|`to`|✓|2020-09-01|
 |Turkish|`tr`|✓|2021-01-05|
 |Turkmen|`tk`|✓|2021-01-05|
+|Ukrainian|`uk`|✓||
+|Urdu|`ur`|✓||
+|Uzbek|`uz`|✓||
+|Vietnamese|`vi`|✓||
+|Welsh|`cy`|✓||	
 |Xhosa|`xh`|✓|2021-01-05|
+|Yiddish|`yi`|✓||
 |Yoruba|`yo`|✓|2021-01-05|
 |Zulu|`zu`|✓|2021-01-05|
 
