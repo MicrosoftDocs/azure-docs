@@ -297,7 +297,7 @@ The customize section is an array. Azure Image Builder will run through the cust
  
 ### Shell customizer
 
-The shell customizer supports running shell scripts. These must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for the IB to access them.
+The shell customizer supports running shell scripts. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
 
 ```json
     "customize": [ 
