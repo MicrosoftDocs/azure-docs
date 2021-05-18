@@ -30,7 +30,7 @@ The verification process and the integrity of the database depends on the integr
 
 ### Automatic generation and storage of database digests
 
-Azure SQL Database ledger integrates with [immutable storage for Azure Blob storage](../../storage/blobs/storage-blob-immutable-storage.md) and [Azure Confidential Ledger](https://aka.ms/ConfidentialLedger), providing secure storage services in Azure to protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
+Azure SQL Database ledger integrates with [immutable storage for Azure Blob storage](../../storage/blobs/storage-blob-immutable-storage.md) and [Azure Confidential Ledger](https://aka.ms/ACL-docs), providing secure storage services in Azure to protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
 
 Configuring automatic generation and storage of database digests can be done through either the Azure portal, PowerShell, or Azure CLI. When configured, database digests are generated on a pre-defined interval of 30 seconds and uploaded to the storage service selected. If no transactions occur in the system in the 30-second interval, then a database digest won't be generated and uploaded, ensuring that database digests are only generated when data has been updated in your database.
 

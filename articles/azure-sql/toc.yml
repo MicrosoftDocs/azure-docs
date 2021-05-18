@@ -574,7 +574,7 @@
           href: database/ledger-how-to-append-only-ledger-tables.md
         - name: Create updatable ledger tables
           href: database/ledger-how-to-updatable-ledger-tables.md
-        - name: Access ACL digest
+        - name: Access Azure Confidential Ledger digest
           displayName: Access Azure Confidential Ledger digest
           href: database/ledger-how-to-access-acl-digest.md
         - name: Verify ledger database for tampering
