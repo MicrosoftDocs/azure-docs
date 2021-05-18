@@ -60,9 +60,7 @@ You can use these backups to:
 > [!NOTE]
 > In Azure Storage, the term *replication* refers to copying blobs from one location to another. In SQL, *database replication* refers to various technologies used to keep multiple secondary databases synchronized with a primary database.
 
-<a name="restore-capabilities"></a>
-
-### Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance
+### <a id="restore-capabilities">Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance</a>
 
 This table summarizes the capabilities and features of point in time restore (PITR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
