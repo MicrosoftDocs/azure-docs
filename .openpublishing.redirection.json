@@ -17474,6 +17474,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-troubleshoot-virtual-machine-image-upload.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-databricks/index.yml",
       "redirect_url": "/azure/databricks/",
       "redirect_document_id": false
