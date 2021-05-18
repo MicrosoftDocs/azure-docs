@@ -113,14 +113,14 @@ To add cloud properties to the **Smart Building gateway device** template.
 
 1. In the **Smart Building gateway device** template, select **Cloud properties**.
 
-1.  Use the information in the following table to add two cloud properties to your gateway device template.
+1. Use the information in the following table to add two cloud properties to your gateway device template.
 
     | Display name      | Semantic type | Schema |
     | ----------------- | ------------- | ------ |
     | Last Service Date | None          | Date   |
     | Customer Name     | None          | String |
 
-2. Select **Save**.
+1. Select **Save**.
 
 ### Create views
 
@@ -149,7 +149,9 @@ To publish the gateway device template:
 
 3. In the **Publish a Device Template** dialog box, choose **Publish**.
 
-After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
+After a device template is published, it's visible on the **Devices** page and to the operator. The operator can use the template to create device instances or establish rules and monitoring. Editing a published template could affect behavior across the application.
+
+To learn more about modifying a device template after it's published, see [Edit an existing device template](howto-edit-device-template.md).
 
 ## Create the simulated devices
 
