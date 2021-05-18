@@ -68,7 +68,7 @@ This section describes the common prerequisites across all the approaches and to
     1. Create a new Azure AD app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
     1. After creation finishes, find the new app registration in the portal.
     1. On the registration menu, select **Overview**, and save the client ID, tenant ID, and client secret values.
-    4. To find the object ID, click on your app registrations name next to the **Managed application in local directory** field. Copy the Object ID from the properties view. 
+    1. To find the object ID, next to the **Managed application in local directory** field, select the name for your app registration. From the properties view, copy the object ID.
 
 ## Create and deploy logic apps
 
