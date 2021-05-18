@@ -20,7 +20,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 :::image type="content" source="media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Search the Azure Web PubSub in portal.":::
 
-1. Select **Web PubSub** from the search results, then select **Create**.
+2. Select **Web PubSub** from the search results, then select **Create**.
 
 1. Enter the following settings.
 
@@ -35,7 +35,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 :::image type="content" source="media/howto-develop-create-instance/create-awps-instance.png" alt-text="Create the Azure Web PubSub instance in portal.":::
 
-1. Select **Create** to start deploying the Web PubSub service instance.
+4. Select **Create** to start deploying the Web PubSub service instance.
 
 ## Create Azure Web PubSub instance with Azure CLI
 

@@ -20,7 +20,7 @@ Your application will connect to a Web PubSub service instance in Azure.
 
 :::image type="content" source="../media/create-instance-portal/search-web-pubsub-in-portal.png" alt-text="Search the Azure Web PubSub in portal.":::
 
-1. Select **Web PubSub** from the search results, then select **Create**.
+2. Select **Web PubSub** from the search results, then select **Create**.
 
 1. Enter the following settings.
 
