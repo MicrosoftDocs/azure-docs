@@ -355,7 +355,7 @@ To cancel a run in the studio, using the following steps:
 
 1. Select the pipeline run number you want to cancel.
 
-1. In the toolbar, select **Cancel**
+1. In the toolbar, select **Cancel**.
 
 ---
 
