@@ -22,11 +22,11 @@ This article takes you through the steps to create and delete a Creator resource
 
 2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, then navigate to the Azure portal menu. Select **All resources**. Find and select your Azure Maps account.
 
-    ![Azure Maps Portal home page](./media/how-to-manage-creator/select-maps-account.png)
+      :::image type="content" border="true" source="./media/how-to-manage-creator/select-maps-account.png" alt-text="Select Azure Maps account":::
 
-3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**. Select  **Create**  to create an Azure Maps Creator resource.
+3. Select **Creator overview** in the navigation menu. Select **Create**.
 
-    ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade-settings.png)
+    :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Create Azure Maps Creator page":::
 
 4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is only supported in the United States. Select **Review + create**.
 
@@ -49,16 +49,20 @@ This article takes you through the steps to create and delete a Creator resource
 
 ## Delete Creator Resource
 
-To delete the Creator resource, navigate to your Azure Maps account. Select **Overview** under **Creator**. Select the **Delete** button.
+To delete the Creator resource:
 
->[!WARNING]
->When you delete the Creator resource of your Azure Maps account, you'll also delete the conversions, datasets, tilesets, and feature statesets created using Creator services.
+1. Navigate to your Azure Maps account. Select **Overview** under **Creator**.
 
-![Creator page with delete button](./media/how-to-manage-creator/creator-delete.png)
+2. Select **Delete** .
 
-Select the **Delete** button and type your Creator name to confirm deletion. Once the resource is deleted, you'll see a confirmation page, like in the image below:
+    >[!WARNING]
+    >When you delete the Creator resource of your Azure Maps account, you'll also delete the conversions, datasets, tilesets, and feature statesets created using Creator services.
 
-![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirm-delete.png)
+    ![Creator page with delete button](./media/how-to-manage-creator/creator-delete.png)
+
+3. You'll be asked to confirm deletion by typing in the name of your Creator resource. Once the resource is deleted, you'll see a confirmation page, as in the image below:
+
+    ![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirm-delete.png)
 
 ## Authentication
 
