@@ -85,7 +85,7 @@ If there is an allocation failure due to deployment constraints, you may have to
 
 ## Next steps
 
-Deploy a VM to a proximity placement group using the [Azure CLI](./linux/proximity-placement-groups.md) or [PowerShell](./windows/proximity-placement-groups.md)
-Learn how to [test network latency](../virtual-network/virtual-network-test-latency.md).
+Deploy a VM to a proximity placement group using the [Azure CLI](./linux/proximity-placement-groups.md) or [PowerShell](./windows/proximity-placement-groups.md).  
+Learn how to [test network latency](../virtual-network/virtual-network-test-latency.md).  
 Learn how to [optimize network throughput](../virtual-network/virtual-network-optimize-network-bandwidth.md).  
 Learn how to [use proximity placement groups with SAP applications](./workloads/sap/sap-proximity-placement-scenarios.md).
