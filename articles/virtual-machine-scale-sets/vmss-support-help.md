@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine scale sets support and help options 
-description: How to obtain help and support for questions or problems when you create solutions using Azure Virtual Machine scale sets. 
+title: Azure virtual machine scale sets support and help options 
+description: How to obtain help and support for questions or problems when you create solutions using Azure virtual machine scale sets. 
 author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
@@ -9,19 +9,19 @@ ms.date: 4/28/2021
 ms.custom: support-help-page
 ---
 
-# Support and troubleshooting for Azure Virtual Machine scale sets
+# Support and troubleshooting for Azure virtual machine scale sets
 
-Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
+Here are suggestions for where you can get help when developing your Azure virtual machine scale set solutions.
 
 ## Self help troubleshooting
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>
 
-Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) and [Virtual Machine scale sets](overview.md).
+Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) and [virtual machine scale sets](overview.md).
 
 -  [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
-- [Frequently asked questions about Azure Virtual Machine scale sets](virtual-machine-scale-sets-faq.yml)
+- [Frequently asked questions about Azure virtual machine scale sets](virtual-machine-scale-sets-faq.yml)
 
 
 ## Post a question on Microsoft Q&A
@@ -37,7 +37,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 | Area | Tag |
 |-------|----------------------|
-| [Azure Virtual Machine scale sets](overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
+| [Azure virtual machine scale sets](overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 | [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
 | [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine backup](../virtual-machines/backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
@@ -67,7 +67,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
     <img alt='GitHub-image' src='./media/logos/github-logo.png'>
 </div>
 
-If you need help with the language and tools used to develop and manage Azure Virtual Machine scale sets, open an issue in its repository on GitHub.
+If you need help with the language and tools used to develop and manage Azure virtual machine scale sets, open an issue in its repository on GitHub.
 
 | Library | GitHub issues URL|
 | --- | --- |
@@ -90,7 +90,7 @@ If you need help with the language and tools used to develop and manage Azure Vi
     <img alt='UserVoice' src='./media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machine scale sets.
+To request new features, post them on Azure Feedback. Share your ideas for improving Azure virtual machine scale sets.
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
@@ -104,9 +104,9 @@ To request new features, post them on Azure Feedback. Share your ideas for impro
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure Virtual Machine scale sets is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
+News and information about Azure virtual machine scale sets is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
 
 
 ## Next steps
 
-Learn more about [Azure Virtual Machine scale sets](overview.md)
+Learn more about [Azure virtual machine scale sets](overview.md)
