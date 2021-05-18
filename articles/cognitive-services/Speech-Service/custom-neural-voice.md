@@ -48,7 +48,7 @@ Custom Neural Voice lets you adapt the Neural TTS engine to fit your scenarios. 
 ## Get started
 
 * See the [quickstart](how-to-custom-voice.md) to get started with Custom Neural Voice and create a project.
-* See the [how-to](how-to-custom-voice-prepare-data.md) for preparing and uploading your audio data.
+* To prepare and upload your audio data, see [Prepare training data](how-to-custom-voice-prepare-data.md).
 * To train and deploy your models, see [Create and use your voice model](how-to-custom-voice-create-voice.md).
 
 ## Terms and definitions
