@@ -97,7 +97,7 @@ Check your environment before you begin:
 Install the preview version of the Logic Apps extension for the Azure CLI:
 
 ```azurecli
-az extension add --yes --source "*<...>*"
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
 #### Create resource group
