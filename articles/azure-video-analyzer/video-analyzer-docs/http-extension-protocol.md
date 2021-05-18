@@ -8,7 +8,7 @@ ms.date: 03/30/2021
 
 # Use the HTTP extension protocol 
 
-Azure Video Analyzer allows you to enhance its processing capabilities through a [pipeline extension](pipeline-extension.md) node. HTTP extension processor node enables extensibility scenarios using the HTTP extension protocol, where performance and/or optimal resource utilization is not the primary concern. In this article, you will learn about using this protocol to send messages between the Video Analyzer and a HTTP REST endpoint, which would typically be wrapped around an AI inference server.
+Azure Video Analyzer allows you to enhance its processing capabilities through a [pipeline extension](pipeline-extension.md) node. HTTP extension processor node enables extensibility scenarios using the HTTP extension protocol, where performance and/or optimal resource utilization is not the primary concern. In this article, you will learn about using this protocol to send messages between the Video Analyzer and an HTTP REST endpoint, which would typically be wrapped around an AI inference server.
 
 The HTTP contract is defined between the following two components:
 
@@ -50,7 +50,7 @@ Responses from your inference server to the Video Analyzer module should be as f
 
 |Key|	Value|
 |---|----|
-|Status Codes|	200 OK - Inference results found<br/>204 No Content - No result found by the AI<br/>400 Bad Request - Not expected<br/>500 Internal Server Error - Not expected<br/>503 Server Busy - Video Analyzer will back-off based on "Retry-After" header or based on a default amount of time in case header not preset.|
+|Status Codes|	200 OK - Inference results found<br/>204 No Content - No result found by the AI<br/>400 Bad Request - Not expected<br/>500 Internal Server Error - Not expected<br/>503 Server Busy - Video Analyzer will backoff based on "Retry-After" header, or based on a default amount of time if the header is not present.|
 |Content-Type	|application/json|
 |Content-Length	|Body length, in bytes|
 |Body|	JSON object with single "inferences" property.|
@@ -84,7 +84,7 @@ Date: Fri, 17 Apr 2021 04:44:01 GMT
 }
 ```
 
-It is strongly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components in Video Analyzer, such as the ability to track objects in live video, and overlay the inference metadata over video during playback, as demonstrated [here](record-stream-inference-data-with-video.md).
+It is recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). Conforming to the schema will ensure interoperability with other components in Video Analyzer, such as the ability to track objects in live video, and overlay the inference metadata over video during playback, as demonstrated [here](record-stream-inference-data-with-video.md).
 
 If your module returns a response where the content type is not "application/json", Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
