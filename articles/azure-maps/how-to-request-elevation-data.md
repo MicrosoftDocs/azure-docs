@@ -78,7 +78,7 @@ To request elevation data in GeoJSON format, use the Elevation service APIs. Thi
 In this example, we'll use the [Get Data for Points API](/rest/api/maps/elevation/getdataforpoints) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
- >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data for Points API.
+ >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline-delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data for Points API.
 
 To create the request:
 
@@ -90,7 +90,7 @@ To create the request:
 
 4. Select the collection that you previously created, and then select **Save**.
 
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
@@ -125,7 +125,9 @@ To create the request:
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-8. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the follwoing coordinate point information.
+8. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
+
+1. In the **Body** field, provide the following coordinate point information:
 
      ```json
     [
@@ -144,7 +146,7 @@ To create the request:
 
 ### Request elevation data samples along a Polyline
 
-In this example, we'll use the [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline) API to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in longitude/latitude format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
+In this example, we'll use the [Get Data for Polyline API](/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in longitude/latitude format. If you don't specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
 
 Then, we'll use the Get Data for Polyline API to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three longitude/latitude  coordinate pairs.
 
@@ -153,7 +155,7 @@ Finally, we'll use the [Post Data For Polyline API](/rest/api/maps/elevation/pos
 Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
- >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data For Points API.
+ >The URL character length limit is 2048, so it's not possible to pass more than 100 coordinates as a pipeline-delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the Post Data For Points API.
 
 To create the request:
 
@@ -161,11 +163,11 @@ To create the request:
 
 2. In the **Create New** window, select **Request**.
 
-3. Enter a **Request name** and then select a collection.
+3. Enter a **Request name**, and then select a collection.
 
 4. Select **Save**.
 
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
@@ -215,7 +217,7 @@ To create the request:
     }
     ```
 
-7. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** section, copy the following coordinate array for the value of the `lines` query key.
+7. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** field, enter the following coordinate array for the value of the `lines` query key.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
@@ -255,13 +257,15 @@ To create the request:
     }
     ```
 
-10. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+10. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
     ```
 
-11. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the following coordinate point information.
+11. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
+
+1. In the **Body** field, provide the following coordinate point information.
 
      ```json
     [
@@ -286,7 +290,7 @@ To create the request:
 
 Now we'll use the [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier in Washington state. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area is defined by two sets of latitude/longitude coordinates (south latitude, west longitude | north latitude, east longitude) and is divided into rows and columns. The edges of the bounding box account for two of the rows and two of the columns. Elevations are returned for the grid vertices created at row and column intersections. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll specify rows=3 and columns=6. 18 elevation values are returned in the response. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they're returned.
+In this example, we'll specify rows=3 and columns=6. The response returns 18 elevation values. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they're returned.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Bounding box coordinates at NE and SE corners.":::
 
@@ -296,17 +300,17 @@ To create the request:
 
 2. In the **Create New** window, select **Request**. 
 
-3. Enter a **Request name** and then select a collection. 
+3. Enter a **Request name**, and then select a collection. 
 
 4. Select **Save**.
 
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-6. Select **Send**. 18 elevation data samples, one for each vertex of the grid, are returned in the response.
+6. Select **Send**.  The response returns 18 elevation data samples, one for each vertex of the grid.
 
     ```json
     {
@@ -487,7 +491,7 @@ To create the request:
 
 ### Get elevation data by coordinate position
 
-The following sample web page describes how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map displays the elevation data in a pop-up window.
+The following sample webpage describes how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map displays the elevation data in a pop-up window.
 
 <br/>
 
@@ -498,7 +502,7 @@ The following sample web page describes how to use the map control to display el
 
 ### Get elevation data by bounding box
 
-The following sample web page describes how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by selecting the `square` icon in the upper-left corner, and then drawing the square anywhere on the map. The map control then renders the elevation data in accordance with the colors that are specified in the key that's located in the upper-right corner.
+The following sample webpage describes how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by selecting the `square` icon in the upper-left corner, and then drawing the square anywhere on the map. The map control then renders the elevation data in accordance with the colors that are specified in the key that's located in the upper-right corner.
 
 <br/>
 
@@ -509,7 +513,7 @@ The following sample web page describes how to use the map control to display el
 
 ### Get elevation data by Polyline path
 
-The following sample web page describes how to use the map control to display elevation data along a path. The user defines the path by selecting the `Polyline` icon in the upper-left corner, and then drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right corner.
+The following sample webpage describes how to use the map control to display elevation data along a path. The user defines the path by selecting the `Polyline` icon in the upper-left corner, and then drawing the Polyline on the map. The map control then renders the elevation data in colors that are specified in the key located in the upper-right corner.
 
 <br/>
 
