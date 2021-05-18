@@ -40,7 +40,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 ### Azure Storage 
 The diagnostic logging information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
 
-Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is very similar. 
+Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
 ### Azure Event Hubs
 The diagnostic logging information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**.
@@ -94,7 +94,7 @@ The metrics and logs you can collect are discussed in the following sections.
 ## Analyzing metrics
 You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-resource-reference.md#metrics).
 
-![Metrics Explorer with Machine Learning Service Workspace selected](./media/monitor-service-bus/metrics.png)
+![Metrics Explorer with Service Bus namespace selected](./media/monitor-service-bus/metrics.png)
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
@@ -110,19 +110,19 @@ You can also split a metric by dimension to visualize how different segments of 
 For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
 ## Analyzing logs
-Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Machine Learning stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
+Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Service Bus stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
-For a detailed reference of the logs and metrics, see [Azure Machine Learning monitoring data reference](monitor-resource-reference.md).
+For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
 
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current Azure Machine Learning workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current Azure Service Bus namespace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
-Following are queries that you can use to help you monitor your Azure Machine Learning resources: 
+Following are sample queries that you can use to help you monitor your Azure Service Bus resources: 
 
 + Get management operations in the last 7 days. 
 
@@ -162,7 +162,7 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     | project Message, _ResourceId
     ```
 
-+ Get all the entities that have been auto-deleted
++ Get all the entities that have been autodeleted
 
     ```kusto
     AzureDiagnostics
@@ -173,11 +173,10 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     ```
     
 ## Alerts
-You can access alerts for Azure Machine Learning by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
+You can access alerts for Azure Service Bus by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
 
 ## Next steps
 
-- For a reference of the logs and metrics, see [Monitoring Azure Machine Learning data reference](monitor-resource-reference.md).
-- For information on working with quotas related to Azure Machine Learning, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
+- For a reference of the logs and metrics, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
 - For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
