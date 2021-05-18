@@ -86,7 +86,7 @@ By default, each lab has its own virtual network.  If you have virtual network p
 
 A shared image gallery is attached to a lab account and serves as a central repository for storing images. An image is saved in the gallery when an educator chooses to export it from a lab's template VM. Each time an educator makes changes to the template VM and exports it, new image definitions and\or versions are created in the gallery.  
 
-Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version during lab creation.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.  For more information about versioning, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions). 
+Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version during lab creation.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.  For more information about versioning, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
 
 The shared image gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, shared image gallery offers many benefits that are helpful as you scale up to additional labs:
 
@@ -106,6 +106,8 @@ To logically group shared images, you can do either of the following:
 
 - Create multiple shared image galleries. Each lab account can connect to only one shared image gallery, so this option also requires you to create multiple lab accounts.
 - Use a single shared image gallery that's shared by multiple lab accounts. In this case, each lab account can enable only images that are applicable to the labs in that account.
+
+You also have flexibility to share images across multiple subscriptions that are associated with the same Azure AD tenant.  For example, a shared image gallery in one subscription can be attached to a lab account that is in a different subscription.  However, this requires that both subscriptions use the same Azure AD tenant.  To attach a shared image gallery to lab account from a different subscription, you must use [Lab Services' PowerShell module](https://techcommunity.microsoft.com/t5/azure-lab-services/labservices-powershell-module/ba-p/1297089).
 
 ## Naming
 
@@ -232,9 +234,9 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine SIDs.  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
 
-With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's used to create the student VMs.
+With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 
 For example, the Azure Marketplace images are generalized.  If you create a lab from the Win 10 marketplace image and publish the template VM, all of the student VMs within a lab will have the same machine SID as the template VM.  The machine SIDs can be verified by using a tool such as [PsGetSid](https://docs.microsoft.com/sysinternals/downloads/psgetsid).
 
@@ -254,7 +256,7 @@ Creating a shared image gallery and attaching it to your lab account is free. No
 
 #### Storage charges
 
-To store image versions, a shared image gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using shared image gallery with Lab Services.  The size of the HDD-managed disk that's used depends on the size of the image version that's being stored. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+To store image versions, a shared image gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using shared image gallery with Lab Services.  The size of the HDD-managed disk that's used depends on the size of the image version that's being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Replication and network egress charges
 

@@ -124,6 +124,6 @@ You can also import your custom image from an Azure VM to shared image gallery u
 
 ## Next steps
 
-* [shared image gallery overview](../virtual-machines/shared-image-galleries.md)
+* [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
 * [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
 * [How to use shared image gallery](how-to-use-shared-image-gallery.md)
