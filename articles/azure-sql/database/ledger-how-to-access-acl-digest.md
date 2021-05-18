@@ -39,7 +39,7 @@ SELECT * FROM sys.database_ledger_digest_locations WHERE is_current=1
 
 Replace instances of `my-ledger-id` in the example below with the appropriate Azure Confidential Ledger ID.
 
-We're interested in the value in the path column from the query output. It consists of two parts, namely the `host name` and the `subledgerid`. As an example, in the Url `https://my-ledger-id.confidential-ledger.azure.com/sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`, the `host name` is `https://my-ledger-id.confidential-ledger.azure.com` and the `subledgerid` is `sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`. We'll use it in [Step 4](#step-4) to download the digests.
+We're interested in the value in the path column from the query output. It consists of two parts, namely the `host name` and the `subledgerid`. As an example, in the Url `https://my-ledger-id.confidential-ledger.azure.com/sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`, the `host name` is `https://my-ledger-id.confidential-ledger.azure.com` and the `subledgerid` is `sqldbledgerdigests/testsvr/SqlLedgerDb637560098395096350/5_7_2021_6:46:58_PM`. We'll use it in Step 4 to download the digests.
 
 ## Step 3 - Obtain an Azure AD token
 

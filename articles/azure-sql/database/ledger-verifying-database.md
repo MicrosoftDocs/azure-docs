@@ -41,7 +41,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
 	 :::image type="content" source="media/ledger/ledger-portal-open-query-editor.png" alt-text="Azure portal query editor button":::
 
-1. In **Query editor**, paste the T-SQL script you copied in [Step 3](#step-3), and select **Run**.
+1. In **Query editor**, paste the T-SQL script you copied in Step 3, and select **Run**.
 
    :::image type="content" source="media/ledger/ledger-portal-run-query-editor.png" alt-text="Azure portal run query editor to verify the database":::
 
