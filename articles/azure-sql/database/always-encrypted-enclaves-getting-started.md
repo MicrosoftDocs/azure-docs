@@ -276,6 +276,7 @@ In this step, you'll create and configure an attestation provider in Microsoft A
 
 ---
 
+
 ## Step 3: Populate your database
 
 In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
