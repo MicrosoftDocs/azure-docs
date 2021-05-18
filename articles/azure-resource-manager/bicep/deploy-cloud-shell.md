@@ -1,93 +1,33 @@
 ---
-title: Deploy templates with Cloud Shell (Bicep)
-description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template). (Bicep)
+title: Deploy Bicep files with Cloud Shell
+description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 05/17/2021
 ---
 
-# Deploy ARM templates from Azure Cloud Shell (Bicep)
+# Deploy Bicep files from Azure Cloud Shell
 
-You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
+You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy a Bicep file. Currently you can only deploy  a local Bicep file from the Cloud Shell.
 
 You can deploy to any scope. This article shows deploying to a resource group.
 
-## Deploy remote template
+## Deploy local Bicep file
 
-To deploy an external template, provide the URI of the template exactly as you would for any external deployment. The external template could be in a GitHub repository or and an external storage account.
+To deploy a local Bicep file, you must first upload your Bicep file to your Cloud Shell session.
 
-1. Open the Cloud Shell prompt.
+1. Sign in to the [Cloud shell](https://shell.azure.com).
+1. Select either **PowerShell** or **Bash**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Open Cloud Shell":::
+    :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-bash-powershell.png" alt-text="Select Bash or PowerShell":::
 
-1. To deploy the template, use the following commands:
+1. Select **Upload/Download files**, and then select **Upload**.
 
-   # [Azure CLI](#tab/azure-cli)
+    :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-upload.png" alt-text="Upload file":::
 
-   ```azurecli-interactive
-   az group create --name ExampleGroup --location "Central US"
-   az deployment group create \
-     --name ExampleDeployment \
-     --resource-group ExampleGroup \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-     --parameters storageAccountType=Standard_GRS
-   ```
-
-   # [PowerShell](#tab/azure-powershell)
-
-   ```azurepowershell-interactive
-   New-AzResourceGroup -Name ExampleGroup -Location "Central US"
-   New-AzResourceGroupDeployment `
-     -DeploymentName ExampleDeployment `
-     -ResourceGroupName ExampleGroup `
-     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-     -storageAccountType Standard_GRS
-   ```
-
-   ---
-
-## Deploy local template
-
-To deploy a local template, you must first upload your template to the storage account that is connected to your Cloud Shell session.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
-
-   ![Select resource group](./media/deploy-cloud-shell/select-cloud-shell-resource-group.png)
-
-1. Select the storage account for your Cloud Shell.
-
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Select storage account":::
-
-1. Select **File Shares**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Select file shares":::
-
-1. Select the default file share for Cloud Shell. The file share has the name format of `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Default file share":::
-
-1. Add a new directory to hold your templates. Select that directory.
-
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Add directory":::
-
-1. Select **Upload**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Upload template":::
-
-1. Find and upload your template.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Select template":::
-
-1. Open the Cloud Shell prompt.
-
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Open Cloud Shell":::
-
-1. Navigate to the **clouddrive** directory. Navigate to the directory you added for holding the templates.
-
-1. To deploy the template, use the following commands:
+1. Select the Bicep file you want to upload, and then select **Open**.
+1. To deploy the Bicep file, use the following commands:
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -95,7 +35,7 @@ To deploy a local template, you must first upload your template to the storage a
    az group create --name ExampleGroup --location "South Central US"
    az deployment group create \
      --resource-group ExampleGroup \
-     --template-file azuredeploy.json \
+     --template-file azuredeploy.bicep \
      --parameters storageAccountType=Standard_GRS
    ```
 
@@ -106,7 +46,7 @@ To deploy a local template, you must first upload your template to the storage a
    New-AzResourceGroupDeployment `
      -DeploymentName ExampleDeployment `
      -ResourceGroupName ExampleGroup `
-     -TemplateFile azuredeploy.json `
+     -TemplateFile azuredeploy.bicep `
      -storageAccountType Standard_GRS
    ```
 
@@ -114,5 +54,5 @@ To deploy a local template, you must first upload your template to the storage a
 
 ## Next steps
 
-- For more information about deployment commands, see [Deploy resources with ARM templates and Azure CLI](deploy-cli.md) and [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-- To preview changes before deploying a template, see [ARM template deployment what-if operation](./deploy-what-if.md).
+- For more information about deployment commands, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md) and [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
+- To preview changes before deploying a Bicep file, see [Bicep deployment what-if operation](./deploy-what-if.md).

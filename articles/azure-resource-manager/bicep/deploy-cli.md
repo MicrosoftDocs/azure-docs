@@ -15,7 +15,7 @@ To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/i
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
+If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
 ## Deployment scope
 
@@ -178,7 +178,7 @@ Use double quotes around the JSON that you want to pass into the object.
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Both ARM template and Bicep file use JSON parameter files.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI. Bicep file uses JSON parameter files.
 
 For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
 
@@ -190,28 +190,6 @@ az deployment group create \
   --resource-group ExampleGroup \
   --template-file storage.bicep \
   --parameters @storage.parameters.json
-```
-
-## Handle extended JSON format
-
-To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
-  "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[
-    parameters('location')
-    ]", //defaults to resource group location
-  /*
-    storage account and network interface
-    must be deployed first
-  */
-  "dependsOn": [
-    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-  ],
 ```
 
 ## Next steps
