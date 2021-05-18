@@ -62289,6 +62289,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/custom-keyword-overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/keyword-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
@@ -65993,6 +65998,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
@@ -66110,6 +66120,21 @@
     {
       "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
       "redirect_url": "/azure/machine-learning/how-to-setup-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
     }
   ]
