@@ -249,7 +249,7 @@ The agent can be used to collect metrics from any module which exposes a Prometh
 
     [[outputs.azure_monitor]]
       namespace_prefix = "{AVA_EDGE_MODULE_NAME}"
-      region = "westus"
+      region = "westus2"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
