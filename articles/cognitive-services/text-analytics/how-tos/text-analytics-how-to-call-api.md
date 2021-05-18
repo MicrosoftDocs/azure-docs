@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 05/18/2021
 ms.author: aahi
 ---
 
@@ -58,8 +58,6 @@ The Text Analytics v3.1-preview.5 API provides two asynchronous endpoints:
 * The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature.
 
 * The `/health` endpoint for Text Analytics for health, which can extract and label relevant medical information from clinical documents.  
-
-Please note the /analyze and /health endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
 See the table below to see which features can be used asynchronously. Note that only a few features can be called from the `/analyze` endpoint. 
 

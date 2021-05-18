@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
 ---
@@ -21,7 +21,7 @@ Because of the different lengths of possible multilingual and emoji encodings, t
 
 ## Offsets in the API response. 
 
-Whenever offsets are returned the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember the following:
+Whenever offsets are returned the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember:
 
 * Elements in the response may be specific to the endpoint that was called. 
 * HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.
@@ -41,7 +41,7 @@ In version 3.1 of the API, all Text Analytics API endpoints that return an offse
 
 1. `textElement_v8` (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
 2. `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
-3. `utf16CodeUnit`: iterates over [UTF-16 Code Units](https://unicode.org/faq/utf_bom.html#UTF16), the default scheme for Javascript, Java, and .NET
+3. `utf16CodeUnit`: iterates over [UTF-16 Code Units](https://unicode.org/faq/utf_bom.html#UTF16), the default scheme for JavaScript, Java, and .NET
 
 If the `stringIndexType` requested matches the programming environment of choice, substring extraction can be done using standard substring or slice methods. 
 
