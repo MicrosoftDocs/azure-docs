@@ -10,13 +10,13 @@ ms.date: 05/18/2021
 
 # Output iteration in Bicep
 
-This article shows you how to create more than one value for an output in your Bicep file. You can add a loop to the file's `output` section and dynamically return a number of items during deployment.
+This article shows you how to create more than one value for an output in your Bicep file. You can add a loop to the file's `output` section and dynamically return several items during deployment.
 
 You can also use a loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
 ## Syntax
 
-Loops can be used to return a number of items during deployment:
+Loops can be used to return many items during deployment:
 
 - Iterate over an array.
 
@@ -125,7 +125,7 @@ The output returns an array with the following values:
 ]
 ```
 
-This example uses an array index because direct references to a resource module or module collection isn't supported in output loops.
+This example uses an array index because direct references to a resource module or module collection aren't supported in output loops.
 
 ```bicep
 var stgNames = [
