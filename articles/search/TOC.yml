@@ -302,6 +302,8 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Azure MySQL
+      href: search-howto-index-mysql.md
     - name: Troubleshoot indexer issues
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings
