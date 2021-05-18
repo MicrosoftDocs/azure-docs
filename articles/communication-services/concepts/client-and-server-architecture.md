@@ -15,14 +15,14 @@ ms.service: azure-communication-services
 
 This page illustrates typical architectural components and dataflows in various Azure Communication Service scenarios. Relevant components include:
 
-1. **Client Application.** This is the website or native application that end-users leverage to communicate. Azure Communication Services provides SDK client libraries for multiple browsers and application platforms. In addition to our core SDKs, a UI toolkit is available to accelerate app devleopment for browsers.
+1. **Client Application.** This is the website or native application that end-users leverage to communicate. Azure Communication Services provides SDK client libraries for multiple browsers and application platforms. In addition to our core SDKs, a UI toolkit is available to accelerate app development for browsers.
 1. **Identity Management Service.**  This is a service capability you build to map users and other concepts in your business logic to Azure Communication Services and also to create tokens for those users when required.
 1. **Call Management Service.**  This is a service capability you build to manage and monitor voice and video calls.  This service can create calls, invite users, call phone numbers, play audio, listen to DMTF tones and leverage many other call features through the Calling Automation SDK and REST APIs.
 
 
 ## User access management
 
-Azure Communication Services clients msut present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources. 
+Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources. 
 
 For additional information review [best identity management practices](../../security/fundamentals/identity-management-best-practices.md)
 
@@ -81,9 +81,9 @@ In many scenarios it is easier and more secure for a service to create a group c
 
 ### Dataflows
 1. The Call Management Service creates a group call with [Call Automation APIs](../voice-video-calling/call-automation-apis). The service can invite specific users and monitor participants in real-time.
-2. Users receive the group call id from the Call Manaagemnt Service.
+2. Users receive the group call id from the Call Management Service.
 3. User join the call.
-4. The users communicate with eachother using voice and video in a call.
+4. The users communicate with each other using voice and video in a call.
 
 ## PSTN enabled calling
 Clients and services can add PSTN numbers to a call. 
@@ -107,7 +107,7 @@ Azure Communication Service applications can join Teams calls. This is ideal for
 2. The Call Management Service shares the Team call details with Azure Communication Service clients.
 3. Typically, a Teams user must join the call and allow external users to join through the lobby. However  this is sensitive to the Teams tenant configuration and specific meeting settings.
 3. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
-4. The users communicate with eachother using voice and video in a call.
+4. The users communicate with each other using voice and video in a call.
 
 ## Chat
 
