@@ -3,7 +3,7 @@ title: Drawing package guide for Microsoft Azure Maps Creator (Preview)
 description: Learn how to prepare a Drawing package for the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/16/2021
+ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -13,11 +13,6 @@ manager: philmea
 
 
 # Conversion Drawing package guide
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This guide shows you how to prepare your Drawing Package for the [Azure Maps Conversion service](/rest/api/maps/conversion) using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
 
@@ -61,7 +56,7 @@ This part of the guide will show you how to use CAD commands to ensure that your
 
 You may choose any CAD software to open and prepare your facility drawing files. However, this guide is created using Autodesk's AutoCAD® software. Any commands referenced in this guide are meant to be executed using Autodesk's AutoCAD® software.  
 
-### Binding External References
+### Bind External References
 
 Each floor of a facility must be provided as one DWG file. If there are no external references, then nothing more needs to be done. However, if there are any external references, they must be bound to a single drawing. To bind an external reference, you may use the `XREF` command. After binding, each external reference drawing will be added as a block reference. If you need to make changes to any of these layers, remember to explode the block references by using the `XPLODE` command.
 
