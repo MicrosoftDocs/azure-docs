@@ -491,7 +491,7 @@ To create the request:
 
 ### Get elevation data by coordinate position
 
-The following sample web page describes how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map displays the elevation data in a pop-up window.
+The following sample webpage describes how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map displays the elevation data in a pop-up window.
 
 <br/>
 
