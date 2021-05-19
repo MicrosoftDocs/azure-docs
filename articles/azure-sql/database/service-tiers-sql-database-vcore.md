@@ -12,7 +12,7 @@ ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
 ---
 # vCore model overview - Azure SQL Database 
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The virtual core (vCore) purchasing model used by Azure SQL Database provides several benefits:
 
@@ -25,7 +25,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Database provides se
 
 Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
-|-|**General Purpose**|**Business Critical**|**Hyperscale**|
+|**Use case**|**General Purpose**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
 |Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB|Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB|Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |

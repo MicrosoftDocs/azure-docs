@@ -12,7 +12,7 @@ ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
 ---
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 The virtual core (vCore) purchasing model deployment model used by Azure SQL Managed Instance has following characteristics:
 
@@ -24,7 +24,7 @@ The virtual core (vCore) purchasing model deployment model used by Azure SQL Man
 
 Service tier options in the vCore model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
-|-|**General Purpose**|**Business Critical**|
+|**Use case**|**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
 |Storage|Uses remote storage.<br/>**SQL Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**SQL Managed Instance**:<br/>32 GB - 4 TB |
