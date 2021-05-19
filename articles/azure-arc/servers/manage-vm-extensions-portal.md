@@ -57,7 +57,7 @@ When a new version of a supported extension is released, you can update the exte
 You can update one or select multiple extensions eligible for an update from the Azure portal by performing the following steps.
 
 > [!NOTE]
-> Currently you can only update extension from the Azure portal. Performing this operation from the Azure CLI, Azure PowerShell, or Azure Resource Manager template is not supported at this time.
+> Currently you can only update extensions from the Azure portal. Performing this operation from the Azure CLI, Azure PowerShell, or Azure Resource Manager template is not supported at this time.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
