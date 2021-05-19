@@ -34,6 +34,20 @@
     items:
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
+    - name: On-premises app provisioning
+      items:
+      - name: ECMA Host Connector pre-requisites
+        href: on-prem-ecma-prerequisites.md
+      - name: ECMA Host Connector installation
+        href: on-prem-ecma-install.md
+      - name: ECMA Host Connector configuration
+        href: on-prem-ecma-configure.md
+      - name: Generic SQL connector configureation
+        href: on-prem-sql-connector-configure.md
+
+   
+   
+   
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 
