@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 05/18/2021
 ---
 
 # Outputs in ARM templates
