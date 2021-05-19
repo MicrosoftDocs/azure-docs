@@ -16,7 +16,7 @@ ms.date: 10/07/2020
 
 This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
 
-## Spark Context
+## Spark context
 
  The connector for Cassandra API requires the Cassandra connection details to be initialized as part of the spark context. When you launch a notebook, the spark context is already initialized and it is not advisable to stop and reinitialize it. One solution is to add the Cassandra API instance configuration at a cluster level, in the cluster spark configuration. This is a one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
  
