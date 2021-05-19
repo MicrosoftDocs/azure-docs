@@ -1,0 +1,27 @@
+---
+title: 'Microsoft POP locations by abbreviation for Azure CDN'
+description: This article lists Microsoft POP locations, sorted by POP abbreviation, for Azure CDN.
+services: cdn
+author: duongau
+ms.service: azure-cdn
+ms.topic: article
+ms.date: 05/18/2021
+ms.author: duau
+---
+
+# Microsoft POP locations by abbreviation for Azure CDN
+
+> [!div class="op_single_selector"]
+> * [POP locations by region](cdn-pop-locations.md)
+> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
+> * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
+
+This article lists Microsoft POP locations, sorted by POP abbreviation, for **Azure CDN**.
+
+[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
+
+## Next steps
+
+* View [Azure CDN from Microsoft POP locations by metro](cdn-pop-locations.md#microsoft).
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).
+* Learn how to [create an Azure CDN profile](cdn-create-new-endpoint.md).
