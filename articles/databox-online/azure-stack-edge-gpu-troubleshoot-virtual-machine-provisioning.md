@@ -169,7 +169,7 @@ To verify whether the network interface was created successfully, do these steps
 
 1. If a network interface was not created successfully, you'll see the following error.
 
-   ![Portal error displayed when network interface creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+   ![Portal error displayed when network interface creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
 **Suggested resolution:** Create the VM again, and assign it a static IP address.
 
@@ -189,7 +189,7 @@ For guidance on image creation issues, see [Troubleshoot virtual machine image u
 
 When VM creation fails because of insufficient memory, you'll see the following error.
  
-![Portal error displayed when VM creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)<!--Box the area of the error message -->
+![Portal error displayed when VM creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)<!--Box the area of the error message -->
 
 **Possible causes:**
 1.	Not enough memory left to create the VM.
@@ -224,7 +224,7 @@ Additionally, Hyper-V comes with some overhead memory for each VM. So you may se
 
 Error displayed:
 
-![Portal error displayed when creation of a GPU VM fails because of not enough GPUs](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)<!--Screenshot probably won't stay.-->
+![Portal error displayed when creation of a GPU VM fails because of not enough GPUs](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)<!--Screenshot probably won't stay.-->
 
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will grab all the available GPUs and you won’t be able to create any GPU-sized VMs. You can create as many GPU-sized VMs as the number of GPUs (1 or 2 GPU SKU). 
