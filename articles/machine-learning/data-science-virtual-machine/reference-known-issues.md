@@ -17,6 +17,13 @@ ms.date: 10/10/2019
 
 This article helps you find and correct errors or failures you might come across when using the Azure Data Science Virtual Machine.
 
+## Accessing SQL Server (Windows)
+
+When you try to connect to the pre-installed SQL Server instance, you might encounter a "login failed" error. To
+successfully connect to the SQL Server instance, you need to run the program you are connecting with, eg. SQL Server
+Management Studio (SSMS), in administrator mode. The administrator mode is required because by DSVM's default, only
+administrators are allowed to connect.
+
 ## Python package installation issues
 
 ### Installing packages with pip breaks dependencies on Linux
