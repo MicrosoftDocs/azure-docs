@@ -325,11 +325,11 @@ You can set up packet capture in the Azure portal.
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
-> [!NOTE]
 >
-> Packet capture data will need to be logged into a storage container on your subscription.  Refer to this  [how-to article](../storage-account/storage-account-create.md) to complete the prerequisites for this task.
->
->
+### Prerequisite
+
+* Packet capture data will need to be logged into a storage account on your subscription. See [create storage account](../storage/common/storage-account-create.md).
+* To stop the packet capture, you will need to generate the `SASUrl` for your storage account. See [create a user delegation SAS](../storage/blobs/storage-blob-user-delegation-sas-create-powershell.md).
 
 ### Start packet capture for a VPN gateway
 
@@ -345,7 +345,7 @@ You can use the optional parameter `-FilterData` to apply a filter.
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
 
-For more information on parameter options, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture?view=azps-5.9.0).
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
 ### Start packet capture for a VPN gateway connection
 
@@ -360,6 +360,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
+
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConnectionPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewayconnectionpacketcapture).
 
 ## Key considerations
 
