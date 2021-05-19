@@ -8,8 +8,8 @@ ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
+author: urosmil
+ms.author: urmilano
 ms.reviewer: sstein
 ms.date: 09/21/2020
 ---

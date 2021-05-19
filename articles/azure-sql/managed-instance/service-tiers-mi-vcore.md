@@ -14,9 +14,8 @@ ms.date: 05/18/2021
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-The virtual core (vCore) purchasing model used by Azure SQL Managed Instance provides several benefits:
+The virtual core (vCore) purchasing model deployment model used by Azure SQL Managed Instance has following characteristics:
 
-- Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
@@ -113,14 +112,6 @@ Gen5 is available in all public regions worldwide.
 
 ## Next steps
 
-To get started, see: 
-- [Creating a SQL Database using the Azure portal](../database/single-database-create-quickstart.md)
-- [Creating a SQL Managed Instance using the Azure portal](instance-create-quickstart.md)
-
-For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
-
-For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see:
-
-- [vCore-based resource limits for Azure SQL Database](../database/resource-limits-vcore-single-databases.md).
-- [vCore-based resource limits for pooled Azure SQL Database](../database/resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).
+- To get started, see [Creating a SQL Managed Instance using the Azure portal](instance-create-quickstart.md)
+- For pricing details, see the [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/pools/).
+- For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).

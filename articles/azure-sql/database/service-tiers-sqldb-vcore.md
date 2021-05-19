@@ -208,14 +208,8 @@ If you need DC-series in a currently unsupported region, [submit a support ticke
 
 ## Next steps
 
-To get started, see: 
-- [Creating a SQL Database using the Azure portal](single-database-create-quickstart.md)
-- [Creating a SQL Managed Instance using the Azure portal](../managed-instance/instance-create-quickstart.md)
-
-For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
-
-For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see:
-
-- [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
-- [vCore-based resource limits for pooled Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md).
+- To get started, see [Creating a SQL Database using the Azure portal](single-database-create-quickstart.md)
+- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/)
+- For details about the specific compute and storage sizes available, see:
+    - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md)
+    - [vCore-based resource limits for pooled Azure SQL Database](resource-limits-vcore-elastic-pools.md)
