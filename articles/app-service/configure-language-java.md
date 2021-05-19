@@ -1003,7 +1003,7 @@ If you choose to pin the minor version, you will need to periodically update the
 ::: zone pivot="platform-linux"
 
 ## JBoss EAP App Service Plans
-<a id="JBoss-EAP-hardware-options">
+<a id="JBoss-EAP-hardware-options"></a>
 
 JBoss EAP is only available on the Premium v2 and Isolated v3 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
 
