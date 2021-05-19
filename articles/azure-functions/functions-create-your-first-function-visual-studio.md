@@ -1,28 +1,26 @@
 ---
-title: "Quickstart: Create your first function in Azure using Visual Studio"
-description: In this quickstart, you learn how to create and publish an HTTP trigger Azure Function by using Visual Studio.
+title: "Quickstart: Create your first C# function in Azure using Visual Studio"
+description: In this quickstart, you learn how to use Visual Studio to create and publish a C# HTTP triggered function to Azure Functions that runs on .NET Core 3.1.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f"
+ms.date: 05/18/2021
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal"
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ---
-# Quickstart: Create your first function in Azure using Visual Studio
+# Quickstart: Create your first C# function in Azure using Visual Studio
 
-In this article, you use Visual Studio to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.  
+In this article, you use Visual Studio to create a C# class library (.NET Core 3.1) function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. This project runs in-process on .NET Core 3.1. If you instead want to run out-of-process on .NET 5.0, see [Develop and publish .NET 5 functions using Azure Functions](dotnet-isolated-process-developer-howtos.md).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
-To complete this tutorial, first install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Ensure you select the **Azure development** workload during installation. If you want to create an Azure Functions project by using Visual Studio 2017 instead, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure to select the **Azure development** workload during installation. 
 
-![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
++ [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create a function app project
 
@@ -36,10 +34,14 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
 
-1. In the code, rename the Function1 class to `HttpExample'.
+1. In the code, rename the Function1 class to `HttpExample`.
 
 1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
 
+Your function definition should now look like the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
+ 
 Now that you've renamed the function, you can test it on your local computer.
 
 ## Run the function locally

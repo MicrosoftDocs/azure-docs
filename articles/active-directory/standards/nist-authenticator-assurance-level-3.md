@@ -33,7 +33,7 @@ Microsoft offers authentication methods that enable you to meet required NIST au
 | FIDO2 security key **OR**<br> Smartcard (AD FS) **OR**<br>Windows Hello for Business w/ hardware TPM| Multi-factor cryptographic hardware |
 | **Additional methods**|   |
 | Password **AND**<br>(Hybrid Azure AD Joined w/ hardware TPM **OR** <br> Azure AD joined w/ hardware TPM)| Memorized secret **+** Single-factor crypto hardware |
-| Password **AND**<br>Single-factor one-time-password hardware (from OTP manufacturers) **OR**<br>Hybrid Azure AD Joined w/ software TPM **OR** <br> Azure AD joined w/ software TPM **OR**<br> Compliant managed device| Memorized secret **AND**<br>Single-factor one-time password hardware **AND**<br>Single-factor crypto software |
+| Password **AND**<br>(Single-factor one-time-password hardware (from OTP manufacturers) **OR**<br>Hybrid Azure AD Joined w/ software TPM **OR** <br> Azure AD joined w/ software TPM **OR**<br> Compliant managed device)| Memorized secret **AND**<br>Single-factor one-time password hardware **AND**<br>Single-factor crypto software |
 
 ### Our recommendations 
 
