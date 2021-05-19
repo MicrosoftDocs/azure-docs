@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 05/19/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -48,7 +48,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 1. You completed the network settings on your Azure Stack Edge Pro device as described in [Step 1: Configure Azure Stack Edge Pro device](azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
-2. Enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
+2. You enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
 
     1. Go to **Compute**. Select the network interface that you will use to create a virtual switch.
 
@@ -76,7 +76,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample command usage:
 
-    ```powershell
+    ```output
     PS C:\Certificates> certutil.exe -encode aze-root.cer aze-root.pem
     Input Length = 2150
     Output Length = 3014
@@ -109,6 +109,10 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
         ![hosts file in Notepad](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 6. [Download the Python script](https://aka.ms/ase-vm-python) used in this procedure.
+
+7. Prepare your environment for the Azure CLI:
+
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Set up Azure CLI/Python on the client
 
@@ -150,7 +154,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 3. To run the sample script used in this article, you will need the following Python library versions:
 
-    ```powershell
+    ```
     azure-common==1.1.23
     azure-mgmt-resource==2.1.0
     azure-mgmt-network==2.7.0
@@ -286,19 +290,19 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     ```
     The following shows sample usage of the above command:
     
-    ```azurecli
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud register -n az-new-env --endpoint-resource-manager "https://management.team3device.teatraining1.com"
     ```
     
     
-4. Set the active environment by using the following commands:
+4. Set the active environment by using the following command:
 
     ```azurecli
     az cloud set -n <EnvironmentName>
     ```
     The following shows sample usage of the above command:
 
-    ```azurecli
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud set -n az-new-env
     Switched active cloud to 'az-new-env'.
     Use 'az login' to log in to this cloud.
@@ -321,7 +325,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
    The following shows sample output for a successful sign-in after supplying the password:  
    
-   ```azurecli
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [
@@ -363,7 +367,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     The following shows sample usage of `az cloud update`:
 
-    ```azurecli
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az cloud update --profile 2019-03-01-hybrid
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
@@ -376,6 +380,7 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 1. Run the Python script from the same directory where Python is installed.
 
     `.\python.exe example_dbe_arguments_name_https.py cli`
+<!--Convert to a PowerShell code block?-->
 
 2. When the script runs, uploading the VHD takes 20-30 minutes. To view the progress of the upload operation, you can use Azure Storage Explorer or AzCopy.
 
