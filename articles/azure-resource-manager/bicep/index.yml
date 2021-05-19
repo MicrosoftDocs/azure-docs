@@ -144,8 +144,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Test toolkit
-            url: test-toolkit.md
           - text: CI/CD
             url: add-template-to-azure-pipelines.md
           - text: View deployment history
