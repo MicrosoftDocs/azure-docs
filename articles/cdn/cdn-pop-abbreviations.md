@@ -6,7 +6,6 @@ documentationcenter: ''
 author: asudbring
 manager: danielgi
 editor: ''
-
 ms.assetid: 
 ms.service: azure-cdn
 ms.workload: media
@@ -15,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
+ms.custom: references_regions
 
 ---
 # Azure CDN POP locations by abbreviation
@@ -26,6 +26,8 @@ ms.author: allensu
 
 
 This article lists POP locations, sorted by POP abbreviation, for **Azure CDN from Verizon**.
+
+## Verizon POP locations
 
 Abbreviation | Location | Region
 | --- | --- | --- |

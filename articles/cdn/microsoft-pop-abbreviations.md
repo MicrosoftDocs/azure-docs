@@ -7,6 +7,7 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/18/2021
 ms.author: duau
+ms.custom: references_regions
 ---
 
 # Microsoft POP locations by abbreviation for Azure CDN
@@ -17,6 +18,8 @@ ms.author: duau
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
 
 This article lists Microsoft POP locations, sorted by POP abbreviation, for **Azure CDN**.
+
+## Microsoft POP locations
 
 [!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
 
