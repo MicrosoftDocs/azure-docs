@@ -251,6 +251,8 @@
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Disable SMB 1 on Windows SMB client
+      href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Manage Transport Layer Security (TLS)
       items:
       - name: Enforce minimum TLS version for incoming requests
