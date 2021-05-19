@@ -4,14 +4,13 @@ description: This page describes some common vCore resource limits for a single 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
 ms.date: 04/16/2021
-ms.custom: references_regions
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
