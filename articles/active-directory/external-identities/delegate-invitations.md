@@ -49,18 +49,15 @@ By default, all users, including guests, can invite guest users.
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
 
-
 5. Under **Guest invite settings**, choose the appropriate settings:
 
     ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
 
-   - **Admins and users in the guest inviter role can invite**: To allow admins and users in the "Guest Inviter" role to invite guests, set this policy to **Yes**.
-
-   - **Members can invite**: To allow non-admin members of your directory to invite guests, set this policy to **Yes**.
-
-   - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
-
-   > [!NOTE]
+   - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**: To allow guests in the organization to invite other guests including those who are not members of an organization, select this radio button.
+   - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
+   - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with certain administrator roles to invite guests, select this radio button.
+   - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
+     > [!NOTE]
    > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
