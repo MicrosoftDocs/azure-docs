@@ -30,8 +30,6 @@ Follow these steps to provision a dedicated SQL pool (formerly SQL DW) on local 
 
 1. Click add and fill out the information requested in the **Basics** tab*.
 
-   ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-
 1. If your server is located in a region (such as Southeast Asia) where the regional pair is in a different geography, you will have the option to opt out of Geo-redundancy. 
 
    ![Data residency](./media/sql-data-warehouse-single-region-residency/data-residency-1.png)
