@@ -166,7 +166,7 @@ To convert a drawing package:
 
 8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the conversion.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key for drawing package":::
 
 ### Check Drawing package conversion status
 
@@ -263,7 +263,7 @@ To create a dataset:
 
 8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the dataset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key for dataset":::
 
 ### Check dataset creation status
 
@@ -537,7 +537,7 @@ In this section, we'll update the `occupied` state of the unit with feature `id`
 
 5. Select the **PUT** HTTP method.
 
-6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#Create-a-feature-stateset):
+6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
