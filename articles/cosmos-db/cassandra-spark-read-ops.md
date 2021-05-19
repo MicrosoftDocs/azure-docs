@@ -101,7 +101,7 @@ readBooksDF.show
 
 The `Cassandra Filters` section of the physical plan includes the pushed down filter. 
 
-:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates-spark3.png" alt-text="partitions":::
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates-spark-3.png" alt-text="partitions":::
 
 ## RDD API
 

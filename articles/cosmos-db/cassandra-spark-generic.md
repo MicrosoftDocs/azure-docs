@@ -40,12 +40,12 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 
 Listed in the next section are all the relevant parameters for controlling throughput using the Spark Connector for Cassandra. In order to optimize parameters to maximize throughput for spark jobs, the `spark.cassandra.output.concurrent.writes`, `spark.cassandra.concurrent.reads`, and `spark.cassandra.input.reads_per_sec` configs needs to be correctly configured, in order to avoid too much throttling and back-off (which in turn can lead to lower throughput).
 
-The optimal value of these configurations depends on 3 factors:
+The optimal value of these configurations depends on 4 factors:
 
-1.	The amount of throughput (Request Units) configured for the table that data is being ingested into.
-2.  The number of workers in your Spark cluster.
-3.	The number of executors configured for your spark job (which can be controlled using `spark.cassandra.connection.connections_per_executor_max` or `spark.cassandra.connection.remoteConnectionsPerExecutor` depending on Spark version)
-4.	The average latency of each request to cosmos DB, if you are collocated in the same Data Center. Assume this value to be 10 ms for writes and 3 ms for reads.
+-	The amount of throughput (Request Units) configured for the table that data is being ingested into.
+- The number of workers in your Spark cluster.
+-	The number of executors configured for your spark job (which can be controlled using `spark.cassandra.connection.connections_per_executor_max` or `spark.cassandra.connection.remoteConnectionsPerExecutor` depending on Spark version)
+-	The average latency of each request to cosmos DB, if you are collocated in the same Data Center. Assume this value to be 10 ms for writes and 3 ms for reads.
 
 As an example, if we have 5 workers and a value of `spark.cassandra.output.concurrent.writes`= 1, and a value of `spark.cassandra.connection.remoteConnectionsPerExecutor` = 1, then we have 5 workers that are concurrently writing into the table, each with 1 thread. If it takes 10 ms to perform a single write, then we can send 100 requests (1000 milliseconds divided by 10) per second, per thread. With 5 workers, this would be 500 writes per second. At an average cost of 5 request units (RUs) per write, the target table would need a minimum 2500 request units provisioned (5 RUs x 500 writes per second).
 
@@ -86,7 +86,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 
 ### 1.  Azure Databricks
 The article below covers Azure Databricks cluster provisioning, cluster configuration for connecting to Azure Cosmos DB Cassandra API, and several sample notebooks that cover DDL operations, DML operations and more.<BR>
-[Work with Azure Cosmos DB Cassandra API from Azure databricks](cassandra-spark-databricks.md)<BR>
+[Work with Azure Cosmos DB Cassandra API from Azure Databricks](cassandra-spark-databricks.md)<BR>
   
 ### 2.  Azure HDInsight-Spark
 The article below covers HDinsight-Spark service, provisioning, cluster configuration for connecting to Azure Cosmos DB Cassandra API, and several sample notebooks that cover DDL operations, DML operations and more.<BR>
