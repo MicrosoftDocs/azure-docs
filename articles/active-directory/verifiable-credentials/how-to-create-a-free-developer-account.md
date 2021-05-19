@@ -4,7 +4,7 @@ description: This article shows you how to create a developer account
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
