@@ -194,7 +194,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
 
-* They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure event hub, or Monitor logs.
+* They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure Event Hub, or Monitor logs.
 * They specify which log categories are sent.
 * They specify how long each log category should be kept in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days from 1 through 2,147,483,647.
