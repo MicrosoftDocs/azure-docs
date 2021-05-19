@@ -22,7 +22,7 @@ When setting up and running the Azure Digital Twins Explorer application, attemp
 
 ### Cause #1
 
-The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (part of the `Azure.Identity` library), which will search for credentials within your local environment.
+The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (part of the `Azure.Identity` library), which will search for credentials within your local environment.
 
 As the error text states, this error may occur if you have not provided local credentials for `DefaultAzureCredential` to pick up.
 

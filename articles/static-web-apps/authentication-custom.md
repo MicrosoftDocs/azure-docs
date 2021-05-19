@@ -20,7 +20,7 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 - Specifically for Azure Active Directory (AAD) registrations, you have the option of providing a tenant, which allows you to bypass the [invitation flow](./authentication-authorization.md#role-management) for group management.
 
 > [!NOTE]
-> Custom authentication is only available in the Standard tier of Azure Static Web Apps.
+> Custom authentication is only available in the Azure Static Web Apps Standard plan.
 
 ## Override pre-configured provider
 
@@ -214,7 +214,7 @@ Once you have the registration credentials, use the following steps to create a 
    {
      "auth": {
        "identityProviders": {
-         "openIdConnectProviders": {
+         "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
                "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",
