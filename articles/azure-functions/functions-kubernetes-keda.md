@@ -4,7 +4,7 @@ description: Understand how to run Azure Functions in Kubernetes in the cloud or
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: eamono, glenga
+ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA
