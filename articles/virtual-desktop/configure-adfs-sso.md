@@ -51,7 +51,7 @@ After you create these certificate templates, you'll need to enable the template
 > [!NOTE]
 > This solution generates new short term certificates for every user logon which can fill up the Certificate Authority database over time if you have a lot of users. You can avoid this by [setting up a CA for non-persistent certificate processing](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)).
 
-### To create the enrollment agent certificate template:
+### To create the enrollment agent certificate template
 
 Depending on your environment, you may already have configured an enrollment agent certificate template for other purposes like Windows Hello for Business, Logon certificates or VPN certificates. If so, you will need to modify it to support SSO. If not, you can create a new template.
 
@@ -89,7 +89,7 @@ Import-Module adfs
    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
 7. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
-### To create the Smartcard Logon certificate template:
+### To create the Smartcard Logon certificate template
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add** > **OK** to view the list of certificate templates.
@@ -110,7 +110,7 @@ Import-Module adfs
 8. For **Application policy**, select **Certificate Request Agent**.
 9.  Select the **Security** tab, then select **Add...**.
 10. Select **Object Types...**, **Service Accounts**, and **OK**.
-11. Enter the service account name for AD FS just like you did in the [Configure the enrollment agent certificate template](#to-configure-the-enrollment-agent-certificate-template) section.
+11. Enter the service account name for AD FS just like you did in the [Create the enrollment agent certificate template](#to-create-the-enrollment-agent-certificate-template) section.
     * In an isolated AD FS setup, the service account will be named "adfssvc$".
     * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
 1. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
@@ -141,7 +141,7 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 * If you have a single AD FS server, you can choose shared key or certificate.
 * If you have multiple AD FS servers,  it's required to choose certificate.
 
-The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
+The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
 The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
 
