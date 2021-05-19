@@ -38,6 +38,8 @@ To take advantage of MAU billing, your Azure AD B2C tenant must be linked to an 
 MAU billing went into effect for Azure AD B2C tenants on **November 1, 2019**. Any Azure AD B2C tenants that you created and linked to a subscription on or after that date have been billed on a per-MAU basis. If you have an Azure AD B2C tenant that hasn't been linked to a subscription, you'll need to do so now. If you have an existing Azure AD B2C tenant that was linked to a subscription before November 1, 2019, we recommend you upgrade to the monthly active users (MAU) billing model, or you can stay on the per-authentication billing model.
   
 Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing tier based on the features you want to use. Premium features require Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). You might need to upgrade your pricing tier as you use new features. For example, Conditional Access, you’ll need to select the Azure AD B2C Premium P2 pricing tier for your tenant.
+> [!NOTE]
+> Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features. This 50,000, is the pricing threshold and includes all users in B2B and B2C linked to same subscription.
 
 ## Link an Azure AD B2C tenant to a subscription
 
