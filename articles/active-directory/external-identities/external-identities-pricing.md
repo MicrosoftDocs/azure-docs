@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/19/2021
 
 ms.author: mimart
 author: msmimart
@@ -61,7 +61,9 @@ An Azure AD tenant must be linked to an Azure subscription for proper billing an
 7. In the Link a subscription pane, select a **Subscription** and a **Resource group**. Then select **Apply**.
 
    > [!NOTE]
-   > If there are no subscriptions listed, you can [associate a subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Or, you can add a new subscription by selecting the link **if you don't already have a subscription you may create one here**.
+   >
+   > * Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features. This 50,000, is the pricing threshold and includes all users in B2B and B2C linked to the same subscription.
+    >* If there are no subscriptions listed, you can [associate a subscription to your tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Or, you can add a new subscription by selecting the link **if you don't already have a subscription you may create one here**.
 
     ![Select a subscription and resource group](media/external-identities-pricing/link-subscription-resource.png)
 
