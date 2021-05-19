@@ -59,12 +59,13 @@ So far, you've created an Azure storage account and a file share with one file i
 ### Deploy a VM
 
 1. Next, expand the menu on the left side of the portal and choose **Create a resource** in the upper left-hand corner of the Azure portal.
-1. In the search box above the list of **Azure Marketplace** resources, search for and select **Windows Server 2016 Datacenter**.
+1. In the search box above the list of **Azure Marketplace** resources, search for and select **Windows Server 2019 Datacenter**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created for this quickstart.
 
    ![Enter basic information about your VM in the portal blade.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. Under **Instance details**, name the VM *qsVM*.
+1. In the **Image** drop-down, select **Windows Server 2016 Datacenter - Gen1**.
 1. Leave the default settings for **Region**, **Availability options**, **Image**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
