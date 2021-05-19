@@ -180,6 +180,8 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 ### Valid uses
 
+The list function is supported for all deployment scopes.
+
 The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a template. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
 When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
@@ -1279,7 +1281,7 @@ The function returns the following format:
 
 ### Remarks
 
-When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
+The subscription function is supported for resource group and subscription deployments.
 
 ### Subscription example
 

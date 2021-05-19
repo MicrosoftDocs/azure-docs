@@ -77,8 +77,6 @@
         href: deploy-to-tenant.md
       - name: Extension resources
         href: scope-extension-resources.md
-      - name: Functions across scopes
-        href: scope-functions.md
     - name: Predeployment checks
       items:
       - name: What-if deployment

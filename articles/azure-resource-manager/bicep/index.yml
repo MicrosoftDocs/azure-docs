@@ -112,8 +112,6 @@ landingContent:
             url: deploy-to-tenant.md
           - text: Scoping extension resource
             url: scope-extension-resources.md
-          - text: Template functions across scopes
-            url: scope-functions.md
 
 
   # Card
