@@ -44,7 +44,7 @@ Follow these steps to provision a dedicated SQL pool (formerly SQL DW) on local 
 
 1. Select **Next: Review + create**. Ensure that the correct Storage redundancy has been chosen to ensure data residency. 
 
-    ![Data residency](./media/sql-data-warehouse-single-region-residency/data-residency-2.png)
+    ![Create single region pool](./media/sql-data-warehouse-single-region-residency/data-residency-2.png)
 
 1. Select **Create**.  
 
@@ -84,7 +84,7 @@ Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -Edition 'DataWarehouse'
 
 1. For **Geo-redundant** select 'No'. 
 
-   ![Data residency](./media/sql-data-warehouse-single-region-residency/data-residency-3.png)
+   ![Restore via portal](./media/sql-data-warehouse-single-region-residency/data-residency-3.png)
 
 ## Restore a dedicated SQL pool (formerly SQL DW) on local redundancy storage through PowerShell
 To create a new dedicated SQL pool through PowerShell, use the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
