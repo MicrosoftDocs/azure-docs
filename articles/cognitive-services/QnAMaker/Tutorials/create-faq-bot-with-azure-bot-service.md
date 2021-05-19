@@ -89,3 +89,11 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of connecting a bot to a channel](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+    
+## Integrate the bot with channels
+
+Click on **Channels** in the Bot service resource that you have created. You can light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
+
+   >[!div class="mx-imgBorder"]
+   >![Screenshot of integration with teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+

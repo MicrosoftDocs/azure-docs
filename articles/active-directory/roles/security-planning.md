@@ -36,7 +36,7 @@ Securing privileged access requires changes to:
 Secure your privileged access in a way that is managed and reported in the Microsoft services you care about. If you have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term Global Administrator means the same thing as "company administrator" or "tenant administrator."
+> The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure AD Premium P1 and P2. Azure AD Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term Global Administrator means the same thing as "company administrator" or "tenant administrator."
 
 ## Develop a roadmap
 

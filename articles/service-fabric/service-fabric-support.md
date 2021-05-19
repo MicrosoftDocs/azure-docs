@@ -1,14 +1,24 @@
 ---
 title: Learn about Azure Service Fabric Support options 
 description: Azure Service Fabric cluster versions supported and links to file support tickets
-author: pkcsf
+author: erikadoyle
 ms.topic: troubleshooting
-ms.date: 8/24/2018
-ms.author: pkc
+ms.date: 5/17/2021
+ms.author: edoyle
+ms.custom: support-help-page
 ---
 # Azure Service Fabric support options
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
+
+## Self help troubleshooting
+<div class='icon is-large'>
+    <img alt='Self help content' src='./media/logos/i-article.svg'>
+</div>
+
+This is the material that is referenced by Customer Support Services when a ticket is created, by Service Fabric Site Reliability Engineers responding to an incident, and by users when discovering resolutions to active system issues.
+
+For a full list of self help troubleshooting content, see [Service Fabric troubleshooting guides](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
 
 ## Create an Azure support request
 <div class='icon is-large'>
@@ -51,7 +61,7 @@ Get answers to Service Fabric questions directly from Microsoft engineers, Azure
 
 [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-service-fabric.html) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the **azure-service-fabric** tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-service-fabric**](https://docs.microsoft.com/answers/topics/azure-service-fabric.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## Open a GitHub issue
 <div class='icon is-large'>
