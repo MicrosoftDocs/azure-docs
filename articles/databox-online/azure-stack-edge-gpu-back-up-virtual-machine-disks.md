@@ -404,7 +404,7 @@ Copy the snapshots to a local storage account on your device.
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\Users\user> $sassnapshot= Grant-AzSnapshotAccess -ResourceGroupName $DestinationRG -SnapshotName $SnapshotName -Access 'Read' -DurationInSecond 3600
     PS C:\Users\user> $sassnapshot
        
@@ -466,7 +466,7 @@ Copy the snapshots to a local storage account on your device.
 
     Here is an example output: 
 
-    ```powershell
+    ```output
     PS C:\Users\user> New-AzureRmStorageAccount -Name myasesa4 -ResourceGroupName myaserg4 -Location DBELocal -SkuName Standard_LRS
     StorageAccountName ResourceGroupName Location SkuName     Kind    AccessTier CreationTime        ProvisioningState EnableHttpsTrafficOnly
     ------------------ ----------------- -------- -------     ----    ---------- ------------        ----------------- ---------------
@@ -485,7 +485,7 @@ Copy the snapshots to a local storage account on your device.
     ```
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\Users\user> $StorageAccountName = "myasesa4"                                                              
     PS C:\Users\user> $StorageAccountRG = "myaserg4"
     PS C:\Users\user> $DestStorageContainer = "myasecont2"
@@ -539,7 +539,7 @@ Copy the snapshots to a local storage account on your device.
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\Users\user> $sassnapshot= Grant-AzureRmSnapshotAccess -ResourceGroupName $DestinationRG -SnapshotName $SnapshotName -Access 'Read' -DurationInSecond 3600
     PS C:\Users\user> $sassnapshot
        
@@ -578,6 +578,8 @@ Copy the snapshots to a local storage account on your device.
     You can also use Storage Explorer to verify that the snapshot was copied correctly to the storage account.
 
     ![Storage Explorer showing the backup in the container in local storage account](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
+
+---
 
 ## Download VHD to external target
 
