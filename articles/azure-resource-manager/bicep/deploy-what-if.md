@@ -1,5 +1,5 @@
 ---
-title: Template deployment what-if in Bicep
+title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
@@ -32,7 +32,7 @@ To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed,
 
 When you use what-if in PowerShell or Azure CLI, the output includes color-coded results that help you see the different types of changes.
 
-![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Bicep deployment what-if operation fullresourcepayload and change types](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
 The text output is:
 
@@ -142,7 +142,7 @@ For Azure CLI, use the `--result-format` parameter.
 
 The following results show the two different output formats:
 
-- Full resource payloads
+* Full resource payloads
 
   ```powershell
   Resource and property changes are indicated with these symbols:
@@ -171,7 +171,7 @@ The following results show the two different output formats:
   Resource changes: 1 to modify.
   ```
 
-- Resource ID only
+* Resource ID only
 
   ```powershell
   Resource and property changes are indicated with this symbol:
@@ -241,7 +241,7 @@ az deployment group what-if \
 
 The what-if output appears similar to:
 
-![Resource Manager template deployment what-if operation output](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Bicep deployment what-if operation output](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
 The text output is:
 
@@ -253,7 +253,7 @@ Resource and property changes are indicated with these symbols:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/ExampleGroup
+Scope: /subscriptions/./resourceGroups/ExampleGroup
 
   ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
     - tags.Owner:                    "Team A"
@@ -310,18 +310,15 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-f
 
 ## Confirm deletion
 
-The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
-
-To preview changes before deploying a template, use the confirm switch parameter with the deployment command. If the changes are as you expected, respond that you want the deployment to complete.
+To preview changes before deploying a Bicep file, use the confirm switch parameter with the deployment command. If the changes are as you expected, respond that you want the deployment to complete.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
-  -Mode Complete `
   -Confirm `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  -TemplateFile "what-if-after.bicep"
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -329,39 +326,42 @@ New-AzResourceGroupDeployment `
 ```azurecli
 az deployment group create \
   --resource-group ExampleGroup \
-  --mode Complete \
   --confirm-with-what-if \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  --template-file "what-if-after.bicep"
 ```
 
 ---
 
-Because no resources are defined in the template and the deployment mode is set to complete, the virtual network will be deleted.
-
-![Resource Manager template deployment what-if operation output deployment mode complete](./media/deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Bicep deployment what-if operation output deployment mode complete](./media/deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
 The text output is:
 
 ```powershell
-Resource and property changes are indicated with this symbol:
+Resource and property changes are indicated with these symbols:
   - Delete
+  + Create
+  ~ Modify
 
 The deployment will update the following scope:
 
 Scope: /subscriptions/./resourceGroups/ExampleGroup
 
-  - Microsoft.Network/virtualNetworks/vnet-001
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner:                    "Team A"
+    + properties.enableVmProtection: false
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
 
-      id:
-"/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
-works/vnet-001"
-      location:        "centralus"
-      name:            "vnet-001"
-      tags.CostCenter: "12345"
-      tags.Owner:      "Team A"
-      type:            "Microsoft.Network/virtualNetworks"
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
 
-Resource changes: 1 to delete.
+      ]
+
+Resource changes: 1 to modify.
 
 Are you sure you want to execute the deployment?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
@@ -381,6 +381,6 @@ You can use the what-if operation through the Azure SDKs.
 
 ## Next steps
 
-- To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
-- If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+* To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+* For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
