@@ -234,7 +234,7 @@
       - name: View supported VMs
         href: azure-stack-edge-gpu-virtual-machine-sizes.md              
       - name: View supported API profiles
-        xref: azure-stack-edge-profiles-azure-resource-manager-versions.md
+        href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: Create VM image
         items:
         - name: Custom image from Azure VM
