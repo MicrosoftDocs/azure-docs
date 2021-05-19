@@ -73,7 +73,7 @@ If you do not require geo-backups for your dedicated SQL pool, you can disable t
 
 ## Data residency 
 
-If your paired data center is located outside of your geographical boundary, you can ensure that your data stays within your geographical boundary by opting out of geo-redundant storage. This can be done when provisioning your dedicated SQL pool (formerly SQL DW) through the  geo-redundant storage option when creating or restoring a dedicated SQL pool (formerly SQL DW). 
+If your paired data center is located outside of your country, you can ensure that your data stays within your region by provisioning your database on locally redundant storage (LRS). If your database has already been provisioned on RA-GRS (Read Only Geographically Redundant Storage, the current default) then you can opt out of geo-backups, however your database will continue to reside on storage that is replicated to a regional pair. To ensure that customer data stays within your region, you can provision or restore your dedicated SQL pool to locally redundant storage. For more information on how to provision or restore to local redundant storage, see [How-to guide for configuring single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](single-region-residency.md)
 
 To confirm that your paired data center is in a different country, refer to [Azure Paired Regions](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

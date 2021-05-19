@@ -37,7 +37,7 @@ $Label = "<YourRestorePointLabel>"
 
 Connect-AzAccount
 Get-AzSubscription
-Select-AzSubscription -SubscriptionName $SubscriptionName
+Set-AzContext -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
 New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
