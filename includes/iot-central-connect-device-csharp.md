@@ -6,6 +6,8 @@ ms.topic: include
 ms.date: 03/31/2021
 ---
 
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
+
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:
