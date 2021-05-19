@@ -47,7 +47,7 @@ For more information about outbound rules, see [Outbound rules](outbound-rules.m
 
 Virtual Network NAT  simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
-Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the concerts with respect to SNAT port exhaustion.
+Using a VNet NAT is the best method for outbound connectivity as it is highly scalable, reliable and doesn't have the same concerns with respect to SNAT port exhaustion.
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-overview.md).
 
