@@ -332,7 +332,7 @@ az deployment group create \
 
 ---
 
-![Bicep deployment what-if operation output deployment mode complete](./media/deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Bicep deployment what-if operation output deployment mode complete](./media/deploy-what-if/resource-manager-deployment-whatif-output-confirm.png)
 
 The text output is:
 
