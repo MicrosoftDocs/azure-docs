@@ -64,10 +64,6 @@ The Read 3.x cloud APIs are the preferred option for most customers because of e
 
 For on-premise deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
-## OCR API
-
-The legacy [OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the OCR column of [supported languages](./language-support.md#optical-character-recognition-ocr) for a list of supported languages.
-
 > [!WARNING]
 > The Computer Vision 2.0 RecognizeText operations are in the process of being deprecated in favor of the new [Read API](#read-api) covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
 
