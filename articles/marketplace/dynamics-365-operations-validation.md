@@ -1,12 +1,12 @@
 ---
-title: Functional validation of a Dynamics 365 Operations offer in Microsoft AppSource.
-description: Functionally validate a Dynamics 365 Operations offer in Microsoft AppSource.
+title: Functional validation of a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace)
+description: Functionally validate a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: emuench
-ms.author: navits
-ms.date: 12/07/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 05/19/2021
 ---
 
 # Dynamics 365 for Operations functional validation

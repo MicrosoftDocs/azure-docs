@@ -1,12 +1,12 @@
 ---
-title: Create a Dynamics 365 for Operations offer on Microsoft AppSource.
-description: Create a Dynamics 365 for Operations offer on Microsoft AppSource.
+title: Create a Dynamics 365 for Operations offer on Microsoft AppSource (Azure Marketplace)
+description: Create a Dynamics 365 for Operations offer on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 12/14/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 05/19/2021
 ---
 
 # Create a Dynamics 365 for Operations offer

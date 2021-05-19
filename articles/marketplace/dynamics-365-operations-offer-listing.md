@@ -1,17 +1,17 @@
 ---
-title: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource
-description: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource.
+title: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 for Operations offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/08/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 05/19/2021
 ---
 
 # Configure D365 for Operations offer listing details
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.</strike>This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
+This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
 > [!NOTE]
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.

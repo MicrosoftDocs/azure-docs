@@ -1,12 +1,12 @@
 ---
-title: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource
-description: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource.
+title: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 for Operations offer availability on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/08/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 05/19/2021
 ---
 
 # Configure Dynamics 365 for Operations offer availability

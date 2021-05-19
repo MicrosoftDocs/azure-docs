@@ -1,12 +1,12 @@
 ---
-title: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource
-description: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource.
+title: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource (Azure Marketplace)
+description: Set up Dynamics 365 for Operations offer technical configuration on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/08/2020
+author: vamahtan
+ms.author: vamahtan
+ms.date: 05/19/2021
 ---
 
 # Set up Dynamics 365 for Operations offer technical configuration
@@ -25,12 +25,12 @@ Provide the solution identifier (GUID) for your solution. To find your solution 
 Select the version of Dynamics 365 for Operations this solution works with.
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](marketplace-co-sell.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
-
-<strike>## Test drive technical configuration
+<!--
+## Test drive technical configuration
 
 This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](what-is-test-drive.md).
 
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](dynamics-365-operations-offer-setup.md#test-drive) tab. To remove test drive from your offer, clear this check box.</strike>
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](dynamics-365-operations-offer-setup.md#test-drive) tab. To remove test drive from your offer, clear this check box.-->
 
 ## Next steps
 
