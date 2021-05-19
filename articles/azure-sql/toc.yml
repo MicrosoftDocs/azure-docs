@@ -1171,7 +1171,7 @@
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
         - name: Enable SQL vulnerability assessments
-          href: security-center/defender-for-sql-on-machines-vulnerability-assessment.md
+          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
         - name: Install SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
