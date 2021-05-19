@@ -56,7 +56,8 @@ Use the following code to begin:
 
 ```csharp
 using System;
-using Azure.Communication;
+using Azure;
+using Azure.Core;
 using Azure.Communication.Identity;
 
 namespace AccessTokensQuickstart
@@ -97,7 +98,7 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCred
 If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
 ```
 
 ## Create an identity
