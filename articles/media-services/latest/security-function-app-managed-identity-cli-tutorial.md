@@ -14,7 +14,9 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Suppose you want to build an “On Air” sign for your broadcasting studio. You can determine when Media Services Live Events are running using the Media Services API but this may be hard to call from an embedded device. Instead, you could expose an HTTP API for your embedded device using Azure Functions. Azure Functions could then call Media Services to get the state of the Live Event.
+Suppose you want let visitors to your website or application to know that you are “On Air” sign in your broadcasting studio. You can determine when Media Services Live Events are running using the Media Services API but this may be hard to call from an embedded device. Instead, you could expose an HTTP API for your embedded device using Azure Functions. Azure Functions could then call Media Services to get the state of the Live Event.
+
+:::image type="content" source="media/diagrams/managed-identities-scenario-function-app-access-media-services-account.svg" alt-text="Managed Identities giving a Function App access to a Media Services account":::
 
 This tutorial uses the 2020-05-01 Media Services API.
 
