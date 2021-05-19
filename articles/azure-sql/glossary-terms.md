@@ -3,7 +3,7 @@ title: Glossary of terms
 titleSuffix: Azure SQL 
 description: A glossary of terms for working with Azure SQL Database, Azure SQL Managed Instance, and SQL on Azure VM. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: 
@@ -14,7 +14,7 @@ ms.reviewer:
 ms.date: 5/18/2021
 ---
 # Azure SQL Database glossary of terms
-[!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 ## Azure SQL Database
 

@@ -20,7 +20,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
 
-## <a id="compute-tiers">Service tiers</a>
+## <a id="compute-tiers"></a>Service tiers
 
 Service tier options in the vCore model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
@@ -29,7 +29,7 @@ Service tier options in the vCore model include General Purpose and Business Cri
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
 |Storage|Uses remote storage.<br/>**SQL Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**SQL Managed Instance**:<br/>32 GB - 4 TB |
 |IOPS and throughput (approximate)|**SQL Managed Instance**: See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](../database/resource-limits-vcore-single-databases.md) and [elastic pools](../database/resource-limits-vcore-elastic-pools.md).|
-|Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](../database/read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](../database/read-scale-out.md)|
+|Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](../database/read-scale-out.md),<br/>zone-redundant high availability (HA)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|
 |In-memory|Not supported|Supported|
 ||||
@@ -104,7 +104,7 @@ For more details, check [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) c
 
 ### Hardware availability
 
-#### <a name="gen4gen5-1"></a> Gen4/Gen5
+#### <a id="gen4gen5-1"></a> Gen4/Gen5
 
 Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware.
 
