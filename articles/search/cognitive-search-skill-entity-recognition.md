@@ -33,10 +33,10 @@ Parameters are case-sensitive and are all optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `categories`    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
+| `categories`    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"PersonType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"Phone Number"`, `"IP Address"`. If no category is provided, all types are returned.|
 | `defaultLanguageCode` |    Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Not all entity categories are supported for all languages; see note below.|
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `includeTypelessEntities` | Set to `true` if you want to recognize well-known entities that don't fit the current categories. Recognized entities are returned in the `entities` complex output field. For example, "Windows 10" is a well-known entity (a product), but since "Products" is not a supported category, this entity would be included in the entities output field. Default is `false` |
+| `modelVersion` | A string representation of the API Version of choice. Set to "latest" in order to utilize the most recent API version. Otherwise, a specific available API version could be chosen. |
 
 
 ## Skill inputs
@@ -60,36 +60,51 @@ Parameters are case-sensitive and are all optional.
 | `dateTimes`  | An array of strings where each string represents a DateTime (as it appears in the text) value. |
 | `urls` | An array of strings where each string represents a URL |
 | `emails` | An array of strings where each string represents an email |
-| `namedEntities` | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (The actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Higher value means it's more to be a real entity)</li></ul> |
-| `entities` | An array of complex types that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granular view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
+| `personTypes` | An array of strings where each string represents a PersonType |
+| `events` | An array of strings where each string represents an event |
+| `products` | An array of strings where each string represents a product |
+| `skills` | An array of strings where each string represents a skill |
+| `addresses` | An array of strings where each string represents an address |
+| `phoneNumbers` | An array of strings where each string represents a telephone number |
+| `ipAddresses` | An array of strings where each string represents an IP Address |
+| `namedEntities` | An array of complex types that contains the following fields: <ul><li>category</li> <li>subcategory</li> <li>confidenceScore (Higher value means it's more to be a real entity)</li> <li>length (The length(number of characters) of this entity)</li> <li>offset (The location where it was found in the text)</li> <li>text (The actual entity name as it appears in the text)</li></ul> |
+
 
 ##    Sample definition
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+    "name": "defined name",
+    "description": "defined description",
+    "context": "/document",
     "categories": [ "Person", "Email"],
-    "defaultLanguageCode": "en",
-    "includeTypelessEntities": true,
-    "minimumPrecision": 0.5,
+    "defaultLanguageCode": "en", 
+    "minimumPrecision": 0.5, 
+    "modelVersion": "latest", 
     "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
+        {
+            "name": "text", 
+            "source": "/document/content"
+        },
+        {
+            "name": "languageCode", 
+            "source": "/document/language"
+        }
     ],
     "outputs": [
-      {
-        "name": "persons",
-        "targetName": "people"
-      },
-      {
-        "name": "emails",
-        "targetName": "contact"
-      },
-      {
-        "name": "entities"
-      }
+        {
+            "name": "persons", 
+            "targetName": "people"
+        },
+        {
+            "name": "emails", 
+            "targetName": "emails"
+        },
+        {
+            "name": "namedEntities", 
+            "targetName": "namedEntities"
+        }
     ]
   }
 ```
@@ -102,7 +117,7 @@ Parameters are case-sensitive and are all optional.
         "recordId": "1",
         "data":
            {
-             "text": "Contoso corporation was founded by John Smith. They can be reached at contact@contoso.com",
+             "text": "Contoso Corporation was founded by John Smith. They can be reached at contact@contoso.com",
              "languageCode": "en"
            }
       }
@@ -124,59 +139,22 @@ Parameters are case-sensitive and are all optional.
         "namedEntities": 
         [
           {
-            "category":"Person",
-            "value": "John Smith",
+            "category": "Person",
+            "subcategory": null,
+            "length": 10,
             "offset": 35,
-            "confidence": 0.98
+            "confidenceScore": 0.98,
+            "text": "John Smith"
+          },
+          {
+            "category": "Email",
+            "subcategory": null,
+            "length": 19,
+            "offset": 70,
+            "confidenceScore": 0.8,
+            "text": "contact@contoso.com"
           }
         ],
-        "entities":  
-        [
-          {
-            "name":"John Smith",
-            "wikipediaId": null,
-            "wikipediaLanguage": null,
-            "wikipediaUrl": null,
-            "bingId": null,
-            "type": "Person",
-            "subType": null,
-            "matches": [{
-                "text": "John Smith",
-                "offset": 35,
-                "length": 10
-            }]
-          },
-          {
-            "name": "contact@contoso.com",
-            "wikipediaId": null,
-            "wikipediaLanguage": null,
-            "wikipediaUrl": null,
-            "bingId": null,
-            "type": "Email",
-            "subType": null,
-            "matches": [
-            {
-                "text": "contact@contoso.com",
-                "offset": 70,
-                "length": 19
-            }]
-          },
-          {
-            "name": "Contoso",
-            "wikipediaId": "Contoso",
-            "wikipediaLanguage": "en",
-            "wikipediaUrl": "https://en.wikipedia.org/wiki/Contoso",
-            "bingId": "349f014e-7a37-e619-0374-787ebb288113",
-            "type": null,
-            "subType": null,
-            "matches": [
-            {
-                "text": "Contoso",
-                "offset": 0,
-                "length": 7
-            }]
-          }
-        ]
       }
     }
   ]
