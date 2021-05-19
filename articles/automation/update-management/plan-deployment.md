@@ -49,7 +49,7 @@ To create and manage update deployments, you need specific permissions. To learn
 
 ## Step 6 - Windows Update client
 
-Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. For information about the recommended settings to configure, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
+Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. To review those recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
 ## Enable Update Management
 
