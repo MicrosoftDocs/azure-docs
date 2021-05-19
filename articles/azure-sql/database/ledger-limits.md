@@ -25,7 +25,7 @@ This article provides an overview of the limitations when using ledger tables wi
 | Function | Limitation |
 | :--- | :--- |
 | Disabling [ledger database](ledger-database-ledger.md)   | Once enabled, ledger database cannot be disabled. |
-| Maximum # of columns | When created, [updatable ledger tables](ledger-updatable-ledger-tables.md) adds four [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns to the ledger table and [append-only ledger tables](ledger-append-only-ledger-tables.md) add two columns to the ledger table. These new columns count against the maximum supported number of columns in Azure SQL Database (1024). |
+| Maximum # of columns | When created, [updatable ledger tables](ledger-updatable-ledger-tables.md) adds four [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns to the ledger table and [append-only ledger tables](ledger-append-only-ledger-tables.md) add two columns to the ledger table. These new columns count against the maximum supported number of columns in Azure SQL Database (1024). |
 | Restricted data types | XML, SqlVariant, User-defined type, and FILESTREAM data types aren't supported. |
 | In-memory tables | In-memory tables aren't supported. |
 | Sparse column sets | Sparse column sets aren't supported. |

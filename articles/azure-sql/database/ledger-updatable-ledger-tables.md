@@ -39,7 +39,7 @@ For details on options available when specifying the `LEDGER` argument in your T
 
 ### Updatable ledger table schema
 
-An updatable ledger table needs to have the following `GENERATED ALWAYS` columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
+An updatable ledger table needs to have the following [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
 
 > [!NOTE]
 > If you do not specify the required `GENERATED ALWAYS` columns of the ledger table and ledger history table in the [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true) statement, the system will automatically add the columns, and it will use the below default names. For more information, see our examples of [Creating a updatable ledger table](/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current&preserve-view=true#x-creating-a-updatable-ledger-table).
@@ -65,7 +65,7 @@ For example, if you wanted to track transaction history for a simple banking sce
 
 For an example on using the ledger view, see [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md).
 
-The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns are different than those of the updatable ledger and history tables.
+The ledger view's schema mirrors the columns defined in the updatable ledger and history table, but the [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns are different than those of the updatable ledger and history tables.
 
 ### Ledger view schema
 

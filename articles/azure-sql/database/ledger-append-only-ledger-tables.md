@@ -25,13 +25,11 @@ Append-only ledger tables allow only `INSERT` operations on your tables, ensurin
 Creating an append-only ledger table can be done through specifying the `LEDGER = ON` argument in your [CREATE TABLE (Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql) statement and specifying the `APPEND_ONLY = ON` option.
 
 > [!IMPORTANT]
-> When creating an append-only ledger table, [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns will be created in your ledger table for tracking data lineage for forensics purposes. 
->
 > Once a table has been created as ledger table, it cannot be reverted back to a table that does not have ledger functionality. This is to ensure an attacker cannot temporarily remove ledger capabilities, make changes to the table, and then re-enable ledger functionality.
 
 ### Append-only ledger table schema
 
-An append-only table needs to have the following `GENERATED ALWAYS` columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction.  This data is useful for forensics purposes in understanding how data was inserted over time.
+An append-only table needs to have the following [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns that contain metadata noting which transactions made changes to the table and the order of operations by which rows were updated by the transaction. When creating an append-only ledger table, `GENERATED ALWAYS` columns will be created in your ledger table. This data is useful for forensics purposes in understanding how data was inserted over time.
 
 If you do not specify the definitions of the `GENERATED ALWAYS` columns in the [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) statement, the system will automatically add them, using the below default names.
 
@@ -53,7 +51,7 @@ For every append-only ledger table, the system automatically generates a view, c
 | --- | --- | --- |
 | ledger_transaction_id | bigint | The ID of the transaction that created or deleted a row version. |
 | ledger_sequence_number | bigint | The sequence number of a row-level operation within the transaction on the table. |
-| ledger_operation_type_id | tinyint | Contains `0` (**INSERT**) or `1` (**DELETE**). Inserting a row into the ledger table produces a new row in the ledger view containing `0` in this column. Deleting a row from the ledger table produces a new row in the ledger view containing `1` in this column. Updating a row in the ledger table produces two new rows in the ledger view. One row contains `1` (**DELETE**) and the other row contains `1` (**INSERT**) in this column. |
+| ledger_operation_type_id | tinyint | Contains `0` (**INSERT**) or `1` (**DELETE**). Inserting a row into the ledger table produces a new row in the ledger view containing `0` in this column. Deleting a row from the ledger table produces a new row in the ledger view containing `1` in this column. Updating a row in the ledger table produces two new rows in the ledger view. One row contains `1` (**DELETE**) and the other row contains `1` (**INSERT**) in this column. A DELETE should not occur on an append-only ledger table. |
 | ledger_operation_type_desc | nvarchar(128) | Contains `INSERT` or `DELETE`. See above for details. |
 
 ## Next steps
