@@ -386,9 +386,9 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 
     > To retrieve a list of other locations, run `az account list-locations`.
 
-3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
-
 ::: zone pivot="platform-windows"
+    
+    3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
 
     ```bash
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
@@ -396,6 +396,8 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 
 ::: zone-end
 ::: zone pivot="platform-linux"
+    
+    3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
 
     ```bash
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
@@ -1005,7 +1007,7 @@ If you choose to pin the minor version, you will need to periodically update the
 ## JBoss EAP App Service Plans
 <a id="JBoss-EAP-hardware-options"></a>
 
-JBoss EAP is only available on the Premium v2 and Isolated v3 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
 
 ::: zone-end
 
