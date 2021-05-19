@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Integration with other services
+title: Data ingress and egress
 titleSuffix: Azure Digital Twins
-description: Understand the ingress and egress requirements when deploying Azure Digital Twins.
+description: Understand the ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/16/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Integrate Azure Digital Twins with other services
+# Data ingress and egress for Azure Digital Twins
 
 Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in a variety of ways.
 

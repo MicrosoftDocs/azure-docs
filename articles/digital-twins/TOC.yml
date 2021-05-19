@@ -47,8 +47,8 @@
       href: concepts-apis-sdks.md
     - name: CLI command set
       href: concepts-cli.md
-  - name: Integration with other services
-    href: concepts-integration.md
+  - name: Data ingress and egress
+    href: concepts-data-ingress-egress.md
   - name: Event notifications
     href: concepts-event-notifications.md
   - name: Event routes

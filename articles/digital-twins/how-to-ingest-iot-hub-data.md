@@ -190,4 +190,4 @@ To see the value change, repeatedly run the query command above.
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Integration with other services](concepts-integration.md)
+* [Concepts: Data ingress and egress](concepts-data-ingress-egress.md)

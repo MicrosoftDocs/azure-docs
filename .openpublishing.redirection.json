@@ -19669,6 +19669,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
       "redirect_url": "/azure/digital-twins/concepts-cli",
       "redirect_document_id": true
