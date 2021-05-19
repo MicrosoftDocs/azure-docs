@@ -66,7 +66,7 @@ This will open a page to enter the details of a new private endpoint.
 
 After filling out the configuration options, select **OK** to finish.
 
-This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections.
+This will return you to the **Networking** tab of the Azure Digital Twins instance setup, where your new endpoint should be visible under **Private endpoint connections**.
 
 :::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Screenshot of the Azure portal showing the Networking tab of the Create Resource dialog for Azure Digital Twins. There's a highlight around the new private endpoint connection, and the navigation buttons (Review + create, Previous, Next: Advanced)." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
 
