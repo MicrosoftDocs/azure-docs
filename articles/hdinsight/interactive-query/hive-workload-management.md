@@ -23,14 +23,14 @@ Enable workload management feature in HDInsight Interactive Query clusters by fo
 3. Create and Activate a resource plan.
 
 ### Create a new yarn queue suitable for Workload Management feature.
-Create a new yarn queue called `wm` with the help of following [guide](https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-yarn).
+Create a new yarn queue called `wm` with the help of following [guide](../hdinsight-troubleshoot-yarn.md).
 Configure the `wm` queue on cluster based on following configurations:
 
 | QueueName   | Capacity | Max Capacity | Priority | Maximum AM Resource |
 |-------------|----------|--------------|----------|---------------------|
-| **default** | 5%       | 5%           | 0        | 33%                 |
-| **llap**    | 85%      | 100%         | 10       | 33%                 |
-| **wm**      | 10%      | 15%          | 9        | 100%                |
+| `default` | 5%       | 5%           | 0        | 33%                 |
+| `llap`   | 85%      | 100%         | 10       | 33%                 |
+| `wm`      | 10%      | 15%          | 9        | 100%                |
 
 Confirm if the `wm` queue configuration looks as shown below.
 ![`wm-queue`](./media/hive-workload-management/wm-yarn-queue.png)
@@ -47,7 +47,7 @@ Following is an example on how to create a basic resource plan.
 
 Execute following commands via beeline to create the above resource plan.
 
-#### Commands to create, view and drop the resource plan
+#### Commands to create, view, and drop the resource plan
 ```
 # CREATE RESOURCE PLAN
 CREATE RESOURCE PLAN demo_plan;
@@ -85,7 +85,7 @@ To have an optimal resource plan, one needs to have a thorough understanding of 
 
 ### Number of Pools
 The number of pools is limited by total query parallelism (Minimum one query per pool).
-Most of the workloads does not require more than 3 pools. 
+Most of the workloads rarely require more than three pools. 
 - default, for interactive queries 
 - etl/batch, for long running queries
 - sys, for system administrators
@@ -107,9 +107,9 @@ Based on above values, we can have `Total QUERY_PARALLELISM` as 10.
 > Note: Have a slightly more capacity in wm queue than required to avoid tez AMs getting stuck in accepted state that is, `wm` queue capacity can be made to 10.01% and `default` queue capacity can be reduced to 4.99%.
 
 ### Mappings
-Mappings provide a mechanism to direct queries to certain pools. As number of mappings increase, multiple rules may apply for a given query. To establish which rule should take precedence following is done in the scenario:
-1. If ordering is not specified (or is equal): `user` rules > `application` rules > `group` rules. The order of group rules with the same priority is undefined.
-2. If ordering is specified with the optional `WITH ORDER` clause, lower order rule takes priority.
+Mappings provide a mechanism to direct queries to certain pools. As number of mappings increase, multiple rules may apply for a given query. To establish which rule should take precedence:
+1. If ordering is not specified (or is equal), `user` rules > `application` rules > `group` rules. The order of group rules with the same priority is undefined.
+2. If ordering is specified with the optional `WITH ORDER` clause, lower-order rule takes priority.
 
 
 ## Important Notes
@@ -118,6 +118,11 @@ Mappings provide a mechanism to direct queries to certain pools. As number of ma
 3. We only support the use of following two counters for use in resource plans:
     1. EXECUTION_TIME
     2. ELAPSED_TIME
+
+## Related Topics
+* [Hive Workload Management Commands Summary](workload-management-commands.md)
+* [Troubleshoot Hive Workload Management Issues](troubleshoot-workload-management-issues.md)
+
 
 ## References
 * [Cloudera Hive Workload Management Overview](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload/content/hive_workload_management.html)

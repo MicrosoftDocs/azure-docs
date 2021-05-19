@@ -20,16 +20,6 @@ ALTER { USER | GROUP | APPLICATION } MAPPING 'entity_name' IN plan_name { TO poo
 ```
 ALTER USER MAPPING 'hive' IN demo_plan TO etl WITH ORDER 1;
 ```
-## ALTER MAPPING 
-Changes the routing of queries to a resource pool. 
-#### Syntax 
-```
-ALTER { USER | GROUP | APPLICATION } MAPPING 'entity_name' IN plan_name { TO pool_path | UNMANAGED } [ WITH ORDER num ]
-```
-#### Example 
-```
-ALTER USER MAPPING 'hive' IN demo_plan TO etl WITH ORDER 1;
-```
 
 ## ALTER POOL 
 Modifies query pool properties, adds triggers, and removes triggers. 

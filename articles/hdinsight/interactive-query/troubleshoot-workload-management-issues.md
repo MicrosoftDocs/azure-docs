@@ -21,7 +21,7 @@ WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dum
 
 Example metrics published by WLM for a given pool in a resource plan.
 ```
-"name" : "Hadoop:service=hiveserver2,name=WmPoolMetrics.etl",
+    "name" : "Hadoop:service=hiveserver2,name=WmPoolMetrics.etl",
     "modelerType" : "WmPoolMetrics.etl",
     "tag.Context" : "HS2",
     "tag.SessionId" : "etl",
@@ -33,7 +33,7 @@ Example metrics published by WLM for a given pool in a resource plan.
     "NumExecutorsMax" : 10
 ```
 
-For ESP clusters as HS2Interactive UI is unavailable (a known issue) we can get the same metrics on grafana. <br>
+For ESP clusters as HS2Interactive UI is unavailable (a known issue), we can get the same metrics on grafana. <br>
 The metrics name follows the below patterns:
 ```
 default.General.WM_<pool>_numExecutors
@@ -49,8 +49,21 @@ Note: Make sure hiveserver2 component is selected in the above filters and compo
 
 <br>
 
+## Get WLM Resource Plan and Plan entities
+#### To get all resource plans on the cluster:
+```
+SHOW RESOURCE PLANS;
+```
+
+#### To get definition of a given resource plan
+```
+SHOW RESOURCE PLAN <plan_name>;
+```
+
 ## Get WLM entities information from metastore database
-WLM entities information can also be viewed from following tables in Hive Metastore database.
+> Note: Only applicable for custom hive metastore database
+
+WLM entities information can also be viewed from following tables in Hive Metastore database 
 
 * **WM_RESOURCEPLANS** (NAME string, STATUS string, QUERY_PARALLELISM int, DEFAULT_POOL_PATH string)
 * **WM_POOLS** (RP_NAME string, PATH string, ALLOC_FRACTION double, QUERY_PARALLELISM int, SCHEDULING_POLICY string)
@@ -70,7 +83,7 @@ When we disable the Workload Management in the cluster, these Tez AMs are automa
 ### **Resource contention**
 In WLM enabled LLAP cluster, resources are shared among queries based on resource plan configuration. The resource sharing sometimes leads to query slowness.
 Some tunings can be done to resource plan to reduce the resource contention that happens within a pool. For example `scheduling_policy` can be defined as either `fair`, which guarantees an equal share of resources on the cluster to each query that is assigned to the pool; or `fifo`, which guarantees all resources to the first query that comes to the pool.<br>
-Following example shows how to set scheduling policy for a pool named `etl` in the resource plan wlm_basic:
+Following example shows how to set scheduling policy for a pool named `etl` in the resource plan `wlm_basic`:
 ```
 ALTER POOL wlm_basic.etl SET SCHEDULING_POLICY = fair;
 ```
@@ -113,7 +126,7 @@ java.util.concurrent.CancellationException: Task was cancelled.
 ```
 
 ## Known Issues
-1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-warehouse-connector) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
+1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](apache-hive-warehouse-connector.md) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
 To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
 The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
 
