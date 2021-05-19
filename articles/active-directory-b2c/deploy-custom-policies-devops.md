@@ -55,8 +55,8 @@ With a management application registered, you're ready to configure a repository
 1. In your project, navigate to **Repos** and select the **Files** page. Select an existing repository or create one for this exercise.
 1. Create a folder named *B2CAssets*. Name the required placeholder file *README.md* and **Commit** the file. You can remove this file later, if you like.
 1. Add your Azure AD B2C policy files to the *B2CAssets* folder. This includes the *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*, and any other policies you've created. Record the filename of each Azure AD B2C policy file for use in a later step (they're used as PowerShell script arguments).
-1. Create a folder named *Scripts* in the root directory of the repository, name the placeholder file *DeployToB2c.ps1*. Don't commit the file at this point, you'll do so in a later step.
-1. Paste the following PowerShell script into *DeployToB2c.ps1*, then **Commit** the file. The script acquires a token from Azure AD and calls the Microsoft Graph API to upload the policies within the *B2CAssets* folder to your Azure AD B2C tenant.
+1. Create a folder named *Scripts* in the root directory of the repository, name the placeholder file *DeployToB2C.ps1*. Don't commit the file at this point, you'll do so in a later step.
+1. Paste the following PowerShell script into *DeployToB2C.ps1*, then **Commit** the file. The script acquires a token from Azure AD and calls the Microsoft Graph API to upload the policies within the *B2CAssets* folder to your Azure AD B2C tenant.
 
     ```PowerShell
     [Cmdletbinding()]
