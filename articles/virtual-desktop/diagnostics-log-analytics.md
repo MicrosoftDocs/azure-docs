@@ -91,7 +91,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 3. Under Services, select **Log Analytics workspaces**.
 
-4. From the list, select the workspace you configured for your Windows Virtual desktop object.
+4. From the list, select the workspace you configured for your Azure Virtual Desktop object.
 
 5. Once in your workspace, select **Logs**. You can filter out your menu list with the **Search** function.
 

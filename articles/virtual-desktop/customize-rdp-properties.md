@@ -40,7 +40,7 @@ Before you begin, follow the instructions in [Set up the Azure Virtual Desktop P
 To configure RDP properties in the Azure portal:
 
 1. Sign in to Azure at <https://portal.azure.com>.
-2. Enter **windows virtual desktop** into the search bar.
+2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under Services, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, select **host pools** in the menu on the left side of the screen.
 5. Select **the name of the host pool** you want to update.
