@@ -71,7 +71,7 @@ You can update one extension by one of three ways:
 1. By selecting the extension from the list of installed extensions, and select the **Update** option from the top of the page or by selecting the ellipse on the far-right of the row, and then selecting **Update**.
 1. By selecting one or more extensions that are eligible for an upgrade from the list of installed extensions, and then select the **Update** option.
 
-## Uninstall extensions
+## Uninstall extension
 
 You can remove one or more extensions from an Arc enabled server from the Azure portal. Perform the following steps to remove an extension.
 
