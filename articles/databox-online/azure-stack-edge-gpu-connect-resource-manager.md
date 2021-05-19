@@ -572,11 +572,11 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 ## Switch environments
 
+You may need to switch between two environments.
+
 ### [Az](#tab/Az)
 
-Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. 
-
-If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment is not actually switched.  
+Run `Disconnect-AzAccount` command to switch to a different `AzEnvironment`. If you use `Set-AzEnvironment` and `Login-AzAccount` without using `Disconnect-AzAccount`, the environment is not actually switched.  
 
 The following examples show how to switch between two environments, `AzDBE1` and `AzDBE2`.
 
@@ -654,9 +654,7 @@ ExtendedProperties : {}
 
 ### [AzureRM](#tab/AzureRM)
 
-Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. 
-
-If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment is not actually switched.  
+Run `Disconnect-AzureRmAccount` command to switch to a different `AzureRmEnvironment`. If you use `Set-AzureRmEnvironment` and `Login-AzureRmAccount` without using `Disconnect-AzureRmAccount`, the environment is not actually switched.  
 
 The following examples show how to switch between two environments, `AzDBE1` and `AzDBE2`.
 
@@ -730,8 +728,9 @@ TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFil
 VersionProfile     :​
 ExtendedProperties : {}
 ```
-​You have now switched to the intended environment.
----
+​---
+
+You have now switched to the intended environment.
 
 ## Next steps
 
