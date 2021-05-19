@@ -5,7 +5,7 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/19/2021
 ---
 
 # Supported encryption standards for Azure FXT Edge Filer
