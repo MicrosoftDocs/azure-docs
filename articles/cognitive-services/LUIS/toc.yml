@@ -18,8 +18,6 @@
   items:
   - name: Use the LUIS portal
     href: luis-get-started-create-app.md
-  - name: Use browser
-    href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
     href: client-libraries-rest-api.md
 - name: Samples
