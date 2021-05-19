@@ -40,21 +40,25 @@ You'll need [Node.js](https://nodejs.org/download) installed on your machine. Th
 
 ## Solution architecture
 
-The image below illustrates the architecture of this solution using Azure Digital Twins with Device Provisioning Service. It shows both the device provision and retire flow.
+This solution includes steps for provisioning and retiring a device in Azure Digital Twins, using Device Provisioning Service.
+
+To allocate devices in the solution, data flows between a thermostat device and DPS. The data then flows from DPS into IoT Hub, and to Azure Digital Twins through an Azure function.
+
+To retire a device, data from a manual device deletion flows into Azure Digital Twins through IoT Hub, Event Hubs, and an Azure function.
+
+The image below illustrates this architecture.
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/flows.png" alt-text="Diagram of device and several Azure services in an end-to-end scenario showing the data flow." lightbox="media/how-to-provision-using-device-provisioning-service/flows.png":::
 
-This article is divided into two sections:
+This article is divided into two sections, each focused on a portion of this full architecture:
 * [Auto-provision device using Device Provisioning Service](#auto-provision-device-using-device-provisioning-service)
 * [Auto-retire device using IoT Hub lifecycle events](#auto-retire-device-using-iot-hub-lifecycle-events)
-
-For deeper explanations of each step in the architecture, see their individual sections later in the article.
 
 ## Auto-provision device using Device Provisioning Service
 
 In this section, you'll be attaching Device Provisioning Service to Azure Digital Twins to auto-provision devices through the path below. This is an excerpt from the full architecture shown [earlier](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/provision.png" alt-text="Diagram of Provision flow-- an excerpt of the solution architecture diagram." lightbox="media/how-to-provision-using-device-provisioning-service/provision.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/provision.png" alt-text="Diagram of Provision flow—an excerpt of the solution architecture diagram following data from a thermostat into Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/provision.png":::
 
 Here is a description of the process flow:
 1. Device contacts the DPS endpoint, passing identifying information to prove its identity.
@@ -195,7 +199,7 @@ You should see the twin of the device being found in the Azure Digital Twins ins
 
 In this section, you will be attaching IoT Hub lifecycle events to Azure Digital Twins to auto-retire devices through the path below. This is an excerpt from the full architecture shown [earlier](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/retire.png" alt-text="Diagram of the Retire device flow-- an excerpt of the solution architecture diagram, with numbers labeling sections of the flow." lightbox="media/how-to-provision-using-device-provisioning-service/retire.png":::
+:::image type="content" source="media/how-to-provision-using-device-provisioning-service/retire.png" alt-text="Diagram of the Retire device flow—an excerpt of the solution architecture diagram, following data from a device deletion into Azure Digital Twins." lightbox="media/how-to-provision-using-device-provisioning-service/retire.png":::
 
 Here is a description of the process flow:
 1. An external or manual process triggers the deletion of a device in IoT Hub.
