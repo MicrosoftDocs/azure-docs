@@ -28,7 +28,7 @@ There are specific instructions for each source type:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
 ## Storing your credential in your key vault and using the right secret name and version
 
 You must also store your credential in your Azure Key Vault instance and use the right secret name and version.
@@ -47,7 +47,10 @@ Verify that the correct permissions have been configured for the Purview managed
 To verify this, do the following steps:
 
 1. Navigate to your key vault and to the **Access policies** section
-1. Verify that your Purview managed identity shows under the *Current access policies* section with **get** permissions on secrets at least
+
+1. Verify that your Purview managed identity shows under the *Current access policies* section with at least **Get** and **List** permissions on Secrets
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Image showing dropdown selection of both Get and List permission options":::
 
 If you don't see your Purview managed identity listed, then follow the steps in [Create and manage credentials for scans](manage-credentials.md) to add it. 
 

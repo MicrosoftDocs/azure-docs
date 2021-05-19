@@ -1,9 +1,11 @@
 ---
-title: "Quickstart: Create a shared query with Azure PowerShell"
+title: 'Quickstart: Create a shared query with Azure PowerShell'
 description: In this quickstart, you follow the steps to create a Resource Graph shared query using Azure PowerShell.
-ms.date: 01/11/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
 ---
 # Quickstart: Create a Resource Graph shared query using Azure PowerShell
 
@@ -35,7 +37,7 @@ before you begin.
 
 ## Create a Resource Graph shared query
 
-With the `Az.ResourceGraph` PowerShell module added to your environment of choice, it's time to create
+With the **Az.ResourceGraph** PowerShell module added to your environment of choice, it's time to create
 a Resource Graph shared query. The shared query is an Azure Resource Manager object that you can
 grant permission to or run in Azure Resource Graph Explorer. The query summarizes the count of all
 resources grouped by _location_.
@@ -52,7 +54,7 @@ resources grouped by _location_.
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Create the Azure Resource Graph shared query using the `Az.ResourceGraph` PowerShell module and
+1. Create the Azure Resource Graph shared query using the **Az.ResourceGraph** PowerShell module and
    [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery)
    cmdlet:
 
@@ -90,7 +92,7 @@ If you wish to remove the Resource Graph shared query and resource group from yo
 environment, you can do so by using the following commands:
 
 - [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query

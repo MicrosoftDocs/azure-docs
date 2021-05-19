@@ -43,7 +43,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
+    |**Multi-turn default text**| Select an option|
     |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
@@ -78,7 +78,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
+    |**Multi-turn default text**| Select an option|
     |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
     |**Chit-chat**|Select **Professional**|
 
@@ -208,4 +208,4 @@ If you are not continuing to the next quickstart, delete the QnA Maker and Bot f
 For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
-* QnA Maker [data sources](../index.yml).
+* QnA Maker [data sources](../Concepts/data-sources-and-content.md).

@@ -26,11 +26,10 @@ From NoSQL migration to application development, you can choose from a variety o
 | [Capgemini](https://www.capgemini.com/) | Retail (inventory), IoT, Operational Analytics (Spark), App development | USA, France, UK, Netherlands, Finland  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics  (Spark), App development |USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
 |[Infosys](https://www.infosys.com/)     | App development      |    USA    |  
-| [Lagash Systems](https://www.devex.com/organizations/lagash-systems-131346) | IoT, Serverless architecture, App development | Argentina, Chile, Colombia, Mexico|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Real-time personalization, Retail inventory, App development | Brazil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalization, Retail (inventory), Operational Analytics (Spark), App development  |    USA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   NoSQL migration      |   USA      |
-| [Ricoh Digital Services](https://www.ricoh.com/) | IoT, Real-time personalization, Retail inventory, NoSQL migration | UK  |
+| [Ricoh Digital Experience](https://www.ricoh-europe.com/contact-us) | IoT, Real-time personalization, Retail inventory, NoSQL migration | UK, Europe  |
 |[SNP Technologies](https://www.snp.com/) | NoSQL migration| USA |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland, and Switzerland and Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | NoSQL migration| Ireland|

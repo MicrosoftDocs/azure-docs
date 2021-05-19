@@ -1,12 +1,8 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
 ---
 # About high availability
 
@@ -85,7 +81,7 @@ Verify that both the primary and secondary on-premises management console applia
 2. Run the following command on the primary:
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
 ```
 
 >[!NOTE]

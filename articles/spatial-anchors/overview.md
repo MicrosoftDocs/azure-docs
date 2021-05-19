@@ -9,8 +9,8 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
 ---
+
 # Azure Spatial Anchors overview
 
 Welcome to Azure Spatial Anchors. Azure Spatial Anchors empowers developers with essential capabilities to build spatially aware

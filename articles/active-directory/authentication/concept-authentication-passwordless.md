@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory passwordless sign-in (preview)
+title: Azure Active Directory passwordless sign-in
 description: Learn about options for passwordless sign-in to Azure Active Directory using FIDO2 security keys or the Microsoft Authenticator app
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/07/2021
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ Features like multi-factor authentication (MFA) are a great way to secure your o
 | --- | --- | --- |
 | Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft offers the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
+Each organization has different needs when it comes to authentication. Microsoft global Azure and Azure Government offer the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
 
 - Windows Hello for Business
 - Microsoft Authenticator app
@@ -59,8 +59,6 @@ You can also allow your employee's phone to become a passwordless authentication
 
 The Authenticator App turns any iOS or Android phone into a strong, passwordless credential. Users can sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone, and then using their biometric (touch or face) or PIN to confirm. Refer to [Download and install the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md) for installation details.
 
-Passwordless sign-in with the Microsoft Authenticator app to Azure AD is currently in preview. Use of the Microsoft Authenticator app for secondary authentication for Azure AD Multi-Factor Authentication, self-service password reset (SSPR), or OATH software tokens is GA. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Passwordless authentication using the Authenticator app follows the same basic pattern as Windows Hello for Business. It's a little more complicated as the user needs to be identified so that Azure AD can find the Microsoft Authenticator App version being used:
 
 ![Diagram that outlines the steps involved for user sign-in with the Microsoft Authenticator App](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -89,7 +87,7 @@ Users can register and then select a FIDO2 security key at the sign-in interface
 
 FIDO2 security keys can be used to sign in to their Azure AD or hybrid Azure AD joined Windows 10 devices and get single-sign on to their cloud and on-premises resources. Users can also sign in to supported browsers. FIDO2 security keys are a great option for enterprises who are very security sensitive or have scenarios or employees who aren't willing or able to use their phone as a second factor.
 
-Sign-in with FIDO2 security keys to Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+We have a reference document for which [browsers support FIDO2 authentication with Azure AD](fido2-compatibility.md), as well as best practices for developers wanting to [support FIDO2 auth in the applications they develop](../develop/support-fido2-authentication.md).
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -124,7 +122,7 @@ The following providers offer FIDO2 security keys of different form factors that
 
 | Provider | Contact |
 | --- | --- |
-| Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
+| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
 | Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
@@ -138,27 +136,38 @@ The following providers offer FIDO2 security keys of different form factors that
 | KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
 | Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 | Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
+| GoTrustID Inc. | [https://www.gotrustid.com/idem-key](https://www.gotrustid.com/idem-key) |
+| Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
+| Nymi | [https://www.nymi.com/product](https://www.nymi.com/product) |
 
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.
 
-If you're a vendor and want to get your device on this list of supported devices, contact [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
+If you're a vendor and want to get your device on this list of supported devices, check out our guidance on how to [become a Microsoft-compatible FIDO2 security key vendor](https://docs.microsoft.com/security/zero-trust/isv/fido2-hardware-vendor).
 
 To get started with FIDO2 security keys, complete the following how-to:
 
 > [!div class="nextstepaction"]
 > [Enable passwordless sign using FIDO2 security keys](howto-authentication-passwordless-security-key.md)
 
-## What scenarios work with the preview?
+## Supported scenarios
 
-Azure AD passwordless sign-in features are currently in preview. The following considerations apply:
+The following considerations apply:
 
-- Administrators can enable passwordless authentication methods for their tenant
-- Administrators can target all users or select users/groups within their tenant for each method
-- End users can register and manage these passwordless authentication methods in their account portal
-- End users can sign in with these passwordless authentication methods
-   - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 Out Of Box (OOBE) setup, and with integrated mobile apps on any operating system.
+- Administrators can enable passwordless authentication methods for their tenant.
+
+- Administrators can target all users or select users/groups within their tenant for each method.
+
+- Users can register and manage these passwordless authentication methods in their account portal.
+
+- Users can sign in with these passwordless authentication methods:
+   - Microsoft Authenticator App: Works in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 setup, and with integrated mobile apps on any operating system.
    - Security keys: Work on lock screen for Windows 10 and the web in supported browsers like Microsoft Edge (both legacy and new Edge).
+
+- Users can use passwordless credentials to access resources in tenants where they are a guest, but they may still be required to perform MFA in that resource tenant. For more information, see [Possible double multi-factor authentication](https://docs.microsoft.com/azure/active-directory/external-identities/current-limitations#possible-double-multi-factor-authentication).  
+
+- Users may not register passwordless credentials within a tenant where they are a guest, the same way that they do not have a password managed in that tenant.  
+
 
 ## Choose a passwordless method
 

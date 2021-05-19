@@ -1,12 +1,8 @@
 ---
 title: Create attack vector reports
 description: Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Attack vector reporting

@@ -116,7 +116,7 @@ If you're a global administrator of your organization’s tenant, elevate your a
 
 ### Run the script
 
-Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/DanglingDNSDomains.
+Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and download it from GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## Remediate dangling DNS entries 
 

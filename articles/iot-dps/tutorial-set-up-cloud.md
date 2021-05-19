@@ -115,7 +115,7 @@ In this tutorial, you learned how to:
 > * Link the IoT hub to the Device Provisioning Service
 > * Set the allocation policy on the Device Provisioning Service
 
-Advance to the next tutorial to learn how to set up your device for provisioning.
+Advance to the next tutorial to learn how to set up your device for provisioning
 
 > [!div class="nextstepaction"]
 > [Set up device for provisioning](tutorial-set-up-device.md)

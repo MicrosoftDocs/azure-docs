@@ -158,11 +158,11 @@ Ability to update the delegated permissions, application permissions, authorized
 
 Grants the same permissions as microsoft.directory/applications/permissions/update, but only for single-tenant applications.
 
-## Required license plan
+## License requirements
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 
 - Create custom roles using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [View the assignments for a custom role](custom-view-assignments.md)
+- [List role assignments](view-assignments.md)

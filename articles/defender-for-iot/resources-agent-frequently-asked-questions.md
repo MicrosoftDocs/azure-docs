@@ -1,20 +1,8 @@
 ---
 title: Azure Defender for IoT agent frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/07/2020
-ms.author: rkarlin
 ---
 
 # Azure Defender for IoT agent frequently asked questions

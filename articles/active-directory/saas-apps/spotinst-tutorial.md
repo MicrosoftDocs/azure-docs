@@ -166,9 +166,9 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	![Screenshot shows the Add user section where you can enter the values described.](./media/spotinst-tutorial/adduser2.png)
 
-	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
+	* In the **Full Name** textbox, enter the full name of user like `BrittaSimon`.
 
-	* In the **Email** textbox, enter the email address of the user like `brittasimon\@contoso.com`.
+	* In the **Email** textbox, enter the email address of the user like `brittasimon@contoso.com`.
 
 	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 

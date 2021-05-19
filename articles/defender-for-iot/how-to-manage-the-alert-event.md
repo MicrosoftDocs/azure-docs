@@ -1,11 +1,7 @@
 ---
 title: Manage alert events
 description: Manage alert events detected in your network. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
-ms.service: azure
 ms.topic: how-to
 ---
 
@@ -18,18 +14,32 @@ The following options are available for managing alert events:
  | **Learn** | Authorize the detected event. For more information, see [About learning and unlearning events](#about-learning-and-unlearning-events). |
  | **Acknowledge** | Hide the alert once for the detected event. The alert will be triggered again if the event is detected again. For more information, see [About acknowledging and unacknowledging events](#about-acknowledging-and-unacknowledging-events). |
  | **Mute** | Continuously ignore activity with identical devices and comparable traffic. For more information, see [About muting and unmuting events](#about-muting-and-unmuting-events). |
-
+ 
+You can also export alert information.
 ## About learning and unlearning events
 
-Events that indicate deviations of the learned network might reflect valid network changes. Examples might include a new authorized device that joined the network or an authorized firmware update.
+Events that indicate deviations of the learned network might reflect valid network changes. When you want to approve these changes, you can instruct Defender for IoT to *learn* the behavior. Examples might include:
 
-When you select **Learn**, the sensor considers traffic, configurations, or activity valid. This means alerts will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+- New activity was detected on existing device. For example, an authorized device attempted to access a new resource on another device.
 
-For example, you receive an alert that indicates address scanning activity on a device that a network scanner didn't previously define. If this device was added to the network for the purpose of scanning, you can instruct the sensor to learn the device as a scanning device.
+- A new device is added to the network.  
+
+- Firmware version changes following standard maintenance procedures.
+
+- A new  device performed a read/write operation on a destination controller.
+
+- A new device performs a read/write operation on a destination controller and should be defined as a programming device.
+
+- New legitimate scanning is carried out and the device should be defined as a scanning device.
+
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="The Address Detected Scan window.":::
 
-Learned events can be unlearned. When the sensor unlearns events, it will retrigger alerts related to this event.
+Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
+
+When you select **Learn**, the sensor considers traffic, configurations, or activity valid. This means alerts will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
+
+Learned events can be unlearned. When the sensor unlearns events, it will re-trigger alerts related to this event.
 
 ## About acknowledging and unacknowledging events
 
@@ -63,9 +73,9 @@ In these situations, learning is not available. When learning can't be carried o
 > [!NOTE] 
 > You can't mute events in which an internet device is defined as the source or destination.
 
-### What traffic is muted?
+### What alert activity is muted?
 
-A muted scenario includes the network devices, and traffic detected for an event. The alert title describes the traffic that's being muted.
+A muted scenario includes the network devices and traffic detected for an event. The alert title describes the traffic that is being muted.
 
 The device or devices being muted will be displayed as an image in the alert. If two devices are shown, the specific alerted traffic between them will be muted.
 
@@ -83,7 +93,7 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 
 **After an event is muted:**
 
-- The alert will be accessible in the **Acknowledged** alert view until it's unmuted.
+- The alert will be accessible in the **Acknowledged** alert view until it is unmuted.
 
 - The mute action will appear in the **Event Timeline**.
 
@@ -101,6 +111,27 @@ When an event is muted, it's ignored any time the source sends an HTTP header wi
 
 2. Hover over an alert to see if it's muted.  
 
+## Export alert information
+
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+
+- Source address
+- Destination address
+- Alert title
+- Alert severity
+- Alert message
+- Additional information
+- Acknowledged status
+- PCAP availability
+
+To export:
+
+1. Select Alerts from the side menu.
+1. Select Export.
+1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
+
 ## See also
+
+[Alert types and descriptions](alert-engine-messages.md)
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

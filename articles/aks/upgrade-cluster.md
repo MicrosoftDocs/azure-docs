@@ -122,6 +122,7 @@ In addition to manually upgrading a cluster, you can set an auto-upgrade channel
 | `patch`| automatically upgrade the cluster to the latest supported patch version when it becomes available while keeping the minor version the same.| For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.17.9*|
 | `stable`| automatically upgrade the cluster to the latest supported patch release on minor version *N-1*, where *N* is the latest supported minor version.| For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster is upgraded to *1.18.6*.
 | `rapid`| automatically upgrade the cluster to the latest supported patch release on the latest supported minor version.| In cases where the cluster is at a version of Kubernetes that is at an *N-2* minor version where *N* is the latest supported minor version, the cluster first upgrades to the latest supported patch version on *N-1* minor version. For example, if a cluster is running version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, your cluster first is upgraded to *1.18.6*, then is upgraded to *1.19.1*.
+| `node-image`| automatically upgrade the node image to the latest version available.| Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available. |
 
 > [!NOTE]
 > Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
@@ -162,6 +163,10 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## Using Cluster Auto-Upgrade with Planned Maintenance
+
+If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specified maintenance window. For more details on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.
@@ -175,13 +180,14 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [upgrade-cluster]:  #upgrade-an-aks-cluster
+[planned-maintenance]: planned-maintenance.md

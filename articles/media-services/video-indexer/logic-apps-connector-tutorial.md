@@ -12,7 +12,7 @@ ms.date: 09/21/2020
 
 # Tutorial: use Video Indexer with Logic App and Power Automate
 
-Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) supports both server-to-server and client-to-server communication and enables Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
+Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) supports both server-to-server and client-to-server communication and enables Video Indexer users to integrate video and audio insights easily into their application logic, unlocking new experiences and monetization opportunities.
 
 To make the integration even easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with our API. You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for your integration gives you better visibility on the health of your workflow and an easy way to debug it.  
 

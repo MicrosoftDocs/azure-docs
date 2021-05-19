@@ -85,6 +85,6 @@ You can clean up the resources created in this quickstart by deleting the [Azure
 ## Next steps
 
 * [Migrate SQL Server to Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
-* [Migrate SQL Server to Azure SQL Database online](tutorial-sql-server-azure-sql-online.md)
+* [Migrate SQL Server to Azure SQL Database online](./tutorial-sql-server-to-azure-sql.md)
 * [Migrate SQL Server to an Azure SQL Managed Instance offline](tutorial-sql-server-to-managed-instance.md)
 * [Migrate SQL Server to an Azure SQL Managed Instance online](tutorial-sql-server-managed-instance-online.md)

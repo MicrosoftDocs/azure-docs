@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -73,7 +73,7 @@ At a high level, an import job involves the following steps:
 >
 > For abroad (outside data center country/region) shipments, please share an international carrier account.
 
- ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
+ ![Figure 1:Import job flow](./media/storage-import-export-service/import-job.png)
 
 For step-by-step instructions on data import, go to:
 
@@ -102,7 +102,7 @@ At a high level, an export job involves the following steps:
 >
 > For abroad (outside data center country/region) shipments, please share an international carrier account.
   
- ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
+ ![Figure 2:Export job flow](./media/storage-import-export-service/export-job.png)
 
 For step-by-step instructions on data export, go to [Export data from Azure Blobs](storage-import-export-data-from-blobs.md).
 

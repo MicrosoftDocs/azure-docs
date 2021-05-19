@@ -59,11 +59,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
+            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
+            url: quickstarts/client-libraries.md?pivots=programming-language-python
           - text: Using the Go SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
+            url: quickstarts/client-libraries.md?pivots=programming-language-go
       - linkListType: how-to-guide
         links:
           - text: Specify a face recognition model
@@ -71,12 +71,10 @@ landingContent:
 
   - title: Use face rectangles
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Display face data in a WPF app
-            url: Tutorials/FaceAPIinCSharpTutorial.md
       - linkListType: how-to-guide
         links:
+          - text: Detect and analyze faces
+            url: Face-API-How-to-Topics/howtodetectfacesinimage.md
           - text: Use the HeadPose attribute
             url: Face-API-How-to-Topics/how-to-use-headpose.md
       
@@ -99,14 +97,14 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Face API v1.0
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+          - text: REST API
+            url: /rest/api/face/
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-face/
           - text: Java SDK
-            url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
             url: /javascript/api/@azure/cognitiveservices-face
           - text: Go SDK
@@ -114,7 +112,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
   
   - title: Help and feedback
     linkLists:

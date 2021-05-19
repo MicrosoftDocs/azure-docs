@@ -56,7 +56,7 @@ The Microsoft Azure StorSimple solution includes the following components:
 * **StorSimple Cloud Appliance** – also known as the StorSimple Virtual Appliance. A software version of the StorSimple device that replicates the architecture and most capabilities of the physical hybrid storage device. The StorSimple Cloud Appliance runs on a single node in an Azure virtual machine. Premium virtual devices, which take advantage of Azure premium storage, are available in Update 2 and later.
 * **StorSimple Device Manager service** – an extension of the Azure portal that lets you manage a StorSimple device or StorSimple Cloud Appliance from a single web interface. You can use the StorSimple Device Manager service to create and manage services, view and manage devices, view alerts, manage volumes, and view and manage backup policies and the backup catalog.
 * **Windows PowerShell for StorSimple** – a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your StorSimple device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or using Windows PowerShell remoting.
-* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true#azure).
+* **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/#azure).
 * **StorSimple Snapshot Manager** – an MMC snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
 * **StorSimple Adapter for SharePoint** – a tool that transparently extends Microsoft Azure StorSimple storage and data protection to SharePoint Server farms, while making StorSimple storage viewable and manageable from the SharePoint Central Administration portal.
 
@@ -125,7 +125,7 @@ You can access Windows PowerShell for StorSimple from a serial console (on a hos
 For more information, go to [Use Windows PowerShell for StorSimple to administer your device](storsimple-8000-windows-powershell-administration.md).
 
 ## Azure PowerShell StorSimple cmdlets
-The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true).
+The Azure PowerShell StorSimple cmdlets are a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](/powershell/module/servicemanagement/azure.service/).
 
 ## StorSimple Snapshot Manager
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data. The snap-in runs on a Windows Server–based host. You can use StorSimple Snapshot Manager to:
@@ -142,7 +142,7 @@ If a disaster occurs or if you need to restore data for another reason, StorSimp
 For more information, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ## StorSimple Adapter for SharePoint
-Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint server farms. The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.
+Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint Server farms. The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.
 
 The StorSimple Adapter for SharePoint is managed from within the SharePoint Central Administration portal. So SharePoint management remains centralized, and all storage appears to be in the SharePoint farm.
 
@@ -251,7 +251,7 @@ Following is a list of other software used with StorSimple to build solutions.
 | Backup target |Veeam |Veeam v 9 and later |[StorSimple as a backup target with Veaam](storsimple-configure-backup-target-veeam.md)|
 | Backup target |Veritas Backup Exec |Backup Exec 16 and later |[StorSimple as a backup target with Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup target |Veritas NetBackup |NetBackup 7.7.x and later  |[StorSimple as a backup target with NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.theinfostride.com/talon-and-microsoft-to-host-azure-storsimple-web-conference-with-capita/) | |
 
 ## StorSimple terminology
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.
@@ -300,7 +300,7 @@ Before deploying your Microsoft Azure StorSimple solution, we recommend that you
 | Small Computer System Interface (SCSI) |A set of standards for physically connecting computers and passing data between them. |
 | solid state drive (SSD) |A disk that contains no moving parts; for example, a flash drive. |
 | storage account |A set of access credentials linked to your storage account for a given cloud service provider. |
-| StorSimple Adapter for SharePoint |A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint server farms. |
+| StorSimple Adapter for SharePoint |A Microsoft Azure StorSimple component that transparently extends StorSimple storage and data protection to SharePoint Server farms. |
 | StorSimple Device Manager service |An extension of the Azure portal that allows you to manage your Azure StorSimple on-premises and virtual devices. |
 | StorSimple Snapshot Manager |A Microsoft Management Console (MMC) snap-in for managing backup and restore operations in Microsoft Azure StorSimple. |
 | take backup |A feature that allows the user to take an interactive backup of a volume. It is an alternate way of taking a manual backup of a volume as opposed to taking an automated backup via a defined policy. |

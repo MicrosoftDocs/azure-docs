@@ -12,31 +12,35 @@ ms.date: 10/16/2020
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio
 
-This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
+This tutorial demonstrates how to use the Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
 
 This tutorial covers the following tasks:
 > [!div class="checklist"]
 >
 > - Create an Apache Spark job definition for PySpark (Python)
-> - Create an Apache Spark job definition for Spark(Scala)
-> - Create an Apache Spark job definition for .NET Spark(C#/F#)
+> - Create an Apache Spark job definition for Spark (Scala)
+> - Create an Apache Spark job definition for .NET Spark (C#/F#)
+> - Create job definition by importing a JSON file
+> - Exporting an Apache Spark job definition file to local
 > - Submit an Apache Spark job definition as a batch job
 > - Add an Apache Spark job definition into pipeline
+
 
 ## Prerequisites
 
 Before you start with this tutorial, make sure to meet the following requirements:
 
-* An Azure Synapse Analytics workspace. For instructions, see [Create an Azure Synapse Analytics workspace](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* An Azure Synapse Analytics workspace. For instructions, see [Create an Azure Synapse Analytics workspace](../../machine-learning/how-to-manage-workspace.md).
 * A serverless Apache Spark pool.
-* An ADLS Gen2 storage account. You need to be the **Storage Blob Data Owner** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
+* An ADLS Gen2 storage account. You need to be the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
 * If you don’t want to use the workspace default storage, link the required ADLS Gen2 storage account in Synapse Studio. 
+
 
 ## Create an Apache Spark job definition for PySpark (Python)
 
 In this section, you create an Apache Spark job definition for PySpark (Python).
 
-1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
+1. Open [Synapse Studio](https://web.azuresynapse.net/).
 
 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) to download **sample files for python.zip**, then unzip the compressed package, and extract the **wordcount.py** and **shakespeare.txt** files. 
 
@@ -155,9 +159,60 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
 
       ![publish dotnet definition](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
+## Create Apache Spark job definition by importing a JSON file
+
+ You can import an existing local JSON file into Azure Synapse workspace from the **Actions** (...) menu of the Apache Spark job definition Explorer to create a new Apache Spark job definition.
+
+ ![create import definition](./media/apache-spark-job-definitions/create-import-definition.png)
+
+ 
+ The Spark job definition is fully compatible with Livy API. You can add additional parameters for other Livy properties [(Livy Docs - REST API (apache.org)](https://livy.incubator.apache.org/docs/latest/rest-api.html) in the local JSON file. You can also specify the Spark configuration related parameters in the config property as shown below. Then, you can import the JSON file back to create a new Apache Spark job definition for your batch job. Example JSON for spark definition import:
+ 
+```Scala
+   {
+  "targetBigDataPool": {
+    "referenceName": "socdemolarge",
+    "type": "BigDataPoolReference"
+  },
+  "requiredSparkVersion": "2.3",
+  "language": "scala",
+  "jobProperties": {
+    "name": "robinSparkDefinitiontest",
+    "file": "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/wordcount.jar",
+    "className": "WordCount",
+    "args": [
+      "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/shakespeare.txt"
+    ],
+    "jars": [],
+    "files": [],
+    "conf": {
+      "spark.dynamicAllocation.enabled": "false",
+      "spark.dynamicAllocation.minExecutors": "2",
+      "spark.dynamicAllocation.maxExecutors": "2"
+    },
+    "numExecutors": 2,
+    "executorCores": 8,
+    "executorMemory": "24g",
+    "driverCores": 8,
+    "driverMemory": "24g"
+  }
+}
+
+```
+
+![other livy properties](./media/apache-spark-job-definitions/other-livy-properties.png)
+
+## Export an existing Apache Spark job definition file
+
+ You can export existing Apache Spark job definition files to local from **Actions** (...) menu of the File Explorer. You can further update the JSON file for additional Livy properties, and import it back to create new job definition if necessary.
+
+ ![create export definition](./media/apache-spark-job-definitions/create-export-definition.png)
+
+ ![create export definition 2](./media/apache-spark-job-definitions/create-export-definition-2.png)
+
 ## Submit an Apache Spark job definition as a batch job
 
-After creating an Apache Spark job definition, you can submit it to an Apache Spark pool. Make sure you are the **Storage Blob Data Owner** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
+After creating an Apache Spark job definition, you can submit it to an Apache Spark pool. Make sure you are the **Storage Blob Data Contributor** of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually.
 
 ### Scenario 1: Submit Apache Spark job definition
  1. Open an Apache spark job definition window by selecting it.
@@ -197,6 +252,7 @@ In this section, you add an Apache Spark job definition into pipeline.
      ![add to pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
      ![add to pipeline2](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+
 
 ## Next steps
 

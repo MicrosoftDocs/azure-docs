@@ -94,12 +94,12 @@ To change data warehouse units:
 
 ## Monitor scale change request
 
-To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the sys.dm_operation_status dynamic management view (DMV).
+To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) dynamic management view (DMV).
 
 To poll for the service object change status:
 
 1. Right-click **master** and select **New Query**.
-2. Run the following query to poll the sys.dm_operation_status DMV.
+2. Run the following query to poll the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV.
 
     ```sql
     WHILE

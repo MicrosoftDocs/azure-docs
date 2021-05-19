@@ -3,6 +3,7 @@ title: Constrained vCPU sizes
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
 author: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/09/2018
 ms.author: mimckitt

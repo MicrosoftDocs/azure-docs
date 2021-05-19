@@ -1,9 +1,9 @@
 ---
 title: 'Ingestion overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data ingestion into Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights

@@ -2,18 +2,18 @@
 title: Add an NSX-T network segment
 description: Steps to add an NSX-T network segment for Azure VMware Solution.
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 03/13/2021
 ---
 
-<!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
+<!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
 1. In NSX-T Manager, select **Networking** > **Segments**, and then select **Add Segment**. 
 
    :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot showing how to add a new segment":::
 
-1. Select **Add Segment** and enter a name for the segment.
+1. Enter a name for the segment.
 
-1. Select the Tier1 Gateway (TNTxx-T1) as the **Connected Gateway** and leave the **Type** as Flexible.
+1. Select the Tier-1 Gateway (TNTxx-T1) as the **Connected Gateway** and leave the **Type** as Flexible.
 
 1. Select the pre-configured overlay **Transport Zone** (TNTxx-OVERLAY-TZ) and then select **Set Subnets**. 
 

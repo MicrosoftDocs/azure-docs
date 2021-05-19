@@ -6,7 +6,7 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 04/05/2021
 ---
 
 # Plan and manage costs for Azure Cosmos DB
@@ -26,15 +26,19 @@ Azure Cosmos DB supports two types of capacity modes: [provisioned throughput](s
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Estimating provisioned throughput costs before using Azure Cosmos DB
+## Estimate costs before using Azure Cosmos DB
+
+Azure Cosmos DB is available in two different capacity modes: provisioned throughput and serverless. You can perform the exact same database operations in both modes, but the way you get billed for these operations is different.
+
+### Estimate provisioned throughput costs
 
 If you plan to use Azure Cosmos DB in provisioned throughput mode, use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/) to estimate costs before you create the resources in an Azure Cosmos account. The capacity calculator is used to get an estimate of the required throughput and cost of your workload. Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimize the cost and performance. You have to input details such as API type, number of regions, item size, read/write requests per second, total data stored to get a cost estimate. To learn more about the capacity calculator, see the [estimate](estimate-ru-with-capacity-planner.md) article.
 
 The following screenshot shows the throughput and cost estimation by using the capacity calculator:
 
-:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Cost estimate in Azure Cosmos DB capacity calculator":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode-sql-api.png" alt-text="Capacity planner basic mode" border="true":::
 
-## <a id="estimating-serverless-costs"></a> Estimating serverless costs before using Azure Cosmos DB
+### <a id="estimating-serverless-costs"></a> Estimate serverless costs
 
 If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how many [Request Units](request-units.md) and GB of storage you may consume on a monthly basis. You can estimate the required amount of Request Units by evaluating the number of database operations that would be issued in a month, and multiply their amount by their corresponding RU cost. The following table lists estimated RU charges for common database operations:
 
@@ -53,6 +57,26 @@ Once you have computed the total number of Request Units and GB of storage you'r
 
 > [!NOTE]
 > The costs shown in the previous example are for demonstration purposes only. See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+
+## Understand the full billing model
+
+Azure Cosmos DB runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+
+### How you're charged for Azure Cosmos DB
+
+When you create or use Azure Cosmos DB resources, you might get charged for the following meters:
+
+* **Database operations** - You're charged for it based on the request units(RU/s) provisioned or consumed:
+  * Standard (manual) provisioned throughput - You are billed an hourly rate for the RU/s provisioned on your container or database.
+  * Autoscale provisioned throughput - You are billed based on the maximum number of RU/s the system scaled up to in each hour.
+
+* **Consumed storage** - You're charged for it based the total amount of storage (in GBs) consumed by your data and indexes for a given hour.
+
+There is an additional charge in case you are using the Azure Cosmos DB features like backup storage, analytical storage, Availability zones, Multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Cosmos DB costs. There's a separate line item for each meter. To learn more, see the [Pricing model](how-pricing-works.md) article.
+
+### Using Azure Prepayment
+
+You can pay for Azure Cosmos DB charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third party products and services including those from the Azure Marketplace.
 
 ## Review estimated costs in the Azure portal
 
@@ -74,7 +98,7 @@ You can pay for Azure Cosmos DB charges with your Azure Prepayment (previously c
 
 As you use resources with Azure Cosmos DB, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Cosmos DB starts, costs are incurred and you can see them in the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pane in the Azure portal.
 
-When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and tables for different time intervals. Some examples are by day, current, prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you’ve created budgets, you can also easily see where they exceeded. 
+When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and tables for different time intervals. Some examples are by day, current, prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you’ve created budgets, you can also easily see where they exceeded.
 
 To view Azure Cosmos DB costs in cost analysis:
 
@@ -85,7 +109,7 @@ To view Azure Cosmos DB costs in cost analysis:
 1. By default, cost for all services are shown in the first donut chart. Select the area in the chart labeled "Azure Cosmos DB".
 
 1. To narrow costs for a single service such as Azure Cosmos DB, select **Add filter** and then select **Service name**. Then, choose **Azure Cosmos DB** from the list. Here’s an example showing costs for just Azure Cosmos DB:
- 
+
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitor costs with Cost Analysis pane":::
 
 In the preceding example, you see the current cost for Azure Cosmos DB for the month of Feb. The charts also contain Azure Cosmos DB costs by location and by resource group.
@@ -100,14 +124,27 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
+## Other ways to manage and reduce costs
+
+The following are some best practices you can use to reduce the costs:
+
+* [Optimize provisioned throughput cost](optimize-cost-throughput.md) - This article details the best practices to optimize your throughput cost. It describes when to provision throughput at the container-level Vs at the database-level based on your workload type.
+
+* [Optimize request cost](optimize-cost-reads-writes.md) - This article describes how read and write requests translate into request units and how to optimize the cost of these requests.
+
+* [Optimize storage cost](optimize-cost-storage.md) - Storage cost is billed on consumption basis. Learn how to optimize your storage cost with item size, indexing policy, by using features like change feed and time to live.
+
+* [Optimize multi-region cost](optimize-cost-regions.md) - If you have one or more under-utilized read regions you can take steps to make the maximum use of the RUs in read regions by using change feed from the read-region or move it to another secondary if over-utilized.
+
+* [Optimize development/testing cost](optimize-dev-test.md) - Learn how to optimize your development cost by using the local emulator, the Azure Cosmos DB free tier, Azure free account and few other options.
+
+* [Optimize cost with reserved capacity](cosmos-db-reserved-capacity.md) - Learn how to use reserved capacity to save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years.
+
 ## Next steps
 
 See the following articles to learn more on how pricing works in Azure Cosmos DB:
 
 * [Pricing model in Azure Cosmos DB](how-pricing-works.md)
-* [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md)
-* [Optimize storage cost in Azure Cosmos DB](optimize-cost-storage.md)
 * Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

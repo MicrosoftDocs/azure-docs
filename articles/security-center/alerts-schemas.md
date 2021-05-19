@@ -20,7 +20,7 @@ If your subscription has Azure Defender enabled, you'll receive security alerts 
 
 You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
 
-- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Azure Security Center and sends them to the [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md) for Azure Sentinel.
+- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Azure Security Center and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Azure Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
 
@@ -169,7 +169,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 
 Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Microsoft 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
-The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
+The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](/graph/api/resources/alert).
 
 ---
 
@@ -183,4 +183,4 @@ For more information on the ways to access security alerts from outside Security
 - [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
 - [Continuously export Security Center data](continuous-export.md)
-- [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information
+- [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information

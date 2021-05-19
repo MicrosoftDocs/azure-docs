@@ -13,7 +13,7 @@ ms.date: 12/02/2020
 
 This article describes how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) service that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](../create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 >[!NOTE]
 > Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you resubmit the offer for publication.
@@ -28,7 +28,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
 
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+Enter an **Offer ID**. This value is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - The Offer ID combined with the Publisher ID must be under 40 characters in length.
@@ -46,7 +46,7 @@ Select **Create** to generate the offer and continue.
 
 ### Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. This name (pre-populated with what your entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, go to the [Offer Listing](#offer-listing) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. This name (pre-populated with what you have entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, go to the [Offer Listing](#offer-listing) page.
 
 ### Setup details
 
@@ -113,11 +113,11 @@ This page lets you define offer details such as offer name, description, links, 
 > [!NOTE]
 > Provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
-<!-- update screen? -->
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are examples only and not intended to reflect actual costs):
+
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-#### Call-out descriptions
+### Call-out descriptions
 
 1. Logo
 2. Products
@@ -169,11 +169,11 @@ Provide logos and images that will be used when showing your offer to customers.
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+>If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 #### Logos
 
-Provide a PNG file for the **Large** size logo. Partner Center will use this to create other required sizes. You can optionally replace this with a different image later.
+Provide a PNG file for the **Large** size logo. Partner Center will use this initial file to create other required sizes. You can optionally replace the resized image with your own image later.
 
 These logos are used in different places in the listing:
 
@@ -189,7 +189,7 @@ Add screenshots that show how your offer works. At least three screenshots are r
 
 You can optionally add up to four videos that demonstrate your offer. Videos must be hosted on an external site. For each one, enter the video's name, its address, and a thumbnail image of the video (1280 x 720 pixels).
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
+For more marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before continuing.
 
@@ -220,6 +220,8 @@ Select **Save draft** before continuing.
 
 This page defines the technical details used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it.
 
+Extensions submitted for your offer must meet the requirements specified in the [Technical Validation Checklist](/dynamics365/business-central/dev-itpro/developer/devenv-checklist-submission).
+
 ### File upload
 
 If you previously selected **Add On**, where you'll upload your offer's package file, along with the package files for any extension on which it has dependencies.
@@ -237,14 +239,6 @@ Required if your offer must be installed along with another extension that will 
 
 Select **Save draft** before continuing.
 
-<!-- ## Test drive technical configuration
-
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
-
-When you've finished setting up your test drive, select **Save draft** before continuing.
--->
 ## Supplemental content
 
 This page lets you provide additional information to help us validate your offer. This information is not shown to customers or published to the marketplace.
@@ -280,9 +274,9 @@ After completing all required sections of the offer, select **Review and publish
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - **Not started** - Section has not been touched and needs to be completed.
-    - **Incomplete** - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
-    - **Complete** - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+  - **Not started** - Section has not been touched and needs to be completed.
+  - **Incomplete** - Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
+  - **Complete** - Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** to publish your offer to the public.
 

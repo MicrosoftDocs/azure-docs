@@ -31,3 +31,5 @@ To trigger a build job, you can either push a commit to source code repository o
 6. Click **dev** stage to see release logs.
 
     ![Release logs](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. If your pipeline is failing, start by looking at the logs. You can view logs by navigating to the pipeline run summary and selecting the job and task. If a certain task is failing, check the logs for that task. For detailed instructions for configuring and using logs, see [Review logs to diagnose pipeline issues](/azure/devops/pipelines/troubleshooting/review-logs).

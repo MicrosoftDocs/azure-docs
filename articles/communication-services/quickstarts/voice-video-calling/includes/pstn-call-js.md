@@ -2,7 +2,7 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
@@ -51,7 +51,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -84,7 +84,7 @@ Add an event handler to initiate a call to the phone number you provided when th
 callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
+  call = callAgent.startCall(
     [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
   // toggle button states

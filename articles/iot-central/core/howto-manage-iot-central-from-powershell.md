@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you prefer to run Azure PowerShell on your local machine, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). When you run Azure PowerShell locally, use the **Connect-AzAccount** cmdlet to sign in to Azure before you try the cmdlets in this article.
 
 > [!TIP]
-> If you need to run your PowerShell commands in a different Azure subscription, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription&preserve-view=true).
+> If you need to run your PowerShell commands in a different Azure subscription, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 ## Install the IoT Central module
 
@@ -74,7 +74,11 @@ The script first creates a resource group in the east US region for the applicat
 |Template          | The application template to use. For more information, see the following table. |
 |DisplayName       |The name of the application as displayed in the UI. |
 
+### Application templates
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+If you've created your own application template, you can use it to create a new application. When asked for an application template, enter the app ID shown in the exported app's URL shareable link under the [Application template export](howto-use-app-templates.md#create-an-application-template) section of your app.
 
 ## View your IoT Central applications
 

@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | Creates a copy of a database that uses the snapshot at the current time. |
+| [az sql db copy](/cli/azure/sql/db#az_sql_db_copy) | Creates a copy of a database that uses the snapshot at the current time. |
 
 ## Next steps
 

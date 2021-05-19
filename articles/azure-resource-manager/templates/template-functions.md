@@ -28,6 +28,10 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
 
+## Any function
+
+The [any function](template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
+
 ## Array functions
 
 Resource Manager provides several functions for working with arrays.
@@ -166,7 +170,6 @@ Resource Manager provides the following functions for getting resource values:
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.

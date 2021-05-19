@@ -4,9 +4,7 @@ description: In this quickstart, you enable Event Grid events for your container
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-# Customer intent: As a container registry owner, I want to send events to Event Grid
-# when container images are pushed to or deleted from my container registry so that
-# downstream applications can react to those events.
+# Customer intent: As a container registry owner, I want to send events to Event Grid when container images are pushed to or deleted from my container registry so that downstream applications can react to those events.
 ---
 
 # Quickstart: Send events from private container registry to Event Grid
@@ -234,6 +232,6 @@ In this quickstart, you deployed a container registry, built an image with ACR T
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr/repository
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

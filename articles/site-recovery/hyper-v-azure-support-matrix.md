@@ -1,12 +1,9 @@
 ---
 title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
 ---
 
 
@@ -139,7 +136,7 @@ Standard storage | Yes | Yes
 Import/Export service | No | No
 Azure Storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
-Secure transfer option | Yes
+Secure transfer option | Yes | Yes
 
 
 ## Azure compute features

@@ -23,7 +23,7 @@ Although this article guides you with Azure DevOps, the same concepts would appl
 ## Prerequisites
 * Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled
 * [Azure Dev Spaces CLI installed](upgrade-tools.md)
-* [Azure DevOps organization with a project](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Azure DevOps organization with a project](/azure/devops/user-guide/sign-up-invite-teammates)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Azure Container Registry [administrator account](../../container-registry/container-registry-authentication.md#admin-account) details available
 * [Authorize your AKS cluster to pull from your Azure Container Registry](../../aks/cluster-container-registry-integration.md)
@@ -65,7 +65,7 @@ The option to disable:
 > [!Note]
 > The Azure DevOps _New YAML pipeline creation experience_ preview feature conflicts with creating pre-defined build pipelines at this time. You need to disable it for now in order to deploy our pre-defined build pipeline.
 
-In the _azds_updates_ branch we've included a simple [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) that defines the build steps required for *mywebapi* and *webfrontend*.
+In the _azds_updates_ branch we've included a simple [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?tabs=schema) that defines the build steps required for *mywebapi* and *webfrontend*.
 
 Depending on the language you've chosen, the pipeline YAML has been checked-in at a path similar to: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 

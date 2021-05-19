@@ -6,25 +6,23 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
+The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web SDK can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop).
 
 ## Overview
 
-The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure. 
+The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure.
 
 Here's what the sample looks like:
 
@@ -43,6 +41,9 @@ Components of the main calling screen:
 - **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
 - **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
 - **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+
+> [!NOTE]
+> Based on limitations on the Web Calling SDK, only one remote video stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -86,17 +87,17 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
 
 ### Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces

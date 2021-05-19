@@ -24,6 +24,10 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
+
 ## <a name="createhost"></a>Create a bastion host
 
 This section helps you create a new Azure Bastion resource using Azure CLI.

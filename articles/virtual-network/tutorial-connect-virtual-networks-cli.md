@@ -6,7 +6,7 @@ documentationcenter: virtual-network
 author: KumudD
 
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -166,6 +166,8 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 ```
 
 Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

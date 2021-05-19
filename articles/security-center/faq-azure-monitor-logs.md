@@ -30,7 +30,7 @@ A Security Center solution is installed on the workspace selected in the Data Co
 ## Does Security Center install solutions on my existing Log Analytics workspaces? What are the billing implications?
 When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing configuration. The solutions are applied only to the relevant Azure VMs, via [solution targeting](../azure-monitor/insights/solution-targeting.md), so the billing remains the same.
 
-- **Azure Defender off** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You won't be billed.
+- **Azure Defender off** – Security Center installs the "SecurityCenterFree" solution on the workspace. You won't be billed.
 - **Azure Defender on** – Security Center installs the 'Security' solution on the workspace.
 
    ![Solutions on default workspace](./media/security-center-platform-migration-faq/solutions.png)

@@ -79,9 +79,9 @@ This table lists the commands used in our sample script.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Create or update a key-value pair. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | List key-value pairs in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Delete a key-value pair. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az_appconfig_kv_set) | Create or update a key-value pair. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az_appconfig_kv_list) | List key-value pairs in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az_appconfig_kv_delete) | Delete a key-value pair. |
 
 ## Next steps
 

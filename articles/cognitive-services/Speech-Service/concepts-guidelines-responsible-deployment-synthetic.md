@@ -59,6 +59,6 @@ Individuals with speech disorders desire to make updates to their synthetic voic
 
 ## See also
 
-* [Disclosure for Voice Talent](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)

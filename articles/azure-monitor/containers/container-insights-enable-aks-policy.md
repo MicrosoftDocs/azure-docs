@@ -10,8 +10,8 @@ This article describes how to enable AKS Monitoring Addon using Azure Custom Pol
 
 Monitoring Addon require following roles on the managed identity used by Azure Policy:
 
- - [azure-kubernetes-service-contributor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-analytics-contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [azure-kubernetes-service-contributor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-analytics-contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## Create and assign policy definition using Azure portal
 
@@ -74,6 +74,5 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 
 - Learn more about [Azure Policy](../../governance/policy/overview.md).
 - Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
-- Learn more about [Azure Monitor for Containers](../insights/container-insights-overview.md).
-- Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- Learn more about [Container insights](./container-insights-overview.md).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).

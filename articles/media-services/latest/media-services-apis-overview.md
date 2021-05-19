@@ -33,7 +33,7 @@ To be authorized to access Media Services resources and the Media Services API, 
 * **Service principal authentication**: Used to authenticate a service (for example: web apps, function apps, logic apps, API, and microservices). Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs. For example, for web apps there should always be a mid-tier that connects to Media Services with a Service Principal.
 * **User authentication**: Used to authenticate a person who is using the app to interact with Media Services resources. The interactive app should first prompt the user for the user's credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming.
 
-The Media Services API requires that the user or app making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Azure role-based access control (Azure RBAC) for Media Services accounts](rbac-overview.md).
+The Media Services API requires that the user or app making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Azure role-based access control (Azure RBAC) for Media Services accounts](security-rbac-concept.md).
 
 Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -65,7 +65,7 @@ see [Access Azure Media Services API](./access-api-howto.md).
 
 See the following samples that show how to connect with Azure AD service principal:
 
-* [Connect with REST](media-rest-apis-with-postman.md)  
+* [Connect with REST](setup-postman-rest-how-to.md)  
 * [Connect with Java](configure-connect-java-howto.md)
 * [Connect with .NET](configure-connect-dotnet-howto.md)
 * [Connect with Node.js](configure-connect-nodejs-howto.md)
@@ -141,7 +141,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## Filtering, ordering, paging of Media Services entities
 
-See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md).
+See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entitites-how-to.md).
 
 ## Ask questions, give feedback, get updates
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 02/02/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Splunk Enterprise and Splunk Cloud
@@ -22,10 +22,10 @@ In this tutorial, you'll learn how to integrate Splunk Enterprise and Splunk Clo
 
 ## Prerequisites
 
-To configure Azure AD integration with  Splunk Enterprise and Splunk Cloud, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Splunk Enterprise and Splunk Cloud single sign-on enabled subscription.
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Splunk Enterprise and Splunk Cloud single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with Splunk Enterprise and Splunk Cloud, perf
     1. **[Create Splunk Enterprise and Splunk Cloud test user](#create-splunk-enterprise-and-splunk-cloud-test-user)** - to have a counterpart of B.Simon in Splunk Enterprise and Splunk Cloud that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -108,16 +108,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Splunk Enterprise and Splunk Cloud SSO
+## Configure Splunk Enterprise and Splunk Cloud SSO
 
   To configure single sign-on on **Splunk Enterprise and Splunk Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Splunk Enterprise and Splunk Cloud support team](https://www.splunk.com/en_us/about-splunk/contact-us.html). They set this setting to have the SAML SSO connection set properly on both sides.
-
 
 ### Create Splunk Enterprise and Splunk Cloud test user
 
 In this section, you create a user called Britta Simon in Splunk Enterprise and Splunk Cloud. Work with [Splunk Enterprise and Splunk Cloud support team](https://www.splunk.com/en_us/about-splunk/contact-us.html) to add the users in the Splunk Enterprise and Splunk Cloud platform. Users must be created and activated before you use single sign-on.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -125,8 +124,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Splunk Enterprise and Splunk Cloud Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Splunk Enterprise and Splunk Cloud tile in the My Apps, this will redirect to Splunk Enterprise and Splunk Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+* You can use Microsoft My Apps. When you click the Splunk Enterprise and Splunk Cloud tile in the My Apps, this will redirect to Splunk Enterprise and Splunk Cloud Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Splunk Enterprise and Splunk Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Once you configure Splunk Enterprise and Splunk Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -35,7 +35,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
@@ -97,7 +97,7 @@ To use query acceleration, you must first register the query acceleration featur
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
+3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name BlobQuery
@@ -117,7 +117,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 
 #### [Azure CLI](#tab/azure-cli)
 
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name BlobQuery
@@ -139,7 +139,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### [Azure CLI](#tab/azure-cli)
 
-To register the resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command.
+To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -474,6 +474,9 @@ async function dumpQueryCsv(blob, query, headers)
 ## Retrieve specific columns
 
 You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
+
+> [!NOTE]
+> The maximum number of columns that you can scope your results to is 50. If you need your results to contain more than 50 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
 
 This code retrieves only the `BibNum` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
 

@@ -295,6 +295,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
@@ -302,6 +303,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
     {
       "name": "outputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}-Copy",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
@@ -321,9 +323,8 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[bytes]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)
 ```
 
@@ -395,7 +396,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out` for an output binding. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob container. |
-|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 |n/a | **Access** | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -426,8 +427,8 @@ Access the blob data via a parameter that matches the name designated by binding
 
 You can declare function parameters as the following types to write out to blob storage:
 
-* Strings as `func.Out(str)`
-* Streams as `func.Out(func.InputStream)`
+* Strings as `func.Out[str]`
+* Streams as `func.Out[func.InputStream]`
 
 Refer to the [output example](#example) for details.
 

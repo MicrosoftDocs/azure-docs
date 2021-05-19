@@ -32,24 +32,12 @@ You can use reservation recommendations to help determine the reservations you s
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
 
-#### Instance size flexibility setting
-
-The instance size flexibility setting determines which services get the reserved instance discounts.
-
-Whether the setting is on or off, reservation discounts automatically apply to any matching Premium v3 reserved instance usage.
-
 ### Analyze your usage information
 
 Analyze your usage information to help determine which reservations you should purchase. Usage data is available in the usage file and APIs. Use them together to determine which reservation to purchase. Check for Premium v3 instances that have high usage on daily basis to determine the quantity of reservations to purchase.
 
 Your usage file shows your charges by billing period and daily usage. For information about downloading your usage file, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md). Then, by using the usage file information, you can [determine what reservation to purchase](determine-reservation-purchase.md).
 
-### Purchase restriction considerations
-
-Reservation discounts don't apply for the following Premium v3 instances:
-
-- **Preview or Promo instances** - Any Premium v3 reserved instance-series or size that is in preview or uses promotional meter.
-- **Clouds** - Reservations aren't available for purchase in Germany or China regions.
 
 ## Buy a Premium v3 reserved instance
 
@@ -74,7 +62,6 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 | Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only. </li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li></ul> |
 | Region | The Azure region that's covered by the reservation. |
 | Premium v3 reserved instance size | The size of the Premium v3 reserved instances. |
-| Optimize for | Premium v3 Reserved instance size flexibility is selected by default. Click **Advanced settings** to change the instance size flexibility value to apply the reservation discount to other Premium v3 reserved instances in the same [Premium v3 Reserved Instance size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority prioritizes data center capacity for your deployments. It offers additional confidence in your ability to launch the Premium v3 reserved instances when you need them. Capacity priority is only available when the reservation scope is single subscription. |
 | Term | One year or three years. There's also a 5-year term available only for HBv2 Premium v3 reserved instances. |
 | Quantity | The number of instances being purchased within the reservation. The quantity is the number of running Premium v3 reserved instances that can get the billing discount. For example, if you are running 10 Standard\_D2 Premium v3 reserved instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running Premium v3 reserved instances. |
 

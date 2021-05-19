@@ -2,8 +2,9 @@
 title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Storage
 description: Learn how to back up an Oracle Database 19c database to Azure cloud storage.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
@@ -120,7 +121,7 @@ This article demonstrates the use of Azure Storage as a media to back up and res
 10. Set database environment variables for fast recovery area:
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -363,7 +364,7 @@ While using RMAN and Azure File storage for database backup has many advantages,
     ORACLE instance shut down.
     ```
 
-2.  Remove the datafiles and backups:
+2.  Remove the database datafiles:
 
     ```bash
     cd /u02/oradata/TEST
@@ -401,4 +402,4 @@ az group delete --name rg-oracle
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

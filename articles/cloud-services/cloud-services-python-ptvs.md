@@ -23,7 +23,7 @@ This article provides an overview of using Python web and worker roles using [Py
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or  
 [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
 [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
-* [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
+* [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.8 32-bit][Python 3.8 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -66,7 +66,7 @@ Your cloud service can contain roles implemented in different languages.  For ex
 
 The main problem with the setup scripts is that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
-The following scripts were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+The following scripts were written targeting Python 3.8. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -162,7 +162,7 @@ The **PYTHON2** and **PYPATH** variables must be added to the worker startup tas
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
 #### PrepPython.ps1
-This script installs python. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is installed, otherwise Python 3.5 is installed.
+This script installs python. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is installed, otherwise Python 3.8 is installed.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -181,12 +181,12 @@ if (-not $is_emulated){
 
     if (-not $?) {
 
-        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.8.8-amd64.exe"
 
         if ($is_python2) {
-            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+            $url = "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.18.amd64.msi"
         }
 
         Write-Output "Not found, downloading $url to $outFile$nl"
@@ -209,7 +209,7 @@ if (-not $is_emulated){
 ```
 
 #### PipInstaller.ps1
-This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.5 is used.
+This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -244,7 +244,7 @@ if (-not $is_emulated){
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
-This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.5 is used.
+This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -359,4 +359,4 @@ For more details about using Azure services from your web and worker roles, such
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 3.8 32-bit]: https://www.python.org/downloads/

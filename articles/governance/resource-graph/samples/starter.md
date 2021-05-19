@@ -1,7 +1,7 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 02/04/2021
+ms.date: 05/01/2021
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -15,7 +15,7 @@ resources you're looking for.
 We'll walk through the following starter queries:
 
 - [Count Azure resources](#count-resources)
-- [Count key vault resources](#count-keyvaults)
+- [Count Key Vault resources](#count-keyvaults)
 - [List resources sorted by name](#list-resources)
 - [Show all virtual machines ordered by name in descending order](#show-vms)
 - [Show first five virtual machines by name and their OS type](#show-sorted)
@@ -74,7 +74,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="count-keyvaults"></a>Count key vault resources
+## <a name="count-keyvaults"></a>Count Key Vault resources
 
 This query uses `count` instead of `summarize` to count the number of records returned. Only key
 vaults are included in the count.
@@ -499,7 +499,7 @@ results from _Resources_, giving broad coverage to which tags are fetched. Last,
 results to `distinct` paired data and excludes system-hidden tags.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags
@@ -588,7 +588,7 @@ advisorresources
     solution = tostring(properties.shortDescription.solution),
     currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-    dcount(resources), 
+    dcount(resources),
     bin(sum(savings), 0.01)
     by solution, currency
 | project solution, dcount_resources, sum_savings, currency

@@ -1,5 +1,5 @@
 ---
-title: Deploy `PHP Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
+title: Deploy PHP `Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
 services: databox
 author: alkohli
@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Deploy a PHP `Guestbook` stateless application with Redis on Arc enabled Kubernetes cluster on Azure Stack Edge Pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article shows you how to build and deploy a simple, multi-tier web application using Kubernetes and Azure Arc. This example consists of the following components:
 
@@ -45,7 +47,7 @@ Before you can deploy the stateless application, make sure that you have complet
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     

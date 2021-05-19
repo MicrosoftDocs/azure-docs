@@ -10,44 +10,30 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: kgremban
+monikerRange: "iotedge-2018-06"
+
 ---
 
-# Install and manage Azure IoT Edge for Windows
+# Install and manage Azure IoT Edge with Windows containers
 
-Azure IoT Edge for Windows runs directly on your host Windows device and uses Windows containers to run business logic at the edge.
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
-
->[!NOTE]
->Azure IoT Edge for Windows will not be supported starting with version 1.2.0 of Azure IoT Edge.
->
->Consider using the new method for running IoT Edge on Windows devices, Azure IoT Edge for Linux on Windows.
-
-<!-- TODO: link to EFLOW-->
+The Azure IoT Edge runtime is what turns a device into an IoT Edge device. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 There are two steps to setting up an IoT Edge device. The first step is to install the runtime and its dependencies. The second step is to connect the device to its identity in the cloud and set up authentication with IoT Hub.
 
-This article lists the steps to install the Azure IoT Edge runtime on Windows devices. When you install the runtime, you have a choice of using Linux containers or Windows containers. Currently, only Windows containers on Windows are supported for production scenarios. Linux containers on Windows are useful for development and testing scenarios, especially if you're developing on a Windows PC in order to deploy to Linux devices.
+This article lists the steps to install the Azure IoT Edge runtime with Windows containers. If you are looking to use Linux containers on a Windows device, please see the [Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md) article.
+
+>[!NOTE]
+>Azure IoT Edge with Windows containers will not be supported starting with version 1.2 of Azure IoT Edge.
+>
+>Consider using the new method for running IoT Edge on Windows devices, [Azure IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md).
 
 ## Prerequisites
 
 * A Windows device
 
-  IoT Edge with Windows containers requires Windows version 1809/build 17762, which is the latest [Windows long term support build](/windows/release-information/). For development and test scenarios, any SKU (Pro, Enterprise, Server, etc.) that supports the containers feature will work. However, be sure to review the [supported systems list](support.md#operating-systems) before going to production.
-
-  IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
-
-* Container support on the device
-
-  Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) container engine. Make sure your device can support containers.
-
-  If you are installing IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMware, there's a toggle to enable the feature on your virtual machine.
-
-  If you are installing IoT Edge on an IoT Core device, use the following command in a [remote PowerShell session](/windows/iot-core/connect-your-device/powershell) to check whether Windows containers are supported on your device:
-
-  ```powershell
-  Get-Service vmcompute
-  ```
+  IoT Edge with Windows containers requires Windows version 1809/build 17763, which is the latest [Windows long term support build](/windows/release-information/). Be sure to review the [supported systems list](support.md#operating-systems) for a list of supported SKUs.
 
 * A [registered device ID](how-to-register-device.md)
 
@@ -57,16 +43,9 @@ This article lists the steps to install the Azure IoT Edge runtime on Windows de
 
 ## Install a container engine
 
-Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommended that you use the Moby-based engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
-
-For production scenarios, use the Moby-based engine that is included in the installation script. There are no additional steps to install the engine.
-
-For IoT Edge with Linux containers, you need to provide your own container runtime. Install [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) on your device and configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) before continuing.
+Azure IoT Edge relies on an OCI-compatible container runtime like [Moby](https://github.com/moby/moby). A Moby-based engine that is included in the installation script. There are no additional steps to install the engine.
 
 ## Install the IoT Edge security daemon
-
->[!TIP]
->For IoT Core devices, we recommend running the installation commands using a remote PowerShell session. For more information, see [Using PowerShell for Windows IoT](/windows/iot-core/connect-your-device/powershell).
 
 1. Run PowerShell as an administrator.
 
@@ -87,21 +66,14 @@ For IoT Edge with Linux containers, you need to provide your own container runti
    Deploy-IoTEdge
    ```
 
-   The `Deploy-IoTEdge` command defaults to using Windows containers. If you want to use Linux containers, add the `ContainerOs` parameter:
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge -ContainerOs Linux
-   ```
-
-3. At this point, IoT Core devices may restart automatically. Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now.
+3. Restart your device if prompted.
 
 When you install IoT Edge on a device, you can use additional parameters to modify the process including:
 
 * Direct traffic to go through a proxy server
 * Point the installer to a local directory for offline installation.
 
-For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
 
 ## Provision the device with its cloud identity
 
@@ -127,13 +99,6 @@ This section walks through the steps to provision a device with symmetric key au
    Initialize-IoTEdge -ManualConnectionString -ContainerOs Windows
    ```
 
-   * If you are using Linux containers, add the `-ContainerOs` parameter to the flag. Be consistent with the container option you chose with the `Deploy-IoTEdge` command that you ran previously.
-
-      ```powershell
-      . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-      Initialize-IoTEdge -ContainerOs Linux
-      ```
-
    * If you downloaded the IoTEdgeSecurityDaemon.ps1 script onto your device for offline or specific version installation, be sure to reference the local copy of the script.
 
       ```powershell
@@ -150,7 +115,7 @@ When you provision a device manually, you can use additional parameters to modif
 * Direct traffic to go through a proxy server
 * Declare a specific edgeAgent container image, and provide credentials if it's in a private registry
 
-For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
 
 ### Option 2: Authenticate with X.509 certificates
 
@@ -166,13 +131,6 @@ This section walks through the steps to provision a device with X.509 certificat
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ManualX509
    ```
-
-   * If you are using Linux containers, add the `-ContainerOs` parameter to the flag. Be consistent with the container option you chose with the `Deploy-IoTEdge` command that you ran previously.
-
-      ```powershell
-      . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-      Initialize-IoTEdge -ManualX509 -ContainerOs Linux
-      ```
 
    * If you downloaded the IoTEdgeSecurityDaemon.ps1 script onto your device for offline or specific version installation, be sure to reference the local copy of the script.
 
@@ -193,7 +151,7 @@ When you provision a device manually, you can use additional parameters to modif
 * Direct traffic to go through a proxy server
 * Declare a specific edgeAgent container image, and provide credentials if it's in a private registry
 
-For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
 
 ## Offline or specific version installation (optional)
 
@@ -216,9 +174,7 @@ If your device will be offline during installation, or if you want to install a 
 2. Find the version that you want to install, and download the following files from the **Assets** section of the release notes onto your IoT device:
 
    * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab from releases 1.0.9 or newer, or Microsoft-Azure-IoTEdge.cab from releases 1.0.8 and older.
-
-   Microsoft-Azure-IotEdge-arm32.cab is also available beginning in 1.0.9 for testing purposes only. IoT Edge is not currently supported on Windows ARM32 devices.
+   * Microsoft-Azure-IoTEdge-amd64.cab from 1.1 release channel.
 
    It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
 
@@ -242,19 +198,19 @@ If your device will be offline during installation, or if you want to install a 
 Use the `Update-IoTEdge` command to update the security daemon. The script automatically pulls the latest version of the security daemon.
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
 ```
 
-Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
 
-If you want to update to a specific version of the security daemon, find the version you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+If you want to update to a specific version of the security daemon, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
 ```
 
 >[!NOTE]
->The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
+>The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Rename the file to remove the architecture suffix if it has one.
 
 If you want to update a device offline, find the version you want to target from [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the *IoTEdgeSecurityDaemon.ps1* and *Microsoft-Azure-IoTEdge.cab* files. It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
 
@@ -267,7 +223,7 @@ To update with offline components, [dot source](/powershell/module/microsoft.pow
 Update-IoTEdge -OfflineInstallationPath <path>
 ```
 
-For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell script for IoT Edge on Windows](reference-windows-scripts.md).
+For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell scripts for IoT Edge with Windows containers](reference-windows-scripts.md).
 
 ## Uninstall IoT Edge
 
@@ -279,8 +235,6 @@ If you want to remove the IoT Edge installation from your Windows device, use th
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
-
-The `Uninstall-IoTEdge` command does not work on Windows IoT Core. To remove IoT Edge, you need to redeploy your Windows IoT Core image.
 
 For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
 

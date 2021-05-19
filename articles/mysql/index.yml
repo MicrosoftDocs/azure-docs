@@ -21,6 +21,8 @@ landingContent:
             url: overview.md
           - text: Choose the right MySQL option
             url: select-right-deployment-type.md
+          - text: Understand supported MySQL versions
+            url: concepts-supported-versions.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -32,14 +34,18 @@ landingContent:
         links:
           - text: What is Single Server?
             url: single-server-overview.md
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md            
           - text: View all Single server documentation
             url: single-server/index.yml
       - linkListType: concept
         links:
+          - text: Server concepts
+            url: concepts-servers.md
           - text: Understand pricing tiers
             url: concepts-pricing-tiers.md
-          - text: Understand supported MySQL versions
-            url: concepts-supported-versions.md
+          - text: Limitations
+            url: flexible-server/concepts-limitations.md
       - linkListType: quickstart
         links:
           - text: Create a server using the Azure Portal

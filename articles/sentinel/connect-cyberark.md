@@ -35,7 +35,7 @@ CyberArk EPV logs are sent from the Vault to a Linux-based log forwarding server
 
 1. In the Azure Sentinel portal, click **Data connectors**, select **CyberArk Enterprise Password Vault (EPV) Events (Preview)** and then **Open connector page**.
 
-1. Follow the CyberArk EPV instructions to configure sending syslog data to the log forwarding server.
+1. Follow the [CyberArk EPV instructions](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) to configure sending syslog data to the log forwarding server.
 
 1. Validate your connection and verify data ingestion using [these instructions](connect-cef-verify.md). It may take up to 20 minutes until your logs start to appear in Log Analytics.
 

@@ -1,19 +1,19 @@
 ---
-title: Known issues for application provisioning in Azure AD
-description: Learn about known issues when working with automated application provisioning in Azure AD.
+title: Known issues for Application Provisioning in Azure Active Directory
+description: Learn about known issues when working with automated Application Provisioning in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: daveba
+manager: mtillman
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 05/11/2021
 ms.reviewer: arvinh
 ---
 
-# Known issues: Application provisioning
+# Known issues for Application Provisioning in Azure Active Directory
 Known issues to be aware of when working with app provisioning. You can provide feedback about the application provisioning service on UserVoice, see [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We closely watch UserVoice so we can improve the service. 
 
 > [!NOTE]

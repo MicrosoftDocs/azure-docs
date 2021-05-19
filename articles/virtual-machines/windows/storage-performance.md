@@ -2,8 +2,8 @@
 title: Optimize performance on Azure Lsv2-series virtual machines
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Windows example.
 author: sasha-melamed
-ms.service: virtual-machines-windows
-ms.subservice: sizes
+ms.service: virtual-machines
+ms.subservice: vm-sizes-storage
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019

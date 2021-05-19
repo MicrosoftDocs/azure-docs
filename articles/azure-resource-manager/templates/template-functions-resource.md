@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 05/13/2021
 ---
 # Resource functions for ARM templates
 
@@ -11,7 +11,6 @@ Resource Manager provides the following functions for getting resource values in
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
-* [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -198,6 +197,7 @@ The possible uses of list* are shown in the following table.
 | Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -226,10 +226,10 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DataFactory/datafactories/gateways | listauthkeys |
 | Microsoft.DataFactory/factories/integrationruntimes | [listauthkeys](/rest/api/datafactory/integrationruntimes/listauthkeys) |
 | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers | [listSasTokens](/rest/api/datalakeanalytics/storageaccounts/listsastokens) |
-| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/shares/listsynchronizations) |
-| Microsoft.DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/sharesubscriptions/listsourcesharesynchronizationsettings) |
-| Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/sharesubscriptions/listsynchronizationdetails) |
-| Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/sharesubscriptions/listsynchronizations) |
+| Microsoft.DataShare/accounts/shares | [listSynchronizations](/rest/api/datashare/2020-09-01/shares/listsynchronizations) |
+| Microsoft.DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/2020-09-01/sharesubscriptions/listsourcesharesynchronizationsettings) |
+| Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizationdetails) |
+| Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizations) |
 | Microsoft.Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
 | Microsoft.Devices/iotHubs/iotHubKeys | [listkeys](/rest/api/iothub/iothubresource/getkeysforkeyname) |
 | Microsoft.Devices/provisioningServices/keys | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
@@ -238,9 +238,9 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-15/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -280,7 +280,7 @@ The possible uses of list* are shown in the following table.
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft.OperationalInsights/workspaces | listKeys |
-| Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
@@ -533,99 +533,21 @@ You can use the response from pickZones to determine whether to provide null for
 
 ---
 
-## providers
-
-`providers(providerNamespace, [resourceType])`
-
-Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |string |Namespace of the provider |
-| resourceType |No |string |The type of resource within the specified namespace. |
-
-### Return value
-
-Each supported type is returned in the following format:
-
-```json
-{
-  "resourceType": "{name of resource type}",
-  "locations": [ all supported locations ],
-  "apiVersions": [ all supported API versions ]
-}
-```
-
-Array ordering of the returned values isn't guaranteed.
-
-### Providers example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) shows how to use the provider function:
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "providerNamespace": {
-      "type": "string"
-    },
-    "resourceType": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "providerOutput": {
-      "type": "object",
-      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param providerNamespace string
-param resourceType string
-
-output providerOutput array = providers(providerNamespace, resourceType)
-```
-
----
-
-For the **Microsoft.Web** resource provider and **sites** resource type, the preceding example returns an object in the following format:
-
-```json
-{
-  "resourceType": "sites",
-  "locations": [
-    "South Central US",
-    "North Europe",
-    "West Europe",
-    "Southeast Asia",
-    ...
-  ],
-  "apiVersions": [
-    "2016-08-01",
-    "2016-03-01",
-    "2015-08-01-preview",
-    "2015-08-01",
-    ...
-  ]
-}
-```
-
 ## reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
+
+When referencing a resource that is deployed in the same template in Bicep, directly use the symbolic name of the resource to get the properties from the resource. For example:
+
+```bicep
+output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources).
 
 ### Parameters
 
@@ -663,9 +585,11 @@ Typically, you use the **reference** function to return a particular value from 
 # [Bicep](#tab/bicep)
 
 ```bicep
-output BlobUri string = reference(resourceId('Microsoft.Storage/storageAccounts', storageAccountName)).primaryEndpoints.blob
-output FQDN string = reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName)).dnsSettings.fqdn
+output BlobUri string = myStorageAccount.properties.primaryEndpoints.blob
+output FQDN string = myPublicIp.properties.dnsSettings.fqdn
 ```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource. *myPublicIp* is the symbolic name of the public IP address resource.
 
 ---
 
@@ -748,17 +672,7 @@ When referencing a resource that is deployed in the same template, provide the n
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-value: reference(storageAccountName)
-```
-
----
-
 When referencing a resource that isn't deployed in the same template, provide the resource ID and `apiVersion`.
-
-# [JSON](#tab/json)
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -767,7 +681,19 @@ When referencing a resource that isn't deployed in the same template, provide th
 # [Bicep](#tab/bicep)
 
 ```bicep
-value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
+value: myStorageAccount
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+When referencing a resource that isn't deployed in the same template using Bicep, use the `existing` keyword. For example:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
 ```
 
 ---
@@ -783,8 +709,10 @@ To avoid ambiguity about which resource you're referencing, you can provide a fu
 # [Bicep](#tab/bicep)
 
 ```bicep
-value: reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName))
+value: myPublicIp
 ```
+
+In the preceding example, *myPublicIp* is the symbolic name of the public IP address resource.
 
 ---
 
@@ -882,28 +810,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param storageAccountName string
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2016-12-01' = {
-  name: storageAccountName
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'Storage'
-  tags: {}
-  properties: {}
-}
-
-output referenceOutput object = reference(storageAccountName)
-output fullReferenceOutput object = reference(storageAccountName, '2016-12-01', 'Full')
-```
-
----
-
 The preceding example returns the two objects. The properties object is in the following format:
 
 ```json
@@ -958,6 +864,64 @@ The full object is in the following format:
   "provisioningOperation":"Read"
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2016-12-01' = {
+  name: storageAccountName
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {}
+  properties: {}
+}
+
+output referenceOutput object = myStorageAccount
+```
+
+The preceding example returns the an object that is the same as using Full for JSON:
+
+```json
+{
+  "apiVersion":"2016-12-01",
+  "location":"southcentralus",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.windows.net/",
+      "file":"https://examplestorage.file.core.windows.net/",
+      "queue":"https://examplestorage.queue.core.windows.net/",
+      "table":"https://examplestorage.table.core.windows.net/"
+    },
+    "primaryLocation":"southcentralus",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2016-12-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
+}
+```
+
+---
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
@@ -1099,6 +1063,24 @@ The preceding example returns an object in the following format:
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+In Bicep, you can often use the `id` property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
+
+```bicep
+myStorageAccount.id
+```
+
+In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+
+To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+    name: storageAccountName
+}
+
+stg.id
+```
 
 ### Parameters
 
@@ -1261,6 +1243,7 @@ Often, you need to use this function when using a storage account or virtual net
   ]
 }
 ```
+
 # [Bicep](#tab/bicep)
 
 ```bicep

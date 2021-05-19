@@ -17,9 +17,9 @@ When you use Application Insights Profiler or Snapshot Debugger, artifacts gener
 With Bring Your Own Storage, these artifacts are uploaded into a storage account that you control. That means you control the encryption-at-rest policy, the lifetime management policy and network access. You will, however, be responsible for the costs associated with that storage account.
 
 > [!NOTE]
-> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../platform/private-link-security.md)
+> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link for Application Insights, [see the documentation.](../logs/private-link-security.md)
 >
-> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../platform/customer-managed-keys.md).
+> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys for Application Insights, [see the documentation.](../logs/customer-managed-keys.md).
 
 ## How will my storage account be accessed?
 1. Agents running in your Virtual Machines or App Service will upload artifacts (profiles, snapshots, and symbols) to blob containers in your account. This process involves contacting the Application Insights Profiler or Snapshot Debugger service to obtain a SAS (Shared Access Signature) token to a new blob in your storage account.
@@ -120,19 +120,19 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     To install Azure CLI, refer to the [Official Azure CLI documentation](/cli/azure/install-azure-cli).
 
 1. Install the Application Insights CLI extension.
-    ```powershell
+    ```azurecli
     az extension add -n application-insights
     ```
 
 1. Connect your Storage Account with your Application Insights resource.
 
     Pattern:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
     Example:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
     
@@ -148,7 +148,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     ```
 
     > [!NOTE]
-    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](/cli/azure/monitor/app-insights/component/linked-storage).
 
 #### Configure using Azure Resource Manager template
 

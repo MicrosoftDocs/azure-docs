@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/03/2021
 ms.author: jeedes
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate Bynder with Azure Active Directo
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Bynder single sign-on (SSO) enabled subscription.
 
 ## Scenario description
@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Bynder supports **SP and IDP** initiated SSO
 * Bynder supports **Just In Time** user provisioning
 
-## Adding Bynder from the gallery
+## Add Bynder from the gallery
 
 To configure the integration of Bynder into Azure AD, you need to add Bynder from the gallery to your list of managed SaaS apps.
 
@@ -51,7 +51,7 @@ To configure the integration of Bynder into Azure AD, you need to add Bynder fro
 
 Configure and test Azure AD SSO with Bynder using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Bynder.
 
-To configure and test Azure AD SSO with Bynder, complete the following building blocks:
+To configure and test Azure AD SSO with Bynder, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
@@ -60,13 +60,13 @@ To configure and test Azure AD SSO with Bynder, complete the following building 
    1. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Bynder** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
