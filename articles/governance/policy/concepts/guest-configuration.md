@@ -88,7 +88,7 @@ Azure Resource Graph.
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images.
-The ".x" text is symbolic to represent new minor builds of Linux distributions.
+The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
 |Publisher|Name|Versions|
 |-|-|-|
