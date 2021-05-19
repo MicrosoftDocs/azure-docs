@@ -220,7 +220,7 @@ Your Windows client must meet the following prerequisites:
     ----                      ------------------   --------------
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
-    
+---    
 If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## Step 4: Set up Azure PowerShell on the client 
@@ -340,7 +340,7 @@ You will install Azure PowerShell modules on your client that will work with you
     ---------- -------    ----                           ----------------
     Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthentication, Get-RMSFileStatus, Get-RMSServer...
     ```
-    
+---   
 
 ## Step 5: Modify host file for endpoint name resolution 
 
@@ -482,8 +482,6 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 
 
-> [!IMPORTANT]
-> The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
 
 
 ### [AzureRM](#tab/AzureRM)
@@ -567,7 +565,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             PS C:\Users\Administrator>
             ```
 
-
+---
 
 > [!IMPORTANT]
 > The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
@@ -733,6 +731,7 @@ VersionProfile     :​
 ExtendedProperties : {}
 ```
 ​You have now switched to the intended environment.
+---s
 
 ## Next steps
 
