@@ -160,4 +160,5 @@ To create a sweep job with the same LightGBM example, use the following commands
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
-- Deploy models with REST
+
+Now that you have a trained model, learn [how to deploy your model](how-to-deploy-and-where.md).
