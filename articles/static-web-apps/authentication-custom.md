@@ -227,7 +227,7 @@ Once you have the registration credentials, use the following steps to create a 
              },
              "login": {
                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-               "scope": [],
+               "scopes": [],
                "loginParameterNames": []
              }
            }
