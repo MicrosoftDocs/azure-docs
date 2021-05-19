@@ -1,5 +1,5 @@
 ---
-title: Manage public IP addresses
+title: Create, change, or delete an Azure public IP address
 titleSuffix: Azure Virtual Network
 description:  Manage public IP addresses. Learn how a public IP address is a resource with configurable settings.
 services: virtual-network
@@ -13,7 +13,7 @@ ms.date: 05/20/2021
 ms.author: allensu
 ---
 
-# Manage public IP addresses
+# Create, change, or delete an Azure public IP address
 
 Learn about a public IP address and how to create, change, and delete one. A public IP address is a resource with configurable settings. Assigning a public IP address to an Azure resource that supports public IP addresses enables:
 
