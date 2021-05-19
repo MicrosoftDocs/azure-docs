@@ -3,8 +3,8 @@ title: vCore purchasing model overview
 titleSuffix: Azure SQL Database 
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database
 services: sql-database
-ms.service: sql-db-mi
-ms.subservice: features
+ms.service: sql-database
+ms.subservice: performance
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
@@ -115,7 +115,7 @@ To access DC-series, the subscription must be a paid offer type including Pay-As
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|
-|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
+|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 |Gen5     |**Provisioned compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz and Intel&reg; SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
 |Fsv2-series     |- Intel&reg; 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
 |M-series     |- Intel&reg; E7-8890 v3 2.5 GHz and Intel&reg; 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|

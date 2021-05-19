@@ -3,8 +3,8 @@ title: Azure SQL Managed Instance vCore purchasing model overview
 titleSuffix: Azure SQL Managed Instance compute hardware
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-db-mi
-ms.subservice: features
+ms.service: sql-managed-instance
+ms.subservice: performance
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
@@ -14,7 +14,7 @@ ms.date: 05/18/2021
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-The virtual core (vCore) purchasing model deployment model used by Azure SQL Managed Instance has following characteristics:
+The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has following characteristics:
 
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
@@ -53,7 +53,7 @@ Hardware generation options in the vCore model include Gen 5 hardware series. Th
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|
-|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
+|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 |Gen5     |- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)|5.1 GB per vCore<br>- Provision up to 408 GB|
 
 \* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
@@ -113,5 +113,7 @@ Gen5 is available in all public regions worldwide.
 ## Next steps
 
 - To get started, see [Creating a SQL Managed Instance using the Azure portal](instance-create-quickstart.md)
-- For pricing details, see the [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/pools/).
+- For pricing details, see 
+    - [Azure SQL Managed Instance single instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/)
+    - [Azure SQL Managed Instance pools pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/pools/)
 - For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).
