@@ -60,7 +60,7 @@ Learned events can be unlearned. When the sensor unlearns events, it will re-tri
 
 1. From the view drop down menu select **Acknowledged**.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/view-acknowledged.png" alt-text="Select acknowledged from the view section drop down menu." lightbox="view-acknowledged-expanded.png":::
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/view-acknowledged.png" alt-text="Select acknowledged from the view section drop down menu." lightbox="media/how-to-work-with-alerts-sensor/view-acknowledged-expanded.png":::
 
 1. Select an alert from the list of alerts.
 
