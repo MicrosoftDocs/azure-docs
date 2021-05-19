@@ -24,11 +24,12 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                        | Estimated date for change |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | April 2021                |
+| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | May 2021                  |
 | [Prefix for Kubernetes alerts changing from "AKS_" to "K8s_"](#prefix-for-kubernetes-alerts-changing-from-aks_-to-k8s_)                                               | June 2021                 |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | June 2021                 |
 | [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | **August** 2021           |
-| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
+| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q3 2021                   |
+|                                                      | Q3 2021                   |
 |                                                                                                                                                                       |                           |
 
 
@@ -91,10 +92,20 @@ When these are GA and the assessments run on your AWS resources, the results wil
 
 ### Enhancements to SQL data classification recommendation
 
-**Estimated date for change:** Q2 2021
+**Estimated date for change:** Q3 2021
 
 The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
+
+### Enable Azure Defender security control to be included in secure score
+
+**Estimated date for change:** Q3 2021
+
+Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. With this change, the control will contribute towards your secure score. 
+
+With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender.
 
 
 ## Next steps
