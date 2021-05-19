@@ -21,6 +21,7 @@ In preview, disk pools have the following restrictions:
 
 - Only premium SSDs or ultra disks can be added to a disk pool.
 - You must use the Azure Resource Manager to connect a disk pool to your AVS solution.
+    - The Azure portal, Azure PowerShell module, and Azure CLI cannot currently be used to connect your disk pool to an AVS solution.
 
 ### Regional availability
 
