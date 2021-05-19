@@ -26,18 +26,18 @@ You must register your subscription to the Microsoft.StoragePool provider in ord
 
 ### Delegate subnet permission
 
-Once your subscription has been registered, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the Microsoft.StoragePool/diskPools resource provider.
+Once your subscription has been registered, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the Microsoft.StoragePool resource provider.
 
 1. Go to the virtual networks blade in the Azure portal and select the virtual network you will use for the disk pool.
     - Select Subnets from the virtual network blade and select +Subnet.
     - Create a new subnet by completing the following required fields in the Add Subnet page:
         - Name: Specify name.
         - Address range: Specify IP address range.
-        - Subnet delegation: Select Microsoft.StoragePool/diskPools
+        - Subnet delegation: Select Microsoft.StoragePool
     
 ### Provide StoragePool resource provider permission to the disks that will be in the disk pool.
 
-You need to provide the StoragePool resource provider Read & Write permissions to any managed disk that is going to be in a disk pool, in order for the disk pool to work correctly.
+In order for your disk pool to work correctly, the StoragePool resource provider must be assigned an RBAC role that contains Read & Write permissions for every managed disk in the disk pool.
 
 1. Sign in to the Azure portal.
 1. Search for and select either the resource group that contains the disks or each disk themselves.
@@ -51,7 +51,7 @@ You need to provide the StoragePool resource provider Read & Write permissions t
 1. Search for and select Disk pool.
 1. Select +Add to create a new disk pool.
 1. Fill in the details requested, make sure to select the same region and availability zone as the clients that will use the disk pool.
-1. For the virtual network and subnet
+1. Select the subnet that has been delegated to the StoragePool resource provider, and its associated virtual network.
 
 At this point, you have successfully deployed a disk pool. Now, you must add disks to the pool.
 
@@ -59,14 +59,14 @@ At this point, you have successfully deployed a disk pool. Now, you must add dis
 
 ### Prerequisites
 
-In order to add a disk, it must meet the following requirements:
+To add a disk, it must meet the following requirements:
 
 - Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
-- You must have granted RBAC permissions to your disk pool resource provider.
+- You must have granted RBAC permissions for this disk to your disk pool resource provider.
 
-If your disk meets all these pre-requisites, you can add it to the disk pool by selecting _Add disk in the disk pool blade.
+If your disk meets all these pre-requisites, you can add it to the disk pool by selecting **+Add disk** in the disk pool blade.
 
 ### Enable iSCSI
 

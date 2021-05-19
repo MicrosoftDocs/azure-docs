@@ -38,15 +38,15 @@ Disk pools are currently available in the following regions:
 
 ## How does it work?
 
-When a disk pool is deployed, a managed resource group is automatically created for you. This managed resource group contains all Azure artifacts and resources necessary for the operation of a disk pool. The naming convention for these resource groups is: MSP_(resource-group-name)_(diskpool-name)_(region-name).
+When a disk pool is deployed, a managed resource group is automatically created for you. This managed resource group contains all Azure resources necessary for the operation of a disk pool. The naming convention for these resource groups is: MSP_(resource-group-name)_(diskpool-name)_(region-name).
 
-When you add a managed disk to the disk pool, the disks are attached to managed iSCSI controllers, shown in the following diagram. Multiple managed disks can be added as storage targets to a disk pool, each storage target is presented as an iSCSI LUN under the disk pool's iSCSI target. Disk pools offer native support for AVS, and an AVS cloud can be added as an iSCSI initiator for a disk pool, which would encompass all AVS hosts in that environment.
+When you add a managed disk to the disk pool, the disks are attached to managed iSCSI controllers. Multiple managed disks can be added as storage targets to a disk pool, each storage target is presented as an iSCSI LUN under the disk pool's iSCSI target. Disk pools offer native support for AVS, and an AVS cloud can be added as an iSCSI initiator for a disk pool, which would encompass all AVS hosts in that environment. The following diagram shows how you can use disk pools with AVS.
 
 :::image type="content" source="media/disks-pools/disk-pool-diagram.png" alt-text="Diagram depicting how disk pools works, each ultra disk can be accessed by each iscsi controller over iscsi, and the avs hosts can access the iscsi controller over iscsi.":::
 
 ## Billing
 
-When you deploy a disk pool, several hidden Azure artifacts are also deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group, outside of these resources and your disks, there are no additional service charges for a disk pool.
+When you deploy a disk pool, several Azure artifacts are also deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool.
 
 The resources in the managed resource group are:
 
