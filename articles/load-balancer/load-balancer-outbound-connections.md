@@ -41,7 +41,8 @@ With outbound rules, you have full declarative control over outbound internet co
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
-
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. 
 
 ## Associating a VNet NAT to the subnet
 
