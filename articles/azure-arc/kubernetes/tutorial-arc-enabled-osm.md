@@ -11,8 +11,6 @@ ms.author: mayg
 
 # Azure Arc-enabled Open Service Mesh (Preview)
 
-## Overview
-
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
 OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI](https://smi-spec.io/) APIs, and works by injecting an Envoy proxy as a sidecar container next to each instance of your application. [Read more](https://docs.openservicemesh.io/#features) on the service mesh scenarios enabled by Open Service Mesh.
@@ -85,28 +83,29 @@ You should see output similar to the output shown below. It may take 3-5 minutes
   "version": "0.8.3"
 }
 ```
+
 ### Install a specific version of OSM on OpenShift cluster
 
 1. Copy and save the following in a JSON file. If you have already created a configuration settings file, please add the following line to the existing file to preserve your previous changes.
 
-```json
-{
-    "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true"
-}
-```
+   ```json
+   {
+       "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true"
+   }
+   ```
 
-Set the file path as an environment variable:
-```azurecli-interactive
-export SETTINGS_FILE=<json-file-path>
-```
+   Set the file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
 2. Run the az k8s-extension create command used to create the OSM extension, and pass in --configuration-settings-file $SETTINGS_FILE
-```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --release-namespace arc-osm-system --version $VERSION --configuration-settings-file $SETTINGS_FILE
-```
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --release-namespace arc-osm-system --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
 3. Add the privileged [security context constraint](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html) to each service account for the applications in the mesh.
-```azurecli-interactive
- oc adm policy add-scc-to-user privileged -z <service account name> -n <service account namespace>
-```
+   ```azurecli-interactive
+   oc adm policy add-scc-to-user privileged -z <service account name> -n <service account namespace>
+   ```
 It may take 3-5 minutes for the actual OSM helm chart to get deployed to the cluster. Till this deployment happens, you will continue to see installState as Pending.
 
 To ensure that the priviliged init container setting is not reverted to the default, pass in the "osm.OpenServiceMesh.enablePrivilegedInitContainer" : "true" configuration setting to all subsequent az k8s-extension create commands.

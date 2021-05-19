@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/13/2021
+ms.date: 05/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -208,12 +208,14 @@ Once above permissions are granted, you can now proceed to [enabling the custom 
 
 ## Arc enabled Open Service Mesh
 
+The following troubleshooting steps provide guidance on valiating the deployment of all the Open Service Mesh extension components on your cluster.
+
 ### 1. Check OSM Controller **Deployment**
 ```bash
 kubectl get deployment -n arc-osm-system --selector app=osm-controller
 ```
 
-A healthy OSM Controller would look like this:
+If the OSM Controller is healthy, you will get an output similar to the following output:
 ```
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 osm-controller   1/1     1            1           59m
@@ -224,7 +226,7 @@ osm-controller   1/1     1            1           59m
 kubectl get pods -n arc-osm-system --selector app=osm-controller
 ```
 
-A healthy OSM Controller would look like this:
+If the OSM Controller is healthy, you will get an output similar to the following output:
 ```
 NAME                            READY   STATUS    RESTARTS   AGE
 osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
@@ -241,20 +243,20 @@ Column `READY` with a number higher than 1 after the `/` would indicate that the
 kubectl get service -n arc-osm-system osm-controller
 ```
 
-A healthy OSM Controller would look like this:
+If the OSM Controller is healthy, you will have the following output:
 ```
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
 osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67m
 ```
 
-> Note: The `CLUSTER-IP` would be different. The service `NAME` and `PORT(S)` must be the same as the example above.
+> Note: The `CLUSTER-IP` would be different. The service `NAME` and `PORT(S)` must be the same as seen in the output.
 
 ### 4. Check OSM Controller **Endpoints**:
 ```bash
 kubectl get endpoints -n arc-osm-system osm-controller
 ```
 
-A healthy OSM Controller would look like this:
+If the OSM Controller is healthy, you will get an output similar to the following output:
 ```
 NAME             ENDPOINTS                              AGE
 osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
@@ -267,7 +269,7 @@ If the user's cluster has no `ENDPOINTS` for `osm-controller` this would indicat
 kubectl get deployments -n arc-osm-system osm-injector
 ```
 
-A healthy OSM Injector would look like this:
+If the OSM Injector is healthy, you will get an output similar to the following output:
 ```
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 osm-injector   1/1     1            1           73m
@@ -278,20 +280,20 @@ osm-injector   1/1     1            1           73m
 kubectl get pod -n arc-osm-system --selector app=osm-injector
 ```
 
-A healthy OSM Injector would look like this:
+If the OSM Injector is healthy, you will get an output similar to the following output:
 ```
 NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
-Same applies here - the `READY` column must be `1/1`. Any other value would indicate unhealthy osm-injector pod.
+The `READY` column must be `1/1`. Any other value would indicate an unhealthy osm-injector pod.
 
 ### 7. Check OSM Injector **Service**
 ```bash
 kubectl get service -n arc-osm-system osm-injector
 ```
 
-A healthy OSM Injector would look like this:
+If the OSM Injector is healthy, you will get an output similar to the following output:
 ```
 NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
 osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
@@ -304,13 +306,13 @@ Ensure the IP address listed for `osm-injector` service is `9090`. There should 
 kubectl get endpoints -n arc-osm-system osm-injector
 ```
 
-A healthy OSM Injector would look like this:
+If the OSM Injector is healthy, you will get an output similar to the following output:
 ```
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
 
-For OSM to function there must be at least one endpoint for `osm-injector`. The IP address of the user's OSM Injector endpoints will be different. The port `9090` must be the same.
+For OSM to function, there must be at least one endpoint for `osm-injector`. The IP address of your OSM Injector endpoints will be different. The port `9090` must be the same.
 
 
 ### 9. Check **Validating** and **Mutating** webhooks:
@@ -318,7 +320,7 @@ For OSM to function there must be at least one endpoint for `osm-injector`. The 
 kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
 ```
 
-A helathy Validating Webhook would look like this:
+If the Validating Webhook is healthy, you will get an output similar to the following output:
 ```
 NAME              WEBHOOKS   AGE
 arc-osm-webhook-osm   1      81m
@@ -329,7 +331,7 @@ kubectl get MutatingWebhookConfiguration --selector app=osm-controller
 ```
 
 
-A healthy Mutating Webhook would look like this:
+If the Mutating Webhook is healthy, you will get an output similar to the following output:
 ```
 NAME              WEBHOOKS   AGE
 arc-osm-webhook-osm   1      102m
@@ -340,7 +342,7 @@ Check for the service and the CA bundle of the **Validating** webhook:
 kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
-A well configured Validating Webhook Configuration would look exactly like this:
+A well configured Validating Webhook Configuration would have the following output:
 ```json
 {
   "name": "osm-config-validator",
@@ -355,7 +357,7 @@ Check for the service and the CA bundle of the **Mutating** webhook:
 kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
-A well configured Mutating Webhook Configuration would look exactly like this:
+A well configured Mutating Webhook Configuration would have the following output:
 ```
 {
   "name": "osm-injector",
@@ -366,7 +368,7 @@ A well configured Mutating Webhook Configuration would look exactly like this:
 ```
 
 
-We must also check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle.
+Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle by using the following command:
 
 ```bash
 kubectl get ValidatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
@@ -377,52 +379,53 @@ kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq -r '.w
 ```
 
 Example output:
-```
+```bash
 1845
 ```
-This number indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000 it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle the Validating Webhook would be erroring out and prohibiting the user from making changes to the `osm-config` ConfigMap in the `arc-osm-system` namespace.
+The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000, it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the Validating Webhook would be erroring out and prohibiting you from making changes to the `osm-config` ConfigMap in the `arc-osm-system` namespace.
 
-A sample error when the CA Bundle is incorrect:
-- an attepmt to change the `osm-config` ConfigMap:
-```bash
-kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
-```
-- error:
-```
-Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.arc-osm-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
-```
+Let's look at a sample error when the CA Bundle is incorrect:
+- An attempt to change the `osm-config` ConfigMap:
+  ```bash
+  kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"2m"}}'
+  ```
+- Error output:
+  ```bash
+  Error from server (InternalError): Internal error occurred: failed calling webhook "osm-config-webhook.k8s.io": Post https://osm-config-validator.arc-osm-system.svc:9093/validate-webhook?timeout=30s: x509: certificate signed by unknown authority
+  ```
 
-Workaround for when the **Validating** Webhook Configuration has a bad certificate:
-- Option 1. Restart OSM Controller - this will restart the OSM Controller. On start it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
-```bash
-kubectl rollout restart deployment -n arc-osm-system osm-controller
-```
+Use one of the following workarounds when the **Validating** Webhook Configuration has a bad certificate:
+- Option 1. Restart OSM Controller - This will restart the OSM Controller. On start, it will overwrite the CA Bundle of both the Mutating and Validating webhooks.
+  ```bash
+  kubectl rollout restart deployment -n arc-osm-system osm-controller
+  ```
 
-- Option 2. Delete the Validating Webhook  - removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
-```bash
-kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm
-```
+- Option 2. Delete the Validating Webhook  - Removing the Validating Webhook makes mutations of the `osm-config` ConfigMap no longer validated. Any patch will go through. The OSM Controller may have to be restarted to quickly rewrite the CA Bundle.
+   ```bash
+   kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm
+   ```
 
-- Option 3. Delete and Patch: The following command will delete the validating webhook, allowing us to add any values, and will immediately try to apply a patch
-```bash
-kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm; kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
-```
+- Option 3. Delete and Patch: The following command will delete the validating webhook, allowing you to add any values, and will immediately try to apply a patch
+  ```bash
+  kubectl delete ValidatingWebhookConfiguration arc-osm-webhook-osm; kubectl patch ConfigMap osm-config -n arc-osm-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
+  ```
 
 
 ### 10. Check the `osm-config` **ConfigMap**
 
-> Note: The OSM Controller does not require for the `osm-config` ConfigMap to be present in the `arc-osm-system` namespace. The controller has reasonable default values for the config and can operate without it.
+>[!Note]
+>The OSM Controller does not require `osm-config` ConfigMap to be present in the `arc-osm-system` namespace. The controller has reasonable default values for the config and can operate without it.
 
 Check for the existence:
 ```bash
 kubectl get ConfigMap -n arc-osm-system osm-config
 ```
 
-Check the content of the `osm-config` ConfigMap
+Check the content of the `osm-config` ConfigMap:
 ```bash
 kubectl get ConfigMap -n arc-osm-system osm-config -o json | jq '.data'     
 ```
-
+You will get the following output:
 ```json
 {
   "egress": "false",
@@ -441,14 +444,15 @@ Refer [OSM ConfigMap documentation](https://github.com/openservicemesh/osm/blob/
 
 ### 11. Check Namespaces
 
-> Note: The arc-osm-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
+>[!Note]
+>The arc-osm-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
 
 We use the `osm namespace add` command to join namespaces to a given service mesh.
-When a k8s namespace is part of the mesh (or for it to be part of the mesh) the following must be true:
+When a kubernetes namespace is part of the mesh, the following must be true:
 
-View the annotations with
+View the annotations of the namespace bookbuyer:
 ```bash
-kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.annotations'
+kc get namespace bookbuyer -o json | jq '.metadata.annotations'
 ```
 
 The following annotation must be present:
@@ -459,9 +463,9 @@ The following annotation must be present:
 ```
 
 
-View the labels with
+View the labels of the namepace bookbuyer:
 ```bash
-kc get namespace bookbuyer-many-many-8 -o json | jq '.metadata.labels'
+kc get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
 
 The following label must be present:
@@ -470,28 +474,28 @@ The following label must be present:
   "openservicemesh.io/monitored-by": "osm"
 }
 ```
+Note that if you are not using osm CLI, you could also manually add these annotations to your namespaces. If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
 
-If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
+>[!Note]
+>After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restard deployment` command.
 
-> Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restard deployment ...`
 
-
-### 12. Verify the SMI CRDs:
+### 12. Verify the SMI CRDs
 Check whether the cluster has the required CRDs:
 ```bash
 kubectl get crds
 ```
 
-We must have the CRDs corresponding to the same OSM upstream version. Refer [OSM release notes](https://github.com/openservicemesh/osm/releases).
+Ensure that the CRDs correspond to the same OSM upstream version. E.g. if you are using v0.8.3, ensure that the CRDs match the ones that are available in the release branch v0.8.3 of [OSM OSS project](https://docs.openservicemesh.io/). Refer [OSM release notes](https://github.com/openservicemesh/osm/releases).
 
-Get the versions of the CRDs installed with this command:
+Get the versions of the CRDs installed with the following command:
 ```bash
 for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'); do
     kubectl get crd $x -o json | jq -r '(.metadata.name, "----" , .spec.versions[].name, "\n")'
 done
 ```
 
-If CRDs are missing use the following commands to install these on the cluster:
+If CRDs are missing, use the following commands to install them on the cluster. Ensure that you replace the version in the command.
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/access.yaml
 
