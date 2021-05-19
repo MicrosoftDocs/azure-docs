@@ -65,8 +65,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## App Service limits
 
-The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## Automation limits
@@ -76,6 +74,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ## Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Cache for Redis limits
 
@@ -358,6 +360,8 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 ## SQL Database limits
 
 For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for SQL Managed Instance](../../azure-sql/managed-instance/resource-limits.md).
+
+The maximum number of private endpoints per Azure SQL Database logical server is 250.
 
 ## Azure Synapse Analytics limits
 

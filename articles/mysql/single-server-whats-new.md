@@ -12,7 +12,14 @@ ms.date: 05/05/2021
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6, 5.7, and 8.0. [Azure Database for MySQL - Single Server](https://docs.microsoft.com/azure/mysql/overview#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
-This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021.
+This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## February 2021
+
+This release of Azure Database for MySQL - Single Server includes the following updates.
+
+- Added new stored procedures to support the global transaction identifier (GTID) for data-in for the version 5.7 and 8.0 Large Storage server.
+- Updated to support MySQL versions to 5.6.50 and 5.7.32.
 
 ## January 2021
 
@@ -23,16 +30,9 @@ This release of Azure Database for MySQL - Single Server includes the following 
 - Added new stored procedures for control innodb buffer pool dump/restore.
 - Exposed the innodb warm up related server parameter for large storage server.
 
-## February 2021
-
-This release of Azure Database for MySQL - Single Server includes the following updates.
-
-- Added new stored procedures to support the global transaction identifier (GTID) for data-in for the version 5.7 and 8.0 Large Storage server.
-- Updated to support MySQL versions to 5.6.50 and 5.7.32.
-
 ## Contacts
 
-If you have any questions or suggestions about working with Azure Database for MySQL, contact the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
+If you have questions about or suggestions for working with Azure Database for MySQL, contact the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 

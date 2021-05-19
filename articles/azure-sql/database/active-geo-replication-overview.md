@@ -140,6 +140,9 @@ For more information on the SQL Database compute sizes, see [What are SQL Databa
 
 ## Cross-subscription geo-replication
 
+> [!NOTE]
+> Creating a geo-replica on a logical server in a different Azure tenant is not supported when [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) auth is active (enabled) on either primary or secondary logical server.
+
 To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires:
 
 - Creating a privileged login on both servers

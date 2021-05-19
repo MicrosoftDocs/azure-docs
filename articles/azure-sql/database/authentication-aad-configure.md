@@ -11,7 +11,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
-ms.date: 08/17/2020
+ms.date: 05/11/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -43,7 +43,13 @@ For more information on Azure AD hybrid identities, setup, and synchronization, 
 
 Create an Azure AD instance and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
+For more information, see:
+- [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Add your own domain name to Azure AD](../../active-directory/active-directory-domains-add-azure-portal.md)
+- [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Manage Azure AD using Windows PowerShell](/powershell/module/azuread)
+- [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
@@ -332,6 +338,19 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 
 > [!NOTE]
 > You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](/rest/api/sql/)
+
+## Set or unset the Azure AD admin using service principals
+
+If you are planning to have the service principal set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+> [!NOTE]
+> This section on setting the Azure AD admin only applies to using PowerShell or CLI commands, as you cannot use the Azure portal as an Azure AD service principal.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
+
+The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
+
+For more information, see [service principals (Azure AD applications)](authentication-aad-service-principal.md).
 
 ## Configure your client computers
 
