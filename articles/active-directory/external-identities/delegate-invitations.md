@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 05/19/2021
 
 ms.author: mimart
 author: msmimart
@@ -55,10 +55,10 @@ By default, all users, including guests, can invite guest users.
     ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
 
  
-    - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**  To allow guests to invite other guests, select this radio button
+    - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**:  To allow guests to invite other guests, select this radio button.
    - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow non-admin members and administrators assigned particular roles to invite guests, select this radio button.
-   - **Only users assigned to specific admin roles can invite guest users** To only allow specific administrators to invite guests, select this radio button.
-   - **No one in the organization can invite guest users including admins (most restrictive)** To restrict everyone within the organization from inviting guests, select this radio button.
+   - **Only users assigned to specific admin roles can invite guest users**: To only allow specific administrators to invite guests, select this radio button.
+   - **No one in the organization can invite guest users including admins (most restrictive)**: To restrict everyone within the organization from inviting guests, select this radio button.
 6. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 
     ![Self-service sign up via user flows setting](./media/delegate-invitations/self-service-sign-up-setting.png)
