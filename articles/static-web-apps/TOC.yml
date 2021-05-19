@@ -4,6 +4,8 @@
   items:
     - name: About Static Web Apps
       href: overview.md
+    - name: Hosting plans
+      href: plans.md
 - name: Quickstarts
   expanded: true
   items:
