@@ -126,7 +126,7 @@ A *sentinel key* is a special key used to signal when all configuration changes 
     ```
     ---
 
-    In the `ConfigureRefresh` method, you register the keys in your App Configuration store to be monitored for change detection. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time, before which a new request will be made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
+    In the `ConfigureRefresh` method, you register keys that you want to monitor for changes from your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
 
     > [!NOTE]
     > For testing purposes, you may want to lower the cache refresh expiration time.
@@ -273,10 +273,10 @@ A *sentinel key* is a special key used to signal when all configuration changes 
     ---
     
     > [!NOTE]
-    > The middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. It is triggered upon every incoming request to your application. However, the middleware will only issue requests to check the value in App Configuration when the refresh time you set has passed. When a change is detected, it will either update all the configuration if the sentinel key is used or update the registered keys' value only. Note:
-    > - If a request to App Configuration for change detection fails, your application will continue to use the cached configuration. Another check will be made when the configured refresh time has passed again and there are new incoming requests to your application.
-    > - The configuration refresh happens asynchronously to the processing of your application incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values but subsequent requests will do.
-    > - To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate to your request pipeline so it will not be short-circuited by another middleware in your application.
+    > The middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. The middleware is triggered upon every incoming request to your application. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will either update all the configuration if the sentinel key is used or update the registered keys' values only.
+    > - If a request to App Configuration for change detection fails, your application will continue to use the cached configuration. Another check will be made when the configured cache expiration time has passed again, and there are new incoming requests to your application.
+    > - The configuration refresh happens asynchronously to the processing of your application incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but subsequent requests will do.
+    > - To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware will not short-circuit it in your application.
 
 ## Use the latest configuration data
 
