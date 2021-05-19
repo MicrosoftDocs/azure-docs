@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/10/2021
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,13 +20,21 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add groups to an administrative unit for a more granular administrative scope of control.
 
-To prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
+## Prerequisites
+
+- Azure AD Premium P1 or P2 license for each administrative unit administrator
+- Azure AD Free licenses for administrative unit members
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Add groups to an administrative unit
 
 You can add groups to an administrative unit by using the Azure portal, PowerShell, or Microsoft Graph.
 
-### Use the Azure portal
+### Azure portal
 
 You can assign only individual groups to an administrative unit. There is no option to assign groups as a bulk operation. In the Azure portal, you can assign a group to an administrative unit in either of two ways:
 
@@ -55,7 +63,7 @@ You can assign only individual groups to an administrative unit. There is no opt
 
   1. Select one or more groups to be assigned to the administrative unit, and then select the **Select** button.
 
-### Use PowerShell
+### PowerShell
 
 In the following example, use the `Add-AzureADMSAdministrativeUnitMember` cmdlet to add the group to the administrative unit. The object ID of the administrative unit and the object ID of the group to be added are taken as arguments. Change the highlighted section as required for your specific environment.
 
@@ -66,7 +74,7 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $GroupObj.ObjectId
 ```
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Run the following commands:
 
@@ -94,7 +102,7 @@ Example
 
 ## View a list of groups in an administrative unit
 
-### Use the Azure portal
+### Azure portal
 
 1. In the Azure portal, go to **Azure AD**.
 
@@ -104,7 +112,7 @@ Example
 
    ![Screenshot of the "Groups" pane displaying a list of groups in an administrative unit.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
-### Use PowerShell
+### PowerShell
 
 To display a list of all the members of the administrative unit, run the following command: 
 
@@ -125,7 +133,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 ```
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Run the following command:
 
@@ -143,7 +151,7 @@ Body
 
 ## View a list of administrative units for a group
 
-### Use the Azure portal
+### Azure portal
 
 1. In the Azure portal, go to **Azure AD**.
 
@@ -155,7 +163,7 @@ Body
 
    ![Screenshot of the "Administrative units" pane, displaying a list administrative units that a group is assigned to.](./media/admin-units-add-manage-groups/list-group-au.png)
 
-### Use PowerShell
+### PowerShell
 
 Run the following command:
 
@@ -163,7 +171,7 @@ Run the following command:
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Run the following command:
 
@@ -173,7 +181,7 @@ https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.Ad
 
 ## Remove a group from an administrative unit
 
-### Use the Azure portal
+### Azure portal
 
 You can remove a group from an administrative unit in the Azure portal in either of two ways:
 
@@ -195,7 +203,7 @@ You can remove a group from an administrative unit in the Azure portal in either
 
     ![Screenshot of the "Groups" pane, displaying a list of the groups in an administrative unit.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
-### Use PowerShell
+### PowerShell
 
 Run the following command:
 
@@ -203,7 +211,7 @@ Run the following command:
 Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
 ```
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Run the following command:
 
