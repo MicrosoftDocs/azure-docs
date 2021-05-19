@@ -176,7 +176,7 @@ Using a text editor, replace the pom.xml file with the following:
 
 ## Upload a file
 
-Copy the file that you want to upload to the my-app folder in your project tree. Using a text editor, replace App.java with the following code. Supply your connection string and file name where noted.
+Copy the file that you want to upload to the `my-app` folder in your project tree. Using a text editor, replace App.java with the following code. Supply your connection string and file name where noted.
 
 ```java
 package com.mycompany.app;
