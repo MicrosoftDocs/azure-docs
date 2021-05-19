@@ -17,7 +17,7 @@ Azure Database for PostgreSQL - Flexible Server currently supports the following
 
 ## PostgreSQL version 13
 
-The current minor release is **13.2**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/12/static/release-13-2.html) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **13.2**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/12/static/release-13-2.html) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
 
 ## PostgreSQL version 12
 
