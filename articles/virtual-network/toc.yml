@@ -95,11 +95,11 @@
       href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
-    - name: Manage public IP addresses
+    - name: Public IP settings
       href: virtual-network-public-ip-address.md
-    - name: Manage public IP prefixes
+    - name: Public IP prefix settings
       href: manage-public-ip-address-prefix.md
-    - name: IPv6
+    - name: IPv6 overview
       href: ipv6-overview.md
     - name: Routing preference
       href: routing-preference-overview.md
