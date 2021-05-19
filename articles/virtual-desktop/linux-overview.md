@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Thin Client Support - Azure
-description: A brief overview of thin client support for Windows Virtual Desktop.
+title: Azure Virtual Desktop Thin Client Support - Azure
+description: A brief overview of thin client support for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/01/2021
@@ -9,11 +9,11 @@ manager: femila
 ---
 # Thin client support
 
-You can access Windows Virtual Desktop resources from your thin client devices with the [web client](connect-web.md) or the following supported clients, provided by our partners. We're working with a number of partners to enable supported Windows Virtual Desktop clients on other platforms.
+You can access Azure Virtual Desktop resources from your thin client devices with the [web client](connect-web.md) or the following supported clients, provided by our partners. We're working with a number of partners to enable supported Azure Virtual Desktop clients on other platforms.
 
 ## Connect with your thin client device
 
-The following partners have approved Windows Virtual Desktop clients.
+The following partners have approved Azure Virtual Desktop clients.
 
 |Partner|Partner documentation|Partner support|
 |:------|:--------------------|:--------------|
