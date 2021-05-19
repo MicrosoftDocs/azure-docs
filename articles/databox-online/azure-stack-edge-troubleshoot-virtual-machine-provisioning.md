@@ -65,30 +65,30 @@ This section provides troubleshooting guidance for the three most common causes 
 
 ### IP assigned to the VM is already in use
 
-**Error description:**  XXX 
+**Error description:**  If you assigned a static IP address during virtual machine creation, and the IP address is already in use, VM provisioning will fail.
 
-1. Stop the VM from the portal (if the VM is running), and run the following commands:<!--Link to stop VM instructions.-->
+To check for a duplicate IP address: 
+
+1. Stop the VM from the Azure portal (if the VM is running).<!--1) What would cause the VM to run when provisioning has failed? Whys is stopping the VM needed in the context of a failure because of a duplicate IP?-->
+
+1. Run the following `ping` and `tnc` (Test-NetConnection) commands:
 
    ```powershell
-   ping <ip>
-   tnc <ip>
-   tnc <ip> -CommonTCPPort “RDP”
+   ping <IP address>
+   tnc <IP address>
+   tnc <IP address> -CommonTCPPort “RDP”
    ```
 
-   There should be no response to these commands.
+   If you get a response to any of these commands, the IP address that you assigned the new VM is already in use.
 
-**Suggested solution:**
-
-Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
+**Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.<!--For more information?-->
 
 
 ### Image not prepared correctly
 
-**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You create a virtual machine (VM) in Azure, customize the VM, and then generalize the VM. Then you'll download the VHD for that VM.<!--Final step is to upload the image to an Azure Storage account?-->
+**Error description:** To prepare a VM image to use to deploy VMs on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a virtual machine (VM) in Azure, customize the VM, and then generalize the VM. Then you'll download the VHD for that VM.<!--Final step is to upload the image to an Azure Storage account?-->
 
-**Suggested solution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. The procedures will vary depending on whether you start with a VHD from an existing Windows VM or want to use an ISO image to configure the VM, and whether you need to create a generalized image (to deploy new VMs) or a specialized image (to migrate or restore an existing VM).
-
-Use one of the following procedures: 
+**Suggested solution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. For instructions, see one of the following articles. The procedures will vary depending on the type of source VHD and whether you're creating a generalized image (to deploy new VMs) or a specialized image (to migrate or restore an existing VM).<!--Some bridge seemed needed, but final sentence gets long. Revisit this later.-->
 
 * [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM image)
 * [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
@@ -103,9 +103,9 @@ Other issues may cause VM provisioning to fail:
 * The Gateway and DNS server couldn't be reached from a guest VM.
 * Provisioning flags were set incorrectly `/etc/waagent.conf`. (Linux images only)<!--A bit cryptic.-->
 
-To troubleshoot these issues, review the in-guest logs for the VM.
+To troubleshoot these issues, review the guest logs for the VM.
 
-1. For issues while running `cloud init`:
+1. For issues that occurred while `cloud init` was running for a Linux virtual machine:<!--Will the customer know >
 
    You can console connect<!--"console connect? Will reword later.--> to the VM, and review the logs under the following files to check for errors in `cloud init` execution.<!--Convert this step to a link to Section 1.-->
 
@@ -113,24 +113,23 @@ To troubleshoot these issues, review the in-guest logs for the VM.
     /var/log/cloud-init.log
     /var/log/waagent/log
 
-1. Console connect to the VM, and validate that:<!--Issue 2-->
+1. Console connect to the VM, and verify that:<!--Issue 2. Need sample code here?-->
 
-   1.	The default gateway can be pinged from the VM.
-   1.	The DNS server can be reached from within the VM.
+   1.	The default gateway can be reached by a ping command from the VM.
+   1.	The DNS server can be reached from the VM.
 
-3. For Linux images only, make sure the Provisioning flags in the file `/etc/waagent.conf` are set to:<!--1) Issue 3. 3) Make a table!-->
+3. For a Linux image, make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values:
 
-   # Enable instance creation
-   `Provisioning.Enabled=n`
-
-   # Rely on cloud-init to provision
-   `Provisioning.UseCloudInit=y`
+   | Capability                      | Required value                |
+   |---------------------------------|-------------------------------|
+   | Enable instance creation        | `Provisioning.Enabled=n`      |
+   | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
 ### Contact Support for the following logs
 
 If you see the following logs, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.
 
-#### For Windows VMs
+#### For a Windows VM
  
 File: C:\Windows\Azure\Panther\WaSetup.xml
 
@@ -140,7 +139,7 @@ File: C:\Windows\Azure\Panther\WaSetup.xml
 <Event time="2021-03-26T20:08:54.929Z" category="ERROR" source="WireServer"><UnhandledError><Message>GetGoalState: RefreshGoalState failed with ErrNo -2147221503</Message><Number>-2147221503</Number><Description>Not initialized</Description><Source>WireServer.wsf</Source></UnhandledError></Event>
 ```
 
-#### For Linux VMs:
+#### For a Linux VM:
 
 Files: 
 * /var/log/cloud-init-output.log
@@ -162,19 +161,27 @@ Files:
 
 ### NIC creation timeout
 
-Go to the **Deployments** tab on the left pane, and navigate to the VM deployment. Check if the network interface was created successfully.<!--Is this in the local web UI?-->
-If a network interface was not created successfully, you'll see an error similar to the following one:
+**Error description:** Creation of the network interface on the VM didn't complete within the allowed timeout period. This failure can be caused by DHCP server issues in your environment. 
 
-![Portal error displayed when network interface creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+To verify whether the network interface was created successfully, do these steps:
 
+1. In the Azure portal, go to the Azure Stack Edge resource for your device (go to **Edge Services** > **Virtual machines**); then select **Deployments** and navigate to the VM deployment.<!--It would take two graphics to show this.--> 
 
-**Suggested resolution:** Create the VM again, and assign it a static IP address. The failure might have been caused by DHCP server issues on your environment.
+1. If a network interface was not created successfully, you'll see the following error.
+
+   ![Portal error displayed when network interface creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+
+**Suggested resolution:** Create the VM again, and assign it a static IP address.
 
 ##	Image creation issues
 
-Currently, we only support creation of Generation 1 virtual machines on Azure Stack Edge. Along with this, the VHDs should be of “fixed” type with the “VHD” extension, and should be uploaded to your Azure Storage account as a page blob.
+To be used to create virtual machines on Azure Stack Edge, a VM image must meet the following requirements:
 
-For guidance on image creation issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-troubleshoot-virtual-machine-image-upload).
+* The image must be a fixed-size virtual hard disk in VHD format for a Generation 1 virtual machine.
+
+* The image must be uploaded to an Azure Storage account as a page blob.
+
+For guidance on image creation issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu- troubleshoot-virtual-machine-image-upload.md).
 
 ## Common VM creation issues
 
@@ -182,7 +189,7 @@ For guidance on image creation issues, see [Troubleshoot virtual machine image u
 
 When VM creation fails because of insufficient memory, you'll see the following error.
  
-![Portal error displayed when VM creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)<!--Screenshot probably won't stay.-->
+![Portal error displayed when VM creation fails](./media/azure-stack-edge-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)<!--Box the area of the error message -->
 
 **Possible causes:**
 1.	Not enough memory left to create the VM.
@@ -224,127 +231,69 @@ If Kubernetes is enabled before the VM is created, Kubernetes will grab all the 
 
 **Possible solution:** For more information, see [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
-
-## DHCP server issues
-<!--Let's make this a separate troubleshooting article. Doesn't fit well in this one.-->
-
-ASE runs DHCP proxy for cloud VMs and VNFs in a tenant L2 network. This requires physical switch/router ports. Also, the DHCP server must allow the source MAC address to be different from the MAC address of the DHCP client. 
-
-We observed that some environments (for example, Netgear cable modem wireless router, lab environment) drop DHCP packets if the source MAC address is different from the client MAC address. This causes the provisioning of VM and VNFs running on Azure Stack Edge to fail because of no DHCP offer.
-
-This article describes DHCP flow in the working environment, and known failure cases. For failure cases, we recommend that you change the physical switch/router setting and mark connected ports in Azure Stack Edge as trusted ports<!--Specifically, which ports? Find the procedure where this is set up.-->.
-
-<!--Problem Description:-->
-We will illustrate DHCP flow in a working environment and in a non-working environment.<!--I'll add section links if this remains part of the VM provisioning troubleshooting article.-->
-
-#### DHCP flow in ASE working environment
-
-1. ASE DHCP client sent discover packet:
-   * Src MAC 00:15:5d:aa:28:02 belongs to DHCP host vNIC on ASE. 
-   * Client MAC address in DHCP header 00:1d:d8:b7:af:71 belongs to VM vNIC. 
- 
-<!--Screenshot of command output in source. I haven't examined it.--> 
- 
-2. DHCP server replied to the DHCP offer by assigning IP 10.126.76.42, and the client MAC address belongs to VM vNIC: 00:1d:d8:b7:af:71.
- 
-<!--Screenshot of command output in source. I haven't examined it.--> 
-
-3. ASE DHCP client sent DHCP request for IP 10.126.76.42, client MAC address = VM vNIC's mac address (00:1d:d8:b7:af:71)
-
-<!--Screenshot of command output in source. I haven't examined it.-->  
- 
-4. DHCP server replied DHCP ACK with VM vNIC's MAC as client MAC address: 00:1d:d8:b7:af:71
- 
-
-#### DHCP flow in non-working environment
-
-**Failure case #1**
-
-When the DHCP server replied DHCP offer packet (the 2nd packet in the working workflow), client MAC address in DHCP header is ASE's DHCP host vNIC's MAC address. In other words, the DHCP server assumed the two MAC addresses are the same and did not use the client MAC address in the DHCP discover packet. When ASE receives this DHCP offer packet, ASE will drop it with error, as the DHCP offer packet used an unexpected MAC address.
-
-**Failure case #2**
-
-DHCP server silently dropped DHCP request packet and did not reply with a DHCP ACK packet. The 4th packet in the working workflow is missing.
-
-**Possible resolution:** DHCP physical environment requirement:
-
-For a home wireless router (for example, NETGEAR Nighthawk AC1900 WiFi DOCSIS 3.0 Cable Modem Router (C7000)), the DHCP server by default assumed clients are _untrusted_, and thus blocked DHCP spoofing packets. If a home wireless router does not support DHCP proxy, Azure Stack Edge will not work for DHCP IP assignment. As a work-around, you can configure static IP addresses on VM network interfaces. 
- 
-<!--STOPPED HERE, 05/17-->Physical switch or router has the DHCP snooping feature. The ports that Azure Stack Edge connected shall be configured as _trusted_ ports, thus packets from ASE DHCP proxy won't be dropped. Configuration of DHCP snooping and trusted ports on physical switch/router shall refer to respective user manual. Reference has example of Cisco router configuration.   
-
-Debug with Wireshark Packet Capture:
-User shall enter support session by running Enable-HcsSupportAccess in minishell. Then in powershell window, connect to Azure Resource Manager (Connect to Azure Resource Manager on your Azure Stack Edge Pro GPU device | Microsoft Docs).  Run ARM commands to create/remove NIC. Creating a NIC without specifying IPAddress will trigger DHCP request sent from ASE. Before NIC creation, user shall start packet capture session on switch side: 
- 
-On ASE create NIC to trigger DHCP:
-Create NIC:
-$ipcfgName = "ipconfig1"
- $nicName = "<nicName>"
- $rgname = "<resource group>"
- $subNetId = (Get-AzureRmVirtualNetwork).Subnets[0].Id
- $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name $ipcfgName -SubnetId $subNetId
- $Nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgname -Location "dbelocal" -IpConfiguration $ipConfig
- 
- 
-Check existing NIC:
-$nics = Get-azurermnetworkinterface
- 
- 
-Delete NIC:
-$nics[0] | remove-azurermnetworkinterface   (example: delete1st NIC in $nics array, make sure $nics[0] is not used)
-
-
-
-
-On switch side, run packet capture,
-
-From Physical Switch UX:
-Using Packet Capture to Troubleshoot Client-side DHCP Issues - Cisco Meraki
-Using Wireshark for Packet Captures - Cisco Meraki
- 
-From Physical Switch Command-Line:
-https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/16-9/configuration_guide/nmgmt/b_169_nmgmt_9300_cg/configuring_packet_capture.html
-   
-
-Reference:
-https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
-How to Prevent DHCP Spoofing (slideshare.net), page 9
-Security - Configuring DHCP Snooping  [Support] - Cisco Systems
-
-
-### Gpu Extension failed to be deployed
+## GPU extension failed to be deployed
 Debugging steps:
-VM size is not Gpu vm size:
-Right now, we only support Standard_NC4as_T4_v3 and Standard_NC8as_T4_v3 VM sizes to create Gpu vms. If any other vm size is used, attempting to attach gpu extension will fail. 
+
+### VM size is not GPU VM size
+
+**Error description:** A GPU VM must use the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. If these size requirements aren't met, attempting to attach the GPU extension will fail.
+
+**Suggested resolution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).<!--Verify: They specify the configuration for the VmSize setting, and the associated sizes are configured on the VM?-->
 
 ### Image OS is not supported
-We only support Windows2019, Windows2016, Ubuntu18, and RHEL7.4 right now. Overview and deployment of GPU VMs on your Azure Stack Edge Pro device | Microsoft Docs
+
+**Error description:** The GPU extension doesn't support the operating system of the VM. 
+
+**Suggested resolution:** Prepare a new VM image that has an operating system that the GPU extension supports. 
+
+* For a list of supported operating systems for GPU on Windows and Linux VMs, see [Supported OS and GPU drivers for GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+
+* For image preparation requirements for a GPU VM, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
+
 
 ### Extension parameter is incorrect
-Make sure the customer used the correct extension settings when deploying gpu extension. Overview and deployment of GPU VMs on your Azure Stack Edge Pro device | Microsoft Docs
+
+**Error description:** Incorrect extension settings were used when deploying the GPU extension on a Linux VM.<!--Verify: This applies only to a Linux VM? Supporting materials apply only to a Linux VM.--> 
+
+**Suggested resolution:** Edit the parameters file before deploying the GPU extension. There are specific parameters files for the Ubuntu and Red Hat Enterprise Linux (RHEL) operating systems. For more information, see [GPU extension for Linux](azure-stack-edge-gpu-deploy-gpu-virtual-machine#gpu-extension-for-linux.md).
+
 
 ## VM extension installation failed in downloading package
-Extension provisioning could fail in extension installation or enable state. 
+
+**Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
 1. Check the guest log for the actual error:
 
    On a Linux VM:
    * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
 
-   For a Windows VM:
-   * Check for the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`
-   * Also look in `C:\WindowsAzure\Logs\WaAppAgent.txt for the complete execution log.`
+   On a Windows VM:
+   * Find out the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`.
+   * Review the complete execution log: `C:\WindowsAzure\Logs\WaAppAgent.txt`.
 
-3.	If the install process failed in downloading the package, theb . Then it means the vm is not able to reach to public network to download the driver. 
-Resolution:
-1.	Move the compute port to public network (Port 2)
-2.	Deallocate the existing failed VM. 
-3.	Try to create another VM.
-VM Extension failed with error dpkg is used/yum lock is used
-This only happens on Linux builds. Check \var\log\azure\nvidia-vmext-status and look for the error. If the error is like “dpkg is used by another process”/”Another app is holding yum lock”. The customer needs to wait for whatever process that is using the lock to finish or kill the process, before retrying the extension deployment again.
-Resolution:
-1.	Find out what process is using the lock, wait for them to finish. Or kill them
-2.	Retry setting the extension.
-3.	If extension retry failed. Try creating another VM and make sure the lock is not used before deploying the extension.
+1.	If the installation process failed while downloading the package, that indicates the VM couldn't access the public network to download the driver.
+
+**Suggested resolution:**
+
+1.	Reassign the compute port on the VM to the public network (Port 2).<!--Where are the instructions for configuring the port used for compute?-->
+
+2.	De-allocate the existing failed VM.<!--They delete the VM?-->
+ 
+3.	Create a new VM.
+
+### VM Extension failed with error `dpkg is used/yum lock is used`
+
+**Error description:** GPU extension deployment on a Linux VM failed because another process was using `dpkg` or another process has a lock on `yum`. 
+
+<!--ORIGINAL TEXT - This error only happens on Linux builds. Check \var\log\azure\nvidia-vmext-status and look for the error. If the error is like “dpkg is used by another process”/”Another app is holding yum lock”. The customer needs to wait for whatever process that is using the lock to finish or kill the process, before you try to deploy the extension deployment again.-->
+
+**Suggested resolutions:** To resolve the issue with the lock, do these steps:
+
+1.	Find out what process(es) are using the lock,<!--How? Where?--> and either wait for the processes to complete or end the processes.
+
+1.	Retry setting the extension.<!--Is this a portal step? Is there a Retry option they select?-->
+
+1.	If the extension retry fails again, try creating a new VM, and make sure the lock is not used before you deploy the GPU extension.
 
 
 ## Next steps
