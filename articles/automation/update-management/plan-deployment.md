@@ -45,7 +45,11 @@ If your IT security policies do not allow machines on the network to connect to 
 
 ## Step 5 - Permissions
 
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
+## Step 6 - Windows Update client
+
+Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. For information about the recommended settings to configure, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
 ## Enable Update Management
 
