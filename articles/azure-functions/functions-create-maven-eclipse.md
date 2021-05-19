@@ -4,7 +4,7 @@ description: How-to guide to create and publish a simple HTTP triggered serverle
 author: ggailey777
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan, glenga
+ms.author: glenga
 ms.custom: mvc, devcenter, devx-track-java
 ---
 
