@@ -47,6 +47,8 @@ The following database solutions are supported with backup feature:
 * Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will encounter backup failures.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
 * Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
+* Backup and Restore are currently not supported over VNet Integration. 
+* Backup and Restore is not supported for Azure storage accounts configured on the Private Endpoints.
 
 <a name="manualbackup"></a>
 
