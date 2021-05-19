@@ -143,6 +143,10 @@ Yes. Windows Virtual Desktop host pools have an option for selecting either avai
 
 The availability option you should use for your VMs depends on your image's location and its managed disk fields. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
 
+## Should I use WDAC or AppLocker to control which applications and drivers are allowed to run on my Win 10 Devices?
+
+The team that owns both WDAC and AppLock suggested using WDAC instead of AppLocker. AppLocker is still supported but considered legacy and customer should steer towards WDAC. 
+
 | Availability option | Image location | Use managed disk option button (radio button) |
 |---|---|---|
 | None | Gallery | Disabled with "Yes" as default |
