@@ -746,8 +746,6 @@
       href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
-    - name: Compute Hardware
-      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
@@ -824,6 +822,8 @@
     items:
     - name: Resource limits
       href: managed-instance/resource-limits.md
+    - name: Compute Hardware
+      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
