@@ -47,7 +47,7 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
 > [!NOTE]
-> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector(see above). You will see that connection related properties are defined within the notebook above. Using the syntax below, connection properties can be defined in this manner without needing to be defined at the cluster level (Spark context initialization).
+> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above). You will see that connection related properties are defined within the notebook above. Using the syntax below, connection properties can be defined in this manner without needing to be defined at the cluster level (Spark context initialization).
 
 ## Insert sample data 
 ```scala
