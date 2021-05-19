@@ -11,6 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 04/16/2021
+ms.custom: references_regions
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

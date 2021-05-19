@@ -44,7 +44,7 @@ This article provides an overview of the resource limits for the [logical server
 
 ### Storage size
 
-For single databases resource storage sizes, refer to either [DTU-based resource limits](resource-limits-dtu-single-databases.md) or [vCore-based resource limits](resource-limits-vcore-single-databases.md) for the storage size limits per pricing tier (aka service objective).
+For single databases resource storage sizes, refer to either [DTU-based resource limits](resource-limits-dtu-single-databases.md) or [vCore-based resource limits](resource-limits-vcore-single-databases.md) for the storage size limits per pricing tier (also known as service objective).
 
 ## What happens when database resource limits are reached
 

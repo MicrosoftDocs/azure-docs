@@ -11,6 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 ms.date: 04/16/2021
+ms.custom: references_regions
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
