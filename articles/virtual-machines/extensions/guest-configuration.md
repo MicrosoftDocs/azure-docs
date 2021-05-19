@@ -65,8 +65,6 @@ To deploy the latest version of the extension at scale including identity requir
 
 [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
-For individual machines, the extension can be deployed using Azure CLI, PowerShell, Resource Manager templates, or third-party tools.
-
 ### Azure CLI
 
 To deploy the extension for Linux:
