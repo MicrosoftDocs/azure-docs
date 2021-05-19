@@ -39,10 +39,10 @@ With some application frameworks there is a bit more configuration required, con
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
-> [!TIP]
+> [!IMPORTANT]
 > This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. For more information, see [.NET Core SDK documentation](./asp-net-core.md) when building apps with .NET Core.
 
-## Diagnosing exceptions using Visual Studio
+## Diagnose exceptions using Visual Studio
 
 Open the app solution in Visual Studio. Run the app, either on your server or on your development machine by using <kbd>F5</kbd>. Recreate the exception.
 
@@ -50,47 +50,41 @@ Open the **Application Insights Search** telemetry window in Visual Studio. Whil
 
 ![Right-click the project and choose Application Insights, Open.](./media/asp-net-exceptions/34.png)
 
-*No exceptions showing? See [Capture exceptions](#exceptions).*
-
 Select an exception report to show its stack trace. To open the relevant code file, select a line reference in the stack trace.
 
 If CodeLens is enabled, you'll see data about the exceptions:
 
 ![CodeLens notification of exceptions.](./media/asp-net-exceptions/35.png)
 
-## Diagnosing failures using the Azure portal
+## Diagnose failures using the Azure portal
 
-Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section.
-You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right, you'll see some of the most useful distributions specific to the selected failing operation, including top three response codes, top three exception types, and top three failing dependency types.
+Application Insights comes with a curated Application Performance Management (APM) experience to help you diagnose failures in your monitored applications. To start, select on the **Failures** option in the Application Insights resource menu located in the **Investigate** section.
+You will see the failure rate trends for your requests, how many of them are failing, and how many users are impacted. As an **Overall** view, you'll see some of the most useful distributions specific to the selected failing operation, including top three response codes, top three exception types, and top three failing dependency types.
 
 ![Failures triage view (operations tab)](./media/asp-net-exceptions/failures0719.png)
 
-In a single click, you can then review representative samples for each of these subsets of operations. In particular, to diagnose exceptions, you can click on the count of a particular exception to be presented with the End-to-end transaction details tab,
-such as this one:
+To review representative samples for each of these subsets of operations, select the corresponding link. As an example, to diagnose exceptions, you can select the count of a particular exception to be presented with the **End-to-end transaction** details tab:
 
 ![End-to-end transaction details tab](./media/asp-net-exceptions/end-to-end.png)
 
-**Alternatively,** instead of looking at exceptions of a specific failing operation, you can start from the overall view of exceptions, by switching to the Exceptions tab at the top. Here you can see all the exceptions collected for your monitored app.
-
-*No exceptions showing? See [Capture exceptions](#exceptions).*
+Alternatively, instead of looking at exceptions of a specific failing operation, you can start from the **Overall** view of exceptions, by switching to the **Exceptions** tab at the top. Here you can see all the exceptions collected for your monitored app.
 
 ## Custom tracing and log data
 
-To get diagnostic data specific to your app, you can insert code to send your own telemetry data. This displayed in diagnostic search alongside the request, page view, and other automatically collected data.
+To get diagnostic data specific to your app, you can insert code to send your own telemetry data. Your custom telemetry or log data is displayed in diagnostic search alongside the request, page view, and other automatically collected data.
 
-You have several options:
+Using the <xref:Microsoft.ApplicationInsights.TelemetryClient?displayProperty=fullName>, you have several APIs available:
 
-* [TrackEvent()](./api-custom-events-metrics.md#trackevent) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./diagnostic-search.md).
-* [TrackTrace()](./api-custom-events-metrics.md#tracktrace) lets you send longer data such as POST information.
-* [TrackException()](#exceptions) sends stack traces. [More about exceptions](#exceptions).
-* If you already use a logging framework like Log4Net or NLog, you can [capture those logs](asp-net-trace-logs.md) and see them in diagnostic search alongside request and exception data.
+* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackEvent%2A?displayProperty=nameWithType> is typically used for monitoring usage patterns, but the data it sends also appears under **Custom Events** in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches](./diagnostic-search.md).
+* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackTrace%2A?displayProperty=nameWithType> lets you send longer data such as POST information.
+* <xref:Microsoft.ApplicationInsights.TelemetryClient.TrackException%2A?displayProperty=nameWithType> sends exception details, such as stack traces to Application Insights.
 
-To see these events, open [Search](./diagnostic-search.md) from the left menu, select the drop-down menu **Event types**, and then choose Custom Event, Trace, or Exception.
+To see these events, open [Search](./diagnostic-search.md) from the left menu, select the drop-down menu **Event types**, and then choose **Custom Event**, **Trace**, or **Exception**.
 
 ![Drill through](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](./sampling.md)
+> If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. For more information, see [Sampling in Application Insights](./sampling.md).
 
 ### How to see request POST data
 
@@ -180,9 +174,9 @@ If your web page includes script files from content delivery networks or other d
 ## Reuse your telemetry client
 
 > [!NOTE]
-> `TelemetryClient` is recommended to be instantiated once and re-used throughout the life of an application.
+> The `TelemetryClient` is recommended to be instantiated once, and re-used throughout the life of an application.
 
-Below is an example using `TelemetryClient` correctly.
+With [Dependency Injection (DI) in .NET](/dotnet/core/extensions/dependency-injection), the appropriate .NET SDK, and correctly configuring Application Insights for DI, you can require the <xref:Microsoft.ApplicationInsights.TelemetryClient> as a constructor parameter.
 
 ```csharp
 public class ExampleController : ApiController
@@ -195,6 +189,8 @@ public class ExampleController : ApiController
     }
 }
 ```
+
+In the preceding example, the `TelemetryClient` is injected into the `ExampleController` class.
 
 ## Web forms
 
