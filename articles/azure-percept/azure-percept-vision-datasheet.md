@@ -21,7 +21,7 @@ Specifications listed below are for the Azure Percept Vision device, included in
 |Supported Software and Services |[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Azure Device Update |
 |AI Acceleration                 |Intel Movidius Myriad X (MA2085) Vision Processing Unit (VPU) with Intel Camera ISP integrated, 0.7 TOPS |
 |Sensors and Visual Indicators   |Sony IMX219 Camera sensor with 6P Lens<br>Resolution: 8MP at 30FPS, Distance: 50 cm - infinity<br>FoV: 120-degrees diagonal, Color: Wide Dynamic Range, Fixed Focus Rolling Shutter|
-|Camera Support                  |RGB <br> 2 cameras can be run simultaneously |
+|Camera Support                  |RGB |
 |Security Crypto-Controller      |ST-Micro STM32L462CE      |
 |Versioning / ID Component       |64 kb EEPROM |
 |Memory                          |LPDDR4 2GB     |
