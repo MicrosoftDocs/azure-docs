@@ -314,6 +314,9 @@ A Backend Pool configured by IP address has the following limitations:
   * Load balancers or services such as Application Gateway cannot be placed in the backend pool of the load balancer
   * Inbound NAT Rules cannot be specified by IP address
 
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. 
+
 ## Next steps
 In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.
 
