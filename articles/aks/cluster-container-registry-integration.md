@@ -21,10 +21,10 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 
 These examples require:
 
-* **Owner** or **Azure account administrator** role on the **Azure subscription**
+* **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role on the **Azure subscription**
 * Azure CLI version 2.7.0 or later
 
-To avoid needing an **Owner** or **Azure account administrator** role, you can configure a managed identity manually or use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
+To avoid needing an **Owner**, **Azure account administrator**, or **Azure co-adminstrator** role, you can use an existing managed identity to authenticate ACR from AKS. For more information, see [Use an Azure managed identity to authenticate to an Azure container registry](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## Create a new AKS cluster with ACR integration
 
@@ -67,6 +67,9 @@ or,
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
+
+> [!NOTE]
+> Running `az aks update --attach-acr` uses the permissions of the user running the command to create the role ACR assignment. This role is assigned to the kubelet managed identity. For more information on the AKS managed identities, see [Summary of managed identities][summary-msi].
 
 You can also remove the integration between an ACR and an AKS cluster with the following
 
@@ -153,3 +156,5 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks#az_aks_create
 [Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities
