@@ -8,7 +8,7 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 - [Azure AD user](#authenticate-as-an-azure-ad-user)
 - [Service principal (Azure AD application)](#authenticate-as-a-service-principal-azure-ad-application)
 
-    ![Authentication Options](assets/AuthMethods.png)
+    ![Authentication Options](media/sentinel-connectors/auth-methods.png)
 
 ### Permissions required
 
@@ -40,17 +40,17 @@ To authenticate with managed identity:
 
     1. In the Logic Apps designer, add an Azure Sentinel Logic Apps connector step. If the connector is already enabled for an existing connection, click the **Change connection** link.
 
-        ![Change connection](assets/change-connection.png)
+        ![Change connection](media/sentinel-connectors/change-connection.png)
 
     1. In the resulting list of connections, select **Add new** at the bottom. 
 
     1. Create a new connection by selecting **Connect with managed identity (preview)**.
 
-        ![Authentication Options](assets/AuthMethods-MSIchoice.png)
+        ![Authentication Options](media/sentinel-connectors/auth-methods-msi-choice.png)
 
     1. Fill in a name for this connection, select **System-assigned managed identity** and select **Create**.
     
-        ![Connect with managed identity](assets/AuthMethods-MSI.png)
+        ![Connect with managed identity](media/sentinel-connectors/auth-methods-msi.png)
 
 ### Authenticate as an Azure AD user
 
@@ -89,14 +89,14 @@ To use your own application with the Azure Sentinel connector, perform the follo
 
     - Select **Connect with Service Principal**.
 
-        ![Authentication Options](assets/auth-methods-spn-choice.png)
+        ![Authentication Options](media/sentinel-connectors/auth-methods-spn-choice.png)
 
     - Fill in the required parameters (can be found in the registered application blade)
         - **Tenant**: under **Overview**
         - **Client ID**: under **Overview**
         - **Client Secret**: under **Certificates & secrets**
         
-        ![Authentication Options](assets/auth-methods-spn.png)
+        ![Authentication Options](media/sentinel-connectors/auth-methods-spn.png)
 
 ### Manage your API connections
 
@@ -160,33 +160,35 @@ The **Incident** object received from **When Azure Sentinel incident creation ru
 > The actions **Update Incident** and **Add a Comment to Incident** require the **Incident ARM ID**. <br>
 Use the **Alert - Get Incident** action beforehand to get the **Incident ARM ID**.
 
-- **Update an incident**
-    -  Playbook is triggered **when an incident is created**
+### Update an incident
+-  Playbook is triggered **when an incident is created**
 
-        ![Incident trigger simple Update flow example](./assets/IncidentSimpleFlow.png)
-    -  Playbook is triggered **when an alert is triggered**
+    ![Incident trigger simple Update flow example](media/sentinel-connectors/incident-simple-flow.png)
 
-        ![Alert trigger simple Update Incident flow example](./assets/AlertUpdateFlow.png)
+-  Playbook is triggered **when an alert is generated**
+
+    ![Alert trigger simple Update Incident flow example](media/sentinel-connectors/alert-update-flow.png)
       
-- **Use Incident Information**
+### Use Incident Information
 
-    Basic playbook to send incident details over mail:
-    -  Playbook is triggered **when an incident is created**
+Basic playbook to send incident details over mail:
+-  Playbook is triggered **when an incident is created**
 
-        ![Incident trigger simple Get flow example](./assets/IncidentSimpleMailFlow.png)
+    ![Incident trigger simple Get flow example](media/sentinel-connectors/incident-simple-mail-flow.png)
 
-    -  Playbook is triggered **when an alert is triggered**
+-  Playbook is triggered **when an alert is generated**
 
-        ![Alert trigger simple Get Incident flow example](./assets/AlertSimpleMailFlow.png)
+    ![Alert trigger simple Get Incident flow example](media/sentinel-connectors/alert-simple-mail-flow.png)
 
-- **Add a comment to the incident**
+### Add a comment to the incident
 
-    -  Playbook is triggered **when an incident is created**
+-  Playbook is triggered **when an incident is created**
 
-        ![Incident trigger simple add comment example](./assets/incidentcomment.png)
-    -  Playbook is triggered **when an alert is triggered**
+    ![Incident trigger simple add comment example](media/sentinel-connectors/incident-comment.png)
 
-        !["Alert trigger simple add comment example"](./assets/alertcomment.png)
+-  Playbook is triggered **when an alert is generated**
+
+    !["Alert trigger simple add comment example"](media/sentinel-connectors/alert-comment.png)
 
 ## Work with specific Entity type
 
@@ -203,17 +205,19 @@ The response is an array of entities, where the special properties are parsed an
 
 Currently supported entity types are:
 
-- [IP](https://docs.microsoft.com/connectors/azuresentinel/#entities---get-ips)
-- [Host](https://docs.microsoft.com/connectors/azuresentinel/#entities---get-hosts)
-- [Account](https://docs.microsoft.com/connectors/azuresentinel/#entities---get-accounts)
-- [URL](https://docs.microsoft.com/connectors/azuresentinel/#entities---get-urls)
-- [FileHash](https://docs.microsoft.com/connectors/azuresentinel/#entities---get-filehashes)
+- [IP](/connectors/azuresentinel/#entities---get-ips)
+- [Host](/connectors/azuresentinel/#entities---get-hosts)
+- [Account](/connectors/azuresentinel/#entities---get-accounts)
+- [URL](/connectors/azuresentinel/#entities---get-urls)
+- [FileHash](/connectors/azuresentinel/#entities---get-filehashes)
 
-    ![Entities Actions List](./assets/EntitiesActions.png)
+    :::image type="content" source="media/sentinel-connectors/entities-actions.png" alt-text="Entities Actions List":::
 
-For other entity types, same functionality can be achieved using Logic Apps built in actions:
-- Filter the array of entities by the requested type using [**Filter Array**](https://docs.microsoft.com/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action).
-- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse Json**](https://docs.microsoft.com/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action).
+For other entity types, similar functionality can be achieved using Logic Apps' built-in actions:
+
+- Filter the array of entities by the requested type using [**Filter Array**](/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action).
+
+- Parse the specific fields of this type, so they can be used as dynamic fields in further actions using [**Parse JSON**](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action).
     
 ## Known issues and limitations
 
@@ -229,11 +233,11 @@ Proper ways to trigger:
 - Manual trigger in Azure Sentinel
 - Automated response of an analytic rule in Azure Sentinel
 - Use "Resubmit" button in an existing Logic Apps run blade
-- [Call directly the Logic Apps endpoint](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint#call-logic-app-through-endpoint-url) (attaching an alert/incident as the body)
+- [Call directly the Logic Apps endpoint](/azure/logic-apps/logic-apps-http-endpoint#call-logic-app-through-endpoint-url) (attaching an alert/incident as the body)
 
 ### Updating the same incident in parallel *For each* loops
 
-*For each* loops are set by default to run in parallel, but can be easily [set to run sequentially](https://docs.microsoft.com/azure/logic-apps/logic-apps-control-flow-loops#foreach-loop-sequential). If a *for each* loop might update the same Azure Sentinel incident in separate iterations, it should be configured to run sequentially.
+*For each* loops are set by default to run in parallel, but can be easily [set to run sequentially](/azure/logic-apps/logic-apps-control-flow-loops#foreach-loop-sequential). If a *for each* loop might update the same Azure Sentinel incident in separate iterations, it should be configured to run sequentially.
 
 ### Restoring alert's original query is currently not supported via Logic Apps
 
@@ -245,14 +249,14 @@ Usage of the **Azure Monitor Logs connector** to retrieve the events captured by
 ## Available resources
 
 ### Azure Sentinel docs
-- [Advance automation with playbooks](https://docs.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks)
-- [Tutorial: Use playbooks with automation rules in Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook)
+- [Advance automation with playbooks](/azure/sentinel/automate-responses-with-playbooks)
+- [Tutorial: Use playbooks with automation rules in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
 
 ### Azure Sentinel References
 - [Azure Sentinel Github templates gallery](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
-- [Azure Sentinel API reference](https://docs.microsoft.com/rest/api/securityinsights)
+- [Azure Sentinel API reference](/rest/api/securityinsights)
 
 ### Azure Logic Apps
 
-- [Scenarios, examples and walkthroughs for Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-examples-and-scenarios)
-- [Logic Apps expressions](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference)
+- [Scenarios, examples and walkthroughs for Azure Logic Apps](/azure/logic-apps/logic-apps-examples-and-scenarios)
+- [Logic Apps expressions](/azure/logic-apps/workflow-definition-language-functions-reference)
