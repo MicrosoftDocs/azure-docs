@@ -355,7 +355,7 @@ It's possible to change an Azure subscription from *Expired* or *Deprovisioned* 
 ## Troubleshooting
 
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), see the [error codes document](https://support.microsoft.com/kb/3041338).
-You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
+You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml)
 
 ## Next steps
 
@@ -364,5 +364,5 @@ The article, [Preparing your environment for DPM](/system-center/dpm/prepare-env
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
 - [SQL Server backup](./backup-mabs-sql-azure-stack.md)
-- [SharePoint server backup](./backup-mabs-sharepoint-azure-stack.md)
+- [SharePoint Server backup](./backup-mabs-sharepoint-azure-stack.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

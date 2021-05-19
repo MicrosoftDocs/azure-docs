@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 
 ---

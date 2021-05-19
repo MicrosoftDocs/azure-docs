@@ -47,7 +47,7 @@ You can assign permissions to queue data to an Azure AD security principal via A
 
 The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to Azure CLI. Permissions to queues are assigned via Azure RBAC. For example, if you are assigned the **Storage Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you are assigned the **Storage Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
 
-For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ### Example: Authorize an operation to create a queue with Azure AD credentials
 
@@ -58,7 +58,7 @@ The following example shows how to create a queue from Azure CLI using your Azur
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) command with the `--auth-mode` parameter set to `login` to create the queue using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [`az storage queue create`](/cli/azure/storage/queue#az_storage_queue_create) command with the `--auth-mode` parameter set to `login` to create the queue using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage queue create \

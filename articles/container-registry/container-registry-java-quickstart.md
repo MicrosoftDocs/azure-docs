@@ -2,10 +2,13 @@
 title: Quickstart - Build and push Java container images to Azure Container Registry using Maven and Jib
 description: Build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 author: KarlErickson
-ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
-ms.topic: quickstart
 ms.date: 02/26/2020
+ms.topic: quickstart
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - mode-api
 ---
 
 # Quickstart: Build and push Java container images to Azure Container Registry

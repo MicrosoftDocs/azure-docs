@@ -5,18 +5,17 @@ description: This quickstart shows how to quickly get started using the Text Ana
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/09/2021
+ms.date: 05/05/2021
 ms.author: aahi
 ---
 
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/)
+[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/)
 
 # [Version 3.0](#tab/version-3)
 
@@ -57,7 +56,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 > The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", text: "The customer service here is really good."}]}'
@@ -184,7 +183,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/sen
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/languages/ \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/languages/ \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", text: "This is a document written in English."}]}'
@@ -257,7 +256,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/lan
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/recognition/general \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/entities/recognition/general \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
@@ -307,7 +306,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
 ```bash
-curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/recognition/pii \
+curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/entities/recognition/pii \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Call our office at 312-555-1234, or send an email to support@contoso.com"}]}'
@@ -412,7 +411,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/entities/linking \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/entities/linking \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975."}]}'
@@ -606,7 +605,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 #### [version 3.1-preview](#tab/version-3-1)
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/keyPhrases \
+curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.5/keyPhrases \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'

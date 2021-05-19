@@ -84,7 +84,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     "Microsoft.Support/*"
     ```
 
-1. Get the ID of your subscription using the [az account list](/cli/azure/account#az-account-list) command.
+1. Get the ID of your subscription using the [az account list](/cli/azure/account#az_account_list) command.
 
     ```azurecli
     az account list --output table
@@ -116,7 +116,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     }
     ```
     
-1. To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az-role-definition-create) command and specify the JSON role definition file.
+1. To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az_role_definition_create) command and specify the JSON role definition file.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -153,7 +153,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 ## List custom roles
 
-- To list all your custom roles, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command with the `--custom-role-only` parameter.
+- To list all your custom roles, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command with the `--custom-role-only` parameter.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -223,7 +223,7 @@ To update the custom role, update the JSON file and then update the custom role.
     }
     ```
         
-1. To update the custom role, use the [az role definition update](/cli/azure/role/definition#az-role-definition-update) command and specify the updated JSON file.
+1. To update the custom role, use the [az role definition update](/cli/azure/role/definition#az_role_definition_update) command and specify the updated JSON file.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -259,7 +259,7 @@ To update the custom role, update the JSON file and then update the custom role.
     
 ## Delete a custom role
 
-- Use the [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) command and specify the role name or role ID to delete the custom role.
+- Use the [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) command and specify the role name or role ID to delete the custom role.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"

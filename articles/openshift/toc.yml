@@ -62,7 +62,9 @@
               href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Develop and run applications
       items:
-        - name: Deploy an application to Azure Red Hat OpenShift using OpenShift Serverless
+        - name: Deploy an application from source code
+          href: howto-deploy-with-s2i.md
+        - name: Deploy an application using OpenShift Serverless
           href: howto-deploy-with-serverless.md
         - name: Deploy an Open Liberty/WebSphere Liberty app
           href: howto-deploy-java-liberty-app.md

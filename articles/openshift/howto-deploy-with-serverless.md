@@ -5,7 +5,7 @@ author: sabbour
 ms.author: asabbour
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 4/5/2020
+ms.date: 4/5/2021
 keywords: aro, openshift, red hat, serverless
 ---
 
@@ -56,7 +56,7 @@ https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](media/aro4-login-3.png)
+:::image type="content" source="media/login.png" alt-text="Azure Red Hat OpenShift login screen":::
 
 ## Install the OpenShift Serverless operator
 
@@ -372,4 +372,4 @@ In this guide, you learned how to:
 > * Deploy a serverless project using the Knative CLI (kn)
 > * Configure blue/green deployments and canary deployments using the Knative CLI (kn)
 
-Learn more about how to build and deploy serverless, event-driven applications on Azure Red Hat OpenShift using [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless), follow the [Getting started with OpenShift Serverless](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) documentation and the [Creating and managing serverless applications](https://docs.openshift.com/container-platform/4.6/serverless/serving-creating-managing-apps.html) documentation.
+Learn more about how to build and deploy serverless, event-driven applications on Azure Red Hat OpenShift using [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless), follow the [Getting started with OpenShift Serverless](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) documentation and the [Creating and managing serverless applications](https://docs.openshift.com/container-platform/4.5/serverless/serving-creating-managing-apps.html) documentation.

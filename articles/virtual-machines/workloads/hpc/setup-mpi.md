@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -26,6 +26,13 @@ Though the examples here are for RHEL/CentOS, but the steps are general and can 
 
 > [!NOTE]
 > The code snippets below are examples. We recommend using the latest stable versions of the packages, or referring to the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
+
+## Choosing MPI library
+If an HPC application recommends a particular MPI library, try that version first. If you have flexibility regarding which MPI you can choose, and you want the best performance, try HPC-X. Overall, the HPC-X MPI performs the best by using the UCX framework for the InfiniBand interface, and takes advantage of all the Mellanox InfiniBand hardware and software capabilities. Additionally, HPC-X and OpenMPI are ABI compatible, so you can dynamically run an HPC application with HPC-X that was built with OpenMPI. Similarly, Intel MPI, MVAPICH, and MPICH are ABI compatible.
+
+The following figure illustrates the architecture for the popular MPI libraries.
+
+![Architecture for popular MPI libraries](./media/mpi-architecture.png)
 
 ## UCX
 
@@ -55,8 +62,22 @@ mv hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64 ${INSTA
 HPCX_PATH=${INSTALL_PREFIX}/hpcx-${HPCX_VERSION}-gcc-MLNX_OFED_LINUX-5.0-1.0.0.0-redhat7.7-x86_64
 ```
 
-Run HPC-X
+The following command illustrates some recommended mpirun arguments for HPC-X and OpenMPI.
+```bash
+mpirun -n $NPROCS --hostfile $HOSTFILE --map-by ppr:$NUMBER_PROCESSES_PER_NUMA:numa:pe=$NUMBER_THREADS_PER_PROCESS -report-bindings $MPI_EXECUTABLE
+```
+where:
 
+|Parameter|Description                                        |
+|---------|---------------------------------------------------|
+|`NPROCS`	|Specifies the number of MPI processes. For example: `-n 16`.|
+|`$HOSTFILE`|Specifies a file containing the hostname or IP address, to indicate the location of where the MPI processes will run. For example: `--hostfile hosts`.|
+|`$NUMBER_PROCESSES_PER_NUMA`	|Specifies the number of MPI processes that will run in each NUMA domain. For example, to specify four MPI processes per NUMA, you use `--map-by ppr:4:numa:pe=1`.|
+|`$NUMBER_THREADS_PER_PROCESS`	|Specifies the number of threads per MPI process. For example, to specify one MPI process and four threads per NUMA, you use `--map-by ppr:1:numa:pe=4`.|
+|`-report-bindings`	|Prints MPI processes mapping to cores, which is useful to verify that your MPI process pinning is correct.|
+|`$MPI_EXECUTABLE`	|Specifies the MPI executable built linking in MPI libraries. MPI compiler wrappers do this automatically. For example: `mpicc` or `mpif90`.|
+
+An example of running the OSU latency microbenchmark is as follows:
 ```bash
 ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
 ```
@@ -64,6 +85,11 @@ ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tes
 ### Optimizing MPI collectives
 
 MPI Collective communication primitives offer a flexible, portable way to implement group communication operations. They are widely used across various scientific parallel applications and have a significant impact on the overall application performance. Refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) for details on configuration parameters to optimize collective communication performance using HPC-X and HCOLL library for collective communication.
+
+As an example, if you suspect your tightly coupled MPI application is doing an excessive amount of collective communication, you can try enabling hierarchical collectives (HCOLL). To enable those features, use the following parameters.
+```bash
+-mca coll_hcoll_enable 1 -x HCOLL_MAIN_IB=<MLX device>:<Port>
+```
 
 > [!NOTE] 
 > With HPC-X 2.7.4+, it may be necessary to explicitly pass LD_LIBRARY_PATH if the UCX version on MOFED vs. that in HPC-X is different.
@@ -89,7 +115,7 @@ cd openmpi-${OMPI_VERSION}
 ./configure --prefix=${INSTALL_PREFIX}/openmpi-${OMPI_VERSION} --with-ucx=${UCX_PATH} --with-hcoll=${HCOLL_PATH} --enable-mpirun-prefix-by-default --with-platform=contrib/platform/mellanox/optimized && make -j$(nproc) && make install
 ```
 
-For optimal performance, run OpenMPI with `ucx` and `hcoll`.
+For optimal performance, run OpenMPI with `ucx` and `hcoll`. Also see the example with [HPC-X](#hpc-x).
 
 ```bash
 ${INSTALL_PREFIX}/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
@@ -99,12 +125,38 @@ Check your partition key as mentioned above.
 
 ## Intel MPI
 
-Download your choice of version of [Intel MPI](https://software.intel.com/mpi-library/choose-download). Change the I_MPI_FABRICS environment variable depending on the version.
+Download your choice of version of [Intel MPI](https://software.intel.com/mpi-library/choose-download). The Intel MPI 2019 release switched from the Open Fabrics Alliance (OFA) framework to the Open Fabrics Interfaces (OFI) framework, and currently supports libfabric. There are two providers for InfiniBand support: mlx and verbs.
+Change the I_MPI_FABRICS environment variable depending on the version.
 - Intel MPI 2019 and 2021: use `I_MPI_FABRICS=shm:ofi`, `I_MPI_OFI_PROVIDER=mlx`. The `mlx` provider uses UCX. Usage of verbs has been found to be unstable and less performant. See the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/intelmpi-2019-on-azure-hpc-clusters/ba-p/1403149) for more details.
 - Intel MPI 2018: use `I_MPI_FABRICS=shm:ofa`
 - Intel MPI 2016: use `I_MPI_DAPL_PROVIDER=ofa-v2-ib0`
 
+Here are some suggested mpirun arguments for Intel MPI 2019 update 5+.
+```bash
+export FI_PROVIDER=mlx
+export I_MPI_DEBUG=5
+export I_MPI_PIN_DOMAIN=numa
+
+mpirun -n $NPROCS -f $HOSTFILE $MPI_EXECUTABLE
+```
+where:
+
+|Parameter|Description                                        |
+|---------|---------------------------------------------------|
+|`FI_PROVIDER`	|Specifies which libfabric provider to use, which will affect the API, protocol, and network used. verbs is another option, but generally mlx gives you better performance.|
+|`I_MPI_DEBUG`|Specifies the level of extra debug output, which can provide details about where processes are pinned, and which protocol and network are used.|
+|`I_MPI_PIN_DOMAIN`	|Specifies how you want to pin your processes. For example, you can pin to cores, sockets, or NUMA domains. In this example, you set this environmental variable to numa, which means processes will be pinned to NUMA node domains.|
+
+### Optimizing MPI collectives
+
+There are some other options that you can try, especially if collective operations are consuming a significant amount of time. Intel MPI 2019 update 5+ supports the provide mlx and uses the UCX framework to communicate with InfiniBand. It also supports HCOLL.
+```bash
+export FI_PROVIDER=mlx
+export I_MPI_COLL_EXTERNAL=1
+```
+
 ### Non SR-IOV VMs
+
 For non SR-IOV VMs, an example of downloading the 5.x runtime [free evaluation version](https://registrationcenter.intel.com/en/forms/?productid=1740) is as follows:
 ```bash
 wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
@@ -121,10 +173,9 @@ For SUSE Linux Enterprise Server VM image versions - SLES 12 SP3 for HPC, SLES 1
 sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
 ```
 
-## MVAPICH2
+## MVAPICH
 
-Build MVAPICH2.
-
+The following is an example of building MVAPICH2. Note newer versions may be available than what is used below.
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.tar.gz
 tar -xv mvapich2-2.3.tar.gz
@@ -133,11 +184,28 @@ cd mvapich2-2.3
 make -j 8 && make install
 ```
 
-Running MVAPICH2.
-
+An example of running the OSU latency microbenchmark is as follows:
 ```bash
 ${INSTALL_PREFIX}/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=48 ./osu_latency
 ```
+
+The following list contains several recommended `mpirun` arguments.
+```bash
+export MV2_CPU_BINDING_POLICY=scatter
+export MV2_CPU_BINDING_LEVEL=numanode
+export MV2_SHOW_CPU_BINDING=1
+export MV2_SHOW_HCA_BINDING=1
+
+mpirun -n $NPROCS -f $HOSTFILE $MPI_EXECUTABLE
+```
+where:
+
+|Parameter|Description                                        |
+|---------|---------------------------------------------------|
+|`MV2_CPU_BINDING_POLICY`	|Specifies which binding policy to use, which will affect how processes are pinned to core IDs. In this case, you specify scatter, so processes will be evenly scattered among the NUMA domains.|
+|`MV2_CPU_BINDING_LEVEL`|Specifies where to pin processes. In this case, you set it to numanode, which means processes are pinned to units of NUMA domains.|
+|`MV2_SHOW_CPU_BINDING`	|Specifies if you want to get debug information about where the processes are pinned.|
+|`MV2_SHOW_HCA_BINDING`	|Specifies if you want to get debug information about which host channel adapter each process is using.|
 
 ## Platform MPI
 

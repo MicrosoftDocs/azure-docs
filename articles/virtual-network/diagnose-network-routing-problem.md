@@ -84,7 +84,7 @@ In the previous output, the network interface name is *myVMNic1*.
 
 You can run the commands that follow in the  [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
+Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). The following example gets the effective routes for a network interface named *myVMNic1* that is in a resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

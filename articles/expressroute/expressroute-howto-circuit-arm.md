@@ -3,12 +3,12 @@ title: 'Quickstart: Create and modify a circuit with ExpressRoute - Azure PowerS
 description: This quickstart shows you how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: duongau
-
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/12/2020
 ms.author: duau
-
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+  - mode-api
 ---
 # Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell
 

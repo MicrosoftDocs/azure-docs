@@ -283,7 +283,7 @@ To learn more, see the following docs:
 
 * [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
 
-* [Frequently asked questions about Synapse Link for Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Synapse Link for Azure Cosmos DB.](synapse-link-frequently-asked-questions.yml)
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 

@@ -1,11 +1,10 @@
 ---
 title: Connect to Synapse SQL
 description: Get connected to Synapse SQL.
-services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: overview 
-ms.subservice: 
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
 ms.reviewer: jrasnick

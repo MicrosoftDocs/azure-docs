@@ -191,9 +191,9 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts databases and elastic pools. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Creates a failover group. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
 
 ---
 
@@ -316,8 +316,8 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
-| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Lists the failover groups in a server. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az_sql_failover_group_list) | Lists the failover groups in a server. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
 
 ---
 
@@ -367,7 +367,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 ---
 
@@ -403,15 +403,15 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az account set](/cli/azure/account#az-account-set) | Sets a subscription to be the current active subscription. |
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts single databases and elastic pools in Azure SQL Database. |
+| [az account set](/cli/azure/account#az_account_set) | Sets a subscription to be the current active subscription. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts single databases and elastic pools in Azure SQL Database. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates the server-level IP firewall rules in Azure SQL Database. |
 | [az sql db create](/cli/azure/sql/db) | Creates a database in Azure SQL Database. |
-| [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) | Creates a failover group in Azure SQL Database. |
-| [az sql failover-group list](/cli/azure/sql/failover-group#az-sql-failover-group-list) | Lists the failover groups in a server in Azure SQL Database. |
-| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az-sql-failover-group-set-primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group in Azure SQL Database. |
+| [az sql failover-group list](/cli/azure/sql/failover-group#az_sql_failover_group_list) | Lists the failover groups in a server in Azure SQL Database. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 # [The portal](#tab/azure-portal)
 

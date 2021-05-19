@@ -309,4 +309,4 @@ When no longer needed, delete the folder into which you cloned the `Microsoft/Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Face service](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Get started with Face service](../../face/quickstarts/client-libraries.md?pivots=programming-language-csharp)

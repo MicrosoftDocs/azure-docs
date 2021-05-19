@@ -22,7 +22,8 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-You may also find the VM sizes programmatically. To learn how to retrieve them programmatically, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+The complete list of supported VM sizes can be pulled programmatically. To learn how to retrieve them programmatically, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+Upgrading the VM size will result in validation to check if the new VM size supports the EncryptionAtHost feature.
 
 ## Prerequisites
 

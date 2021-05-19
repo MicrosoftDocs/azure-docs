@@ -20,7 +20,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [.NET SDK 5.0](https://www.microsoft.com/net/download)
++ [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381, or a later version.
 

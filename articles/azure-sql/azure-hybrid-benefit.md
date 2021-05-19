@@ -45,9 +45,9 @@ To set or update the license type by using PowerShell:
 
 To set or update the license type by using the Azure CLI:
 
-- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
-- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
+- [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
+- [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
 # [REST API](#tab/rest)
 

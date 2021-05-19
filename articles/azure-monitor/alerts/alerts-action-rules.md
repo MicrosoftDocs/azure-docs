@@ -125,7 +125,7 @@ Last, configure the following details for the action rule:
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
 ### Prepare your environment
 
@@ -139,7 +139,7 @@ You can create action rules with the Azure CLI using the [az monitor action-rule
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -161,7 +161,7 @@ You can create action rules with the Azure CLI using the [az monitor action-rule
 
 ### Create action rules with the Azure CLI
 
-See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) to learn about required and optional parameters.
+See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) to learn about required and optional parameters.
 
 Create an action rule to suppress notifications in a resource group.
 
@@ -247,7 +247,7 @@ From here, you can enable, disable, or delete action rules at scale by selecting
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can view and manage your action rules using the [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) command from the Azure CLI.
+You can view and manage your action rules using the [az monitor action-rule](/cli/azure/monitor) command from the Azure CLI.
 
 Before you manage action rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an action rule](#configuring-an-action-rule).
 

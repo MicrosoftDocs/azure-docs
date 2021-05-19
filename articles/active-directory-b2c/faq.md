@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 05/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -91,7 +91,7 @@ You can use the Microsoft Graph API to write your migration tool. See the [User 
 
 The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. For more details, see [Password policies and restrictions in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
-For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](threat-management.md).
+For information about account lockouts and passwords, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
@@ -99,7 +99,7 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using t
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 
-This feature is in public preview. For details, see [Embedded sign-in experience](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
+This feature is in public preview. For details, see [Embedded sign-in experience](./embedded-login.md).
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
 
@@ -127,7 +127,7 @@ Yes, see [language customization](language-customization.md). We provide transla
 
 ### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
-This feature is available in public preview. For details, see [Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
+This feature is available in public preview. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
 
 ### How do I delete my Azure AD B2C tenant?
 

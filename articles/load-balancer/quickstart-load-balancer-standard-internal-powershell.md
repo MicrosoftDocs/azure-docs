@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms:custom: seodec18
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell

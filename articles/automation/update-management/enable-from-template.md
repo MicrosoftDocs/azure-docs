@@ -4,7 +4,8 @@ description: This article tells how to use an Azure Resource Manager template to
 services:  automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/18/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Update Management using Azure Resource Manager template

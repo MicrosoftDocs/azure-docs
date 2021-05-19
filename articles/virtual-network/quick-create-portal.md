@@ -3,15 +3,17 @@ title: 'Quickstart: Create a virtual network - Azure portal'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn how to create a virtual network using the Azure portal.
 author: KumudD
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 03/17/2021
 ms.author: kumud
-
+ms.date: 03/17/2021
+ms.topic: quickstart
+ms.service: virtual-network
+ms.workload: infrastructure
+ms.tgt_pltfrm: virtual-network
+ms.devlang: na
+tags:
+  - azure-resource-manager
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Create a virtual network using the Azure portal

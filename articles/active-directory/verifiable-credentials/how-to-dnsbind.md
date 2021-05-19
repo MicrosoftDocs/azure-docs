@@ -120,7 +120,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
 4. Copy your DID and open the [ION Network Explorer](https://identity.foundation/ion/explorer) to verify the same domain is included in the DID Document. 
 
-5. Host the well-known config resource at the location specified. Example: https://www.example.com/.well-known/did-configuration.json
+5. Host the well-known config resource at the location specified. Example: `https://www.example.com/.well-known/did-configuration.json`
 
 6. Test out issuing or presenting with Microsoft Authenticator to validate. Make sure the setting in Authenticator 'Warn about unsafe apps' is toggled on.
 
@@ -131,4 +131,4 @@ Congratulations, you now have bootstrapped the web of trust with your DID!
 
 ## Next steps
 
-If during onboarding you enter the wrong domain information of you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.
+If during onboarding you enter the wrong domain information or if you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.

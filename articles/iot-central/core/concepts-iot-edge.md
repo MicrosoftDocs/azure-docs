@@ -9,11 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: [device-developer, iot-edge]
 
+# This article applies to solution builders and device developers.
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
-
-*This article applies to solution builders and device developers.*
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so your organization can focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud.
 
@@ -192,8 +191,6 @@ To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Cen
 
 ### Update a deployment manifest
 
-If you create a new [version](howto-version-device-template.md) of the device template, you can replace the deployment manifest with a new version:
-
 When you replace the deployment manifest, any connected IoT Edge devices download the new manifest and update their modules. However, IoT Central doesn't update the interfaces in the device template with any changes to the module configuration. For example, if you replace the manifest shown in the previous snippet with the following manifest, you don't automatically see the **SendUnits** property in the **management** interface in the device template. Manually add the new property to the **management** interface for IoT Central to recognize it:
 
 ```json
@@ -282,4 +279,4 @@ To learn more, see [How to connect devices through an IoT Edge transparent gatew
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
+A suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).
