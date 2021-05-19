@@ -186,11 +186,11 @@ To filter messages before telemetry data is sent, you can update your [routing q
 
 ## Limitations for device connected and device disconnected events
 
-To receive device connection state events, a device must do either a 'D2C Send Telemetry' OR a 'C2D Receive Message' operation with Iot Hub. However, note that if a device is using AMQP protocol to connect with Iot Hub, it is recommended that they do a 'C2D Receive Message' operation otherwise their connection state notifications may be delayed by few minutes. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the Receive Async API for IoT Hub C# SDK, or [device client for AMQP](iot-hub-amqp-support.md#device-client).
+To receive device connection state events, a device must call either the *device-to-cloud send telemetry* or a *cloud-to-device receive message* operation with IoT Hub. However, if a device uses AMQP protocol to connect with IoT Hub, we recommend the device to call *cloud-to-device receive message* operation, otherwise their connection state notifications may be delayed by few minutes. If your device connects with MQTT protocol, IoT Hub keeps the cloud-to-device link open. To open the cloud-to-device link for AMQP, call the [Receive Async API](/rest/api/iothub/device/receivedeviceboundnotification).
 
-The D2C link is open if you are sending telemetry. 
+The device-to-cloud link stays open as long as the device sends telemetry.
 
-If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the current connection state taken at a periodic snapshot, till the flickering continues. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
+If the device connection flickers, meaning if device connects and disconnects frequently, IoT Hub doesn't send every single connection state, but publishes the current connection state taken at a periodic snapshot of 60sec until the flickering stops. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
 
 ## Tips for consuming events
 
