@@ -23,6 +23,8 @@ This tutorial covers the following tasks:
 * View completed Apache Spark Application
 * View canceled Apache Spark Application
 * Debug failed Apache Spark Application
+* View input and output for Apache Spark Application
+* Compare Apache Spark Applications
 
 ## Prerequisites
 
@@ -87,40 +89,6 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 13. Click on **View details** in the graph, then the details for stage will show out.
 
     ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
-
-14. Input and output tabs. The input/output function can better help you debug the Spark job. And the data source supports three storage methods : gen1, gen2 and blob.
-    
-    - **Input tab**
-     
-        a. Click on the **Copy input** button to paste the input file to the local.
-
-        b. Click the **Export to CSV** button to export the input file in CSV format.
-
-        c. You can search files by input keywords in **Search box** (keywords include file name, read format and path).
-
-        d. You can sort the input files by clicking **Name**, **Read format**, and **path**.
-
-        e. Use the mouse hover on a input file, the icon of the **Download/Copy path/More** button will show out.
-
-       ![input tab](./media/how-to-monitor-spark-applications/input-tab.png)
-
-        f. Click on **More** button, the **Copy path/Show in explorer/Properties** show the context menu.
-      
-         ![input more](./media/how-to-monitor-spark-applications/input-more.png)
-
-         * Copy path: can copy **Full path** and **Relative path**.
-         * Show in explorer: can jump to the linked storage account (Data->Linked).
-         * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
-
-           ![properties image](./media/how-to-monitor-spark-applications/properties.png)
-
-
-
-    - **Output tab**
-
-       Have the same features as the input.
-
-        ![output-image](./media/how-to-monitor-spark-applications/output.png)
            
 
 
@@ -190,7 +158,44 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
-## Compare Apache Spark applications
+
+## View input and output for Apache Spark Application
+
+Select an Apache Spark application, and click on Input/Output tab to view input and output for Apache Spark application. The Input/Output function can better help you debug the Spark job. And the data source supports three storage methods : gen1, gen2 and blob.
+    
+**Input tab**
+     
+1. Click on the **Copy input** button to paste the input file to the local.
+
+2. Click the **Export to CSV** button to export the input file in CSV format.
+
+3. You can search files by input keywords in **Search box** (keywords include file name, read format and path).
+
+4. You can sort the input files by clicking **Name**, **Read format**, and **path**.
+
+5. Use the mouse hover on a input file, the icon of the **Download/Copy path/More** button will show out.
+
+   ![input tab](./media/how-to-monitor-spark-applications/input-tab.png)
+
+6. Click on **More** button, the **Copy path/Show in explorer/Properties** show the context menu.
+      
+    ![input more](./media/how-to-monitor-spark-applications/input-more.png)
+
+   * Copy path: can copy **Full path** and **Relative path**.
+   * Show in explorer: can jump to the linked storage account (Data->Linked).
+   * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
+
+     ![properties image](./media/how-to-monitor-spark-applications/properties.png)
+
+
+
+**Output tab**
+
+   Have the same features as the input.
+
+   ![output-image](./media/how-to-monitor-spark-applications/output.png)
+
+## Compare Apache Spark Applications
 
 There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
 
