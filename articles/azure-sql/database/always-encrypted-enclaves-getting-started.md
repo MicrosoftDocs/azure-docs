@@ -70,7 +70,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 # [Portal](#tab/azure-portal)
 
 1. Browse to the [Select SQL deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
-1. If you are not already signed in to Azure ortal, sign in when prompted.
+1. If you are not already signed in to Azure portal, sign in when prompted.
 1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
 
    ![Add to Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
@@ -90,23 +90,23 @@ In this step, you will create a new Azure SQL Database logical server and a new 
 1. Leave **Want to use SQL elastic pool** set to **No**.
 1. Under **Compute + storage**, select **Configure database**, and click **Change configuration**.
 
-   ![configure database](./media/always-encrypted-enclaves/portal-configure-database.png)
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-database.png" alt-text="Configure database" lightbox="./media/always-encrypted-enclaves/portal-configure-database.png":::
 
 1. Select the **DC-series** hardware configuration, and then select **OK**.
 
-   ![configure DC-series database](./media/always-encrypted-enclaves/portal-configre-dc-series-database.png)
+   ![configure DC-series database](./media/always-encrypted-enclaves/portal-configure-dc-series-database.png)
 
 1. Select **Apply**. 
 1. Back on the **Basics** tab, verify **Compute + storage** is set to **General Purpose**, **DC, 2 vCores, 32 GB storage**.
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![configure DC-series database - basics](./media/always-encrypted-enclaves/portal-configre-dc-series-database-basics.png)
+   ![configure DC-series database - basics](./media/always-encrypted-enclaves/portal-configure-dc-series-database-basics.png)
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
 1. Select **Review + create** at the bottom of the page.
 
-   ![New SQL database - networking](./media/always-encrypted-enclaves/portal-configre-database-networking.png)
+   ![New SQL database - networking](./media/always-encrypted-enclaves/portal-configrue-database-networking.png)
 
 1. On the **Review + create** page, after reviewing, select **Create**.
 
