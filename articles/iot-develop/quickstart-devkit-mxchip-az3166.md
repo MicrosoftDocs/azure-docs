@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 03/17/2021
+ms.date: 05/19/2021
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
@@ -16,9 +16,9 @@ ms.date: 03/17/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this tutorial you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this tutorial, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming an MXCHIP DevKit in C
 * Build an image and flash it onto the MXCHIP DevKit
@@ -148,37 +148,43 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Connecting to SSID 'iot'
+	    MAC address: C8:93:46:8A:4C:43
+	    Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.18
+	    Mask: 255.255.255.0
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+	    SNTP server 0.pool.ntp.org
+	    SNTP IP address: 38.229.71.1
+	    SNTP time update: May 19, 2021 20:36:6.994 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+	    DPS endpoint: global.azure-devices-provisioning.net
+	    DPS ID scope: ***
+	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsgmxchip;1
-    Connected to IoTHub
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
+	    Model id: dtmi:azurertos:devkit:gsgmxchip;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
+
+    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"$version":7}}
+    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
+    Device twin property sent: {"ledState":false}
+    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}.
 
     Starting Main loop
     ```
@@ -211,16 +217,16 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
 
-1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  The LED light should turn on.
+1. Select the **Commands** tab from the device page.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -244,7 +250,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this tutorial you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
+In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
 * For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
