@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.date: 05/17/2021
 ---
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM by using Azure Data Factory
 
