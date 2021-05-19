@@ -25,9 +25,9 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 
 Overview content
 ::: zone pivot="platform-windows"
-[!INCLUDE [Name-of-article-or-content](program-requirements-edge-secured-core-windows.md)]
+[!INCLUDE [Name-of-article-or-content](./program-requirements-edge-secured-core-windows.md)]
 ::: zone-end
 ::: zone pivot="platform-linux"
-[!INCLUDE [Name-of-article-or-content](program-requirements-edge-secured-core-linux.md)]
+[!INCLUDE [Name-of-article-or-content](./program-requirements-edge-secured-core-linux.md)]
 ::: zone-end
 Final notes content
