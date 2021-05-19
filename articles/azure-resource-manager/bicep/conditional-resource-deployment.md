@@ -70,10 +70,6 @@ Use the [if](./template-functions-logical.md#if) function to make sure the funct
 
 You set a [resource as dependent](./resource-dependency.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
-## Complete mode
-
-If you deploy a template with [complete mode](./deployment-modes.md) and a resource isn't deployed because `condition` evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource when condition is false.
-
 ## Next steps
 
 * For a Microsoft Learn module that covers conditional deployment, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).

@@ -29,8 +29,6 @@ landingContent:
         links:
           - text: Template specs
             url: template-specs.md
-          - text: Deployment modes
-            url: deployment-modes.md
           - text: Linked templates
             url: ../templates/linked-templates.md
       - linkListType: video
@@ -144,8 +142,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Test toolkit
-            url: test-toolkit.md
           - text: CI/CD
             url: add-template-to-azure-pipelines.md
           - text: View deployment history

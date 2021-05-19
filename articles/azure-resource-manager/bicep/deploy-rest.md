@@ -211,6 +211,5 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 ## Next steps
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-- To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](../management/async-operations.md).
 - To learn more about templates, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).

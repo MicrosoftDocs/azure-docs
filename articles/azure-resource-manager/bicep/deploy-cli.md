@@ -195,6 +195,5 @@ az deployment group create \
 ## Next steps
 
 * To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](../templates/rollback-on-error.md).
-* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](./deployment-modes.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).

@@ -83,10 +83,6 @@
       items:
       - name: What-if deployment
         href: deploy-what-if.md
-      - name: Test toolkit
-        href: test-toolkit.md
-      - name: Test cases
-        href: test-cases.md
     - name: Deployment commands
       items:
       - name: Deploy - CLI
@@ -99,12 +95,6 @@
         href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
-    - name: Modes
-      items:
-      - name: Complete & incremental
-        href: deployment-modes.md
-      - name: Complete mode deletion
-        href: deployment-complete-mode-deletion.md
     - name: Parameters
       items:
       - name: Create parameter file
