@@ -51,7 +51,7 @@ After you connect your data sources, choose from a gallery of expertly created w
     | Southeast Asia (Singapore) | Southeast Asia (Singapore)* |
     |
     
-    \* There is no paired region for Southeast Asia within the Asia Pacific geography.
+    \* There is no paired region for Southeast Asia.
 
 ## Enable Azure Sentinel <a name="enable"></a>
 
