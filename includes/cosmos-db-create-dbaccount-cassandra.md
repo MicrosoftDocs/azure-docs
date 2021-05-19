@@ -35,8 +35,10 @@
 
 1. In the **Global Distribution** tab, configure the following details. You can leave the default values for the purpose of this quickstart:
 
-   |Geo-Redundancy|Enable or Disable|Enable or disable global distribution on your account by pairing your region with a pair region. You can add more regions to your account later.|
-   |Multi-region Writes|Enable or Disable|Multi-region writes capability allows you to take advantage of the provisioned throughput for your databases and containers across the globe.|
+   |Setting|Value|Description |
+   |---|---|---|
+   |Geo-Redundancy|Disable|Enable or disable global distribution on your account by pairing your region with a pair region. You can add more regions to your account later.|
+   |Multi-region Writes|Disable|Multi-region writes capability allows you to take advantage of the provisioned throughput for your databases and containers across the globe.|
 
    > [!NOTE]
    > The following options are not available if you select **Serverless** as the **Capacity mode**:
@@ -46,7 +48,7 @@
 
 1. Optionally you can configure additional details in the following tabs:
 
-   * **Networking** - Configure [access from a virtual network](how-to-configure-vnet-service-endpoint.md).
+   * **Networking** - Configure [access from a virtual network](../articles/cosmos-db/how-to-configure-vnet-service-endpoint.md).
    * **Backup Policy** - Configure either [periodic](../articles/cosmos-db/configure-periodic-backup-restore.md) or [continuous](../articles/cosmos-db/continuous-backup-restore-portal.md) backup policy.
    * **Encryption** - Use either service-managed key or a [customer-managed key](../articles/cosmos-db/how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Tags** - Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
