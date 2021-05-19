@@ -122,7 +122,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports LDAP signing for secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controllers. This feature is currently in preview.
 
-* [AES encryption for AD authentication](azure-netapp-files-create-volumes-smb.md) (Preview)
+* [AES encryption for AD authentication](create-active-directory-connections.md#create-an-active-directory-connection) (Preview)
 
     Azure NetApp Files now supports AES encryption on LDAP connection to DC to enable AES encryption for an SMB volume. This feature is currently in preview. 
 
