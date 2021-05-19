@@ -17,6 +17,30 @@ ms.author: lajanuar
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
+## May 2021
+
+### SDK generally available (GA) updates for API version 2.1
+
+### [**C#**](#tab/csharp)
+
+[NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer)
+
+* **Update**
+
+  Updated **[FormRecognizerModelFactory](https://docs.microsoft.com/en-us/dotnet/api/azure.ai.formrecognizer.models.formrecognizermodelfactory?view=azure-dotnet)** to support new properties added to the TextAppearance model.
+
+* **Breaking changes**
+
+  * By default the SDK targets latest supported service version, currently v2.1. You can specify version 2.0  in the **[FormRecognizerClientOptions](https://docs.microsoft.com/en-us/dotnet/api/azure.ai.formrecognizer.formrecognizerclientoptions?view=azure-dotnet)** object's **Version** property.
+  * Updated Id to Identity in all Start
+
+### [**Java**](#tab/java)
+
+### [**JavaScript**](#tab/javascript)
+
+### [**Python**](#tab/python)
+
+---
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
