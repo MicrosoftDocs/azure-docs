@@ -61,7 +61,7 @@ new versions of the extension are released.
 ### Azure Policy
 
 To deploy the latest version of the extension at scale including identity requirements,
-[assign](../../governance/policy/assign-policy-portal) the Azure Policy:
+[assign](../../../governance/policy/assign-policy-portal) the Azure Policy:
 
 [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
