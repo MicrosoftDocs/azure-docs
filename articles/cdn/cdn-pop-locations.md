@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
+ms.custom: references_regions
 
 ---
 # Azure CDN Coverage by Metro 
