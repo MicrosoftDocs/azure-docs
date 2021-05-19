@@ -391,14 +391,14 @@ To enable via the Azure CLI, you will need to create an Application Insights res
 ::: zone pivot="platform-windows"
 
     ```bash
-    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey> APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString> ApplicationInsightsAgent_EXTENSION_VERSION=~3 XDT_MicrosoftApplicationInsights_Mode=default XDT_MicrosoftApplicationInsights_Java=1"
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
     ```
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
     ```bash
-    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey> APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString> ApplicationInsightsAgent_EXTENSION_VERSION=~3 XDT_MicrosoftApplicationInsights_Mode=default"
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
     ```
 
 ::: zone-end
