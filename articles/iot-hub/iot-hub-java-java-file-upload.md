@@ -311,6 +311,122 @@ You can use the portal to view the uploaded file in the storage container you co
 
 ![Uploaded file](media/iot-hub-java-java-upload/uploaded-file.png)
 
+## Receive a file upload notification
+
+In this section, you create a Java console app that receives file upload notification messages from IoT Hub.
+
+1. Create a Maven project called **read-file-upload-notification** using the following command at your command prompt. Note this command is a single, long command:
+
+    ```cmd/sh
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+2. At your command prompt, navigate to the new `read-file-upload-notification` folder.
+
+3. Using a text editor, open the `pom.xml` file in the `read-file-upload-notification` folder and add the following dependency to the **dependencies** node. Adding the dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.7.23</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+
+4. Save and close the `pom.xml` file.
+
+5. Using a text editor, open the `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` file.
+
+6. Add the following **import** statements to the file:
+
+    ```java
+    import com.microsoft.azure.sdk.iot.service.*;
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import java.util.concurrent.ExecutorService;
+    import java.util.concurrent.Executors;
+    ```
+
+7. Add the following class-level variables to the **App** class. Replace the `{Your IoT Hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
+
+    ```java
+    private static final String connectionString = "{Your IoT Hub connection string}";
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
+    private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
+    ```
+
+8. To print information about the file upload to the console, add the following nested class to the **App** class:
+
+    ```java
+    // Create a thread to receive file upload notifications.
+    private static class ShowFileUploadNotifications implements Runnable {
+      public void run() {
+        try {
+          while (true) {
+            System.out.println("Receive file upload notifications...");
+            FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
+            if (fileUploadNotification != null) {
+              System.out.println("File Upload notification received");
+              System.out.println("Device Id : " + fileUploadNotification.getDeviceId());
+              System.out.println("Blob Uri: " + fileUploadNotification.getBlobUri());
+              System.out.println("Blob Name: " + fileUploadNotification.getBlobName());
+              System.out.println("Last Updated : " + fileUploadNotification.getLastUpdatedTimeDate());
+              System.out.println("Blob Size (Bytes): " + fileUploadNotification.getBlobSizeInBytes());
+              System.out.println("Enqueued Time: " + fileUploadNotification.getEnqueuedTimeUtcDate());
+            }
+          }
+        } catch (Exception ex) {
+          System.out.println("Exception reading reported properties: " + ex.getMessage());
+        }
+      }
+    }
+    ```
+
+9. To start the thread that listens for file upload notifications, add the following code to the **main** method:
+    ```java
+    public static void main(String[] args) throws IOException, URISyntaxException, Exception {
+      ServiceClient serviceClient = ServiceClient.createFromConnectionString(connectionString, protocol);
+      if (serviceClient != null) {
+        serviceClient.open();
+        // Get a file upload notification receiver from the ServiceClient.
+        fileUploadNotificationReceiver = serviceClient.getFileUploadNotificationReceiver();
+        fileUploadNotificationReceiver.open();
+        // Start the thread to receive file upload notifications.
+        ShowFileUploadNotifications showFileUploadNotifications = new ShowFileUploadNotifications();
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+        executor.execute(showFileUploadNotifications);
+        System.out.println("Press ENTER to exit.");
+        System.in.read();
+        executor.shutdownNow();
+        System.out.println("Shutting down sample...");
+        fileUploadNotificationReceiver.close();
+        serviceClient.close();
+      }
+    }
+    ```
+
+10. Save and close the `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` file.
+
+11. Use the following command to build the **read-file-upload-notification** app and check for errors:
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
+## Run the application
+
+Now you are ready to run the application.
+
+At a command prompt in the `read-file-upload-notification` folder, run the following command:
+
+```cmd/sh
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+```
+The following screenshot shows the output from the **read-file-upload-notification** app:
+
+![Output from read-file-upload-notification app](media/iot-hub-java-java-upload/read-file-upload-notification.png)
+
 ## Next steps
 
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
