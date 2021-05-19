@@ -1,5 +1,5 @@
 ---
-title: How to index data available through MySQL using an indexer in Azure Cognitive Search (preview)
+title: Connect to and index Azure MySQL content using an Azure Cognitive Search indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Import data from Azure MySQL into a searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like MySQL.
 
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ---
 
-# How to index data available through MySQL using an indexer in Azure Cognitive Search (preview)
+# Connect to and index Azure MySQL content using an Azure Cognitive Search indexer (preview)
 
 > [!IMPORTANT] 
 > MySQL support is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no .NET SDK support and no portal.
+> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides this feature. There is currently no SDK support and no portal support.
 
 The Azure Cognitive Search indexer for MySQL will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. The indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in Azure Cognitive Search.
 
@@ -33,11 +33,12 @@ To create the data source, send the following request:
 
     POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
     Content-Type: application/json
-    api-key: [Admin Key]
+    api-key: [admin key]
     
     {   
-        "description" : "Description of MySQL data source",
-        "type" : "MySQL",
+        "name" : "[Data source name]"
+        "description" : "[Description of MySQL data source]",
+        "type" : "mysql",
         "credentials" : { 
             "connectionString" : 
                 "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
@@ -46,7 +47,8 @@ To create the data source, send the following request:
             "name" : "[TableName]" 
         },
         "dataChangeDetectionPolicy" : { 
-            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy", "highWaterMarkColumnName": "[HighWaterMarkColumn]" 
+            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+            "highWaterMarkColumnName": "[HighWaterMarkColumn]"
         }
     }
 
@@ -60,10 +62,10 @@ Create the target Azure Cognitive Search index if you don’t have one already.
 
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
-    api-key: [Search service admin key]
+    api-key: [admin key]
 
 	{
-       "name": "mysearchindex",
+       "name": "[Index name]",
        "fields": [{
          "name": "id",
          "type": "Edm.String",
@@ -75,8 +77,7 @@ Create the target Azure Cognitive Search index if you don’t have one already.
          "filterable": false,
          "searchable": true,
          "sortable": false,
-         "facetable": false,
-         "suggestions": true
+         "facetable": false
        }]
     }
 
@@ -90,12 +91,12 @@ Once the index and data source have been created, you're ready to create the ind
 
     POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30-Preview
     Content-Type: application/json
-    api-key: [Admin Key]
+    api-key: [admin key]
     
     {
-        "description" : "Description of MySQL indexer",
-        "dataSourceName" : "[DataSourceName]",
-        "targetIndexName" : "[IndexName]"
+        "description" : "[Description of MySQL indexer]",
+        "dataSourceName" : "[Data source name]",
+        "targetIndexName" : "[Index name]"
     }
 
 ```
@@ -103,15 +104,18 @@ Once the index and data source have been created, you're ready to create the ind
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
 
-```
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
+```http
+    PUT https://[search service name].search.windows.net/indexers/[Indexer name]?api-version=2020-06-30
     Content-Type: application/json
-    api-key: admin-key
+    api-key: [admin-key]
 
     {
-        "dataSourceName" : "myazureMySQLdatasource",
-        "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+        "dataSourceName" : "[Data source name]",
+        "targetIndexName" : "[Index name]",
+        "schedule" : { 
+            "interval" : "PT10M", 
+            "startTime" : "2021-01-01T00:00:00Z"
+        }
     }
 ```
 
@@ -121,37 +125,7 @@ For more information about defining indexer schedules see [How to schedule index
 
 ## Capture new, changed, and deleted rows
 
-Azure Cognitive Search uses **incremental indexing** to avoid having to reindex the entire table or view every time an indexer runs. Azure Cognitive Search provides two change detection policies to support incremental indexing. 
-
-### MySQL Integrated Change Tracking Policy
-If your MySQL database supports [change tracking](/MySQL/relational-databases/track-changes/about-change-tracking-MySQL-server), we recommend using **MySQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Cognitive Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
-
-#### Requirements 
-
-+ Database version requirements:
-  * MySQL Server 2012 SP3 and later, if you're using MySQL Server on Azure VMs.
-  * Azure MySQL Database or MySQL Managed Instance.
-+ Tables only (no views). 
-+ On the database, [enable change tracking](/MySQL/relational-databases/track-changes/enable-and-disable-change-tracking-MySQL-server) for the table. 
-+ No composite primary key (a primary key containing more than one column) on the table.  
-
-#### Usage
-
-To use this policy, create or update your data source like this:
-
-```
-    {
-        "name" : "myazureMySQLdatasource",
-        "type" : "azureMySQL",
-        "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" },
-        "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.MySQLIntegratedChangeTrackingPolicy"
-      }
-    }
-```
-
-When using MySQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the MySQL table.
+Azure Cognitive Search uses **incremental indexing** to avoid having to reindex the entire table or view every time an indexer runs.
 
 <a name="HighWaterMarkPolicy"></a>
 
@@ -170,15 +144,15 @@ This change detection policy relies on a "high water mark" column capturing the 
 
 To use a high water mark policy, create or update your data source like this:
 
-```
+```http
     {
-        "name" : "myazureMySQLdatasource",
-        "type" : "azureMySQL",
-        "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" },
+        "name" : "[Data source name]",
+        "type" : "mysql",
+        "credentials" : { "connectionString" : "[connection string]" },
+        "container" : { "name" : "[table or view name]" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
+           "highWaterMarkColumnName" : "[last_updated column name]"
       }
     }
 ```
@@ -216,13 +190,11 @@ You can also disable the `ORDER BY [High Water Mark Column]` clause. However, th
 ```
 
 ### Soft Delete Column Deletion Detection policy
-When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the MySQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
-
-If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
+When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
-```
+```http
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -266,7 +238,7 @@ MySQL indexer exposes several configuration settings:
 
 These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
 
-```
+```http
     {
       ... other indexer definition properties
      "parameters" : {
