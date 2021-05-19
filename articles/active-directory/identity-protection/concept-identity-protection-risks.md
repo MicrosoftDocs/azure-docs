@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 05/18/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -63,6 +63,7 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | New country | Offline | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). This detection considers past activity locations to determine new and infrequent locations. The anomaly detection engine stores information about previous locations used by users in the organization. |
 | Activity from anonymous IP address | Offline | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). This detection identifies that users were active from an IP address that has been identified as an anonymous proxy IP address. |
 | Suspicious inbox forwarding | Offline | This detection is discovered by [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). This detection looks for suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address. |
+| Azure AD threat intelligence | This risk detection type indicates sign-in activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
 ### Other risk detections
 

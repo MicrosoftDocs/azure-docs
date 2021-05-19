@@ -92,8 +92,8 @@ Creating custom roles and assigning custom roles are separate steps:
 This separation allows you to create a single role definition and then assign it many times at different *scopes*. A custom role can be assigned at organization-wide scope, or it can be assigned at the scope if a single Azure AD object. An example of an object scope is a single app registration. Using different scopes, the same role definition can be assigned to Sally over all app registrations in the organization and then to Naveen over only the Contoso Expense Reports app registration.
 
 Tips when creating and using custom roles for delegating application management:
-- Custom roles only grant access in the most current app registration blades of the Azure AD portal. They do not grant access in the legacy app registrations blades.
-- Custom roles do not grant access to the Azure AD portal when the “Restrict access to Azure AD administration portal” user setting is set to Yes.
+- Custom roles only grant access in the most current app registration blades of the Azure portal. They do not grant access in the legacy app registrations blades.
+- Custom roles do not grant access to the Azure portal when the “Restrict access to Azure AD administration portal” user setting is set to Yes.
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
