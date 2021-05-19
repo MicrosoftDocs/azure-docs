@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 05/19/2021
 ms.author: rolyon
 ---
 
@@ -180,12 +180,6 @@ Instead of adding all of these strings, you could just add a wildcard string. Fo
 Microsoft.CostManagement/exports/*
 ```
 
-You can also have multiple wildcards in a string. For example, the following string represents all query permissions for Cost Management.
-
-```
-Microsoft.CostManagement/*/query/*
-```
-
 ## Who can create, delete, update, or view a custom role
 
 Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. The `AssignableScopes` property for a custom role also controls who can create, delete, update, or view the custom role.
@@ -205,6 +199,7 @@ The following list describes the limits for custom roles.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
 - You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+- You can have only one wildcard in an action string.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
