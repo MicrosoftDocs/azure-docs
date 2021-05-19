@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 05/19/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -173,7 +173,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
 
     ```bash
-    docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon /sapcon:latest
+    docker pull mcr.microsoft.com/azure-sentinel/solution/sapcon:latest-preview
     docker run --env-file=<env.list_location> -d -v /home/$(pwd)/sapcon/<sap-sid>/:/sapcon-app/sapcon/config/system --name sapcon-<sid> sapcon
     rm -f <env.list_location>
     ```
