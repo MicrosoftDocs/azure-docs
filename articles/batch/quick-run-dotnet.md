@@ -2,7 +2,7 @@
 title: Quickstart - Run your first Azure Batch job with the .NET API 
 description: In this quickstart, you run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library.
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -20,7 +20,7 @@ After completing this quickstart, you will understand the key concepts of the Ba
 
 - A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows. 
+- [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows.
 
 ## Sign in to Azure
 

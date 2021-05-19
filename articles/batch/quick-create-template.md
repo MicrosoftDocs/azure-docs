@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart - Create a Batch account - Azure Resource Manager template
 description: This quickstart shows how to create a Batch account by using an ARM template.
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.topic: quickstart
 ms.custom:
   - subject-armqs
@@ -10,7 +10,9 @@ ms.custom:
 
 # Quickstart: Create a Batch account by using ARM template
 
-You need a Batch account to create compute resources (pools of compute nodes) and Batch jobs. You can link an Azure Storage account with your Batch account, which is useful to deploy applications and store input and output data for most real-world workloads. This quickstart shows how to use an Azure Resource Manager template (ARM template) to create a Batch account, including storage. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+Get started with Azure Batch by using an Azure Resource Manager template (ARM template) to create a Batch account, including storage. You need a Batch account to create compute resources (pools of compute nodes) and Batch jobs. You can link an Azure Storage account with your Batch account, which is useful to deploy applications and store input and output data for most real-world workloads.
+
+After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -43,7 +45,7 @@ Two Azure resources are defined in the template:
 
 1. Select or enter the following values.
 
-   ![Resource Manager template, Batch account creation, deploy portal](media/quick-create-template/batch-template.png)
+   :::image type="content" source="media/quick-create-template/batch-template.png" alt-text="Resource Manager template, Batch account creation, deploy portal":::
 
    - **Subscription**: select an Azure subscription.
    - **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
@@ -51,9 +53,8 @@ Two Azure resources are defined in the template:
    - **Batch Account Name**: Leave the default value.
    - **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
    - **Location**: Leave the default so that the resources will be in the same location as your resource group.
-   - I agree to the terms and conditions stated above: **Select**.
 
-1. Select **Purchase**.
+1. Select **Review + create**, then select **Create**.
 
 After a few minutes, you should see a notification that the Batch account was successfully created.
 
