@@ -24,7 +24,7 @@ ms.date: 05/01/2021
 
 To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database, you need to:
 
-1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider)/and configure it with the recommended attestation policy.
+1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with the recommended attestation policy.
 
 2. Determine the attestation URL and share it with application administrators.
 
