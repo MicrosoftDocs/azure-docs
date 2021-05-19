@@ -23,7 +23,7 @@ ms.author: inhenkel
 
 In Azure Media Services, [live events](/rest/api/media/liveevents) are responsible for processing live streaming content. A live event provides an input endpoint (ingest URL) that you then provide to a live encoder. The live event receives input streams from the live encoder and makes them available for streaming through one or more [streaming endpoints](/rest/api/media/streamingendpoints). Live events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. 
 
-This tutorial shows how to use .NET Core to create a *pass-through* type of a live event. In this tutorial, you will:
+This tutorial shows how to use .NET 5.0 to create a *pass-through* type of a live event. In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Download a sample app.
