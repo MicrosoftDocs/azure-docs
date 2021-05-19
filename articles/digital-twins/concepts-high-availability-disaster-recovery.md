@@ -60,10 +60,10 @@ To view Service Health events...
 
 1. For general information about the outage, view the *Summary* tab.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Screenshot of the Azure portal showing the Health History page with the 'Summary' tab highlighted. The tab displays general information." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page with the 'Summary' tab highlighted. The tab displays general information." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
 1. For more information and updates on the issue over time, view the *Issue updates* tab.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Screenshot of the Azure portal showing the Health History page with the 'Issue updates' tab highlighted. The tab displays the status of entries." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page with the 'Issue updates' tab highlighted. The tab displays the status of entries." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
 Note that the information displayed in this tool isn't specific to one Azure Digital instance. After using Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, you can take monitoring a step further by using the [Resource health tool](troubleshoot-resource-health.md) to drill down into specific instances and see whether they're impacted.

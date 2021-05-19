@@ -29,7 +29,7 @@ In the DTDL-based RealEstateCore ontology, the Space hierarchy is used to define
 
 A portion of the hierarchy looks like the diagram below. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy. It shows elements connecting downward into other elements."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy. It shows elements for Space, Room, ConferenceRoom, and Office."::: 
 
 For more information about the RealEstateCore ontology, see [Concepts: Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
@@ -52,7 +52,7 @@ To extend the industry ontology with this new concept, create a new interface th
 
 After adding the focus room interface, the extended hierarchy shows the new room type. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy, including a new addition."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy, including the new addition."::: 
 
 ### Add additional capabilities to existing interfaces 
 
@@ -70,7 +70,7 @@ To extend the industry ontology, you create your own interfaces that extend from
 
 After extending the portion of the hierarchy shown above, the extended hierarchy looks like the diagram below. Here the extended Space interface adds the `drawingId` property that will contain an ID that associates the digital twin with the 3D drawing. Additionally, the ConferenceRoom interface adds an "online" property that will contain the online status of the conference room. Through inheritance, the ConferenceRoom interface contains all capabilities from the RealEstateCore ConferenceRoom interface, as well as all capabilities from the extended Space interface. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagram illustrating the extended RealEstateCore space hierarchy, with more new additions."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagram illustrating the extended RealEstateCore space hierarchy, with more new additions as described."::: 
 
 ## Using the extended space hierarchy 
 
