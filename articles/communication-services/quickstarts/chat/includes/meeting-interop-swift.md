@@ -13,12 +13,7 @@ In this quickstart, you'll learn how to chat in a Teams meeting using the Azure 
 
 - A [Teams deployment](/deployoffice/teams-install). 
 - A working [calling app](../../voice-video-calling/get-started-teams-interop.md). 
-
-## Enable Teams interoperability 
-
-A Communication Services user that joins a Teams meeting as a guest user can access the meeting's chat only when they've joined the Teams meeting call. See the [Teams interop](../../../concepts/teams-interop.md) documentation to learn how to add a Communication Services user to a Teams meeting call.
-
-You must be a member of the owning organization of both entities to use Teams interop.
+- Federation must be enabled between your Teams tenant and your Communication Services resource. See [Teams interop](../../../concepts/teams-interop.md).
 
 ## Joining the meeting chat 
 
