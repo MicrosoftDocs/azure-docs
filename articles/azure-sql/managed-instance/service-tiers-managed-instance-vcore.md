@@ -1,6 +1,5 @@
 ---
-title: Azure SQL Managed Instance vCore purchasing model overview
-titleSuffix: Azure SQL Managed Instance compute hardware
+title: vCore purchase model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -14,7 +13,9 @@ ms.date: 05/18/2021
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has following characteristics:
+This article reviews the vCore purchase model for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+
+The virtual core (vCore) purchase model used by Azure SQL Managed Instance has following characteristics:
 
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
@@ -22,7 +23,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Managed Instance has
 
 ## <a id="compute-tiers"></a>Service tiers
 
-Service tier options in the vCore model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
+Service tier options in the vCore purchase model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
 |**Use case**|**General Purpose**|**Business Critical**|
 |---|---|---|

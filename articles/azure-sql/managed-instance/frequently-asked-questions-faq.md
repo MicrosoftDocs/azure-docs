@@ -1,6 +1,5 @@
 ---
 title: Frequently asked questions (FAQ)
-titleSuffix: Azure SQL Managed Instance 
 description: Azure SQL Managed Instance frequently asked questions (FAQ)
 services: sql-database
 ms.service: sql-managed-instance

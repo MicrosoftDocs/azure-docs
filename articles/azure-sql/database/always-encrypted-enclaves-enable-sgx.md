@@ -1,7 +1,6 @@
 ---
-title: "Enable Intel SGX for your Azure SQL Database"
+title: "Enable Intel SGX for Always Encrypted"
 description: "Learn how to enable Intel SGX for Always Encrypted with secure enclaves in Azure SQL Database by selecting an SGX-enabled hardware generation."
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,7 +11,7 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021 
 ---
-# Enable Intel SGX for your Azure SQL Database 
+# Enable Intel SGX for Always Encrypted for your Azure SQL Database 
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 

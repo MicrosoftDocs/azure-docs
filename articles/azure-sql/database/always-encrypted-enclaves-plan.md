@@ -1,7 +1,6 @@
 ---
 title: "Plan for Intel SGX enclaves and attestation in Azure SQL Database"
 description: "Plan the deployment of Always Encrypted with secure enclaves in Azure SQL Database."
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

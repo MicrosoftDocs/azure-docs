@@ -1,6 +1,5 @@
 ---
-title: vCore purchasing model overview
-titleSuffix: Azure SQL Database 
+title: vCore purchase model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,10 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
 ---
-# vCore model overview - Azure SQL Database 
+# vCore purchase model overview - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The virtual core (vCore) purchasing model used by Azure SQL Database provides several benefits:
+This article reviews the vCore purchase model for [Azure SQL Database](sql-database-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+
+The virtual core (vCore) purchase model used by Azure SQL Database provides several benefits over the DTU purchase model:
 
 - Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
@@ -23,7 +24,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Database provides se
 
 ## Service tiers
 
-Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
+Service tier options in the vCore purchase model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
 |**Use case**|**General Purpose**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|

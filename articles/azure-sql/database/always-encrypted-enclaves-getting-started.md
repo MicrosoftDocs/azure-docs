@@ -1,7 +1,6 @@
 ---
-title: "Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database"
+title: "Tutorial: Getting started with Always Encrypted with secure enclaves"
 description: This tutorial teaches you how to create a basic environment for Always Encrypted with secure enclaves in Azure SQL Database and how to encrypt data in-place, and issue rich confidential queries against encrypted columns using SQL Server Management Studio (SSMS). 
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
