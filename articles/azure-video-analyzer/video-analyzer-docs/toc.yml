@@ -127,6 +127,8 @@
     href: troubleshoot.md
 - name: Reference 
   items:
+  - name: Access policies
+    href: access-policies.md
   - name: Developer SDKs
     href: sdk.md
   - name: Direct methods
@@ -141,10 +143,10 @@
     href: module-twin-configuration-schema.md
   - name: Production readiness and best practices	
     href: production-readiness.md
+  - name: Transparency and responsible AI principles
+    href: https://go.microsoft.com/fwlink/?linkid=2163476
   - name: Visual Studio Code extension
     href: visual-studio-code-extension.md
-  - name: Access policies
-    href: access-policies.md
 - name: Resources
   items:
   - name: Azure roadmap
