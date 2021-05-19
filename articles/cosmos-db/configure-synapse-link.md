@@ -26,6 +26,9 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
+> [!NOTE]
+> If you want to use customer-managed keys with Azure Synapse Link, you must configure your account's managed identity in your Azure Key Vault access policy before enabling Synapse Link on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
+> 
 ### Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
