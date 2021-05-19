@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
 # How to create a Dynamics 365 for Business Central offer
@@ -36,12 +36,12 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID combined with the Publisher ID must be under 50 characters in length. <font color="red">[ still true? ]</font>
+- The Offer ID combined with the Publisher ID must be under 50 characters in length.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used <strike>in the marketplace</strike> on AppSource. It is different from the offer name and other values shown to customers.
+- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
 - This name can't be changed after you select **Create**.
 
 Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
@@ -69,24 +69,24 @@ For **How do you want potential customers to interact with this listing offer?**
 
 ## Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more, start with [What is a test drive?](what-is-test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, see [What is test drive?](what-is-test-drive.md).
+
+To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
-
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. <font color="red">[ Need to do this ]</font>Configuring a CRM (see next section) is required with test drive <font color="red">[ Applies to BC too? ]</font> and when using the **Contact me** package type. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
 [!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
-
-<strike>## Business Applications ISV Program (section from Operations)
+<!--
+## Business Applications ISV Program (section from Operations)
 
 Your offer is initially enrolled in the Standard tier. If your solution meets program eligibility criteria, you may request an upgrade to the Premium tier, which offers expanded program benefits. If you do so, be sure to complete the [Co-sell module](https://aka.ms/BizAppsISVProgram) before you publish your offer.
 
-Select the check box to request an upgrade to the premium tier.</strike>
+Select the check box to request an upgrade to the premium tier.-->
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
 # Set up Dynamics 365 for Business Central offer technical configuration

@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
-# Configure D365 for Business Central offer listing details
+# Configure Dynamics 365 for Business Central offer listing details
 
 This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
 > [!NOTE]
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs): <font color="red"> [ update screen? ] </font>
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
-:::image type="content" source="media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/dynamics-365/example-365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 ##### Call-out descriptions
 

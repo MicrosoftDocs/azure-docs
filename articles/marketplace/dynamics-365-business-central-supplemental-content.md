@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
 # Set up Dynamics 365 for Business Central offer supplemental content
@@ -33,8 +33,8 @@ If a test account is needed in order for our certification team to properly revi
 
 If your offer is an Add-on app, you must upload an **App tests automation** file (.app). This file is not applicable to Connect apps.
 
-Select **Save draft**, then **Review and publish**.
+Select **Save draft**, then continue with review and publish in **Next steps** below.
 
 ## Next steps
 
-- [Review and publish your offer](review-publish-offer.md)
+- [Review and publish](review-publish-offer.md)

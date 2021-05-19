@@ -259,8 +259,6 @@
         href: dynamics-365-business-central-technical-configuration.md
       - name: Supplemental content
         href: dynamics-365-business-central-supplemental-content.md
-      - name: Functional validation
-        href: dynamics-365-business-central-validation.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer

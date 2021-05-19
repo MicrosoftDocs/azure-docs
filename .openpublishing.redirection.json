@@ -29516,6 +29516,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-business-central-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-contacts-tab.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false

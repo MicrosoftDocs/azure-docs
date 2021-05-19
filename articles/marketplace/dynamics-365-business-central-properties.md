@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
 # Configure Dynamics 365 for Business Central offer properties
@@ -31,7 +31,7 @@ Enter an **App version** for your offer. Customers will see this number listed o
 
 ### Legal
 
-Provide the **Terms and conditions** customers must accept before they can try your offer.<font color="red">[ Can they enter a link to a webpage? ]</font>
+Provide the **Terms and conditions** customers must accept before they can try your offer. You can also provide the web address where your terms and conditions can be found.
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Offer listing**.
 
