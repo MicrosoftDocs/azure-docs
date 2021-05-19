@@ -103,7 +103,7 @@ Use the `Get-HcsExternalVirtualSwitch` command to identify the newly created swi
 Here is an example output:
 
 ```powershell
-[10.100.10.10]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+[10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
 [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
@@ -139,7 +139,7 @@ To identify the virtual network and the subnet associated with the new switch th
 
 ## Create virtual LANs
 
-To add virtual local area network (vLAN) configuration on a virtual switch, use the following cmdlet.
+To add a virtual local area network (LAN) configuration on a virtual switch, use the following cmdlet.
 
 ```powershell
 Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
