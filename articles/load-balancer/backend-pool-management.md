@@ -315,7 +315,7 @@ A Backend Pool configured by IP address has the following limitations:
   * Inbound NAT Rules cannot be specified by IP address
 
 >[!Important]
-> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. 
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Next steps
 In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.
