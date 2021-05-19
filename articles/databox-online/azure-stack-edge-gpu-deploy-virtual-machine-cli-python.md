@@ -379,8 +379,10 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 1. Run the Python script from the same directory where Python is installed.
 
-    `.\python.exe example_dbe_arguments_name_https.py cli`
-<!--Convert to a PowerShell code block?-->
+```powershell
+.\python.exe example_dbe_arguments_name_https.py cli
+```
+<!--Please verify: This is a PowerShell script? (For consistency, I converted the code-formatted setoff line to a code block.)-->
 
 2. When the script runs, uploading the VHD takes 20-30 minutes. To view the progress of the upload operation, you can use Azure Storage Explorer or AzCopy.
 
