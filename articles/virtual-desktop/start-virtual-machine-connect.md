@@ -120,7 +120,7 @@ To use the Azure portal to configure Start VM on Connect:
 
 2. In the Azure portal, go to **Windows Virtual Desktop**.
 
-3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
+3. Select **Host pools**, then go to the host pool where you want to enable the setting.
 
 4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
 
