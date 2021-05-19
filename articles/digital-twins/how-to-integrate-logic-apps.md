@@ -57,15 +57,15 @@ You will also need to create a **_Client secret_** for your Azure AD app registr
 
 Select *Certificates and secrets* from the registration's menu, and then select *+ New client secret*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Screenshot of an Azure AD app registration in the Azure Portal.":::
 
 Enter whatever values you want for *Description* and *Expires*, and select *Add*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Add client secret":::
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Screenshot of the form for adding a client secret to an app registration in the Azure portal.":::
 
 Now, verify that the client secret is visible on the _Certificates & secrets_ page with _Expires_ and _Value_ fields. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon)
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copy client secret value":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Screenshot of the app registration client secret value in the Azure portal.":::
 
 ## Create custom Logic Apps connector
 
@@ -73,15 +73,15 @@ Now, you're ready to create a [custom Logic Apps connector](../logic-apps/custom
 
 Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) page in the Azure portal (you can use this link or search for it in the portal search bar). Select *+ Add*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="The 'Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Add' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Screenshot of the 'Logic Apps Custom Connector' page in the Azure portal.":::
 
 In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Select *Review + create*. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="The 'Create Logic Apps Custom Connector' page in the Azure portal.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Screenshot of the 'Create Logic Apps Custom Connector' page in the Azure portal.":::
 
 This will take you to the *Review + create* tab, where you can select *Create* at the bottom to create your resource.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="The 'Review + create' tab of the 'Review Logic Apps Custom Connector' page in the Azure portal. Highlight around the 'Create' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Screenshot of the 'Review + create' tab of the 'Review Logic Apps Custom Connector' page in the Azure portal.":::
 
 You'll be taken to the deployment page for the connector. When it is finished deploying, select the *Go to resource* button to view the connector's details in the portal.
 
@@ -98,7 +98,7 @@ The custom Swagger for this tutorial is located in the ***Azure_Digital_Twins_cu
 
 Next, go to your connector's Overview page in the [Azure portal](https://portal.azure.com) and select *Edit*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="The 'Overview 'page for the connector created in the previous step. Highlight around the 'Edit' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Screenshot of the 'Overview' page for the connector created in the previous step. Highlight around the 'Edit' button.":::
 
 In the *Edit Logic Apps Custom Connector* page that follows, configure this information:
 * **Custom connectors**
@@ -115,7 +115,7 @@ In the *Edit Logic Apps Custom Connector* page that follows, configure this info
 
 Then, select the *Security* button at the bottom of the window to continue to the next configuration step.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot of the bottom of the 'Edit Logic Apps Custom Connector' page. Highlight around button to continue to Security":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot of the bottom of the 'Edit Logic Apps Custom Connector' page. Highlight around button to continue to Security.":::
 
 In the Security step, select *Edit* and configure this information:
 * **Authentication type**: OAuth 2.0
@@ -131,13 +131,13 @@ In the Security step, select *Edit* and configure this information:
 
 Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this now by selecting *Update connector* across the top of the pane to confirm your connector settings.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button.":::
 
 <!-- Success message? didn't see one -->
 
 Return to the Redirect URL field and copy the value that has been generated. You will use it in the next step.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="The Redirect URL field in the 'Edit Logic Apps Custom Connector' page now has a value of 'https://logic-apis-westus2.consent.azure-apim.net/redirect'. The button to copy the value is highlighted.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Screenshot of the Redirect URL field in the 'Edit Logic Apps Custom Connector' page. The button to copy the value is highlighted.":::
 
 This is all the information that is required to create your connector (no need to continue past Security to the Definition step). You can close the *Edit Logic Apps Custom Connector* pane.
 
@@ -152,11 +152,11 @@ Navigate to the [App registrations](https://portal.azure.com/#blade/Microsoft_AA
 
 Under *Authentication* from the registration's menu, add a URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="The Authentication page for the app registration in the Azure portal. 'Authentication' in the menu is highlighted, and on the page, the 'Add a URI' button is highlighted."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the 'Add a URI' button and the 'Authentication' menu."::: 
 
 Enter the custom connector's *Redirect URL* into the new field, and select the *Save* icon.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="The Authentication page for the app registration in the Azure portal. The new redirect URL is highlighted, and the 'Save' button for the page.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the new redirect URL and the 'Save' button.":::
 
 You are now done setting up a custom connector that can access the Azure Digital Twins APIs. 
 
@@ -166,7 +166,7 @@ Next, you'll create a logic app that will use your new connector to automate Azu
 
 In the [Azure portal](https://portal.azure.com), search for *Logic apps* in the portal search bar. Selecting it should take you to the *Logic apps* page. Select the *Create logic app* button to create a new logic app.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps' page in the Azure portal. Select 'Add' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Screenshot of the 'Logic Apps' page in the Azure portal, highlighting the 'Create logic app' button.":::
 
 In the *Logic App* page that follows, enter your subscription and resource group. Also, choose a name for your logic app and select the deployment location.
 
@@ -180,7 +180,7 @@ You'll be taken to the deployment page for the logic app. When it is finished de
 
 In the *Logic Apps Designer*, under *Start with a common trigger*, select _**Recurrence**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="The 'Logic Apps Designer' page in the Azure portal. Highlight around the 'Recurrence' common trigger":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Screenshot of the 'Logic Apps Designer' page in the Azure portal, highlighting the 'Recurrence' common trigger.":::
 
 In the *Logic Apps Designer* page that follows, change the **Recurrence** Frequency to *Second*, so that the event is triggered every 3 seconds. This will make it easy to see the results later without having to wait very long.
 
@@ -188,7 +188,7 @@ Select *+ New step*.
 
 This will open a *Choose an action* box. Switch to the *Custom* tab. You should see your custom connector from earlier in the top box.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Creating a flow in the Logic Apps Designer in the Azure portal. In the 'Choose an action' box, the 'Custom' tab is selected. The user's custom connector from earlier is shown in the box, with a highlight around it.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Screenshot of creating a flow in the Logic Apps Designer in the Azure portal.":::
 
 Select it to display the list of APIs contained in that connector. Use the search bar or scroll through the list to select **DigitalTwins_Add**. (This is the API used in this article, but you could also select any other API as a valid choice for a Logic Apps connection).
 
@@ -203,7 +203,7 @@ Select *Save* in the Logic Apps Designer.
 
 You can choose other operations by selecting _+ New step_ on the same window.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Finished view of the app in the Logic App Connector. The DigitalTwinsAdd box is filled with the values described above, including a sample JSON Patch body. The 'Save' button for the window is highlighted.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Screenshot of the finished view of the app in the Logic App Connector. The DigitalTwinsAdd box is filled with the values described above.":::
 
 ## Query twin to see the update
 

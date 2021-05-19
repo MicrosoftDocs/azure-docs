@@ -41,7 +41,7 @@ In Visual Studio 2019, select **File** > **New** > **Project**. Search for the *
 
 Specify a name for the function app and then select __Create__.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Screenshot of Visual Studio showing the dialog to configure a new project. Settings include project name, save location, choice to create a new solution, and solution name.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Screenshot of Visual Studio showing the dialog to configure a new project, including project name, location, and the choice to create a new solution.":::
 
 Select the function app type **Event Grid trigger** and then select __Create__.
 
@@ -108,7 +108,7 @@ Now that your application is written, you can publish it to Azure.
     > [!Note] 
     > You might have to wait a few minutes or refresh the page couple of times before your function appears in the list of published functions.
 
-    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="View published functions in the Azure portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Screenshot showing published functions in the Azure portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
 To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
@@ -199,7 +199,7 @@ The lifecycle of this type of managed identity is tied to the lifecycle of this 
 
     Save the details by selecting __Save__.
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for the Scope, Subscription, Resource group, and Role.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Screenshot of the Azure portal, showing how to add a new role assignment. The dialog shows fields for Scope, Subscription, Resource group, and Role.":::
 
 ### Configure application settings
 
@@ -233,11 +233,11 @@ You can now create an application setting:
 
 1. After you create the setting, it should appear on the __Application settings__ tab. Verify that **ADT_SERVICE_URL** appears on the list. Then save the new application setting by selecting __Save__.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new A D T SERVICE U R L setting is highlighted. The Save button is also highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new ADT_SERVICE_URL setting and the Save button are both highlighted.":::
 
 1. Any changes to the application settings require an application restart, so select __Continue__ to restart your application when prompted.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal. A note states that any changes to application settings will restart your application. The Continue button is highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Screenshot of the Azure portal. A note states that any changes to application settings will restart your application.":::
 
 ---
 

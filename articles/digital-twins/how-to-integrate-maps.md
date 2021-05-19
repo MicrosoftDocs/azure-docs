@@ -37,7 +37,7 @@ This how-to will cover:
 
 The image below illustrates where the indoor maps integration elements in this tutorial fit into a larger, end-to-end Azure Digital Twins scenario.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece." lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
 ## Create a function to update a map when twins update
 
@@ -99,7 +99,7 @@ To see live-updating temperature, follow the steps below:
 
 Both samples send temperature in a compatible range, so you should see the color of room 121 update on the map about every 30 seconds.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="An office map showing room 121 colored orange":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Screenshot of an office map showing room 121 colored orange.":::
 
 ## Store your maps information in Azure Digital Twins
 

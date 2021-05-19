@@ -227,9 +227,9 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
     You can leave default values for other properties on this page. Select the **Next : Event Source >** button.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. Select your subscription, resource group, and location from the respective dropdowns and choose a name for your environment." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 1/3)." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
         
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 2/3)." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
 2. In the *Event Source* tab, choose the following fields:
 
@@ -245,7 +245,7 @@ In this section, you'll set up Time Series Insights instance to receive data fro
     
     Choose the **Review + Create** button to review all the details. Then, select the **Review + Create** button again to create the time series environment.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png" alt-text="Screenshot of the Azure portal to create Time Series Insights environment. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 3/3)." lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png":::
 
 ## Send IoT data to Azure Digital Twins
 
@@ -269,19 +269,19 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
 1. In the [Azure portal](https://portal.azure.com), search for your time series environment name that you created earlier. In the menu options on the left, select *Overview* to see the *Time Series Insights Explorer URL*. Select the URL to view the temperature changes reflected in the Time Series Insights environment.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal to select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal showing the Time Series Insights explorer URL in the overview tab of the Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
 2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the thermostat67 twin, choose the property *Temperature*, and select **Add**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer to select thermostat67, select the property temperature, and select add." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer with the steps to select thermostat67, select the property temperature, and select add highlighted." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
 3. You should now see the initial temperature readings from your thermostat, as shown below. 
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the TSI explorer to view the initial temperature data. It is a line of random values between 68 and 85" lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the Time Series Insights explorer with the initial temperature data, showing a line of random values between 68 and 85." lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
 
 If you allow a simulation to run for much longer, your visualization will look something like this:
 
-:::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Screenshot of the TSI explorer where temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png":::
+:::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Screenshot of the Time Series Insights explorer where temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png":::
 
 ## Next steps
 

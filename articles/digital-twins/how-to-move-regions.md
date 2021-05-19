@@ -84,7 +84,7 @@ To proceed with Azure Digital Twins Explorer, first download the sample applicat
 
 To get the sample, go to [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Select the **Browse code** button underneath the title, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file to your machine.
 
-:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/how-to-move-regions/download-repo-zip.png":::
+:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub, highlighting the steps to download it as a zip." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
 Unzip the file.
 
@@ -96,11 +96,11 @@ Next, set up and configure permissions for Azure Digital Twins Explorer. Follow 
 
 Now you should have the Azure Digital Twins Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called Azure Digital Twins Explorer and contains boxes for Query Explorer, Models, Twin Graph, and Properties. There's no onscreen data yet." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Screenshot of the Azure Digital Twins Explorer running at localhost:3000 in a browser." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 To verify the connection, select the **Run Query** button to run the default query that displays all twins and relationships in the graph in the **TWIN GRAPH** box.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="A button reading Run Query in the upper-right corner of the window is highlighted." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Screenshot of the Run Query button in the upper-right corner of the Azure Digital Twins Explorer." lightbox="media/how-to-move-regions/run-query.png":::
 
 You can leave Azure Digital Twins Explorer running because you'll use it again later in this article to reupload these items to your new instance in the target region.
 
@@ -112,7 +112,7 @@ To download all of these items at once, first make sure the full graph appears i
  
 Then, select the **Export Graph** icon in the **TWIN GRAPH** box.
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Twin Graph box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the icon to export the graph, which looks like an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
 This action enables a **Download** link in the **TWIN GRAPH** box. Select it to download a JSON-based representation of the query result, which includes your models, twins, and relationships. This action should download a .json file to your machine.
 
@@ -146,7 +146,7 @@ Otherwise, return to the browser window running Azure Digital Twins Explorer and
 
 Currently, Azure Digital Twins Explorer is connected to your original Azure Digital Twins instance. Switch the connection to point to your new instance by selecting the **Sign In** button in the upper-right corner of the window.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer highlighting the Sign In icon in the upper-right corner of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Sign In icon in the upper-right corner of the window." lightbox="media/how-to-move-regions/sign-in.png":::
 
 Replace the **ADT URL** to reflect your new instance. Change this value so that it reads *https://{new instance host name}*.
 
@@ -158,7 +158,7 @@ Next, upload the solution components that you downloaded earlier to your new ins
 
 To upload your models, twins, and graph, select the **Import Graph** icon in the **TWIN GRAPH** box. This option uploads all three of these components at once. It even uploads models that aren't currently being used in the graph.
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="In the Twin Graph box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the icon to import a graph. The icon looks like an arrow pointing into a cloud." lightbox="media/how-to-move-regions/import-graph.png":::
 
 In the file selector box, go to your downloaded graph. Select the graph **.json** file, and select **Open**.
 
@@ -168,7 +168,7 @@ To confirm the graph upload, select the **Save** icon in the upper-right corner 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the icon to save." lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,7 +178,7 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 2 models imported. 4 twins imported. 2 relationships imported.'" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Screenshot of the Azure Digital Twins Explorer dialog box indicating graph import success." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -186,11 +186,11 @@ Azure Digital Twins Explorer now uploads your models and graph (including the tw
 
 To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** box to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** box.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Screenshot of the Azure Digital Twins Explorer, highlighting the 'Run Query' button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 
 You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** box. You should also see your models listed in the **MODELS** box.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
@@ -246,4 +246,4 @@ To delete the instance by using the Azure portal, [open the portal](https://port
 
 Select the **Delete** button, and follow the prompts to finish the deletion.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="View of the Azure Digital Twins instance details in the Azure portal, on the Overview tab. The Delete button is highlighted.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Sscreenshot of the Azure Digital Twins instance details in the Azure portal, on the Overview tab. The Delete button is highlighted.":::

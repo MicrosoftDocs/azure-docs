@@ -291,7 +291,7 @@ Now that you've completed setup, you can run the sample code project.
 
 Here is the console output of the above program: 
 
-:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated, and deleted" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Screenshot of the console output showing that the twin is created, updated, and deleted." lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## Next steps
 

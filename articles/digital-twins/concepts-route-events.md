@@ -33,7 +33,7 @@ An event route lets you send event data from digital twins in Azure Digital Twin
 
 The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins aspect:
 
-:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Azure Digital Twins routing data through endpoints to several downstream services" border="false":::
+:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
 
 Typical downstream targets for event routes are resources like TSI, Azure Maps, storage, and analytics solutions.
 
