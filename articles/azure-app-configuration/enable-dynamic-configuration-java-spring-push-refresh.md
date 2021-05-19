@@ -24,7 +24,7 @@ The App Configuration Java Spring client library supports updating configuration
 
 1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](../event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
+1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](/azure/event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a Java Spring app with App Configuration](./quickstart-java-spring-app.md) first.
 
@@ -64,7 +64,7 @@ Open *pom.xml* and update the file with the following dependencies.
         </dependency>
 ```
 
-Setup [Maven App Service Deployment](../app-service/quickstart-java?tabs=javase)
+Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase)
 
 ```console
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -90,7 +90,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > Primary token name should be store in App Configuration and Primary token secret should be a Key Vault Reference.
 
 > [!NOTE]
-> Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](../event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
+> Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
 
 ## Build and run the app locally
 
@@ -152,7 +152,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
     ![App Configuration event subscriptions](./media/event-subscription-view-webhook.png)
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering.md) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
 1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
 
