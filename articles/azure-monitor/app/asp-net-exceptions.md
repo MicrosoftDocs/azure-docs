@@ -3,24 +3,36 @@ title: Diagnose failures and exceptions with Azure Application Insights
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 05/14/2021
+ms.date: 05/19/2021
 
 ---
 
 # Diagnose exceptions in web apps with Application Insights
 
-Exceptions in your live web app are reported by [Application Insights](./app-insights-overview.md). You can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
+Exceptions in web applications can be reported with [Application Insights](./app-insights-overview.md). You can correlate failed requests with exceptions and other events on both the client and server, so that you can quickly diagnose the causes. In this article, you'll learn how to set up exception reporting, report exceptions explicitly, diagnose failures, and more.
 
 ## Set up exception reporting
 
-* To have exceptions reported from your server app:
-  * Azure web apps: Add the [Application Insights Extension](./azure-web-apps.md)
-  * Azure VM and Azure virtual machine scale set IIS-hosted apps: Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md)
+You can set up Application Insights to report exceptions that occur in either the server, or the client. Depending on the platform you're application is dependent on, you'll need the appropriate extension or SDK.
+
+### Server side
+
+To have exceptions reported from your server side application, consider the following scenarios:
+
+  * **Azure web apps**: Add the [Application Insights Extension](./azure-web-apps.md)
+  * **Azure VM and Azure virtual machine scale set IIS-hosted apps**: Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md)
   * Install [Application Insights SDK](./asp-net.md) in your app code, or
-  * IIS web servers: Run [Application Insights Agent](./monitor-performance-live-website-now.md); or
-  * Java web apps: Enable the [Java agent](./java-in-process-agent.md)
-* Install the [JavaScript snippet](./javascript.md) in your web pages to catch browser exceptions.
-* In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
+  * **IIS web servers**: Run [Application Insights Agent](./monitor-performance-live-website-now.md), or
+  * **Java web apps**: Enable the [Java agent](./java-in-process-agent.md)
+
+### Client side
+
+The JavaScript SDK provides the ability for client side reporting of exceptions that occur in web browsers. To set up exception reporting on the client, see [Application Insights for web pages](./javascript.md).
+
+### Application frameworks
+
+With some application frameworks there is a bit more configuration required, consider the following technologies:
+
   * [Web forms](#web-forms)
   * [MVC](#mvc)
   * [Web API 1.*](#web-api-1x)
@@ -28,26 +40,21 @@ Exceptions in your live web app are reported by [Application Insights](./app-ins
   * [WCF](#wcf)
 
 > [!TIP]
-> This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. Refer to the [.NET Core SDK documentation](./asp-net-core.md) if you have a .NET Core app.
+> This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. For more information, see [.NET Core SDK documentation](./asp-net-core.md) when building apps with .NET Core.
 
 ## Diagnosing exceptions using Visual Studio
 
-Open the app solution in Visual Studio to help with debugging.
+Open the app solution in Visual Studio. Run the app, either on your server or on your development machine by using <kbd>F5</kbd>. Recreate the exception.
 
-Run the app, either on your server or on your development machine by using <kbd>F5</kbd>.
-
-Open the Application Insights Search window in Visual Studio, and set it to display events from your app. While you're debugging, you can do this just by clicking the Application Insights button.
+Open the **Application Insights Search** telemetry window in Visual Studio. While debugging, select the **Application Insights** dropdown.
 
 ![Right-click the project and choose Application Insights, Open.](./media/asp-net-exceptions/34.png)
 
-Notice that you can filter the report to show just exceptions.
-
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
-Click an exception report to show its stack trace.
-Click a line reference in the stack trace, to open the relevant code file.
+Select an exception report to show its stack trace. To open the relevant code file, select a line reference in the stack trace.
 
-In the code, notice that CodeLens shows data about the exceptions:
+If CodeLens is enabled, you'll see data about the exceptions:
 
 ![CodeLens notification of exceptions.](./media/asp-net-exceptions/35.png)
 
