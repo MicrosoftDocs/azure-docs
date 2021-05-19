@@ -31,7 +31,7 @@
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB"::: 
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB"::: 
 
 1. In the **Global Distribution** tab, configure the following details. You can leave the default values for the purpose of this quickstart:
 
