@@ -50,7 +50,7 @@ The managed identity that's associated with the storage account must have these 
 - *unwrapkey*
 - *get*  
 
-For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details#key-access-control.md).
+For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details.md#key-access-control).
 
 ## Customer-managed keys for queues and tables
 
