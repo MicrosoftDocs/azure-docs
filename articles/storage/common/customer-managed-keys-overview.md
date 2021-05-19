@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/30/2021
+ms.date: 05/19/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -41,8 +41,16 @@ The following list explains the numbered steps in the diagram:
 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
 2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
 3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
-4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
+4. Azure Storage wraps the account encryption key with the customer-managed key in Azure Key Vault.
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
+The managed identity that's associated with the storage account must have these permissions at a minimum to access a  customer-managed key in Azure Key Vault:
+
+- *wrapkey*
+- *unwrapkey*
+- *get*  
+
+For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details#key-access-control.md).
 
 ## Customer-managed keys for queues and tables
 
