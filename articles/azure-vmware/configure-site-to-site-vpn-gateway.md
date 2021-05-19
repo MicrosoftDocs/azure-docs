@@ -1,11 +1,11 @@
 ---
-title: Configure a VPN gateway into Azure VMware Solution
+title: Configure a site-to-site VPN in vWAN for Azure VMware Solution 
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
 ms.date: 03/23/2021
 ---
 
-# Configure a VPN gateway into Azure VMware Solution
+# Configure a site-to-site VPN in vWAN for Azure VMware Solution
 
 In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. The hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
 

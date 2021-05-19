@@ -1,11 +1,11 @@
 ---
-title: Azure NetApp Files with Azure VMware Solution
+title: Integrate Azure NetApp Files with Azure VMware Solution
 description: Use Azure NetApp Files with Azure VMware Solution VMs to migrate and sync data across on-premises servers, Azure VMware Solution VMs, and cloud infrastructures. 
 ms.topic: how-to
 ms.date: 02/10/2021
 ---
 
-# Azure NetApp Files with Azure VMware Solution
+# Integrate Azure NetApp Files with Azure VMware Solution
 
 In this article, we'll walk through the steps of integrating Azure NetApp Files with Azure VMware Solution-based workloads. The guest operating system will run inside virtual machines (VMs) accessing Azure NetApp Files volumes. 
 

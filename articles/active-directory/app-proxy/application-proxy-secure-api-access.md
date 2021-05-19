@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 05/06/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
@@ -104,7 +104,7 @@ To register the AppProxyNativeAppSample native app:
 
    1. Under **Name**, enter *AppProxyNativeAppSample*.
 
-   1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+   1. Under **Supported account types**, select **Accounts in any organizational directory**.
 
    1. Under **Redirect URL**, drop down and select **Public client (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient*.
 

@@ -114,7 +114,7 @@ If you want to update to the most recent version of IoT Edge, use the following 
 <!-- end 1.2 -->
 :::moniker-end
 
-# [Linux for Windows](#tab/linuxforwindows)
+# [Linux on Windows](#tab/linuxonwindows)
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"

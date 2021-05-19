@@ -1,8 +1,8 @@
 ---
 title: Copy data from and to Microsoft Access
 description: Learn how to copy data from and to Microsoft Access by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019

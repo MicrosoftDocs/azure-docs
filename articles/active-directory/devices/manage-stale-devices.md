@@ -137,14 +137,14 @@ A typical routine consists of the following steps:
 To get all devices and store the returned data in a CSV file:
 
 ```PowerShell
-Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv -NoTypeInformation
 ```
 
-If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
+If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices that haven't logged on in 90 days and store the returned data in a CSV file: 
 
 ```PowerShell
-$dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
 ```
 
 #### Set devices to disabled
