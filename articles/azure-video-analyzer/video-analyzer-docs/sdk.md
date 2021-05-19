@@ -31,7 +31,6 @@ The following platforms are supported:
 - [.NET](https://aka.ms/ava/sdk/client/net)
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
-- [JavaScript](https://aka.ms/ava/sdk/client/js)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
