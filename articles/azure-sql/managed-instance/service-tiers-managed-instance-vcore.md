@@ -13,7 +13,7 @@ ms.date: 05/18/2021
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article reviews the vCore purchase model for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+This article reviews the vCore purchase model for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](../database/purchasing-models.md).
 
 The virtual core (vCore) purchase model used by Azure SQL Managed Instance has following characteristics:
 
