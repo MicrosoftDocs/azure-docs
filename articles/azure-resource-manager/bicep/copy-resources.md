@@ -80,8 +80,6 @@ The count can't be a negative number. It can be zero if you deploy the template 
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
-Be careful using [complete mode deployment](deployment-modes.md) with copy loop. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
-
 ## Resource iteration
 
 The following example creates the number of storage accounts specified in the `storageCount` parameter.

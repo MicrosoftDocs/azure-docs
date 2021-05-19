@@ -95,12 +95,6 @@
         href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
-    - name: Modes
-      items:
-      - name: Complete & incremental
-        href: deployment-modes.md
-      - name: Complete mode deletion
-        href: deployment-complete-mode-deletion.md
     - name: Parameters
       items:
       - name: Create parameter file

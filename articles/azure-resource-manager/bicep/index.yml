@@ -29,8 +29,6 @@ landingContent:
         links:
           - text: Template specs
             url: template-specs.md
-          - text: Deployment modes
-            url: deployment-modes.md
           - text: Linked templates
             url: ../templates/linked-templates.md
       - linkListType: video
