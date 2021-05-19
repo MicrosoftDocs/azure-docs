@@ -3,7 +3,7 @@ title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
 ms.date: 04/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Move guidance for virtual machines

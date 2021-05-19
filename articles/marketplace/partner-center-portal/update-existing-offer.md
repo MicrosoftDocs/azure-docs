@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 04/14/2021
+ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
 ---
 
@@ -18,7 +18,7 @@ This article explains how to make updates to existing offers and plans, and also
 
 Use these steps to update an offer that's been successfully published to Preview or Live state.
 
-1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to deprecate (formerly stop sell) the offer). Once selected, the **Offer overview** page for that offer will open.
+1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
 1. Select the offer page you want to update, such as **Properties**, **Offer listing**, or **Preview** (or select **Update** from the applicable card on the **Offer overview** page).
 1. Make your changes and select **Save draft**. Repeat this process until all your changes are complete.
 1. Review your changes on the **[Compare](#compare-changes-to-your-offer)** page.
@@ -66,7 +66,7 @@ Now that you have hidden the plan with the old price, create a copy of that plan
 2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
 1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](../azure-vm-create-plans.md) to learn more.
     > [!IMPORTANT]
-    > If you select **This plan reuses technical configuration from another plan**, you won’t be able to deprecate (formerly stop sell) the parent plan later. Don’t use this option if you want to deprecate (formerly stop sell) the parent plan.
+    > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop selling the parent plan later. Don’t use this option if you want to stop selling the parent plan.
 3. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
 1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](../review-publish-offer.md) for more details.
@@ -120,20 +120,17 @@ If you have changes in preview that aren't live, you can compare new changes wit
 
 Remember to republish your offer after making updates for the changes to take effect.
 
-## Deprecate an offer or plan
-
-> [!IMPORTANT]
-> The name of the stop sell option has changed to deprecate.
+## Stop selling an offer or plan
 
 You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
 
-- To deprecate (formerly stop sell) an offer after you've published it, select **Deprecate** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
+- To stop selling an offer after you've published it, select **Stop selling** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
 
-- To deprecate (formerly stop sell) a plan, select **Deprecate** from the **Plan overview** page. The option to deprecate (formerly stop sell) a plan is only available if you have more than one plan in the offer. You can choose to deprecate (formerly stop sell) one plan without impacting other plans within your offer.
+- To stop selling a plan, select **Stop selling** from the **Plan overview** page. The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer.
      >[!NOTE]
-     > Once you confirm you want to deprecate (formerly stop sell) the plan, you must republish the offer for the change to take effect.
+     > Once you confirm you want to stop selling the plan, you must republish the offer for the change to take effect.
 
-After you deprecate (formerly stop sell) an offer or plan, you'll still see it in Partner Center with a **Not available** status. If you decide to list or sell this offer or plan again, follow the instructions to [update a published offer](#update-a-published-offer). Don't forget that you will need to **publish** the offer or plan again after making any changes.
+After you stop selling an offer or plan, you'll still see it in Partner Center with a **Not available** status. If you decide to list or sell this offer or plan again, follow the instructions to [update a published offer](#update-a-published-offer). Don't forget that you will need to **publish** the offer or plan again after making any changes.
 
 ## Remove offers from existing customers
 

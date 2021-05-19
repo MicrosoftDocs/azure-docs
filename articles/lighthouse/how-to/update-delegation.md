@@ -64,3 +64,4 @@ If you want to change the managing tenant, you will need to [create and publish 
 
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
 - Learn how to [remove access to a delegation](remove-delegation.md) that was previously onboarded.
+- Learn more about [Azure Lighthouse architecture](../concepts/architecture.md).

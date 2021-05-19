@@ -10,7 +10,7 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 05/15/2021
 ms.author: amverma
 
 ---
@@ -32,6 +32,7 @@ This extension supports the following OSs:
 | Distribution | Version |
 |---|---|
 | Windows 10 | Core |
+| Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 
