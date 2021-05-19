@@ -731,7 +731,7 @@ VersionProfile     :​
 ExtendedProperties : {}
 ```
 ​You have now switched to the intended environment.
----s
+---
 
 ## Next steps
 
