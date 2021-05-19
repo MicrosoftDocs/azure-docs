@@ -599,7 +599,7 @@ $aRmVN = Get-AzVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
 ```
-
+---
 <!--```powershell
 $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPrefix <Address Prefix>
 $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
@@ -826,22 +826,22 @@ To connect to a Linux VM, do the following:
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-  If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
+If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
 
-  #### [Az](#tab/az)
+### [Az](#tab/az)
 
-  ```powershell
-  $publicIp = Get-AzPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
-  ```
-  In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
+```powershell
+$publicIp = Get-AzPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
+```
+In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
   
-  #### [AzureRM](#tab/azure-rm)
+### [AzureRM](#tab/azure-rm)
 
-  ```powershell
-  $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
-  ```
-  In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
-  ---
+```powershell
+$publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
+```
+In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
+---
 
 ### Connect to a Windows VM
 
@@ -880,7 +880,7 @@ To turn on a virtual machine that's running on your device, run the following cm
 ```powershell
 Start-AzVM [-Name] <String> [-ResourceGroupName] <String>
 ```
-For more information about this cmdlet, see [Start-AzVM](&preserve-view=true).
+For more information about this cmdlet, see [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-5.9.0&preserve-view=true).
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -902,7 +902,7 @@ To stop or shut down a virtual machine that's running on your device, run the fo
 Stop-AzVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/module/az.compute/stop-azvm?view=azps-5.9.0&preserve-view=true).
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -910,7 +910,7 @@ For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/modul
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/module/az.compute/stop-azvm?view=azps-5.9.0&preserve-view=true).
+For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ---
 
