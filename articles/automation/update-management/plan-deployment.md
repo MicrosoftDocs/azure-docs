@@ -51,6 +51,19 @@ To create and manage update deployments, you need specific permissions. To learn
 
 Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. To review those recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
+## Step 7 - Plan deployment targets
+
+Update Management allows you to target updates to a dynamic group representing Azure or non-Azure machines, so you can ensure that specific machines always get the right updates at the most convenient times. A dynamic group is resolved at deployment time and is based on the following criteria:
+
+* Subscription
+* Resource groups
+* Locations
+* Tags 
+
+For non-Azure machines, a dynamic group uses saved searches, also called [computer groups](../../azure-monitor/logs/computer-groups.md). Update deployments scoped to a group of machines is only visible from the Automation account in the Update Management **Deployment schedules** option, not from a specific Azure VM.
+
+Alternatively, updates can be managed only for a selected Azure VM. Update deployments scoped to the specific machine are visible from both the machine and from the Automation account in Update Management **Deployment schedules** option. 
+
 ## Enable Update Management
 
 Here are the ways that you can enable Update Management and select machines to be managed:
