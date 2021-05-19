@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 05/19/2021
 ms.author: b-juche
 ---
 # FAQs about SMB performance for Azure NetApp Files
@@ -128,7 +128,7 @@ After you have data traffic running in your volumes, you can monitor your adapte
 
 ## Is Accelerated Networking recommended?
 
-For maximum performance, it is recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) where possible. Keep the following considerations in mind:  
+For maximum performance, it is recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your virtual machines where possible. Keep the following considerations in mind:  
 
 * The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable Accelerated Networking can hobble the performance of a machine.  
 * If Accelerated Networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
