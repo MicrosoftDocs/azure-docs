@@ -3,7 +3,7 @@ title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2021
+ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -19,7 +19,7 @@ This tutorial describes how to create indoor maps. In this tutorial, you'll lear
 > * Convert your Drawing package into map data
 > * Create a dataset from your map data
 > * Create a tileset from the data in your dataset
-> * Query the  Azure Maps Web Feature Service (WFS) API to learn about your map features
+> * Query the Azure Maps Web Feature Service (WFS) API to learn about your map features
 > * Create a feature stateset by using your map features and the data in your dataset
 > * Update your feature stateset
 
@@ -33,7 +33,7 @@ This tutorial describes how to create indoor maps. In this tutorial, you'll lear
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may use a different API development environment.
 
 >[!IMPORTANT]
-> The API urls in this document may have to be adjusted according to the location of your Creator resource. For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> This tutorial uses the `us.atlas.microsoft.com` geographical URL. If your Creator service was created in a location outside the United States,  you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services). To view mappings of region to geographical location, [see Creator service geographic scope](creator-geographic-scope.md).
 
 ## Upload a Drawing package
 
@@ -41,7 +41,7 @@ Use the [Data Upload API](/rest/api/maps/data/uploadpreview) to upload the Drawi
 
 The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2](creator-long-running-operation-v2).
 
-To upload the drawing package:
+To upload the Drawing package:
 
 1. In the Postman app, select **New**.
 
@@ -55,7 +55,9 @@ To upload the drawing package:
 
 6. Select the collection you previously created, and then select **Save**.
 
-7. Select the **POST** HTTP method and enter the following URL:
+7. Select the **POST** HTTP method.
+
+8. Enter the following URL to the [Data Upload API](/en-us/rest/api/maps/data/uploadpreview):
 
     ```http
     https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -64,31 +66,31 @@ To upload the drawing package:
     >[!Important]
     >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-8. Select the **Headers** tab.
+9. Select the **Headers** tab.
 
-9. In the **KEY** column, select `Content-Type`. In the **VALUE** column select `application/octet-stream`.
+10. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/octet-stream`.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Header tab information for Data Upload.":::
 
-10. Select the **Body** tab.
+11. Select the **Body** tab.
 
-11. In the dropdown list, select **binary**.
+12. In the dropdown list, select **binary**.
 
-12. Select **Select File** and choose a Drawing package.
+13. Select **Select File** and choose a Drawing package.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Select a drawing package.":::
 
-13. Select **Send**. Allow the request to process. Once the request completes, proceed to the next step.
+14. Select **Send**. Allow the request to process. Once the request completes, proceed to the next step.
 
-14. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` in the next section.
+15. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URl in the Location key.":::
 
-## Check the status of an uploaded Drawing package
+### Check Drawing package upload status
 
 To check the status of the drawing package and retrieve its unique ID (`udid`):
 
-1. Select **New** again.
+1. Select **New**.
 
 2. In the **Create New** window, select **Request**.
 
@@ -96,15 +98,17 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 4. Select the collection you previously created, and then select **Save**.
 
-5. Select the **GET** HTTP method and enter the following URL:
+5. Select the **GET** HTTP method.
 
-6. Create a **GET** HTTP request on the `status URL` you copied in the previous section. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+6. Enter the `status URL` you copied in [Upload a Drawing package](#upload-a-drawing-package). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/e1981f40-d753-4c05-a2a0-1356ea25ee01?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. When the request completes successfully, it returns a `resourceLocation`. The `resourceLocation` URL contains the unique identifier (`udid`) of the drawing package resource. You'll need the `udid` in order to convert the drawing package in the next section.
+7. Select **Send**.
+
+8. When the request completes successfully, it returns a `resourceLocation`. The `resourceLocation` URL contains the unique identifier (`udid`) of the drawing package resource. You'll need the `udid` in order to convert the drawing package in the next section.
 
     ```json
     {
@@ -115,13 +119,15 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
     }
     ```
 
-8. (Optional) To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL that was retrieved in step 7. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+9. (Optional) To retrieve content metadata, create a new **GET** HTTP request on the `resourceLocation` URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. When the **GET** HTTP request completes successfully, the response body contains the `udid` specified in the `resourceLocation` of step 7, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on. An example of the overall response is:
+10. Select **Send**
+
+11. When the **GET** HTTP request completes successfully, the response body contains the `udid` specified in the `resourceLocation`, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on.
 
     ```json
     {
@@ -136,11 +142,11 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 ## Convert a Drawing package
 
- Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long running transaction that implements the pattern defined [here](creator-long-running-operation-v2.md).  When the operation completes, it returns a `conversionId`. We'll use the `conversionId` to access the converted data.
+ Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long running transaction that implements the pattern defined [here](creator-long-running-operation-v2.md).
 
-To convert a drawing package and retrieve a `conversionId`:
+To convert a drawing package:
 
-1. Select **New** again.
+1. Select **New**.
 
 2. In the **Create New** window, select **Request**.
 
@@ -148,46 +154,52 @@ To convert a drawing package and retrieve a `conversionId`:
 
 4. Select the collection you previously created, and then select **Save**.
 
-5. Select the **POST** HTTP method and enter the following URL(replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package).
+5. Select the **POST** HTTP method.
+
+6. Enter the following URL to the [Conversion Service](/en-us/rest/api/maps/conversion/convertpreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package):
 
     ```http
-    https://us.atlas.microsoft.com/conversions/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
+    https://us.atlas.microsoft.com/conversions?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
     ```
 
-    >[!IMPORTANT]
-    > The API urls in this document may be adjusted according to the location of your Creator resource. For more details, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
-    > If you receive an error with code `"RequiresCreatorResource"`, make sure that you have [provisioned an Azure Maps Creator resource](how-to-manage-creator.md) in you Azure Maps account.
+7. Select **Send**. Allow the request to process. Once the request completes, proceed to the next step.
 
-6. Click  **Send**. Allow the request to process. Once the request completes, proceed to the next step.
+8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the conversion.
 
-7. Select the **Headers** tab of the response. The value of the **Location** key.  is the `status URL` for the conversion request. You will use this in the next step.
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key":::
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copy the value of the location key":::
+### Check Drawing package conversion status
 
-4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` that you copied in step 3. The `status URL` looks like the following URL:
+When the conversion operation completes, it returns a `conversionId`. We can access the `conversionId` by checking the status of the Drawing package conversion process. The `conversionId` can then be used to access the converted data.
+
+To check the status of the conversion process and retrieve the `conversionId`:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Conversion Status*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method:
+
+6. Enter the `status URL` you copied in [Convert a Drawing package](#convert-a-drawing-package). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/conversions/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-    If the conversion process hasn't yet completed, you may see something like the following JSON response:
+7. Select **Send**.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:39:54.9518496+00:00",
-        "status": "Running"
-    }
-    ```
-
-5. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
+8. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` can now be used by other API to access the converted map data.
 
     ```json
    {
         "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+        "resourceLocation": "https://us.atlas.microsoft.com/conversions/<conversionId>?api-version=2.0",
         "properties": {}
     }
     ```
@@ -195,14 +207,30 @@ To convert a drawing package and retrieve a `conversionId`:
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response will give you a link to the [Drawing error visualizer](drawing-error-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response gives you a link to the [Drawing error visualizer](drawing-error-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+
+The following JSON displays a sample conversion warning:
 
 ```json
 {
     "operationId": "<operationId>",
-    "created": "2020-04-22T19:39:54.9518496+00:00",
-    "status": "Failed",
-    "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+    "created": "2021-05-19T18:24:28.7922905+00:00",
+    "status": "Succeeded",
+    "resourceLocation": "https://us.atlas.microsoft.com/conversions/{conversionId}?api-version=2.0",
+     "warning": {
+        "code": "dwgConversionProblem",
+        "details": [
+            {
+                "code": "warning",
+                "details": [
+                    {
+                        "code": "manifestWarning",
+                        "message": "Ignoring unexpected JSON property: unitProperties[0].nonWheelchairAccessible with value False"
+                    }
+                ]
+            }
+        ]
+    },
     "properties": {
         "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
     }
@@ -211,9 +239,11 @@ The sample Drawing package should be converted without errors or warnings. Howev
 
 ## Create a dataset
 
-The dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset. The steps below show you how to create a dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
 
-1. Select **New** again.
+To create a dataset:
+
+1. Select **New**.
 
 2. In the **Create New** window, select **Request**.
 
@@ -221,73 +251,140 @@ The dataset is a collection of map features, such as buildings, levels, and room
 
 4. Select the collection you previously created, and then select **Save**.
 
-5. Make a **POST** request to the [Dataset Create API](/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
+5. Select the **POST** HTTP method.
+
+6. Enter the following URL to the [Dataset API](/rest/api/maps/dataset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-drawing-package-conversion-status):
 
     ```http
-    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. Obtain the `statusURL` in the **Location** key of the response **Headers**.
+7. Select **Send**.
 
-7. Make a **GET** request at the `statusURL` to obtain the `datasetId`. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
+8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the dataset.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key":::
+
+### Check dataset creation status
+
+To check the status of the dataset creation process and retrieve the `datasetId`:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Dataset Status*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method.
+
+6. Enter the `status URL` you copied in [Create a dataset](#create-a-dataset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-8. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You'll need to use the `datasetId` to create a tileset.
+7. Select **Send**.
+
+8. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `datasetId` from the `resourceLocation` URL for the dataset. The `datasetId` can now be used by other API to access the dataset.
 
     ```json
     {
         "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
-        "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
+        "resourceLocation": "https://azure.microsoft.com/datasets/<datasetiId>?api-version=1.0"
      }
     ```
 
 ## Create a tileset
 
-A tileset is a set of vector tiles that render on the map. Tilesets are created from existing datasets. However, a tileset is independent from the dataset from which it was sourced. If the dataset is deleted, the tileset will continue to exist. To create a tileset, follow the steps below:
+A tileset is a set of vector tiles that render on the map. Tilesets are created from existing datasets. However, a tileset is independent from the dataset from which it was sourced. If the dataset is deleted, the tileset will continue to exist.
 
-1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
+To create a tileset:
 
-2. Make a **POST** request in the builder tab. The request URL should look like the following URL:
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *POST Tileset Create*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **POST** HTTP method.
+
+6. Enter the following URL to the [Tileset API](/rest/api/maps/tileset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+7. Select **Send**.
+
+8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the tileset.
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="Copy the value of the tileset status url":::
+
+### Check tileset creation status
+
+To check the status of the dataset creation process and retrieve the `tilesetId`:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Tileset Status*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method.
+
+6. Enter the `status URL` you copied in [Create a tileset](#create-a-tileset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+
+    ```http
+    https://us.atlas.microsoft.com/tilesets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Make a **GET** request at the `statusURL` for the tileset. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
+7. Select **Send**.
 
-   ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
-    ```
-
-4. When the **GET** HTTP request completes successfully, the response header will contain the `tilesetId` for the created tileset. Copy the `tilesetId`.
+8. Once the request completes successfully, you'll see a success status message in the response body.  The `tilesetId` can now be used by other API to access the tileset.
 
     ```json
     {
         "operationId": "<operationId>",
-        "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
+        "createdDateTime": "2021-05-19T19:29:35.8228274+00:00",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"
+        "resourceLocation": "https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2.0"
     }
     ```
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
+ Datasets can be queried using [WFS API](/rest/api/maps/wfs). With the WFS API you can query for all feature collections or a specific collection. In this section of the tutorial, we'll do both. First we'll query all collections, and then we will query for the `unit` collection.
 
-1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
+### Query for feature collections
 
-2. Make a **GET** request to view a list of the collections in your dataset. Replace `<dataset-id>` with your `datasetId`. Use your Azure Maps primary key instead of the placeholder. The request should look like the following URL:
+To query the all collections in your dataset:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Dataset Collections*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method.
+
+6. Enter the following URL to [WFS API](/rest/api/maps/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. The response body will be delivered in GeoJSON format and will contain all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
+7. Select **Send**.
+
+8. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
 
     ```json
     {
@@ -315,13 +412,31 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
         },
     ```
 
-4. Make a **GET** request for the `unit` feature collections.  Replace `{datasetId}` with your `datasetId`. Use your Azure Maps primary key instead of the placeholder. The response body will contain all the features of the `unit` collection. The request should look like the following URL:
+### Query for unit feature collection
+
+In this section, we'll query [WFS API](/rest/api/maps/wfs) for the `unit` feature collection.
+
+To query the unit collection in your dataset:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Unit Collection*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method.
+
+6. Enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-5. Copy the feature `id` for a unit feature that has style properties that can be dynamically modified.  Because the unit occupancy status and temperature can be dynamically updated, we'll use this feature `id` in the next section. In the following example, the feature `id` is "UNIT26". we'll refer to the style properties of this feature as states, and we'll use the feature to make a stateset.
+7. Select **Send**.
+
+8. When the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". In this tutorial, we'll use "UNIT26" as our feature `id` in the next section.
 
      ```json
     {
@@ -355,15 +470,35 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Create a feature stateset
 
-1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
+Feature statesets define dynamic properties and values on specific features that support them. In this section, we'll create a stateset that defines boolean values and corresponding styles for the *occupancy* property.
 
-2. Make a **POST** request to the [Create Stateset API](/rest/api/maps/featurestate/createstatesetpreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *POST Create Stateset*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **POST** HTTP method.
+
+6. Enter the following URL to the [Stateset API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the raw json styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
+7. Select the **Headers** tab.
+
+8. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/json`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+
+9. Select the **Body** tab.
+
+10. Select **raw** and **JSON** in the dropdown lists.
+
+11. Copy-paste the following JSON styles into the **Body** window:
 
     ```json
     {
@@ -377,66 +512,48 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
                    "false":"#00FF00"
                 }
              ]
-          },
-          {
-             "keyname":"temperature",
-             "type":"number",
-             "rules":[
-                {
-                   "range":{
-                      "exclusiveMaximum":66
-                   },
-                   "color":"#00204e"
-                },
-                {
-                   "range":{
-                      "minimum":66,
-                      "exclusiveMaximum":70
-                   },
-                   "color":"#0278da"
-                },
-                {
-                   "range":{
-                      "minimum":70,
-                      "exclusiveMaximum":74
-                   },
-                   "color":"#187d1d"
-                },
-                {
-                   "range":{
-                      "minimum":74,
-                      "exclusiveMaximum":78
-                   },
-                   "color":"#fef200"
-                },
-                {
-                   "range":{
-                      "minimum":78,
-                      "exclusiveMaximum":82
-                   },
-                   "color":"#fe8c01"
-                },
-                {
-                   "range":{
-                      "minimum":82
-                   },
-                   "color":"#e71123"
-                }
-             ]
           }
        ]
     }
     ```
 
-4. Copy the `statesetId` from the response body.
+12. Select **Send**.
 
-5. Create a **POST** request to update the state: Pass the statesetId and feature `ID` with your Azure Maps subscription key. The request should look like the following URL:
+13. When the response returns successfully, copy the `statesetId` from the response body.  In the next section we'll use the `statesetId` to change the `occupancy` property state of the unit with feature vv "UNIT26"
+
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/response-stateset-id.png"alt-text="Stateset ID response.":::
+
+### Update a feature state
+
+In this section, we'll update the `occupied` state of the unit with feature `id` "UNIT26".
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *POST Set Stateset*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **PUT** HTTP method.
+
+6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#Create-a-feature-stateset):
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, copy and paste the JSON in the sample below.
+7. Select the **Headers** tab.
+
+8. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/json`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+
+9. Select the **Body** tab.
+
+10. Select **raw** and **JSON** in the dropdown lists.
+
+11. Copy-paste the following JSON styles into the **Body** window:
 
     ```json
     {
@@ -444,18 +561,20 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
             {
                 "keyName": "occupied",
                 "value": true,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }
     ```
 
     >[!NOTE]
-    > The update will only be saved if the time posted stamp is after the time stamp of the previous request. We can pass any keyname that we've previously configured during creation.
+    > The update will only be saved if the time posted stamp is after the time stamp of the previous request.
 
-7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
+12. Select **Send**.
 
-The [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
+13. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
+
+The [Feature Get Stateset API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `id`. You can also delete the stateset and its resources by using the [Feature State Delete State API](/rest/api/maps/featurestate/deletestatesetpreview).
 
 To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
 
