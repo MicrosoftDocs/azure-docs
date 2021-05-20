@@ -12,14 +12,20 @@ ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
 
-This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Windows Virtual Desktop.
-
 > [!IMPORTANT]
 > AD FS single sign-on is currently in public preview.
-> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Windows Virtual Desktop.
+
+> [!NOTE]
+> Windows Virtual Desktop (Classic) doesn't support this feature.
+
 ## Requirements
+
+> [!IMPORTANT]
+> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
@@ -207,6 +213,9 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
 
 ## Configure your Windows Virtual Desktop host pool
 
+> [!IMPORTANT]
+> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
+
 It's time to configure the AD FS SSO parameters on your Windows Virtual Desktop host pool. To do this, [set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop if you haven't already and connect to your account.
 
 After that, update the SSO information for your host pool by running one of the following two cmdlets in the same PowerShell window on the AD FS VM:
@@ -253,7 +262,7 @@ If you also want to disable SSO on your AD FS server, run this cmdlet:
 
 ```powershell
 Install-Script UnConfigureWVDSSO
-UnConfigureSSOClient.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
+UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
 ```
 
 > [!Note]
