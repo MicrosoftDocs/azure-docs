@@ -12,16 +12,38 @@ ms.date: 05/05/2020
 # Monitoring Azure virtual machines with Azure Monitor - Onboard
 This article describes how to configure virtual machine monitoring in Azure Monitor. 
 
+## Types of machines
+
+| Type | Description |
+|:---|:---|
+| Azure virtual machines | Virtual machines running in Azure have host data collected automatically. They require an agent to collect data from the guest operating system. |
+| Hybrid machines | A hybrid machine is a virtual machine running in another cloud or a virtual or physical machine running on-premises in your data center. Hybrid machines are supported by Azure Monitor using [Azure Arc enabled servers](../azure-arc/servers/overview.md). Once connected to Azure Arc, the machine can be managed like any other Azure virtual machine.
+| Virtual machine scale set | | 
+
 ## Configuration overview
 The following table lists the steps that must be performed for this configuration. 
 
 | Configuration step | Actions completed | Features enabled |
 |:---|:---|:---|
-| No configuration | - Host platform metrics sent to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
-| Create Log Analytics workspace | | |
-| [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
+| No configuration | - Host platform metrics sent to Metrics.<br>- Activity log collected | - Metrics explorer for host<br>- Metrics alerts for host<br>- Activity log alerts |
+| Create and prepare Log Analytics workspace | - Log Analytics workspace created | - VM insights enabled  |
+| [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data sent to Logs.<br>- Process and dependency details sent to Logs | - Performance charts and workbooks for guest performance data<br>- Log queries for guest performance data<br>- Dependency map |
+| Enable Arc on hybrid machines | |
 | [Configure additional data collection](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
 | [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
+
+
+| Configuration step | Description |
+|:---|:---|
+| No configuration | Activity log and platform metrics for the Azure virtual machine hosts are automatically collected with no configuration. You can view the Activity log in the Azure portal and use Metrics explorer to analyze host metrics. |
+| Create and prepare Log Analytics workspace | Create and configure a Log Analytics workspace to enable VM insights and other features of Azure Monitor. You can also use an existing Log Analytics workspace or create multiple workspaces depending on your particular requirements. |
+| Enable Arc on hybrid machines | |
+
+| [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data sent to Logs.<br>- Process and dependency details sent to Logs | - Performance charts and workbooks for guest performance data<br>- Log queries for guest performance data<br>- Dependency map |
+
+| [Configure additional data collection](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
+| [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
+
 
 ### Optional
 
