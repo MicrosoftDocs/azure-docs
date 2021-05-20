@@ -207,7 +207,7 @@ The *tls* section tells the ingress route to use the Secret named *aks-ingress-t
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -215,7 +215,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -228,24 +228,18 @@ spec:
       - path: /hello-world-one(/|$)(.*)
         pathType: Prefix
         backend:
-          service:
-            name: aks-helloworld
-            port:
-              number: 80
+          serviceName: aks-helloworld
+          servicePort: 80
       - path: /hello-world-two(/|$)(.*)
         pathType: Prefix
         backend:
-          service:
-            name: ingress-demo
-            port:
-              number: 80
-      - path: /(.*)
+          serviceName: ingress-demo
+          servicePort: 80
+     -  path: /(.*)
         pathType: Prefix
         backend:
-          service:
-            name: aks-helloworld
-            port:
-              number: 80
+          serviceName: aks-helloworld
+          servicePort: 80
 ```
 
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
