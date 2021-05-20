@@ -1,7 +1,7 @@
 ---
 title: Migrate your file data to Azure with Komprise Intelligent Data Manager
 titleSuffix: Azure Storage
-description: Provides getting started guide to implement Komprise Intelligent Data Manager to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage or any available ISV NAS solution 
+description: Getting started guide to implement Komprise Intelligent Data Manager shows how to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
 author: dukicn
 ms.author: nikoduki
 ms.date: 05/25/2021
@@ -12,26 +12,26 @@ ms.subservice: partner
 
 # Analyze and migrate data to Azure with Komprise Intelligent Data Manager
 
-This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes prerequisites, considerations, implementation, and operational guidance on how to analyze and migrate your data.
+This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
 
 File migrations are risky, time-consuming, and labor intensive. With Komprise, customers can quickly identify and move the right data to their Azure Storage services.
 
-Komprise Intelligent Data Manager provides valuable data analytics and insights into NFS and SMB storage systems along with the multiple ways to actively migrate data in to multiple Azure storage products like Azure Files, Azure NetApp Files, Azure Blob Storage or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
+Komprise Intelligent Data Manager provides analytics and insights into NFS and SMB storage systems. It enables multiple ways to actively migrate data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
 Within 15 minutes of deploying Komprise Intelligent Data Manager, customers can: 
 
-- Understand data growth and usage across all their storage solutions,
+- Understand data growth and usage across their storage infrastructure,
 - Find the right data across multi-vendor NAS solutions to migrate to Azure,
 - Set policies and processes to migrate data as needed.
 
-Unlike custom data migration solutions that are costly, complex, invasive, and hard to scale, Komprise is simple to deploy, operate and scale.
+Komprise is simple to deploy, operate, and scale.
 
 ## Potential use cases
 
 Komprise Intelligent Data Manager will help in many different use cases, like:
 
-- Analysis of on-premises unstructured data to gain insights for data management, movement, positioning, archiving, protection and confinement.
-- Migration of on-premises unstructured data to Azure Files, Azure NetApp Files or ISV NAS solution,
+- Analysis of on-premises unstructured data to gain insights for data management, movement, positioning, archiving, protection, and confinement.
+- Migration of on-premises unstructured data to Azure Files, Azure NetApp Files, or ISV NAS solution,
 - Copy, or archive, on-premises unstructured data to Azure Blob Storage with native access
 - Migration of object storage solutions to Azure Blob Storage
 
@@ -48,11 +48,11 @@ Komprise Intelligent Data Manager is an all-software solution that is easily dep
 
 ### Data Flow
 
-Running a migration with the Komprise system is simple and it is easy to setup multiple migrations for different shares simultaneously:
+Running a migration with the Komprise system is simple and it is easy to set up multiple migrations for different shares simultaneously:
 
 1.	Analyze data to determine what to migrate or archive,
 1.	Define policies to migrate, move and/or copy unstructured data to Azure Storage,
-1.	Activate policies to migrate, move or copy data to Azure File, Azure NetApp Files or Azure Blob Storage
+1.	Activate policies to migrate, move, or copy data to Azure File, Azure NetApp Files, or Azure Blob Storage
 
 ## Before you begin
 
@@ -95,7 +95,7 @@ Before deploying Komprise Intelligent Data Manager, target service has to be dep
 - How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
 - How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
 
-The Komprise Grid is deployed in a virtual environment (Hyper-V, VMWare, KVM) for speed, scalability and resilience. If setting up the environment in Azure, deployment using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management) is recommended.
+The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. If setting up the environment in Azure, deployment using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management) is recommended.
 
 Setting up Komprise solution is simple:
 
@@ -128,10 +128,10 @@ Setting up Komprise solution is simple:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Specify shares to analyze":::
 
-    Information of the analysis is very useful and can help with the migration significantly. For example:
-    - information on top users / groups / shares can determine the order of the migration as well as the most impacted group within the organization to assess business impact migration will have
-    - number of files / capacity per file type can determine type of stored files and if there are any possibilities to clean up the content, reduce the migration effort and reduce the cost of the target storage
-    - number of files / capacity per file size can determine the duration of migration. Big number of small files will take longer to migrate then small number of big files even though it will consume the same capacity
+    Information of the analysis is useful and can help with the migration significantly. For example:
+    - information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact migration will have
+    - number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content, reduce the migration effort, and reduce the cost of the target storage
+    - number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files even though it will consume the same capacity
 
 ## Migration guide
 
@@ -143,25 +143,27 @@ To configure and run a migration, follow these steps:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
 
-1. Add migration task by selecting desired source and destination share. Provide a migration name. Once configured, click on **Start Migration**. You have the option to define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
+1. Add migration task by selecting desired source and destination share. Provide a migration name. Once configured, click on **Start Migration**. 
    
    :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
 
-1. Once the migration started, you can use **Migrations** to monitor the progress.
+   (_Optional) Define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
+
+2. Once the migration started, you can use **Migrations** to monitor the progress.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-monitor-migrations.png" alt-text="Monitor all migration jobs":::
 
-1. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode to make sure no changes happen that will not get migrated.
+3. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode to make sure no changes happen that will not get migrated.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Perform one last migration before switching over":::
 
-    Once the final migration job finishes, transition all users and applications to the destination share. This usually requires changing the configuration of DNS servers, DFS servers or changing the mount points to the new destination. 
+    Once the final migration job finishes, transition all users and applications to the destination share. This usually requires changing the configuration of DNS servers, DFS servers, or changing the mount points to the new destination. 
 
-1. As a last step, mark the migration completed.
+4. As a last step, mark the migration completed.
 
 ## Pricing
 
-Komprise Intelligent Data Manager is suited for various customers data and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
+Komprise Intelligent Data Manager is suited in various scenarios and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
 Visit Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview).
 
 ## Next steps
