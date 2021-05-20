@@ -37,9 +37,9 @@
     - name: How to
       items:
       - name: Manage integration
-        href: manage.md
+        href: ./elastic/manage.md
       - name: Troubleshoot
-        href: troubleshoot.md
+        href: ./elastic/troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI
