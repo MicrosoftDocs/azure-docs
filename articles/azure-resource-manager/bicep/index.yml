@@ -1,40 +1,34 @@
 ### YamlMime:Landing
 
-title: ARM template documentation
-summary: Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
+title: Bicep documentation
+summary: Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON for developing your Azure Resource Manager templates (ARM templates).
 
 metadata:
-  title: ARM template documentation
-  description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
+  title: Bicep documentation
+  description: "Learn how to develop Bicep files and use them to deploy Azure resources"
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  ms.subservice: templates
+  ms.subservice: Bicep
   ms.topic: landing-page
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/03/2021
+  ms.date: 05/20/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About ARM templates
+  - title: Bicep
     linkLists:
       - linkListType: overview
         links:
           - text: What is Bicep?
             url: overview.md
-      - linkListType: concept
-        links:
-          - text: Template specs
-            url: template-specs.md
-          - text: Linked templates
-            url: ../templates/linked-templates.md
       - linkListType: video
         links:
-          - text: Build 2020 presentation
-            url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
+          - text: Ignite 2021 presentation
+            url: https://www.youtube.com/embed/sc1kJfcRQgY
 
   # Card (optional)
   - title: Get started
@@ -45,43 +39,40 @@ landingContent:
             url: quickstart-create-bicep-use-visual-studio-code.md
       - linkListType: learn
         links:
-          - text: Deploy with ARM templates
-            url: /learn/paths/deploy-manage-resource-manager-templates/
+          - text: Introduction to Bicep
+            url: /learn/modules/introduction-to-infrastructure-as-code-using-bicep/
+          - text: Deploy with Bicep
+            url: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+          - text: Deploy child and extension resources
+            url: /learn/modules/child-extension-bicep-templates/
   # Card
-  - title: Develop templates
+  - title: Author Bicep files
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Advanced templates
-            url: ../templates/template-tutorial-use-template-reference.md
-          - text: Template specs
-            url: template-specs-create-linked.md
       - linkListType: how-to-guide
         links:
           - text: Use functions
-            url: template-functions.md
+            url: ./template-functions.md
+          - text: Use operators
+            url: ./operators.md
+          - text: Use data types
+            url: ./data-types.md
           - text: Define parameters
-            url: parameters.md
+            url: ./parameters.md
           - text: Define variables
-            url: variables.md
+            url: ./variables.md
           - text: Define resources
-            url: ../templates/template-syntax.md#resources
+            url: ./resource-declaration.md
           - text: Define outputs
             url: outputs.md
-
       - linkListType: reference
         links:
-          - text: Template file syntax
-            url: ../templates/template-syntax.md
+          - text: Bicep file structure
+            url: ./file.md
           - text: Azure Quickstart templates
             url: https://azure.microsoft.com/resources/templates/
   # Card
-  - title: Deploy templates
+  - title: Deploy Bicep files
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Deployment
-            url: ../templates/deployment-tutorial-local-template.md
       - linkListType: how-to-guide
         links:
           - text: PowerShell
@@ -96,7 +87,6 @@ landingContent:
             url: deploy-cloud-shell.md
           - text: What-if deployment
             url: deploy-what-if.md
-
   # Card
   - title: Scoped deployments
     linkLists:
@@ -112,8 +102,6 @@ landingContent:
             url: deploy-to-tenant.md
           - text: Scoping extension resource
             url: scope-extension-resources.md
-
-
   # Card
   - title: Explore reference content
     linkLists:
@@ -121,20 +109,10 @@ landingContent:
         links:
         - text: Template reference
           url: /azure/templates/
-        - text: REST API
-          url: /rest/api/resources/
         - text: Azure PowerShell
           url: /powershell/module/az.resources
         - text: Azure CLI
           url: /cli/azure/resource
-        - text: .NET
-          url: /dotnet/api/microsoft.azure.management.resourcemanager
-        - text: Java
-          url: /java/api/com.microsoft.azure.management.resources
-        - text: Python
-          url: /python/api/overview/azure/resources
-
-
   # Card
   - title: Manage templates
     linkLists:
