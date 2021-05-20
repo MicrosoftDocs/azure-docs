@@ -5029,6 +5029,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
+      "redirect_url": "/azure/logic-apps/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
       "redirect_document_id": false
@@ -19664,6 +19669,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-tags",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
       "redirect_url": "/azure/digital-twins/concepts-cli",
       "redirect_document_id": true
@@ -33713,6 +33723,11 @@
       "redirect_url": "/azure/service-bus-messaging/security-baseline",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
+      "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -62289,6 +62304,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/custom-keyword-overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/keyword-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
@@ -65993,6 +66013,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
@@ -66105,6 +66130,21 @@
     {
       "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
       "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
     }
   ]
