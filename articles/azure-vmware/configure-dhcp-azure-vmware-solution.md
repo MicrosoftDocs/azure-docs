@@ -11,22 +11,21 @@ ms.date: 05/28/2021
 
 # Configure and manage DHCP for Azure VMware Solution
 
-Applications and workloads running in a private cloud environment require DHCP services for IP address assignments. In this how-to, you'll configure DHCP for Azure VMware Solution in two ways: [this statement really isn't that accurate]
+Applications and workloads running in a private cloud environment require DHCP services for IP address assignments. In this how-to article, you'll configure DHCP for Azure VMware Solution in two ways: 
 
-- NSX-T to host your DHCP server  
+- [NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 
-- Third-party external DHCP server in your network
+- [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 
 >[!IMPORTANT]
 >DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
-## Use NSX-T to host your DHCP server
 
+## Use NSX-T to host your DHCP server
+If you want to use NSX-T to host your DHCP server, you'll create a DHCP server and a relay service. Then you'll add a network segment and specify the DHCP IP address range.
 
 ### Create a DHCP server
-
-If you want to use NSX-T to host your DHCP server, you'll create a DHCP server. Then you'll add a network segment and specify the DHCP IP address range.
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
@@ -77,7 +76,7 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server. 
 
 ### Specify the DHCP IP address range
  
-When you create a relay to a DHCP server, whether using NSX-T or a third-party to host your DHCP server, you'll need to specify the DHCP IP address range.
+When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
 
 1. In NSX-T Manager, select **Networking** > **Segments**. 
    
@@ -98,7 +97,7 @@ When you create a relay to a DHCP server, whether using NSX-T or a third-party t
 
 ## Use a third-party external DHCP server
 
-If you want to use a third-party external DHCP server, you'll need to create a DHCP relay service. You'll also specify the DHCP IP address range in NSX-T Manager.
+If you want to use a third-party external DHCP server, you'll create a DHCP relay service. You'll also specify the DHCP IP address range in NSX-T Manager.
 
 ### Create DHCP relay service
 
@@ -145,5 +144,5 @@ If you want to use a third-party external DHCP server, you'll need to create a D
 
 ## Next steps
 
-If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll create a new security segment profile. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
+If you want to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
