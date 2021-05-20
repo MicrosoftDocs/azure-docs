@@ -297,7 +297,7 @@ ExtendedProperties     : {}
 To get the storage account key, run the `Get-AzureRmStorageAccountKey` command. Here's some example output:
 
 ```output
-PS C:\Users\Administrator> Get-AzureRmStorageAccountKey
+PS C:\windows\system32> Get-AzureRmStorageAccountKey
 
 cmdlet Get-AzureRmStorageAccountKey at command pipeline position 1
 Supply values for the following parameters:
@@ -689,17 +689,17 @@ $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource
 Here's some example output:
 
 ```output
-PS C:\Users\Administrator> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
+PS C:\windows\system32> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
 
-PS C:\Users\Administrator> $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName Resource-my-ase -Name my-ase-virtualnetwork -Location DBELocal -AddressPrefix "5.5.0.0/16" -Subnet $subNetId
+PS C:\windows\system32> $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName Resource-my-ase -Name my-ase-virtualnetwork -Location DBELocal -AddressPrefix "5.5.0.0/16" -Subnet $subNetId
 WARNING: The output object type of this cmdlet will be modified in a future release.
-PS C:\Users\Administrator> $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name my-ase-ip -SubnetId $aRmVN.Subnets[0].Id
-PS C:\Users\Administrator> $Nic = New-AzureRmNetworkInterface -Name my-ase-nic -ResourceGroupName Resource-my-ase -Location DBELocal -IpConfiguration $ipConfig
+PS C:\windows\system32> $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name my-ase-ip -SubnetId $aRmVN.Subnets[0].Id
+PS C:\windows\system32> $Nic = New-AzureRmNetworkInterface -Name my-ase-nic -ResourceGroupName Resource-my-ase -Location DBELocal -IpConfiguration $ipConfig
 WARNING: The output object type of this cmdlet will be modified in a future release.
 
-PS C:\Users\Administrator> $Nic
+PS C:\windows\system32> $Nic
 
-PS C:\Users\Administrator> (Get-AzureRmNetworkInterface)[0]
+PS C:\windows\system32> (Get-AzureRmNetworkInterface)[0]
 
 Name                        : nic200108020444
 ResourceGroupName           : rg200108020444
