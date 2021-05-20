@@ -8,7 +8,7 @@ ms.author: baanders
 
 ## How to access
 
-The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DigitalTwins=tip2#home).
+The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
 
 To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar. Next, select the **Open Azure Digital Twins Explorer (preview)** button to open an Azure Digital Twins Explorer window connected to the instance.
 

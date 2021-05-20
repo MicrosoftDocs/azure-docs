@@ -58,7 +58,7 @@ Follow the instructions in [Set up an instance and authentication](how-to-set-up
 
 ### Open instance in Azure Digital Twins Explorer
 
-Next, open Azure Digital Twins Explorer for your instance in the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DigitalTwins=tip2#home). 
+Next, open Azure Digital Twins Explorer for your instance in the [Azure portal](https://portal.azure.com). 
 
 To do this, go to the Azure portal and navigate to your new Azure Digital Twins instance, by searching for its name in the portal search bar.
 
