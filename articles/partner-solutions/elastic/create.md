@@ -10,12 +10,12 @@ ms.author: tomfitz
 
 # QuickStart: Get started with Elastic
 
-In this quickstart, you'll use the Azure portal to create an instance of Elastic.
+In this quickstart, you'll use the Azure portal to integrate an instance of Elastic with your Azure solutions.
 
 ## Prerequisites
 
 - Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This is automatically enabled and turned on for all Azure users. 
+- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users. 
 
 ## Find offer
 
@@ -37,26 +37,28 @@ Use the Azure portal to find the Elastic application.
 
 After you've selected the offer for Elastic, you're ready to set up the application.
 
-1. On the **Create Elastic Resource** basics page, provide the following values. When you've finished, select **Next: Logs and Metrics**.
+1. On the **Create Elastic Resource** basics page, provide the following values.
 
     :::image type="content" source="media/create/create-resource.png" alt-text="Form to set up Elastic resource.":::
 
     | Property | Description |
     | ---- | ---- |
-    | **Subscription** | From the drop down, select an Azure subscription where you have owner access. |
+    | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
     | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select **West US 2** or **UK South**. During the preview, only these regions are supported by Elastic . |
+    | **Region** | Select **West US 2** or **UK South**. During the preview, only these regions are supported by Elastic. |
     | **Pricing Plan** | **Pay as you go**. |
     | **Price** | Specified based on the selected Elastic plan. |
+
+   When you've finished, select **Next: Logs and Metrics**.
 
 1. On **Logs & metrics**, specify which logs to send to Elastic.
 
     :::image type="content" source="media/create/configure-logs.png" alt-text="Select logs to send.":::
 
-   There are 2 types of logs that can be emitted from Azure to Elastic.
+   There are two types of logs that can be emitted from Azure to Elastic.
 
-   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). These logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There is a single activity log for each Azure subscription.
+   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
 
    **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/platform/resource-logs-categories.md).
 
@@ -77,7 +79,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
    :::image type="content" source="media/create/review-validation.png" alt-text="Review and validation selections":::
 
-   After validation has succeeded and you have reviewed the terms, select **Create**.
+   After validation has succeeded and you've reviewed the terms, select **Create**.
 
 1. Azure starts the deployment.
 
@@ -91,4 +93,4 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage the Confluent Cloud resource](manage.md)
+> [Manage the Elastic resource](manage.md)

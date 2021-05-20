@@ -29,11 +29,11 @@
     - name: Overview
       items:
       - name: What is Elastic?
-        href: overview.md
+        href: ./elastic/overview.md
     - name: Quickstarts
       items:
       - name: Create Elastic resource
-        href: create.md
+        href: ./elastic/create.md
 - name: Reference
   items:
   - name: Azure CLI
