@@ -14,7 +14,7 @@ This topic explains how to enable user-assigned managed identities on Batch pool
 > [!IMPORTANT]
 > Pools must be configured using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) in order to use managed identities.
 >
-> Creating pools with managed identities can be done by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library). It's not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library). 
+> Creating pools with managed identities can be done by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), but is not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library).
 
 ## Create a user-assigned identity
 
@@ -23,9 +23,6 @@ First, [create your user-assigned managed identity](../active-directory/managed-
 ## Create a Batch pool with user-assigned managed identities
 
 After you've created one or more user-assigned managed identities, you can create a Batch pool with that managed identity by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library).
-
-> [!IMPORTANT]
-> 
 
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")
