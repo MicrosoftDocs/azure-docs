@@ -24,7 +24,9 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
-Once in the application, you can also change which instance is currently connected to the explorer, by selecting the instance name from the top toolbar.
+### Switch contexts within the app
+
+Once in the application, you're also able to change which instance is currently connected to the explorer, by selecting the instance name from the top toolbar.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png" alt-text="Screenshot of Azure Digital Twins Explorer. The instance name in the top toolbar is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png":::
 
