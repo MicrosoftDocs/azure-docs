@@ -37,7 +37,7 @@ SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 You can specify one or more specific columns as part of the SELECT expression (For example: `SELECT Title, Author, ISBN`). 
 
 > [!NOTE]
-> The maximum number of specific columns that you can use in the SELECT expression is 50. If you need your SELECT statement to return more than 50 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
+> The maximum number of specific columns that you can use in the SELECT expression is 49. If you need your SELECT statement to return more than 50 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
 
 The following example returns an aggregate computation (For example: the average value of a particular column) over each of the rows for which *expression* returns true. 
 
