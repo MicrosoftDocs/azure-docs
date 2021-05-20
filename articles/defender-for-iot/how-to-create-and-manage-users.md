@@ -1,7 +1,7 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 05/16/2021
+ms.date: 05/20/2021
 ms.topic: article
 ---
 
@@ -194,7 +194,7 @@ If you are creating Active Directory groups for on-premises management console u
 
 ## Change a user's password
 
-The CyberX role can change the password for all other user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role. The Administrator role can't change their own password and must contact a higher-level role. The Administrator can change the password for a Security Analyst, and Read Only role. Read only, and Security analyst roles can‘t reset their, or any other role's password, and need to contact a user with a higher role level.
+The Administrator can change the password for the Security Analyst, and Read Only role. The Administrator role user can't change their own password and must contact a higher-level role. The Security Analyst, and Read Only roles can‘t reset their, or any other role's passwords. The Security Analyst, and Read Only roles need to contact a user with a higher role level to have their passwords reset. The CyberX role can change the password for all user roles. The Support role can change the password for a Support, Administrator, Security Analyst, and Read Only user's role.  
 
 **To reset a user's password on the sensor**:
 
