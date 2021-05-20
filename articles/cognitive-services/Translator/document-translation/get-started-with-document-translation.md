@@ -40,7 +40,7 @@ To get started, you'll need:
 The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
 ```http
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0
 ```
 
 ### Find your custom domain name
@@ -274,7 +274,7 @@ The following headers are included with each Document Translator API request:
 
 |**Response header**|**Result URL**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
 
 * You can also use a **GET Jobs** request to retrieve a Document Translation  job `id` .
 
@@ -299,7 +299,7 @@ Submit a batch Document Translation request to the translation service.
 
         static readonly string route = "/batches";
 
-        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
         private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
 
@@ -344,7 +344,7 @@ Submit a batch Document Translation request to the translation service.
 
 const axios = require('axios').default;
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let route = '/batches';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 
@@ -393,7 +393,7 @@ axios(config)
 
 import requests
 
-endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 path = '/batches'
 constructed_url = endpoint + path
@@ -441,7 +441,7 @@ import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
     String subscriptionKey = "'<YOUR-SUBSCRIPTION-KEY>'";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String path = endpoint + "/batches";
 
     OkHttpClient client = new OkHttpClient();
@@ -483,7 +483,7 @@ import (
 )
 
 func main() {
-endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
 subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
@@ -530,7 +530,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/documents/formats";
 
@@ -564,7 +564,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/documents/formats';
 
@@ -597,7 +597,7 @@ import com.squareup.okhttp.*;
 public class GetFileFormats {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
@@ -627,7 +627,7 @@ public class GetFileFormats {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/documents/formats'
+parameters = '//translator/text/batch/v1.0/documents/formats'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -656,7 +656,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/documents/formats"
   method := "GET"
@@ -708,7 +708,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/batches/{id}";
 
@@ -742,7 +742,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/batches/{id}';
 
@@ -776,7 +776,7 @@ import com.squareup.okhttp.*;
 public class GetJobStatus {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -806,7 +806,7 @@ public class GetJobStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+parameters = '//translator/text/batch/v1.0/batches/{id}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -835,7 +835,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "GET"
@@ -888,7 +888,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/{id}/document/{documentId}";
 
@@ -922,7 +922,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/{id}/document/{documentId}';
 
@@ -956,7 +956,7 @@ import com.squareup.okhttp.*;
 public class GetDocumentStatus {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/{id}/document/{documentId}";
     OkHttpClient client = new OkHttpClient();
 
@@ -986,7 +986,7 @@ public class GetDocumentStatus {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/{id}/document/{documentId}'
+parameters = '//translator/text/batch/v1.0/{id}/document/{documentId}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1015,7 +1015,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/{id}/document/{documentId}"
   method := "GET"
@@ -1068,7 +1068,7 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
     static readonly string route = "/batches/{id}";
 
@@ -1102,7 +1102,7 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1';
+let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
 let route = '/batches/{id}';
 
@@ -1136,7 +1136,7 @@ import com.squareup.okhttp.*;
 public class DeleteJob {
 
     String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1";
+    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
@@ -1166,7 +1166,7 @@ public class DeleteJob {
 import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.0-preview.1/batches/{id}'
+parameters = '//translator/text/batch/v1.0/batches/{id}'
 subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
@@ -1195,7 +1195,7 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1"
+  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
   subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "DELETE"
@@ -1231,7 +1231,7 @@ func main() {
 
 ## Content limits
 
-The table below lists the limits for data that you send to Document Translation (Preview).
+The table below lists the limits for data that you send to Document Translation.
 
 |Attribute | Limit|
 |---|---|
