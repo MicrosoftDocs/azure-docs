@@ -55,7 +55,7 @@ The data is organized in tabs, and the time range on top (defaults to 24 hours) 
 
 On the **Overview** tab you can see:
 
-* Main stats and settings - 
+* Main stats and settings
     - The monthly ingestion volume of the workspace
     - How many machines sent heartbeats, meaning - machines that are connected to this workspace (in the selected time range)
     - Machines that haven't sent heartbeats in the last hour (in the selected time range)
