@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/20/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -17,6 +17,8 @@ ms.author: alkohli
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro device.
+
+NOTE HERE: Image requirements
 
 ## VM image workflow
 
@@ -29,7 +31,24 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Do the following steps to create a Windows VM image.
 
-1. Create a Windows Virtual Machine. For more information, go to [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md)
+1. Create a Windows Virtual Machine. The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD. For more information, go to [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
+
+2. Generalize the virtual machine by running the following `sysprep` command:<!--Link to the appropriate sysprep command reference topic.-->
+    
+    `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
+
+   > [!IMPORTANT]
+   > After the command is complete, the VM will shut down. **Do not restart the VM.** Restarting the VM will corrupt the disk you just prepared.
+
+3. Stop the VM from the Azure portal, and export the OS disk.<!--1) They export instead of downloading the disk, or do they export and then download? When they export a disk, where is it stored? They specify on export? 2) Where are the instructions for stopping a VM and exporting a disk? 3) Preceding step says sysprep shut down the VM. Why do they need to stop the VM now? Not needed in this context? 4) NOTE: In the generalized image from Windows VHD and using ISO, export of the OS disk is skipped.-->
+
+   ADD: Do not use the **Download** command, which is slow...Instead use `azcopy`...  THIS STEP, or the next (Download) step?
+
+Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
+
+
+<!--OLD STEPS - 
+1. Create a Windows Virtual Machine. For more information, go to [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
 
 2. Download an existing OS disk.
 
@@ -39,7 +58,7 @@ Do the following steps to create a Windows VM image.
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
    
-       You can also refer to [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+       You can also refer to [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).-->
 
 Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
 
@@ -47,7 +66,7 @@ Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
 
 Do the following steps to create a Linux VM image.
 
-1. Create a Linux Virtual Machine. For more information, go to [Tutorial: Create and manage Linux VMs with the Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).
+1. Create a Linux Virtual Machine. For more information, go to [Tutorial: Create and manage Linux VMs with the Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).<!--Note Generation 1 with fixed VHD requirement here also.-->
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 
