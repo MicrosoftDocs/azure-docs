@@ -105,7 +105,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and place the **SAP NetWeaver RFC SDK 7.50 for Linux on x86_64 64 BIT** version on your VM, as it's required during the installation process.
 
-    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/templateproducts/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATEENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option. Copy the file, such as by using SCP, to your VM.
+    For example, find the SDK on the [SAP software download site](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=01200314690100002214&V=MAINT) > **SAP NW RFC SDK** > **SAP NW RFC SDK 7.50** > **nwrfc750X_X-xxxxxxx.zip**. Make sure to download the **LINUX ON X86_64 65BIT** option. Copy the file, such as by using SCP, to your VM.
 
     You'll need an SAP user account to access the SAP software download page.
 
