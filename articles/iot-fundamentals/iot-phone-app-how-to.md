@@ -1,20 +1,22 @@
 ---
-title: Use a smartphone IoT device app Azure services
-description: A how-to guide that shows how to connect and use IoT device app running on a smartphone to connect to an Azure IoT service.
+title: Use your smartphone as an Azure IoT device
+description: A how-to guide that shows you how to turn your smartphone into an IoT device by using the Azure IoT Plug and Play app.
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 05/20/2021
 ms.author: dobett
 
 ---
 
-# Use an IoT device app running on a smartphone with Azure IoT services
+# How to turn your smartphone into an IoT device
 
 An Azure IoT solution lets you connect your IoT devices to a cloud-based IoT service. Devices send telemetry, such as temperature and humidity and respond to commands such as reboot and change delivery interval. Devices can also synchronize their internal state with the service, sharing properties such as device model and operating system.
 
-## What is the app
+The IoT Plug and Play phone app lets you quickly get started exploring Azure IoT capabilities without the need to configure a dedicated IoT device.
+
+## Azure IoT Plug and Play app
 
 To get you started quickly, this article uses a smartphone app as an IoT device. The app sends telemetry collected from the phone's sensors, responds to commands invoked from the service, and reports property values.
 
@@ -28,10 +30,8 @@ You can use this smartphone app to:
 
 You can install the app from one of the app stores:
 
-- Link to Android app store
-- Link to Apple app store
-
-To view or download the app source code, see link to GitHub repo.
+- Link to Android app store <!-- Badge generator: https://play.google.com/intl/en_us/badges/ -->
+- Link to Apple app store <!-- Badge generator: https://tools.applemediaservices.com/app-store -->
 
 ## App features
 
@@ -47,44 +47,44 @@ To learn more, see [Connect the app](#connect-the-app) later in this guide.
 
 ### Telemetry
 
-The app collects data from sensors on the phone to send as telemetry to the IoT service you're using:
+The app collects data from sensors on the phone to send as telemetry to the IoT service you're using. Sensor data is aggregated every five seconds by default, but you can change this on the app settings page:
 
-:::image type="content" source="media/iot-phone-app-how-to/telemetry.png" alt-text="Screenshot of telemetry page in mobile app.":::
+:::image type="content" source="media/iot-phone-app-how-to/telemetry.png" alt-text="Screenshot of telemetry page in smartphone app.":::
 
 ### Properties
 
-The app reports device status, such as device model and manufacturer. There's also an editable property that you can modify and see the change synchronize with the service:
+The app reports device status, such as device model and manufacturer. There's also an editable property that you can modify and see the change synchronize in your AzureIoT solution:
 
 :::image type="content" source="media/iot-phone-app-how-to/properties.png" alt-text="Screenshot that shows properties page in mobile device app.":::
 
 ### Image upload
 
-Both IoT Central and IoT Hub enable file upload to Azure storage from a device. The mobile app lets you upload an image from the device:
+Both IoT Central and IoT Hub enable file upload to Azure storage from a device. The smartphone app lets you upload an image from the device.
 
-:::image type="content" source="media/iot-phone-app-how-to/image-upload.png" alt-text="Screenshot that shows the image upload page in the mobile app.":::
-
-<!-- To do - Change this to link to doc sources instead... -->
 To learn more about configuring your service to support file uploads from a device, see:
 
 - [Upload files from your device to the cloud with IoT Hub](../iot-hub/iot-hub-csharp-csharp-file-upload.md).
 - [Upload files from your device to the cloud with IoT Central](../iot-central/core/howto-configure-file-uploads.md).
 
+:::image type="content" source="media/iot-phone-app-how-to/image-upload.png" alt-text="Screenshot that shows the image upload page in the smartphone app.":::
+
 ### Logs
 
-The mobile app writes events to a local log file that you can view from within the app:
+The smartphone app writes events to a local log file that you can view from within the app. Use the log file to troubleshoot and better understand what the app is doing:
 
-:::image type="content" source="media/iot-phone-app-how-to/logs.png" alt-text="Screenshot that shows the log page in the mobile app.":::
+:::image type="content" source="media/iot-phone-app-how-to/logs.png" alt-text="Screenshot that shows the log page in the smartphone app.":::
 
 ### Settings
 
 The settings page in the app lets you:
 
+- Connect the app to your Azure IoT solution.
 - Review the current device registration information.
 - Reset the app by clearing the stored data.
 - Customize the app appearance.
 - Set the frequency that the app sends telemetry to your IoT service.
 
-:::image type="content" source="media/iot-phone-app-how-to/settings.png" alt-text="Screenshot of the settings page in the mobile app.":::
+:::image type="content" source="media/iot-phone-app-how-to/settings.png" alt-text="Screenshot of the settings page in the smartphone app.":::
 
 ## Connect the app
 
@@ -109,11 +109,11 @@ To register the device in IoT Central:
 
 1. Sign in to your IoT Central application and navigate to the **Devices** page.
 
-1. Select the **Smartphone** device template, and then select **Create a device**:
+1. Select **Create a device**.
 
-    :::image type="content" source="media/iot-phone-app-how-to/iot-central-create-device.png" alt-text="Screenshot showing IoT Central devices page ready to add a smartphone device.":::
+1. On the **Create a new device** page, select **Create**:
 
-1. On the **Create a new device** page, select **Create**.
+    :::image type="content" source="media/iot-phone-app-how-to/iot-central-create-device.png" alt-text="Screenshot showing how to create a device in IoT Central.":::
 
 1. On the list of devices, click on the device name and then select **Connect**. On the **Device connection** page you can see the QR code that you'll scan in the smartphone app:
 
@@ -123,7 +123,7 @@ To register the device in IoT Central:
 
 After you register the device in IoT Central, you can connect the smartphone app by scanning the QR code. To connect the app:
 
-1. Open the **IoT_PnP** app on your smartphone.
+1. Open the **IoT PnP** app on your smartphone.
 
 1. On the welcome page, select **Scan QR code**. Point the phone's camera at the QR code. Then wait for a few seconds while the connection is established.
 
@@ -137,13 +137,21 @@ To learn more about how devices connect to IoT Central, see [Get connected to Az
 
 To view the data the device is sending in your IoT Central application:
 
-1. Sign in to your IoT Central application and navigate to the **Devices** page.
+1. Sign in to your IoT Central application and navigate to the **Devices** page. Your device has been automatically assigned to the **Smartphone** device template.
+
+    > [!TIP]
+    > You may need to refresh the page in your web browser to see when the device is assigned to the the **Smartphone** device template.
 
 1. On the list of devices, click on the device name and then select **Overview**. The **Overview** page shows the telemetry from the smartphone sensors:
 
     :::image type="content" source="media/iot-phone-app-how-to/smartphone-overview.png" alt-text="Screenshot of the device overview page in IoT Central that shows the telemetry from the smartphone sensors.":::
 
-1. Explore the other device pages. The **Properties** page shows properties sent by the device. The **Commands** page lets you invoke commands in the smartphone app. The logs page in the app shows when the device receives a command. The **Raw data** page shows all the data coming from the device.
+1. View the **About** page to see the properties sent by the device.
+
+1. On the **Commands** page, run the **LightOn** command to turn on the phone's flashlight.
+
+> [!TIP]
+> The **Raw data** page shows all the data coming from the device.
 
 # [IoT Hub with DPS](#tab/iot-hub-dps)
 
@@ -195,7 +203,7 @@ To learn more about device enrollment in DPS, see [DPS terminology > Enrollment]
 
 After you create the enrollment group in DPS, you can connect the smartphone app by entering the scope ID, registration ID, and primary key. To connect the app:
 
-1. Open the **IoT_PnP** app on your smartphone.
+1. Open the **IoT PnP** app on your smartphone.
 
 1. On the welcome page, select **Scan QR code**, and then select **Manually connect**.
 
@@ -260,7 +268,7 @@ You can easily delete the resources when you've finished by deleting the `smartp
 
 ### Register your device
 
-In this walkthrough, you create a device registration in your IoT hub. to register a device with your IoT hub, running the following command. Replace `{your IoT Hub name}` with the name you chose when you created your IoT hub:
+In this walkthrough, you create a device registration in your IoT hub. To register a device with your IoT hub, running the following command. Replace `{your IoT Hub name}` with the name you chose when you created your IoT hub:
 
 ```azurecli
 az iot hub device-identity create --device-id smartphone-01 --hub-name {your IoT Hub name}
@@ -281,7 +289,7 @@ The connection string looks like `HostName=yourhubname.azure-devices.net;DeviceI
 
 To connect the app using the device connection string:
 
-1. Open the **IoT_PnP** app on your smartphone.
+1. Open the **IoT PnP** app on your smartphone.
 
 1. On the welcome page, select **Scan QR code**, and then select **Manually connect**.
 
