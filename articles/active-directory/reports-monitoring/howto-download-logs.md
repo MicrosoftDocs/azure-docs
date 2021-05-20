@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/05/2021
+ms.date: 05/14/2021
 ms.author: markvi
 ms.reviewer: besiler 
 
@@ -57,6 +57,8 @@ This article explains how to download activity logs in Azure AD.
 
 The option to download the data of an activity log is available in all editions of Azure AD.
 
+You can also download activity logs using Microsoft Graph; however, downloading logs grammatically requires a premium incense.
+
 
 ## Who can do it?
 
@@ -69,10 +71,6 @@ While the global administrator works, you should use an account with lower privi
 
 
 ## How to do it
-
-In Azure AD, you can access the download option in the toolbar of an activity log page.  
-
-![Download log](./media/\howto-download-logs/download-log.png)
 
 
 **To download an activity log:**
@@ -92,6 +90,7 @@ In Azure AD, you can access the download option in the toolbar of an activity lo
 
 3. **Download** the data.
 
+    ![Download log](./media/\howto-download-logs/download-log.png)
 
 ## Next steps
 

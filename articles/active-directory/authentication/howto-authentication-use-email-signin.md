@@ -112,7 +112,7 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 ## Enable user sign-in with an email address
 
 > [!NOTE]
-> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0).
+> This configuration option uses HRD policy. For more information, see [homeRealmDiscoveryPolicy resource type](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true).
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
@@ -224,7 +224,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 ## Enable staged rollout to test user sign-in with an email address  
 
 > [!NOTE]
->This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0).
+>This configuration option uses staged rollout policy. For more information, see [featureRolloutPolicy resource type](https://docs.microsoft.com/graph/api/resources/featurerolloutpolicy?view=graph-rest-1.0&preserve-view=true).
 
 Staged rollout policy allows tenant administrators to enable features for specific Azure AD groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use [HRD policy](#enable-user-sign-in-with-an-email-address).  
 

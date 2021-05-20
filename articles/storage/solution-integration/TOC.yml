@@ -13,6 +13,8 @@
     href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
   - name: Veeam getting started guide
     href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  - name: DobiProtect getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
   expanded: false
 - name: Container solution partners
   items:

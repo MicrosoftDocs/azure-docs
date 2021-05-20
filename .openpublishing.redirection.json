@@ -1,6 +1,46 @@
 {
   "redirections": [
     {
+      "source_path": "articles/static-web-apps/routes.md",
+      "redirect_url": "/azure/static-web-apps/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-choose-hub.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-choose-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-custom-device.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-custom-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-simulation.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-create-simulation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-overview.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-protobuf.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-protobuf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-time-series-insights.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -191,9 +231,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+      "redirect_url": "/azure/container-registry/monitor-service",
+    },
+    {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
       "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -4986,6 +5029,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
+      "redirect_url": "/azure/logic-apps/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
       "redirect_document_id": false
@@ -5203,6 +5251,11 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
       "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/how-to/remove-desired-state-configuration-package.md",
+      "redirect_url": "/azure/automation/state-configuration/remove-node-and-configuration-package",
       "redirect_document_id": false
     },
     {
@@ -6931,54 +6984,89 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/app/java-agent.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/java-collectd.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/java-filter-telemetry.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/java-get-started.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/java-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/micrometer-java.md",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-java-agent.md",
-      "redirect_url": "/azure/azure-monitor/app/java-agent",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-agent-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-agent",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-collectd.md",
-      "redirect_url": "/azure/azure-monitor/app/java-collectd",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-filter-telemetry.md",
-      "redirect_url": "/azure/azure-monitor/app/java-filter-telemetry",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-get-started.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-track-http-requests.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-get-started-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-live.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/learn/java-quick-start.md",
-      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-live.md",
-      "redirect_url": "/azure/azure-monitor/app/java-live",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-javascript.md",
@@ -6992,18 +7080,18 @@
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-trace-logs.md",
-      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/java-trace-logs-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-java-troubleshoot.md",
-      "redirect_url": "/azure/azure-monitor/app/java-troubleshoot",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-live-stream.md",
@@ -7012,13 +7100,8 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/app/micrometer-java-25-beta.md",
-      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
+      "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/micrometer-java.md",
-      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-monitor-performance-live-website-now.md",
@@ -13481,6 +13564,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
+      "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
       "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
       "redirect_document_id": false
@@ -13510,7 +13598,7 @@
       "redirect_url": "/azure/azure-vmware/configure-github-enterprise-server",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-repair-private-cloud.md",
       "redirect_url": "/azure/azure-vmware/concepts-private-clouds-clusters",
       "redirect_document_id": false
@@ -13588,6 +13676,21 @@
     {
       "source_path_from_root": "/articles/azure-vmware/set-up-mabs-for-avs.md",
       "redirect_url": "/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/enable-azure-vmware-solution.md",
+      "redirect_url": "/azure/azure-vmware/request-host-quota-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/manage-dhcp.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-vmware/configure-dhcp-l2-stretched-vmware-hcx-networks.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
       "redirect_document_id": false
     },
     {
@@ -13963,11 +14066,6 @@
     {
       "source_path_from_root": "/articles/blockchain/service/connect-truffle.md",
       "redirect_url": "/azure/blockchain/service/connect-vscode",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/blockchain/service/migration-guide.md",
-      "redirect_url": "/azure/blockchain/service/overview",
       "redirect_document_id": false
     },
     {
@@ -19571,6 +19669,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-tags",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
       "redirect_url": "/azure/digital-twins/concepts-cli",
       "redirect_document_id": true
@@ -20121,49 +20224,49 @@
       "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/canada-federal-pbmm/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/canada-federal-pbmm",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
-        "redirect_document_id": false
+      "source_path_from_root": "/articles/governance/blueprints/samples/ukofficial/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/ukofficial-uknhs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management-groups-create.md",
@@ -23192,27 +23295,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-devicetemplate.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-central/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template-pnp.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-version-device-template.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": false
     },
     {
@@ -23959,6 +24057,11 @@
       "source_path_from_root": "/articles/iot-central/retail/index.yml",
       "redirect_url": "/azure/iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-version-device-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
@@ -26698,6 +26801,21 @@
     {
       "source_path_from_root": "/articles/logic-apps/create-logic-apps-visual-studio-code.md",
       "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-overview-preview.md",
+      "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-azure-portal.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-azure-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-visual-studio-code.md",
+      "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-visual-studio-code",
       "redirect_document_id": true
     },
     {
@@ -33605,6 +33723,11 @@
       "redirect_url": "/azure/service-bus-messaging/security-baseline",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
+      "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -50001,6 +50124,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
+      "redirect_document_id": false
+      },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
       "redirect_document_id": false
@@ -51006,14 +51134,14 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-b2b-add-guest-to-role.md",
-      "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
+      "source_path_from_root": "/articles/active-directory/active-directory-b2b-admin-add-users.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/active-directory-b2b-admin-add-users.md",
-      "redirect_url": "/azure/active-directory/b2b/add-users-administrator",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/active-directory/add-guest-to-role.md",
+      "redirect_url": "/azure/active-directory/b2b/add-guest-to-role",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-iw-add-users.md",
@@ -51258,7 +51386,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-azure-portal.md",
@@ -52958,17 +53086,17 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-guest-to-role",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/b2b/add-users-administrator.md",
-      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-users-information-worker.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-information-worker",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/b2b/add-users-administrator.md",
+      "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
@@ -53403,6 +53531,11 @@
     {
       "source_path_from_root": "/articles/active-directory/conditional-access/concept-conditional-access-security-defaults.md",
       "redirect_url": "/azure/active-directory/fundamentals/concept-fundamentals-security-defaults",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
+      "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true
     },
     {
@@ -56204,11 +56337,6 @@
       "source_path_from_root": "/articles/active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory/active-directory-named-locations.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/quickstart-configure-named-locations",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-reporting-activity-audit-reference.md",
@@ -62176,6 +62304,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/custom-keyword-overview.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/keyword-recognition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
@@ -64816,6 +64949,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/alerts/tutorial-response.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/samples/cli-samples.md",
       "redirect_url": "/azure/azure-monitor//cli-samples",
       "redirect_document_id": false
@@ -65875,6 +66013,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-apis-concept.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
@@ -65930,6 +66073,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
+      "redirect_url": "/azure/lighthouse/concepts/architecture",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
       "redirect_document_id": false
@@ -65952,6 +66100,51 @@
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-python.md",
       "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-python.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/quickstart-send-telemetry-cli-node.md",
+      "redirect_url": "/azure/iot-develop/quickstart-send-telemetry-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
+      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/ui-sdk-overview.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
+      "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
     }
   ]

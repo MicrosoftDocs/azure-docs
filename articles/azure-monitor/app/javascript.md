@@ -10,12 +10,12 @@ ms.custom: devx-track-js
 
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs in conjunction with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs in conjunction with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Adding the JavaScript SDK
 
 > [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=js) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection Strings](./sdk-connection-string.md?tabs=js) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
 2. Copy the _instrumentation key_ (also known as "iKey") or [connection string](#connection-string-setup) for the resource where you want your JavaScript telemetry to be sent (from step 1.) You will add it to the `instrumentationKey` or `connectionString` setting of the Application Insights JavaScript SDK.

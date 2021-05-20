@@ -55,7 +55,7 @@
 - name: How-to guides
   items:
   - name: Request host quota for Azure VMware Solution
-    href: enable-azure-vmware-solution.md
+    href: request-host-quota-azure-vmware-solution.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -64,27 +64,29 @@
     href: reserved-instance.md
   - name: Create an Azure VMware Solution assessment
     href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-  - name: Manage DHCP
-    href: manage-dhcp.md
+  - name: Configure and manage DHCP
+    href: configure-dhcp-azure-vmware-solution.md
+  - name: Configure DHCP on L2 stretched VMware HCX networks
+    href: configure-l2-stretched-vmware-hcx-networks.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server
     href: github-enterprise-server.md
   - name: Enable public internet access
     href: enable-public-internet-access.md
-  - name: Configure site-to-site VPN gateway
+  - name: Configure a site-to-site VPN in vWAN 
     href: configure-site-to-site-vpn-gateway.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
-  - name: Reset vSphere credentials
-    href: reset-vsphere-credentials.md
+  - name: Rotate cloudadmin credentials
+    href: rotate-cloudadmin-credentials.md
   - name: Backup and restore with Azure Backup Server
     items:
     - name: Back up VMware VMs 
       href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
     - name: Restore VMware virtual machines 
       href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-    - name: Monitoring Azure Backup workloads
+    - name: Monitor Azure Backup workloads
       href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context 
   - name: Disaster recovery
     items:
@@ -147,7 +149,7 @@
   - name: FAQ
     items:
     - name: General
-      href: /azure/azure-vmware/faq#general
+      href: faq.yml
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 
