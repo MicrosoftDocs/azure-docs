@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 05/04/2021
+ms.date: 05/20/2021
 ms.topic: how-to
 ---
 
@@ -471,7 +471,7 @@ To install the software:
 
     | Parameter | Configuration |
     | ----------| ------------- |
-    | **Hardware profile** | Select **Enterprise** or **Office** for SMB deployments. |
+    | **Hardware profile** | Select **Enterprise**, or **SMB** deployments. |
     | **Management interface** | **eno2** |
     | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
