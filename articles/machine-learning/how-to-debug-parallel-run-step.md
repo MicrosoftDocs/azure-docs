@@ -104,7 +104,7 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
 - `node_count`: The number of compute nodes to be used for running the user script.
-- `process_count_per_node`: The number of processes per node. Best practice is to set to the number of GPU or CPU one node has (optional; default value is `1`).
+- `process_count_per_node`: The number of worker processes per node to run the entry script in parallel. For a GPU machine, the default value is 1. For a CPU machine, the default value is the number of cores per node. A worker process will call `run()` repeatedly by passing the mini batch it gets. The total number of worker processes in your job is `process_count_per_node * node_count`, which decides the max number of `run()` to execute in parallel.  
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)

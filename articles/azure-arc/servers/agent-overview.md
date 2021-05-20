@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 05/14/2021
+ms.date: 05/18/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -88,6 +88,12 @@ The following versions of the Windows and Linux operating system are officially 
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
+
+> [!NOTE]
+> While Arc enabled servers supports Amazon Linux, the following do not support this distro:
+> * Agents used by Azure Monitor (that is, the Log Analytics and Dependency agent)
+> * Azure Automation Update Management
+> * VM insights
 
 ### Software requirements
 

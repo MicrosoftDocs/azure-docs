@@ -116,7 +116,7 @@
           href: how-to-speech-synthesis-viseme.md
         - name: Customization
           items:
-            - name: Custom Voice portal
+            - name: Custom Neural Voice 
               items:
                 - name: What is Custom Neural Voice?
                   href: custom-neural-voice.md
