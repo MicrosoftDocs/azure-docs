@@ -64,9 +64,9 @@ For non-Azure machines, a dynamic group uses saved searches, also called [comput
 
 Alternatively, updates can be managed only for a selected Azure VM. Update deployments scoped to the specific machine are visible from both the machine and from the Automation account in Update Management **Deployment schedules** option. 
 
-## Enable Update Management
+## Next steps
 
-Here are the ways that you can enable Update Management and select machines to be managed:
+Enable Update Management and select machines to be managed using one of the following methods:
 
 - Using an Azure [Resource Manager template](enable-from-template.md) to deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
@@ -77,6 +77,3 @@ Here are the ways that you can enable Update Management and select machines to b
 - For a [selected Azure VM](enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
-
-> [!NOTE]
-> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
