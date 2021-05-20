@@ -302,6 +302,8 @@
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Hyperscale Replicas
         href: database/service-tier-hyperscale-replicas.md        
+      - name: Hyperscale Replicas FAQ
+        href: database/service-tier-hyperscale-named-replicas-faq.yml
     - name: Plan and manage costs 
       href: database/cost-management.md
 
