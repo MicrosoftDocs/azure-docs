@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/20/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -355,7 +355,7 @@ az ssh vm --ip 10.11.123.456
 For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps.
 
 1. Uninstall the AADLoginForLinux extension on the VM.
-   1. Using Azure CLI: `az vm extension delete -g MyResourceGroup -n MyVm -n AADLoginForLinux`
+   1. Using Azure CLI: `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
 1. Enable System assigned managed identity on your VM.
    1. Using Azure CLI: `az vm identity assign -g myResourceGroup -n myVm`
 1. Install the AADSSHLoginForLinux extension on the VM
