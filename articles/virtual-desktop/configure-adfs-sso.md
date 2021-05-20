@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 05/26/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -141,7 +141,7 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 * If you have a single AD FS server, you can choose shared key or certificate.
 * If you have multiple AD FS servers,  it's required to choose certificate.
 
-The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
+The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview.md). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
 The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
 

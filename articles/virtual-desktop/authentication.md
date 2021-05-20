@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.author: helohr
 manager: lizross
 ---
