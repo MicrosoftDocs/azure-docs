@@ -1,7 +1,7 @@
 ---
 title: Migrate your file data to Azure with Komprise Intelligent Data Manager
 titleSuffix: Azure Storage
-description: Getting started guide to implement Komprise Intelligent Data Manager shows how to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
+description: Getting started guide to implement Komprise Intelligent Data Manager. Guide shows how to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
 author: dukicn
 ms.author: nikoduki
 ms.date: 05/25/2021
@@ -16,7 +16,7 @@ This article helps you integrate the Komprise Intelligent Data Manager infrastru
 
 File migrations are risky, time-consuming, and labor intensive. With Komprise, customers can quickly identify and move the right data to their Azure Storage services.
 
-Komprise Intelligent Data Manager provides analytics and insights into NFS and SMB storage systems. It enables multiple ways to actively migrate data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
+Komprise Intelligent Data Manager provides analytics and insights into NFS and SMB storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
 Within 15 minutes of deploying Komprise Intelligent Data Manager, customers can: 
 
@@ -41,7 +41,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 :::image type="content" source="./media/komprise-quick-start-guide/komprise-architecture.png" alt-text="Reference architecture describes basic setup for Komprise Intelligent Data Manager":::
 
-Komprise Intelligent Data Manager is an all-software solution that is easily deployed in a virtual environment, or Azure Virtual Machines, and can be installed within 15 to 30 minutes. The solutions consist of the following:
+Komprise Intelligent Data Manager is a software solution that is easily deployed in a virtual environment, and can be installed within 15 to 30 minutes. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
 - **Observers** - Manage and analyze shares, summarize reports, communicates with the Director and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
@@ -51,7 +51,7 @@ Komprise Intelligent Data Manager is an all-software solution that is easily dep
 Running a migration with the Komprise system is simple and it is easy to set up multiple migrations for different shares simultaneously:
 
 1.	Analyze data to determine what to migrate or archive,
-1.	Define policies to migrate, move and/or copy unstructured data to Azure Storage,
+1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
 1.	Activate policies to migrate, move, or copy data to Azure File, Azure NetApp Files, or Azure Blob Storage
 
 ## Before you begin
@@ -99,7 +99,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
 Setting up Komprise solution is simple:
 
-1.	The **Director** is provided as a cloud service, setup and managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
+1.	The **Director** is provided as a cloud service, set up, and managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
 1.	**Download** the Komprise Observer virtual appliance from the Director, deploy it to your hypervisor and configure it with the network and domain.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-1.png" alt-text="Download appropriate image for Komprise Observer from Director":::
@@ -124,8 +124,8 @@ Setting up Komprise solution is simple:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-4.png" alt-text="Specify shares to analyze":::
 
-1. Analyze shares and determine data migration plan. Here is an example of analysis.
-
+1. Analyze shares and determine data migration plan. 
+   
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
 
     Information of the analysis is useful and can help with the migration significantly. For example:
@@ -135,7 +135,7 @@ Setting up Komprise solution is simple:
 
 ## Migration guide
 
-Komprise Intelligent Data Manager provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked, all attributes, permissions, and access controls from the source are applied.
+Komprise Intelligent Data Manager provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied.
 To configure and run a migration, follow these steps:
 
 1. Log into your Komprise Intelligent Data Manager console. Information needed to access is sent with the welcome email once you purchase the solution.
@@ -147,7 +147,7 @@ To configure and run a migration, follow these steps:
    
    :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
 
-   (_Optional) Define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
+   (_Optional_) Define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
 
 2. Once the migration started, you can use **Migrations** to monitor the progress.
 
@@ -155,9 +155,9 @@ To configure and run a migration, follow these steps:
 
 3. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode to make sure no changes happen that will not get migrated.
 
-    :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Perform one last migration before switching over":::
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Do one last migration before switching over":::
 
-    Once the final migration job finishes, transition all users and applications to the destination share. This usually requires changing the configuration of DNS servers, DFS servers, or changing the mount points to the new destination. 
+    Once the final migration job finishes, transition all users and applications to the destination share. Switch over to the new file service usually requires changing the configuration of DNS servers, DFS servers, or changing the mount points to the new destination. 
 
 4. As a last step, mark the migration completed.
 
