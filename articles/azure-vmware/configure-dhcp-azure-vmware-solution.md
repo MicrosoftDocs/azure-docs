@@ -47,8 +47,7 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. Select **Save** again and then select **Close Editing**.
 
-## Create DHCP relay service
-
+### Create DHCP relay service
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
