@@ -4,7 +4,7 @@ description: Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/15/2021
+ms.date: 05/16/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
@@ -13,6 +13,7 @@ ms.service: certification
 
 
 ---
+
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
@@ -24,6 +25,7 @@ ms.service: certification
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+
 ---
 
 |Name|SecuredCore.Encryption.Storage|
