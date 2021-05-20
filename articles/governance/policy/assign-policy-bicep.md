@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Bicep (Preview) file"
 description: In this quickstart, you use a Bicep (Preview) file to create a policy assignment to identify non-compliant resources.
-ms.date: 04/01/2021
+ms.date: 05/20/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
 ---
@@ -42,8 +42,8 @@ param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefi
 
 resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
     name: policyAssignmentName
+    scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
-        scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
         policyDefinitionId: policyDefinitionID
     }
 }
