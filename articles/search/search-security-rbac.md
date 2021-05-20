@@ -31,11 +31,11 @@ For Azure Cognitive Search, roles are associated with permission levels that sup
 
 | Role | Task |
 | --- | --- |
-| Owner |Create or delete the service. Create, update, or delete any object on the service: api-keys, indexes, synonym maps, indexers, indexer data sources, and skillsets. </br></br>Full access to all service information exposed in the portal or through the Management REST API, Azure PowerShell, or Azure CLI. </br></br>Assign role membership.</br></br>Subscription administrators and service owners have automatic membership in the Owners role. |
+| Owner |Create or delete the service. Create, update, or delete any object on the service: API keys, indexes, synonym maps, indexers, indexer data sources, and skillsets. </br></br>Full access to all service information exposed in the portal or through the Management REST API, Azure PowerShell, or Azure CLI. </br></br>Assign role membership.</br></br>Subscription administrators and service owners have automatic membership in the Owners role. |
 | Contributor | Same level of access as Owner, minus role assignments. [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) is equivalent to the generic Contributor built-in role. |
 | Reader | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>Under the Essentials section: resource group, status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>On the Monitoring tab, view service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to the Usage tab (storage, counts of indexes or indexers created on the service) or to any information in the Indexes, Indexers, Data sources, Skillsets, or Debug sessions tabs. |
 
-Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see [Manage api-keys](search-security-api-keys.md).
+Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through API keys, not roles. For more information, see [Manage API keys](search-security-api-keys.md).
 
 ## Tasks and permission requirements
 
